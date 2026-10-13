@@ -1,0 +1,294 @@
+\subsection{The criticality filter}\label{pk:sec:filter}
+
+Along the de Bruijn Newman flow the function $R_t$ of Theorem~\ref{rz:thm:dbn} is the Laplace transform of a GGC exactly when $t\ge\Lambda$ (Corollary~\ref{bh:cor:dbn}), and $\Lambda\ge0$ by the theorem of Rodgers and Tao \cite{RodgersTao}. So the P\'olya kernel sits at the edge of a family of kernels $e^{tv^2/4}\Phi(v)$, $t<0$, as close to it as one wishes, whose transforms have nonreal zeros and for which the Thorin condition fails. This subsection turns that fact into a test for the properties of the kernel that might imply RH (Section~\ref{pk:sec:filtertest}). It applies the test to two representations of the P\'olya law as a mixture (Section~\ref{pk:sec:arcsine}), and to the property that the first author's account singles out, the GGC property of the variable of Biane, Pitman and Yor. That property passes the test at every $t<0$ tested, and provably for small $|t|$ (Section~\ref{pk:sec:bpy}); but it fails for most of the real Dirichlet $L$ functions that we tested, which have an Euler product and, as far as they have been computed, all their zeros on the critical line, so it does not detect the Euler product (Section~\ref{pk:sec:theta}). The programs \texttt{pakes\_filter.py}, \texttt{pakes\_filter\_cert.py} and \texttt{pakes\_characters.py} compute the numbers, and the second checks in ball arithmetic \cite{Arb} every inequality below that is called certified.
+
+\subsubsection{The filter}\label{pk:sec:filtertest}
+
+For an even, positive, integrable function $g$ on $\R$ put
+\begin{equation}\label{pk:eq:Rg}
+\widehat g(\theta)=\int_{\R}g(v)\cos(\theta v)\,dv,\qquad R_g(s)=\frac{\widehat g(0)}{\widehat g(i\sqrt s)}=\frac{\int_{\R}g(v)\,dv}{\int_{\R}g(v)\cosh(\sqrt s\,v)\,dv},
+\end{equation}
+for the $s\ge0$ at which the last integral converges. For the damped P\'olya kernel $\Phi_t(v)=e^{tv^2/4}\Phi(v)$, with $\Phi$ as in \eqref{eq:ch2:Phi}, the transform $\widehat{\Phi_t}$ is the function $\Xi_t$ of Section~\ref{sec:biane:flow}, and $R_{\Phi_t}$ is the function $R_t$ of Theorem~\ref{rz:thm:dbn}, written $\varphi_t$ in Corollary~\ref{bh:cor:dbn}; at $t=0$ it is the clock $1/G$.
+
+\begin{proposition}\label{pk:prop:filter}
+Let $\mathcal P$ be a property of even, positive, integrable functions on $\R$ that $\Phi_t$ has for some $t<0$. Then $\mathcal P$ implies neither that $\widehat g$ has only real zeros nor that $R_g$ is the Laplace transform of a GGC, for the functions $g$ with $\mathcal P$. At every $t\le0$ the kernel $\Phi_t$
+\begin{enumerate}
+\item[(i)] is positive and even, and strictly decreasing on $(0,\infty)$;
+\item[(ii)] is log concave;
+\item[(iii)] satisfies $\log\Phi_t(v)=-\pi e^{2|v|}+O(v^2)$ as $|v|\to\infty$;
+\item[(iv)] extends analytically to the strip $|\im v|<\pi/4$.
+\end{enumerate}
+So no combination of (i) to (iv) implies that $\widehat g$ has only real zeros, or that $R_g$ is the Laplace transform of a GGC.
+\end{proposition}
+
+\begin{proof}
+Let $t<0$ be such that $\Phi_t$ has $\mathcal P$. The zeros of $H_t$, and so those of $\Xi_t(\theta)=8H_t(2\theta)$, are all real if and only if $t\ge\Lambda$ (de Bruijn \cite{deBruijn}, Newman \cite{Newman1976}), and $\Lambda\ge0$ \cite{RodgersTao}, so $\Xi_t$ has a zero $z\notin\R$. It is not on the imaginary axis either, since $\Xi_t(iy)=\int\Phi_t(v)\cosh(yv)\,dv>0$ for real $y$. Hence $s_0=-z^2$ has $\im s_0=-2\re z\,\im z\ne0$. As $\Xi_t$ is even and entire, $s\mapsto\Xi_t(i\sqrt s)$ is entire, and it vanishes at $s_0$, so $R_t$ is meromorphic on $\C$ with a pole at $s_0\notin(-\infty,0]$. By (F7) of Section~\ref{bh:sec:bosch} an HCM function extends analytically to $\C\setminus(-\infty,0]$, and the extension would agree with $R_t$ off its poles; so $R_t$ is not HCM, and by (F6) it is not the Laplace transform of a GGC. Thus $g=\Phi_t$ has $\mathcal P$, while $\widehat g$ has nonreal zeros and $R_g$ is not the Laplace transform of a GGC.
+
+For (i), $\Phi$ is positive and even, and $\Phi_t'(v)=e^{tv^2/4}\big(\Phi'(v)+\frac t2v\Phi(v)\big)<0$ for $v>0$, since $\Phi'<0$ on $(0,\infty)$ \cite[Theorem A]{CNV86} and $tv\Phi(v)\le0$. For (ii), $(\log\Phi_t)''=(\log\Phi)''+\frac t2\le(\log\Phi)''\le0$, since $\Phi$ is log concave \cite{CC13}. Properties (iii) and (iv) hold for $\Phi$ by \eqref{eq:ch2:Phi}, and the factor $e^{tv^2/4}$ is entire and adds $tv^2/4$ to the logarithm.
+\end{proof}
+
+The proposition puts together the half of Proposition~\ref{prop:biane:damping}(a) that concerns real zeros and the half of Corollary~\ref{bh:cor:dbn} that concerns the Thorin condition, and reads them as a test. A property that is to imply RH through the kernel alone must fail for $\Phi_t$ at every $t<0$; we then say that it \emph{passes the filter}. Passing is necessary and far from sufficient: it says only that the theorem of Rodgers and Tao does not rule the property out. For the properties (i), (ii) and (iv) the conclusion needs nothing so deep: the convolution of $(1-|u|)_+^2$ with $e^{-\cosh u}$ in Section~\ref{sec:ch16:dbn} is even, positive, entire, log concave and doubly exponentially decaying, and its transform has nonreal zeros. What the filter adds is a counterexample that has every property of the list and differs from $\Phi$ only by the factor $e^{tv^2/4}$, with $t$ as close to $0$ as one wishes.
+
+The filter is the counterpart, for properties of the kernel, of the perturbation test of Section~\ref{ch:lessons}. There the function $F$ of Theorem~\ref{thm:ch13:perturb} keeps the zeros of $\xi$ below a height $R$, the order, the type and the functional equation, and has four zeros off the line above $R$; here $\Phi_t$ keeps every property of the kernel that a Gaussian factor $e^{tv^2/4}$ with $t<0$ preserves, and has nonreal zeros by the theorem of Rodgers and Tao, which does not say where. The functions $\Xi_t$ are even and entire of order one, like $\Xi$. For $t>0$ the zeros of $H_t$ obey a formula of Riemann and von Mangoldt type, $N_t(T)=\Psi(T)+\frac t{16}\log T+O(1)$ (Section~\ref{pk:sec:heatladder}); for $t<0$, the case the filter needs, we know of no count in the literature: Rodgers and Tao prove one for $\Lambda<t\le0$, with the error $O(\log^2T)$ \cite[Section 3]{RodgersTao}, as a step in showing that this range of $t$ is empty. A proof of RH must therefore use, at some step, a property that $\Phi_t$ lacks for every $t<0$. The Euler product and the explicit formula are the natural candidates, as they are for $F$ in Section~\ref{ch:lessons}, but this is a reading and not a theorem: no Euler product for $H_t$ with $t\ne0$ is known (see the discussion after Theorem~\ref{rz:thm:dbn}), and none is known not to exist. The Lambert proof of Section~\ref{pk:sec:lambert} is untouched by the filter, since it concerns a single function, whose analyticity off the cut is forced by the equation $\mathcal We^{\mathcal W}=u$, and no family of comparison functions sharing its properties is in sight.
+
+\subsubsection{Mixtures of arcsine laws}\label{pk:sec:arcsine}
+
+For $t\le0$ let $X_t$ be the variable with density $p_t=\Phi_t/\Xi_t(0)$, so that $X_0$ is the P\'olya variable $X$. Since $p_t$ is even and decreasing on $(0,\infty)$ by Proposition~\ref{pk:prop:filter}(i), Khinchine's theorem writes $X_t=UQ_t$ with $U$ uniform on $[-1,1]$ and $Q_t\ge0$ independent of $U$, of density $-2rp_t'(r)$; at $t=0$ this is the mixture of uniform laws of Section~\ref{fm:sec:polyamix}. The uniform law is itself a mixture of arcsine laws, and this gives a second representation.
+
+\begin{proposition}\label{pk:prop:arcsine}
+For every $t\le0$ the function
+\[
+h_t(\rho)=-2\rho\int_\rho^\infty\frac{p_t'(r)\,dr}{\sqrt{r^2-\rho^2}},\qquad\rho>0,
+\]
+is a positive probability density, and
+\[
+p_t(v)=\frac1\pi\int_{|v|}^\infty\frac{h_t(\rho)\,d\rho}{\sqrt{\rho^2-v^2}},\qquad v\ne0.
+\]
+Equivalently, $X_t\overset d=\varrho_t\cos\Theta$ with $\Theta$ uniform on $[0,2\pi)$ and $\varrho_t$ of density $h_t$ independent of $\Theta$: $X_t$ is a mixture of arcsine laws, and it is the first coordinate of the rotation invariant vector $\varrho_t(\cos\Theta,\sin\Theta)$ in $\R^2$, as well as of a rotation invariant vector in $\R^3$.
+\end{proposition}
+
+\begin{proof}
+By Archimedes' theorem the coordinates of a uniform point of the unit sphere in $\R^3$ are uniform on $[-1,1]$. Writing the point as $(B\cos\Theta,B\sin\Theta,V)$, with $V$ uniform on $[-1,1]$, $B=\sqrt{1-V^2}$ and $\Theta$ uniform on $[0,2\pi)$ independent of $V$, the first coordinate gives $U\overset d=B\cos\Theta$, where $B$ has density $b/\sqrt{1-b^2}$ on $(0,1)$. Hence $X_t=UQ_t\overset d=(BQ_t)\cos\Theta$, and $Q_t$ times the uniform point is a rotation invariant vector in $\R^3$ with first coordinate $X_t$. The density of $\varrho_t=BQ_t$ is
+\[
+\int_\rho^\infty\big(-2rp_t'(r)\big)\,\frac{\rho/r}{\sqrt{1-\rho^2/r^2}}\,\frac{dr}r=-2\rho\int_\rho^\infty\frac{p_t'(r)\,dr}{\sqrt{r^2-\rho^2}}=h_t(\rho),
+\]
+positive since $p_t'<0$ on $(0,\infty)$. Given $\varrho_t=\rho$, the variable $\rho\cos\Theta$ has the arcsine density $1/(\pi\sqrt{\rho^2-v^2})$ on $(-\rho,\rho)$, which gives the formula for $p_t$.
+\end{proof}
+
+The program \texttt{pakes\_characters.py} checks the proposition at $t=0$ and $t=-1$ with $20$ digits: $\int_0^\infty h_t=1$ to $15$ digits, and $p_t$ rebuilt from $h_t$ agrees with $\Phi_t/\Xi_t(0)$ at $v=0.1$, $0.4$, $0.7$ and $1$ to a relative $1.4\times10^{-20}$. At $t=0$ the proposition is the arcsine route of \cite[Chapter 12]{P26} recalled in Section~\ref{ch:finite}, which writes $X$ as $2\sqrt I$ times the cosine of an independent angle; since $\E|\cos\Theta|^s\ne0$ for $s>-1$, the Mellin transform of $|X|$ determines the law of the radius, so $\varrho_0\overset d=2\sqrt I$, and $h_0$ is the density of the variable $I$ of that route after the change of variable. Both representations, the uniform mixture and the arcsine mixture, hold at every $t\le0$, so by Proposition~\ref{pk:prop:filter} neither can decide RH, or the Thorin condition, by itself: whatever is to be proved about $Q_0$ or $\varrho_0$ must use something that $Q_t$ or $\varrho_t$ lacks for $t<0$. The scale mixtures of Gamma laws, the other mixture route of \cite[Section 12.6]{P26}, are excluded already at $t=0$, for every shape (Theorem~\ref{thm:wigfree:nomix}).
+
+\subsubsection{The variable of Biane, Pitman and Yor under damping}\label{pk:sec:bpy}
+
+Let $\mathcal B=\frac\pi2S_2$, where $S_2=J+J'$ is the sum of two independent hitting times of $1$ by a three dimensional Bessel process started at $0$, as in \eqref{bp:eq:bpy} and Theorem~\ref{rz:thm:bpy}. Then
+\begin{equation}\label{pk:eq:B}
+\E e^{-\lambda\mathcal B}=\Big(\frac{\sqrt{\pi\lambda}}{\sinh\sqrt{\pi\lambda}}\Big)^2=\prod_{m\ge1}\Big(1+\frac\lambda{\pi m^2}\Big)^{-2},\qquad\E\mathcal B^{s/2}=2\xi(s),
+\end{equation}
+so $\mathcal B$ is a GGC with Thorin measure $2\sum_m\delta_{\pi m^2}$, and its density is
+\[
+f(b)=\sum_{m\ge1}\big(4\pi^2m^4b-6\pi m^2\big)e^{-\pi m^2b}=b^{-5/4}\,\Phi\big(\tfrac12\log b\big),\qquad b>0.
+\]
+More generally, for an even positive kernel $g$ with $\int g(v)e^{|v|/2}\,dv<\infty$ let $\mathcal B_g$ have the density proportional to $b^{-5/4}g(\frac12\log b)$; the P\'olya variable of $g$, of density $g/\widehat g(0)$, is $\frac12\log\mathcal B_g$ tilted by $\mathcal B_g^{1/4}$, and $\mathcal B_\Phi=\mathcal B$ (Theorem~\ref{rz:thm:bpy}). For the damped kernels write $\mathcal B_t=\mathcal B_{\Phi_t}$: its density is proportional to $e^{t(\log b)^2/16}f(b)$, finite for every real $t$ because $f(b)$ decays like $e^{-\pi b}$ as $b\to\infty$ and, up to a power of $b$, like $e^{-\pi/b}$ as $b\downarrow0$, and $\E\mathcal B_t^{s/2}=\Xi_t(i(\frac12-s))/\Xi_t(\frac i2)$. Damping the kernel thus tilts $\mathcal B$ by a lognormal factor, and ``$\mathcal B_g$ is a GGC'' is a property of the kernel $g$ that $\Phi$ has. The filter asks whether $\Phi_t$ lacks it for every $t<0$.
+
+Two tests are available for a positive variable $\mathcal V$ with $\ell(\lambda)=\E e^{-\lambda\mathcal V}$. Let $\kappa_k(\lambda)=(-1)^k\frac{d^k}{d\lambda^k}\log\ell(\lambda)$, $k\ge1$, be the cumulants of the law $e^{-\lambda b}\,P(\mathcal V\in db)/\ell(\lambda)$. The variable is infinitely divisible if and only if $-\log\ell$ is a Bernstein function, that is, if and only if $\kappa_k(\lambda)\ge0$ for all $k\ge1$ and $\lambda>0$ \cite{boSSV}. If it is a GGC, with $-\log\ell(\lambda)=d\lambda+\int\log(1+\lambda/z)\,U(dz)$, then for $k\ge0$
+\begin{equation}\label{pk:eq:ck}
+c_k(\lambda)=\frac{\kappa_{k+1}(\lambda)}{k!}=d\,\delta_{k0}+\int\frac{U(dz)}{(\lambda+z)^{k+1}}=\int x^k\,\sigma_\lambda(dx),
+\end{equation}
+where $\sigma_\lambda$ is $d\,\delta_0$ plus the image of $(\lambda+z)^{-1}U(dz)$ under $z\mapsto(\lambda+z)^{-1}$. Hence the Hankel matrices $\mathcal K_n(\lambda)=[c_{i+j}(\lambda)]_{i,j=0}^{n-1}$ and $\mathcal K'_n(\lambda)=[c_{i+j+1}(\lambda)]_{i,j=0}^{n-1}$ are positive semidefinite for every $n$ and $\lambda\ge0$, since $\sum_{i,j}y_iy_jc_{i+j+r}(\lambda)=\int x^r\big(\sum_iy_ix^i\big)^2\sigma_\lambda(dx)$ for $r=0,1$, and a negative eigenvalue of one of them proves that $\mathcal V$ is not a GGC. The smallest case is already useful.
+
+\begin{lemma}\label{pk:lem:fourcum}
+If $\mathcal V$ is a GGC with a finite fourth moment, its cumulants $\kappa_k=\kappa_k(0)$ satisfy $2\kappa_2\kappa_4\ge3\kappa_3^2$, with equality for the gamma laws.
+\end{lemma}
+
+\begin{proof}
+With $c_k=\kappa_{k+1}/k!$ the inequality reads $c_1c_3\ge c_2^2$, which is $\det\mathcal K'_2(0)\ge0$. For a gamma law $U$ is a single atom $\alpha\delta_z$ and $c_k=\alpha z^{-k-1}$, so equality holds.
+\end{proof}
+
+The program \texttt{pakes\_filter.py} computes the moments
+\[
+\int_{\R}e^{2kv}\,e^{-\lambda e^{2v}}\,e^{tv^2/4}\,e^{-v/2}\,\Phi(v)\,dv,
+\]
+which are those of $\mathcal B_t$ under the law of the cumulants $\kappa_k(\lambda)$ up to normalisation, by the trapezoid rule on $[-5,5]$, where the integrand is analytic in $|\im v|<\pi/4$ and negligible beyond $|v|=5$ (below $10^{-30000}$). Two settings, $150$ digits with step $1/64$ and $200$ digits with step $1/96$, agree in every $c_k$ to a relative $7\times10^{-81}$. The program forms $\kappa_1,\dots,\kappa_{26}$, at $\lambda=0$, $\frac12$, $2$, $10$, $20$, $50$ and $200$, and the matrices $\mathcal K_n(\lambda)$ and $\mathcal K'_n(\lambda)$ of orders $n\le12$, whose inertia it reads from the pivots of Gaussian elimination. At $t=0$ the numbers $c_k(\lambda)=2\sum_m(\lambda+\pi m^2)^{-k-1}$ are known in closed form, and the computed ones agree with them to a relative $3\times10^{-84}$. Dividing $c_{i+j+r}$ by $c^{i+j+r}$, with $c=c_1/c_0$, is a congruence that keeps the inertia, and the eigenvalues quoted below are those of the matrices so scaled. The program \texttt{pakes\_filter\_cert.py} certifies the failures. It encloses the moments in balls with the integration of Arb at $256$ bits on $[-5,0]$ and $[0,5]$, adds a bound $2^{-3000}$ for each tail, computes the cumulants and the scaled matrix $M$ in ball arithmetic, and encloses $y^{\mathsf T}My$ for a rational vector $y$ close to the eigenvector of the least eigenvalue; an enclosure inside $(-\infty,0)$ proves that $M$ is not positive semidefinite. In every certificate below the cumulants used are certified positive and $y^{\mathsf T}My$ agrees with the computed least eigenvalue to all the digits quoted.
+
+Infinite divisibility shows nothing. In all $301$ cases computed, the tilts $\mathcal B_t$ for the twenty values of $t$ of the next paragraph, the reciprocals $1/\mathcal B_t$ for $t=-1$, $0$, $\frac15$, and the ten functions other than $\xi$ of Table~\ref{pk:tab:chars} below, on both sides, each at the seven values of $\lambda$, none of $\kappa_1,\dots,\kappa_{26}$ is negative. This is consistent with infinite divisibility of every variable tested, and proves it for none.
+
+The GGC test separates $t=0$ from every other value. It was run for $t=-20$, $-10$, $-5$, $-2$, $-1$, $-\frac12$, $-\frac15$, $-\frac1{10}$, $-\frac1{20}$, $-\frac1{50}$, $-\frac1{100}$, $0$, $\frac1{100}$, $\frac1{50}$, $\frac1{20}$, $\frac1{10}$, $\frac15$, $\frac12$, $1$ and $5$. At $t=0$ no matrix of order at most $12$ has a negative eigenvalue, as the theorem requires, though the matrices are nearly singular: the least eigenvalue of $\mathcal K'_7(2)$ is $1.2\times10^{-13}$. For every $t\ne0$ some $\mathcal K'_n(\lambda)$ with $n\le12$ has a negative eigenvalue at each $\lambda\le50$, at orders $7$ to $12$ for $t<0$ and $3$ to $10$ for $t>0$. Table~\ref{pk:tab:tilt} shows eleven of the twenty values; the other nine give the same picture.
+
+\begin{table}[htbp]
+\centering\footnotesize
+\begin{tabular}{rrrrrrrl}
+\toprule
+$t$ & $\lambda=0$ & $\frac12$ & $2$ & $10$ & $20$ & $50$ & eigenvalue at $\lambda=2$\\
+\midrule
+$-20$ & 8 & 9 & 8 & 8 & 7 & 9 & $-1.582\times10^{-7}$\\
+$-5$ & 8 & 8 & 7 & 7 & 8 & 10 & $-8.095\times10^{-8}$\\
+$-1$ & 8 & 8 & 7 & 7 & 8 & 11 & $-1.533\times10^{-8}$\\
+$-\frac12$ & 8 & 8 & 7 & 7 & 9 & 11 & $-4.725\times10^{-9}$\\
+$-\frac1{10}$ & 8 & 8 & 8 & 8 & 9 & 12 & $-1.800\times10^{-9}$\\
+$-\frac1{100}$ & 9 & 9 & 8 & 8 & 10 & 12 & $-4.119\times10^{-11}$\\
+$0$ & none & none & none & none & none & none & $\phantom{-}1.247\times10^{-13}$\\
+$\frac1{100}$ & 4 & 4 & 5 & 6 & 7 & 10 & $-2.357\times10^{-5}$\\
+$\frac15$ & 4 & 4 & 4 & 5 & 7 & 9 & $-1.101\times10^{-4}$\\
+$1$ & 3 & 3 & 4 & 5 & 6 & 8 & $-2.102\times10^{-3}$\\
+$5$ & 3 & 3 & 3 & 5 & 6 & 8 & $-2.141\times10^{-3}$\\
+\bottomrule
+\end{tabular}
+\caption{The GGC test for the tilted variables $\mathcal B_t$ of Section~\ref{pk:sec:bpy}: the least order $n\le12$ at which $\mathcal K'_n(\lambda)$ has a negative eigenvalue, and the least eigenvalue of the scaled matrix $\mathcal K'_n(2)$ at that order; for $t=0$, where no order fails, the last column gives $\mathcal K'_7(2)$. At $\lambda=200$ no matrix of order at most $12$ fails, for any $t$. Every negative entry of the last column is certified, and so is the entry for $\mathcal K'_9(0)$ at $t=-\frac1{100}$, $-2.899\times10^{-12}$. Computed by \texttt{pakes\_filter.py} and \texttt{pakes\_filter\_cert.py}.}
+\label{pk:tab:tilt}
+\end{table}
+
+\begin{proposition}\label{pk:prop:bpytilt}
+\begin{enumerate}
+\item[(i)] $\mathcal B_t$ is not a GGC for $t=-20$, $-5$, $-1$, $-\frac12$, $-\frac1{10}$, $-\frac1{100}$, $\frac1{100}$, $\frac15$, $1$ and $5$.
+\item[(ii)] There is $t_0>0$ such that $\mathcal B_t$ is not a GGC for $0<|t|<t_0$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(i) For each of these $t$ the matrix $\mathcal K'_n(2)$ at the order $n$ of Table~\ref{pk:tab:tilt} is certified not to be positive semidefinite.
+
+(ii) Put $\ell_t(\lambda)=\E e^{-\lambda\mathcal B_t}$ and split $\int_0^\infty e^{-\lambda b}e^{t(\log b)^2/16}f(b)\,db$, the numerator of $\ell_t$, at $b=1$. The part on $(0,1]$ is entire in $(t,\lambda)\in\C^2$, since $|e^{t(\log b)^2/16}|=e^{O((\log b)^2)}$ is negligible against $f(b)=O(b^{-7/2}e^{-\pi/b})$ as $b\downarrow0$, and the denominator, the value at $\lambda=0$, is analytic in $t$ and positive for real $t$. On $[1,\infty)$ write $f$ as the sum of its terms. Fix $M\ge1$ and $x$ with $\pi M^2<x<\pi(M+1)^2$. The terms with $m>M$ give a function analytic in $t\in\C$ and $\re\lambda>-\pi(M+1)^2$. For $m\le M$ turn the path $[1,\infty)$ into the ray $b=1+re^{-3\pi i/4}$, $r\ge0$, which avoids $(-\infty,0]$ and along which $(\log b)^2$ grows like $(\log r)^2$. Writing $\lambda+\pi m^2=u+iv$, the integrand decays along every ray $b=1+re^{i\alpha}$ with $-\frac{3\pi}4\le\alpha\le0$ when $v>u>0$, so there the rotated integral equals the original one; and it converges, and is analytic in $(t,\lambda)$, on the half plane $v>u$, which contains $\lambda=-x$. So $\ell_t$ continues analytically, jointly in $(t,\lambda)$ near $(0,-x)$, from the upper half plane across the negative axis at $-x$.
+
+Suppose that $\mathcal B_t$ is a GGC, with Thorin measure $U_t$. Then $-\log\ell_t(\lambda)=d_t\lambda+\int\log(1+\lambda/z)\,U_t(dz)$ on $\C\setminus(-\infty,0]$, and as $\varepsilon\downarrow0$ its imaginary part at $\lambda=-y+i\varepsilon$ tends to $\pi\big(U_t((0,y))+\frac12U_t(\{y\})\big)$. For $t$ near $0$, $\ell_t$ has no zero near $-x$, since $\ell_0(-x)=\pi x/\sin^2\sqrt{\pi x}>0$ by \eqref{pk:eq:B}. So the limit is a real analytic function of $y$ near $x$, $U_t$ has no atom there, and $U_t((0,y))=-\frac1\pi\arg\ell_t(-y+i0)$, with the argument continued from $0$ on $(0,\infty)$ through the upper half plane, is nondecreasing in $y$; at $t=0$ it equals $2M$. Write $\ell_t=\ell_0+t\big(\dot\ell-\dot\ell(0)\,\ell_0\big)+O(t^2)$, with $\dot\ell(\lambda)=\frac1{16}\int_0^\infty e^{-\lambda b}(\log b)^2f(b)\,db$ continued in the same way; by joint analyticity the remainder is $O(t^2)$ together with its derivative in $\lambda$, uniformly near $-x$. Since $\ell_0$ and $\dot\ell(0)$ are real there,
+\[
+U_t((0,y))=2M-\frac t\pi \mathcal J(y)+O(t^2),\qquad \mathcal J(y)=\frac{\im\dot\ell(-y+i0)}{\ell_0(-y)},
+\]
+with the same expansion for the derivatives in $y$. In $\dot\ell(-y+i0)$ the part on $(0,1]$ and the terms with $m>M$ are real, and for $m\le M$ the integral over the rotated ray differs by a real number from $\int_0^\infty e^{-\sigma b}(\log b)^2(4\pi^2m^4b-6\pi m^2)\,db$ with $\sigma=-s_m+i0$, $s_m=y-\pi m^2$, which is a combination of $\partial_a^2\big[\Gamma(a)\sigma^{-a}\big]$ at $a=2$ and $a=1$, with $\log\sigma=\log s_m+i\pi$. This gives
+\[
+\im\dot\ell(-y+i0)=\frac\pi8\sum_{m\le M}\Big(\frac{4\pi^2m^4(\log s_m-1+\gamma_E)}{s_m^2}+\frac{6\pi m^2(\log s_m+\gamma_E)}{s_m}\Big),
+\]
+where $\gamma_E$ is Euler's constant. At $y=1.015\pi$, where $M=1$, the certificate program gives $\mathcal J'(y)=8.52630079173\pm3.4\times10^{-12}$, and at $y=2.47\pi$ it gives $\mathcal J'(y)=-0.0671813667518\pm10^{-14}$. So for small $t>0$ the derivative of $U_t((0,y))$ at $y=1.015\pi$ is $-\frac t\pi \mathcal J'(1.015\pi)+O(t^2)<0$, and for small $t<0$ the derivative at $y=2.47\pi$ is negative; both contradict monotonicity.
+\end{proof}
+
+The program \texttt{pakes\_characters.py} checks the formula for $\im\dot\ell$ against the integrals over the rotated rays at $y=2\pi$, $3.3\pi$, $6\pi$ and $12\pi$, to $15$ digits, and scans $\mathcal J'$ at $399$ points in each of the first four gaps $(\pi M^2,\pi(M+1)^2)$: in each gap $\mathcal J'$ is positive on a left part and negative on a right part, for $y/\pi$ in $[1.8925,3.9925]$, $[5.5125,8.9875]$, $[11.1,15.9825]$ and $[18.6775,24.9775]$, so every one of these gaps excludes both signs of $t$ on its own.
+
+\begin{remark}\label{pk:rem:Bhcm}
+The variable $\mathcal B$ is a GGC, but its density $f$ is not HCM. Indeed $f$ is analytic in $\re b>0$ with the natural boundary $\re b=0$ (the discussion after Theorem~\ref{rz:thm:bpy}), while an HCM function extends analytically to $\C\setminus(-\infty,0]$ by (F7). Proposition~\ref{pk:prop:bpytilt}(i) gives a second proof. For $c\ge0$ the function $e^{-c(\log b)^2}$ is HCM: with $v=e^y$ and $w=v+v^{-1}=2\cosh y$, its pair function at $u$ is $e^{-2c(\log u)^2}e^{-2cy^2}$, and $y^2$ is a Bernstein function of $w-2$, since
+\[
+\frac{d(y^2)}{dw}=\frac y{\sinh y}=\int_0^\infty\frac{d\tau}{w/2+\cosh\tau}
+\]
+is completely monotone in $w$; so $e^{-2cy^2}$ is completely monotone in $w$. If $f$ were HCM, then for $t<0$ so would be $e^{t(\log b)^2/16}f(b)$ by (F3), and $\mathcal B_t$ would be a GGC by (F5), against part (i) at $t=-\frac1{100}$.
+\end{remark}
+
+So the GGC property of $\mathcal B_g$ holds for $g=\Phi$, fails for $g=\Phi_t$ at every $t\ne0$ tested, certifiably at ten of them, and fails for all small $|t|$. It passes the filter wherever it has been tested, and it is the only property in this subsection that does; whether $\mathcal B_t$ fails to be a GGC for every $t<0$ is open (Problem~\ref{pk:prob:tilt}). It is not a property of the zeros alone: for $t\ge0.2$ the zeros of $\Xi_t$ are all real \cite{PT21} and $R_t$ is the Laplace transform of a GGC (Theorem~\ref{rz:thm:dbn}), yet $\mathcal B_t$ is not a GGC at $t=\frac15$, $1$ and $5$, and for $t>0$ the test fails at lower orders and by wider margins than for $t<0$. Section~\ref{pk:sec:theta} shows that it is not a property of Euler products either.
+
+\subsubsection{Theta kernels, characters and the function of Davenport and Heilbronn}\label{pk:sec:theta}
+
+The variable $\mathcal B_g$ can be formed for other Dirichlet series with a functional equation, and the question whether its GGC property separates functions with zeros on the critical line from the others can then be asked across functions with and without an Euler product. Let $q\ge3$, $p\in\{0,1\}$, and let $a=(a_n)_{n\ge1}$ be a real sequence of period $q$ with $a_1=1$ and $a_{q-n}=(-1)^pa_n$ whose theta series
+\[
+\vartheta_a(x)=\sum_{n\ge1}n^pa_ne^{-\pi n^2x/q},\qquad x>0,
+\]
+satisfies $\vartheta_a(1/x)=x^{p+1/2}\vartheta_a(x)$. Then
+\[
+\xi(s,a)=\int_0^\infty\vartheta_a(x)\,x^{(s+p)/2}\,\frac{dx}x=\Big(\frac q\pi\Big)^{(s+p)/2}\Gamma\Big(\frac{s+p}2\Big)\sum_{n\ge1}\frac{a_n}{n^s}
+\]
+is entire with $\xi(s,a)=\xi(1-s,a)$, and $K_a(v)=2e^{(p+1/2)v}\vartheta_a(e^{2v})$ is an even kernel with $\xi(\frac12+s,a)=\int_{\R}K_a(v)e^{sv}\,dv$. The real primitive characters $\chi_d$, $d$ a fundamental discriminant, are of this kind, with $q=|d|$ and $p=1$ for $d<0$; for $\chi_{-4}$, written $\chi_4$ in Section~\ref{sec:dbeta:beta}, $\vartheta_a(x)=\eta(ix)^3$ and $K_a$ is the kernel $K_4$ of Proposition~\ref{prop:dbeta:kernel}. When $\vartheta_a>0$, the variable $\mathcal B_a=\mathcal B_{K_a}$ has the density $b^{p/2-1}\vartheta_a(b)/\xi(0,a)$ and $\E\mathcal B_a^{s/2}=\xi(s,a)/\xi(0,a)$, and by the functional equation its reciprocal has the density $x^{(p-1)/2}\vartheta_a(x)/\xi(0,a)$. We test both. For $\chi_{-4}$ the reciprocal $1/\mathcal B_a$ is $\frac\pi2$ times the exit time of Brownian motion from $(-1,1)$, the variable written $Z$ in Remark~\ref{rem:dbeta:exit} (not the driving process of Section~\ref{pk:sec:ladder}), and it is a GGC by the product formula for $\sech$. Whether $\mathcal B_{\chi_{-4}}$ itself is a GGC is open, and HCM cannot decide it: the density of $1/\mathcal B_{\chi_{-4}}$ is not HCM (Theorem~\ref{bs:thm:eta}), so by (F2) neither is that of $\mathcal B_{\chi_{-4}}$.
+
+\begin{lemma}\label{pk:lem:thetapos}
+Let $S_a=\sum_{n\ge2}n^p|a_n|e^{-\pi(n^2-1)/q}$. If $S_a<1$, then $\vartheta_a>0$ on $(0,\infty)$.
+\end{lemma}
+
+\begin{proof}
+For $x\ge1$, $\vartheta_a(x)=e^{-\pi x/q}\big(1+\sum_{n\ge2}n^pa_ne^{-\pi(n^2-1)x/q}\big)\ge e^{-\pi x/q}(1-S_a)>0$, and for $0<x<1$, $\vartheta_a(x)=x^{-p-1/2}\vartheta_a(1/x)>0$.
+\end{proof}
+
+The certificate program encloses $S_a$ in ball arithmetic: it is $0.0019$ for $\chi_{12}$, $0.0056$ for $\chi_{-4}$, $0.043$ for $\chi_8$, $0.045$ for $\chi_{24}$, $0.086$ for $\chi_{-3}$, $0.092$ for the function of Davenport and Heilbronn below, $0.130$ for $\chi_{-8}$, $0.158$ for $\chi_5$, $0.608$ for $\chi_{-7}$ and $0.659$ for $\chi_{13}$, so these kernels are positive. Positivity can fail: for $d=-19$ and $d=-40$ the program \texttt{pakes\_filter.py} finds $e^{\pi/q}\vartheta_a(1)=-0.567$ and $-0.421$. For $d=-19\equiv5\pmod{24}$ this is a case of Theorem~\ref{thm:sqfree:inert}, and kernels of this kind go back to P\'olya's examples recalled in \cite[Section 6.1]{BPY01}.
+
+The function of Davenport and Heilbronn \cite{DH36} is $f_{\rm DH}(s)=\sum_na_nn^{-s}$ with $a$ of period $5$ and $(a_1,\dots,a_5)=(1,\varkappa,-\varkappa,-1,0)$, where
+\[
+\varkappa=\frac{\sqrt{10-2\sqrt5}-2}{\sqrt5-1}=0.2840790438404122960283.
+\]
+With $\chi$ the character modulo $5$ with $\chi(2)=i$, $f_{\rm DH}=\frac{1-i\varkappa}2L(s,\chi)+\frac{1+i\varkappa}2L(s,\bar\chi)$, and $\varkappa$ is chosen so that $(1+i\varkappa)/(1-i\varkappa)$ is the root number
+\[
+\varepsilon(\chi)=0.85065080835203993218+0.52573111211913360603\,i;
+\]
+then $p=1$ and $\vartheta_a(1/x)=x^{3/2}\vartheta_a(x)$, and the program \texttt{pakes\_characters.py} checks $\xi(s,a)=\xi(1-s,a)$ at $s=0.3+2i$ and $0.8+15.5i$ to $18$ digits. The coefficients are not multiplicative, since $a_6=1$ while $a_2a_3=-\varkappa^2$, so $f_{\rm DH}$ has no Euler product, and it has infinitely many zeros in $\re s>1$ \cite[Chapter 10]{Titchmarsh}. Zeros off the critical line inside the strip have been computed by Spira \cite{Spira94} and by Balanzario and S\'anchez-Ortiz \cite{BSO07}; the program confirms two of them,
+\begin{gather*}
+0.808517182456637+85.6993484853776\,i,\\
+0.650830080609737+114.163342730757\,i,
+\end{gather*}
+where $|f_{\rm DH}|<10^{-25}$. Modulo $5$ there is no other function of the class built from $\chi$ and $\bar\chi$: a combination $\alpha L(s,\chi)+\beta L(s,\bar\chi)$ with $a_1=1$ whose completed function is $w$ times its reflection must have $w=\pm1$ and $\beta=w\,\varepsilon(\chi)\alpha$, and the choice $w=-1$ gives the coefficients $(1,-1/\varkappa,1/\varkappa,-1,0)$, whose theta series satisfies $\vartheta(1/x)=-x^{3/2}\vartheta(x)$, so that it vanishes at $x=1$ and takes both signs.
+
+Table~\ref{pk:tab:chars} gives the test for $\xi$, for nine real characters and for $f_{\rm DH}$. For the characters and for $f_{\rm DH}$ the moments are computed as for $\mathcal B_t$, from the kernels $K_a$, and at $\lambda=0$ also from the values of $L$ functions alone: $\E\mathcal B_a^k=\xi(2k,a)/\xi(0,a)$ and $\E\mathcal B_a^{-k}=\xi(2k+1,a)/\xi(0,a)$, with $\sum_na_nn^{-s}=q^{-s}\sum_{r=1}^qa_r\zeta(s,r/q)$ through the Hurwitz zeta function. The two routes agree, the functional equations of the completed functions hold to a relative $5\times10^{-81}$, and the failures marked in the table are certified, by the first route for $\lambda>0$ and by the second at $\lambda=0$.
+
+\begin{table}[htbp]
+\centering\footnotesize
+\begin{tabular}{lrrrll}
+\toprule
+function & $S_a$ & $\mathcal K'_7(0)$ & $\mathcal K'_7(2)$ & $\mathcal B_a$ & $1/\mathcal B_a$\\
+\midrule
+$\xi$ & & $6.2\times10^{-16}$ & $1.2\times10^{-13}$ & GGC & fails at $\mathcal K'_3(0)$\\
+$\chi_{-3}$ & $0.086$ & $2.4\times10^{-8}$ & $4.9\times10^{-8}$ & passes & GGC\\
+$\chi_{-4}$ & $0.006$ & $1.2\times10^{-8}$ & $4.6\times10^{-8}$ & passes & GGC\\
+$\chi_5$ & $0.158$ & $7.8\times10^{-8}$ & $7.1\times10^{-8}$ & passes & fails at $\mathcal K'_{10}(0)$\\
+$\chi_8$ & $0.043$ & $4.8\times10^{-8}$ & $3.8\times10^{-8}$ & passes & fails at $\mathcal K'_7(2)$\\
+$\chi_{12}$ & $0.002$ & $2.1\times10^{-8}$ & $4.2\times10^{-8}$ & passes & fails at $\mathcal K'_9(10)$\\
+$\chi_{24}$ & $0.045$ & $7.5\times10^{-9}$ & $2.0\times10^{-8}$ & fails at $\mathcal K'_{11}(2)$ & fails at $\mathcal K'_6(0)$\\
+$\chi_{-7}$ & $0.608$ & $-0.149$ & $-0.221$ & fails at $\mathcal K'_3(0)$ & fails, zero\\
+$\chi_{-8}$ & $0.130$ & $-0.057$ & $-0.477$ & fails at $\mathcal K'_2(0)$ & ID, fails, zero\\
+$\chi_{13}$ & $0.659$ & $-0.0023$ & $-0.256$ & fails at $\mathcal K'_3(0)$ & fails at $\mathcal K'_3(0)$\\
+$f_{\rm DH}$ & $0.092$ & $-1.2\times10^{-5}$ & $-1.4\times10^{-4}$ & fails at $\mathcal K'_6(0)$ & fails, zero\\
+\bottomrule
+\end{tabular}
+\caption{The GGC test for the variables $\mathcal B_a$ of Section~\ref{pk:sec:theta} and their reciprocals: the sum $S_a$ of Lemma~\ref{pk:lem:thetapos}, the least eigenvalues of the scaled matrices $\mathcal K'_7(0)$ and $\mathcal K'_7(2)$ of $\mathcal B_a$, and the verdicts. ``Passes'': no matrix $\mathcal K_n(\lambda)$ or $\mathcal K'_n(\lambda)$ with $n\le12$ has a negative eigenvalue at $\lambda=0$, $\frac12$, $2$, $10$, $20$, $50$ and $200$. ``Fails at $\mathcal K'_n(\lambda)$'': the least failing order, certified at that $\lambda$. ``Zero'': the Laplace transform vanishes on $(-\infty,0)$ (Proposition~\ref{pk:prop:reflected}). GGC for $\xi$ by \eqref{pk:eq:B}, for $1/\mathcal B_a$ with $\chi_{-3}$ and $\chi_{-4}$ by Proposition~\ref{pk:prop:reflected}. All the functions but $f_{\rm DH}$ have an Euler product. Computed by \texttt{pakes\_filter.py} and \texttt{pakes\_filter\_cert.py}.}
+\label{pk:tab:chars}
+\end{table}
+
+\begin{proposition}\label{pk:prop:chi8}
+Neither $\mathcal B_{\chi_{-8}}$ nor $1/\mathcal B_{\chi_{-8}}$ is a GGC.
+\end{proposition}
+
+\begin{proof}
+From the values of $L(s,\chi_{-8})$ at $s=0,2,4,6,8$ and at $s=3,5,7,9$, the certificate program gives
+\[
+3\kappa_3^2-2\kappa_2\kappa_4=7.55465911093\pm4\times10^{-12}\qquad\text{and}\qquad78.8854168657\pm2\times10^{-11}
+\]
+for $\mathcal B_{\chi_{-8}}$, where $(\kappa_2,\kappa_3,\kappa_4)=(3.0767,15.997,123.54)$, and for its reciprocal. Both are positive, against Lemma~\ref{pk:lem:fourcum}.
+\end{proof}
+
+The same four numbers settle $1/\mathcal B_{\chi_{-7}}$ ($27.8926758865$) and $1/\mathcal B_a$ for $f_{\rm DH}$ ($0.738104955084$), while for $\mathcal B$, a GGC, the number is $-0.0026$, and for $\mathcal B_{\chi_{-4}}$ it is $-0.70$. So $L(s,\chi_{-8})$, which has an Euler product and whose zeros lie on the critical line to height $10^8/8$ at least \cite{Platt16}, fails the test already at order two, on both sides. For odd characters the reciprocal side has a closed form, after \cite[(96)]{BPY01}.
+
+\begin{proposition}\label{pk:prop:reflected}
+Let $p=1$ and $\vartheta_a>0$, and put $w=\sqrt{\pi q\lambda}$ and $\Sigma_a(w)=\sum_{1\le n<q/2}a_n\sinh\frac{(q-2n)w}q$. Then
+\begin{equation}\label{pk:eq:refl}
+\int_0^\infty e^{-\lambda x}\vartheta_a(x)\,dx=\frac{\sqrt q\,\Sigma_a(w)}{\sinh w},\qquad\E e^{-\lambda/\mathcal B_a}=\frac{\sqrt q\,\Sigma_a(w)}{\xi(0,a)\sinh w},
+\end{equation}
+and $\xi(0,a)=q^{-1/2}\sum_{1\le n<q/2}(q-2n)a_n$. In particular:
+\begin{enumerate}
+\item[(i)] for $\chi_{-4}$, $\E e^{-\lambda/\mathcal B_a}=\sech\sqrt{\pi\lambda}$, and $1/\mathcal B_a$, which is $\frac\pi2$ times the exit time of Brownian motion from $(-1,1)$, is a GGC;
+\item[(ii)] for $\chi_{-3}$, $\E e^{-\lambda/\mathcal B_a}=3\sinh(w/3)/\sinh w=\prod_{3\nmid m}\big(1+3\lambda/\pi m^2\big)^{-1}$, so $1/\mathcal B_a$ is a GGC with Thorin measure $\sum_{3\nmid m}\delta_{\pi m^2/3}$, and it is $\frac{3\pi}2$ times the hitting time of $1$ by a three dimensional Bessel process started at $\frac13$;
+\item[(iii)] for $\chi_{-8}$, $\E e^{-\lambda/\mathcal B_a}=\cosh(w/4)/\cosh(w/2)=\prod_{k\ge1}(1+\lambda/4\alpha_k)/(1+\lambda/\alpha_k)$ with $\alpha_k=\frac\pi8(2k-1)^2$, so $1/\mathcal B_a$ is infinitely divisible, with L\'evy density $\sum_k(e^{-\alpha_kx}-e^{-4\alpha_kx})/x>0$, and it is $\pi$ times the hitting time of $1$ by a reflected Brownian motion started at $\frac12$; it is not a GGC, because its Laplace transform vanishes at $\lambda=-\pi/2$;
+\item[(iv)] if $a=\chi_d$ with $d<0$ and $\chi_d(2)=1$, that is $d\equiv1\pmod 8$, the Laplace transform of $1/\mathcal B_a$ vanishes at a point of $(-4\pi/q,-\pi/q)$, so $1/\mathcal B_a$ is not a GGC; for $\chi_{-7}$ the point is $\lambda=-1.033610573$. The same holds for $f_{\rm DH}$, at $\lambda=-2.046575671$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+By the functional equation $\vartheta_a(x)=x^{-3/2}\sum_nna_ne^{-\pi n^2/qx}$, and
+\[
+\int_0^\infty e^{-\lambda x-c/x}x^{-3/2}\,dx=\sqrt{\pi/c}\;e^{-2\sqrt{c\lambda}}
+\]
+with $c=\pi n^2/q$ gives $\int_0^\infty e^{-\lambda x}\vartheta_a(x)\,dx=\sqrt q\sum_{n\ge1}a_ne^{-2nw/q}$ for $\lambda>0$. Summing over a period and pairing $n$ with $q-n$, where $a_{q-n}=-a_n$, gives the first formula of \eqref{pk:eq:refl}, which is \cite[(96)]{BPY01} in our normalisation; at $\lambda=0$ it gives $\int_0^\infty\vartheta_a=\xi(1,a)=\xi(0,a)$, and since $1/\mathcal B_a$ has the density $\vartheta_a/\xi(0,a)$ the second formula follows. (i) and (ii) follow from the product formulas for $\cosh$ and $\sinh$, and \cite[(92)]{BPY01} identifies the transforms in (ii) and (iii) with those of the hitting times. In (iii) Frullani's integral $\log(1+\lambda/c)=\int_0^\infty(1-e^{-\lambda x})e^{-cx}\,dx/x$ gives the L\'evy density. A GGC transform $\ell$ cannot vanish on $(-\infty,0)$ where it extends meromorphically: for $0<\varepsilon\le1$, $|\ell(-x+i\varepsilon)|\ge e^{dx-C}$ with $C=\int\log(1+(x+1)/z)\,U(dz)<\infty$, because $|1+(-x+i\varepsilon)/z|\le1+(x+1)/z$. In (iii) the zero is that of $\cosh(w/4)$ at $w=2\pi i$. In (iv) put $w=iy$; then $\Sigma_a(iy)/\sinh(iy)=\nu(y)/\sin y$ with $\nu(y)=\sum_{1\le n<q/2}a_n\sin\frac{(q-2n)y}q$, and since $a_{q-n}=-a_n$, $\nu(\pi)=\frac12\sum_{n=1}^{q-1}a_n\sin\frac{2\pi n}q$ and $\nu(2\pi)=-\frac12\sum_{n=1}^{q-1}a_n\sin\frac{4\pi n}q$. For an odd real primitive character the Gauss sum is $i\sqrt q$, so $\nu(\pi)=\frac{\sqrt q}2$ and $\nu(2\pi)=-\chi_d(2)\frac{\sqrt q}2$. If $\chi_d(2)=1$, $\nu$ vanishes at some $y_0\in(\pi,2\pi)$, where $\sin y_0\ne0$, and the transform vanishes at $\lambda=-y_0^2/\pi q$. For $f_{\rm DH}$, $\nu(\pi)=\frac{\sqrt5}2$ and $\nu(2\pi)=-0.317610026505$.
+\end{proof}
+
+A survey extends the table. For each of the $26$ fundamental discriminants $d$ with $3\le|d|\le40$, the program \texttt{pakes\_filter.py} tests the positivity of $\vartheta_{\chi_d}$ and, where it holds, runs the test at $80$ digits to order $10$ at $\lambda=0$, $\frac12$, $2$, $10$ and $20$, on both sides. The kernels of $d=-19$ and $d=-40$ are not positive. Of the other $24$, $\mathcal B_{\chi_d}$ passes only for $d=-4$, $-3$, $5$, $8$, $12$ and $24$ (the last fails at order $11$, beyond the survey), and $1/\mathcal B_{\chi_d}$ only for $d=-4$ and $-3$. The $18$ failures of $\mathcal B_{\chi_d}$ occur at order $2$ or $3$ for $d=-39$, $-35$, $-31$, $-24$, $-23$, $-20$, $-15$, $-11$, $-8$, $-7$, $13$, $21$, $29$ and $37$, and at orders $6$ to $8$ for $d=17$, $28$, $33$ and $40$; the failures of $1/\mathcal B_{\chi_d}$ for $d=-7$, $-15$, $-23$, $-31$ and $-39$ are cases of Proposition~\ref{pk:prop:reflected}(iv). The size of the first term does not decide the outcome: the kernels that pass have $S_a\le0.159$, but $\chi_{-8}$ fails at order $2$ with $S_a=0.130$, and $\chi_{24}$ fails with $S_a=0.045$.
+
+Combinations of $L$ functions do not change the picture. Modulo $5$ there is no family, as shown above. Modulo $7$ the odd characters are $\chi_{-7}$ and a complex pair $\chi$, $\bar\chi$, with $\chi(3)=e^{\pi i/3}$, and for real $r$
+\[
+f_r=\big(1-2r\cos\tfrac\phi2\big)L(s,\chi_{-7})+re^{-i\phi/2}L(s,\chi)+re^{i\phi/2}L(s,\bar\chi),\qquad e^{i\phi}=\varepsilon(\chi),
+\]
+has real coefficients, $a_1=1$ and $\vartheta(1/x)=x^{3/2}\vartheta(x)$, which the program checks to a relative $10^{-29}$. For $17$ values of $r$ between $-3$ and $3$ the kernel is positive for $-3\le r\le2$ and not for $r=3$, and for each of the $16$ positive kernels both $\mathcal B$ and $1/\mathcal B$ fail at $\lambda=0$, at order $2$ or $3$. None of the characters whose variable passes has a complex character of the same conductor and parity to combine with, so the smallest family through a passing character would need a larger modulus.
+
+The pattern is not that of the Euler product. All nine $L$ functions of Table~\ref{pk:tab:chars} have one, and GRH has been verified for them to height at least $10^8/q$ \cite{Platt16}; yet $\mathcal B_{\chi_d}$ fails for $\chi_{24}$, $\chi_{-7}$, $\chi_{-8}$ and $\chi_{13}$, and for $18$ of the $24$ positive kernels of the survey. It fails for $f_{\rm DH}$, which has zeros off the line, but it fails in the same way for $\chi_{-7}$ and $\chi_{13}$, whose zeros are on the line as far as they have been computed. At $\lambda=0$ the test of order $n$ reads only the moments $\xi(2k,a)/\xi(0,a)$ with $1\le k\le2n$, whose numerators are values of Dirichlet series where they converge absolutely, and for $\lambda>0$ it reads Laplace transforms of the theta series: it sees the shape of the theta transform and not the arithmetic of the coefficients. Where the GGC property is proved, it comes from a product formula for that transform, $(\sqrt{\pi\lambda}/\sinh\sqrt{\pi\lambda})^2$ for $\xi$ and the products of Proposition~\ref{pk:prop:reflected}(i) and (ii) for the reciprocals of $\chi_{-4}$ and $\chi_{-3}$. Since the property is a theorem for $\xi$, an implication from it to zeros on the line, within a class of functions containing $\xi$, would prove RH; Problem~\ref{pk:prob:ggc} asks for such a class. The computations find no function with $\mathcal B_a$ a GGC and a zero off the line: $f_{\rm DH}$ and the tilts $\Phi_t$ at the eleven tested values of $t<0$ fail the test. But the Euler product does not imply the property, since $\chi_{-7}$, $\chi_{-8}$ and $\chi_{13}$ fail with certificates, so a class in which the implication holds is not singled out by the Euler product.
+
+\subsection{What survives, and open problems}\label{pk:sec:assess}
+
+Apart from the Lambert template of Section~\ref{pk:sec:lambert}, the results of this section, and those of the other chapters that it uses, fall into three classes. The first consists of equivalences with RH: the Thorin Bernstein property of $\log G$ (Theorem~\ref{bh:thm:main}), the mixture of exponential laws in the size biased clock (Proposition~\ref{pk:prop:sizebias}), the vanishing of the Hankel inertia indices (Theorem~\ref{thm:ch12:inertia}), and the GGC property of $R_t$ at $t=0$ (Theorem~\ref{rz:thm:dbn} and Proposition~\ref{prop:rigid}). They restate the problem and do not solve it. The second consists of facts that hold with no hypothesis: the clock is infinitely divisible and self decomposable (Theorem~\ref{thm:ch12:idsd}), it lies in $L_2$ and not in $L_3$ (Theorem~\ref{pk:thm:ladder}), and its driving subordinator has self decomposable, hence unimodal, laws (Corollary~\ref{pk:cor:unimodal}); the points of the upper half plane where $\im(G'/G)$ could fail to be negative lie in a thin parabola beyond about $-T_0^2$ (Theorem~\ref{bs:thm:local}); the clock is not the martingale limit of a supercritical continuous state branching process (Theorem~\ref{pk:thm:nobranch}); $R_t$ is a GGC for $t\ge0.2$ \cite{PT21} and for no $t<0$ (Corollary~\ref{bh:cor:dbn}); and $\mathcal B_t$ is not a GGC for $t$ near $0$, $t\ne0$ (Proposition~\ref{pk:prop:bpytilt}). Being unconditional does not by itself prevent a statement from implying RH, since a proof of RH would be unconditional too. What prevents it is that none of these facts distinguishes $\xi$ from functions with zeros off the line: the statements about the flow at $t\ne0$ are removed by the filter of Section~\ref{pk:sec:filter}, infinite divisibility and self decomposability hold as well for the comparison function $F$ of Section~\ref{ch:lessons}, the ladder index and the branching obstruction are set by the first zeros (Section~\ref{pk:sec:ladder}), and the localisation uses only the zeros below the verification height. The third class consists of the routes that are closed. Branching is closed by Theorem~\ref{pk:thm:nobranch}. The ladder is decided with no hypothesis by Theorem~\ref{pk:thm:ladder}, and along the flow its index changes where every law is a GGC (Section~\ref{pk:sec:heatladder}). The Hankel route is closed for practical purposes, on the heuristic of Table~\ref{rz:tab:resolution} that a zero off the line at height $\gamma$ first becomes visible at an order of about $\gamma^2/\delta$. Properties of the kernel and its representations as mixtures are removed by the filter (Propositions~\ref{pk:prop:filter} and \ref{pk:prop:arcsine}), and the GGC property of the variable of Biane, Pitman and Yor does not detect the Euler product (Section~\ref{pk:sec:theta}).
+
+What remains open is the one step of the Lambert proof that does not transfer: the analyticity of the cumulant function off the cut, which for the clock is RH itself (Proposition~\ref{rz:prop:rh}; Proposition~\ref{prop:rigid}). Pakes's work, read in the notation of the book, gives a template in which that step is a theorem, a dictionary between his language and that of the book, and a few unconditional facts about the clock. The threshold $\Lambda\le0.2$ of the heat flow is Theorem~\ref{rz:thm:dbn} with the bound of Platt and Trudgian, and is not new here, and the filter follows from the theorem of Rodgers and Tao, not from that bound. Of the four representations tested in Section~\ref{pk:sec:filter}, the arcsine mixture, the Gamma mixtures, infinite divisibility of $\mathcal B_t$ and the GGC property of $\mathcal B_t$, the Gamma mixtures fail already at $t=0$ (Theorem~\ref{thm:wigfree:nomix}), the arcsine mixture persists for every $t<0$, infinite divisibility persists at every $t$ tested, as far as the cumulants were computed, and only the last passes the filter, numerically and for small $|t|$ provably. It fails for most of the real Dirichlet $L$ functions tested, which removes the reason to expect it to be sensitive to the Euler product. Other representations of the programme were not tested: the hitting times at the basepoints (Section~\ref{ch:bphit}), the GGC of the index side (Section~\ref{sec:biane:index}) and the structure of Williams (Section~\ref{sec:ch19:williams}).
+
+\subsubsection{Open problems}\label{pk:sec:open}
+
+\begin{problem}\label{pk:prob:ggc}
+Find a natural class of functions $\xi(s,a)$ with positive kernels, containing $\xi$, in which the GGC property of $\mathcal B_a$ implies that every zero of $\xi(s,a)$ lies on the critical line, or a function in such a class whose variable $\mathcal B_a$ is a GGC and which has a zero off the line. Since $\mathcal B$ is a GGC, the first answer for a class containing $\xi$ proves RH. No candidate for the second is known: the function of Davenport and Heilbronn, the family $f_r$ modulo $7$ at the $16$ tested values of $r$ with a positive kernel and the tilts $\mathcal B_t$ at the eleven tested values of $t<0$ all fail the test. The question is related to Question~\ref{q:biane:curv} and to the structural reason for $R$ to be a GGC that the discussion of Table~\ref{rz:tab:resolution} asks for.
+\end{problem}
+
+\begin{problem}\label{pk:prob:tilt}
+Is $\mathcal B_t$ a GGC for no $t\ne0$? For $t<0$ this would be a property of the kernel that passes the filter at every $t$. Proposition~\ref{pk:prop:bpytilt} proves it for $0<|t|<t_0$, through the first order change of the Thorin measure in the gaps between its atoms, and at the ten values of part (i).
+\end{problem}
+
+\begin{problem}\label{pk:prob:side}
+Which of the variables $\mathcal B_{\chi_d}$ for $d=-4$, $-3$, $5$, $8$ and $12$, which pass the test to order $12$, are GGCs? (For $d=24$ the test fails at order $11$.) On the reciprocal side, $1/\mathcal B_{\chi_d}$ is a GGC for $d=-3$ and $-4$ (Proposition~\ref{pk:prop:reflected}); for $d=-4$ it is the exit time variable of Remark~\ref{rem:dbeta:exit}, whose density is not HCM (Theorem~\ref{bs:thm:eta}), so the question for $\mathcal B_{\chi_{-4}}$ cannot be settled through HCM. For even characters the reciprocal transform is the series $\frac2{\xi(0,a)}\sum_na_nK_0\big(2n\sqrt{\pi\lambda/q}\big)$ of Bessel functions, and no product formula for it is known to us.
+\end{problem}
+
+\begin{problem}\label{pk:prob:li}
+With no hypothesis, the Li coefficients of Section~\ref{sec:ch20:thorin} are
+\[
+\lambda_n=\int_0^\infty k_n(t)W(t)\,dt=m_0\,\E k_n(A),
+\]
+where $W$ is the heat trace, $A$ is the variable of Proposition~\ref{pk:prop:sizebias}, and $k_n$ is the function with $\int_0^\infty e^{-zt}k_n(t)\,dt=\varphi_n(z)$. Since $\varphi_n$ is a polynomial of degree $n$ in $(z+\frac14)^{-1}$ with no constant term, $k_n(t)=e^{-t/4}p_n(t)$ with $p_n$ a polynomial of degree $n-1$; for instance $k_1(t)=e^{-t/4}$ and $k_2(t)=(4-t)e^{-t/4}$. Which unconditional properties of $W$, or of $A$, force $\E k_n(A)\ge0$ for every $n$, which is RH by Li's criterion \cite{Li97,BL99}? Positivity of $W$ (Theorem~\ref{thm:ch12:idsd}) gives $n=1$; complete monotonicity of $W$, which is RH, gives every $n$, since $\varphi_n\ge0$ on $(0,\infty)$.
+\end{problem}
+
+\begin{problem}\label{pk:prob:ladder}
+Describe the ladder index of $R_t$ along the de Bruijn Newman flow. The computation of Section~\ref{pk:sec:heatladder} finds the index two of the clock up to $t=27.8$ and one from $t=27.9$ on, on its window. Is the index nonincreasing in $t$, and is it one for all large $t$? The answer carries no information about RH, but it would show how the spacing of the first zeros sets the index.
+\end{problem}
+
+The first author's account also asked for a quantitative form of the statement that zero density estimates leave only $o(T)$ zeros off the line up to height $T$. That premise is not known: the estimates bound the number $N(\sigma,T)$ of zeros with real part above $\sigma>\frac12$, for instance $N(\sigma,T)\ll T^{1-(\sigma-\frac12)/4}\log T$ uniformly in $\sigma$ \cite{Selberg46}, which is $o(T)$ for each fixed $\sigma>\frac12$ but does not reach the zeros within $O(1/\log T)$ of the line, and only a positive proportion of the zeros is known to lie on it. What can be said about the contribution of zeros off the line near the cut is in Section~\ref{ag:sec:exactly}, and Section~\ref{ch:lessons} describes what finite information can and cannot reach.

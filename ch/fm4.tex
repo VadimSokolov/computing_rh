@@ -1,0 +1,185 @@
+\section{Ferromagnetic approximations of the P\'olya law}\label{ch:fmapprox}
+
+By Corollary~\ref{fm:cor:limit} and the remark after it, RH holds exactly when the total variation distance $\delta$ from the P\'olya law to the class of ferromagnetic laws is $0$. This section bounds $\delta$ from above with no hypothesis, by the distances to laws that are proved to be ferromagnetic: P\'olya's own approximations, tilts of $p$ by multipliers that shrink the strip of the zeros, and laws that keep the first $K$ zeros exactly and replace the others by a Gaussian factor. The last family leads to an identity in law equivalent to RH. The distances are enclosed in ball arithmetic, with explicit bounds for the discretisation and the tails, so the bounds on $\delta$ they give are proved; Table~\ref{fm:tab:compare} at the end of the section collects them.
+
+\subsection{P\'olya's approximations}\label{fm:sec:simple}
+
+The Gaussian law $N(0,\operatorname{Var}X)$ is ferromagnetic and lies at total variation distance $1.48\times10^{-2}$ from the P\'olya law. P\'olya kept the leading part of the first term of $\Phi$ and made it even:
+\[
+\Phi^*(t)=8\pi^2\cosh\tfrac{9t}2\,e^{-2\pi\cosh2t},\qquad\int\Phi^*(t)e^{i\theta t}\,dt=4\pi^2\Big[K_{\frac94+\frac{i\theta}2}(2\pi)+K_{\frac94-\frac{i\theta}2}(2\pi)\Big],
+\]
+by $\int e^{-a\cosh u+\nu u}\,du=2K_\nu(a)$, and he proved that this transform has only real zeros \cite{Polya}. So the law with density proportional to $\Phi^*$ is ferromagnetic. It is the law of $\frac\varepsilon2\log G$, where $G$ is generalised inverse Gaussian with density proportional to $g^{5/4}e^{-\pi(g+1/g)}$, since the substitution $g=e^{2t}$ turns $e^{9t/2}e^{-2\pi\cosh2t}$ into that density; so it can be sampled exactly. Keeping the whole first term gives the positive kernel
+\[
+\Psi(t)=\Big(8\pi^2\cosh\tfrac{9t}2-12\pi\cosh\tfrac{5t}2\Big)e^{-2\pi\cosh2t},
+\]
+and the same theorem of P\'olya covers it.
+
+\begin{proposition}\label{fm:prop:psi}
+The law with density proportional to $\Psi$ is ferromagnetic.
+\end{proposition}
+
+\begin{proof}
+Write $\Psi(t)=\psi(it)f(t)$ with $f(t)=e^{-2\pi\cosh2t}$ and $\psi(z)=8\pi^2\cos\frac{9z}2-12\pi\cos\frac{5z}2$. In the variable $w=z/2$, $\psi$ is the trigonometric polynomial $8\pi^2\cos9w-12\pi\cos5w$ of degree $9$. At $w_j=j\pi/9$, $0\le j<18$, the first term is $8\pi^2(-1)^j$ and the second is at most $12\pi<8\pi^2$ in absolute value, so $\psi$ changes sign at least $18$ times in a period, and since a trigonometric polynomial of degree $9$ has at most $18$ zeros in a period strip, all its zeros are real. So $\psi$ is a real entire function of order $1$ with only real zeros. The transform of $f$ is $K_{i\theta/2}(2\pi)$, which has only real zeros, by P\'olya's theorem on $\int e^{-\lambda\cosh t}e^{izt}dt$ \cite[(1.2)]{deBruijn}, and $f$ decays faster than $e^{-|t|^b}$ for every $b$. P\'olya's theorem on universal factors \cite[p.~197]{deBruijn}, \cite[Proposition~1]{Cardon2005} then says that the transform of $\psi(it)f(t)$ has only real zeros. The density decays like $f$, so it has Gaussian moments of all orders.
+\end{proof}
+
+The same proof, with $\psi(z)=8\pi^2\cos\frac{9z}2$, gives P\'olya's result for $\Phi^*$. As densities both approximations are poor (Table~\ref{fm:tab:compare}): their total variation distances to $p$ are $0.099$ and $0.161$, their variances $0.0624$ and $0.0726$ against $\operatorname{Var}X=0.0462$, and their values at the origin $1.404$ and $1.163$ against $p(0)=1.797$, all enclosed in ball arithmetic (\texttt{fm\_tvcert.py}). Their transforms have $14$ zeros each in $(0.25,62.5)$, all real, and an argument principle count in $(0.25,62.5)\times(-2,2)$ finds no others, the same number as the ordinates below $62.5$. The positions differ: the first five are $8.99$, $19.07$, $24.47$, $28.97$, $33.01$ for $\Phi^*$ and $7.60$, $18.72$, $24.28$, $28.83$, $32.89$ for $\Psi$, against $14.13$, $21.02$, $25.01$, $30.42$, $32.94$ (computed by \texttt{fm\_polya.py}). P\'olya's point was the count, which these kernels reproduce, and not the positions.
+
+\subsection{Tilts that shrink the strip}\label{fm:sec:tilts}
+
+Every zero $\gamma$ of $\varphi_X=\Xi/\Xi(0)$ satisfies $|\Im\gamma|<\frac12$, because $0<\Re\rho<1$. Multipliers of the density move the zeros towards the real axis, and de Bruijn measured by how much. For $\lambda_1,\dots,\lambda_N>0$ and $\mu\ge0$ put
+\[
+m(t)=e^{\mu t^2}\prod_{k\le N}\cosh(\lambda_kt),\qquad c(m)=2\mu+\sum_{k\le N}\lambda_k^2 .
+\]
+Then $m(t)=\E e^{tY}=\E\cosh(tY)$ for $Y=\sqrt{2\mu}\,Z+\sum_k\lambda_k\varepsilon_k$, and $c(m)=\operatorname{Var}Y$.
+
+\begin{proposition}\label{fm:prop:bruijn}
+The zeros of $\int\Phi(t)m(t)e^{izt}\,dt$ lie in the strip $|\Im z|\le(\max(\frac14-c(m),0))^{1/2}$. The same holds for $N=\infty$ when $\sum_k\lambda_k^2<\infty$. In particular, with no hypothesis, the law with density proportional to $m\,p$ is ferromagnetic whenever $\operatorname{Var}Y\ge\frac14$; for example $\cosh(at)\,p$ for $a\ge\frac12$, $\frac{\sinh(ct)}{ct}\,p$ for $c\ge\frac{\sqrt3}2$, and $e^{\mu t^2}p$ for $\mu\ge\frac18$. If no zero of $\zeta$ has real part greater than $\frac78$, as announced in October 2026 (Section~\ref{sec:ch25:open}), all of this holds with $\frac9{64}$ in place of $\frac14$; then $\cosh(at)\,p$ is ferromagnetic for $a\ge\frac38$ and $\frac{\sinh(ct)}{ct}\,p$ for $c\ge\frac{3\sqrt3}8$.
+\end{proposition}
+
+\begin{proof}
+For finite $N$ this is de Bruijn's Theorem~13, for the Gaussian factor $e^{\frac12(2\mu)t^2}$, followed by his Theorem~12, for the product of cosines \cite{deBruijn}; both apply to an even kernel $F$ with $F(t)=O(e^{-|t|^b})$ for some $b>2$, which $\Phi$ and $\Phi e^{\mu t^2}$ are, and both take as input a closed strip containing the zeros, here $|\Im z|\le\frac12$. Under the hypothesis of the last sentence every zero has $\frac18\le\re\rho\le\frac78$, by $\xi(s)=\xi(1-s)$, so the zeros of $\varphi_X$ lie in $|\Im z|\le\frac38$, and the same two theorems give the strip with $\frac9{64}$ in place of $\frac14$. For $N=\infty$ the partial products $m_N$ have $c(m_N)\uparrow c(m)$, and their transforms converge to that of $\Phi m$ locally uniformly in $z$, by dominated convergence with $m_N\le m$. By Hurwitz's theorem the zeros of the limit lie in the intersection of the strips. The tilted densities decay like $\Phi$, so they have Gaussian moments of all orders, and when $c(m)\ge\frac14$ their characteristic functions have only real zeros. The three examples have $\operatorname{Var}Y=a^2$, $c^2/3$ (by Vi\`ete's product $\frac{\sinh ct}{ct}=\prod_k\cosh\frac{ct}{2^k}$) and $2\mu$.
+\end{proof}
+
+The single cosine is elementary, and the proof shows where the number $\frac12$ comes from. The characteristic function of $\cosh(at)p(t)$ is proportional to $\varphi_X(z+ia)+\varphi_X(z-ia)$. Take $z=x+iy$ with $y>0$ and a pair of zeros $\beta\pm i\eta$ of $\varphi_X$, with $c=(x-\beta)^2$. De Bruijn's identity \cite[Lemma~1]{deBruijn}
+\begin{multline*}
+\big(c+(y+a-\eta)^2\big)\big(c+(y+a+\eta)^2\big)-\big(c+(y-a-\eta)^2\big)\big(c+(y-a+\eta)^2\big)\\
+=8ay\,(c+y^2+a^2-\eta^2)
+\end{multline*}
+shows that the pair contributes a factor larger than $1$ to $|\varphi_X(z+ia)|^2/|\varphi_X(z-ia)|^2$ as soon as $a>|\eta|$. With $a\ge\frac12$ this holds for every zero, by the Hadamard product, so the two terms cannot cancel above the real axis, nor, by symmetry, below it. In the variable $s=\frac12+iz$ the transform is $\frac12(\xi(s+a)+\xi(s-a))$, and Lagarias proved, in addition, that its zeros are simple \cite{Lagarias05}. For the de Bruijn Newman flow the multiplier is $e^{\lambda t^2/4}$, with $c(m)=\lambda/2$; the proposition gives de Bruijn's bound $\Lambda\le\frac12$, and the bound $\Lambda\le0.2$ of Platt and Trudgian \cite{PT21} makes $e^{\lambda t^2/4}p$ ferromagnetic for every $\lambda\ge0.2$, again with no hypothesis.
+
+The three multipliers of the proposition with $\operatorname{Var}Y=\frac14$ give total variation distances $2.731\times10^{-3}$, $2.739\times10^{-3}$ and $2.751\times10^{-3}$ from $p$, in the order listed. They agree because $m(t)=1+\frac{t^2}8+\frac{\E Y^4}{24}t^4+\dots$ depends on the law of $Y$ only from the fourth order on, and $\E Y^4$ is $\frac1{16}$, $\frac9{80}$ and $\frac3{16}$ for a sign, a uniform variable and a Gaussian of variance $\frac14$; the single cosine is the smallest perturbation. The flow at $\lambda=0.2$, with $c(m)=0.1$, gives $1.097\times10^{-3}$. For comparison, $\cosh(\sqrt{0.1}\,t)\,p$, with the same contraction, gives $1.094\times10^{-3}$, but whether it is ferromagnetic is not known: the bound of Platt and Trudgian is a statement about the Gaussian flow, which rests on a computation of its zeros, and Proposition~\ref{fm:prop:bruijn} needs $\operatorname{Var}Y\ge\frac14$, or $\frac9{64}$ if the announced half plane stands, both above $0.1$ (the distances are enclosed in ball arithmetic by \texttt{fm\_tvcert.py}).
+
+The cosine tilts define a constant in the spirit of $\Lambda$. Let $\Omega$ be the infimum of the $a_0\ge0$ such that $\cosh(at)\,p$ is ferromagnetic for every $a\ge a_0$. Proposition~\ref{fm:prop:bruijn} gives $\Omega\le\frac12$, and $\Omega\le\frac38$ if the half plane $\re s>\frac78$ announced in October 2026 is free of zeros. If RH holds, Proposition~\ref{fm:prop:tilt}(i) gives $\Omega=0$. Conversely, if $\Omega=0$, the tilted laws converge to $p$ in total variation as $a\downarrow0$, and $p$ is ferromagnetic by Theorem~\ref{fm:thm:closed}. So RH holds if and only if $\Omega=0$. Unlike the flow, the operators $\varphi\mapsto\varphi(\cdot+ia)+\varphi(\cdot-ia)$ do not form a semigroup, and we do not know whether the set of good values of $a$ is an interval.
+
+\subsection{Laws that keep the first zeros}\label{fm:sec:zerocompleted}
+
+Let $0<\gamma_1\le\gamma_2\le\dots$ be the ordinates of the zeros on the critical line, with multiplicity, and put $s_K=\sum_{k\le K}\gamma_k^{-2}$ and $\beta_K=\frac12\operatorname{Var}X-s_K$. The idea is to keep the first $K$ factors of the Hadamard product exactly and to replace the others by the Gaussian factor with the same effect on the variance:
+\[
+\varphi_K(\theta)=e^{-\beta_K\theta^2}\prod_{k\le K}\Big(1-\frac{\theta^2}{\gamma_k^2}\Big).
+\]
+A symmetric Maxwell variable $M$, with density $x^2e^{-x^2/2}/\sqrt{2\pi}$, has $\E e^{i\theta M}=(1-\theta^2)e^{-\theta^2/2}$ and $\operatorname{Var}M=3$; it is ferromagnetic, with $L_M(s)=(1+s^2)e^{s^2/2}$. Let $M_1,M_2,\dots$ be independent copies.
+
+\begin{theorem}\label{fm:thm:zc}
+\begin{enumerate}
+\item[(i)] $\beta_K>0$ for every $K$. If $3s_K\le\operatorname{Var}X$, then $\varphi_K$ is the characteristic function of
+\[
+X_K=\big(\operatorname{Var}X-3s_K\big)^{1/2}Z+\sum_{k\le K}\frac{M_k}{\gamma_k},
+\]
+whose law $f_K$ is ferromagnetic, with $\operatorname{Var}X_K=\operatorname{Var}X$ and $\kappa_4(X_K)=-12\sum_{k\le K}\gamma_k^{-4}$. The condition holds for $K\le16$ and fails for $K=17$.
+\item[(ii)] For every $K$, if the inverse Fourier transform $f_K$ of $\varphi_K$ is nonnegative, then $f_K$ is a ferromagnetic probability density.
+\item[(iii)] RH holds if and only if $\varphi_K\to\varphi_X$ pointwise as $K\to\infty$. Under RH, $f_K\to p$ in law along every sequence of $K$ for which $f_K\ge0$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+With no hypothesis, $\frac12\operatorname{Var}X=\sum_k\gamma_k^{-2}$, where the sum runs over one zero of each pair $\pm\gamma$ and complex $\gamma$ are allowed (Section~\ref{fm:sec:polyanec}). A zero off the line contributes, with its conjugate, $2\Re\gamma^{-2}>0$, since $|\Re\gamma|>14>|\Im\gamma|$. So $\beta_K$ is the sum of $\gamma_k^{-2}$ over the line zeros with $k>K$ and of these positive terms, and it is positive.
+
+(i) $M_k/\gamma_k$ has characteristic function $(1-\theta^2/\gamma_k^2)e^{-\theta^2/2\gamma_k^2}$, so the sum over $k\le K$ accounts for every factor of $\varphi_K$ except $e^{-(\beta_K-s_K/2)\theta^2}$, a Gaussian factor of variance $2\beta_K-s_K=\operatorname{Var}X-3s_K$. A sum of independent ferromagnetic variables is ferromagnetic. The cumulants come from $\log\varphi_K$. Since $s_K$ increases with $K$, the last statement is $3s_{16}<\operatorname{Var}X<3s_{17}$. In ball arithmetic, with the certified zeros of Arb \cite{Arb} and $\operatorname{Var}X=(\log\xi)''(\frac12)$ from the Taylor series of $\log\xi$, $3s_{16}=0.0456803$, $\operatorname{Var}X=0.0462100$ and $3s_{17}=0.0463006$, with margins $5.3\times10^{-4}$ and $9.1\times10^{-5}$ (\texttt{fm\_cutoff.py}).
+
+(ii) $f_K$ has total mass $\varphi_K(0)=1$, and its moment generating function $e^{\beta_Ks^2}\prod_{k\le K}(1+s^2/\gamma_k^2)$ vanishes only on the imaginary axis. By Proposition~\ref{fm:prop:hermite} below, $f_K$ is a Gaussian density times a polynomial, so it has Gaussian moments.
+
+(iii) As $K\to\infty$, $\beta_K\downarrow\beta_\infty$, the sum of the terms $2\Re\gamma^{-2}$ over the zeros off the line, and $\varphi_K\to\varphi_\infty=e^{-\beta_\infty\theta^2}\prod_k(1-\theta^2/\gamma_k^2)$, a product over the line zeros, whose zeros are all real. If RH holds, $\beta_\infty=0$ and $\varphi_\infty=\varphi_X$ by the Hadamard product. If RH fails, $\varphi_X$ vanishes at a nonreal point and $\varphi_\infty$ does not, so $\varphi_\infty\ne\varphi_X$. Along a sequence with $f_K\ge0$ the $\varphi_K$ are characteristic functions, and L\'evy's continuity theorem gives convergence in law.
+\end{proof}
+
+Part~(i) needs no hypothesis and no computation beyond the certified inequality $3s_{16}<\operatorname{Var}X$, so $f_{16}$ is a proved ferromagnetic law. Its distance from the P\'olya law is $\operatorname{TV}(f_{16},p)=1.27\times10^{-4}$, ten times smaller than that of the tilt by the flow at $\lambda=0.2$. Beyond $K=16$ the Maxwell construction runs out of Gaussian variance, and positivity must be checked directly. The exact condition comes from a closed form, in which $\mathrm{He}_n$ is the Hermite polynomial with $\mathrm{He}_n(y)=\E(y+iZ)^n$, $g_v$ is the $N(0,v)$ density, and $e_j$ is the $j$th elementary symmetric function of $\gamma_1^{-2},\dots,\gamma_K^{-2}$.
+
+\begin{proposition}\label{fm:prop:hermite}
+For $v>0$ the function $e^{-v\theta^2/2}\prod_{k\le K}(1-\theta^2/\gamma_k^2)$ is the Fourier transform of
+\[
+f_{K,v}(x)=g_v(x)\,Q_{K,v}\big(x/\sqrt v\big),\qquad Q_{K,v}(y)=\sum_{j=0}^K\frac{e_j}{v^j}\,\mathrm{He}_{2j}(y),
+\]
+and $f_K=f_{K,2\beta_K}$. There is a threshold $v^*(K)$ such that $f_{K,v}\ge0$ if and only if $v\ge v^*(K)$, and $v^*(K)\le s_K$. Moreover $Q_{K,v}(y)>0$ for $|y|\ge\sqrt{8K+2}$, so the sign of $f_{K,v}$ is decided on $|x|<\sqrt{(8K+2)v}$.
+\end{proposition}
+
+\begin{proof}
+Differentiating $g_v$ gives $g_v^{(n)}(x)=(-1)^nv^{-n/2}\mathrm{He}_n(x/\sqrt v)g_v(x)$, and the transform of $g_v^{(2j)}$ is $(-1)^j\theta^{2j}e^{-v\theta^2/2}$. Expanding $\prod_k(1-\theta^2/\gamma_k^2)=\sum_j(-1)^je_j\theta^{2j}$ gives the formula. For $v<v'$, $f_{K,v'}=f_{K,v}*g_{v'-v}$, so positivity persists as $v$ increases, and the set of good $v$ is closed. At $v=s_K$ the transform is that of $\sum_{k\le K}M_k/\gamma_k$, so $v^*(K)\le s_K$. The zeros of $\mathrm{He}_n$ lie in $|y|<\sqrt{4n+2}$, by a Sturm comparison for the Hermite equation, so for $|y|\ge\sqrt{8K+2}$ every $\mathrm{He}_{2j}$ with $j\le K$ is positive, and so are the coefficients $e_jv^{-j}$.
+\end{proof}
+
+For $K=1$, $Q_{1,v}(y)=1+(y^2-1)/(v\gamma_1^2)$, so $v^*(1)=\gamma_1^{-2}=s_1$, the Maxwell value. For larger $K$ the threshold is far smaller, and Table~\ref{fm:tab:fK} brackets it for $K\le800$. The Hermite sum cancels catastrophically, its terms being many orders of magnitude larger than the sum, so the computation runs in ball arithmetic \cite{Arb} at thousands of bits ($8210$ at $K=800$), from inputs that are certified too: the ordinates $\gamma_1,\dots,\gamma_{800}$ computed by Arb, which isolates the zeros, counts them by Turing's method and refines them, and $\operatorname{Var}X=(\log\xi)''(\frac12)$ from the Taylor series of $\log\xi$, both at $9600$ bits. The recurrence $\mathrm{He}_{n+1}=y\mathrm{He}_n-n\mathrm{He}_{n-1}$ gives $Q_{K,v}$ in the monomial basis. On an interval $[c-r,c+r]$ its Taylor coefficients $T_m$ at $c$ come exactly from one polynomial product, and $Q_{K,v}(c+h)\ge T_0-\sum_{m\ge1}|T_m|r^m$ for $|h|\le r$, with no remainder; intervals on which this bound is not positive are bisected. A cover of $[0,\sqrt{8K+2}]$ by such intervals, with Proposition~\ref{fm:prop:hermite} beyond it and the evenness of $Q_{K,v}$, proves $Q_{K,v}>0$ on the line. In this way $f_K>0$ is proved for every $1\le K\le200$ and for $K=300$, $400$, $600$ and $800$; $f_0$ is the normal density of variance $\operatorname{Var}X$, since $Q_{0,v}=1$. For all these $K$ the minimum of $Q=Q_{K,2\beta_K}$ is attained only at $y=0$: near $0$ because $Q(y)-Q(0)\ge y^2\big(b_2-\sum_{m\ge2}|b_{2m}|y^{2m-2}\big)>0$ for $0<|y|\le2^{-5}$, the $b_n$ being the coefficients of $Q$, and elsewhere by covers on which the lower bound exceeds $Q(0)$. Moreover $Q_{K,2\beta_K}(0)$ decreases strictly along these $K$, to $0.289$ at $K=200$ and $0.184$ at $K=800$. For the column $v^*(K)$, a complete cover at $v=t_+\cdot2\beta_K$ gives $v^*(K)\le t_+\cdot2\beta_K$, and a certified negative value of $Q_{K,v}$ at $v=t_-\cdot2\beta_K$ gives $v^*(K)>t_-\cdot2\beta_K$, for dyadic rationals $t_-<t_+$ at most $2^{-18}$ apart. Just below $v^*(K)$ these negative values lie near the centre, at $|x|<0.09$ for every $K\ge1$ in the table and at $|x|<0.05$ for $K\ge10$ (\texttt{fm\_qcert.py}, and for $K=1$ the formula above); for $K=0$ there are none, as $v^*(0)=0$.
+
+\begin{table}[htbp]
+\centering\small
+\begin{tabular}{@{}rcccccc@{}}
+\toprule
+$K$ & $2\beta_K$ & $s_K$ & $v^*(K)$ & $v^*(K)/2\beta_K$ & $\min Q_{K,2\beta_K}$ & $\operatorname{TV}(f_K,p)$\\
+\midrule
+$0$ & $0.046210$ & $0$ & $0$ & $0$ & $1$ & $1.48\times10^{-2}$\\
+$1$ & $0.036199$ & $0.005005$ & $0.005005$ & $0.138$ & $0.862$ & $3.81\times10^{-3}$\\
+$2$ & $0.031674$ & $0.007268$ & $0.004955$ & $0.156$ & $0.804$ & $2.09\times10^{-3}$\\
+$3$ & $0.028477$ & $0.008867$ & $0.005416$ & $0.190$ & $0.762$ & $1.30\times10^{-3}$\\
+$5$ & $0.024472$ & $0.010869$ & $0.005527$ & $0.226$ & $0.705$ & $6.96\times10^{-4}$\\
+$10$ & $0.019121$ & $0.013544$ & $0.005441$ & $0.285$ & $0.623$ & $2.64\times10^{-4}$\\
+$16$ & $0.015756$ & $0.015227$ & $0.005222$ & $0.331$ & $0.566$ & $1.27\times10^{-4}$\\
+$17$ & $0.015343$ & $0.015434$ & $0.005190$ & $0.338$ & $0.558$ & $1.14\times10^{-4}$\\
+$20$ & $0.014273$ & $0.015969$ & $0.005065$ & $0.355$ & $0.538$ & $8.75\times10^{-5}$\\
+$50$ & $0.009108$ & $0.018551$ & $0.004146$ & $0.455$ & $0.430$ & $1.70\times10^{-5}$\\
+$100$ & $0.006222$ & $0.019994$ & $0.003303$ & $0.531$ & $0.355$ & $4.42\times10^{-6}$\\
+$150$ & $0.004907$ & $0.020652$ & $0.002816$ & $0.574$ & $0.316$ & $1.93\times10^{-6}$\\
+$200$ & $0.004122$ & $0.021044$ & $0.002487$ & $0.603$ & $0.289$ & \\
+$300$ & $0.003199$ & $0.021505$ & $0.002059$ & $0.644$ & $0.255$ & \\
+$400$ & $0.002659$ & $0.021775$ & $0.001784$ & $0.671$ & $0.232$ & \\
+$600$ & $0.002036$ & $0.022087$ & $0.001441$ & $0.708$ & $0.203$ & \\
+$800$ & $0.001677$ & $0.022267$ & $0.001229$ & $0.733$ & $0.184$ & \\
+\bottomrule
+\end{tabular}
+\caption{The zero completed laws $f_K$. For $K\le16$, $f_K$ is a ferromagnetic probability density by Theorem~\ref{fm:thm:zc}(i) ($s_K\le2\beta_K$). For every $K\ge1$ in the table, $Q_{K,2\beta_K}>0$ on the line is proved by the cover in ball arithmetic described in the text, so $f_K$ is a ferromagnetic probability density by Theorem~\ref{fm:thm:zc}(ii), and $\min Q_{K,2\beta_K}$ is the value at $y=0$, where it is attained. The threshold $v^*(K)$ of Proposition~\ref{fm:prop:hermite} lies in a certified interval of width at most $1.2\times10^{-7}$, within $6\times10^{-7}$ of the value shown, and the ratio $v^*(K)/2\beta_K$ is correctly rounded. The distances are enclosed in ball arithmetic, as in Table~\ref{fm:tab:compare}. The row $K=0$ is exact apart from $2\beta_0=\operatorname{Var}X$ and the distance: $Q_{0,v}=1$, so $f_0$ is normal and $v^*(0)=0$. Computed by \texttt{fm\_qcert.py} and \texttt{fm\_tvcert.py} from the certified zeros and variance, except $v^*(1)=s_1$.}
+\label{fm:tab:fK}
+\end{table}
+
+The question is the trend of the ratio $v^*(K)/2\beta_K$. While it stays below $1$, $f_K$ is a probability density. It increases slowly, to $0.733$ at $K=800$, and its slope in $\log K$ falls from $0.110$ between $K=30$ and $50$ to $0.086$ between $K=600$ and $800$. A straight line in $\log K$ through the last two points reaches $1$ near $K=1.8\times10^4$, while the power law $1-v^*(K)/2\beta_K\approx1.65K^{-0.27}$, fitted for $K\ge100$, never does. The data do not decide between them; a computation near $K=5000$ would. Either outcome is consistent with RH, since Theorem~\ref{fm:thm:zc}(iii) asks only for the convergence of $\varphi_K$, not for positivity.
+
+\subsection{The Maxwell series}\label{fm:sec:maxwell}
+
+For $K\le16$, Theorem~\ref{fm:thm:zc}(i) reads as a law the factorisation
+\[
+\varphi_K(\theta)=e^{-(\operatorname{Var}X-3s_K)\theta^2/2}\;\E e^{i\theta\sum_{k\le K}M_k/\gamma_k}.
+\]
+It holds for every $K$, though from $K=17$ on its Gaussian factor has negative variance, and letting $K\to\infty$ in it, with that factor moved to the other side, gives an identity in law. Let $\mathcal M=\sum_kM_k/\gamma_k$, summed over the zeros on the critical line. The series converges almost surely, because its terms are independent and centred with summable variances $3\gamma_k^{-2}$.
+
+\begin{theorem}\label{fm:thm:maxwell}
+Let $Z$ be independent of $X$. Then RH holds if and only if
+\[
+X+\big(\tfrac12\operatorname{Var}X\big)^{1/2}Z\overset d=\mathcal M .
+\]
+\end{theorem}
+
+\begin{proof}
+$\E e^{i\theta\mathcal M}=\prod_k(1-\theta^2/\gamma_k^2)e^{-\theta^2/2\gamma_k^2}$, an entire function of $\theta$ with only real zeros. Under RH, $\sum_k\gamma_k^{-2}=\frac12\operatorname{Var}X$, and the product is $\varphi_X(\theta)e^{-\operatorname{Var}X\,\theta^2/4}$, the characteristic function of the left side. If RH fails, the characteristic function of the left side vanishes at a nonreal point, and that of $\mathcal M$ does not.
+\end{proof}
+
+In words: smoothing the P\'olya law by an independent Gaussian of half its variance gives a sum of independent Maxwell variables, one for each zero, scaled by $1/\gamma$. Each Maxwell variable is ferromagnetic and has one pair of zeros and a Gaussian factor, so by Theorem~\ref{fm:thm:nosqrt} none of them is a component of $X$ itself; the smoothing is what makes the decomposition possible. The theorem also explains the range $K\le16$ in Theorem~\ref{fm:thm:zc}(i): each Maxwell piece brings its own Gaussian factor, of variance $\gamma_k^{-2}$, and once $3s_K$ exceeds $\operatorname{Var}X$ the Gaussian variance $2\beta_K$ of $\varphi_K$ no longer covers them.
+
+A simulation checks the identity numerically. With $10^7$ draws, the first $1700$ terms sampled exactly and the rest replaced by a normal variable of variance $3\sum_{k>1700}\gamma_k^{-2}=1.49\times10^{-3}$ (computed as $3(\frac12\operatorname{Var}X-s_{1700})$, which assumes RH above height $2197$), the Kolmogorov distance between the empirical law of $\mathcal M$ and $p*N(0,\frac12\operatorname{Var}X)$ is $1.72\times10^{-4}$, that is $0.545/\sqrt n$, with $p$ value $0.93$. The sample variance is $0.0693239$ against $\frac32\operatorname{Var}X=0.0693150$, and the sample fourth cumulant is $(-4.408\pm0.066)\times10^{-4}$ against $\kappa_4(X)=-4.461\times10^{-4}$, within $0.8$ standard errors (computed by \texttt{fm\_maxwell.py}). Like Table~\ref{fm:tab:cum}, this checks the computation, not RH: below height $2197$ the zeros are known to be on the line.
+
+\subsection{How close}\label{fm:sec:compare}
+
+Table~\ref{fm:tab:compare} collects the approximations.
+
+\begin{proposition}\label{fm:prop:tvcert}
+With no hypothesis, the distance $\delta$ of Section~\ref{fm:sec:closure} is at most $\operatorname{TV}(f_{150},p)<1.932\times10^{-6}$, since $f_{150}$ is a ferromagnetic law by Theorem~\ref{fm:thm:zc}(ii) and the positivity proof of Section~\ref{fm:sec:zerocompleted}; without that computer assisted proof, $f_{16}$ gives $\delta<1.266\times10^{-4}$.
+\end{proposition}
+
+RH is the statement that $\delta=0$. Every density here is even, and $\operatorname{TV}(q,p)=\int_0^\infty|q-p|$ is enclosed in ball arithmetic. On $[0,3]$, cut into intervals $[c-r,c+r]$ with $r=2^{-12}$, the integral of $|d|$, $d=q-p$, differs from the exact integral of $|d(c)+d'(c)h|$ over $|h|\le r$ by at most $|d''(c)|r^3/3+M_3r^4/12$, where $M_3$ bounds $|d'''|$ by interval evaluation (for the laws $f_K$, by $\frac1\pi\int_0^\infty\theta^3|\varphi_K(\theta)|\,d\theta$); beyond $3$ each density is bounded by an explicit function of known logarithmic decay rate. The laws $f_K$ are built from the certified zeros and variance of Section~\ref{fm:sec:zerocompleted}, so the distances are those of the true laws (\texttt{fm\_tvcert.py}).
+
+\begin{table}[htbp]
+\centering\small
+\begin{tabular}{@{}lll@{}}
+\toprule
+Approximation & Ferromagnetic by & $\operatorname{TV}$ to $p$\\
+\midrule
+$N(0,\operatorname{Var}X)$ & Gaussian & $1.48\times10^{-2}$\\
+P\'olya's $\Phi^*$ & P\'olya \cite{Polya} & $9.92\times10^{-2}$\\
+P\'olya's $\Psi$ & Proposition~\ref{fm:prop:psi} & $1.61\times10^{-1}$\\
+$\cosh(t/2)\,p$ & de Bruijn, Lagarias & $2.73\times10^{-3}$\\
+$\frac{\sinh(\sqrt3t/2)}{\sqrt3t/2}\,p$ & de Bruijn & $2.74\times10^{-3}$\\
+$e^{t^2/8}\,p$ & de Bruijn & $2.75\times10^{-3}$\\
+$e^{t^2/20}\,p$, the flow at $\lambda=0.2$ & Platt and Trudgian & $1.10\times10^{-3}$\\
+$f_{16}$ & Theorem~\ref{fm:thm:zc}(i) & $1.27\times10^{-4}$\\
+$f_{150}$ & Theorem~\ref{fm:thm:zc}(ii) & $1.93\times10^{-6}$\\
+$\cosh(\sqrt{0.1}\,t)\,p$ & not known & $1.09\times10^{-3}$\\
+uniform quantile mixtures, $J=5,20$ & not ferromagnetic (Section~\ref{fm:sec:polyamix}) & \\
+\bottomrule
+\end{tabular}
+\caption{Ferromagnetic approximations of the P\'olya law and their total variation distances to it, enclosed in ball arithmetic and rounded. A tilt $w\,p$ stands for the normalised law $w\,p/\E w(X)$, and P\'olya's kernels are normalised in the same way. Theorem~\ref{fm:thm:zc}(ii) applies to $f_{150}$ because $f_{150}>0$, which \texttt{fm\_qcert.py} proves. Computed by \texttt{fm\_tvcert.py}.}
+\label{fm:tab:compare}
+\end{table}

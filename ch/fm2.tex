@@ -1,0 +1,157 @@
+\section{Laws on an interval}\label{ch:fminterval}
+
+The P\'olya law is symmetric and unimodal, and every such law is a mixture of uniform laws. This section asks which mixtures are ferromagnetic, for laws on an interval, where Fourier transforms of compactly supported functions are entire of exponential type and the question can be settled. The answer turns on the shape of the density. Mixing towards the centre can destroy the property, as an atom at the origin shows; a concave shoulder guarantees it, and a convex one rules it out unless the density is linear on its support, a scaled triangle; and mixing towards the edges is always safe. The P\'olya law falls between the two shoulder cases, which is one way to see why its zeros are hard.
+
+\subsection{Mixtures of uniform laws}\label{fm:sec:khinchine}
+
+By Khinchine's theorem \cite{Feller71}, a random variable $X$ is symmetric and unimodal about $0$ if and only if $X\overset d=UR$ with $R\ge0$ independent of $U$. Then $L_X(s)=\E[\sinh(sR)/(sR)]$, and if $X$ has a density $p$ that is absolutely continuous on $(0,\infty)$ and tends to $0$ at infinity, $R$ has the density $-2rp'(r)$. Williamson's theorem refines the representation \cite{Williamson}: a density on $(0,\infty)$ is $k$ monotone exactly when it is a scale mixture of $k(1-x)_+^{k-1}$, so the symmetric $k$ monotone densities are the scale mixtures of
+\[
+f_k(x)=\tfrac k2(1-|x|)_+^{k-1},
+\]
+of which $f_1$ is the uniform density and $f_2$ the triangle. The uniform law itself is ferromagnetic, with $L_U(s)=\sinh s/s$, and Vi\`ete's product
+\[
+\frac{\sinh s}s=\prod_{k\ge1}\cosh\frac s{2^k},\qquad U\overset d=\sum_{k\ge1}2^{-k}\varepsilon_k,
+\]
+shows why: the uniform variable is a sum of independent fair signs, and the property is that of a single spin. So is every sum $\sum_kc_kU_k$ of independent scaled uniform variables. Mixtures behave differently.
+
+\begin{theorem}\label{fm:thm:atom}
+For every $0<q<1$ the law $(1-q)\,U+q\,\delta_0$ is symmetric and unimodal but not ferromagnetic. Consequently, for every $0<q<1$ and every small enough $a>0$, the mixture of the uniform laws on $[-1,1]$ and on $[-a,a]$ with weights $1-q$ and $q$ is not ferromagnetic.
+\end{theorem}
+
+\begin{proof}
+The moment generating function $L(s)=(1-q)\sinh s/s+q$ vanishes exactly where $\sinh s/s=-c$, with $c=q/(1-q)>0$. There is no real zero, since $\sinh s/s\ge1$ on $\R$, and only finitely many imaginary ones, since $s=iy$ needs $\sin y/y=-c$ and $|\sin y/y|\le1/|y|$. But $L$ has infinitely many zeros. It is entire of order $1$, so with finitely many zeros it would be $e^{\alpha s}P(s)$ with a polynomial $P$; evenness forces $\alpha=0$, and $L$ is not a polynomial, since it grows like $e^s/s$ on the positive axis. So all but finitely many zeros lie off the imaginary axis. The second statement follows from Theorem~\ref{fm:thm:closed}, since the mixtures converge in law to $(1-q)U+q\delta_0$ as $a\downarrow0$.
+\end{proof}
+
+Both components of the mixture are ferromagnetic, so the class is not closed under mixing, even of unimodal laws with a common mode. With $c=0.1$ the zeros of $L$ in the upper half plane with imaginary part below $65$ are $3.4990638i$ and $5.6792078i$ on the imaginary axis, near $i\pi$ and $2i\pi$, and nine pairs $\pm x_j+iy_j$ off it, from $\pm0.4325231+10.8984730i$ to $\pm2.4991599+61.2197027i$, near $i(2j-\frac12)\pi$; the argument principle on the rectangle $[-6,6]\times[0,65]$, evaluated in ball arithmetic, counts exactly these twenty, each isolated in a box of side $2\times10^{-10}$, and there is none with $|\operatorname{Re}s|\ge6$, where $|\sinh s|\ge\sinh|\operatorname{Re}s|>c|s|$ (\texttt{fm\_intcert.py}). For $c>c_*$, where $c_*=-\min_y\sin y/y=0.2172336\ldots$, the minimum being at the first positive root $y=4.4934095\ldots$ of $\tan y=y$, there are no imaginary zeros at all. The same mechanism decides the classical spin one law.
+
+\begin{proposition}\label{fm:prop:spin1}
+For $0\le q\le1$ the law $q\,\delta_0+\frac{1-q}2(\delta_{-1}+\delta_1)$ is ferromagnetic if and only if $q\le\frac12$ or $q=1$.
+\end{proposition}
+
+\begin{proof}
+For $q=1$ the law is $\delta_0$, and $L=1$ has no zeros. For $q<1$ the zeros of $L(s)=(1-q)\cosh s+q$ solve $\cosh s=-c$ with $c=q/(1-q)$. If $c\le1$, write $-c=\cos\theta_0$ with $\theta_0\in[\frac\pi2,\pi]$; the solutions $s=\pm i\theta_0+2\pi ik$ are imaginary. If $c>1$ the solutions are $s=\pm\operatorname{arccosh}c+i\pi(2k+1)$, which are not; for $q=0.6$ the first is $0.9624237+i\pi$.
+\end{proof}
+
+\subsection{The shoulder theorem}\label{fm:sec:shoulder}
+
+The examples are explained by the slope of the density. Let $p$ be a symmetric density on $[-1,1]$ that is absolutely continuous and nonincreasing on $[0,1]$, with $p(1)=0$, and put $g=-p'\ge0$ on $(0,1)$. Integrating $\varphi_X(z)=2\int_0^1p(y)\cos(zy)\,dy$ by parts turns the cosine transform of the density into a sine transform of its slope:
+\begin{equation}\label{fm:eq:sine}
+z\,\varphi_X(z)=2\int_0^1g(y)\sin(zy)\,dy .
+\end{equation}
+P\'olya proved that if $f$ is positive, integrable and nondecreasing on $(0,1)$, then $\int_0^1f(t)\cos(zt)\,dt$ and $\int_0^1f(t)\sin(zt)\,dt$ have only real zeros \cite{Polya18}. So everything depends on whether the slope $g$ rises or falls.
+
+\begin{theorem}\label{fm:thm:shoulder}
+Let $p$ be a symmetric density on $[-1,1]$, absolutely continuous and nonincreasing on $[0,1]$, with $p(1)=0$, and let $[-c,c]$, $0<c\le1$, be its support.
+\begin{enumerate}
+\item[(i)] If $p$ is concave on $[0,1]$, then $X$ is ferromagnetic.
+\item[(ii)] If $p$ is convex on $[0,1]$ and not linear on $[0,c]$, then $X$ is not ferromagnetic. Moreover $\varphi_X\ge0$ on $\R$, and its real zeros, if any, are double and lie in a lattice $(2\pi/s_0)\mathbb Z$ with $0<s_0<c$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(i) If $p$ is concave, then $c=1$ and $g$ is nondecreasing on $(0,1)$. If $g>0$ on $(0,1)$, P\'olya's theorem in its sine form and \eqref{fm:eq:sine} show that $\varphi_X$ has only real zeros. Otherwise $p$ is constant near $0$; then $(p+\epsilon(1-|x|))/(1+\epsilon)$ is concave with a positive slope, so it is ferromagnetic, and Theorem~\ref{fm:thm:closed} applies as $\epsilon\downarrow0$.
+
+(ii) If $p$ is convex, $g$ is nonincreasing on $(0,c)$, so $g(y)=g(c-)+\mu((y,c))$ with a positive measure $\mu$ on $(0,c)$, which is not zero because $p$ is not linear. Since $\int_0^s\sin(zy)\,dy=2\sin^2(zs/2)/z$, Fubini's theorem in \eqref{fm:eq:sine} gives, for real $z\ne0$,
+\[
+\frac{z^2}4\,\varphi_X(z)=g(c-)\sin^2\frac{zc}2+\int_{(0,c)}\sin^2\frac{zs}2\,\mu(ds)\ \ge0 .
+\]
+A real zero $z_0$ needs $z_0s\in2\pi\mathbb Z$ for every $s$ in the support of $\mu$, so with any such $s_0<c$ the real zeros lie in $(2\pi/s_0)\mathbb Z$. At a real zero the right side has vanishing first derivative and second derivative $\frac12g(c-)c^2+\frac12\int s^2\mu(ds)>0$, because every cosine $\cos(z_0s)$ that enters equals $1$; so the zero is double. Suppose now that every zero of $\varphi_X$ were real. Since $\varphi_X$ is even and entire of exponential type, Hadamard's theorem would give $\varphi_X(z)=\prod_{m\in M}(1-z^2/z_m^2)^2$ for a set $M$ of positive integers, with $z_m=2\pi m/s_0$, and hence
+\[
+\varphi_X(iy)\le\prod_{m\ge1}\Big(1+\frac{y^2s_0^2}{4\pi^2m^2}\Big)^2=\Big(\frac{\sinh(ys_0/2)}{ys_0/2}\Big)^2\le e^{s_0|y|}.
+\]
+But $p>0$ on $[0,c)$, so for $0<\epsilon<c-s_0$ and $y>0$, $\varphi_X(iy)=L_X(y)\ge\int_{c-\epsilon}^ce^{yx}p(x)\,dx\ge C_\epsilon e^{(c-\epsilon)y}$ with $C_\epsilon>0$, which contradicts the bound as $y\to\infty$.
+\end{proof}
+
+The triangle $p(x)=1-|x|$ is the borderline: it is both concave and convex, so (i) applies and (ii) does not, and $\varphi(z)=(\sin(z/2)/(z/2))^2$ has only real zeros, all double, at $2\pi m$. For a convex shoulder that is not linear on its support the proof shows the mechanism: the sine transform of a falling slope is a positive combination of the squares $\sin^2(zs/2)$, which can vanish on the real line only on a lattice, and that is too few zeros for a function that grows like $e^{c|y|}$ on the imaginary axis.
+
+\begin{corollary}\label{fm:cor:shoulder}
+\begin{enumerate}
+\item[(i)] The law with density proportional to $1-|x|^b$ on $[-1,1]$, $b>0$, is ferromagnetic if and only if $b\ge1$. In Khinchine's form, $UR$ with $R$ distributed as $\mathrm{Beta}(a,1)$ is ferromagnetic if and only if $a\ge2$.
+\item[(ii)] The symmetric $k$ monotone kernel $f_k$ is ferromagnetic if and only if $k\le2$.
+\item[(iii)] The laws with density proportional to $(1-x^2)^m$, $0<m\le1$, which include the semicircle law, are ferromagnetic.
+\item[(iv)] The product $U_1U_2$ of two independent uniform variables, with density $\frac12\log(1/|x|)$, is not ferromagnetic.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+(i) $1-x^b$ is concave on $[0,1]$ for $b\ge1$ and convex and not linear for $b<1$; the mixing variable has density $-2rp'(r)\propto r^b$, that of $\mathrm{Beta}(b+1,1)$. This settles $a=b+1>1$. For $0<a\le1$ the density of $UR$ is unbounded at $0$ and the theorem does not apply, but Proposition~\ref{fm:prop:moments} below excludes these laws: with $\mu_j=a/(a+2j)$, its case $j=1$ requires $a\ge\sqrt{10}-2>1$. (ii) $f_1$ is uniform and $f_2$ the triangle; for $k\ge3$, $(1-x)^{k-1}$ is convex and not linear. (iii) $\frac{d^2}{dx^2}(1-x^2)^m=-2m(1-x^2)^{m-2}(1-(2m-1)x^2)\le0$ on $[0,1]$ when $m\le1$. (iv) The density is unbounded at the origin, so Theorem~\ref{fm:thm:shoulder} does not apply, but directly $\varphi(z)=\int_0^1\sin(zu)/(zu)\,du=\operatorname{Si}(z)/z$, and $\operatorname{Si}(z)>0$ for $z>0$. So $\varphi$ has no real zero, while it has infinitely many zeros, by the argument in the proof of Theorem~\ref{fm:thm:atom}.
+\end{proof}
+
+Item~(iii) recovers the symmetric beta laws with $\frac12<\nu\le\frac32$ of Table~\ref{fm:tab:examples} without Bessel functions, and item~(iv) shows that products of independent ferromagnetic variables need not be ferromagnetic. The argument of item~(iv) is a general one: by Theorem~\ref{fm:thm:hadamard}, a ferromagnetic law whose characteristic function has no real zero is Gaussian. For the $k$ monotone kernels with $k\ge3$ it gives a second proof of item~(ii), since on the imaginary axis $L_k(iy)=k!\,R_k(y)/y^k$, where $R_3(y)=y-\sin y$, $R_4(y)=\frac{y^2}2-1+\cos y$ and $R_{k+1}(y)=\int_0^yR_k$, and $R_k(y)>0$ for $y>0$ once $k\ge3$; so $\varphi_k=L_k(i\,\cdot)$ is positive on $\R$. The zeros of $L_3(s)=6(\sinh s-s)/s^3$ of smallest modulus are $\pm2.7686783\pm7.4976763i$, and those of $L_4(s)=24(\cosh s-1-s^2/2)/s^4$ are $\pm4.5014572\pm8.4247845i$; in each case a count by the argument principle in ball arithmetic shows that this is the only zero of modulus at most $8.01$, respectively $9.57$, in the closed first quadrant (\texttt{fm\_intcert.py}).
+
+Table~\ref{fm:tab:power} shows how sharply the transition in item~(i) is seen numerically. At $b=1$ the transform $\int_0^1(1-x)\cos(zx)\,dx=(1-\cos z)/z^2$ has the double zeros $2\pi m$. As $b$ crosses $1$ each double zero splits, into two real zeros for $b>1$ and into a conjugate pair for $b<1$, and the sign of the transform at $2\pi m$ changes with it.
+
+\begin{table}[htbp]
+\centering\small
+\begin{tabular}{@{}lccccccccccc@{}}
+\toprule
+$a=b+1$ & $1.1$ & $1.3$ & $1.6$ & $1.9$ & $1.99$ & $2.01$ & $2.2$ & $2.5$ & $3$ & $4$ & $6$\\
+\midrule
+real zeros & $0$ & $0$ & $0$ & $0$ & $0$ & $18$ & $18$ & $18$ & $18$ & $18$ & $18$\\
+zeros in the box & $18$ & $18$ & $18$ & $18$ & $18$ & $18$ & $18$ & $18$ & $18$ & $18$ & $18$\\
+\bottomrule
+\end{tabular}
+\caption{Zeros of $F_b(z)=\int_0^1(1-x^b)\cos(zx)\,dx$ in the box $(0.3,60)\times(-12,12)$, counted by the argument principle, and real zeros in $(0.3,60)$, all in ball arithmetic by \texttt{fm\_intcert.py}. For $b>1$, certified sign changes on a grid of step $0.002$ give $18$ real zeros, so every zero in the box is real; for $b<1$, the box $(0.3,60)\times(\frac1{20},12)$ holds $9$ zeros and its mirror image $9$ more, so none is real. At each $b$ of the table, $F_b(2\pi)$ is positive for $b<1$ and negative for $b>1$.}
+\label{fm:tab:power}
+\end{table}
+
+\subsection{Mixing towards the edges}\label{fm:sec:ushaped}
+
+Mixtures of uniform laws centred at the origin can fail; mixtures of uniform laws on outer shells cannot.
+
+\begin{theorem}\label{fm:thm:ushaped}
+Every symmetric density on $[-1,1]$ that is nondecreasing in $|x|$ is ferromagnetic. Equivalently, every mixture of the uniform laws on the shells $\{a\le|x|\le1\}$, $0\le a<1$, is ferromagnetic.
+\end{theorem}
+
+\begin{proof}
+Here $\varphi_X(z)=2\int_0^1p(t)\cos(zt)\,dt$ with $p$ nondecreasing on $(0,1)$. If $p>0$ on $(0,1)$, P\'olya's theorem in its cosine form \cite{Polya18} applies; otherwise add $\epsilon$ times the uniform density, normalise, and let $\epsilon\downarrow0$ (Theorem~\ref{fm:thm:closed}). A density nondecreasing in $|x|$ is a mixture of the shell densities, and conversely.
+\end{proof}
+
+Each shell law is itself ferromagnetic, since it is the law of $\frac{1+a}2\varepsilon+\frac{1-a}2U$, with $L(s)=\cosh(\frac{1+a}2s)\sinh(\frac{1-a}2s)/(\frac{1-a}2s)$. The content of the theorem is that, unlike the central mixtures of Theorem~\ref{fm:thm:atom}, these mixtures stay in the class. The arcsine law, the symmetric beta law with $\nu=0$, is an example.
+
+\subsection{A moment test}\label{fm:sec:momenttest}
+
+Ferromagnetic laws satisfy inequalities between consecutive moments. If $X$ is ferromagnetic, $L_X(\sqrt x)=\sum_jb_jx^j$, with $b_j=\E X^{2j}/(2j)!$, equals $e^{bx}\prod_k(1+x/c_k^2)$, an entire function of $x$ in the Laguerre P\'olya class with only negative zeros. Its coefficients satisfy the Tur\'an inequalities $(j!\,b_j)^2\ge(j-1)!\,b_{j-1}(j+1)!\,b_{j+1}$, the limit as $n,K\to\infty$ of Newton's inequalities for the polynomials $(1+bx/n)^n\prod_{k\le K}(1+x/c_k^2)$, whose zeros are real; that is
+\begin{equation}\label{fm:eq:newton}
+b_j^2\ge\Big(1+\frac1j\Big)b_{j-1}b_{j+1},\qquad j\ge1 .
+\end{equation}
+For a mixture $X=UR$ the moments factor as $\E X^{2j}=\mu_j/(2j+1)$ with $\mu_j=\E R^{2j}$, and \eqref{fm:eq:newton} becomes a condition on the mixing law.
+
+\begin{proposition}\label{fm:prop:moments}
+If $UR$ is ferromagnetic and $R$ is not $0$ almost surely, then for every $j\ge1$
+\[
+\frac{2j+1}{2j+3}\le\frac{\mu_j^2}{\mu_{j-1}\mu_{j+1}}\le1 .
+\]
+\end{proposition}
+
+\begin{proof}
+The moments $\mu_j$ are finite, since $\E(UR)^{2j}=\mu_j/(2j+1)$ and $L_{UR}$ is entire, and positive, since $P(R>0)>0$. Substitute $b_j=\mu_j/(2j+1)!$ in \eqref{fm:eq:newton}: the factor is $(1+\frac1j)\frac{(2j+1)!^2}{(2j-1)!(2j+3)!}=\frac{2j+1}{2j+3}$. The upper bound is the Cauchy Schwarz inequality and holds for every $R$. Cleared of denominators, $(2j+1)\mu_{j-1}\mu_{j+1}\le(2j+3)\mu_j^2$ and $\mu_j^2\le\mu_{j-1}\mu_{j+1}$, the inequalities hold also when $R=0$ almost surely.
+\end{proof}
+
+The lower bound says that the even moments of $R$ must be close to log linear, so the mixing law cannot be too spread out. The test is necessary and weak. For $R$ distributed as $\mathrm{Beta}(a,1)$, $\mu_j=a/(a+2j)$; at $j=1$ the condition is $a^2+4a-6\ge0$, that is $a\ge\sqrt{10}-2=1.1622777$, and for $j\ge2$ it holds for every $a>0$. Corollary~\ref{fm:cor:shoulder}(i) gives the true threshold $a\ge2$.
+
+\subsection{Summary}\label{fm:sec:intervalsummary}
+
+Table~\ref{fm:tab:interval} collects the answers. The P\'olya law is unbounded, so none of them applies to it, but its shape places it between the two shoulder cases: Section~\ref{fm:sec:polyamix} shows that its shoulder is concave near the centre and convex in the tails.
+
+\begin{table}[htbp]
+\centering\small
+\begin{tabular}{@{}ll@{}}
+\toprule
+law on $[-1,1]$ & ferromagnetic\\
+\midrule
+uniform, and sums $\sum_kc_kU_k$ & yes\\
+symmetric beta $c_\nu(1-x^2)^{\nu-1/2}$, $\nu>-\frac12$ & yes\\
+concave shoulder & yes\\
+nondecreasing in $|x|$ (shell mixtures) & yes\\
+convex shoulder, not linear on the support & no\\
+$1-|x|^b$ & if and only if $b\ge1$\\
+$k$ monotone kernel $f_k$ & if and only if $k\le2$\\
+uniform with an atom at $0$, weight in $(0,1)$ & no\\
+product of two uniform variables & no\\
+spin one, $q\delta_0+\frac{1-q}2(\delta_{-1}+\delta_1)$ & if and only if $q\le\frac12$ or $q=1$\\
+\bottomrule
+\end{tabular}
+\caption{Which laws on $[-1,1]$ are ferromagnetic. Every entry is proved in this section or in Section~\ref{ch:fmlaws}.}
+\label{fm:tab:interval}
+\end{table}

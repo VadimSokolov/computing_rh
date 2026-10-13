@@ -1,0 +1,249 @@
+% main-kdp.tex defines \kdpbuild and inputs this file: the KDP paperback interior, 7 x 10 in trim, no bleed, two sided with chapters opening on the right.
+\ifdefined\kdpbuild
+\documentclass[11pt,twoside,openright]{book}
+\usepackage[paperwidth=7in,paperheight=10in,inner=0.875in,outer=0.75in,top=0.6in,bottom=0.6in,headheight=14pt,headsep=0.25in,footskip=0.35in,includehead,includefoot]{geometry}
+\else
+\documentclass[11pt,openany,oneside]{book}
+\usepackage[margin=1.15in]{geometry}
+\fi
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{graphicx,booktabs,xcolor}
+% longtable: the notation tables of Appendix C, the tables of principal results of Chapter 1 and the script tables of Appendix A
+% break across pages (a tabular taller than the page runs off its foot); their captions are as wide as those of the floats
+\usepackage{longtable}
+\setlength{\LTcapwidth}{\textwidth}
+\usepackage{needspace}
+\usepackage{titlesec}
+\usepackage{tocloft}
+\usepackage{listings}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\usepackage[hidelinks]{hyperref}
+\titleclass{\part}{top}
+\titleformat{\part}[display]{\normalfont\huge\scshape\centering}{Part \thepart}{0.6em}{}
+\titlespacing*{\part}{0pt}{0pt}{2.5em}
+\titleformat{\chapter}[display]{\normalfont\LARGE\scshape}{\chaptertitlename\ \thechapter}{0.8em}{}
+\titleformat{\section}{\normalfont\large\scshape}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalfont\scshape}{\thesubsection}{1em}{}
+\titleformat{\paragraph}[runin]{\normalfont\itshape}{}{0pt}{}
+\renewcommand{\cftchapfont}{\normalfont}
+\renewcommand{\cftchappagefont}{\normalfont}
+\renewcommand{\cftpartfont}{\normalfont\scshape}
+\renewcommand{\cftpartpagefont}{\normalfont}
+\lstset{basicstyle=\ttfamily\footnotesize,breaklines=true,columns=fullflexible,frame=single}
+\newtheoremstyle{sc}{6pt}{6pt}{\itshape}{}{\scshape}{.}{0.5em}{}
+\newtheoremstyle{scr}{6pt}{6pt}{\normalfont}{}{\scshape}{.}{0.5em}{}
+\theoremstyle{sc}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{scr}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{problem}{Problem}[chapter]
+\newtheorem{example}[theorem]{Example}
+\newtheorem{question}[theorem]{Question}
+\numberwithin{equation}{section}
+\hyphenation{deconvolution}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{1}
+\titleformat{\subsubsection}{\normalfont\itshape}{\thesubsubsection}{1em}{}
+% Exercises are collected at the end of each chapter and numbered chapter.n across the groups of the section.
+\newcounter{exercise}[chapter]
+\newenvironment{exercises}{\setlength{\leftmargini}{3em}\begin{enumerate}\renewcommand{\theenumi}{\thechapter.\arabic{enumi}}\renewcommand{\labelenumi}{\theenumi.}\setcounter{enumi}{\value{exercise}}}{\setcounter{exercise}{\value{enumi}}\end{enumerate}}
+\renewcommand{\qedsymbol}{$\square$}
+\newcommand{\RH}{\mathrm{RH}}
+\newcommand{\re}{\operatorname{Re}}
+\newcommand{\im}{\operatorname{Im}}
+\newcommand{\tv}[1]{\lVert #1\rVert_{\mathrm{TV}}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\sech}{\operatorname{sech}}
+\newcommand{\sqs}{\sqrt{s}}
+\newcommand{\Om}{\Omega}
+\newcommand{\HCM}{\mathrm{HCM}}
+\newcommand{\GGC}{\mathrm{GGC}}
+\newcommand{\cut}{\C\setminus(-\infty,0]}
+% \fitwidth{...} sets a table at its natural width and scales it down to the line width only when it is wider (the KDP text block is 0.8 in narrower than that of main.pdf)
+\newsavebox{\fitbox}
+\newcommand{\fitwidth}[1]{\sbox{\fitbox}{#1}\ifdim\wd\fitbox>\linewidth\resizebox{\linewidth}{!}{\usebox{\fitbox}}\else\usebox{\fitbox}\fi}
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+\emergencystretch=3em
+\raggedbottom
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\bottomfraction}{0.8}
+\renewcommand{\textfraction}{0.07}
+\renewcommand{\floatpagefraction}{0.75}
+\setcounter{topnumber}{3}
+\setcounter{bottomnumber}{2}
+\setcounter{totalnumber}{4}
+\makeatletter
+\setlength\@fptop{0pt}
+\setlength\@fpsep{12pt plus 2fil}
+\setlength\@fpbot{0pt plus 1fil}
+\makeatother
+\ifdefined\kdpbuild
+\hypersetup{pdftitle={Computing the Riemann Hypothesis},pdfauthor={Nicholas G. Polson and Vadim Sokolov}}
+% running heads: chapter on the left page, section on the right, page numbers outside; a title too long for \small drops to \footnotesize
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\newsavebox{\kdphead}
+\newcommand{\kdpmark}[1]{\sbox{\kdphead}{\small\itshape\nouppercase{#1}}\ifdim\wd\kdphead>\dimexpr\headwidth-3em\relax{\footnotesize\itshape\nouppercase{#1}}\else\usebox{\kdphead}\fi}
+\fancyhead[LE,RO]{\small\thepage}
+\fancyhead[RE]{\kdpmark{\leftmark}}
+\fancyhead[LO]{\kdpmark{\rightmark}}
+\fancypagestyle{plain}{\fancyhf{}\fancyfoot[C]{\small\thepage}\renewcommand{\headrulewidth}{0pt}}
+\renewcommand{\chaptermark}[1]{\markboth{\thechapter\enspace #1}{\thechapter\enspace #1}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\enspace #1}}
+% the blank page before a right hand opening carries no running head
+\makeatletter
+\renewcommand{\cleardoublepage}{\clearpage\ifodd\c@page\else\hbox{}\thispagestyle{empty}\newpage\fi}
+\makeatother
+\fi
+% the git commit the book is typeset from: version.tex is written before every build by tools/stamp_version.py (see latexmkrc); a missing stamp counts as uncommitted
+\InputIfFileExists{version.tex}{}{\def\bookcommit{unknown}\def\bookcommitfull{unknown}\def\bookcommitdate{unknown date}\def\bookbuilddate{\today}\def\bookdirty{1}}
+\hypersetup{pdfinfo={Commit={\bookcommitfull}}}
+% the release metadata for the copyright page (\BookVersion, \BookYear, \BookDOIline, \BookISBNline): bookmeta.tex is generated from book.yaml by bookrepo.py generate (book-writing skill); it never holds the paperback ISBN, which kdp.py interior defines for the print edition alone
+\input{bookmeta}
+\ifdefined\kdpbuild\ifnum\bookdirty=1 \AtEndDocument{\PackageWarningNoLine{main}{The KDP interior is not built from a clean commit (commit \bookcommit)}}\fi\fi
+\begin{document}
+\frontmatter
+\ifdefined\kdpbuild
+% half title (i), blank (ii), title page (iii), copyright page (iv)
+\thispagestyle{empty}
+\vspace*{2.2in}
+\begin{center}{\LARGE\scshape Computing the Riemann Hypothesis\par}\end{center}
+\cleardoublepage
+\thispagestyle{empty}
+\begin{center}
+\vspace*{1.1in}
+{\Huge\scshape Computing the\\[0.35em] Riemann Hypothesis\par}
+\vspace{0.8cm}
+{\Large Thorin Measures, P\'olya Densities\\[0.2em] and Hitting Times\par}
+\vspace{2.2cm}
+{\large Nicholas G. Polson\par}
+{\small Booth School of Business, University of Chicago\par}
+\vspace{0.6cm}
+{\large Vadim Sokolov\par}
+{\small Department of Systems Engineering and Operations Research\\ George Mason University\par}
+\end{center}
+\clearpage
+\thispagestyle{empty}
+\vspace*{\fill}
+\begin{flushleft}\small
+\textit{Computing the Riemann Hypothesis: Thorin Measures, P\'olya Densities and Hitting Times}\\[1em]
+Copyright \copyright\ \BookYear\ Nicholas G. Polson and Vadim Sokolov\\[1em]
+License: distributed under the Creative Commons Attribution 4.0 International License (CC BY 4.0), \url{https://creativecommons.org/licenses/by/4.0/}: you may copy, share and adapt this book for any purpose, provided you credit the authors. The code is released under the MIT License.\\[1em]
+\ifx\BookISBNline\empty\else\BookISBNline\\[1em]\fi
+\ifx\BookDOIline\empty\else\BookDOIline\\[1em]\fi
+\kdpimprint\\[1em]
+First edition, October 2026\\[1em]
+Cover: the Thorin density of $\xi(\frac12)/\xi(\frac12+\sqrt u)$ at eight resolutions, computed by the authors.\\[1em]
+Source, code and data: \url{https://github.com/VadimSokolov/computing_rh}\\[1em]
+Version \BookVersion, typeset by the authors in \LaTeX\ from commit \texttt{\bookcommit} of the source (\bookcommitdate).
+\end{flushleft}
+\cleardoublepage
+\else
+\begin{titlepage}
+\centering
+\vspace*{3cm}
+{\Huge\scshape Computing the Riemann Hypothesis\par}
+\vspace{0.8cm}
+{\Large Thorin Measures, P\'olya Densities and Hitting Times\par}
+\vspace{2.5cm}
+{\large Nicholas G. Polson\par}
+{\small Booth School of Business, University of Chicago\par}
+\vspace{0.6cm}
+{\large Vadim Sokolov\par}
+{\small Department of Systems Engineering and Operations Research, George Mason University\par}
+\vfill
+{\large Draft of \bookbuilddate\par}
+\vspace{0.3cm}
+{\normalsize commit \texttt{\bookcommit}\par}
+\end{titlepage}
+\fi
+\input{ch/preface}
+\tableofcontents
+\listoffigures
+\listoftables
+\mainmatter
+\input{ch/c01}
+\input{ch/ch01}
+\input{ch/ch02}
+\input{ch/ch03}
+\input{ch/c01ex}
+\input{ch/c02}
+\input{ch/ch04}
+\input{ch/ch05}
+\input{ch/ch05b}
+\input{ch/c02ex}
+\input{ch/c03}
+\input{ch/ch06}
+\input{ch/ch07}
+\input{ch/ch08}
+\input{ch/ch09}
+\input{ch/ch10}
+\input{ch/c03ex}
+\input{ch/c04}
+\input{ch/ch11}
+\input{ch/boschA}
+\input{ch/boschB}
+\input{ch/c04ex}
+\input{ch/c05}
+\input{ch/ch12}
+\input{ch/ch13}
+\input{ch/ch14}
+\input{ch/ch15}
+\input{ch/c05ex}
+\input{ch/c06}
+\input{ch/rz1}
+\input{ch/rz2}
+\input{ch/c07}
+\input{ch/rz3}
+\input{ch/rz4}
+\input{ch/c08}
+\input{ch/ch18}
+\input{ch/ch19}
+\input{ch/ch20}
+\input{ch/ch21}
+\input{ch/ch16}
+\input{ch/ch17}
+\input{ch/biane}
+\input{ch/c08ex}
+\input{ch/c09}
+\input{ch/basepoint}
+\input{ch/bphit}
+\input{ch/c10}
+\input{ch/strip}
+\input{ch/riesz}
+\input{ch/sqfree}
+\input{ch/c11}
+\input{ch/sato}
+\input{ch/wigfree}
+\input{ch/bpeta}
+\input{ch/almost}
+\input{ch/pakes}
+\input{ch/pakes2}
+\input{ch/pakes3}
+\input{ch/c12}
+\input{ch/ch25}
+\input{ch/ch22}
+\input{ch/c13}
+\input{ch/fm1}
+\input{ch/fm2}
+\input{ch/fm3}
+\input{ch/fm4}
+\input{ch/fm5}
+\input{ch/fm6}
+\appendix
+\input{ch/appA}
+\input{ch/appB}
+\input{ch/appBosch}
+\backmatter
+\input{ch/bib}
+\end{document}

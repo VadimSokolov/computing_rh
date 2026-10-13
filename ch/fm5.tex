@@ -1,0 +1,219 @@
+\section{The exponential of the P\'olya variable}\label{ch:fmexp}
+
+The positive variable $e^{2X}$ lives on the Mellin side of Section~\ref{bp:sec:mellin}: it is the variable $\frac\pi2S_2$ of Biane, Pitman and Yor, size biased by its power $\frac14$. Size biasing a sum of independent gamma variables by a power $q\in(0,1)$ has a simple effect, which we prove for integer shapes (Theorem~\ref{fm:thm:sbp}): it raises every shape by $q$, at the cost of an independent generalised gamma convolution that puts mass $q$ on each gap between consecutive rates. For $e^{2X}$ this gives an exact factorization against $\frac\pi2S_{9/4}$. From it, $e^{2X}$ is self decomposable with a L\'evy density built from Riemann's theta function, although it is not a GGC. Along the family $e^{\beta X}$ the picture is then complete except on one interval: $e^{\beta X}$ is not infinitely divisible for $0<|\beta|<2$, it is self decomposable and not a GGC at $|\beta|=2$, and it has a hyperbolically completely monotone density, so it is a GGC, for $|\beta|\ge5.5791422$, a bound certified in ball arithmetic. None of this involves a hypothesis on the zeros. GGC, HCM and self decomposable laws are as in Section~\ref{sec:ch3:hierarchy}.
+
+\subsection{Size biased laws and their phase}\label{fm:sec:sizebias}
+
+Write $B_0=\frac\pi2S_2=\sum_{m\ge1}\Gamma_m/(\pi m^2)$, with independent Gamma$(2,1)$ variables $\Gamma_m$ as in Section~\ref{bp:sec:mellin}. It is a GGC with Thorin atoms of mass $2$ at the points $\pi m^2$ and Laplace transform $(\sqrt{\pi\lambda}/\sinh\sqrt{\pi\lambda})^2$, and by \eqref{bp:eq:bpy} $\E B_0^\sigma=2\xi(2\sigma)$ for every complex $\sigma$. With Riemann's function $\omega(x)=\sum_{n\ge1}e^{-\pi n^2x}$ of Section~\ref{ch:clock}, its density is
+\[
+f_0(y)=\sum_{m\ge1}\big(4\pi^2m^4y-6\pi m^2\big)e^{-\pi m^2y}=4y\,\omega''(y)+6\,\omega'(y):
+\]
+two integrations by parts give $\int_0^\infty y^\sigma(4y\omega''+6\omega')\,dy=2\sigma(2\sigma-1)\pi^{-\sigma}\Gamma(\sigma)\zeta(2\sigma)=2\xi(2\sigma)$. For real $q$ let $B_q$ be $B_0$ size biased by $B_0^q$, with density $y^qf_0(y)/(2\xi(2q))$, so that
+\[
+\E B_q^\sigma=\frac{\xi(2\sigma+2q)}{\xi(2q)},\qquad e^{2X}\overset d=B_{1/4},
+\]
+the second because $\E e^{2\sigma X}=\xi(\frac12+2\sigma)/\xi(\frac12)$. Equivalently, $\Phi(t)=4x^{9/4}\omega''(x)+6x^{5/4}\omega'(x)$ at $x=e^{2t}$ turns the density $p(\frac12\log y)/(2y)$ of $e^{2X}$ into $y^{1/4}f_0(y)/(2\xi(\frac12))$. In the notation of Section~\ref{bp:sec:mellin}, where $V_\alpha$ is the Esscher tilt of the P\'olya density at the basepoint $\alpha$, $B_q=e^{2V_{2q}}$; so the $B_q$ with $0<q<1$ correspond to the basepoints $0<\alpha<2$, and $e^{2X}=e^{2V_{1/2}}$ to the centre. Since $X$ is symmetric, $e^{-\beta X}\overset d=e^{\beta X}$, and for $\beta>0$, $e^{\beta X}=B_{1/4}^{\beta/2}$.
+
+For small $\beta$ the tail of $X$ decides the question of infinite divisibility.
+
+\begin{proposition}\label{fm:prop:notid}
+For $0<|\beta|<2$ the variable $e^{\beta X}$ is not infinitely divisible.
+\end{proposition}
+
+\begin{proof}
+Take $\beta>0$. The first term of $\Phi$ dominates for large $t$, so $\log P(X>x)=-\pi e^{2x}+O(x)$ and, with $Y=e^{\beta X}$, $\log P(Y>y)=-\pi y^{2/\beta}+O(\log y)$. Since $2/\beta>1$, $\E\exp(cY\log Y)<\infty$ for every $c>0$. By Sato's theorem on the tails of infinitely divisible laws \cite[Theorem 26.1]{Sato99}, an infinitely divisible law with this property has no L\'evy measure, so it is Gaussian or degenerate, and $Y$ is neither.
+\end{proof}
+
+The other results of the section come from the continuation of the Laplace transform
+\[
+\Lambda_q(\lambda)=\E e^{-\lambda B_q}=\frac1{2\xi(2q)}\int_0^\infty y^qf_0(y)\,e^{-\lambda y}\,dy,
+\]
+which is finite for $\lambda>-\pi$. Let $0<q<1$, the range of the results below, fix $M\ge1$ and let $R_M$ be the tail $\sum_{m>M}$ of the series for $f_0$. It is bounded near $0$, because $f_0(y)=y^{-5/2}f_0(1/y)$ by the evenness of $\Phi$, so that $f_0(y)\to0$ as $y\downarrow0$, and it is $O(y\,e^{-\pi(M+1)^2y})$ at infinity. Integrating the first $M$ terms gives, for $\Re\lambda>-\pi$,
+\begin{equation}\label{fm:eq:Lq}
+2\xi(2q)\,\Lambda_q(\lambda)=\sum_{m\le M}\Big[\frac{4\pi^2m^4\Gamma(q+2)}{(\pi m^2+\lambda)^{q+2}}-\frac{6\pi m^2\Gamma(q+1)}{(\pi m^2+\lambda)^{q+1}}\Big]+\int_0^\infty y^qR_M(y)\,e^{-\lambda y}\,dy ,
+\end{equation}
+with principal powers. The last integral is analytic for $\Re\lambda>-\pi(M+1)^2$ and real on the real axis. So \eqref{fm:eq:Lq} continues $\Lambda_q$ analytically to the plane cut along $(-\infty,-\pi]$, and $\Lambda_q$ has boundary values $\Lambda_q(-r+i0)$ that are continuous in $r\ne\pi m^2$, while near each $-\pi m^2$ it behaves like a multiple of $(\pi m^2+\lambda)^{-q-2}$. Size biasing by $y^q$ has turned the double poles of $(\sqrt{\pi\lambda}/\sinh\sqrt{\pi\lambda})^2$ into branch points.
+
+The boundary values carry the Thorin measure. If $G$ is a GGC with drift $b$ and Thorin measure $\mu$, its Laplace transform $H(\lambda)=\exp\{-b\lambda-\int\log(1+\lambda/t)\,\mu(dt)\}$ continues analytically to $\cut$, and since $\Im\log(1+(-r+i\epsilon)/t)$ tends, as $\epsilon\downarrow0$, to $\pi$ for $t<r$, to $\frac\pi2$ for $t=r$ and to $0$ for $t>r$, the imaginary part of the exponent of $H(-r+i\epsilon)$ tends to $-\pi\big(\mu((0,r))+\frac12\mu(\{r\})\big)$; at a point $r$ that is not an atom of $\mu$ and where $H(-r+i0)$ is finite and not zero, the argument of $H(-r+i0)$ is therefore $-\pi\mu((0,r))$, modulo $2\pi$. We call a continuous determination of $-\frac1\pi\arg H(-r+i0)$ on an interval a phase of $H$ there. Fourati used the argument of such boundary values to show that certain powers of positive stable variables are not GGC \cite{Fourati16}. The next lemma states what the phase determines when the boundary values do not vanish.
+
+\begin{lemma}\label{fm:lem:phase}
+Let $G$ be a GGC with drift $b$, Thorin measure $\mu$ and Laplace transform $H$, and let $I\subset(0,\infty)$ be an open interval such that for each $r\in I$, $H(-r+i\epsilon)$ tends as $\epsilon\downarrow0$ to a nonzero limit $H(-r+i0)$, continuous in $r$. Then $\mu$ has no atoms in $I$, and $\mu((0,r))-\phi(r)$ is constant on $I$ for every phase $\phi$ of $H$ on $I$.
+\end{lemma}
+
+\begin{proof}
+Let $L(\lambda)=-b\lambda-\int\log(1+\lambda/t)\,\mu(dt)$, so that $H=e^L$. For $r\in I$ and $0<\epsilon\le1$, $\Im\log(1+(-r+i\epsilon)/t)=\arg(t-r+i\epsilon)$ lies in $(0,\pi)$, tends to $\pi$, $\frac\pi2$ or $0$ according as $t<r$, $t=r$ or $t>r$, and is at most $2\epsilon/t$ for $t\ge2r$. Since $\mu((0,2r))<\infty$ and $\int_{[2r,\infty)}\mu(dt)/t<\infty$, dominated convergence gives $\Im L(-r+i\epsilon)\to-\pi\big(\mu((0,r))+\frac12\mu(\{r\})\big)$. If $\mu(\{r\})=a>0$ then, since $|t-r+i\epsilon|\le t+r+1$,
+\[
+\Re L(-r+i\epsilon)\ \ge\ br-\int_{t\ne r}\log\Big(1+\frac{r+1}t\Big)\,\mu(dt)-a\log\frac\epsilon r\ \longrightarrow\ \infty,
+\]
+so $|H(-r+i\epsilon)|\to\infty$, which is excluded. Hence $\mu$ has no atoms in $I$, and $e^{i\Im L(-r+i\epsilon)}$, the argument factor of $H(-r+i\epsilon)$, tends to that of $H(-r+i0)$. So $\mu((0,r))-\phi(r)$ is an even integer for each $r\in I$, and being continuous on $I$ it is constant.
+\end{proof}
+
+The same lower bound for $\Re L$ shows that the boundary values of a GGC transform never vanish.
+
+\begin{theorem}\label{fm:thm:notggc}
+For $0<q<1$ the variable $B_q$ is not a GGC. In particular $e^{2X}$ is not a GGC.
+\end{theorem}
+
+\begin{proof}
+Let $r>\pi$, $r\ne\pi m^2$, and take $M$ with $\pi(M+1)^2>r$ in \eqref{fm:eq:Lq}. At $\lambda=-r+i0$ the terms with $\pi m^2>r$ and the last integral are real, and $(\pi m^2-r+i0)^{-p}=(r-\pi m^2)^{-p}e^{-i\pi p}$ for $\pi m^2<r$, so
+\begin{equation}\label{fm:eq:ImL}
+2\xi(2q)\,\Im\Lambda_q(-r+i0)=-\sin(\pi q)\sum_{\pi m^2<r}\Big[\frac{4\pi^2m^4\Gamma(q+2)}{(r-\pi m^2)^{q+2}}+\frac{6\pi m^2\Gamma(q+1)}{(r-\pi m^2)^{q+1}}\Big]<0 .
+\end{equation}
+Suppose that $B_q$ is a GGC, and apply Lemma~\ref{fm:lem:phase} on $I=(\pi,4\pi)$. By \eqref{fm:eq:ImL} a phase $\phi$ of $\Lambda_q$ on $I$ takes its values in $(2k,2k+1)$ for a single integer $k$. As $r\downarrow\pi$ the first term of \eqref{fm:eq:Lq} dominates, so that $\Lambda_q(-r+i0)\sim c\,(r-\pi)^{-q-2}e^{-i\pi(q+2)}$ with $c>0$, and $\phi(r)\to2k+q$. As $r\uparrow4\pi$ the term with $m=2$ dominates and is positive, and $\phi(r)\to2k$. So $\phi$ falls by $q$ across $I$, while $\mu((0,r))=\phi(r)+\mathrm{const}$ is nondecreasing, a contradiction.
+\end{proof}
+
+So size biasing by a power $q\in(0,1)$ destroys the GGC property of $B_0$. Size biasing a GGC by a negative power gives a GGC: Fourati's Lemma~6.3 \cite{Fourati16} states this for every real exponent, and its proof, which multiplies the variable by one plus an independent gamma variable of shape $\beta>0$ and lets the rate of the gamma variable tend to $0$, covers the size bias by $x^{-\beta}$, once slips in the printed normalising constants are corrected. For positive exponents the statement fails. By Theorem~\ref{fm:thm:notggc} it fails for every exponent in $(0,1)$, and it fails at $1$ as well: the size bias of order one of the GGC $e_1+\frac12e_2$ has Laplace transform $\frac43(2\lambda+3)(1+\lambda)^{-2}(2+\lambda)^{-2}$, which vanishes at the point $-\frac32$ of the cut. With the negative orders, $B_q$ is a GGC for every $q\le0$ and for no $q\in(0,1)$.
+
+\subsection{The size bias principle}\label{fm:sec:sbp}
+
+A gamma variable of shape $t$ size biased by $y^q$ is a gamma variable of shape $t+q$ with the same rate. For a sum of gamma variables with different rates the same happens at every rate, up to an independent GGC that lives between the rates. The proof uses divided differences. For a polynomial $Q$ with real zeros $s_1\le\dots\le s_n$, listed with multiplicity, and a function $h$ analytic near $[s_1,s_n]$, put
+\[
+h[Q]=\frac1{2\pi i}\oint\frac{h(\zeta)}{Q(\zeta)}\,d\zeta=\sum_{\zeta_0}\operatorname{Res}_{\zeta=\zeta_0}\frac{h(\zeta)}{Q(\zeta)},
+\]
+the contour enclosing the zeros of $Q$ inside the domain of $h$ and the sum running over the distinct zeros $\zeta_0$ of $Q$, so that $h[Q]$ is the divided difference of $h$ at $s_1,\dots,s_n$ when $Q$ is monic. The residue at a zero of multiplicity $j$ involves only the derivatives of $h$ of orders below $j$ there. By the formula of Hermite and Genocchi, $h[Q]$ is the integral of $h^{(n-1)}(\sum_jw_js_j)$ over the simplex of weights $w_j\ge0$, $\sum_jw_j=1$, with its uniform measure of total mass $1/(n-1)!$; so $h[Q]$ has the sign of $h^{(n-1)}$ when that sign is constant on $[s_1,s_n]$.
+
+\begin{lemma}\label{fm:lem:sign}
+Let $Q(\zeta)=\prod_{n=1}^K(\zeta-\tau_n)^{t_n}$ with $\tau_1<\dots<\tau_K$ and integers $t_n\ge1$, let $1\le k<K$ and $\tau_k<x<\tau_{k+1}$, and write $Q=Q_-Q_+$ with $Q_-(\zeta)=\prod_{n\le k}(\zeta-\tau_n)^{t_n}$, of degree $N_-$, and $Q_+$ of degree $N_+$. For $p>0$ put
+\begin{gather*}
+D_+(x)=h_+[Q_+],\qquad h_+(\zeta)=\frac{(\zeta-x)^{-p}}{Q_-(\zeta)},\\
+D_-(x)=h_-[Q_-],\qquad h_-(\zeta)=\frac{(x-\zeta)^{-p}}{Q_+(\zeta)} .
+\end{gather*}
+Then $(-1)^{N_+-1}D_+(x)>0$ and $(-1)^{N_+}D_-(x)>0$, and as functions of $x\in(\tau_k,\tau_{k+1})$, $|D_+|$ increases and $|D_-|$ decreases.
+\end{lemma}
+
+\begin{proof}
+On $(x,\infty)$ the function $h_+$ is a product of the completely monotone functions $(\zeta-x)^{-p}$ and $(\zeta-\tau_n)^{-1}$, $n\le k$, so $(-1)^jh_+^{(j)}>0$ there for every $j$, and the formula of Hermite and Genocchi with $j=N_+-1$ gives the first sign. On $(-\infty,x)$ the function $(-1)^{N_+}h_-(\zeta)=(x-\zeta)^{-p}\prod_{n>k}(\tau_n-\zeta)^{-t_n}$ is a product of functions all of whose derivatives are positive, which gives the second. Finally $\partial_x(\zeta-x)^{-p}=p(\zeta-x)^{-p-1}$ and $\partial_x(x-\zeta)^{-p}=-p(x-\zeta)^{-p-1}$, so $D_+'$ and $D_-'$ are $p$ and $-p$ times the same expressions with $p+1$ in place of $p$: $D_+'$ has the sign of $D_+$, and $D_-'$ the sign opposite to that of $D_-$.
+\end{proof}
+
+\begin{theorem}[size bias principle]\label{fm:thm:sbp}
+Let $Y=\sum_{n=1}^K\Gamma_n/\tau_n$ with $0<\tau_1<\dots<\tau_K$ and independent gamma variables $\Gamma_n$ with integer shapes $t_n\ge1$ and unit scale, let $0<q<1$, and let $Y_q$ be $Y$ size biased by $Y^q$. Then
+\[
+Y_q+G\ \overset d=\ \sum_{n=1}^K\frac{\Gamma_n'}{\tau_n},
+\]
+where the $\Gamma_n'$ are independent gamma variables with shapes $t_n+q$ and unit scale, and $G$, independent of $Y_q$, is a GGC without drift whose Thorin measure has a continuous distribution function $\theta_G$ that vanishes on $(0,\tau_1]$, increases by exactly $q$ on each interval $[\tau_k,\tau_{k+1}]$ and is constant on $[\tau_K,\infty)$.
+\end{theorem}
+
+\begin{proof}
+Let $N=\sum_nt_n$ and $Q(\zeta)=\prod_n(\zeta-\tau_n)^{t_n}$. The density of $Y$ is $c_0(-1)^{N-1}(e^{-\zeta y})[Q]$ with $c_0=\prod_n\tau_n^{t_n}$, as taking Laplace transforms under the contour integral shows: $(1/(\zeta+\lambda))[Q]=-1/Q(-\lambda)$, by the residue at $\zeta=-\lambda$. Multiplying by $y^q$ before integrating gives, for $\lambda\ge0$,
+\[
+\Lambda(\lambda)=\E e^{-\lambda Y_q}=c\,(-1)^{N-1}g_\lambda[Q],\qquad g_\lambda(\zeta)=(\zeta+\lambda)^{-1-q},
+\]
+with a constant $c>0$, and since $g_\lambda^{(N-1)}=(-1)^{N-1}(1+q)\cdots(N-1+q)\,(\zeta+\lambda)^{-N-q}$, the formula of Hermite and Genocchi gives
+\[
+\Lambda(\lambda)=\frac{\E(\bar s+\lambda)^{-N-q}}{\E\bar s^{\,-N-q}},\qquad\bar s=\sum_{j=1}^Nw_js_j ,
+\]
+where $s_1,\dots,s_N$ are the rates listed with multiplicity and $(w_j)$ is uniform on the simplex. This continues $\Lambda$ analytically to $\C\setminus(-\infty,-\tau_1]$, where the residue form $c(-1)^{N-1}g_\lambda[Q]$ remains valid, and shows that $|\Lambda(\lambda)|$ is of exact order $|\lambda|^{-N-q}$ as $|\lambda|\to\infty$, uniformly up to the cut.
+
+Boundary values. Let $\tau_k<r<\tau_{k+1}$. At points $\zeta<r$ the derivatives of $(\zeta-r+i0)^{-1-q}$ are $e^{-i\pi(1+q)}$ times those of $(r-\zeta)^{-1-q}$. Splitting the residues of $g_\lambda/Q$ into those at $\tau_n$ with $n>k$ and those with $n\le k$ gives, with $D_\pm$ of Lemma~\ref{fm:lem:sign} at $p=1+q$ and the signs found there,
+\begin{gather*}
+\Lambda(-r+i0)=c\,(-1)^{N-1}\big(D_+(r)+e^{-i\pi(1+q)}D_-(r)\big)=c\,(-1)^{N_-}z(r),\\
+z(r)=|D_+(r)|+e^{-i\pi q}|D_-(r)| .
+\end{gather*}
+The point $z(r)$ is the sum of two nonzero vectors at the angle $\pi q<\pi$, so its argument lies in $(-\pi q,0)$. The ratio $|D_-|/|D_+|$ decreases, from $\infty$ as $r\downarrow\tau_k$, where $D_-$ has the singular term $(r-\tau_k)^{-t_k-q}$, to $0$ as $r\uparrow\tau_{k+1}$; so $\arg z(r)$ increases from $-\pi q$ to $0$. For $r>\tau_K$ the same computation with $Q_+=1$ gives $\Lambda(-r+i0)=c(-1)^{N-1}e^{-i\pi(1+q)}D_-(r)$ with $D_->0$.
+
+The factor $G$. Put $\theta_G=0$ on $(0,\tau_1]$, $\theta_G(r)=kq+\frac1\pi\arg z(r)$ for $\tau_k<r<\tau_{k+1}$, and $\theta_G=(K-1)q$ on $[\tau_K,\infty)$. This function is continuous and nondecreasing. Near $\tau_k$, $|D_+/D_-|$ is $(r-\tau_k)^{t_k+q}$ times a function that is continuously differentiable up to $\tau_k$, and similarly near $\tau_{k+1}$; since $t_k+q>1$, $\theta_G$ is continuously differentiable, with derivative $0$ at the points $\tau_n$. Let $G$ be the GGC without drift and with Thorin measure $d\theta_G$, with Laplace transform $H_G(\lambda)=\exp\{-\int\log(1+\lambda/t)\,d\theta_G(t)\}$, and let $\Lambda_+(\lambda)=\prod_n(1+\lambda/\tau_n)^{-t_n-q}$, the Laplace transform of the right side. The function $J=\Lambda H_G/\Lambda_+$ is analytic on $\C\setminus(-\infty,-\tau_1]$ and positive on $(-\tau_1,\infty)$. For $\tau_k<r<\tau_{k+1}$ the arguments of $\Lambda$, $H_G$ and $1/\Lambda_+$ at $-r+i0$ are, modulo $2\pi$,
+\[
+\pi N_-+\arg z(r),\qquad-\pi kq-\arg z(r),\qquad\pi(N_-+kq),
+\]
+and for $r>\tau_K$ they are $\pi N-\pi q$, $-\pi(K-1)q$ and $\pi(N+Kq)$. In both cases they add up to a multiple of $2\pi$, so $J$ has real boundary values from above, by symmetry the same boundary values from below, and it continues analytically across the cut between the points $-\tau_n$. Near $-\tau_n$, $\Lambda=O(|\lambda+\tau_n|^{-t_n-q})$ by the residue form, and $1/\Lambda_+$ cancels this, while $H_G$ is bounded because $\theta_G$ has a bounded density; so these singularities are removable, and $J$ is entire. As $|\lambda|\to\infty$, $|\Lambda|$, $|1/\Lambda_+|$ and $|H_G|$ are of the exact orders $|\lambda|^{-N-q}$, $|\lambda|^{N+Kq}$ and $|\lambda|^{-(K-1)q}$, so $J$ is bounded. By Liouville's theorem $J\equiv J(0)=1$, that is $\Lambda H_G=\Lambda_+$, which is the identity in law.
+\end{proof}
+
+For two exponential variables everything is explicit. If $K=2$ and $t_1=t_2=1$, then $\Lambda$ is proportional to $(\tau_1+\lambda)^{-1-q}-(\tau_2+\lambda)^{-1-q}$, so that
+\begin{gather*}
+H_G(\lambda)=\frac{\tau_2^{1+q}-\tau_1^{1+q}}{(\tau_2+\lambda)^{1+q}-(\tau_1+\lambda)^{1+q}},\\
+\theta_G(r)=\frac1\pi\arg\Big((\tau_2-r)^{1+q}+e^{i\pi q}(r-\tau_1)^{1+q}\Big),\qquad\tau_1<r<\tau_2 .
+\end{gather*}
+The variable $B_0$ is a sum of this kind with infinitely many rates $\pi m^2$, each of shape $2$, and the theorem passes to the limit.
+
+\begin{theorem}\label{fm:thm:factor}
+For $0<q<1$,
+\[
+B_q+G_q\ \overset d=\ \frac\pi2S_{2+q},
+\]
+where $G_q$ is independent of $B_q$ and is a GGC without drift whose Thorin measure has a continuous distribution function $\theta_q$ with $\theta_q=0$ on $(0,\pi]$ and $\theta_q(\pi m^2)=(m-1)q$ for every $m\ge1$. In particular $e^{2X}+G_{1/4}\overset d=\frac\pi2S_{9/4}$.
+\end{theorem}
+
+\begin{proof}
+Let $B^{(M)}=\sum_{m\le M}\Gamma_m/(\pi m^2)$ and let $B^{(M)}_q$ be its size bias of order $q$. By Theorem~\ref{fm:thm:sbp}, $B^{(M)}_q+G_M\overset d=\sum_{m\le M}\Gamma'_m/(\pi m^2)$, with shapes $2+q$ on the right. As $M\to\infty$, $\E[(B^{(M)})^qe^{-\lambda B^{(M)}}]\to\E[B_0^qe^{-\lambda B_0}]$ for $\lambda\ge0$ by dominated convergence, since $B^{(M)}\le B_0$; so $B^{(M)}_q\to B_q$ in law, and the right sides converge in law to $\frac\pi2S_{2+q}$, whose Laplace transform is $\Lambda_+(\lambda)=(\sqrt{\pi\lambda}/\sinh\sqrt{\pi\lambda})^{2+q}$. Hence the Laplace transforms of the $G_M$ converge to $H=\Lambda_+/\Lambda_q$, which is continuous at $0$. So $G_M$ converges in law to a variable $G_q$ with Laplace transform $H$, $G_q$ is a GGC by the closure theorem of Section~\ref{sec:weak:limits}, and $B_q+G_q\overset d=\frac\pi2S_{2+q}$. A GGC with drift $b$ is at least $b$, while $\frac\pi2S_{2+q}$ is smaller than any given positive number with positive probability, so $G_q$ has no drift.
+
+It remains to find the Thorin measure $\mu$ of $G_q$. By \eqref{fm:eq:Lq}, near each $-\pi m^2$ both $\Lambda_q$ and $\Lambda_+$ are $(\pi m^2+\lambda)^{-2-q}$ times functions with continuous nonzero boundary values, and between these points $\Lambda_q(-r+i0)\ne0$ by \eqref{fm:eq:ImL}. So $H$ has continuous nonzero boundary values on all of $(0,\infty)$, and by Lemma~\ref{fm:lem:phase} $\mu$ has no atoms and $\mu((0,r))=\phi(r)$, where $\phi$ is the phase of $H$ that vanishes on $(0,\pi)$, where $H>0$. On $(\pi m^2,\pi(m+1)^2)$ the argument of $\Lambda_+(-r+i0)$ is $-\pi(2+q)m$, and $\Lambda_q(-r+i0)$ lies in the lower half plane by \eqref{fm:eq:ImL}, with argument tending to $-\pi(2+q)$ modulo $2\pi$ at the left end and to $0$ at the right end, as in the proof of Theorem~\ref{fm:thm:notggc}. So, modulo $2$, $\phi$ takes its values in $(mq-1,mq)$ on this interval and tends to $(m-1)q$ at its left end and to $mq$ at its right end. Since $\phi$ is continuous and $\phi(\pi)=0$, induction on $m$ gives $\phi(\pi m^2)=(m-1)q$.
+\end{proof}
+
+The theorem gives $B_q$ a signed Thorin measure, $(2+q)\sum_m\delta_{\pi m^2}-d\theta_q$: atoms of mass $2+q$ at the points $\pi m^2$, as for $\frac\pi2S_{2+q}$, and a negative continuous part of mass $q$ on each gap, which is what Theorem~\ref{fm:thm:notggc} detects. Since $\theta_q(r)\le q\,\#\{m:\pi m^2<r\}$, the phase of $B_q$ lies between those of $\frac\pi2S_2$ and $\frac\pi2S_{2+q}$.
+
+\subsection{Self decomposability and the theta L\'evy density}\label{fm:sec:sd}
+
+\begin{theorem}\label{fm:thm:sd}
+For $0<q<1$ the variable $B_q$ is self decomposable, with no drift and L\'evy density $k_q(x)/x$, where
+\[
+k_q(x)=(2+q)\,\omega(x)-\int_0^\infty e^{-tx}\,d\theta_q(t),\qquad 2\,\omega(x)\le k_q(x)\le(2+q)\,\omega(x).
+\]
+In particular $e^{2X}$ is self decomposable, hence infinitely divisible and unimodal, its L\'evy density lies between $2\omega(x)/x$ and $\frac94\omega(x)/x$, and it is not a GGC.
+\end{theorem}
+
+\begin{proof}
+By Theorem~\ref{fm:thm:factor}, $-\log\Lambda_q=-\log\Lambda_++\log H$, and Frullani's integral $\log(1+\lambda/t)=\int_0^\infty(1-e^{-\lambda x})e^{-tx}\,dx/x$, applied to the atoms of $\frac\pi2S_{2+q}$ and to the Thorin measure of $G_q$, gives
+\[
+-\log\Lambda_q(\lambda)=\int_0^\infty(1-e^{-\lambda x})\,k_q(x)\,\frac{dx}x .
+\]
+On $[\pi m^2,\pi(m+1)^2]$ the measure $d\theta_q$ has mass $q$ and $e^{-tx}\le e^{-\pi m^2x}$, so $0\le\int e^{-tx}\,d\theta_q(t)\le q\,\omega(x)$, which gives the bounds. In particular $k_q>0$, so $B_q$ is infinitely divisible with L\'evy density $k_q(x)/x$, and it is self decomposable if $k_q$ is nonincreasing (Section~\ref{sec:ch3:hierarchy}), that is, if
+\[
+\int_0^\infty te^{-tx}\,d\theta_q(t)\ \le\ (2+q)\sum_{m\ge1}\pi m^2e^{-\pi m^2x},\qquad x>0 .
+\]
+Bound the contribution of $[\pi m^2,\pi(m+1)^2]$ to the left side by $q\,s_m(x)$, with $s_m(x)=\max\{te^{-tx}:\pi m^2\le t\le\pi(m+1)^2\}$. For $m\ge2$, $s_m(x)\le\pi(m+1)^2e^{-\pi m^2x}\le\frac94\pi m^2e^{-\pi m^2x}$, and $\frac94q<2+q$, which leaves $(2-\frac54q)\pi m^2e^{-\pi m^2x}$ of the $m$th term on the right. It remains to show $q\,s_1(x)\le(2+q)\pi e^{-\pi x}+(2-\frac54q)4\pi e^{-4\pi x}$. If $x\ge1/\pi$, then $s_1(x)=\pi e^{-\pi x}$. If $x\le1/(4\pi)$, then $s_1(x)=4\pi e^{-4\pi x}$, and $4q\le4(2-\frac54q)+(2+q)$ because $8q\le10$. Otherwise $s_1(x)=1/(ex)$, and $(2+q)\pi x\,e^{1-\pi x}\ge(2+q)\frac14e^{3/4}>1>q$, because $ue^{1-u}$ increases on $(\frac14,1)$. Self decomposable laws are unimodal \cite{Yamazato78}, and $e^{2X}=B_{1/4}$ is not a GGC by Theorem~\ref{fm:thm:notggc}.
+\end{proof}
+
+So $e^{2X}$ is a natural self decomposable law outside the GGC class, with a L\'evy density that is explicit up to a correction of at most $\frac19$ of its main term: in the order of L\'evy densities it lies between $\frac\pi2S_2$ and $\frac\pi2S_{9/4}$, whose L\'evy densities are $2\omega(x)/x$ and $\frac94\omega(x)/x$. Near $0$, $\omega(x)\sim1/(2\sqrt x)$, and $0\le q\sqrt{t/\pi}-\theta_q(t)\le2q$, since $\theta_q=0$ on $(0,\pi]$ and, on $[\pi m^2,\pi(m+1)^2]$, the first lies between $mq$ and $(m+1)q$ and the second between $(m-1)q$ and $mq$; so the subtracted fraction $1-k_q/((2+q)\omega)$ tends to $q/(2+q)$ as $x\to0$.
+
+The script \texttt{fm\_sizebias.py} checks the three theorems numerically. It continues $\Lambda_q$ by \eqref{fm:eq:Lq} with $M=5$, at $30+r/4$ digits, on $1800$ points of $r\in[0.05,90]$, for $q=0.1$, $0.25$, $0.5$, $0.75$ and $0.9$. In every case the phase of $\Lambda_q$ decreases along the grid on each of the four gaps $(\pi m^2,\pi(m+1)^2)$, $m\le4$, so that $\theta_q$ increases, and at the last grid point below $\pi(m+1)^2$, $\theta_q$ is within $10^{-7}$ of $mq$, as Theorem~\ref{fm:thm:factor} requires. Extending $\theta_q$ beyond the scan by $q(\sqrt{t/\pi}-1)$, the value it takes at the points $\pi m^2$, the function $k_q$ is positive and decreasing on $300$ points of $[10^{-3},3]$, with minimum between $1.69\times10^{-4}$ and $2.34\times10^{-4}$ at $x=3$, and the subtracted fraction at $x=10^{-3}$ is $0.046$, $0.108$, $0.194$, $0.264$ and $0.300$, against the limits $0.048$, $0.111$, $0.200$, $0.273$ and $0.310$.
+
+The factorization can also be tested away from the cut, through the characteristic function on the real line. For a positive infinitely divisible variable $B$ with no drift and L\'evy density $k(x)/x$, $-\log|\E e^{iyB}|^2=\int_0^\infty4\sin^2(\frac{yx}2)\,k(x)\,dx/x$, and Frullani's integral $\int_0^\infty4\sin^2(\frac{yx}2)e^{-tx}\,dx/x=\log(1+y^2/t^2)$ turns this into the Thorin form $\int\log(1+y^2/t^2)$ against the Thorin measure, here the signed one. For $B_q$ the atoms sum in closed form, by $\prod_m(1+u^4/m^4)=(\cosh\sqrt2\pi u-\cos\sqrt2\pi u)/(2\pi^2u^2)$:
+\[
+-\log\big|\E e^{iyB_q}\big|^2=(2+q)\log\frac{\cosh\sqrt{2\pi y}-\cos\sqrt{2\pi y}}{2\pi y}-\int_0^\infty\log\Big(1+\frac{y^2}{t^2}\Big)\,d\theta_q(t).
+\]
+Table~\ref{fm:tab:sin2} compares, for $e^{2X}$, the direct Fourier integral of the density with the Thorin form and the theta L\'evy form, both built from the computed $\theta_{1/4}$. The two forms agree with each other to a relative $2\times10^{-7}$, and with the direct integral to a relative $1.2\times10^{-5}$, while the atoms alone, that is $\frac\pi2S_{9/4}$, are off by $3$ to $6$ percent. As a last check, $\E G_{1/4}=\E\frac\pi2S_{9/4}-\E e^{2X}=\frac{3\pi}8-\xi(\frac52)/\xi(\frac12)=0.0815947$, and $\int\theta_{1/4}(t)\,t^{-2}dt=0.0815351$ from the computed Thorin measure; the extension beyond $t=90$ differs from $\theta_{1/4}$ by at most $q$, which can move the integral by at most $q/90<0.003$.
+
+\begin{table}[htbp]
+\centering\small
+\begin{tabular}{@{}rcccc@{}}
+\toprule
+$y$ & direct & Thorin form & theta L\'evy form & atoms alone\\
+\midrule
+$0.5$ & $0.0588838$ & $0.0588840$ & $0.0588840$ & $0.0609722$\\
+$1$ & $0.227615$ & $0.227616$ & $0.227616$ & $0.235869$\\
+$2$ & $0.808286$ & $0.808290$ & $0.808290$ & $0.839868$\\
+$4$ & $2.347416$ & $2.347431$ & $2.347431$ & $2.457076$\\
+$8$ & $5.261493$ & $5.261552$ & $5.261553$ & $5.575941$\\
+\bottomrule
+\end{tabular}
+\caption{$-\log|\E e^{iye^{2X}}|^2$ computed four ways: by a direct Fourier integral of the density $y^{1/4}f_0(y)/(2\xi(\frac12))$; in the Thorin form with the atoms $\frac94$ at the points $\pi m^2$ summed in closed form and the continuous part from the computed $\theta_{1/4}$; in the theta L\'evy form $\int4\sin^2(\frac{yx}2)k_{1/4}(x)\,dx/x$; and from the atoms alone, which is $-\log|\E e^{iy\frac\pi2S_{9/4}}|^2$. Computed by \texttt{fm\_sizebias.py}.}
+\label{fm:tab:sin2}
+\end{table}
+
+On the dual side the roles are reversed. Section~\ref{sm:sec:poisson} puts the characteristic function $\xi(\frac12)/\xi(\frac12+u)$ of $Y_{1/2}$ in the same form, with no hypothesis: $\log(\xi(\frac12+u)/\xi(\frac12))=2\int_0^\infty(1-\cos ux)\,K_{1/2}(x)\,dx/x$ for real $u$. So the logarithm of the moment generating function of $X$ has the form of $-\log|\E e^{iyB_q}|^2$, with the Poisson trace $K_{1/2}$, a sum over the zeros, in place of the theta kernel $k_q$. The Poisson trace is completely monotone exactly when RH holds (Corollary~\ref{sm:cor:poisson}), while $k_{1/4}$ is positive and decreasing with no hypothesis.
+
+\subsection{Hyperbolically completely monotone powers}\label{fm:sec:hcm}
+
+Large powers bring the GGC property back. The criterion is the elasticity criterion of Section~\ref{bs:sec:crit}, applied as in Proposition~\ref{bs:prop:Wcrit} with the density $g$ of $\log W$ replaced by the P\'olya density. The kernel $\Phi$ is analytic in the strip $|\Im t|<\pi/4$, where $\Re e^{2t}>0$, and since it is real and even, $F(v)=\Phi(iv)$ is real for real $v$. We have $F(0)=0.8933938$; $F$ has a local maximum $F(v_m)=7.0315837$ at $v_m=0.5630962646$, and it vanishes at $v=0.6388301$, which is the zero $\alpha_1$ of the continuation in Proposition~\ref{rz:prop:cardonnum}(iii).
+
+\begin{proposition}\label{fm:prop:hcm}
+The variable $e^{\beta X}$ has an HCM density, and so is a GGC, for $|\beta|\ge5.5791422$, and it does not have an HCM density for $|\beta|\le5.5791395$. The proof of the first statement is computer assisted.
+\end{proposition}
+
+\begin{proof}
+Let $\beta>0$. The density $p(\beta^{-1}\log y)/(\beta y)$ of $e^{\beta X}$ has elasticity $1-\beta^{-1}(\Phi'/\Phi)(\beta^{-1}\log y)$, and the upper half plane in $y$ corresponds to the strip $0<\Im t<\pi/\beta$. By Theorem~\ref{bs:thm:crit}, as in Proposition~\ref{bs:prop:Wcrit}, $e^{\beta X}$ has an HCM density if and only if $\Phi$ continues to a zero free analytic function on $|\Im t|<\pi/\beta$ and
+\[
+h(x,v)=\Im\Big(-\frac{\Phi'}{\Phi}\Big)(x+iv)\ge0\qquad\text{for }0<v<\pi/\beta ,
+\]
+and HCM laws are GGC by (F5) of Section~\ref{bh:sec:bosch}. On the imaginary axis $h(0,v)=F'(v)/F(v)$. Ball arithmetic \cite{Arb} encloses $v_m$ in an interval of width $2\times10^{-17}$ with certified signs $F'>0$ at its left end and $F>0>F'$ at its right end $v_b$. If $\pi/\beta>v_b$, the strip contains $iv_b$, where $\Phi$ is analytic and $h<0$, so $e^{\beta X}$ is not HCM. Since $\pi/v_b>5.5791395$, this proves the second statement.
+
+For the first, let $v_*=0.563096$, so that $\pi/v_*<5.5791422$, and let $\varphi_1$ be the term $n=1$ of $\Phi$. Three estimates, in ball arithmetic with rigorous bounds for the tail of the series, show that $h\ge0$ on $0<v\le v_*$.
+(Z) For $\Re t\ge0$ and $|\Im t|\le0.5634$, $|\Phi/\varphi_1-1|\le0.6015$, so $\Phi\ne0$ there, and also for $\Re t\le0$, because $\Phi(-\bar t)=\overline{\Phi(t)}$.
+(T) On the segment $v=v_*$, $0\le x\le2$, adaptive bisection into $2896$ intervals encloses $h$ in positive balls. The smallest lower bound, $1.8\times10^{-8}$, occurs next to $x=0$, where $h(0,v)$ tends to $0$ as $v\uparrow v_m$. Since $h(-x,v)=h(x,v)$, $h>0$ on the whole segment $|x|\le2$.
+(S) For $x\ge2$ and $0<v\le v_*$, the first term gives $\Im(-\varphi_1'/\varphi_1)\ge2\pi e^{2x}\sin2v\ge8e^4v$, and Cauchy's estimate on discs of radius $0.1$ bounds the imaginary part of the derivative of $\log(\Phi/\varphi_1)$ by $10^{-40}v$; so $h>0$ there, and by symmetry also for $x\le-2$.
+By (Z), $h$ is harmonic on the strip $|\Im t|<0.5634$. It vanishes on the real axis and, by (T) and (S), is positive on the top and the sides of the rectangle $[-2,2]\times[0,v_*]$, so $h\ge0$ inside by the minimum principle, and with (S), $h\ge0$ on $0<v\le v_*$. So $e^{\beta X}$ is HCM for $\beta\ge\pi/v_*$.
+\end{proof}
+
+The certificate stops $3\times10^{-6}$ short of $\pi/v_m=5.5791396$, because $h$ vanishes at $iv_m$ and the strip of height $v_m$ cannot be covered by balls with positive lower bounds; presumably the threshold is exactly $\pi/v_m$. The computation is \texttt{fm\_hcm.py}, which works in the variable $t/2$ of Rodgers and Tao \cite{RodgersTao}, where the heights are halved and the thresholds doubled.
+
+Along the family $e^{\beta X}$, then: no infinite divisibility for $0<|\beta|<2$ (Proposition~\ref{fm:prop:notid}), self decomposability without the GGC property at $|\beta|=2$ (Theorem~\ref{fm:thm:sd}), and an HCM density, hence the GGC property, for $|\beta|\ge\pi/v_*=5.57914219\ldots$, with $v_*=0.563096$ (Proposition~\ref{fm:prop:hcm} and its proof). The HCM threshold, the least $|\beta|$ for which $e^{\beta X}$ has an HCM density (these powers form a closed half line, by (F2) and (F4) of Section~\ref{bh:sec:bosch}), lies between $5.5791395$ and $\pi/v_*$, and for $2<|\beta|$ below it infinite divisibility and the GGC property are open (Section~\ref{ch:fmopen}). The bracket for the HCM threshold comes from the kernel, not from the zeros, and it involves no hypothesis: the obstruction found is on the imaginary axis, and that it sets the exact threshold, at $\pi/v_m$, is a conjecture. It is the P\'olya side counterpart of Theorem~\ref{bs:thm:gap}, where, under RH and two further hypotheses on the zeros, the HCM powers of the Mellin variable $W$ are limited by the first gap $\gamma_2-\gamma_1$. For the clock, whose Laplace transform $\xi(\frac12)/\xi(\frac12+\sqrt u)$ is the moment generating function of $X$ inverted at $\sqrt u$, the GGC property is RH itself (Proposition~\ref{prop:rigid}).

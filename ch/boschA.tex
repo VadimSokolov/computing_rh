@@ -1,0 +1,201 @@
+\section{Bosch's half Cauchy theorem and HCM of the reciprocal Xi function}\label{ch:boschA}
+
+By Corollary~\ref{cor:hcm}(ii) of Section~\ref{ch:weak} the clock $\varphi=1/G$ is HCM if and only if RH holds; this is the HCM form of the reciprocal Xi programme of \cite{P17}. In this section and in Section~\ref{ch:boschB} the clock is a function of $s$, the variable $u$ of Section~\ref{ch:clock}: $\varphi(s)=\xi(\frac12)/\xi(\frac12+\sqrt s)$ is the function $\varphi_{1/2}$ of Corollary~\ref{cor:hcm}. A sharp HCM theorem for a nearby, exactly solvable function might transfer to $\varphi$, and the candidate is Bosch's theorem on powers of the half Cauchy law \cite{boBosch}. For a standard Cauchy variable $C$ the Mellin transform $\E|C|^z=\sec(\pi z/2)$ is the reciprocal of $\cos(\pi z/2)$, an entire function whose zeros, the odd integers, are known, just as $\Xi(0)/\Xi(z)$ is the reciprocal of $\Xi(z)/\Xi(0)$. At the half Cauchy point Bosch's theorem says that the density of $|C|$ is not HCM while that of $|C|^2$ is, so its content is sharpness (Section~\ref{bh:sec:bosch}). Set beside the Riemann Xi function (Section~\ref{bh:sec:dict}), the half Cauchy law is a solved model of Corollary~\ref{cor:hcm}(ii), which Section~\ref{bh:sec:main} restates in the four forms that Bosch's method uses. The model can guide an argument but cannot supply the reality of the zeros (Section~\ref{bh:sec:use}): HCM of a product $\prod_n(1+s/c_n)^{-1}$ records only whether every $c_n$ is positive, and on the Cauchy side the $c_n=(2k-1)^2$ are positive by construction.
+
+\subsection{HCM and Bosch's theorem at the half Cauchy point}\label{bh:sec:bosch}
+
+Bosch's theorem concerns densities, so we recall HCM from Section~\ref{sec:ch3:hierarchy} in the form that applies to them: a continuous function $f:(0,\infty)\to[0,\infty)$ is HCM if for every $u>0$ the map $v\mapsto f(uv)f(u/v)$, the pair function of $f$ at $u$, is a completely monotone function of $w=v+v^{-1}$ on $[2,\infty)$, and a positive random variable is HCM if it has an HCM density. In logarithmic coordinates $u=e^a$, $v=e^y$ the condition reads: $y\mapsto f(e^{a+y})f(e^{a-y})$ is completely monotone in $w=2\cosh y$. Some regularity is needed here: if $A$ is an additive function on $\R$ that is not linear, the pair functions of $x\mapsto e^{A(\log x)}$ are constant, although this function is continuous nowhere and so is not of the form \eqref{bs:eq:bond} below. We use the following facts, all due to Bondesson; (F1), (F2), (F5) and (F6) are also stated in Section~\ref{sec:ch3:hierarchy}.
+
+\begin{enumerate}
+\item[(F1)] If $X_1,X_2$ are independent and HCM then $X_1X_2$ and $X_1/X_2$ are HCM \cite[Theorem 5.1.1]{Bondesson}.
+\item[(F2)] If $X$ is HCM then $X^q$ is HCM for $|q|\ge 1$ \cite[pp.~68 and 69]{Bondesson}. The mechanism is that for $|p|\le 1$ the function $v^p+v^{-p}$ is a Bernstein function of $v+v^{-1}$, so if $h$ is an HCM function then so is $x\mapsto h(x^p)$ for $|p|\le 1$; if $X$ has density $f$, the density of $X^q$ is $|q|^{-1}x^{1/q-1}f(x^{1/q})$, and the power factor is HCM by (F3).
+\item[(F3)] Pointwise products of HCM functions are HCM, and powers $x^{r}$, $r\in\R$, are HCM \cite[p.~68]{Bondesson}.
+\item[(F4)] Pointwise limits of HCM functions, when finite and positive, are HCM \cite[p.~68 and Theorem 5.1.3]{Bondesson}.
+\item[(F5)] Every HCM law is a GGC \cite[Theorem 5.1.2]{Bondesson}.
+\item[(F6)] A probability law on $[0,\infty)$ is GGC if and only if its Laplace transform is an HCM function \cite[Theorem 6.1.1]{Bondesson}.
+\item[(F7)] A function $f$ that is not identically zero is HCM if and only if
+\begin{equation}\label{bs:eq:bond}
+\begin{aligned}
+f(x)&=Kx^{r-1}h_1(x)h_2(1/x),\\
+h_j(x)&=\exp\Bigl(-b_jx+\int_{(0,\infty)}\log\frac{1+t}{x+t}\,\Gamma_j(dt)\Bigr),
+\end{aligned}
+\end{equation}
+with $K>0$, $r\in\R$, $b_j\ge0$ and nonnegative measures $\Gamma_j$ satisfying $\int(1+t)^{-1}\Gamma_j(dt)<\infty$ \cite[(5.2.3) and Theorem 5.3.1]{Bondesson}. In particular every HCM function that is not identically zero extends to an analytic and zero free function on $\C\setminus(-\infty,0]$ \cite[p.~68]{Bondesson}.
+\end{enumerate}
+
+\begin{theorem}[Bosch {\cite[Theorem 1.2]{boBosch}}]
+Let $T_\alpha=(Z_\alpha/\tilde Z_\alpha)^\alpha$ with $Z_\alpha,\tilde Z_\alpha$ independent positive $\alpha$ stable (here $\alpha$ is a stability index, not a basepoint, and $T_\alpha$ is not the variable of Theorem~\ref{thm:poisson}). Then $T_\alpha$ has density $\sin(\pi\alpha)/(\pi\alpha(t^2+2t\cos\pi\alpha+1))$, a half Cauchy law with drift, and the density of $T_\alpha^\beta$ is HCM if and only if $\alpha\le1/2$ and $|\beta|\ge 1/(1-\alpha)$.
+\end{theorem}
+
+At $\alpha=1/2$ we have $T_{1/2}\stackrel{d}{=}|C|$ with density $2/(\pi(1+t^2))$, and $|C|^2=Z_{1/2}/\tilde Z_{1/2}$ is a ratio of independent Brownian first passage times. The threshold is $|\beta|\ge2$: $|C|$ is not HCM, while $|C|^2$, the beta prime law with parameters $(1/2,1/2)$, is. The density of $|C|^\beta$ is
+\[
+f_\beta(x)=\frac{2}{\pi|\beta|}\,\frac{x^{1/\beta-1}}{1+x^{2/\beta}},\qquad x>0 .
+\]
+With $x=e^{a\pm y}$ and $q=2/|\beta|$ a short computation gives
+\begin{equation}\label{bh:eq:pair}
+f_\beta(e^{a+y})f_\beta(e^{a-y})=\frac{4}{\pi^2\beta^2}\,e^{-2a}\,\frac{1}{2\cosh(qa)+2\cosh(qy)} .
+\end{equation}
+So at $\alpha=1/2$ Bosch's theorem is the statement that $1/(c+\cosh(qy))$ is completely monotone in $\cosh y$ for every $c\ge1$ exactly when $q\le 1$; here $c=\cosh(qa)$, which ranges over $[1,\infty)$. Sufficiency and the failure at $\beta=1$ have short proofs.
+
+\begin{proposition}\label{bh:prop:notHCM}
+The half Cauchy density is not HCM.
+\end{proposition}
+
+\begin{proof}
+Take $\beta=1$, so $q=2$ in \eqref{bh:eq:pair}. Since $\cosh(2a)+\cosh(2y)=2\sinh^2a+w^2/2$ with $w=2\cosh y$, the pair function is proportional to $h(w)=1/(c^2+w^2)$ with $c=2|\sinh a|>0$ for $a\ne0$. For $x>0$,
+\[
+h(2+x)=\int_0^\infty e^{-xt}\,e^{-2t}\,\frac{\sin(ct)}{c}\,dt .
+\]
+If $h$ were completely monotone on $(2,\infty)$, Bernstein's theorem would give $h(2+x)=\int e^{-xt}\mu(dt)$ with $\mu\ge0$, and uniqueness of the Laplace transform would force $\mu(dt)=e^{-2t}c^{-1}\sin(ct)\,dt$, which is not nonnegative.
+\end{proof}
+
+\begin{proposition}\label{bh:prop:square}
+The density of $|C|^\beta$ is HCM for $|\beta|\ge2$.
+\end{proposition}
+
+\begin{proof}
+For $q=2/|\beta|\le1$ the function $\cosh(qy)$ is a Bernstein function of $\cosh y$ by (F2), and $x\mapsto 1/(c+x)$ is completely monotone for $c>0$, so the composition in \eqref{bh:eq:pair} is completely monotone. Alternatively, $Z_{1/2}$ has a density proportional to $x^{-3/2}e^{-b/x}$ for some $b>0$, an inverse gamma density of the form (F7), so the ratio $|C|^2=Z_{1/2}/\tilde Z_{1/2}$ is HCM by (F1), and (F2) gives all powers $|q|\ge1$ of it.
+\end{proof}
+
+At $\alpha=1/2$ sufficiency is therefore elementary; the deep part of Bosch's paper is $\alpha<1/2$. The failure at $\beta=1$ can be followed order by order. With $u=e^a$, which is not the variable $u$ of the clock, the pair function of Proposition~\ref{bh:prop:notHCM} is proportional to $h(w)=1/((1-u^2)^2+u^2w^2)=u^{-2}c^{-1}\im(w-ic)^{-1}$, where $c=|u-1/u|=2|\sinh a|$. Differentiating $n$ times and writing $w-ic=(w^2+c^2)^{1/2}e^{-i\arctan(c/w)}$ gives, for $w>0$,
+\begin{equation}\label{bh:eq:derivs}
+(-1)^nh^{(n)}(w)=\frac{n!}{u^2c}\,\frac{\sin\bigl((n+1)\arctan(c/w)\bigr)}{(w^2+c^2)^{(n+1)/2}}.
+\end{equation}
+The first order $n$ with $(-1)^nh^{(n)}(w_0)<0$ is therefore $\lfloor\pi/\arctan(c/w_0)\rfloor$, about $\pi w_0/c$ for large $w_0$: complete monotonicity fails at every $u\ne1$, at an order that grows linearly in $w_0$ (Table~\ref{bh:tab:cm}).
+
+\begin{table}[h]
+\centering
+\begin{tabular}{cccc}
+\toprule
+$u$ & $w_0=2$ & $w_0=10$ & $w_0=100$\\
+\midrule
+$1.1$ & 33 & 164 & beyond 400\\
+$2$ & 4 & 21 & 209\\
+$5$ & 2 & 7 & 65\\
+\bottomrule
+\end{tabular}
+\caption{First order $n$ with $(-1)^nh^{(n)}(w_0)<0$ for the half Cauchy pair function, with $u=e^a$. The entries agree with the closed form~\eqref{bh:eq:derivs}, which gives $1645$ for the entry beyond $400$. For $\beta=2$ the pair function is proportional to $1/(w+2\cosh a)$, which is completely monotone at every order.}
+\label{bh:tab:cm}
+\end{table}
+
+\subsection{The half Cauchy law and the Riemann Xi function}\label{bh:sec:dict}
+
+On the Cauchy side everything is explicit. The logarithm of $|C|$ has density $g_C(y)=1/(\pi\cosh y)$ and characteristic function $\sech(\pi t/2)$. The Weierstrass product
+\[
+\sech\Bigl(\frac{\pi t}{2}\Bigr)=\prod_{k\ge1}\Bigl(1+\frac{t^2}{(2k-1)^2}\Bigr)^{-1}
+\]
+says $\log|C|\stackrel{d}{=}\sum_{k\ge1}L_k/(2k-1)$ with $L_k$ independent standard Laplace variables. The Mellin transform is $\E|C|^z=\sec(\pi z/2)$ for $|\Re z|<1$, the reciprocal of $\cos(\pi z/2)$, a function of the Laguerre P\'olya class with real zeros $\pm(2k-1)$; these odd integers are the frequencies of the half Cauchy law. The Cauchy reciprocal Xi function
+\[
+\varphi_C(s)=\E|C|^{i\sqrt{s}}=\sech\Bigl(\frac{\pi\sqrt{s}}{2}\Bigr)=\prod_{k\ge1}\Bigl(1+\frac{s}{(2k-1)^2}\Bigr)^{-1}
+\]
+is the Laplace transform of the GGC $\sum_ke_k/(2k-1)^2$, with independent standard exponentials $e_k$ and Thorin measure $\sum_k\delta_{(2k-1)^2}$, hence HCM by (F6). The product agrees with $\sech(\pi\sqrt s/2)$ to 15 digits at $s=0.5,3,20$; this and the other checks below that name no source used mpmath \cite{mpmath} at 20 to 30 digits. The function $\varphi_C$ is also the exit time transform $\sech\sqrt u$ of Table~\ref{tab:ch3:cat} at $u=\pi^2s/4$: if $\tau$ is the exit time of standard Brownian motion from $(-1,1)$ then $\E e^{-\lambda\tau}=1/\cosh\sqrt{2\lambda}$ and $\varphi_C(s)=\E e^{-(\pi^2/8)s\tau}$. Bourgade, Fujita and Yor \cite{boBFY} derive Euler's formulae for $\zeta(2n)$ from products of independent Cauchy variables, whose Mellin transforms are powers of $\sec(\pi z/2)$. In Section~\ref{ch:riesz} their construction becomes the moment identity \eqref{ri:eq:zeta2n} for $\log|CC'|$, with $C'$ an independent copy of $C$, and $\tau$ becomes the sech clock (Section~\ref{ri:sec:cauchy}).
+
+On the Riemann side the frequencies are the zeros $\gamma$ of $\Xi(z)=\xi(\frac12+iz)$. By \eqref{eq:ch2:hadamard}, whose product converges absolutely because $\sum|\gamma|^{-2}<\infty$, unconditionally
+\[
+\Xi(z)=\Xi(0)\prod_{\gamma}\Bigl(1-\frac{z^2}{\gamma^2}\Bigr),
+\]
+the product over zeros $\gamma$ of $\Xi$ with $\Re\gamma>0$, counted with multiplicity. No zero is purely imaginary because $\xi(\sigma)>0$ for real $\sigma$. Hence the clock is
+\[
+\varphi(s)=\frac{\Xi(0)}{\Xi(i\sqrt{s})}=\frac{\xi(1/2)}{\xi(1/2+\sqrt{s})}=\prod_\gamma\Bigl(1+\frac{s}{\gamma^2}\Bigr)^{-1}.
+\]
+Under RH define, in the spirit of Biane, Pitman and Yor \cite{BPY01}, $\log W=\sum_\gamma L_\gamma/\gamma$ with independent standard Laplace variables $L_\gamma$. Then $\E W^z=\Xi(0)/\Xi(z)$ for $|\Re z|<\gamma_1\approx14.1347$, the characteristic function of $\log W$ is $\xi(1/2)/\xi(1/2+t)$, and $\varphi(s)=\E W^{i\sqrt{s}}$. The variable $W$, not to be confused with the heat trace $W(t)$, exists without RH: $\log W$ has the law of the variable $Z\sqrt{2T}$ of the van Dantzig pair of Section~\ref{ch:clock}, where $Z$ is standard normal and independent of the clock variable $T$, and Theorem~\ref{bs:thm:gpos} proves its existence a second time, with a lower bound for its density. Only the series for $\log W$ needs RH. Biane, Pitman and Yor represent $2\xi$ itself, not its reciprocal, as a Mellin transform, that of $(\pi S_2/2)^{1/2}$ with the variable $S_2$ of Section~\ref{ch:clock}, and Section~\ref{ch:basepoint} describes that Mellin side at every basepoint. Table~\ref{bh:tab:dict} sets out the correspondence between the half Cauchy law and the Riemann Xi function.
+
+\begin{table}[h]
+\centering\small
+\begin{tabular}{@{}lll@{}}
+\toprule
+ & half Cauchy & Riemann\\
+\midrule
+entire function & $\cos(\pi z/2)$ & $\Xi(z)/\Xi(0)$\\
+frequencies & $2k-1$ & $\gamma$\\
+log variable & $\sum_k L_k/(2k-1)$ & $\sum_\gamma L_\gamma/\gamma$\\
+Mellin transform & $\sec(\pi z/2)$ & $\Xi(0)/\Xi(z)$\\
+reciprocal Xi & $\sech(\pi\sqrt{s}/2)$ & $\xi(1/2)/\xi(1/2+\sqrt{s})$\\
+Thorin measure & $\sum_k\delta_{(2k-1)^2}$ & $\sum_\gamma\delta_{\gamma^2}$\\
+exit time & Brownian motion on $(-1,1)$ & Krein string with spectrum $\{\gamma^2\}$\\
+density of the power & HCM iff $|\beta|\ge2$ (Bosch) & HCM only if $|\beta|\ge\gamma_2-\gamma_1$\\
+\bottomrule
+\end{tabular}
+\caption{The dictionary. In the Riemann column the Mellin transform (Section~\ref{ch:clock} and Theorem~\ref{bs:thm:gpos}) and the reciprocal Xi function are unconditional, the log variable and the Thorin measure presume RH, and the exit time, the hitting time of Kent's theorem (Section~\ref{sec:ch18:kent}), presumes RH and simple zeros; Section~\ref{ch:bphit} gives hitting times at the other basepoints. The last entry is the necessary condition of Theorem~\ref{bs:thm:gap}, which assumes RH, simple zeros and a growth condition on $1/|\zeta'(\rho)|$; sufficiency is open (Question~\ref{bs:q:gap}).}
+\label{bh:tab:dict}
+\end{table}
+
+On the Riemann side the analogue of $g_C$ is the density of $\log W$. The function $t\mapsto\xi(1/2)/\xi(1/2+t)$ is defined for all real $t$ without any hypothesis ($\xi$ has no real zeros) and decays like $\exp(-\tfrac12|t|\log|t|)$, so its Fourier inverse
+\[
+g(y)=\frac1\pi\int_0^\infty\frac{\xi(1/2)}{\xi(1/2+t)}\cos(ty)\,dt
+\]
+is an even function with $\int g=1$, entire because the integrand decays faster than any exponential; direct quadrature gives $\int g=0.99996$, which measures the quadrature error. Just as the P\'olya kernel is the Fourier inverse of $\Xi$ on the real axis, $g$ is the Fourier inverse of $\Xi(0)/\Xi(i\,\cdot)$, and $g>0$ unconditionally (Theorem~\ref{bs:thm:gpos}). Under RH, with simple zeros and $\log(1/|\zeta'(\rho_n)|)=O(\gamma_n)$, the residues at the poles $\pm i\gamma_n$ of the integrand give, for $|y|>u_0$ with the constant $u_0\ge\pi/4$ of Theorem~\ref{bs:thm:gap},
+\begin{equation}\label{bh:eq:laplace}
+g(y)=\sum_n\frac{\gamma_n}{2}A_ne^{-\gamma_n|y|},\qquad A_n=\prod_{m\ne n}\Bigl(1-\frac{\gamma_n^2}{\gamma_m^2}\Bigr)^{-1},
+\end{equation}
+the analogue of $g_C(y)=(2/\pi)\sum_k(-1)^{k-1}e^{-(2k-1)|y|}$, which converges for every $y\ne0$ because its coefficients are bounded. The Riemann coefficients $A_1\approx50.9$, $A_2\approx-2664.6$, $A_3\approx31420$ (Appendix~\ref{app:bosch} lists $b_n=\gamma_nA_n/2$) alternate in sign, as the Cauchy coefficients do, but grow roughly like $e^{\pi\gamma_n/4}$ (Theorem~\ref{bs:thm:gap}), so \eqref{bh:eq:laplace} diverges for $|y|<\pi/4$. Three terms match the Fourier integral to relative accuracy $3\times10^{-3}$ at $y=1$ and $1.4\times10^{-4}$ at $y=1.2$.
+
+\subsection{The reciprocal Xi function is HCM if and only if RH holds}\label{bh:sec:main}
+
+Bosch's method works with the singularities of a function and with its logarithmic derivative, so we state Corollary~\ref{cor:hcm}(ii) in four forms. Form (iii) is Proposition~\ref{prop:rigid}, and since $\psi=G'/G$, form (iv) is the Stieltjes form of the Thorin condition in Section~\ref{ch:intro}. A Stieltjes function is a function $a/s+b+\int_{(0,\infty)}\sigma(dt)/(s+t)$ with $a,b\ge0$ and $\sigma$ a nonnegative measure satisfying $\int(1+t)^{-1}\sigma(dt)<\infty$ \cite[Definition 2.1]{boSSV}.
+
+\begin{theorem}\label{bh:thm:main}
+The following are equivalent.
+\begin{enumerate}
+\item[(i)] The Riemann Hypothesis.
+\item[(ii)] $\varphi(s)=\xi(1/2)/\xi(1/2+\sqrt{s})$ is HCM on $(0,\infty)$.
+\item[(iii)] $\varphi$ is the Laplace transform of a GGC, namely $\sum_\gamma e_\gamma/\gamma^2$.
+\item[(iv)] $\psi(s)=-\varphi'(s)/\varphi(s)=\dfrac{1}{2\sqrt{s}}\dfrac{\xi'}{\xi}\bigl(\tfrac12+\sqrt{s}\bigr)$ is a Stieltjes function.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(i) implies (iii): each factor $(1+s/\gamma^2)^{-1}$ is the Laplace transform of an exponential variable with rate $\gamma^2>0$, and the product converges because $\sum\gamma^{-2}<\infty$; the sum $\sum_\gamma e_\gamma/\gamma^2$ converges almost surely. (iii) implies (ii) by (F6). Directly, as in \eqref{eq:hcmprod}, for $c>0$ the pair function of $(1+x/c)^{-1}$ is $(1+uv/c)^{-1}(1+u/(vc))^{-1}=(1+u^2/c^2+(u/c)w)^{-1}$, completely monotone in $w$, and (F3), (F4) finish.
+
+(ii) implies (i): by (F7), $\varphi$ extends analytically to $\C\setminus(-\infty,0]$. Suppose a zero $\gamma$ has $\Im\gamma\ne0$. Since $\Re\gamma>0$ the point $s_0=-\gamma^2$ has $\Im s_0=-2\Re\gamma\,\Im\gamma\ne0$, and its principal square root is $\pm i\gamma$, so $\xi(1/2+\sqrt{s_0})=\Xi(\pm\gamma)=0$ by evenness. Then $\varphi$ has a pole at a nonreal point of $\C\setminus(-\infty,0]$, a contradiction.
+
+(i) is equivalent to (iv): under RH, $\psi(s)=\sum_\gamma 1/(s+\gamma^2)$, a Stieltjes function with measure $\sum_\gamma\delta_{\gamma^2}$. Conversely a Stieltjes function is analytic on $\C\setminus(-\infty,0]$, and an off line zero produces the nonreal pole $s_0$ of $\psi$ found above.
+\end{proof}
+
+Condition (iv) is a Pick function statement: $\Im\psi(s)\le0$ for $\Im s>0$, so $-\psi$ is a Pick function, that is analytic on the upper half plane with nonnegative imaginary part. It is a companion of Lagarias's criterion, RH if and only if $\Re(\xi'/\xi)(s)>0$ for $\Re s>1/2$ \cite{Lagarias}, and it is the pole test of Table~\ref{tab:ch3:diag} in analytic form. To check the formulas we evaluate $\Im\psi$ on 390 points $s=Re^{i\pi j/40}$, $1\le R\le2000$, $1\le j\le39$; the maximum is $-2.9\times10^{-6}<0$. The scan reaches only zeros with $\gamma^2\lesssim2000$, far below existing verifications. We also compare $\psi(s)$ with $\sum_{n\le200}1/(s+\gamma_n^2)$ plus a Riemann von Mangoldt tail, and they agree to about $5\times10^{-6}$ at $s=1,100,1000$.
+
+The de Bruijn Newman flow embeds $\varphi$ in a family of the same kind. Let $\Phi_{\rm dBN}$ and $H_t(z)=\int_0^\infty e^{tu^2}\Phi_{\rm dBN}(u)\cos(zu)\,du$ be as in Section~\ref{ch:dbn}, so that $H_0(z)=\frac18\Xi(z/2)$; in Titchmarsh's variable $v=2u$ of \eqref{eq:ch2:Phi} the Gaussian factor is $e^{tv^2/4}$. Put $\varphi_t(s)=H_t(0)/H_t(2i\sqrt{s})$, the function $R_t$ of Theorem~\ref{rz:thm:dbn}, so that $\varphi_0=\varphi$. The function $H_t$ is even, real on $\R$ and entire of order one, as in the proof of Theorem~\ref{rz:thm:dbn}, so its Hadamard product in $z^2$ converges. It is positive on the imaginary axis, $H_t(iy)=\int_0^\infty e^{tu^2}\Phi_{\rm dBN}(u)\cosh(yu)\,du>0$, since $\Phi_{\rm dBN}(u)=\frac12\Phi(2u)>0$; hence $\varphi_t>0$ on $(0,\infty)$ and no zero of $H_t$ is purely imaginary. With these facts the argument of Theorem~\ref{bh:thm:main} applies verbatim.
+
+\begin{corollary}\label{bh:cor:dbn}
+$\varphi_t$ is HCM if and only if $t\ge\Lambda$, the de Bruijn Newman constant. Hence $\varphi_t$ is HCM for $t\ge0.22$ \cite{Polymath}, $\varphi_t$ is not HCM for $t<0$ \cite{RodgersTao}, and RH holds if and only if $\varphi_t$ is HCM for every $t>0$.
+\end{corollary}
+
+\begin{proof}
+The zeros of $H_t$ are real if and only if $t\ge\Lambda$ (de Bruijn \cite{deBruijn}, Newman \cite{Newman1976}). If RH holds, $H_0$ has only real zeros, so $\Lambda\le0$ and $\varphi_t$ is HCM for every $t>0$. Conversely, $\varphi_t\to\varphi_0$ pointwise as $t\downarrow0$, so if every $\varphi_t$ with $t>0$ is HCM then $\varphi$ is HCM by (F4), and Theorem~\ref{bh:thm:main} gives RH.
+\end{proof}
+
+The bound $\Lambda\le0.2$ of Platt and Trudgian \cite{PT21} (Section~\ref{ch:dbn}) lowers the unconditional threshold from $0.22$ to $0.2$. The reciprocal Xi function, if HCM at all, is HCM with no room to spare, since the property fails for every $t<0$. This is the Riemann counterpart of the boundary $|\beta|=1/(1-\alpha)$ in Bosch's theorem, which is attained; the difference is that Bosch can compute on the boundary because his kernel is explicit.
+
+\subsection{What Bosch's theorem can and cannot supply}\label{bh:sec:use}
+
+Bosch's theorem cannot be the input to a proof of Theorem~\ref{bh:thm:main}. For products the reason is elementary.
+
+\begin{proposition}\label{bh:prop:closure}
+For any positive numbers $c_n$ with $\sum_n c_n^{-1}<\infty$ the function $\prod_n(1+s/c_n)^{-1}$ is HCM. If one $c_n$ is replaced by a pair $c,\bar c$ with $c$ nonreal, the product is still positive on $(0,\infty)$ but is not HCM.
+\end{proposition}
+
+\begin{proof}
+The first claim is the argument for (i) implies (ii) in Theorem~\ref{bh:thm:main}. For the second, $(1+s/c)(1+s/\bar c)=|1+s/c|^2>0$ for real $s$, and the product has a pole at the nonreal point $-c$, contradicting (F7).
+\end{proof}
+
+For a product of this type, HCM is equivalent to the reality of its frequencies. Heuristically, every HCM closure operation carries real frequencies to real frequencies and none creates them: on Mellin transforms, products and quotients of independent variables multiply the transforms, and powers rescale the frequencies. Bosch's theorem lives in the class where the frequency set $\{2k-1\}$ is given, so any deduction of Theorem~\ref{bh:thm:main} from it must import the location of the $\gamma$ from elsewhere.
+
+Nor can the Riemann statement be proved factor by factor. Write $\xi(1/2+\sqrt{s})=\tfrac12(s-\tfrac14)\,\pi^{-(1/2+\sqrt s)/2}\,\Gamma(\tfrac14+\tfrac{\sqrt s}{2})\,\zeta(\tfrac12+\sqrt s)$. The reciprocal factors are not individually HCM. The reciprocal of $\pi^{-(1/2+\sqrt s)/2}$ is $\pi^{1/4}\pi^{\sqrt s/2}$, and the pair function of $\pi^{\sqrt s/2}$ is $\exp(\tfrac12\log\pi\,\sqrt u\,\sqrt{w+2})$, which increases in $w$. The factor $1/\zeta(1/2+\sqrt s)$ changes sign at $s=1/4$, since $\zeta<0$ on $(1/2,1)$, and HCM functions are positive. The positive combination $1/((s-\tfrac14)\zeta(\tfrac12+\sqrt s))$ is continuous at $s=1/4$, and by the argument of Theorem~\ref{bh:thm:main} any HCM statement for it would again imply RH. It is the function to which the $\sech$ expansion of $1/\zeta(\tfrac12+\sqrt s)$ in Theorem~\ref{rz:thm:sech}, built from the M\"obius series and the Lai and Vere-Jones identity \cite{LVJ}, should be applied.
+
+Bosch's theorem is a density statement, and HCM of a density differs from HCM of a Laplace transform: the density of $|C|$ is not HCM, yet $\varphi_C$ is. On the Cauchy side the two levels are linked only because $\sech$ is self dual, its own Fourier transform up to scaling, so that the density $g_C$ of $\log|C|$ and the transform $\varphi_C$ are the same function in different coordinates. On the Riemann side there is no self duality: the density level object is $g$ in \eqref{bh:eq:laplace}, the Fourier inverse of $\Xi(0)/\Xi(i\,\cdot)$, and the function level object is $\varphi$. A Riemann version of Bosch's theorem would answer the following questions.
+
+\begin{question}\label{bh:q:beta}
+The variable $W$, with $\E W^z=\Xi(0)/\Xi(z)$, exists unconditionally (Section~\ref{bh:sec:dict} and Theorem~\ref{bs:thm:gpos}). For which $\beta$ is the density of $W^\beta$ HCM? On the Cauchy side the answer is $|\beta|\ge2$.
+\end{question}
+
+\begin{question}\label{bh:q:single}
+Does HCM of the density of $W^\beta$ for a single $\beta$ imply RH?
+\end{question}
+
+Theorem~\ref{bs:thm:gap} answers Question~\ref{bh:q:beta} in part: under RH, simple zeros and a growth condition on $1/|\zeta'(\rho)|$, the density of $W^\beta$ can be HCM only if $|\beta|\ge\gamma_2-\gamma_1=6.8873$, and Question~\ref{bs:q:gap} asks whether this is also sufficient. At the Cauchy point the same rule gives $3-1=2$, Bosch's threshold.
+
+One might hope that an HCM variable has a logarithm with an EGGC law (Section~\ref{sec:ch3:hierarchy}), which would force the singularities of $\E W^z$, that is the zeros of $\Xi$, onto the real axis. This implication is false in general. The generalised inverse Gaussian law with density proportional to $x^{-1}e^{-(x+1/x)}$ is HCM by (F7), yet its Mellin transform at $z=it$, $K_{it}(2)/K_0(2)$, has real zeros in $t$, the first at $t\approx4.4255$ (by a theorem of P\'olya \cite{Polya}, every zero of $t\mapsto K_{it}(2)$ is real). The characteristic function of its logarithm therefore vanishes, and the logarithm is not infinitely divisible. So density level HCM does not by itself give RH, Bosch's density theorem does not transfer to Theorem~\ref{bh:thm:main} without a new idea, and Question~\ref{bh:q:single} is open.
+
+Three things do transfer. First, the dictionary of Table~\ref{bh:tab:dict} is a solved model in which every quantity (Thorin measure, exit time, Laplace series with alternating coefficients, HCM threshold) is explicit, and it tests any proposed argument: a proof that $\varphi$ is HCM which does not use the values of the frequencies would also prove HCM for $\cos(\pi z/2)$ with frequencies moved off the axis, which is false by Proposition~\ref{bh:prop:closure}. Second, Bosch's technique, verifying HCM through a Pick or Stieltjes representation, is condition (iv), so the Riemann problem is already in the form his method needs. Third, the boundary phenomenon of Corollary~\ref{bh:cor:dbn} gives a target: to show that $\varphi_t$ is HCM for all $t>0$, which by that corollary is equivalent to $\Lambda\le0$, that is, by Rodgers and Tao \cite{RodgersTao}, to $\Lambda=0$.
+
+Bosch's proof places his threshold where zeros of a denominator reach the cut, and the Riemann problem has a threshold of the same kind: the poles of the reciprocal Xi function, rotated by a power, reach the cut when the power exceeds a value set by the angle of the zeros.

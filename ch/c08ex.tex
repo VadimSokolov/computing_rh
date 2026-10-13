@@ -1,0 +1,57 @@
+\section{Exercises}\label{chap:probability:ex}
+
+\paragraph{On Section~\ref{ch:clocklaw}.}
+\begin{exercises}
+\item\label{ex:ch18:residues} Assuming that the zeros are on the critical line and simple, show that the residues of the clock transform at $u=-\gamma_k^2$ are $R_k=2i\gamma_k\xi(\frac12)/\xi'(\frac12+i\gamma_k)$ and that they alternate in sign. (They are the coefficients $c_n$ of Theorem~\ref{bs:thm:nb}.)
+\item\label{ex:ch18:origin} Explain why the spectral expansion of the density diverges at $t=0$ while the Talbot inversion does not, and compare the abscissa of convergence in Theorem~\ref{bs:thm:nb}.
+\item\label{ex:ch18:hazard} Show that the hazard of a finite sum of exponentials with rates $\lambda_1<\lambda_2<\cdots$ tends to $\lambda_1$ and that $h(t)-\lambda_1$ decays like $e^{-(\lambda_2-\lambda_1)t}$.
+\item Sample Williams' variable with $10^5$ draws and estimate $\Xi(5)$; compare the standard error with Table~\ref{tab:ch18:mc}.
+\item\label{ex:ch18:floor} Assume RH, let $\Theta_N$ be the cutoff of Section~\ref{sec:ch18:kent}, and assume that $S(\Theta_N)=0$, as for the values of $N$ used there. Show that $\log G(w)-\log G_N^{\rm W}(w)$ tends to $\ell_N=2\int_{\Theta_N}^\infty S(\gamma)\gamma^{-1}\,d\gamma$ as $w\to\infty$. Then, using Stirling's formula for $\log\xi(\frac12+x)$ as $x\to+\infty$ and $\int_0^\infty\log(1+x^2/t^2)\log\frac t{2\pi}\,dt=\pi x\log\frac x{2\pi}-\pi x$, show that
+\begin{multline*}
+\ell_N=2\sum_{k\le N}\log\gamma_k-\log\xi(\tfrac12)+\tfrac14\log\tfrac\pi2-\frac1\pi\int_0^{\Theta_N}\log t\,\log\frac t{2\pi}\,dt\\
++\frac2\pi\int_{\Theta_N}^\infty\Big(\vartheta'(t)-\frac12\log\frac t{2\pi}\Big)\log t\,dt,
+\end{multline*}
+the terms in $\log x$ cancelling because $\vartheta(\Theta_N)=(N-1)\pi$. So $\ell_N$ is determined by $\gamma_1,\dots,\gamma_N$ and $\xi(\frac12)$.
+\end{exercises}
+
+\paragraph{On Section~\ref{ch:boundaries}.}
+\begin{exercises}
+\item Show that on the parabola $u=\frac12(-q^2+2icq)$ one has $\re\sqrt{c^2+2u}=c$, and hence that every mixture of inverse Gaussian laws with drift $c$ has transform bounded by one there.
+\item Derive the small $q$ expansion $|G(u)|^2=1-q^2(\E T-c^2\mathrm{Var}\,T)+O(q^3)$ on the parabola.
+\item\label{ex:ch19:ig} Show that the hazard of the first passage time of Brownian motion across the line $\alpha+\beta t$, with $\alpha>0$ and $\beta<0$, which has the inverse Gaussian law with drift $|\beta|$, tends to $\beta^2/2$ with correction $3/(2t)$.
+\item Implement the tangent boundary ODE with a different starting time and check that the asymptotic slope is unchanged.
+\item\label{ex:ch19:density} Show that the density $f$ of the clock is continuous and positive on $(0,\infty)$. (The Laplace transform of $T$ equals $1/G$ on $\re u\ge0$, by analytic continuation from $(0,\infty)$ and continuity, so the characteristic function is $1/G(-iy)$; Stirling's formula and the bound $|\zeta(s)|\ge1/\zeta(\re s)$ for $\re s>1$, applied on the rays $\frac12+re^{\pm i\pi/4}$, show that it decays faster than any power of $|y|$. Next, $\log G(u)=o(u)$ as $u\to\infty$, so $P(T<t)>0$ for every $t>0$; $1/G$ has poles, so the law of $T$ has unbounded support; and the law is unimodal by Corollary~\ref{sb:cor:unimodal}, so $f$ itself, which is the derivative of the distribution function at every point, is nondecreasing up to a mode and nonincreasing after it.)
+\end{exercises}
+
+\paragraph{On Section~\ref{ch:li}.}
+\begin{exercises}
+\item Derive formula \eqref{eq:ch20:li} from the derivative representation of $\lambda_n$.
+\item Show that $\lambda_1=\sum_\rho\rho^{-1}=1+\frac{\gamma_E}2-\frac12\log4\pi$, and that under RH $\lambda_1=\sum_{\gamma>0}(\gamma^2+\frac14)^{-1}$.
+\item Show that under RH $\lambda_n=\sum_{\gamma>0}4\sin^2(n\arctan\frac1{2\gamma})$, and that the terms are of order $n^2/\gamma^2$ for $\gamma\gg n$.
+\item\label{ex:ch20:offline} For a hypothetical zero $\rho=\frac12+d+i\gamma$ with $d>0$, show that $|1-1/(1-\bar\rho)|>1$, and estimate the index $n$ at which its contribution would make $\lambda_n$ negative.
+\end{exercises}
+
+\paragraph{On Section~\ref{ch:dbn}.}
+\begin{exercises}
+\item\label{ex:ch21:motion} Show that $H_t$ satisfies $\partial_tH_t=-\partial_z^2H_t$ and derive the equation of motion of a simple zero.
+\item For an isolated pair at distance $D_0$, solve $dD/dt=4/D$ and find the collision time.
+\item Modify the P\'olya evaluator to compute $H_t$ and reproduce Table~\ref{tab:ch21:traj}.
+\item Explain why the collision time of a pair of zeros gives numerical evidence for, but not a proof of, a lower bound on $\Lambda$.
+\end{exercises}
+
+\paragraph{On Section~\ref{sec:dbeta:beta}.}
+\begin{exercises}
+\item Show that $K_4(u)=2e^{3u/2}\eta(ie^{2u})^3$ is even, using $\eta(i/x)=\sqrt x\,\eta(ix)$, and deduce the functional equation $\xi(s,\chi_4)=\xi(1-s,\chi_4)$ from $\xi(\frac12+s,\chi_4)=\int_{\R}K_4(u)e^{su}\,du$.
+\item Show that for real $\sigma>0$ the series $\sum_{n\ge0}(-1)^n(2n+1)^{-\sigma}$ lies between $1-3^{-\sigma}$ and $1$, and deduce that $L(s,\chi_4)$ has no zeros on $(0,1)$ without using the kernel.
+\item For $0<\varepsilon<\delta$ show that $\pi(P_{\varepsilon+\delta}+P_{\varepsilon-\delta})$ integrates over the interval $|x|<\sqrt{\delta^2-\varepsilon^2}$, where it is negative, to $\pi-4\arctan\sqrt{(\delta+\varepsilon)/(\delta-\varepsilon)}$, which lies in $(-\pi,0)$ and tends to $0$ as $\varepsilon/\delta\to0$; this is the bound on the fall of the argument after Corollary~\ref{cor:dbeta:argmono}.
+\item Show that $g(c,u)=2c(3u^2-c^2)/(c^2+u^2)^3$, the second derivative of $c/(c^2+u^2)$ in $u$, has $\partial_cg(c,u)=6(u^4-6c^2u^2+c^4)/(c^2+u^2)^4$, which is positive exactly when $|c|<(\sqrt2-1)|u|$ or $|c|>(\sqrt2+1)|u|$, and deduce that $g(a+\delta,u)+g(a-\delta,u)>0$ for $a,\delta>0$ with $a+\delta<(\sqrt2-1)|u|$, the step for the zeros off the line in the proof of Theorem~\ref{thm:dbeta:minall}(ii).
+\end{exercises}
+
+\paragraph{On Section~\ref{ch:biane}.}
+\begin{exercises}
+\item Show that $1/H$ has the law of $H$ size biased by $H$, for $H=H^{(\sqrt{2\pi})}_{\sqrt{2\pi}}$ with the density of Proposition~\ref{prop:biane:mellin}(i), and deduce $\E H^s=\E H^{1-s}$ without computing the Mellin transform.
+\item Show that $F(x,w)=\exp(-e^x\cosh w)$ satisfies $(\partial_x^2-\partial_w^2-e^{2x})F=0$, and that in the coordinates $X_1=e^x\cosh w$, $X_0=e^x\sinh w$ one has $\partial_x^2-\partial_w^2=e^{2x}(\partial_{X_1}^2-\partial_{X_0}^2)$, so that $F=e^{-X_1}$ solves the Klein Gordon equation of unit mass.
+\item Show that $(1+y)e^{-y}\ge e^{-y^2/2}$ for $y\ge0$, and deduce that each density of Newman's theorem in the proof of Proposition~\ref{prop:biane:lambdaP} is bounded below by $Ku^{2m}\exp(-[\alpha+\sum_j\frac1{2a_j^4}]u^4-\beta u^2)$.
+\item Show that the principal value integral of $\log|s|/(1-s)$ over $\R$, taken with symmetric limits at $\pm\infty$, is $-\frac{\pi^2}2$, and deduce the mean speed $-\frac\pi8$ of the zeros under the flow in Section~\ref{sec:biane:flow} from the density $\frac1{2\pi}\log\frac{|\theta|}{2\pi}$.
+\item For $0<y<\pi$ show, as claimed in Subsection~\ref{sec:biane:cm}, that $\gamma^ne^{-\gamma y}$, for $\gamma\le n/\pi$, is at most $\exp(n(\log\frac y\pi+1-\frac y\pi))$ times its maximum over $\gamma>0$, and evaluate the exponent for $n=10^6$ at $y=1$ and at $y=3$.
+\end{exercises}

@@ -1,0 +1,83 @@
+\section{The P\'olya law}\label{ch:fmpolya}
+
+The P\'olya variable $X$ has the density $p=\Phi/\Xi(0)$, with $\Xi(0)=\xi(\frac12)=0.4971207782$, and $L_X(s)=\xi(\frac12+s)/\xi(\frac12)$ is an entire function of order $1$. Its density decays like $\exp(-\pi e^{2|t|})$, so $X$ has Gaussian moments of all orders, and RH is the statement that $X$ is ferromagnetic; by Theorem~\ref{fm:thm:hadamard}, with $b=0$, it is the product formula $L_X(s)=\prod_k(1+s^2/\gamma_k^2)$ over the positive ordinates. The law is symmetric and unimodal, since $\Phi'(t)<0$ for $t>0$ \cite[Theorem A]{CNV86}. This section checks on $X$ the necessary conditions of Sections~\ref{ch:fmlaws} and~\ref{ch:fminterval}, writes $X$ as a mixture of uniform laws, and proves a limit on the ways in which $X$ could split into independent pieces.
+
+\subsection{Necessary conditions}\label{fm:sec:polyanec}
+
+If $X$ is ferromagnetic, Corollary~\ref{fm:cor:cum} with $c_k=\gamma_k$ gives $\kappa_2=2\sum_k\gamma_k^{-2}$, $\kappa_4=-12\sum_k\gamma_k^{-4}$ and $\kappa_6=240\sum_k\gamma_k^{-6}$. Table~\ref{fm:tab:cum} computes the cumulants by quadrature of the moments of $\Phi$ and from the Taylor coefficients of $\log\xi(\frac12+s)$, and the sums from the first $1700$ ordinates, with the smooth Riemann von Mangoldt count $\frac t{2\pi}\log\frac t{2\pi}-\frac t{2\pi}+\frac78$ beyond the last of them. The signs alternate, as they must for a ferromagnetic law and as they do for the P\'olya law with no hypothesis (Section~\ref{fm:sec:hadamard}). The agreement of the columns is not evidence for RH. The Hadamard product $\xi(\frac12+s)/\xi(\frac12)=\prod_k(1+s^2/\gamma_k^2)$, with one factor for each pair of zeros $\frac12\pm i\gamma_k$, holds with no hypothesis if $\gamma_k$ is allowed to be complex, and it converges absolutely because $\sum_k|\gamma_k|^{-2}<\infty$; it gives the same formulas for the cumulants. So the table checks the computation and the zero list, nothing more.
+
+\begin{table}[htbp]
+\centering\small
+\begin{tabular}{@{}lccc@{}}
+\toprule
+& moments of $\Phi$ & Taylor coefficients of $\log\xi$ & zero sums\\
+\midrule
+$\kappa_2$ & $0.0462099862308$ & $0.0462099862308$ & $0.046209986105$\\
+$\kappa_4$ & $-4.46071191423\times10^{-4}$ & $-4.46071191423\times10^{-4}$ & $-4.46071191423\times10^{-4}$\\
+$\kappa_6$ & $3.46017435362\times10^{-5}$ & $3.46017435362\times10^{-5}$ & $3.46017435362\times10^{-5}$\\
+\bottomrule
+\end{tabular}
+\caption{Even cumulants of the P\'olya law, by quadrature of the moments of $\Phi$, from the Taylor coefficients of $\log\xi(\frac12+s)$, and from the sums $(-1)^{m+1}\frac{(2m)!}m\sum_k\gamma_k^{-2m}$ over the first $1700$ ordinates with the smooth count beyond them. The difference $1.3\times10^{-10}$ in $\kappa_2$ is the error of the smooth count, which ignores the oscillation of $S(t)$ above height $2197$. Computed by \texttt{fm\_polya.py}.}
+\label{fm:tab:cum}
+\end{table}
+
+The moment test of Section~\ref{fm:sec:momenttest} is sharper. For the P\'olya law the scaled moments $b_j=\E X^{2j}/(2j)!$ are the Taylor coefficients of $\Xi$, up to sign and the factor $\Xi(0)$:
+\[
+\frac{\Xi(t)}{\Xi(0)}=\sum_{j\ge0}(-1)^jb_jt^{2j} .
+\]
+In this form \eqref{fm:eq:newton}, $b_j^2\ge(1+\frac1j)b_{j-1}b_{j+1}$, is the system of Tur\'an inequalities for the moments $\int_0^\infty t^{2j}\Phi(t)\,dt$, which Csordas, Norfolk and Varga proved for every $j\ge1$, answering a question of P\'olya \cite{CNV86}. So the P\'olya law passes the moment test with no hypothesis. Table~\ref{fm:tab:newton} shows the margins. They decrease slowly, from $0.150$ at $j=1$ to $0.017$ at $j=24$, while the bound $1+\frac1j$ itself approaches $1$; the Gaussian law, for which $b_j=(\sigma^2/2)^j/j!$, satisfies every inequality with equality.
+
+\begin{table}[htbp]
+\centering\small
+\begin{tabular}{@{}rccc@{}}
+\toprule
+$j$ & $b_j$ & $b_j^2/(b_{j-1}b_{j+1})$ & $1+1/j$\\
+\midrule
+$1$ & $2.3104993\times10^{-2}$ & $2.1496879$ & $2$\\
+$2$ & $2.4833405\times10^{-4}$ & $1.5941155$ & $1.5$\\
+$3$ & $1.6743526\times10^{-6}$ & $1.4057378$ & $1.3333333$\\
+$4$ & $8.0306974\times10^{-9}$ & $1.3100631$ & $1.25$\\
+$5$ & $2.9401358\times10^{-11}$ & $1.2518550$ & $1.2$\\
+$10$ & $1.1310848\times10^{-24}$ & $1.1322525$ & $1.1$\\
+$15$ & $1.7510030\times10^{-39}$ & $1.0907154$ & $1.0666667$\\
+$20$ & $2.9919818\times10^{-55}$ & $1.0693835$ & $1.05$\\
+$24$ & $2.1176410\times10^{-68}$ & $1.0585214$ & $1.0416667$\\
+\bottomrule
+\end{tabular}
+\caption{The moment test \eqref{fm:eq:newton} for the P\'olya law: the scaled moments $b_j=\E X^{2j}/(2j)!$ and the Tur\'an ratios, against the bound $1+\frac1j$ that every ferromagnetic law satisfies. All $24$ computed ratios exceed the bound. Computed by \texttt{fm\_polya.py}.}
+\label{fm:tab:newton}
+\end{table}
+
+The Tur\'an inequalities are the first of a hierarchy. For $d,n\ge0$ let
+\[
+J_{d,n}(x)=\sum_{i=0}^d\binom di(n+i)!\,b_{n+i}\,x^i,
+\]
+the Jensen polynomial of degree $d$ and shift $n$ of the sequence $j!\,b_j$. P\'olya proved that RH holds if and only if every $J_{d,n}$ has only real zeros, and for $d=2$ this is \eqref{fm:eq:newton} with $j=n+1$. Griffin, Ono, Rolen and Zagier proved that for each $d$ all but finitely many of the $J_{d,n}$ have only real zeros, and that all of them do when $d\le8$ \cite{GORZ19}. Each degree is a necessary condition for the P\'olya law to be ferromagnetic, and none of them is known to fail. The shifts make the hierarchy weaker than it looks. With $F(x)=\sum_{j\ge0}b_jx^j$, so that $F(-t^2)=\varphi_X(t)$, the polynomials $J_{d,n}$ with $n$ fixed are the Jensen polynomials of the derivative $F^{(n)}$, and all of them have only real zeros exactly when $F^{(n)}$ is in the Laguerre P\'olya class. For $n\ge1$ that says nothing about the zeros of $\varphi_X$. For the spin one law of Table~\ref{fm:tab:interval} with $q>\frac12$, $F(x)=q+(1-q)\cosh\sqrt x$ and $F'(x)=(1-q)\sinh\sqrt x/(2\sqrt x)$, whose zeros $-k^2\pi^2$ are real, so every $J_{d,n}$ with $n\ge1$ has only real zeros, while $\varphi_X(t)=q+(1-q)\cos t$ has no real zero at all. In the other direction, if $\xi$ had only finitely many zeros off the critical line, then $F$, which has order $\frac12$, would have only finitely many nonreal zeros, and $F^{(n)}$ would be in the Laguerre P\'olya class for every large $n$, by the theorem of Craven, Csordas and Smith on real entire functions of order less than two \cite{CCS87}. So real zeros for every $J_{d,N}$ at one shift $N$ and in every degree would follow from finitely many exceptions to RH, and the spin one law shows that for laws in general they do not imply even that.
+
+A necessary condition of a different kind comes from the correlation inequalities of Section~\ref{fm:sec:def}. Write $\Phi=e^{-F}$. Newman proved that $F'$ is convex on $[0,\infty)$ \cite{Newman91}; in his normalisation $\Xi(x/2)=4\int e^{ixt-V(t)}\,dt$, and $V(t)=F(2t)+\log2$. So the P\'olya law belongs to the class of Ellis, Monroe and Newman, and every ferromagnet whose single spins are independent copies of $X$ satisfies the Griffiths, Hurst and Sherman inequality \cite{EMN76}. For one spin that inequality says that the magnetisation $(\log L_X)'(s)$ is concave for $s\ge0$, which gives $\kappa_4\le0$, a weak form of the alternation of Section~\ref{fm:sec:hadamard}. Membership in this class gives the correlation inequalities, not the Lee and Yang property, and it does not decide RH; Newman's paper discusses how the two properties are related. For illustration, $F''(0)=18.72690493$ and $F''''(0)=143.0149378$. On the grid $u=j/40$, $1\le j\le160$, $F'''$ is positive, with its smallest value $3.57$ at the first point, where $F'''(u)\approx F''''(0)u$; it is $185.0$ at $u=1$ and $7.49\times10^4$ at $u=4$, close to the value $8\pi e^{2u}$ of the leading term of $F(u)=\pi e^{2u}-\frac92u-\log4\pi^2+O(e^{-2u})$ (computed by \texttt{fm\_polya.py}).
+
+\subsection{A mixture of uniform laws}\label{fm:sec:polyamix}
+
+Since $p$ is symmetric and unimodal, Khinchine's theorem of Section~\ref{fm:sec:khinchine} writes $X\overset d=UR$, with $R$ independent of $U$ and with the density $h(r)=-2rp'(r)=-2r\Phi'(r)/\Xi(0)$ on $(0,\infty)$. Since $\E|X|^m=\E R^m/(m+1)$, the mixing variable has $\E R=2\E|X|=0.3464543599$ and $\E R^2=3\operatorname{Var}X=0.1386299587$. Integrating by parts as in \eqref{fm:eq:sine}, now on the half line,
+\[
+z\,\varphi_X(z)=2\int_0^\infty\big(-p'(u)\big)\sin(zu)\,du,
+\]
+so RH says that the sine transform of the positive function $-\Phi'$ on $(0,\infty)$ has only real zeros. The shape of this slope is that of neither part of Theorem~\ref{fm:thm:shoulder}. Since $p''=p\,(F'^2-F'')$, the density is concave near the origin, where $p''(0)=-F''(0)p(0)=-33.65$, and convex for large $u$, where $F'^2/F''\to\infty$. So the slope $-p'$ rises from $0$ and then falls back to $0$. On a bounded support, a slope that rises gives only real zeros, by P\'olya's theorem, and one that falls, and is not constant on the support, gives zeros off the real line, by Theorem~\ref{fm:thm:shoulder}(ii); the slope of the P\'olya law does both, and RH is the statement that it still gives only real zeros. The damped densities, proportional to $e^{tu^2/4}\Phi(u)$ with $t<0$, are symmetric and unimodal too, hence mixtures of uniform laws, and they are mixtures of arcsine laws as well (Proposition~\ref{pk:prop:arcsine}), while their transforms have nonreal zeros, so neither mixture can decide RH by itself (Section~\ref{pk:sec:filter}).
+
+The mixture does not discretise well. Replacing $R$ by $J$ equally weighted atoms at its quantiles $r_j$ of order $(j-\frac12)/J$ gives the characteristic function $\varphi_J(z)=J^{-1}\sum_j\sin(r_jz)/(r_jz)$. For $J=5$ it has $17$ zeros in the rectangle $(0.25,100)\times(-30,30)$, of which only $7$ are real, and for $J=20$ only $3$ of $19$ are real, while $\varphi_X$ has $29$ zeros in $(0,100)$, all real (computed by \texttt{fm\_polya.py}). As Theorem~\ref{fm:thm:atom} suggests, mixing in the $R$ variable destroys the property easily, although not always: the mixture of the uniform laws on $[-1,1]$ and $[-3,3]$ with weights $\frac14$ and $\frac34$ has characteristic function $\frac14\frac{\sin z}z+\frac34\frac{\sin3z}{3z}=\frac{\sin2z}{2z}\cos z$, and it is the law of $2U+\varepsilon$, which is ferromagnetic. The approximations of Section~\ref{ch:fmapprox} are built on the Fourier side instead.
+
+\subsection{No component with finitely many zeros}\label{fm:sec:nosqrt}
+
+A sum of independent ferromagnetic variables is ferromagnetic (Section~\ref{fm:sec:closure}), and one might hope to reach the P\'olya law, or to approximate it, as such a sum of simple pieces. The growth of $L_X$ rules out most pieces.
+
+\begin{theorem}\label{fm:thm:nosqrt}
+Let $X$ be a symmetric random variable with $\E e^{sX}<\infty$ for every real $s$ and $\log\E e^{sX}=o(s^2)$ as $s\to\infty$, and let $X\overset d=D+R$ with $D$ and $R$ independent. Then $\log\E e^{sD}=o(s^2)$ as $|s|\to\infty$. In particular, if $D$ is ferromagnetic and not $0$, then $b=0$ in its Hadamard form \eqref{fm:eq:had}, and its characteristic function has infinitely many zeros. The P\'olya law satisfies the hypothesis, so it has no Gaussian component, and it is not a finite or convergent infinite sum of independent ferromagnetic variables of which one is not $0$ and has finitely many zeros.
+\end{theorem}
+
+\begin{proof}
+By independence $\E e^{sX}=\E e^{sD}\,\E e^{sR}$, and both factors are finite because the product is. Jensen's inequality gives $\E e^{sR}\ge e^{s\E R}$, and $\E R=-\E D$ because $\E X=0$. So $\log\E e^{sD}\le\log\E e^{sX}+s\E D$, and the right side is $o(s^2)$ as $s\to\pm\infty$, by the symmetry of $X$. If $D$ is ferromagnetic, $\E e^{sD}=e^{bs^2}\prod_k(1+s^2/c_k^2)\ge e^{bs^2}$, so $b=0$. If moreover there are finitely many zeros, then $\varphi_D(t)=\prod_{k\le K}(1-t^2/c_k^2)$ is a polynomial bounded on the real line, hence constant, so $K=0$ and $D=0$. For the P\'olya law, $\log\E e^{sX}=\log\xi(\frac12+s)-\log\xi(\frac12)=O(s\log s)$, since $\xi$ has order $1$. A summand of an almost surely convergent sum of independent variables is an independent component of the sum.
+\end{proof}
+
+The theorem needs no hypothesis, and it says something about every approximation scheme. The laws of Section~\ref{ch:fmapprox} that keep the first $K$ zeros of $\varphi_X$ exactly carry a Gaussian factor, so none of them is a component of the P\'olya law. If RH holds they approach it in law, along every sequence of $K$ for which they are probability densities (Theorem~\ref{fm:thm:zc}(iii)), but not as partial sums of a decomposition; without RH they do not approach it at all, since a weak limit of ferromagnetic laws is ferromagnetic (Theorem~\ref{fm:thm:closed}). If RH holds, any decomposition of $X$ into independent ferromagnetic pieces splits the ordinates into infinite sets, each the zero set of a characteristic function $\prod_k(1-t^2/c_k^2)$ with no Gaussian factor, like those of the uniform law, the fair sign and the symmetric beta laws in Table~\ref{fm:tab:examples}.
+
+The simplest such splitting would be a Vi\`ete product $L_X(s)=\prod_j\cosh(a_js)$, which would write $X=\sum_ja_j\varepsilon_j$ as a sum of independent scaled fair signs, a member of the Griffiths Simon class with uncoupled spins, as the uniform law is by Vi\`ete's formula. The zeros of $\cosh(a_js)$ are $\pm i(m-\frac12)\pi/a_j$, $m\ge1$, so the ordinates would split into arithmetic progressions, and three consecutive terms of a progression satisfy $\gamma-2\gamma'+\gamma''=0$. The hypothesis that the positive ordinates are linearly independent over the rationals, which Ingham used in his work on the Mertens conjecture \cite{Ingham42}, forbids such a relation. Under that hypothesis the P\'olya law is not a sum of independent scaled fair signs, and if it belongs to the Griffiths Simon class at all, the spins must be coupled. Section~\ref{ch:fmopen} returns to this question.

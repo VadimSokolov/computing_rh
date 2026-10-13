@@ -1,0 +1,29 @@
+\section{Exercises}\label{chap:evaluation:ex}
+
+\paragraph{On Section~\ref{ch:polya}.}
+\begin{exercises}
+\item\label{ex:ch4:trapezoid} Let $f$ be analytic in a strip containing $|\im u|\le\eta$, with $\int_{\R}|f(x\pm i\eta)|\,dx\le M$ and $f(u)\to0$ uniformly as $|\re u|\to\infty$ in $|\im u|\le\eta$. Prove that $|\int_{\R}f(u)\,du-h\sum_jf(jh)|\le2M/(e^{2\pi\eta/h}-1)$ by writing the error as the sum of the integrals, from left to right, of $f(u)(e^{-2\pi iu/h}-1)^{-1}$ along $\im u=\eta$ and of $f(u)(e^{2\pi iu/h}-1)^{-1}$ along $\im u=-\eta$ \cite[Theorem 5.1]{TW14}. Deduce the bound of Section~\ref{sec:ch4:trapezoid}.
+\item\label{ex:ch4:alias} Let $g(x)=\Phi(x+i\eta)e^{\varepsilon x}$ with $\eta=\pi/4-\delta$ and $\varepsilon\ge0$, and $I(t)=\int_{\R}g(x)e^{itx}\,dx$. Show by Poisson summation that $h\sum_{j\in\mathbb Z}g(jh)e^{i\theta jh}-I(\theta)=\sum_{k\ne0}I(\theta+2\pi k/h)$. For $0<a<\delta$, $0<b<\pi/2-\delta$ and $0<\theta<2\pi/h$, shift the line of integration up by $a$ when $k\ge1$ and down by $b$ when $k\le-1$ to bound the error by $Ae^{-a\theta}/(e^{2\pi a/h}-1)+Be^{b\theta}/(e^{2\pi b/h}-1)$, where $A$ and $B$ are the suprema of $\int_{\R}|g(x+iy)|\,dx$ over $0\le y\le a$ and over $-b\le y\le0$. Derive \eqref{eq:ch4:tiltcond} from $|I(t)|=e^{\eta t}|\xi(\tfrac12+\varepsilon+it)|$ and Stirling's formula.
+\item Using the formulas in the caption of Table~\ref{tab:ch4:budget}, estimate the number of bits the untilted route needs at height $2000$ for twenty digits, and compare with the tilted route at $\delta=0.02$.
+\item Show that on the tilted line $\im u=\eta$ the factor $e^{su}$ with $s=\varepsilon+i\theta$ has modulus $e^{\varepsilon x-\theta\eta}$. Explain why the prefactor $e^{i\eta s}$ carries all of the exponential decay of $\xi$ except the factor $e^{-\delta\theta}$, and where that factor comes from.
+\item\label{ex:ch4:double} Implement the two polynomial evaluator in double precision and find the height at which it first returns the wrong sign of $\Xi$.
+\item\label{ex:ch4:horner} Show that in midpoint radius arithmetic, with a complex number stored as a real and an imaginary ball, multiplication by an exact $w=|w|e^{i\varphi}$ rotates the midpoint and maps real and imaginary radii $r$ to $|w|(|\cos\varphi|+|\sin\varphi|)\,r$, up to rounding. Use this to explain why Horner's rule loses ball accuracy on the tilted line but not on the untilted line.
+\item Use the tilted route to compute $\Xi(1000)$ and check its sign against $Z(1000)$ from the Riemann Siegel formula, with $Z$ as in Section~\ref{ch:classical} and $\Xi(t)=-\tfrac12\big(t^2+\tfrac14\big)\pi^{-1/4}|\Gamma(\tfrac14+\tfrac12it)|\,Z(t)$.
+\end{exercises}
+
+\paragraph{On Section~\ref{ch:classical}.}
+\begin{exercises}
+\item Compute the Gram points $g_0,\dots,g_{20}$ and check Gram's law for them; find the first Gram interval that contains no zero (it lies beyond $g_{100}$).
+\item Show that $N(T)=\vartheta(T)/\pi+1+S(T)$ follows from the argument principle applied to $\xi$ on a rectangle.
+\item Explain why a close pair of zeros that falls inside one Gram interval produces no sign change there, and how Turing's method detects that zeros are missing.
+\item\label{ex:ch5:cauchy} Prove that $P_\varepsilon(x-g/2)+P_\varepsilon(x+g/2)$ has a single maximum if $g\le2\varepsilon/\sqrt3$ and two maxima if $g>2\varepsilon/\sqrt3$, and estimate how the other zeros near height $7005$ shift the threshold $0.033$ for the Lehmer pair.
+\item Estimate the cost of counting zeros to height $10^4$ by the Thorin mass at resolution $\frac12$ with the tilted route, including the growth of the number of nodes with height, and compare with the Riemann Siegel count.
+\end{exercises}
+
+\paragraph{On Section~\ref{ch:worked}.}
+\begin{exercises}
+\item Compute $\Phi(0)$ with two, three, four and five terms of the series and explain the number of correct digits in each case.
+\item Repeat step three with $h=1/5$, $1/10$ and $1/20$ and plot $\log_{10}$ of the error against $1/h$. Show by Poisson summation that the error of the untruncated sum is exactly $2\sum_{k\ge1}\Xi(2\pi k/h)$, and confirm that it falls like $e^{-\pi^2/(2h)}$, the rate set by the strip half width $\pi/4$, up to slowly varying factors.
+\item Compute $\rho_{0.1}(\gamma_1)-1/(0.1\pi)$ directly as a sum over the first $1700$ zeros with the smooth tail model of Section~\ref{ch:distances}, and compare with step four.
+\item\label{ex:ch5b:mass} Predict $M_{0.1}(20)-1$ from the first order formula of Proposition~\ref{prop:mass}, with $\Xi'(20)/\Xi(20)$ computed by the evaluator of step four, and compare with step five.
+\end{exercises}

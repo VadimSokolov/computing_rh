@@ -1,0 +1,395 @@
+\section{The heat trace and the hierarchy of positivity}\label{ch:heat}
+
+The rungs of the hierarchy proved unconditionally are infinite divisibility and self decomposability of the clock, log convexity of $W$, positive definite Hankel blocks up to size $3\times10^7$, the signs of all derivatives, equivalently the positivity of the Williamson measures, up to order $1.16\times10^{25}$, and near the origin the signs of every derivative: $W$ is completely monotone on $(0,1.29]$. One scheme proves them all, with a reach in size and order set by the height to which RH has been verified; no verification reaches the top, which is where Section~\ref{ch:finite} begins. The gamma mixing identity behind the Williamson measures also describes the tail of the P\'olya kernel. The results are from \cite[Chapters 4 and 5]{P26} and \cite{P17}, except those stated without a citation, which are proved here.
+
+\subsection{The heat trace and the first rungs}
+
+By Section~\ref{ch:clock}, unconditionally,
+\[
+\log G(u)=\int_0^\infty\big(1-e^{-ut}\big)\frac{W(t)}t\,dt,\qquad W(t)=\sum_je^{-a_jt},
+\]
+where $a_j=-(\rho_j-\frac12)^2$ and the sum runs over one zero of each pair $\{\rho,1-\rho\}$. So $W(t)/t$ is the only candidate for the L\'evy density of the clock, and the classes of Section~\ref{ch:ggc} become conditions on $W$: nonnegativity for infinite divisibility, monotonicity for self decomposability, complete monotonicity for the GGC property.
+
+The function $W$ is analytic in $\re t>0$, real on the positive axis, and can be differentiated term by term,
+\[
+c_k(t)=(-1)^kW^{(k)}(t)=\sum_ja_j^ke^{-a_jt}.
+\]
+Under RH every $c_k(t)$ is a sum of positive terms. A quadruple of zeros $\frac12\pm\delta\pm i\gamma$, $0<\delta<\frac12$, instead contributes the exponents $a=-(\delta+i\gamma)^2=\gamma^2-\delta^2-2i\delta\gamma$ and $\bar a$, hence the oscillating term $2|a|^ke^{-\re a\,t}\cos(2\delta\gamma t-k\phi)$, with $|a|=\gamma^2+\delta^2$ and $\tan\phi=2\delta\gamma/(\gamma^2-\delta^2)$. Its amplitude exceeds the contribution $2\gamma^{2k}e^{-\gamma^2t}$ of the same two zeros placed at $\frac12+i\gamma$ by the factor $(1+\delta^2/\gamma^2)^ke^{\delta^2t}\le\exp\{k\delta^2/\gamma^2+\delta^2t\}$ \cite[Proposition 11.1]{P17}.
+
+The proofs use $W$ differently at the two ends of the half line. As $t\downarrow0$ the archimedean term of \eqref{eq:ch2:Warith} dominates,
+\[
+W(t)=\frac{\log(1/t)-\log(16\pi^2)-\gamma_E}{8\sqrt{\pi t}}+\frac78+o(1),
+\]
+where $\gamma_E$ is Euler's constant and $\frac78$ is the constant of the Riemann von Mangoldt formula; at $t=10^{-3},10^{-4},10^{-5}$ the error of this two term expansion is $6.5\times10^{-4}$, $1.5\times10^{-4}$ and $4.0\times10^{-5}$ \cite[Corollary 5.5]{P17}. As $t\to\infty$ the first zero dominates, $W(t)=e^{-\gamma_1^2t}(1+o(1))$ with $\gamma_1^2=199.7904548$, and the relative contribution of the next zero is $e^{-(\gamma_2^2-\gamma_1^2)t}=e^{-242.1t}$. In between, the arithmetic terms cancel to a depth that grows linearly in $t$ (Table~\ref{tab:ch2:W}).
+
+\begin{theorem}[{\cite[Theorem A]{P26}}]\label{thm:ch12:idsd}
+Unconditionally, that is, using only the verification of RH below height $1000$ \cite{PT21}, $W(t)>0$ and $W'(t)<0$ for every $t>0$. Consequently the clock is the Laplace transform of an infinitely divisible, self decomposable law with L\'evy density $W(t)/t$, and $(\Xi(\theta)/\Xi(0),\ \xi(\frac12)/\xi(\frac12+\theta))$ is a van Dantzig pair in the sense of Section~\ref{ch:clock}.
+\end{theorem}
+
+\begin{proof}
+The proof is that of \cite[Theorem A]{P26}, with the constants made explicit. Let $\tau=1/20000$, a constant of this section only, $\ell=-\frac12\log t$, and $s_k(t)=\Gamma(k+\frac12)t^{-k-\frac12}/(4\pi)$, which is $(-1)^k$ times the $k$th derivative of $s_0(t)=1/(4\sqrt{\pi t})$. It suffices to show that $c_0$ and $c_1$ are positive, and we do so first for $t\le\tau$, from \eqref{eq:ch2:Warith}, and then for $t\ge\tau$, from the zeros.
+
+Let $A$ and $P$ be the archimedean and prime terms of \eqref{eq:ch2:Warith}. The series $\psi(z)=-\gamma_E+\sum_{n\ge0}\big(\frac1{n+1}-\frac1{n+z}\big)$ \cite[(5.7.6)]{DLMF} shows that $m$ increases on $[0,\infty)$, from $m(0)=\psi(\frac14)-\log\pi=-\gamma_E-\frac\pi2-3\log2-\log\pi=-5.372$. Binet's formula $\psi(z)=\log z-\frac1{2z}-2\int_0^\infty v\,dv/\big((v^2+z^2)(e^{2\pi v}-1)\big)$ \cite[(5.9.15)]{DLMF} at $z=\frac14+\frac{ir}2$, with the integral split at $v=r/4$, gives $|m(r)-\log\frac r{2\pi}|\le\frac9{8r^2}+10^{-10}<0.003$ for $r\ge20$. Hence $|m|\le6$ on $[0,20]$ and $\int_0^{20}|m(r)-\log\frac r{2\pi}|\,dr\le120+4\pi+20\log\frac{10}\pi-20<136$. Since $\frac1{2\pi}\int_0^\infty r^{2k}e^{-r^2t}\log\frac r{2\pi}\,dr=s_k(t)(\ell+\alpha_k)$, with $\alpha_0=-\frac12\gamma_E-\log4\pi=-2.8196$ and $\alpha_1=\alpha_0+1$, it follows that
+\[
+\Big|\frac{(-1)^kA^{(k)}(t)}{s_k(t)}-\ell-\alpha_k\Big|\le\frac{272\cdot20^{2k}\,t^{k+\frac12}}{\Gamma(k+\frac12)}+0.003\qquad(k=0,1),
+\]
+and the right side, which increases with $t$, is below $1.089$ for $k=0$ and $0.047$ for $k=1$ at $t=\tau$. For the prime term put $y_n=(\log n)^2/4t$ and $q=(\log2)/8t$. Both $e^{-y_n}$ and $|y_n-\frac12|e^{-y_n}$ are at most $e^{-y_n/2}$, which is at most $n^{-q}$ because $(\log n)^2\ge(\log2)\log n$, and $\Lambda(n)\le\log n<\sqrt n$; so $|P^{(k)}(t)|\le(2\sqrt\pi)^{-1}t^{-k-\frac12}\sum_{n\ge2}n^{-q}<t^{-k-\frac12}2^{-q}$, that is $|P^{(k)}(t)|<t^{-k-\frac12}e^{-\kappa/t}$ for $k=0,1$ and $t\le\tau$, where $\kappa=(\log2)^2/8$ is another constant of this section. Since $\kappa/\tau>1201$, this is below $10^{-500}s_k(t)$. The polar term adds $e^{t/4}$ to $c_0$ and subtracts $\frac14e^{t/4}<10^{-5}s_1(t)$ from $c_1$. So for $t\le\tau$
+\[
+c_0(t)\ge s_0(t)\,(\ell-3.92),\qquad c_1(t)\ge s_1(t)\,(\ell-1.87),
+\]
+and both are positive, because $\ell\ge\frac12\log20000>4.95$.
+
+For $t\ge\tau$ we use the zeros. Those below height $1000$ lie on the line \cite{PT21} and contribute $\gamma^{2k}e^{-\gamma^2t}>0$ to $c_k$, and by the explicit bound for $N(T)$ of \cite{HSW22} one of them lies in $(20,50]$ and contributes at least $400^ke^{-2500t}$. A zero above height $1000$, wherever it lies, has $\re a\ge\gamma^2-\frac14$ and $|a|\le2\gamma^2$. The same bound gives $N(r)\le r^2$ for $r\ge1000$, and integration by parts against $dN$ bounds the total modulus of the contributions of these zeros to $c_0$ and $c_1$ by
+\[
+H_0(t)=e^{-(10^6-\frac14)t}\big(10^6+t^{-1}\big),\qquad H_1(t)=2e^{-(10^6-\frac14)t}\big(10^{12}+2\cdot10^6t^{-1}+2t^{-2}\big).
+\]
+At $t=\tau$ these are below $2\times10^{-16}$ and $4.1\times10^{-10}$, while $e^{-2500\tau}>0.88$, and $e^{2500t}H_k(t)$ decreases with $t$. So $c_k(t)\ge400^ke^{-2500t}-H_k(t)>0$ for $t\ge\tau$ and $k=0,1$.
+
+Thus $W>0$ and $W'<0$ on $(0,\infty)$. Since $0<W(t)\le\sum_je^{-t\re a_j}$, the measure $W(t)\,dt/t$ satisfies $\int_0^\infty(1\wedge t)\,W(t)\,dt/t\le\sum_j1/\re a_j<\infty$, so it is a L\'evy measure, and the formula for $\log G$ above makes the clock infinitely divisible with this L\'evy measure. A law on the half line whose L\'evy density is $W(t)/t$ with $W$ nonincreasing is self decomposable \cite[Corollary 15.11]{Sato99}. Finally, $\xi(\frac12)/\xi(\frac12+\theta)=\E e^{-\theta^2T}$ is the characteristic function of $Z\sqrt{2T}$, with $Z$ standard normal and independent of $T$, and with the characteristic function $\Xi(\theta)/\Xi(0)$ of the variable $X$ of Section~\ref{ch:clock} it forms a van Dantzig pair. The program \texttt{idsd\_check.py} (Appendix~\ref{app:code}) evaluates every numerical inequality of this proof in ball arithmetic.
+\end{proof}
+
+The proof needs far fewer zeros than those below height $1000$. With the same bounds it goes through with $\tau=1/8300$ and the zeros below height $400$. If the archimedean error is bounded by computation instead, from $\int_0^5r^{2k}|m(r)-\log\frac r{2\pi}|\,dr<0.836$ and $0.404$ for $k=0,1$ and $r^2|m(r)-\log\frac r{2\pi}|<0.05$ for $r\ge5$, it goes through with $\tau=1/500$ and height $100$. If in addition the polar term $e^{t/4}$ is kept in $c_0$, the prime terms with $n\le30$ are taken exactly, and the lower bound for $t\ge\tau$ comes from the first zero, in $(14.1347,14.1348)$, rather than from a zero in $(20,50]$, it goes through with $\tau=1/50$ and height $25$, below which there are only two zeros. The program \texttt{idsd\_height.py} evaluates every numerical inequality of the three versions in ball arithmetic.
+
+The same scheme, which we call the two range method, gives more. With the prime term bounded by $100\,t^{-k-\frac12}e^{-\kappa/t}$ for $k\le3$ and a second zero in $(100,200]$, it shows that $W$ and $-W'$ are strictly log convex \cite[Theorem 7.3]{P17}, that is $c_0c_2>c_1^2$ and $c_1c_3>c_2^2$ for every $t>0$, and that $(-1)^kW^{(k)}>0$ for $k\le3$; the proofs of Theorems~\ref{rz:thm:id} and \ref{rz:thm:nmono} use it again.
+
+For the first two rungs the explicit formula can be avoided altogether, because where the size of an off line quadruple cannot be bounded its phase fixes its sign, as the first author's note \cite{P26wig} observes. Suppose that the zeros with ordinate in $(0,H]$ lie on the line, with $H\ge100$, and let $0\le k\le H/8$. A quadruple $\frac12\pm\delta\pm i\gamma$ then has $\gamma>H$, and since $0<\phi<2\delta/\gamma<1/\gamma$ its phase satisfies $|2\delta\gamma t-k\phi|<\gamma t+1$, so its term in $c_k(t)$ is positive unless $\gamma t>\frac\pi2-1>0.57$. When $\gamma t>0.57$ the term is at most $2(\gamma^2+\frac14)^ke^{-(\gamma^2-\frac14)t}$ in modulus, and since $(\gamma^2+\frac14)/\gamma_1^2\le\gamma^2/99.9$, $\gamma^2-\frac14-\gamma_1^2\ge\gamma^2/2$ and $\gamma^2t/2>0.285\gamma$, it is at most $2(\gamma^2/99.9)^ke^{-0.285\gamma}$ times the term $\gamma_1^{2k}e^{-\gamma_1^2t}$ of the first zero. A quadruple has two zeros of ordinate $\gamma$, so at every $t>0$
+\[
+c_k(t)\ge\big(1-S_k(H)\big)\gamma_1^{2k}e^{-\gamma_1^2t},\qquad S_k(H)=\sum_{\gamma>H}\Big(\frac{\gamma^2}{99.9}\Big)^ke^{-0.285\gamma},
+\]
+the sum running over the zeros above height $H$, with multiplicity. The explicit bound for $N(T)$ of \cite{HSW22} gives $N(T+1)-N(T)<2\log T$ for $T\ge100$, and summing over unit intervals gives $S_0(100)<10^{-10.5}$ and $S_1(100)<10^{-8.5}$. Since Hutchinson placed the zeros below height $300$ on the line in 1925 \cite{Hutchinson25}, this proves Theorem~\ref{thm:ch12:idsd} without the explicit formula. For larger $k$ the factor $(\gamma^2/99.9)^k$ must be absorbed by $e^{-0.285\gamma}$ at $\gamma=H$, so the reachable order, about $0.285H/\log(H^2/99.9)$, stays below the height: the verification below $3\times10^{12}$ \cite{PT21} gives every $k\le10^{10}$, with $S_k(H)<10^{-1.4\times10^{11}}$. The two range method reaches orders proportional to $H^2$ (Theorems~\ref{thm:ch12:cm} and \ref{thm:ch12:window}), because the explicit formula covers $t\le\tau$ at every order and beyond $\tau$ the factor $e^{-\gamma^2\tau}$ beats $\gamma^{2k}$ up to orders of size $\tau H^2$. The program \texttt{ladder\_bound.py} evaluates these bounds in ball arithmetic.
+
+Positivity of $W$ also limits how the clock factorises. By Mase's theorem \cite[Theorems 1 and 2]{Mase75}, an infinitely divisible law without Gaussian component whose L\'evy measure has a density that is positive on the whole half line, or that has mass on both half lines, has an indecomposable factor, hence a factor that is not infinitely divisible, so it lies outside Linnik's class $I_0$ \cite{Linnik64} of the infinitely divisible laws all of whose factors are infinitely divisible. Since $W>0$, this applies unconditionally to the clock variable $T$, to $Z\sqrt{2T}$ with $Z$ standard normal and independent of $T$, whose characteristic function $\xi(\frac12)/\xi(\frac12+\theta)$ is the second member of the van Dantzig pair (Section~\ref{ch:strip} extends this normal scale mixture to every basepoint, Proposition~\ref{sm:prop:cf}), and to every nondegenerate GGC \cite[Proposition 12.1]{P17}. The clock has many factorisations into infinitely divisible laws, one for each splitting of $W$ into two positive functions, but arguments that need every factor to be infinitely divisible, such as those for the normal and Poisson laws, do not apply to it. Section~\ref{ch:sato} draws two further consequences of $W>0$ and $W'<0$: by Yamazato's theorem \cite{Yamazato78} the clock variable is unimodal, and as a self decomposable law it is driven by a subordinator with L\'evy density $-W'$.
+
+\subsection{Hankel blocks and derivative signs}
+
+Complete monotonicity concerns every derivative at every time; its Hankel form needs one time. Fix $t>0$ and form the Hankel matrices $[c_{i+j}(t)]$ and $[c_{i+j+1}(t)]$, $i,j\ge0$.
+
+\begin{theorem}[{\cite[Theorem 7.1]{P17}}]\label{thm:ch12:hankel}
+For any fixed $t>0$ the following are equivalent: both infinite Hankel matrices are positive semidefinite; Weil's quadratic form is positive semidefinite on the span of $r^me^{-r^2t/2}$, $m=0,1,2,\dots$; RH.
+\end{theorem}
+
+Under RH the derivatives at one time are the moments of the positive measure $e^{-tz}U(dz)$ on the half line, so both matrices are positive semidefinite. Conversely, if both Hankel matrices are positive semidefinite, Stieltjes' theorem makes the $c_k(t)$ the moments of a positive measure $\mu$ on the half line, and since $\sum_kc_k(t)(-s)^k/k!=W(t+s)$ for $|s|<t$, $W(t+s)=\int e^{-sx}\mu(dx)$ there. Both sides are analytic in $\re s>-t$, the right side because $\int e^{|s|x}\mu(dx)=\sum_kc_k(t)|s|^k/k!=W(t-|s|)<\infty$ for $|s|<t$, so the identity theorem extends the equality to $\re s>-t$, and $W$ is completely monotone, which is RH. Through the explicit formula, Weil's form on the span of $r^me^{-r^2t/2}$ gives the same two matrices, even $m$ the first and odd $m$ the second. The signs of all derivatives at all times are thus concentrated at one time.
+
+The finite blocks are theorems up to a size set by the verification height.
+
+\begin{theorem}[{\cite[Theorem 7.4]{P17}}]\label{thm:ch12:blocks}
+If all zeros below $T_N=20000N\sqrt{1+\log N}$ are on the line, the leading $N\times N$ blocks are positive definite at every $t>0$. The verification to height $3\times10^{12}$ \cite{PT21} gives this for every $N\le3\times10^7$.
+\end{theorem}
+
+Table~\ref{tab:ch12:hankel} shows normalised leading minors recomputed in sixty digit arithmetic from the first $1700$ zeros, whose ordinates are stored in double precision; they agree with \cite[Numerical observation 7.2]{P17} to every digit printed there.
+
+\begin{table}[htbp]
+\centering\small
+\begin{tabular}{rllllll}
+\toprule
+$t$ & $c_0c_2/c_1^2$ & $N=2$ & $N=3$ & $N=4$ & $N=5$ & block\\
+\midrule
+0.01 & 1.1346548 & 0.119 & $2.45\times10^{-3}$ & $1.05\times10^{-5}$ & $1.04\times10^{-8}$ & even\\
+0.01 & & 0.182 & $5.87\times10^{-3}$ & $3.30\times10^{-5}$ & $4.57\times10^{-8}$ & odd\\
+0.05 & 1.0000081 & $8.11\times10^{-6}$ & $1.77\times10^{-14}$ & $5.35\times10^{-28}$ & $2.20\times10^{-44}$ & even\\
+0.05 & & $1.79\times10^{-5}$ & $1.22\times10^{-13}$ & $1.71\times10^{-26}$ & $3.81\times10^{-42}$ & odd\\
+\bottomrule
+\end{tabular}
+\caption{Normalised leading Hankel minors of the heat trace, $\det[c_{i+j}]_{i,j<N}/\allowbreak\prod_{i<N}c_{2i}$ for the even block and $\det[c_{i+j+1}]_{i,j<N}/\allowbreak\prod_{i<N}c_{2i+1}$ for the odd block, from the first $1700$ zeros in sixty digit arithmetic.}
+\label{tab:ch12:hankel}
+\end{table}
+
+At $t=0.01$ the minors are comfortably positive. At $t=0.05$ the minors of the even block fall like $10^{-5}$, $10^{-14}$, $10^{-27}$, $10^{-44}$, and those of the odd block like $10^{-5}$, $10^{-13}$, $10^{-26}$, $10^{-41}$ (Figure~\ref{fig:ch12:hankel}, left): the first exponents dominate and the others enter only through $e^{-(a_j-a_1)t}$, so the matrix is nearly of rank one. Computed from the zeros, the minors are still sums of positive terms, by the Cauchy Binet formula $\det[c_{i+j}]_{i,j<N}=\sum_{|S|=N}\prod_{l\in S}e^{-a_lt}\prod_{l<l',\ l,l'\in S}(a_l-a_{l'})^2$ over the sets $S$ of $N$ zeros, so what is lost is conditioning, not sign. Computed from the arithmetic side, this loss comes on top of the cancellation of Table~\ref{tab:ch2:W}; together the two effects are why the heat trace diagnostics of Table~\ref{tab:ch3:diag} certify easily and discriminate poorly. The derivative signs (Figure~\ref{fig:ch12:hankel}, right) reach much further, because a sign needs only that the verified terms dominate, not that a small determinant stay positive.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{fig/hankel.pdf}
+\caption{Left: normalised Hankel minors of the heat trace at two times; positivity persists but falls below any fixed precision as $t$ grows. Right: the first six $(-1)^kW^{(k)}(t)$, divided by their values at $t=0.005$, from $1700$ zeros.}
+\label{fig:ch12:hankel}
+\end{figure}
+
+\begin{theorem}[{\cite[Theorem 7.10]{P17}}]\label{thm:ch12:cm}
+Unconditionally, that is, using only the verification of RH below height $10^{12}$ \cite{PT21}, $(-1)^kW^{(k)}(t)>0$ for every $t>0$ and every integer $0\le k\le10^{17}$.
+\end{theorem}
+
+The proof again splits at $\tau$. Near the origin, Cauchy's estimate on a circle about $t$ of radius close to $t$, such as $(1-\frac1{k+1})t$, on which $\re(1/z)\ge1/(2t)$ and $|z|\ge t/(k+1)$, bounds the $k$th derivative of the prime term by a multiple of $(k+1)\Gamma(k+\frac12)t^{-k-\frac12}e^{-\kappa/t}$. Against $s_k(t)$ this loses a factor of order $k$ and gains $e^{-\kappa/t}\le e^{-1201}$, and for $k\ge1$ the archimedean term dominates by a margin of more than $2.9\,s_k(t)$, the case $k=0$ being Theorem~\ref{thm:ch12:idsd}. Away from the origin a zero in $(20,50]$ dominates all zeros above the verified height $H=10^{12}$, wherever they lie, provided $tH^2\ge2(k+1)$ and a logarithmic condition hold; Section~\ref{sec:ch12:reach} explains why these allow orders up to about $10^{18}$, and how a dominating zero that follows the peak of the weight removes the logarithmic condition and reaches every order up to $1.16\times10^{25}$ (Theorem~\ref{thm:ch12:window}).
+
+The Stieltjes moments of Table~\ref{tab:ch3:diag} give a Hankel test at the other end of the heat trace, and the test also returns the zeros \cite{P26wig}. They are the moments of $W$, $m_n=\frac1{n!}\int_0^\infty t^nW(t)\,dt=\sum_ja_j^{-n-1}$, and since $\log G(u)=\sum_j\log(1+u/a_j)=\sum_{n\ge1}(-1)^{n+1}m_{n-1}u^n/n$ they follow from the Taylor coefficients of $G(u)=\Xi(i\sqrt u)/\Xi(0)=\sum_kM_ku^k/((2k)!\,M_0)$, where $M_k=\int_\R v^{2k}\Phi(v)\,dv$; no zero enters. Under RH the $m_n$ are the moments of the positive measure $\nu=\sum_ja_j^{-1}\delta_{1/a_j}$, so every Hankel matrix $\mathcal H_N=[m_{i+j}]_{i,j<N}$ is positive definite. Conversely, if all of them are, Hamburger's theorem makes the $m_n$ the moments of a positive measure, of compact support because $|m_n|\le\sum_j|a_j|^{-n-1}$ grows at most geometrically, and then $\sum_nm_nw^n=\sum_j1/(a_j-w)$ has all its poles on the real axis: every $a_j$ is real, and positive because $\xi$ has no zeros in $(0,1)$, which is RH. The shifted matrices $\mathcal H'_N=[m_{i+j+1}]_{i,j<N}$ give the same test. Stieltjes' criterion for a measure on $[0,\infty)$ asks for both families, but here either suffices alone: if every $\mathcal H'_N$ is positive definite, Hamburger's theorem applied to $(m_{n+1})$ and $\sum_nm_nw^n=m_0+w\sum_nm_{n+1}w^n$ give the same conclusion. Under RH, $\nu$ is supported in $[0,\gamma_1^{-2}]$, so its moment problem is a determinate Hausdorff problem. Positivity is tested by the Cholesky factorisation $\mathcal H_N=LL^\top$, and the factor gives more: $J_N=L^{-1}\mathcal H'_NL^{-\top}$ is the Jacobi matrix of $\nu$, tridiagonal, and its eigenvalues are the nodes of the $N$ point Gauss rule for $\nu$. They approximate the largest atoms $1/a_j$ first, so their inverse square roots return the lowest ordinates (Table~\ref{tab:ch12:jacobi}). With $M_0,\dots,M_{100}$ computed at $1000$ digits by the trapezoid rule, every $\mathcal H_N$ up to order $50$ is positive definite, and $J_{50}$ returns $\gamma_1,\dots,\gamma_{22}$ to within $10^{-7}$ and $\gamma_1$ to $171$ digits.
+
+\begin{table}[htbp]
+\centering\small
+\begin{tabular}{rrllll}
+\toprule
+$N$ & zeros & error of $\gamma_1$ & last error & $\det\mathcal H_N/\det\mathcal H_{N-1}$ & digits\\
+\midrule
+$10$ & $2$ & $4.4\times10^{-18}$ & $1.3\times10^{-9}$ & $2.0\times10^{-61}$ & $60$\\
+$20$ & $7$ & $1.6\times10^{-49}$ & $3.1\times10^{-7}$ & $1.2\times10^{-138}$ & $140$\\
+$30$ & $12$ & $8.6\times10^{-87}$ & $2.4\times10^{-7}$ & $1.0\times10^{-221}$ & $230$\\
+$40$ & $17$ & $6.1\times10^{-128}$ & $5.4\times10^{-8}$ & $1.3\times10^{-308}$ & $310$\\
+$50$ & $22$ & $5.3\times10^{-172}$ & $5.4\times10^{-8}$ & $1.4\times10^{-398}$ & $400$\\
+\bottomrule
+\end{tabular}
+\caption{The lowest ordinates from the Stieltjes moments $m_0,\dots,m_{2N-1}$, computed from the Taylor coefficients of $\Xi$ at the centre: the number returned by the Jacobi matrix of order $N$ to within $10^{-6}$, the errors of the first and of the last of them, the last Cholesky pivot of $\mathcal H_N$, and the least number of digits, in steps of $10$, of the Taylor coefficients and of the arithmetic from which on the same ordinates are returned.}
+\label{tab:ch12:jacobi}
+\end{table}
+
+This is Gauss quadrature, equivalently Pad\'e approximation of $G'/G$ at the origin, and Table~\ref{tab:ch12:jacobi} shows its two limits. The first is precision. The last Cholesky pivot $\det\mathcal H_N/\det\mathcal H_{N-1}$ falls from $10^{-61}$ at $N=10$ to $10^{-398}$ at $N=50$, and the computation must resolve it: with the Taylor coefficients rounded to $D$ digits and $D$ digit arithmetic, $J_N$ returns its ordinates only from about that many digits on. The precision thus grows linearly, by about $17$ digits for each further zero, and the method suits the lowest zeros, not high ones. The second is reach. An off line quadruple at height $\gamma$ enters $m_n$ with weight of order $\gamma^{-2n-2}$, against $\gamma_1^{-2n-2}$ for the first zero, so a block of order $N$ sees essentially only the zeros that its Gauss rule resolves; Section~\ref{sec:ch21:hankel} shows this along the de Bruijn Newman flow, where the order $30$ test registers the collision of the pair just above the zeros it resolves, and not a collision higher up. The program \texttt{jacobi\_zeros.py} computes the table.
+
+The Hankel matrices count the zeros off the line as well as test RH. For a real polynomial this is a theorem attributed to Hermite \cite{Hermite1856}: the Hankel form of the power sums of the roots has as many negative squares as the polynomial has distinct pairs of nonreal roots. Let $\iota_N$ and $\iota'_N$ be the numbers of negative eigenvalues of $\mathcal H_N$ and $\mathcal H'_N$.
+
+\begin{theorem}\label{thm:ch12:inertia}
+Let $K\in\{0,1,2,\dots\}\cup\{\infty\}$ be the number of distinct zeros $\rho$ of $\xi$ with $\re\rho>\frac12$ and $\im\rho>0$. Then $\iota_N$ and $\iota'_N$ are nondecreasing in $N$, $\iota_N\le K$ and $\iota'_N\le K$ for every $N$, and $\iota_N\to K$ and $\iota'_N\to K$ as $N\to\infty$. In particular RH holds if and only if $\iota_N=0$ for every $N$, and if it fails, $\iota_N\ge1$ from some $N$ on; the same holds for $\iota'_N$.
+\end{theorem}
+
+\begin{proof}
+Put $b_k=1/a_k$, listed with multiplicity, so that $m_n=\sum_kb_k^{n+1}$ and $\sum_k|b_k|<\infty$. For a real vector $x=(x_0,\dots,x_{N-1})$ and $P(w)=\sum_ix_iw^i$,
+\[
+x^\top\mathcal H_Nx=\sum_kb_kP(b_k)^2,\qquad x^\top\mathcal H'_Nx=\sum_kb_k^2P(b_k)^2,
+\]
+the sums converging absolutely. A zero on the line gives $b_k=\gamma_k^{-2}>0$ and nonnegative terms. A zero $\rho=\frac12+\delta+i\gamma$ with $\delta>0$ and $\gamma>0$, of multiplicity $\mu$, gives $a=-(\delta+i\gamma)^2$ with $\im a=-2\delta\gamma<0$, hence $b=1/a$ with $\im b>0$; its mirror image $1-\bar\rho$ gives $\bar a$ and $\bar b$ with the same multiplicity, and since $P$ has real coefficients the two contribute $2\mu\re\big(bP(b)^2\big)$ to the first form. With $u=\re P(b)$ and $v=\im P(b)$ this is $2\mu\big(\re b\,(u^2-v^2)-2\im b\,uv\big)$, a quadratic form in $(u,v)$ whose matrix has determinant $-4\mu^2|b|^2<0$, so it has exactly one negative square, and composed with the linear map $x\mapsto(u,v)$ it has at most one. The terms of the zeros on the line add up to a positive semidefinite form, and the negative index of a sum of forms is at most the sum of their negative indices, so $\iota_N\le K$. In the second form the weight is $b^2$, and $2\mu\re\big(b^2P(b)^2\big)$ is again a form in $(u,v)$ of determinant $-4\mu^2|b|^4<0$, so $\iota'_N\le K$. Since $\mathcal H_N$ is the leading principal submatrix of $\mathcal H_{N+1}$, Cauchy's interlacing theorem shows that $\iota_N$ does not decrease, and the same holds for $\iota'_N$.
+
+For the lower bound let $\mathcal B$ be the closure of $\{b_k\}$. It is a countable compact set, symmetric under conjugation, whose only possible accumulation point is $0$, and a countable compact set does not separate the plane, so $\C\setminus\mathcal B$ is connected. Fix a finite $m\le K$ and distinct atoms $\omega_1,\dots,\omega_m$ with $\im\omega_j>0$, of multiplicities $\mu_j$; they are isolated points of $\mathcal B$. On $\C^m=\R^{2m}$ the form $q(y)=\sum_{j\le m}2\mu_j\re(\omega_jy_j^2)$ is a sum of $m$ forms in the pairs $(\re y_j,\im y_j)$, each with one negative square, so there are an $m$ dimensional real subspace $E$ and $\lambda_0>0$ with $q(y)\le-\lambda_0|y|^2$ on $E$. Let $y^{(1)},\dots,y^{(m)}$ be a basis of $E$ and $\lambda_1>0$ such that $|\sum_i\alpha_iy^{(i)}|^2\ge\lambda_1|\alpha|^2$ for $\alpha\in\R^m$. Take open discs $D_j$ about $\omega_j$, and their mirror images $D_j^*$ about $\bar\omega_j$, whose closures are disjoint and meet $\mathcal B$ only in their centres, and an open set $O\supset\mathcal B\setminus\{\omega_1,\bar\omega_1,\dots,\omega_m,\bar\omega_m\}$, symmetric under conjugation and disjoint from the closed discs, which exists because that set is compact. Let $f_i$ be $y^{(i)}_j$ on $D_j$, $\overline{y^{(i)}_j}$ on $D_j^*$ and $0$ on $O$. Each $f_i$ is holomorphic on a neighbourhood of $\mathcal B$, so by Runge's theorem there are polynomials $\tilde P_i$ with $|\tilde P_i-f_i|<\varepsilon$ on $\mathcal B$, and since $\mathcal B$ and $f_i$ are symmetric under conjugation, $P_i(w)=\frac12\big(\tilde P_i(w)+\overline{\tilde P_i(\bar w)}\big)$ has real coefficients and satisfies the same bound. For $\alpha\in\R^m$ and $P=\sum_i\alpha_iP_i$ we have $|P(b_k)|\le\varepsilon\sqrt m\,|\alpha|$ at every atom other than the $\omega_j$ and $\bar\omega_j$, and $P(\omega_j)=\sum_i\alpha_iy^{(i)}_j+\eta_j$ with $|\eta_j|\le\varepsilon\sqrt m\,|\alpha|$. The atoms $\omega_j$ and $\bar\omega_j$ contribute $\sum_j2\mu_j\re\big(\omega_jP(\omega_j)^2\big)$ to the first form, so for $\varepsilon\le1$ and a constant $C$ that depends on neither $\varepsilon$ nor $\alpha$,
+\[
+\sum_kb_kP(b_k)^2\le q\Big(\sum_i\alpha_iy^{(i)}\Big)+C\varepsilon|\alpha|^2\le-(\lambda_0\lambda_1-C\varepsilon)|\alpha|^2 .
+\]
+For $\varepsilon<\lambda_0\lambda_1/C$ the right side is negative for $\alpha\ne0$, so the coefficient vectors of $P_1,\dots,P_m$ span an $m$ dimensional space on which the form of $\mathcal H_N$ is negative definite as soon as $N$ exceeds their degrees, and $\iota_N\ge m$ for those $N$. For $\mathcal H'_N$ the same argument applies with $\omega_j^2$ in place of $\omega_j$ in $q$ and the weights $b_k^2$ in the sum. Since $m\le K$ is arbitrary, $\iota_N\to K$ and $\iota'_N\to K$.
+\end{proof}
+
+In determinant form the theorem is classical. For a real entire function of order one with zeros $z_j$, Grommer \cite{Grommer14} proved that all its zeros are real if and only if the determinants $D_n=\det(s_{i+j})_{i,j<n}$ of the power sums $s_k=\sum_jz_j^{-k-2}$ are positive for every $n\ge1$, and Chebotarev \cite{Chebotarev28} that if the sequence $D_{n-1}D_n$, $n\ge1$, with $D_0=1$, has exactly $m$ negative terms, the function has $m$ distinct pairs of complex conjugate zeros; Baricz and \v{S}tampach state both in this form \cite[Theorem 10]{BS18} and note that Grommer's theorem extends one on polynomials attributed to Hermite. For $\Xi$, whose zeros are the square roots of the $a_k$, $s_{2l}=2m_l$ and $s_{2l+1}=0$, so after the even indices are put first $(s_{i+j})_{i,j<n}$ is block diagonal with the blocks $2\mathcal H_{\lceil n/2\rceil}$ and $2\mathcal H'_{\lfloor n/2\rfloor}$, whose negative indices add up to $\iota_{\lceil n/2\rceil}+\iota'_{\lfloor n/2\rfloor}$; this tends to $2K$, and each zero $\rho$ counted by $K$ gives two pairs of complex conjugate zeros of $\Xi$, as Chebotarev's count requires. Counting by eigenvalues rather than by the signs of determinants, Theorem~\ref{thm:ch12:inertia} needs no determinant to be nonzero, allows $K=\infty$ and holds for each family separately. The count is exact in the limit but slow, for the reason of the reach limit above. Along the de Bruijn Newman flow the proof applies at every time to the zeros of $H_t$, none of which is purely imaginary, and there a pair that starts at $(\gamma_k,\gamma_{k+1})$ is seen soon after its collision only from order about $2k+2$, and from lower orders as it moves away from the axis (Section~\ref{sec:ch21:hankel}).
+
+\subsection{Every order near the origin}\label{sec:ch12:allorders}
+
+Theorem~\ref{thm:ch12:cm} gives finitely many orders at every time. Near the origin the arithmetic side gives every order. Let $s_k(t)=\Gamma(k+\frac12)t^{-k-\frac12}/(4\pi)$ as in the proof of Theorem~\ref{thm:ch12:idsd}, let $E_k(t)$ be the average of $m$ against the weight $r^{2k}e^{-r^2t}$ on $[0,\infty)$, and let $F_k(x)={}_1F_1(k+\frac12;\frac12;-x^2)$. Expanding the cosine in its power series gives $\frac1{2\pi}\int_{\R}r^{2k}e^{-r^2t}\cos(ry)\,dr=2s_k(t)F_k(y/2\sqrt t)$, whose case $k=0$ is the kernel $e^{-y^2/4t}/(2\sqrt{\pi t})$ of the prime term of \eqref{eq:ch2:Warith}. Differentiating \eqref{eq:ch2:Warith} $k$ times term by term, which the Gaussian factors in $r$ and in $\log n$ allow, therefore gives, with no hypothesis on the zeros,
+\begin{equation}\label{eq:ch12:ckarith}
+\frac{c_k(t)}{s_k(t)}=E_k(t)-2\sum_{n\ge2}\frac{\Lambda(n)}{\sqrt n}F_k(x_n)+\frac{(-\frac14)^ke^{t/4}}{s_k(t)},\qquad x_n=\frac{\log n}{2\sqrt t}.
+\end{equation}
+At $t=0.018$ the two sides agree to twelve digits for $k=1$, $3$ and $10$, with $c_k$ summed over the first $1700$ zeros and the prime terms over $n\le10^4$. In \eqref{eq:ch12:ckarith} the archimedean term $E_k(t)$ grows with $k$, while the next lemma bounds each $F_k(x_n)$ by $B(x_n)e^{-x_n^2/2}=B(x_n)e^{-(\log n)^2/8t}$, uniformly in $k$; this is why the arithmetic side reaches every order.
+
+\begin{lemma}\label{lem:ch12:hermite}
+\textup{(a)} For every integer $k\ge0$ and every $x\ge0$, $|F_k(x)|\le B(x)e^{-x^2/2}$, where $B(x)=\max\{2.62,\ (\pi(2ex^2+\frac12))^{1/4}\}$.
+
+\textup{(b)} Let $0<\varepsilon<1$, and let $k\ge1$ and $x\ge0$ satisfy $e^2x^2\le4\varepsilon k$. Then $|F_k(x)|\le C_\varepsilon(k)e^{-x^2/2}$, where $C_\varepsilon(k)=\sqrt{(k+0.37)/((1-\varepsilon)k+\frac14)}+2\sqrt{k+0.37}\,e^{-\varepsilon k}$.
+\end{lemma}
+
+\begin{proof}
+Taking $t=1$ and $y=2x$ above, $F_k(x)=\Gamma(k+\frac12)^{-1}\int_{\R}r^{2k}e^{-r^2+2ixr}\,dr$. Put $\mu=x^2/4$. The integrand is entire and decays in every horizontal strip, so the path can be moved to $\im r=x/2$, where $|r^{2k}|=(\sigma^2+\mu)^k$, $|e^{-r^2}|=e^{-\sigma^2+\mu}$ and $|e^{2ixr}|=e^{-4\mu}$, with $\sigma=\re r$. Expanding $(\sigma^2+\mu)^k$ by the binomial theorem gives, for every $k$ and $x$,
+\[
+|F_k(x)|\le e^{-3\mu}\sum_{j=0}^k\frac{\mu^j}{j!}P_{k,j},\qquad P_{k,j}=\frac{\Gamma(k+1)}{\Gamma(k+\frac12)}\,\frac{\Gamma(k-j+\frac12)}{\Gamma(k-j+1)}.
+\]
+Kershaw's inequalities $\sqrt{y+\frac14}\le\Gamma(y+1)/\Gamma(y+\frac12)\le\sqrt{y+0.37}$, proved for $y>0$ in \cite{Kershaw83} and true at $y=0$, where the ratio is $1/\sqrt\pi$, give $P_{k,j}\le\sqrt{(k+0.37)/(k-j+\frac14)}$, which is less than $\sqrt2$ for $j\le k/2$ and at most $2\sqrt{k+0.37}$ for every $j$. For (a), suppose first that $k\ge2ex^2$. Since $k/2\ge4e\mu$, Chernoff's bound $\sum_{j\ge a}\mu^j/j!\le(e\mu/a)^a$ for the Poisson law, valid for $a>\mu$, gives $\sum_{j\ge k/2}\mu^j/j!\le(2e\mu/k)^{k/2}\le2^{-k}$, and $2\sqrt{k+0.37}\,2^{-k}\le\sqrt{1.37}<1.2$ for $k\ge1$. Hence $|F_k(x)|\le e^{-3\mu}(\sqrt2\,e^\mu+1.2)\le(\sqrt2+1.2)e^{-x^2/2}$, and $\sqrt2+1.2<2.62$; for $k=0$ the assumption forces $x=0$, where $F_0=1$.
+
+Suppose now that $k<2ex^2$. Kummer's transformation and the Hermite case of ${}_1F_1$ \cite[(13.2.39), (13.6.16)]{DLMF} give $F_k(x)=e^{-x^2}{}_1F_1(-k;\frac12;x^2)=(-1)^k\frac{k!}{(2k)!}e^{-x^2}H_{2k}(x)$, and the bound $e^{-x^2/2}|H_n(x)|\le(2^nn!)^{1/2}$ \cite[(18.14.9)]{DLMF} gives
+\[
+|F_k(x)|\le\Big(\frac{4^k(k!)^2}{(2k)!}\Big)^{1/2}e^{-x^2/2}\le\big(\pi(k+\tfrac12)\big)^{1/4}e^{-x^2/2}<\big(\pi(2ex^2+\tfrac12)\big)^{1/4}e^{-x^2/2},
+\]
+since $4^k(k!)^2/(2k)!=\sqrt\pi\,\Gamma(k+1)/\Gamma(k+\frac12)\le\sqrt{\pi(k+\frac12)}$ by Kershaw's upper bound.
+
+For (b), split the sum at $j=\varepsilon k$ instead. For $j\le\varepsilon k$, $P_{k,j}\le\sqrt{(k+0.37)/((1-\varepsilon)k+\frac14)}$, and these $j$ contribute at most that times $e^\mu$. For $j>\varepsilon k$, $P_{k,j}\le2\sqrt{k+0.37}$, and since $\varepsilon k\ge e^2\mu>\mu$, Chernoff's bound gives $\sum_{j\ge\varepsilon k}\mu^j/j!\le(e\mu/\varepsilon k)^{\varepsilon k}\le e^{-\varepsilon k}$. Hence $|F_k(x)|\le e^{-3\mu}\big(\sqrt{(k+0.37)/((1-\varepsilon)k+\frac14)}\,e^\mu+2\sqrt{k+0.37}\,e^{-\varepsilon k}\big)\le C_\varepsilon(k)e^{-x^2/2}$.
+\end{proof}
+
+\begin{theorem}\label{thm:ch12:cmint}
+\textup{(a)} For every integer $k\ge1$ and every $t\in(0,0.019]$, $(-1)^kW^{(k)}(t)>0$. The proof uses no information on the zeros.
+
+\textup{(b)} Unconditionally, that is, using only the verification of RH below height $10^{12}$ \cite{PT21}, $W$ is completely monotone on $(0,1.29]$: $(-1)^kW^{(k)}(t)>0$ for every $t\in(0,1.29]$ and every integer $k\ge0$.
+\end{theorem}
+
+\begin{proof}
+By \eqref{eq:ch12:ckarith} and Lemma~\ref{lem:ch12:hermite}(a), for every $k\ge0$ and $t>0$,
+\[
+\frac{c_k(t)}{s_k(t)}\ge E_k(t)-S_B(t)-Q_k(t),
+\]
+where
+\[
+S_B(t)=2\sum_{n\ge2}\frac{\Lambda(n)}{\sqrt n}B(x_n)e^{-(\log n)^2/8t},\qquad Q_k(t)=\frac{4\pi e^{t/4}t^{k+\frac12}}{4^k\,\Gamma(k+\frac12)}.
+\]
+Above the order $K=10^{17}$ part (b) of the lemma does better. Take $\varepsilon=10^{-6}$. The first term of $C_\varepsilon(k)$ decreases in $k$, because $\frac14<0.37(1-\varepsilon)$, and the second decreases for $k>1/(2\varepsilon)$, so $C_\varepsilon(k)\le C=C_\varepsilon(K+1)<1+6\times10^{-7}$ for $k>K$, and $e^2x^2\le4\varepsilon k$ holds for $x\le2\sqrt{\varepsilon(K+1)}/e$, which exceeds $2.3\times10^5$. For $t\ge0.019$ every prime power $n\le2^{24}$ has $x_n<61$. So for $k>K$ and $t\ge0.019$ the bound holds with $S_B$ replaced by $S_C$, the sum $S_B$ with $B(x_n)$ replaced by $C$ for $n\le2^{24}$.
+
+The three terms are monotone. Since $m$ increases on $[0,\infty)$, and the weights $r^{2k}e^{-r^2t}$ have likelihood ratios $r^2$ from $k$ to $k+1$ and $e^{r^2(t'-t)}$ from $t'$ to $t<t'$, both increasing in $r$, $E_k(t)$ increases in $k$ and decreases in $t$. $Q_k(t)$ increases in $t$, and for $t\le2$ it decreases in $k$, the ratio of consecutive terms being $t/(4k+2)$. $B(x)e^{-x^2/2}$ decreases on $(0,\infty)$: the second branch of $B$ increases and is $1.78$ at $x=2^{-1/2}$, so $B=2.62$ below that point, and above it the logarithmic derivative of the second branch times $e^{-x^2/2}$ is less than $1/(2x)-x<0$; since $x_n$ decreases in $t$, $S_B$ and $S_C$ increase in $t$. So for $k\ge k_0$ and $t\le T\le2$ each bound is at least its value at $(k_0,T)$, and it suffices to prove $E_1(0.019)-S_B(0.019)-Q_1(0.019)>0$, which gives (a), and $E_{K+1}(1.29)-S_C(1.29)-Q_{K+1}(1.29)>0$, which gives the orders $k>K$ on $[0.019,1.29]$; with (a) for $t\le0.019$ and Theorem~\ref{thm:ch12:cm} for the orders $k\le K$, this gives (b).
+
+For the first, lower sums over $[0,64]$, which the monotonicity of $m$ allows, and the positivity of $m$ beyond $64$ give $E_1(0.019)>0.15924$; the prime powers $n\le30000$ and the tail bound below give $S_B(0.019)<0.13628$; and $Q_1(0.019)<0.00933$. For the second, the weight $r^{2K+2}e^{-r^2t}$ makes $v=r^2t$ a gamma variable of shape $\lambda=K+\frac32$, and Chernoff's bound for the gamma law, $\Pr(v<a)\le(a/\lambda)^\lambda e^{\lambda-a}$ for $a<\lambda$, gives $\Pr(v<a)<e^{-1000}$ for $a=(1-2^{-13})^2\lambda$. As $m$ increases, $E_{K+1}(t)\ge m(r_1)-(m(r_1)-m(0))e^{-1000}$ with $r_1=\sqrt{a/t}$, which gives $E_{K+1}(1.29)>17.6066$; the prime powers $n\le2^{24}$ and the tail bound below give $S_C(1.29)<17.5848$; and $Q_{K+1}(1.29)<e^{-1000}$. In both cases the prime powers above the cutoff $n_0$, which is $30000$ and $2^{24}$, add less than $2\big(2.62+2.08(2\sqrt t)^{-1/2}\big)n_0^{1-q}/(q-1)$ with $q=\log n_0/8t$, because $x_n\ge x_{n_0}\ge1$ and $e^{-(\log n)^2/8t}\le n^{-q}$ for $n>n_0$, $B(x)\le2.62+2.08\sqrt x$ for $x\ge1$, and $\log n$ and $(\log n)^{3/2}$ are at most $\sqrt n$ for $n\ge e^{10}$; this is below $10^{-299}$ and $5\times10^{-4}$. The program \texttt{cm\_orders.py} evaluates every numerical inequality of this proof and of the proof of Lemma~\ref{lem:ch12:hermite} in ball arithmetic.
+\end{proof}
+
+Part (a) uses the arithmetic side alone. Part (b) uses the verified zeros only through Theorem~\ref{thm:ch12:cm}, so, like that theorem, it holds wherever the zeros above height $10^{12}$ lie. The two theorems are complementary: Theorem~\ref{thm:ch12:cm} gives finitely many orders at every time and Theorem~\ref{thm:ch12:cmint} every order up to a finite time, while RH is every order at every time. Computed in floating point, the bound $E_1-S_B-Q_1$ of (a) is $0.83$ at $t=0.005$, $0.21$ at $t=0.015$ and $0.014$ at $t=0.019$, and it vanishes at $t=0.0193$; $E_1$ itself vanishes at $t=0.0261$, so no bound on the size of the prime terms carries (a) much further. Part (b) goes further because $E_k(t)=\frac12(\psi(k+\frac12)-\log t)-\log2\pi+O(t/k)$ grows like $\frac12\log k$, while at such orders part (b) of the lemma bounds the prime terms at almost no cost: the bound $E_{K+1}-S_C$, computed in the same way, is $17.9$ at $t=0.1$, $12.5$ at $t=0.5$ and $5.2$ at $t=1$, and it vanishes at $t=1.2912$, while $E_{K+1}-S_B$ vanishes at $t=0.578$.
+
+The ray of Section~\ref{sec:ch12:ray} shows what the proof uses. On the ray $t=k/u^2$, $e^{-f_0}c_k(t)$ is to leading order the Gaussian smoothing $\mathcal G(u,t)$ of the zeros (Proposition~\ref{prop:ch12:ray}), $E_k(t)$ is close to $\log(u/2\pi)$, and for large $k$ the factor $F_k(x_n)$ is close to $e^{-(\log n)^2/8t}\cos(u\log n)$. The proof is therefore the bound of Section~\ref{ch:lessons} that ignores the phases of the primes, made uniform in the order; with $C$ replaced by one, $S_C$ is twice the sum $S$ of that section, up to the prime powers above $2^{24}$. Above the order $10^{17}$ uniformity costs a factor below $1+6\times10^{-7}$, so $1.2912$, the root of $E_{K+1}(t)=2S(t)$, is as far as this argument can carry (b) with $K=10^{17}$: it bounds the prime terms by one envelope for all orders above $K$, and the archimedean term by its value at the order $K+1$. A bound that ignores the phases but treats the orders separately is not covered by this limit. At low orders it costs the factor $B\ge2.62$ of part (a), and part (a) is not sharp: on a grid of $0.5\le x\le20$ and $k\le1200$ the ratio $|F_k(x)|e^{x^2/2}/B(x)$ is at most $0.44$, and for $5\le x\le30$ the maximum of $|F_k(x)|e^{x^2/2}$ over $k\le4000$ lies between $0.80x^{1/3}$ and $0.88x^{1/3}$, attained near the turning point $k\approx x^2/4$ of the Hermite function (computed). The ray also says where (b) looks. To leading order, complete monotonicity on $(0,T]$ asks for positive Gaussian smoothings at resolutions $1/(2\sqrt t)$ of at least $1/(2\sqrt T)$, which is $0.44$ for $T=1.29$, finer than the $0.46$ at which the quadruples of Table~\ref{tab:ch13:first}, at distance $\frac14$ from the line, first make the smoothing negative, at $t=1.18$. There is no conflict, because the orders above $10^{17}$ at $t\le1.29$ lie on the rays at heights $u=\sqrt{k/t}>2.78\times10^8$, where the time $t_0(u)$ of Section~\ref{ch:lessons}, below which the phase free bound makes the smoothing positive whatever the zeros, exceeds $1.29$. The quadruples lie below height $2000$, at heights where $t_0$ is at most $0.511$, and there (b) rests on the verified zeros, through Theorem~\ref{thm:ch12:cm}.
+
+\subsection{Williamson measures: the Thorin measure smoothed by gamma laws}\label{sec:ch12:kmono}
+
+Complete monotonicity is the limit of $k$ monotonicity, which asks only that the first $k$ derivatives alternate in sign, and by Williamson's theorem \cite{Williamson} a $k$ monotone function that vanishes at infinity is a positive mixture of the truncated powers $(1-tz/k)_+^{k-1}$. For the heat trace the mixing measure is explicit,
+\[
+W(t)=\int_0^\infty\Big(1-\frac{tz}k\Big)_+^{k-1}U_k(dz),\qquad U_k(dz)=\frac{k^k}{(k-1)!}z^{-k-1}c_k\Big(\frac kz\Big)dz,
+\]
+and we call $U_k$ the Williamson measure of order $k$. By Theorem~\ref{thm:ch12:cm} it is positive for every $k\le10^{17}$ \cite[Corollary 7.13]{P17}, and by Theorem~\ref{thm:ch12:window} for every $k\le1.16\times10^{25}$. RH holds if and only if $U_k\ge0$ for infinitely many $k$, since then $W$ is $k$ monotone for infinitely many $k$, hence completely monotone; positivity of one $U_k$ is a finite part of the Thorin condition.
+
+The summands of $U_k$ are inverse gamma laws, by an elementary identity: for $k\ge1$ and $c\ge0$,
+\begin{equation}\label{eq:ch12:gammak}
+e^{-c}=\E\Big(1-\frac c{\Gamma_k}\Big)_+^{k-1},\qquad \Gamma_k\sim\mathrm{Gamma}(k,1),
+\end{equation}
+since $\int_c^\infty(\omega-c)^{k-1}e^{-\omega}d\omega/\Gamma(k)=e^{-c}$. With $c=a_jt$ and $z=ka_j/\Gamma_k$, so that $1-a_jt/\Gamma_k=1-tz/k$, the identity shows that $U_k$ is the sum over the zeros of the densities $(ka_j)^kz^{-k-1}e^{-ka_j/z}/(k-1)!$. For real $a_j$ this is the inverse gamma law of $ka_j/\Gamma_k$, with mean $ka_j/(k-1)$ when $k\ge2$; for $k=1$ the mean is infinite. Under RH, therefore, writing $\mathcal L(Y)$ for the law of $Y$,
+\[
+U_k=\sum_\gamma\mathcal L\Big(\gamma^2\,\frac k{\Gamma_k}\Big),
+\]
+a sum of probability laws: the Thorin measure with each atom $\gamma^2$ spread over a relative width of about $1/\sqrt k$. As $k\to\infty$ the ratio $\Gamma_k/k$ concentrates at one and the atoms reappear, which is the passage from Williamson's theorem to Bernstein's; in statistics, Polson, Scott and Windle used $k$ monotone mixtures of this kind to build samplers for the Bayesian bridge \cite[Section 2.2, Theorem 2.1]{PSW14} and noted the same limit \cite[Section 3]{PSW14}. For an off line quadruple the two summands are complex conjugate densities whose sum is a real signed measure.
+
+The Williamson measures form a second resolution family for the Thorin measure, beside the Poisson family $\rho_\varepsilon$, which is the Cauchy flow of Section~\ref{ch:clock}. In the chart $\theta=\sqrt z$ the gamma smoothing spreads the atom at $\gamma$ over a width of about $\gamma/(2\sqrt k)$, proportional to the height, while the Poisson smoothing spreads every atom over the width $\varepsilon$, and the inverse gamma kernel has tails far lighter than the $x^{-2}$ tails of the Cauchy kernel. In Figure~\ref{fig:ch12:kmono}, where the widths match at $\theta=30$, the Williamson densities fall by many orders of magnitude between neighbouring zeros and the Poisson densities by only one to four, because every zero contributes everywhere through its Cauchy tail.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.95\textwidth]{fig/kmono.pdf}
+\caption{Top: the Williamson measures $U_k$ of the heat trace for $k=10^4$, $10^5$, $10^6$, computed from $1700$ zeros, as densities in $\theta=\sqrt z$. Bottom: the Poisson smoothed Thorin densities $\rho_\varepsilon$ with $\varepsilon=30/(2\sqrt k)$, so that the widths match at $\theta=30$.}
+\label{fig:ch12:kmono}
+\end{figure}
+
+The contrast decides what each family can do. The Poisson kernel is the real part of the Cauchy kernel $1/(s-\rho)$, so the Poisson smoothing of the zeros is $\pi^{-1}\re(\xi'/\xi)$ off the line and can be computed from $\xi$ alone at every resolution, which is why $\rho_\varepsilon$ is the central object of Chapter~\ref{chap:measure} and Section~\ref{ch:weak}; the price is the heavy tail, which makes positivity at one resolution a statement about all zeros at once. The gamma smoothing is local, and an off line pair contributes to $U_k$ a signed, oscillating term near its height. $U_k$ is computed here from the zeros; along a ray of the $(k,t)$ plane it is, to leading order, a Gaussian smoothing of the zeros, which the explicit formula gives from the primes, with a number of primes that grows quickly with the resolution (Section~\ref{sec:ch12:ray}). Both families reach RH only in their limits, $k\to\infty$ and $\varepsilon\downarrow0$.
+
+\subsection{Along a ray: the Gaussian smoothing of the zeros}\label{sec:ch12:ray}
+
+To leading order the gamma smoothing of width $\gamma/(2\sqrt k)$ is a Gaussian smoothing. Fix a height $u$ and move along the ray $t=k/u^2$ of the $(k,t)$ plane, on which the weight $x^ke^{-xt}$ of $c_k(t)$ peaks at $x=u^2$ and the density of $U_k$ is taken at $z=u^2$. Write each zero as $\rho=\frac12+\delta+i\gamma$ and put $\tilde\gamma=\gamma-i\delta$, so that $a=\tilde\gamma^2$; as in every sum of this section, the zero is taken with $\gamma>0$ from each pair $\{\rho,1-\rho\}$. The Gaussian smoothing of the zeros at resolution $1/(2\sqrt t)$ is
+\[
+\mathcal G(u,t)=\sum e^{-2t(\tilde\gamma-u)^2}.
+\]
+A zero on the line contributes a Gaussian bump at its ordinate. The zeros $\frac12\pm\delta+i\gamma$ of a quadruple $\frac12\pm\delta\pm i\gamma$ have conjugate values of $\tilde\gamma$, so $\mathcal G$ is real, and together they contribute $2e^{2t(\delta^2-(\gamma-u)^2)}\cos(4t\delta(\gamma-u))$, a bump amplified by $e^{2t\delta^2}$ and modulated in $u$ with period $\pi/(2t\delta)$. At $u=0$, $\mathcal G(0,t)=W(2t)$.
+
+\begin{proposition}\label{prop:ch12:ray}
+Let $u\ge2$, $t>0$ and $k=u^2t$, not necessarily an integer, with $a^k$ the principal power in $c_k(t)=\sum a^ke^{-at}$, and let $f_0=k(\log u^2-1)$. Then
+\[
+e^{-f_0}c_k(t)=\sum_{|\tilde\gamma-u|\le u/2}e^{-2t(\tilde\gamma-u)^2}\big(1+\varepsilon_\rho\big)+R,\qquad |\varepsilon_\rho|\le\exp\Big\{\frac{4t}{3u}|\tilde\gamma-u|^3\Big\}-1,
+\]
+where, with $\ell_\pm=u\pm\frac12\sqrt{u^2-1}$, $H(r)=u^2\log\frac{r^2+1/4}{u^2}-r^2+\frac14+u^2$ and $\eta=1-u^2/(\ell_+^2+\frac14)>0$,
+\[
+|R|\le N(\ell_-)e^{tH(\ell_-)}+\Big(\ell_+^2+\frac1{t\eta}\Big)e^{tH(\ell_+)}.
+\]
+No hypothesis on the zeros is used.
+\end{proposition}
+
+\begin{proof}
+Put $\tilde\gamma=u+v$ and $w=v/u$. Since $\re\tilde\gamma>0$ and $|\arg\tilde\gamma|<\frac\pi4$, the principal logarithm gives $e^{-f_0}a^ke^{-at}=e^E$ with
+\[
+E=tu^2\big(2\log(1+w)-2w-w^2\big)=-2tv^2+2tu^2\sum_{m\ge3}\frac{(-1)^{m+1}w^m}m ,
+\]
+and for $|w|\le\frac12$ the series has modulus at most $|w|^3/(3(1-|w|))\le\frac23|w|^3$. This gives $\varepsilon_\rho=e^{E+2tv^2}-1$ and its bound, since $|e^z-1|\le e^{|z|}-1$. For a zero with $|v|>u/2$, $|v|^2=(\gamma-u)^2+\delta^2$ and $\delta^2<\frac14$ give $|\gamma-u|>\frac12\sqrt{u^2-1}$, so that $\gamma<\ell_-$ or $\gamma>\ell_+$, and $|e^E|=\exp t\big(u^2\log(|a|/u^2)-\re a+u^2\big)\le e^{tH(\gamma)}$, because $|a|=\gamma^2+\delta^2$ and $\re a=\gamma^2-\delta^2$. The function $H$ increases up to $\sqrt{u^2-\frac14}$, which lies between $\ell_-$ and $\ell_+$, so each of the at most $N(\ell_-)$ zeros below $\ell_-$ contributes at most $e^{tH(\ell_-)}$. For $r\ge\ell_+$, $\log(1+x)\le x$ gives $H(r)\le H(\ell_+)-\eta(r^2-\ell_+^2)$. The explicit Riemann von Mangoldt formula \cite[Corollary~1.2]{HSW22} gives $N(r)\le r^2$ for every $r$, and partial summation then gives $\sum_{\gamma>\ell_+}e^{-q(\gamma^2-\ell_+^2)}\le\ell_+^2+1/q$ for $q>0$; take $q=t\eta$.
+\end{proof}
+
+For $u\ge10$ the ratios $H(\ell_-)/u^2$ and $H(\ell_+)/u^2$ decrease in $u$, from $-0.616$ and $-0.431$ at $u=10$, and $\eta>0.55$, so that $|R|\le(3u^2+2/t)e^{-0.43k}$. What remains is $\varepsilon_\rho$, whose term of order $1/u$ is $\frac{2t}{3u}(\tilde\gamma-u)^3$. Along the ray, therefore, $e^{-f_0}c_k(t)$ is $\mathcal G(u,t)$ up to an exponentially small remainder and, in each term, a relative error at most $e^{4t|\tilde\gamma-u|^3/3u}-1$. That error is small, of order $t|\tilde\gamma-u|^3/u$, for the terms that carry the sum provided $t|\tilde\gamma-u|^3$ is small against $u$ for them; for the zeros within a few multiples of $1/\sqrt t$ of $u$ it is of order $1/(\sqrt t\,u)$. It is not small in general: at a fixed height, as $t$ grows, the term of the nearest zero dominates, and its relative error grows with $t$. Where the terms cancel, the errors must be summed in absolute value, since relative errors of the terms do not bound the relative error of the sum. For an integer $k$ the density of $U_k$ in the chart $\theta=\sqrt z$ is exactly $\sqrt{2t/\pi}\,e^{-\lambda_k}e^{-f_0}c_k(t)$ at $\theta=u$, where $t=k/u^2$ and $\lambda_k\in(\frac1{12k+1},\frac1{12k})$ is the remainder in Stirling's formula for $k!$ \cite{Robbins55}. The density of $U_k$ at $\theta$ is therefore about $\sqrt{2t/\pi}\,\mathcal G(\theta,t)$ with $t=k/\theta^2$: the zeros smoothed by normal densities of standard deviation $1/(2\sqrt t)=\theta/(2\sqrt k)$, which is the width found above. Section~\ref{ch:finite} uses this to explain where the derivative signs of a function with an off line quadruple first fail.
+
+The Gaussian smoothing detects every off line zero, at a resolution fine enough.
+
+\begin{proposition}\label{prop:ch12:gauss}
+RH holds if and only if $\mathcal G(u,t)\ge0$ for every real $u$ and every $t>0$.
+\end{proposition}
+
+\begin{proof}
+Under RH every term is positive. Suppose that $\frac12+d+ic$ is a zero with $d>0$, and let $|u-c|<\frac d2$. The term of a zero has modulus $e^{2t\phi}$ with $\phi=\delta^2-(\gamma-u)^2$. For the zero $\frac12+d+ic$, $\phi>\frac34d^2$; for a zero with $|\gamma-c|>1$, $\phi<\frac14-\frac9{16}<0$. Group the finitely many zeros with $|\gamma-c|\le1$ by their type $(\gamma,|\delta|)$. Two types at the same ordinate have exponents $\phi$ differing by a nonzero constant, and two at different ordinates have exponents differing by a nonconstant affine function of $u$, so outside finitely many points one type has the largest $\phi$. Fix such a $u_*$, different from every ordinate, and let $(\gamma_*,d_*)$ be the maximising type and $\phi_*$ its exponent. Then $\phi_*>\frac34d^2$, so $d_*>0$, and the type consists of $\nu\ge2$ zeros counted with multiplicity, which contribute $\nu e^{2t\phi_*}\cos(4td_*(\gamma_*-u_*))$. Along $t_j=(2j+1)\pi/(4d_*|\gamma_*-u_*|)$ this is $-\nu e^{2t_j\phi_*}$. The other $n$ zeros with $|\gamma-c|\le1$ contribute at most $ne^{2t_j(\phi_*-\Delta)}$, with $\Delta>0$ the gap to the next exponent, and the zeros with $|\gamma-c|>1$ at most $32\log(c+2)e^{-5t_j/8}$ once $t_j\ge1$, since by the explicit Riemann von Mangoldt formula every interval of heights $[y,y+1]$ holds at most $4\log(y+3)$ zeros. Hence
+\[
+e^{-2t_j\phi_*}\mathcal G(u_*,t_j)\le-\nu+ne^{-2t_j\Delta}+32\log(c+2)e^{-(2\phi_*+5/8)t_j},
+\]
+which is negative for all large $j$.
+\end{proof}
+
+The proposition restricts Weil's criterion to the modulated Gaussians. For $f(x)=e^{-x^2/4t-iux}$ the transform $\hat f(r)=\int f(x)e^{irx}dx=\sqrt{4\pi t}\,e^{-t(r-u)^2}$ gives, summed over all zeros $\rho=\frac12+i\gamma_\rho$,
+\[
+\sum_\rho\hat f(\gamma_\rho)\overline{\hat f(\bar\gamma_\rho)}=4\pi t\big(\mathcal G(u,t)+\mathcal G(-u,t)\big),
+\]
+where $\mathcal G(-u,t)$ comes from the zeros $1-\rho$ and is at most $e^{t/2}((u+14)^2+\frac1{2t})e^{-2t(u+14)^2}$ in modulus for $u\ge0$, too little to change the sign in the proof. At $u=0$ the family gives the first rung, $\mathcal G(0,t)=W(2t)>0$ (Theorem~\ref{thm:ch12:idsd}). Theorem~\ref{thm:ch12:hankel} uses one time and the whole span of $r^me^{-r^2t/2}$; Proposition~\ref{prop:ch12:gauss} uses one modulated Gaussian at a time, but every centre and every resolution. Since the Gaussian is entire, Weil's formula of Section~\ref{ch:clock} applies to $h(r)=e^{-2t(r-u)^2}+e^{-2t(r+u)^2}$, for which $\sum_\rho h(\gamma_\rho)=2(\mathcal G(u,t)+\mathcal G(-u,t))$, and gives $\mathcal G$ from the primes:
+\begin{equation}\label{eq:ch12:Garith}
+\begin{aligned}
+\mathcal G(u,t)+\mathcal G(-u,t)&=2e^{t/2-2tu^2}\cos2tu+A(u,t)-P(u,t),\\
+A(u,t)&=\frac1{4\pi}\int_{\mathbb R}\big(e^{-2t(r-u)^2}+e^{-2t(r+u)^2}\big)m(r)\,dr,\\
+P(u,t)&=\frac1{\sqrt{2\pi t}}\sum_{n\ge2}\frac{\Lambda(n)}{\sqrt n}e^{-(\log n)^2/8t}\cos(u\log n),
+\end{aligned}
+\end{equation}
+with $m$ as in \eqref{eq:ch2:Warith}.
+
+Table~\ref{tab:ch12:gweil} computes both sides, with the zeros of $\xi$ below height $2197.26$ and the primes to $10^9$. The prime sum converges at every resolution, but more slowly the finer the resolution: since Chebyshev's function $\psi(x)=\sum_{n\le x}\Lambda(n)$ grows like $x$, the weight $n^{-1/2}e^{-(\log n)^2/8t}$ acts, as a density in $\log n$, like $e^{t/2}$ times a Gaussian with centre $2t$ and standard deviation $2\sqrt t$. At $t=1$ the primes to $10^8$ give $\mathcal G(100,1)$ to about $10^{-17}$. At $t=3$ the value $\mathcal G(100,3)=3.05\times10^{-4}$ is the difference of an archimedean and a prime term of $0.32$ each; the primes to $10^9$ give it to $1.1\times10^{-6}$, and the bound on the rest of the prime sum that ignores its phases is a third of the value. The rest is nearly all main term: with the integral $(2\pi t)^{-1/2}\int_N^\infty x^{-1/2}e^{-(\log x)^2/8t}\cos(u\log x)\,dx$ that the prime number theorem predicts for it, the difference at $N=10^9$ falls to $3\times10^{-10}$. Where $\mathcal G$ is small the two arithmetic terms cancel, the more deeply the finer the resolution, as for $W$ in Table~\ref{tab:ch2:W}; these are the points where an off line quadruple would first make $\mathcal G$ negative (Section~\ref{ch:finite}), and Section~\ref{ch:lessons} measures how far a bound on $P$ that ignores its phases can reach.
+
+\begin{table}[htbp]
+\centering\footnotesize\setlength{\tabcolsep}{2.5pt}
+\begin{tabular}{@{}rrllllll@{}}
+\toprule
+$u$ & $t$ & $\mathcal G(u,t)$ & $A(u,t)$ & $P(u,t)$ & \multicolumn{3}{c}{$|\mathcal G-A+P_N|$}\\
+& & & & & $N=10^4$ & $N=10^6$ & $N=10^9$\\
+\midrule
+$100$ & $1$ & $0.0960845325$ & $0.5519917891$ & $0.4559072567$ & $2.3\times10^{-6}$ & $1.2\times10^{-10}$ & $9.6\times10^{-19}$\\
+$1977.22$ & $1.75$ & $1.9835406644$ & $0.8672562847$ & $-1.1162843797$ & $1.2\times10^{-3}$ & $1.3\times10^{-7}$ & $2.2\times10^{-13}$\\
+$1000$ & $2$ & $0.8452691893$ & $0.7150931047$ & $-0.1301760846$ & $5.8\times10^{-4}$ & $5.8\times10^{-6}$ & $1.9\times10^{-11}$\\
+$100$ & $3$ & $0.0003053958$ & $0.3186935678$ & $0.3183870527$ & $2.0\times10^{-3}$ & $5.4\times10^{-4}$ & $1.1\times10^{-6}$\\
+\bottomrule
+\end{tabular}
+\caption{The Gaussian smoothing of the zeros from the zeros and from the primes, by \eqref{eq:ch12:Garith}. $\mathcal G(u,t)$ is summed over the zeros below height $2197.26$, the rest adding less than $10^{-70000}$; the polar term and $\mathcal G(-u,t)$ are below $10^{-8000}$. $P_N$ is $P$ with the sum cut at $n\le N$, and the $P$ column is $P_{10^9}$. The bound on the rest of the prime sum that ignores its phases, from $\psi(x)<1.03883x$ \cite[Theorem 12]{RS62}, is $1.6\times10^{-20}$, $2.1\times10^{-10}$, $1.0\times10^{-8}$ and $1.0\times10^{-4}$ at $N=10^9$ for the four rows; in the first row the difference at $N=10^9$ is the rounding error of the sums, in extended precision.}
+\label{tab:ch12:gweil}
+\end{table}
+
+\subsection{The Gumbel tail of the P\'olya kernel and the Weyl law}
+
+Every term of the P\'olya kernel \eqref{eq:ch2:Phi} contains the factor $\exp(-\pi n^2e^{2u})$, and for large $u$ only $n=1$ matters:
+\[
+\Phi(u)\approx2\big(2\pi^2e^{9u/2}-3\pi e^{5u/2}\big)\exp\big(-\pi e^{2u}\big),\qquad u\to\infty .
+\]
+Call the right side $\Phi_1$. The term $n$ is $n^{-1/2}\Phi_1(u+\log n)$, so that $\Phi(u)=\sum_{n\ge1}n^{-1/2}\Phi_1(u+\log n)$ for every real $u$, and for large $u$ the term $n=2$ is smaller than $\Phi_1$ by a factor of about $16\exp(-3\pi e^{2u})$. The tail is thus a double exponential in $u$, of Gumbel type.
+
+% AUTHORS (final pass F04): the Gumbel display below is the example of PSW14, Section 3 (p. 10 of arXiv:1109.2279v2), but there both displays lose the factor omega of the Gamma(2) weight (the second carries an extra 1/omega), so as printed the second gives e^(-c) - c E_1(c), 0.4128 instead of 0.6922 at x = 1, which is the erratum the baseline text stated. The attribution is left out until you decide whether to restore it with that erratum; the numbering of the published version was not checked.
+By \eqref{eq:ch12:gammak} each factor $\exp(-\pi n^2e^{2u})$ is a Gamma$(k)$ mixture of truncated powers $(1-\pi n^2e^{2u}/\omega)_+^{k-1}$, each supported on $u<\frac12\log(\omega/\pi n^2)$, and summed over $n$ these powers form a Riesz mean of order $k-1$ of the counting function of the squares. So the theta function is a Gamma mixture of Riesz means of a lattice count, which tend to it as $k\to\infty$. The mixture is not a positive representation of $\Phi$: the term $n$ of \eqref{eq:ch2:Phi} is $2e^{u/2}(2a^2-3a)e^{-a}$ with $a=\pi n^2e^{2u}$, so every piece is positive for $u>\frac12\log\frac3{2\pi}$, where $a>\frac32$ for all $n$, but the piece $n=1$ is negative further left; and $\Phi$, being bell shaped, is not itself $k$ monotone in $u$ or in $e^{2u}$. With $k=2$ and $c=e^{-x}$ the identity writes the Gumbel distribution function as a mixture of triangles with a Gamma$(2)$ mixing measure,
+\[
+e^{-e^{-x}}=\int_0^\infty\Big(1-\frac{e^{-x}}\omega\Big)_+\,\omega e^{-\omega}\,d\omega .
+\]
+Gamma$(2)$ is also the shape in Williams' representation of the P\'olya kernel (Section~\ref{ch:boundaries}), but the coincidence gives no positive Gamma$(2)$ mixture representation of the P\'olya density \cite[Section 12.6]{P26}.
+
+At leading order the tail determines the smooth part of the Thorin measure: it fixes the growth of $\Xi$ along the imaginary axis, and a Tauberian argument turns that growth into the leading term of the Weyl law. By Laplace's method the main contribution to $\Xi(iy)=\int\Phi(u)\cosh(yu)\,du$ comes from the maximum of $yu-\pi e^{2u}$, at $e^{2u}=y/2\pi$, which gives
+\[
+\log\Xi(iy)\approx\frac y2\log\frac y{2\pi e}.
+\]
+Since $\Xi$ is even of order one and $\Xi(0)\ne0$, $\log(\Xi(iy)/\Xi(0))=\sum\log(1+y^2/\gamma^2)$ over the zeros $\gamma$ of $\Xi$ with $\re\gamma>0$. Replacing the sum by an integral against the density $(2\pi)^{-1}\log(T/2\pi)$ of the Weyl law $N(T)\approx\frac T{2\pi}\log\frac T{2\pi e}$, which Section~\ref{sec:ch18:kent} uses for the tails of the Kent approximants, reproduces $\frac y2\log\frac y{2\pi e}$, because $\int_0^\infty\log(1+x^{-2})\,dx=\pi$ and $\int_0^\infty\log(1+x^{-2})\log x\,dx=-\pi$. In Table~\ref{tab:ch12:saddle} the difference between the first two columns grows like $\frac74\log y+0.81$, the next terms of the expansion, which Stirling's formula gives, so the ratio tends to one slowly.
+
+Replacing the sum by an integral assumes the Weyl law, so the computation above goes from the Weyl law to the growth of $\Xi$. The converse, from the growth of $\Xi$ along the imaginary axis to the leading term of $N(T)$, needs a Tauberian argument, and it holds with no hypothesis on the zeros. Let $\gamma$ run over the zeros of $\Xi$ with $\re\gamma>0$, counted with multiplicity; then $\re\gamma>14$ and $|\im\gamma|<\frac12$, $N(T)$ is the number of zeros with $\re\gamma\le T$, and $\sum_\gamma(\re\gamma)^{-2}<\infty$ because $\Xi$ has order one. Since $\Xi(iy)>0$, taking moduli in the Hadamard product \eqref{eq:ch2:hadamard} gives $\log(\Xi(iy)/\Xi(0))=\sum_\gamma\re f(\gamma)$, where $f(z)=\log(1+y^2/z^2)$ is analytic in $\re z>0$ and real on the positive axis. On the segment from $\re\gamma$ to $\gamma$ its second derivative $f''(z)=2(y^2-z^2)/(z^2+y^2)^2+2/z^2$ is at most $7/(\re\gamma)^2$ in modulus for every real $y$, and the first order term $i\im\gamma\,f'(\re\gamma)$ of Taylor's formula is imaginary, so $|\re f(\gamma)-f(\re\gamma)|\le\frac78(\re\gamma)^{-2}$ and, uniformly in $y$,
+\[
+\log\frac{\Xi(iy)}{\Xi(0)}=Q(y^2)+O(1),\qquad Q(x)=\sum_\gamma\log\Big(1+\frac x{(\re\gamma)^2}\Big).
+\]
+By Stirling's formula the left side, which is $\log(\xi(\frac12+y)/\xi(\frac12))$, is asymptotic to $\frac y2\log y$, the leading term of the saddle point value, so $Q(x)\sim\frac14\sqrt x\log x$ as $x\to\infty$. Its derivative $Q'(x)=\sum_\gamma(x+(\re\gamma)^2)^{-1}$ decreases, so the monotone density theorem \cite[XIII.5]{Feller71} gives $Q'(x)\sim\frac18x^{-1/2}\log x$, and $Q'$ is the Laplace transform of the decreasing function $V(v)=\sum_\gamma e^{-v(\re\gamma)^2}$. The Tauberian theorem for Laplace transforms \cite[XIII.5]{Feller71}, with the roles of $0$ and $\infty$ interchanged and combined with the monotone density theorem, whose proof applies unchanged at the origin, turns this into $V(v)\sim(8\sqrt\pi)^{-1}v^{-1/2}\log(1/v)$ as $v\downarrow0$, and the same theorem applied to $V(v)=\int_0^\infty e^{-vx}\,dN(\sqrt x)$ gives $N(\sqrt x)\sim(4\pi)^{-1}\sqrt x\log x$, that is,
+\[
+N(T)\sim\frac T{2\pi}\log T,\qquad T\to\infty .
+\]
+The Tauberian argument gives only this leading term. The lower order terms of the Weyl law, and the bound $S(T)=O(\log T)$ \cite[Theorem 9.4]{Titchmarsh}, come from the argument principle through $N(T)=\vartheta(T)/\pi+1+S(T)$ (Section~\ref{ch:classical}).
+
+\begin{table}[htbp]
+\centering\small
+\begin{tabular}{rccc}
+\toprule
+$y$ & $\log(\Xi(iy)/\Xi(0))$ & $\frac y2\log\frac y{2\pi e}$ & ratio\\
+\midrule
+50 & 34.511 & 26.854 & 1.285\\
+200 & 256.128 & 246.044 & 1.041\\
+1000 & 2047.839 & 2034.939 & 1.006\\
+\bottomrule
+\end{tabular}
+\caption{Growth of $\Xi$ along the imaginary axis against the saddle point value from the Gumbel tail of the P\'olya density.}
+\label{tab:ch12:saddle}
+\end{table}
+
+The fluctuation $S(T)$ of the zero count about the Weyl law is absent from this leading behaviour, and the translates of $\Phi_1$ show why. For $y>-\frac52$ the substitution $x=e^{2u}$ and Euler's integral give
+\[
+\int_{\mathbb R}\Phi_1(u)e^{yu}\,du=\tfrac12s(s-1)\pi^{-s/2}\Gamma(\tfrac s2),\qquad s=\tfrac12+y,
+\]
+and for $y>\frac12$, since $\Xi(iy)=\int\Phi(u)e^{yu}\,du$ by evenness, integrating the translates term by term gives $\Xi(iy)=\zeta(s)\cdot\frac12s(s-1)\pi^{-s/2}\Gamma(\frac s2)$. So $\Phi_1$, which dominates the tail, is the kernel of the gamma factor and produces, through the argument principle, the smooth part $\vartheta(T)/\pi+1$ of $N(T)$ (Section~\ref{ch:classical}), while its translates by $\log n$, with weights $n^{-1/2}$, produce $\zeta(s)=\sum_nn^{-s}$ and with it $S(T)$, which sets the level at which the error of the Kent approximants with a Weyl tail settles for large arguments of the clock (Section~\ref{sec:ch18:moments}). The absence of $S(T)$ concerns the leading asymptotics only: $\Phi$ is real analytic, so its restriction to a half line determines it, and with it every zero.
+
+\subsection{What a verification height buys}\label{sec:ch12:reach}
+
+Chapters~\ref{chap:rzeta} and \ref{chap:rzid} reach further rungs by the same method. Adding to the clock variable an independent positive stable variable of index $\frac12$, that is, multiplying the clock by $e^{-c\sqrt u}$ with $c=\zeta'(\frac12)/\zeta(\frac12)=2.6860917$, gives the floor $e^{-c\sqrt u}\,\xi(\frac12)/\xi(\frac12+\sqrt u)$ of Section~\ref{ch:rz2}, whose canonical function, $y$ times its L\'evy density, is $k(y)=W(y)+c/(2\sqrt{\pi y})$. By Theorem~\ref{thm:ch12:idsd}, $k>W>0$, so the floor is infinitely divisible unconditionally; Section~\ref{ch:rz2} proves this independently, and proves that the floor is a GGC if and only if RH holds and that $(-1)^nk^{(n)}(y)>0$ for every $n\le10^{10}$ (Theorems~\ref{rz:thm:floor} and \ref{rz:thm:nmono}). Weil's functional is positive on the cone of test functions completely monotone in $r^2$ (Theorem~\ref{rz:thm:bernsteincone}); this is the first rung integrated against a positive weight, $\sum_\rho\hat h(\gamma_\rho)=2\int_0^\infty W(y)g(y)\,dy$ with $g\ge0$, and for it Section~\ref{ch:rz4} proves $W>0$ afresh, from the prime side up to $y=0.003$ and from the zeros below height $50$ beyond.
+
+Every rung is reached by the same mechanism: near the origin the archimedean term dominates the primes, and away from it a known positive term, usually a verified low zero, dominates the unverified high zeros. Only the second limits the order, as the proof of Theorem~\ref{thm:ch12:cm} shows. The first limits the time instead: it gives every order $k\ge1$ up to $t=0.019$, and every order above $10^{17}$ up to $t=1.29$, because, relative to the size $s_k(t)$ of the $k$th derivative of $1/(4\sqrt{\pi t})$, the archimedean term grows like $\frac12\log k$ while the bound on the primes does not grow with $k$ (Theorem~\ref{thm:ch12:cmint}). In the proof of Theorem~\ref{thm:ch12:cm}, with $\gamma_0\in(20,50]$ the height of the dominating zero, a zero at height $\gamma\ge H$ contributes about $(\gamma/\gamma_0)^{2k}e^{-(\gamma^2-\gamma_0^2)t}$ times as much, wherever it lies. The condition $tH^2\ge2(k+1)$ makes this ratio decrease in $\gamma$, and the logarithmic condition asks, to leading order, that it be less than one at $\gamma=H$ and $t=\tau$, that is $k\log(H^2/\gamma_0^2)<\tau H^2$; larger $t$ only help. The reach is therefore about $\tau H^2/\log(H^2/\gamma_0^2)$, which is $10^{18}$ for $H=10^{12}$, so the $10^{17}$ of the theorem is a safe round number; the height $3\times10^{12}$ of \cite{PT21} would raise the estimate to about $9\times10^{18}$.
+
+The logarithm is the price of a fixed dominating zero. The weight $x^ke^{-xt}$ of $c_k(t)$ peaks at $x=k/t$, that is at the height $u=\sqrt{k/t}$, and a zero on the line a few units above $u$ outweighs every zero above $H$ by the Gaussian factor $e^{-t(H-u)^2}$, however many zeros lie there. The zeros are needed only from $t=1.29$ on, where Theorem~\ref{thm:ch12:cmint}(b) hands over, instead of from $\tau=1/20000$.
+
+\begin{theorem}\label{thm:ch12:window}
+Let $H=3\times10^{12}$, the height to which RH is verified \cite{PT21}. Then $(-1)^kW^{(k)}(t)>0$ for every $t\ge1.29$ and every integer $k$ with $0\le k\le t(H-23)^2$. Consequently $(-1)^kW^{(k)}(t)>0$ for every $t>0$ and every integer $k$ with $0\le k\le1.29(H-23)^2$, and $1.29(H-23)^2>1.16\times10^{25}$.
+\end{theorem}
+
+\begin{proof}
+Fix $t\ge1.29$ and $k$, and put $u=\sqrt{k/t}$, $D=H-u\ge23$ and $f(v)=v^{2k}e^{-tv^2}$. As in Section~\ref{sec:ch12:ray}, write each zero as $\frac12+\delta+i\gamma$ and put $\tilde\gamma=\gamma-i\delta$, so that $c_k(t)=\sum f(\tilde\gamma)$ over one zero of each pair $\{\rho,1-\rho\}$, taken with $\gamma>0$. On $(0,\infty)$, $(\log f)''=-2k/v^2-2t$ is at most $-2t$, and at least $-4t$ on $[u,\infty)$, while $(\log f)'(u)=0$; hence $f(v)\le f(u)e^{-t(v-u)^2}$ for every $v>0$, and $f(v)\ge f(u)e^{-2t(v-u)^2}$ for $v\ge u$. The zeros below height $H$ lie on the line and contribute $f(\gamma)>0$. One of them lies in $[u,u+15]$: for $u\le1000$ because $\gamma_1<15$ and consecutive ordinates below $1015$ differ by less than $7$, and for $u\ge1000$ because the explicit Riemann von Mangoldt formula of \cite[(1.7) and Corollary~1.4]{HSW22} gives $N(u+15)-N(u)>4$. That zero contributes at least $f(u)e^{-450t}$. A zero above $H$, wherever it lies, has $|\delta|<\frac12$ and $|\tilde\gamma|\ge\gamma>u$, so its term has modulus $f(|\tilde\gamma|)e^{2t\delta^2}\le e^{t/2}f(u)e^{-t(\gamma-u)^2}$. Partial summation with $N(r)\le r^2$, and $\int_D^\infty e^{-tv^2}dv\le e^{-tD^2}/(2tD)$, give
+\[
+\sum_{\gamma>H}e^{-t(\gamma-u)^2}\le e^{-tD^2}\Big(H^2+\frac1t+\frac H{tD}\Big),
+\]
+and therefore
+\[
+\frac{c_k(t)}{f(u)}\ge e^{-450t}-e^{t/2-tD^2}\Big(H^2+\frac1t+\frac H{tD}\Big)>0,
+\]
+since $t(D^2-450.5)\ge1.29\cdot78.5>101$ while $\log(H^2+1+H/23)<57.5$. For the second statement, Theorem~\ref{thm:ch12:cmint}(b) gives every order for $t\le1.29$, and for $t>1.29$ every $k\le1.29(H-23)^2$ satisfies $k\le t(H-23)^2$. The program \texttt{window\_orders.py} (Appendix~\ref{app:code}) computes the zeros below height $1015$ in ball arithmetic and evaluates every numerical inequality of the proof.
+\end{proof}
+
+The reach is thus $1.29H^2$, up to the $23$, against $\tau H^2/\log(H^2/\gamma_0^2)$ for the proof of Theorem~\ref{thm:ch12:cm}. The theorem leaves room for a failure of the signs only at $t>1.29$ and at orders $k>t(H-23)^2$, whose weights peak within $23$ of the verified height or above it, and that is where Proposition~\ref{prop:ch12:ray} and Table~\ref{tab:ch13:first} place the first failure caused by an off line quadruple: near its own height $g$, at an order close to $t^*g^2$. For the floor, $c/(2\sqrt{\pi y})$ is completely monotone, so Theorem~\ref{thm:ch12:window} gives $(-1)^nk^{(n)}>0$ for every $n\le1.16\times10^{25}$; Theorem~\ref{rz:thm:nmono} proves $n\le10^{10}$ independently, with a Cauchy circle of radius $y/2$, which loses a factor $2^n$ and makes its reach grow only linearly in $H$.
+
+The reachable order thus grows with the verification height, in Theorem~\ref{thm:ch12:window} like its square: every finite rung is within reach of a high enough verification, and no verification reaches the top, so the ladder measures how much of RH a given amount of verification buys. Each proof lets the zeros above the verified height lie anywhere, so what it proves is consistent with zeros off the line there, and Section~\ref{ch:finite} gives an explicit example.

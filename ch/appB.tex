@@ -1,0 +1,189 @@
+\chapter{A short history of computations on the zeros}\label{app:history}
+
+Table~\ref{tab:appB} lists landmarks in the computation of the zeros of $\zeta$, from Riemann's own calculation to the rigorous verification of Platt and Trudgian. Every verification in it from Backlund's on rests on two ingredients, an evaluator of $\zeta$ on or near the critical line and a certificate that no zero has been missed; Section~\ref{ch:classical} describes both. The window on which Chapters~\ref{chap:measure} to \ref{chap:heat} measure distances, the $79$ zeros below height $200$, is the range that Backlund verified by hand in 1914 \cite{Backlund14}.
+
+\begin{table}[htbp]
+\centering\small
+\begin{tabular}{@{}llp{0.5\textwidth}@{}}
+\toprule
+year & authors & result\\
+\midrule
+1859 & Riemann & \raggedright the first zeros, in unpublished notes later found by Siegel \cite{Siegel32}\tabularnewline
+1903 & Gram & \raggedright the first $15$ zeros; Gram points \cite{Gram03}\tabularnewline
+1914 & Backlund & \raggedright all $79$ zeros below height $200$ \cite{Backlund14,Backlund}\tabularnewline
+1925 & Hutchinson & \raggedright all $138$ zeros below height $300$ \cite{Hutchinson25}\tabularnewline
+1936 & Titchmarsh & \raggedright the first $1041$ zeros, all below height $1468$, by the Riemann Siegel formula, computed with the help of Comrie \cite{Titchmarsh36}\tabularnewline
+1953 & Turing & \raggedright all $1104$ zeros below height $1540$, on the Manchester computer; Turing's method \cite{Turing53}\tabularnewline
+1956 & Lehmer & \raggedright the first $25000$ zeros; the close pair near height $7005$ \cite{Lehmer56,Lehmer56b}\tabularnewline
+1969 & Rosser, Yohe, Schoenfeld & \raggedright the first $3.5\times10^6$ zeros; Rosser's rule \cite{RYS69}\tabularnewline
+1986 & van de Lune, te Riele, Winter & \raggedright the first $1.5\times10^9$ zeros \cite{LRW86}\tabularnewline
+1987 & Odlyzko & \raggedright $10^5$ zeros near the $10^{12}$th zero, and the statistics of their spacings \cite{Odlyzko87}\tabularnewline
+1988 & Odlyzko, Sch\"onhage & \raggedright fast evaluation of $\zeta$ at many points \cite{OS88}\tabularnewline
+2004 & Gourdon & \raggedright the first $10^{13}$ zeros, not interval certified \cite{Gourdon04}\tabularnewline
+2021 & Platt, Trudgian & \raggedright RH verified rigorously below height $3\times10^{12}$ \cite{PT21}\tabularnewline
+\bottomrule
+\end{tabular}
+\caption{Landmarks in the computation of the zeros of $\zeta$. The zeros counted in each row were located on the critical line. For the computations up to 1969 see \cite[Chapters 6 to 8]{Edwards}.}
+\label{tab:appB}
+\end{table}
+
+The computations of this book do not extend the table. They compute a measure rather than a list of zeros, together with its distance to $U_{\RH}$, and the end of Section~\ref{sec:ch5:count} sets out how this work divides with the classical evaluators. The table meets the book directly in four places. Where Turing bounds an average of $S$ to certify a count (Section~\ref{sec:ch5:turing}), the zero density identity of Section~\ref{ch:turing} is exact, and its value is an integer at every resolution; at the resolution $\frac12$, the basepoint one of Section~\ref{ch:basepoint}, it is Backlund's method with the vertical side moved from $\re s=2$ to $\re s=1$, and it gives the count $N(T)=M_{1/2}(T)+\tau_{1/2}(T)$ with no hypothesis, which Section~\ref{sec:ch5:count} computes at height $1000$. Lehmer's close pair near height $7005$ \cite{Lehmer56} is computed from the P\'olya kernel in Section~\ref{sec:ch5:lehmer} and followed under the de Bruijn Newman flow in Section~\ref{ch:dbn}. The Odlyzko Sch\"onhage algorithm, with Odlyzko's zeros as the reference measure, is one of the evaluators that Section~\ref{sec:ch5:hybrid} proposes for the Thorin comparison at large height. The verification of Platt and Trudgian supplies the height $T_0=3\times10^{12}$ behind the unconditional statements of Sections~\ref{ch:weak}, \ref{ch:boschB}, \ref{ch:rz2}, \ref{ch:rz3}, \ref{ch:rz4}, \ref{ch:strip} and \ref{ch:almost}. Appendix~\ref{app:notation} lists the notation that several sections share.
+
+\chapter{Notation}\label{app:notation}
+
+The tables list the notation used in more than one section and the place where each symbol is defined; the first five cover the book and record the second meanings that some letters carry in particular chapters and sections. The clock is a function of $u=s^2$, and its Thorin measures live in a variable $z$ in which the atoms of $U_{\RH}$ sit at the squared ordinates $\gamma^2$; the square root chart $\theta=\sqrt z$ puts them back at the ordinates. A resolution $\varepsilon>0$ means the basepoint $\alpha=\frac12+\varepsilon$. A zero is written $\rho=\beta+i\gamma$, and sums and products over $k$ run over the pairs $\{\rho,1-\rho\}$. Sections~\ref{ch:boschA} and \ref{ch:boschB} use their own variables, and so do Chapters~\ref{chap:rzeta} and \ref{chap:rzid}; the last two tables list them. Other notation used in a single section is defined where it is used.
+
+{\small
+\begin{longtable}{@{}p{0.17\textwidth}p{0.56\textwidth}p{0.2\textwidth}@{}}
+\toprule
+symbol & meaning & defined in\\
+\midrule
+\endhead
+$\xi$, $\Xi$ & \raggedright the completed zeta function ${\xi(s)=\frac12s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)}$; $\Xi(\theta)=\xi(\frac12+i\theta)$ & \raggedright Section~\ref{ch:clock}\tabularnewline
+$\rho$, $\gamma_k$ & \raggedright a zero $\rho=\beta+i\gamma$ of $\xi$, that is a nontrivial zero of $\zeta$; the ordinates ${0<\gamma_1\le\gamma_2\le\cdots}$ of the zeros with $\gamma>0$ & \raggedright Section~\ref{ch:clock}\tabularnewline
+$a_k$ & \raggedright $-(\rho_k-\frac12)^2$, one for each pair $\{\rho,1-\rho\}$, equal to $\gamma_k^2$ on the line (in Section~\ref{ch:li}, the Taylor coefficients of $\log\xi(1+w)$) & \raggedright \eqref{eq:ch2:hadamard}\tabularnewline
+$\Phi$, $p$, $X$ & \raggedright the P\'olya kernel in Titchmarsh's normalisation; the P\'olya density ${p=\Phi/\Xi(0)}$; a random variable with density $p$ (in Section~\ref{ch:rz2}, $p$ is the Meixner density; in Section~\ref{ch:boschB}, $X$ is the clock variable; in Sections~\ref{ch:basepoint} and \ref{ch:bpeta}, $X$ is the prime cutoff) & \raggedright \eqref{eq:ch2:Phi}, \eqref{eq:ch2:mgf}\tabularnewline
+$S_2$, $Y$, $J$ & \raggedright ${S_2=\sum_{k\ge1}\frac2{\pi^2k^2}(e_k+e_k')}$ with independent standard exponential variables, the sum of two independent copies of the first passage time $J$ of the level $1$ by a three dimensional Bessel process started at $0$; ${Y=\frac12\log(\pi S_2/2)}$, with ${\E e^{sY}=2\xi(s)}$; $X$ is $Y$ tilted by $e^{Y/2}$ & \raggedright Section~\ref{ch:clock}, Section~\ref{bp:sec:mellin}\tabularnewline
+$u$, $z$, $\theta$ & \raggedright the variable $u=s^2$ of the clock (also the variable of $\Phi$); the variable of Thorin measures; the chart $\theta=\sqrt z$, which is also the ordinate (in Chapters~\ref{chap:rzeta} and \ref{chap:rzid} and in Sections~\ref{ch:boschA} and \ref{ch:boschB}, $s$ and $t$ play the roles of $u$ and $z$; the Kent approximants of Section~\ref{ch:clocklaw} write $w$ for $u$) & \raggedright Section~\ref{ch:intro}\tabularnewline
+$G(u)$ & \raggedright $\xi(\frac12+\sqrt u)/\xi(\frac12)$; the clock is $1/G$ (in Chapters~\ref{chap:rzeta} and \ref{chap:rzid}, $G$ is the gamma factor and the clock is $R$; in Section~\ref{rz:sec:polya}, $G$ is a Laguerre P\'olya function) & \raggedright Section~\ref{ch:intro}\tabularnewline
+$\mathcal G(u,t)$ & \raggedright the Gaussian smoothing ${\sum e^{-2t(\tilde\gamma-u)^2}}$ of the zeros at resolution $1/(2\sqrt t)$, with $\tilde\gamma=\gamma-i\delta$ for a zero $\frac12+\delta+i\gamma$ with $\gamma>0$ & \raggedright Section~\ref{sec:ch12:ray}\tabularnewline
+$T$, $e_\gamma$ & \raggedright the clock variable, with ${\E e^{-uT}=1/G(u)}$, which exists with no hypothesis and is the centre clock of Chapters~\ref{chap:basepoint} to \ref{chap:almost}; under RH, ${T=\sum_{\gamma>0}e_\gamma/\gamma^2}$ with independent standard exponential variables $e_\gamma$ ($T$ is also a height, as in $N(T)$) & \raggedright Section~\ref{ch:clock}, Proposition~\ref{prop:rigid}\tabularnewline
+$U$, $U_\alpha$ & \raggedright the Thorin measure of a GGC $H$, with ${\E e^{-uH}=\exp\{-du-\int\log(1+u/z)\,U(dz)\}}$ and drift $d$; the signed measure ${U_\alpha(dz)=v_\alpha(\sqrt z)\,dz/(2\pi\sqrt z)}$ at a basepoint $\alpha$; for the clock, the Thorin functional $\sum_k\delta_{a_k}$ & \raggedright Section~\ref{ch:clock}, \eqref{eq:Ualpha}, Section~\ref{sec:ch14:functional}\tabularnewline
+$k$ & \raggedright the canonical function of an infinitely divisible law on $[0,\infty)$ with L\'evy density $k(t)/t$, that is $t$ times its L\'evy density ($k(y)$ in Sections~\ref{ch:heat} and \ref{ch:rz2}) & \raggedright Section~\ref{ch:ggc}\tabularnewline
+\bottomrule
+\end{longtable}}
+
+{\small
+\begin{longtable}{@{}p{0.17\textwidth}p{0.56\textwidth}p{0.2\textwidth}@{}}
+\toprule
+symbol & meaning & defined in\\
+\midrule
+\endhead
+$U_{\RH}$, $U_{\rm line}$, $U^\pm_{\RH}$ & \raggedright $\sum_{\gamma>0}\delta_{\gamma^2}$; the same sum over the zeros on the line; ${\sum_{\gamma>0}(\delta_\gamma+\delta_{-\gamma})}$ & \raggedright \eqref{eq:URH}, Proposition~\ref{prop:struct}\tabularnewline
+$\mathcal W$, $T_{\mathcal W}$, $U_{\mathcal W}$, $\mathsf U$ & \raggedright the principal branch of Lambert's function, ${\mathcal W(u)e^{\mathcal W(u)}=u}$ (not the heat trace $W$); the Lambert law, with Laplace transform ${\mathcal W(u)/u=e^{-\mathcal W(u)}}$; its Thorin measure; a variable uniform on $(0,1)$ (not the Thorin functional $U$) & \raggedright Sections~\ref{pk:sec:strands}, \ref{pk:sec:lambert}\tabularnewline
+$\varphi_\alpha$, $T_\alpha$ & \raggedright $\xi(\alpha)/\xi(\alpha+\sqrt u)$, the clock at a basepoint $\alpha\ge\frac12$, with ${\varphi_{1/2}=1/G}$; the variable with ${\E e^{-uT_\alpha}=\varphi_\alpha(u)}$, which exists for every $\alpha>\frac12$ and is a GGC if and only if no zero has $\beta>\alpha$, in particular for every $\alpha\ge1$; ${T_{1/2}=T}$ (in Section~\ref{ch:boschA}, $T_\alpha$ is Bosch's ratio of stable variables) & \raggedright Theorems~\ref{thm:poisson}, \ref{bp:thm:alpha}\tabularnewline
+$\widetilde T$, $\widetilde T_\alpha$, $\sigma^{(\alpha)}$ & \raggedright the centre clock tilted by $e^{-T/4}$, and by $e^{-(\alpha-\frac12)^2T}$, so that ${\widetilde T=\widetilde T_1}$; the subordinator with Laplace exponent ${u+2(\alpha-\frac12)\sqrt u}$, with ${T_\alpha\stackrel d=\sigma^{(\alpha)}_{\widetilde T_\alpha}}$ & \raggedright Theorems~\ref{bp:thm:sub}, \ref{bp:thm:alpha}\tabularnewline
+$H_a$, $H^{(c)}_a$ & \raggedright the first passage time of $B_t+ct$ to the level $a\ge0$, for a standard Brownian motion $B$, and ${H_a=H^{(0)}_a}$; unrelated to $H_t$ & \raggedright Section~\ref{ch:bphit}\tabularnewline
+$Y_\alpha$, $Z$ & \raggedright the normal scale mixture ${Y_\alpha=\sqrt{2T_\alpha}\,Z}$, with $Z$ standard normal and independent of $T_\alpha$, whose characteristic function is ${\xi(\alpha)/\xi(\alpha+|u|)}$ (in Section~\ref{ch:sato}, $Z$ is the subordinator with ${T\stackrel d=\int_0^\infty e^{-t}\,dZ_t}$) & \raggedright Proposition~\ref{sm:prop:cf}\tabularnewline
+$W(t)$, $c_k(t)$ & \raggedright the heat trace $\sum_ke^{-a_kt}$, also written $\int e^{-tz}U(dz)$; the signed derivatives $(-1)^kW^{(k)}(t)$ (in Chapters~\ref{chap:rzeta} and \ref{chap:rzid} the time is $x$, or $y$ where $x$ is a L\'evy variable, as in the proof of Lemma~\ref{rz:lem:sin2} and from Proposition~\ref{rz:prop:twostage} to the end of Section~\ref{ch:rz2}; in Sections~\ref{ch:boschA} and \ref{ch:boschB}, $W$ is also the Mellin variable with $\E W^z=\Xi(0)/\Xi(z)$; the numbers $c_k(u)$ of Section~\ref{ch:weak} are local to it) & \raggedright Sections~\ref{ch:clock}, \ref{ch:heat}\tabularnewline
+$m_n$, $\mathcal H_N$, $\mathcal H'_N$, $\iota_N$, $\iota'_N$ & \raggedright the Stieltjes moments ${\sum_ka_k^{-n-1}}$, with ${m_0=\E T}$; the Hankel matrices ${[m_{i+j}]_{i,j<N}}$ and ${[m_{i+j+1}]_{i,j<N}}$; the numbers of their negative eigenvalues, which count the zeros off the line (Section~\ref{ch:dbn} uses the same symbols for the moments $m_n(t)$ of $H_t$) & \raggedright Section~\ref{ch:heat}, Theorem~\ref{thm:ch12:inertia}\tabularnewline
+$W^{[j]}$, $\beta_j$, $B_j$ & \raggedright the ladder functions ${(-t\frac d{dt})^jW}$, with ${W^{[0]}=W}$ (along the de Bruijn Newman flow $W^{[j]}(x;t)$, with $x$ the time of the heat trace and $t$ that of the flow); the polynomials with ${(-t\frac d{dt})^je^{-at}=\beta_j(at)e^{-at}}$; the Touchard polynomials, ${\beta_j(u)=(-1)^jB_j(-u)}$ & \raggedright Section~\ref{pk:sec:ladder}\tabularnewline
+$L_n$, $L_\infty$ & \raggedright Urbanik's classes of multiply self decomposable laws, with $L_0$ the self decomposable laws; unrelated to the Post Widder functionals $L_n[W]$ of Section~\ref{rz:sec:towards} & \raggedright Section~\ref{pk:sec:urbanik}\tabularnewline
+$Z^{[j]}$ & \raggedright the $j$th driving process of the centre clock, ${Z^{[1]}=Z}$, with Laplace exponent ${(u\frac d{du})^j\log G}$ & \raggedright Lemma~\ref{pk:lem:urbanik}\tabularnewline
+$g$, $g_k$, $H$, $\lambda^*$ & \raggedright the candidate generating exponent ${\Psi_Z\circ H}$ and its Taylor coefficients, with $H$ the inverse of $\log G$; the branch point ${\log|G(u^*)|+i\pi}$ of $H$ & \raggedright Section~\ref{pk:sec:nobranch}\tabularnewline
+$\Phi_t$, $\widehat g$, $R_g$ & \raggedright the damped P\'olya kernel ${e^{tv^2/4}\Phi(v)}$; the cosine transform ${\int g(v)\cos(\theta v)\,dv}$ of an even kernel; ${\widehat g(0)/\widehat g(i\sqrt s)}$, with ${R_{\Phi_t}=R_t}$ & \raggedright Section~\ref{pk:sec:filtertest}\tabularnewline
+$X_t$, $p_t$, $Q_t$, $\varrho_t$, $h_t$ & \raggedright the variable with density ${p_t=\Phi_t/\Xi_t(0)}$, ${X_0=X}$; the radius of Khinchine's mixture, ${X_t=UQ_t}$; the radius of the arcsine mixture, ${X_t=\varrho_t\cos\Theta}$, and its density & \raggedright Section~\ref{pk:sec:arcsine}\tabularnewline
+$\mathcal B$, $f$, $\mathcal B_g$, $\mathcal B_t$ & \raggedright ${\frac\pi2S_2}$, with ${\E\mathcal B^{s/2}=2\xi(s)}$; its density ${b^{-5/4}\Phi(\frac12\log b)}$; the variable with density proportional to ${b^{-5/4}g(\frac12\log b)}$; ${\mathcal B_{\Phi_t}}$ & \raggedright Section~\ref{pk:sec:bpy}\tabularnewline
+$\ell$, $\kappa_k(\lambda)$, $c_k(\lambda)$, $\sigma_\lambda$ & \raggedright a Laplace transform ${\E e^{-\lambda\mathcal V}}$; the cumulants ${(-1)^k(\log\ell)^{(k)}(\lambda)}$; ${\kappa_{k+1}(\lambda)/k!}$, the moments of $\sigma_\lambda$ for a GGC (not the $c_k(t)$ of the heat trace) & \raggedright \eqref{pk:eq:ck}\tabularnewline
+$\mathcal K_n(\lambda)$, $\mathcal K'_n(\lambda)$ & \raggedright the Hankel matrices ${[c_{i+j}(\lambda)]_{i,j<n}}$ and ${[c_{i+j+1}(\lambda)]_{i,j<n}}$, positive semidefinite for a GGC & \raggedright Section~\ref{pk:sec:bpy}\tabularnewline
+$\ell_t$, $\dot\ell$, $\mathcal J$ & \raggedright ${\E e^{-\lambda\mathcal B_t}}$; its derivative in $t$ at ${t=0}$, up to a term in $\ell_0$; the first order change of the Thorin measure in a gap, in the proof of Proposition~\ref{pk:prop:bpytilt} & \raggedright Section~\ref{pk:sec:bpy}\tabularnewline
+$\vartheta_a$, $\xi(s,a)$, $K_a$, $\mathcal B_a$ & \raggedright the theta series ${\sum n^pa_ne^{-\pi n^2x/q}}$ of a periodic sequence; its completed Dirichlet series; the kernel ${2e^{(p+1/2)v}\vartheta_a(e^{2v})}$; ${\mathcal B_{K_a}}$ (for ${a=\chi_{-4}}$, $1/\mathcal B_a$ is the variable $Z$ of Remark~\ref{rem:dbeta:exit}) & \raggedright Section~\ref{pk:sec:theta}\tabularnewline
+$\chi_d$, $S_a$, $\Sigma_a$ & \raggedright the real primitive character of discriminant $d$ (${\chi_{-4}=\chi_4}$); the positivity sum of Lemma~\ref{pk:lem:thetapos}; the numerator of the reflected transform \eqref{pk:eq:refl} & \raggedright Section~\ref{pk:sec:theta}\tabularnewline
+$f_{\rm DH}$, $\varkappa$, $f_r$ & \raggedright the function of Davenport and Heilbronn; its coefficient ${0.28407904\ldots}$; the self dual family modulo $7$ & \raggedright Section~\ref{pk:sec:theta}\tabularnewline
+$k_n$ & \raggedright the inverse Laplace transform of Li's $\varphi_n$, ${\lambda_n=\int k_nW}$ & \raggedright Problem~\ref{pk:prob:li}\tabularnewline
+\bottomrule
+\end{longtable}}
+
+{\small
+\begin{longtable}{@{}p{0.17\textwidth}p{0.56\textwidth}p{0.2\textwidth}@{}}
+\toprule
+symbol & meaning & defined in\\
+\midrule
+\endhead
+$\varepsilon$ & \raggedright the resolution; the basepoint is $\frac12+\varepsilon$ & \raggedright Section~\ref{ch:intro}\tabularnewline
+$v_\alpha(r)$ & \raggedright $\re(\xi'/\xi)(\alpha+ir)$, which is $\pi$ times the density of $U_\alpha$ in the chart $\theta=\sqrt z$ (Chapters~\ref{chap:basepoint} to \ref{chap:almost} write $v_\alpha(\theta)$) & \raggedright Section~\ref{ch:clock}\tabularnewline
+$b_\alpha$, $\Pi_\alpha$ & \raggedright ${b_\alpha=\frac{\xi'}\xi(\alpha)=v_\alpha(0)}$, the drift of the L\'evy form ${\log\frac{\xi(\alpha+s)}{\xi(\alpha)}=b_\alpha s+\int_0^\infty(e^{-sx}-1+sx)\,\Pi_\alpha(dx)}$ (for ${\alpha\ge1}$, and for ${\frac12<\alpha<1}$ when ${\Theta<\alpha}$), with ${b_1=\sum_\rho\rho^{-1}=\lambda_1}$; its signed L\'evy measure, with atoms $\Lambda(n)/(n^\alpha\log n)$ at $\log n$ & \raggedright Proposition~\ref{bp:prop:levy}, Section~\ref{bp:sec:below}\tabularnewline
+$A$, $A_\alpha$, $Q$, $\nu_1$ & \raggedright the gamma piece ${A(\theta)=\frac12[\re\psi(\frac{3+i\theta}2)-\psi(\frac32)]}$ and the compensated prime piece ${Q(\theta)=\lim_{X\to\infty}\int_0^{\log X}2\sin^2(\frac{x\theta}2)\,\nu_1(dx)}$ of ${v_1=b_1+A+Q}$; the gamma piece $A_\alpha$ at $\alpha$; the prime measure ${\nu_1=\sum_n\Lambda(n)n^{-1}\delta_{\log n}-dx}$ on $(0,\infty)$, compensated by Lebesgue measure and unrelated to $\nu(\sigma,T)$ (Section~\ref{ch:bpeta} uses $A$, $A_\alpha$ and $Q$ for $L(s,\chi_{12})$) & \raggedright \eqref{bp:eq:conversion}, Proposition~\ref{bp:prop:sin2}\tabularnewline
+$S$, $T_1^\circ$; $S_\alpha$, $T_\alpha^\circ$ & \raggedright the positive stable variable of index one half with ${\E e^{-uS}=e^{-b_1\sqrt u}}$; the GGC with no drift, independent of $S$, whose Thorin density in the chart $\theta=\sqrt z$ is ${(A+Q)/\pi}$, so that ${T_1\stackrel d=S+T_1^\circ}$ (unrelated to $S(t)$ and $S_2$); the same at a basepoint ${\alpha\ge1}$, with $b_\alpha$ and ${(v_\alpha-b_\alpha)/\pi}$, so that ${T_\alpha\stackrel d=S_\alpha+T_\alpha^\circ}$ & \raggedright Propositions~\ref{bp:prop:v1min}, \ref{bp:prop:valpha}\tabularnewline
+$V_\alpha$, $V$ & \raggedright the variable with ${\E e^{sV_\alpha}=\xi(\alpha+s)/\xi(\alpha)}$, whose density ${e^{(\alpha-\frac12)y}p(y)\,\xi(\frac12)/\xi(\alpha)}$ is a tilt of the P\'olya density, with no hypothesis; ${V_{1/2}=X}$ and ${V=V_1}$ & \raggedright Section~\ref{ch:clock}, Section~\ref{bp:sec:mellin}\tabularnewline
+$\rho_\varepsilon(\theta)$ & \raggedright the Thorin density at basepoint $\frac12+\varepsilon$ in the chart $\theta=\sqrt z$, $\pi^{-1}v_{1/2+\varepsilon}(\theta)$ & \raggedright \eqref{eq:rho}\tabularnewline
+$\mu_\varepsilon$ & \raggedright the signed measure $U_{1/2+\varepsilon}$, with density $\rho_\varepsilon(\theta)\,d\theta$ in the chart $\theta$; the Thorin measure of the GGC $T_{1/2+\varepsilon}$ when ${\frac12+\varepsilon>\re\rho}$ for every zero, and called the Thorin measure at resolution $\varepsilon$ in general ($\mu(n)$ is the M\"obius function) & \raggedright Section~\ref{ch:clock}\tabularnewline
+\bottomrule
+\end{longtable}}
+
+{\small
+\begin{longtable}{@{}p{0.17\textwidth}p{0.56\textwidth}p{0.2\textwidth}@{}}
+\toprule
+symbol & meaning & defined in\\
+\midrule
+\endhead
+$P_a$ & \raggedright the Poisson (Cauchy) kernel $a/(\pi(a^2+x^2))$, with ${P_{-a}=-P_a}$ & \raggedright Section~\ref{ch:clock}\tabularnewline
+$d_{\rm match}(\varepsilon)$ & \raggedright $\tv{\mu_\varepsilon-P_\varepsilon*U^\pm_{\RH}}$, the distance to the RH measure smoothed at the same resolution, which vanishes under RH & \raggedright Section~\ref{ch:distances}\tabularnewline
+$\tilde d_{\rm match}(\varepsilon)$ & \raggedright $\tv{\mu_\varepsilon-P_\varepsilon*\widetilde U}$, the matched distance computed against the model $\widetilde U$ of the zero list (the first $1700$ ordinates and the density $\pi^{-1}\vartheta'$ beyond them, each with its reflection) & \raggedright Section~\ref{ch:distances}\tabularnewline
+$\kappa_{\rm cell}$ & \raggedright the cell constant $\pi^{-1}\sum_k|\Xi'/\Xi(b_k)-\Xi'/\Xi(b_{k-1})|$ of the $79$ cells $(b_{k-1},b_k]$ below height $200$, so that $d_{\rm cell}(\varepsilon)=\kappa_{\rm cell}\,\varepsilon+O(\varepsilon^3)$ & \raggedright Section~\ref{ch:distances}\tabularnewline
+$M_\varepsilon(\theta)$ & \raggedright the cumulative mass ${\mu_\varepsilon((0,\theta^2])=\pi^{-1}\arg\xi(\frac12+\varepsilon+i\theta)}$, with the branch of the argument that vanishes at $\theta=0$ (the Mertens function ${M(t)=\sum_{d\le t}\mu(d)}$ in Section~\ref{sec:sqfree}) & \raggedright Section~\ref{sec:ch4:height200}, Section~\ref{ch:turing}\tabularnewline
+$\tau_\varepsilon(T)$ & \raggedright $\pi^{-1}$ times the change of $\arg\xi$ along the segment from ${\frac12+\varepsilon+iT}$ to ${\frac12+iT}$, so that ${M_\varepsilon(T)+\tau_\varepsilon(T)=N(T)-2\nu(\frac12+\varepsilon,T)}$ ($\tau(n)$ is Ramanujan's function in Section~\ref{ch:chi12}, and $\tau$ is the ordinate in Chapters~\ref{chap:rzeta} and \ref{chap:rzid}) & \raggedright Proposition~\ref{prop:zerodensity}\tabularnewline
+$N(T),\ \nu(\sigma,T)$ & \raggedright the number of zeros with ${0<\im\rho\le T}$; the number of those with $\re\rho>\sigma$ (Sections~\ref{ch:turing} and \ref{ch:almost} write $N(\sigma,T)$ for the number with $\re\rho\ge\sigma$) & \raggedright Section~\ref{ch:intro}\tabularnewline
+$S(t),\ S_\varepsilon(t)$ & \raggedright $\pi^{-1}\arg\zeta(\frac12+it)$, with the argument continued along ${2\to2+it\to\frac12+it}$; $\pi^{-1}\arg\zeta(\frac12+\varepsilon+it)$, continued along the line ${\re s=\frac12+\varepsilon}$ from ${S_\varepsilon(0+)=-1}$ if ${0<\varepsilon<\frac12}$ and from $0$ if ${\varepsilon>\frac12}$ & \raggedright Sections~\ref{sec:ch5:turing}, \ref{sec:ch9:mass}\tabularnewline
+$\vartheta(t)$ & \raggedright the Riemann Siegel theta function ${\im\log\Gamma(\frac14+\frac{it}2)-\frac t2\log\pi}$ (written $\theta$ in Chapters~\ref{chap:rzeta} and \ref{chap:rzid}; in Section~\ref{ch:boschB}, $\theta$ and $\vartheta$ are angles) & \raggedright Section~\ref{ch:classical}\tabularnewline
+$Z(t)$ & \raggedright Hardy's function $e^{i\vartheta(t)}\zeta(\frac12+it)$, real for real $t$ & \raggedright Section~\ref{ch:classical}\tabularnewline
+$\Theta$ & \raggedright a height, the top of a range of ordinates, with ${\Theta=200}$ for the window of Chapters~\ref{chap:evaluation} to \ref{chap:heat}; in Chapters~\ref{chap:rzeta} and \ref{chap:rzid} and Sections~\ref{ch:basepoint} and \ref{ch:riesz}, $\sup\re\rho$ & \raggedright Section~\ref{sec:ch4:height200}, Section~\ref{ch:rz1}\tabularnewline
+$T_0$ & \raggedright the height $3\times10^{12}$ below which RH has been verified \cite{PT21} (used in Sections~\ref{ch:weak}, \ref{ch:boschB}, \ref{ch:rz2}, \ref{ch:rz3}, \ref{ch:rz4}, \ref{ch:strip} and \ref{ch:almost}) & \raggedright Section~\ref{ch:intro}\tabularnewline
+$\lambda_n$ & \raggedright the Keiper Li coefficients ${\sum_\rho[1-(1-1/\rho)^n]}$ & \raggedright Section~\ref{ch:li}\tabularnewline
+$H_t$, $\Lambda$, $\Phi_{\rm dBN}$ & \raggedright the de Bruijn Newman flow, normalised by ${H_0(z)=\frac18\Xi(z/2)}$; the de Bruijn Newman constant; the kernel ${\Phi_{\rm dBN}(u)=\frac12\Phi(2u)}$ of the flow ($\Lambda(n)$ is von Mangoldt's function) & \raggedright Section~\ref{ch:dbn}\tabularnewline
+$P(\theta)$, $\nu_n$, $A_P$, $K^P$ & \raggedright P\'olya's Bessel function ${P(\theta)=K_{i\theta/2}(2\pi)}$; the zeros of ${\nu\mapsto K_{i\nu}(2\pi)}$, so that $P$ vanishes at ${\theta=\pm2\nu_n}$; the operator ${-\frac{d^2}{dx^2}+e^{2x}}$ on ${[\log2\pi,\infty)}$ with a Dirichlet condition, whose eigenvalues are the $\nu_n^2$; the trace ${K^P(y)=\sum_ne^{-2\nu_ny}}$ & \raggedright Section~\ref{ch:biane}\tabularnewline
+\bottomrule
+\end{longtable}}
+
+{\small
+\begin{longtable}{@{}p{0.17\textwidth}p{0.56\textwidth}p{0.2\textwidth}@{}}
+\toprule
+symbol & meaning & defined in\\
+\midrule
+\endhead
+$\delta$ & \raggedright the displacement of an off line zero ${\frac12\pm\delta+i\gamma}$, written $d$ in Sections~\ref{ch:finite}, \ref{ch:arith}, \ref{ch:spacing}, \ref{ch:li}, \ref{ch:dbn} and \ref{ch:open}; in Chapter~\ref{chap:evaluation} and where its parameters are quoted, the tilt margin, with ${0<\delta<\pi/4}$; in Section~\ref{ch:boschB}, the angle of a zero & \raggedright Propositions~\ref{prop:struct}, \ref{prop:tilt}\tabularnewline
+$\eta$ & \raggedright the tilted height ${\eta=\pi/4-\delta}$ (Dedekind's eta function in Sections~\ref{ch:chi12}, \ref{ch:boschB} and \ref{ch:bpeta}; Dirichlet's eta function ${\eta(s)=(1-2^{1-s})\zeta(s)}$ in Section~\ref{ch:strip} and, as ${\eta(1+v)=(1-2^{-v})\zeta(1+v)}$, in Chapters~\ref{chap:rzeta} and \ref{chap:rzid}) & \raggedright Proposition~\ref{prop:tilt}\tabularnewline
+$K_\eta(\varepsilon)$ & \raggedright the kernel constant ${\int_{\R}|\Phi(x\pm i\eta)|\,e^{\varepsilon|x|}\,dx}$ of the trapezoid bound, with ${K_\eta=K_\eta(0)}$ & \raggedright Section~\ref{sec:ch4:trapezoid}\tabularnewline
+$\psi$ & \raggedright the digamma function $\Gamma'/\Gamma$ (Chebyshev's function ${\sum_{n\le y}\Lambda(n)}$ at real ${y\ge1}$ in Sections~\ref{ch:rz3}, \ref{ch:basepoint}, \ref{ch:riesz} and \ref{ch:almost}, and $\psi(y,\chi_{12})$ in Section~\ref{ch:bpeta}) & \raggedright Section~\ref{ch:clock}\tabularnewline
+$\gamma_E$ & \raggedright Euler's constant & \raggedright Section~\ref{ch:heat}\tabularnewline
+$\mathcal N$ & \raggedright the standard normal distribution function, with ${\overline{\mathcal N}=1-\mathcal N}$ & \raggedright Section~\ref{ch:boundaries}\tabularnewline
+$\xi(s,\chi_{12})$, $K$ & \raggedright the completed $L$ function ${(12/\pi)^{s/2}\Gamma(s/2)L(s,\chi_{12})=\int_0^\infty\eta(ix)x^{s/2}\,dx/x}$; its kernel ${K(u)=2e^{u/2}\eta(ie^{2u})}$, with ${\xi(\frac12+s,\chi_{12})=\int_{\R}K(u)e^{su}\,du}$ (a variable $Y$ with density $K/\xi(\frac12,\chi_{12})$ plays the role of $X$) & \raggedright Section~\ref{sec:ch16:eta}\tabularnewline
+$\xi(s,\chi_4)$, $K_4$, $Y_4$ & \raggedright the completed Dirichlet beta function ${(4/\pi)^{(s+1)/2}\Gamma(\frac{s+1}2)L(s,\chi_4)}$, equal to ${\int_0^\infty\eta(ix)^3x^{(s+1)/2}\,dx/x}$; its kernel ${K_4(u)=2e^{3u/2}\eta(ie^{2u})^3}$, with ${\xi(\frac12+s,\chi_4)=\int_{\R}K_4(u)e^{su}\,du}$; the variable with density $K_4/\xi(\frac12,\chi_4)$ & \raggedright Section~\ref{sec:dbeta:kernel}\tabularnewline
+$R(x)$, $R_h(x)$ & \raggedright Riesz's function ${x\sum_{n\ge1}\mu(n)n^{-2}e^{-x/n^2}}$; its twist ${x\sum_{n\ge1}\mu(n)n^{-2}(x/n^2)^{ih}e^{-x/n^2}}$, with ${R_0=R}$ (in Chapters~\ref{chap:rzeta} and \ref{chap:rzid}, $R$ is the reciprocal Xi function) & \raggedright Sections~\ref{wr:sec:riesz}, \ref{ri:sec:filters}\tabularnewline
+$\xi_K(s)$, $C_K$ & \raggedright the completed Dedekind zeta function ${s(s-1)|d_K|^{s/2}\Gamma_{\mathbb R}(s)^{r_1}\Gamma_{\mathbb C}(s)^{r_2}\zeta_K(s)}$ of a number field $K$, with ${\xi_{\mathbb Q}=2\xi}$; the constant of ${\sum_{N(\mathfrak a)\le x}\mu(\mathfrak a)^2/N(\mathfrak a)}$, with ${C=C_{\mathbb Q}=1.7171377}$ & \raggedright Sections~\ref{sec:sqfree:thread}, \ref{sec:sqfree:nf}\tabularnewline
+$\tv{\cdot}$ & \raggedright the total variation $|\cdot|(E)$ of a signed measure on the window $E$ & \raggedright Section~\ref{ch:intro}\tabularnewline
+GGC, HCM, ID, SD, BO, EGGC & \raggedright generalised gamma convolution; hyperbolically completely monotone; infinitely divisible; self decomposable; the Bondesson class; the extended class of generalised gamma convolutions, the weak limits of convolutions of gamma laws and their reflections & \raggedright Section~\ref{ch:ggc}, Section~\ref{sec:ch3:hierarchy}\tabularnewline
+\bottomrule
+\end{longtable}}
+
+\needspace{8\baselineskip}
+Sections~\ref{ch:boschA} and \ref{ch:boschB} use the following notation.
+
+{\small
+\begin{longtable}{@{}p{0.17\textwidth}p{0.56\textwidth}p{0.2\textwidth}@{}}
+\toprule
+symbol & meaning & defined in\\
+\midrule
+\endhead
+$s$, $\varphi(s)$ & \raggedright the variable $u$ of the clock; the clock ${\varphi_{1/2}(s)=\xi(\frac12)/\xi(\frac12+\sqrt s)}$ & \raggedright Section~\ref{ch:boschA}\tabularnewline
+$W$ & \raggedright the Mellin variable with ${\E W^z=\Xi(0)/\Xi(z)}$, not the heat trace & \raggedright Section~\ref{ch:boschA}\tabularnewline
+$T_\alpha$ & \raggedright Bosch's variable ${(Z_\alpha/\tilde Z_\alpha)^\alpha}$ with independent positive $\alpha$ stable $Z_\alpha,\tilde Z_\alpha$; here $\alpha$ is a stability index, not a basepoint & \raggedright Section~\ref{ch:boschA}\tabularnewline
+$X$, $p$, $\varepsilon_h$, $\delta$, $\theta$, $\vartheta$ & \raggedright under RH, the clock variable $T$; an exponent, not the P\'olya density; an elasticity, not a resolution; the angle of a zero; angles, not the ordinate and the Riemann Siegel function & \raggedright Section~\ref{ch:boschB}\tabularnewline
+$\psi$, $S_{\rm on}$, $R_{\rm off}$ & \raggedright $-\varphi'/\varphi=\sum_\gamma(s+\gamma^2)^{-1}$, the function of the Stieltjes form; its sums over the real and over the nonreal $\gamma$ (in Section~\ref{ag:sec:exactly}, the parts of $G'/G$ in the variable $u$) & \raggedright Theorems~\ref{bh:thm:main}, \ref{bs:thm:local}\tabularnewline
+$D_\gamma$, $\mathcal E_{T_0}$, $\theta_0$ & \raggedright for a nonreal zero $\gamma=a+ib$, the closed disc ${|s-(b^2-a^2)|\le2ab}$ with diameter from $-\gamma^2$ to $-\bar\gamma^2$; the parabolic sliver ${\{x+iy:\ x<-T_0^2+T_0+\frac14,\ y^2<\frac12-x\}}$ that contains every $D_\gamma$; its angle at the tip, seen from the origin & \raggedright Theorem~\ref{bs:thm:local}\tabularnewline
+\bottomrule
+\end{longtable}}
+
+The numerical checks behind the statements of Section~\ref{ch:boschB} come from one script in the archive, whose blocks Appendix~\ref{app:bosch} relates to the statements they check, and, for Theorem~\ref{bs:thm:local}, Remark~\ref{bs:rem:rightend} and Figure~\ref{bs:fig:disc}, from \texttt{pakes\_disc.py} (Appendix~\ref{app:code}).
+
+\needspace{8\baselineskip}
+Chapters~\ref{chap:rzeta} and \ref{chap:rzid} use the following notation.
+
+{\small
+\begin{longtable}{@{}p{0.17\textwidth}p{0.56\textwidth}p{0.2\textwidth}@{}}
+\toprule
+symbol & meaning & defined in\\
+\midrule
+\endhead
+$s$, $t$, $x$ & \raggedright the variable $u$ of the clock; the variable $z$ of Thorin measures; the time of the heat trace $W(x)$ & \raggedright Section~\ref{ch:rz1}\tabularnewline
+$\tau$, $z$ & \raggedright the ordinate; the argument of $\zeta$ and $\xi$ & \raggedright Section~\ref{ch:rz1}\tabularnewline
+$G$, $R$, $\varphi$ & \raggedright the gamma factor ${\Gamma(\frac14+\frac{\sqrt s}2)\pi^{-\sqrt s/2}/\Gamma(\frac14)}$; the reciprocal Xi function ${\xi(\frac12)/\xi(\frac12+\sqrt s)}$, the clock $1/G$ of Section~\ref{ch:clock}; the normalised reciprocal zeta function ${\varphi(s)=\zeta(\frac12)/\{(1-4s)\zeta(\frac12+\sqrt s)\}}$, with ${\varphi=RG}$ & \raggedright \eqref{rz:eq:phi}\tabularnewline
+$R_\sigma$, $\varphi_\sigma$, $R_t$ & \raggedright ${\xi(\sigma)/\xi(\sigma+\sqrt s)}$, which the rest of the book writes $\varphi_\sigma$; the normalised reciprocal zeta function ${\zeta(\sigma)/\{(1-s/(1-\sigma)^2)\zeta(\sigma+\sqrt s)\}}$ at $\sigma$, with ${\varphi_{1/2}=\varphi}$, not the $\varphi_\sigma$ of the rest of the book; ${H_t(0)/H_t(2i\sqrt s)}$, with ${R_0=R}$ (also in Section~\ref{ch:dbn}, which writes $u$ for $s$) & \raggedright Sections~\ref{ch:rz1}, \ref{ch:rz4}\tabularnewline
+$\theta$, $c$, $c_n$ & \raggedright the Riemann Siegel theta function ($\vartheta$ elsewhere); ${c=-\theta'(0)=\zeta'(\frac12)/\zeta(\frac12)=2.6860917}$ (also quoted in Sections~\ref{ch:heat}, \ref{ch:chi12} and Appendix~\ref{app:code}); ${c_n=2n+\frac12}$ & \raggedright Section~\ref{ch:rz1}, \eqref{rz:eq:c}\tabularnewline
+$W_0(x)$, $w(x)$, $M(t)$ & \raggedright the archimedean part ${\frac1\pi\int_0^\infty e^{-x\tau^2}\theta'(\tau)\,d\tau}$ of $W(x)$; the canonical function ${w=W-W_0}$ of $\varphi$; ${N(\sqrt t)-\theta(\sqrt t)/\pi=1+S(\sqrt t)}$ & \raggedright Section~\ref{ch:rz1}\tabularnewline
+$X_\varphi$, $X_R$ & \raggedright random variables with Laplace transforms $\varphi$ and $R$, so that $X_R$ has the law of the clock variable $T$ & \raggedright Section~\ref{ch:rz2}\tabularnewline
+$\kappa$, $Y_\kappa$ & \raggedright a Poisson width; the variable with ${\E e^{-sY_\kappa}=\kappa/(\kappa+\sqrt s)}$, whose Thorin density is a Poisson kernel of width $\kappa$ in $\sqrt t$ & \raggedright Section~\ref{ch:rz2}\tabularnewline
+$\eta(1+v)$, $\chi_4$, $\mathcal S_n$ & \raggedright Dirichlet's eta function; the nontrivial character modulo $4$; the truncated lattice variables ${\mathcal S_n=\sum_{k\le n}k^{-2}(e_k+e_k')}$, with ${\mathcal S=\frac{\pi^2}2S_2}$ and tails ${\mathcal T_n=\mathcal S-\mathcal S_n}$ (also in Section~\ref{ch:sato}) & \raggedright Sections~\ref{ch:rz1}, \ref{ch:rz4}\tabularnewline
+$B_N$, $h_\lambda$ & \raggedright the weights ${B_N=\sum_{n^m=N}d_ma_n}$ of the Vere-Jones representation, with ${a_n=\Lambda(n)/(\sqrt n\log n)}$ and ${\sum_nd_nn^{-v}=1/\eta(1+v)}$, which vanish unless $N$ is a prime power $p^n$ and are then sums of necklace polynomials at $p^{-1/2}$; the heat trace of the sawtooth measure $U_\lambda$, a Jacobi theta function & \raggedright Section~\ref{ch:rz1}, Theorem~\ref{rz:thm:necklace}\tabularnewline
+\bottomrule
+\end{longtable}}

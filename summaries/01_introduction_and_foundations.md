@@ -1,0 +1,25 @@
+# Chapter 1. Introduction and foundations
+
+<!-- cite:begin -->
+From *Computing the Riemann Hypothesis: Thorin Measures, Pólya Densities and Hitting Times* by Nicholas G. Polson and Vadim Sokolov (2026), chapter 1. Cite as Polson and Sokolov (2026), *Computing the Riemann Hypothesis: Thorin Measures, Pólya Densities and Hitting Times*, edition 1, https://doi.org/10.5281/zenodo.23331091. Book page: https://vsokolov.org/books/computing_rh/. Source: https://github.com/VadimSokolov/computing_rh.
+<!-- cite:end -->
+
+This chapter states the Riemann Hypothesis (RH) as a positivity condition. For the completed zeta function $\xi$, put $G(u)=\xi(\frac12+\sqrt{u})/\xi(\frac12)$; the reciprocal $1/G$ is the clock. RH holds exactly when the clock is the Laplace transform of a generalized gamma convolution (GGC), whose Thorin measure is then the sum of unit atoms at the squared ordinates of the zeros. This is the Thorin condition. Its equivalent forms are sign conditions: $G'/G$ is a Stieltjes transform, the heat trace of the zeros is completely monotone, the Thorin density $\rho_\varepsilon(\theta)=\pi^{-1}\operatorname{Re}(\xi'/\xi)(\frac12+\varepsilon+i\theta)$ is nonnegative at every resolution $\varepsilon>0$ (Lagarias's criterion), Weil's explicit formula functional is positive, and the clock is hyperbolically completely monotone (HCM). The chapter introduces the Hadamard product, the Pólya kernel and density, van Dantzig pairs, the Poisson smoothing of the zeros (the Cauchy flow) and the sine squared lemma, which gives the Thorin density from the primes. It treats GGCs for computation: the Bondesson hierarchy, diagnostics of the Thorin condition and the sinh clock benchmark. It explains why computation can measure but not prove the Thorin condition.
+
+## From the literature
+
+The Thorin representation of generalized gamma convolutions (Thorin 1977; Bondesson 1992); extended GGCs (Thorin 1978); the HCM characterization of GGC Laplace transforms (Bondesson 1992); Lagarias's criterion (Lagarias 1999); Weil's explicit formula (Weil 1952); Pólya's integral for $\xi$ (Pólya 1926); van Dantzig pairs (Lukacs 1968) and their link with RH (Konstantopoulos, Patie and Sarkar 2024); the Bessel hitting time form of $\xi$ (Biane, Pitman and Yor 2001, after Williams 1990); the verification of RH to height $3\times10^{12}$ (Platt and Trudgian 2021).
+
+## New results
+
+The chapter restates the rigidity and shifted clock theorems of Polson (2026), proves the sine squared lemma of Polson (2017) again, and adds one open question on positivity on a single line.
+
+<!-- results:begin -->
+- [Rigidity of the clock, a GGC if and only if RH](../RESULTS.md#rigidity_clock_ggc_iff_rh) (Proposition 1.2.1, page 11; proved): The clock, the reciprocal of the normalised completed zeta function in the variable $u=s^2$, is the Laplace transform of a generalised gamma convolution exactly when the Riemann Hypothesis holds, and then its Thorin measure is the sum of unit atoms at the squared ordinates of the zeros. First stated in Polson (2026), On Hilbert's 8th Problem: the reciprocal Xi clock, Thorin measures, van Dantzig pairs, zero free approximations, hitting times and the reciprocal zeta function, first edition, Independently published.
+- [Shifted clock is a GGC to the right of every zero](../RESULTS.md#shifted_clock_ggc_right_of_every_zero) (Theorem 1.2.2, page 16; proved): To the right of every zero of the completed zeta function, in particular at every basepoint $\alpha\ge 1$, the shifted clock is the Laplace transform of a generalised gamma convolution with an explicit positive Thorin density, and it is one exactly when $\alpha$ is at least the supremum of the real parts of the zeros. First stated in Polson (2026), On Hilbert's 8th Problem: the reciprocal Xi clock, Thorin measures, van Dantzig pairs, zero free approximations, hitting times and the reciprocal zeta function, first edition, Independently published.
+- [Positivity of the Thorin density on one line, open question](../RESULTS.md#one_line_positivity_exclusion_open) (Remark 1.2.4, page 17; open): It is not known, without assuming the Riemann Hypothesis, whether nonnegativity of the real part of the logarithmic derivative of the completed zeta function on a single vertical line excludes zeros to the right of that line. New in this book.
+<!-- results:end -->
+
+## Key terms
+
+Riemann Hypothesis, RH, Riemann xi function, completed zeta function, Thorin condition, Thorin measure, generalized gamma convolution, generalised gamma convolution, GGC, clock, rigidity theorem, Pólya kernel, Polya kernel, heat trace, van Dantzig pair, Cauchy flow, sine squared lemma, Bondesson class, HCM, Lagarias criterion, sinh clock

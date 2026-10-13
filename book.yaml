@@ -1,0 +1,129 @@
+# book.yaml: the facts about the book, kept in one place.
+# bookrepo.py generates RESULTS.md, CITATION.cff, the README block and the summary blocks from this file and results.yaml.
+# The books website reads it too. Guide: references/repository.md of the book-writing skill.
+
+slug: computing_rh                     # lowercase letters, digits and underscores; also the name of the book's page on the site
+title: "Computing the Riemann Hypothesis"
+subtitle: "Thorin Measures, Pólya Densities and Hitting Times"
+authors:
+  - given: "Nicholas G."
+    family: "Polson"
+    orcid: ""                    # none: Nick has no ORCID (authors, 12 Oct 2026)
+    affiliation: "Booth School of Business, University of Chicago"
+  - given: "Vadim"
+    family: "Sokolov"
+    orcid: "0000-0002-6618-2965"
+    affiliation: "Department of Systems Engineering and Operations Research, George Mason University"
+credit_names: ""                 # how a citation names the authors, e.g. "Polson and Sokolov"; empty: built from the family names
+year: 2026
+edition: "1"
+version: "1.0.0"                 # the release tag is v<version>
+date_released: "2026-10-13"      # YYYY-MM-DD, set at release
+publisher: "Independently published"   # the imprint KDP shows for a free KDP ISBN
+# no isbn: a free KDP ISBN may be used only on KDP, so it goes on the ISBN line of kdp.md (private) and is printed
+# only in the print edition (kdp.py interior); this file is published (references/publishing.md)
+doi: "10.5281/zenodo.23331091" # this edition's DOI; zenodo.py reserve writes it before the final build
+license_text: CC-BY-4.0          # text, figures and PDF
+license_code: MIT
+repository: https://github.com/VadimSokolov/computing_rh   # the public repository; its name is the slug
+site_page: https://vsokolov.org/books/computing_rh/    # the book page on the website; the PDF is served next to it
+language: en
+print_url: "https://www.amazon.com/dp/B0HM6X1WMN"   # the paperback on Amazon, published 7 October 2026
+cover_image: pdf/cover.jpg       # front cover image (PNG or JPEG, about 1600 px tall) in the repository, e.g. pdf/cover.png
+pdf: pdf/computing_rh.pdf              # the released PDF; bookrepo.py pdf copies the build here
+keywords:                        # 5 to 12 search terms
+  - "Riemann hypothesis"
+  - "zeros of the zeta function"
+  - "Thorin measures"
+  - "generalized gamma convolutions"
+  - "Pólya densities"
+  - "Brownian hitting times"
+  - "reciprocal zeta function"
+  - "de Bruijn Newman constant"
+  - "Keiper Li coefficients"
+  - "infinitely divisible distributions"
+  - "Lee Yang theorem"
+  - "certified ball arithmetic"
+short_description: "Computes the Thorin measure whose positivity is equivalent to the Riemann Hypothesis, from Pólya's integral for Xi in certified ball arithmetic, and proves that finite positivity tests on the heat trace cannot decide it; with hitting times, the reciprocal zeta function and Lee Yang theory."
+description: |
+  The Riemann Hypothesis can be restated as the positivity of a measure, the Thorin measure of a ratio of values of Riemann's Xi function. This book computes that measure from Pólya's integral for Xi, without primes or a list of zeros, in certified ball arithmetic, and asks what such computations can and cannot teach about the zeros.
+
+  A certified zero off the critical line would refute the hypothesis, but no finite computation can prove it. From the zeros verified up to height 3 × 10^12 the book certifies that the derivatives of the heat trace have the predicted signs up to order 1.16 × 10^25, and proves that such finite positivity tests cannot settle it: a perturbation of Xi with the same zeros below a large height, and zeros off the line above it, passes them. No proof of the hypothesis is claimed.
+
+  New results: the reciprocal Xi function at x to the power p is hyperbolically completely monotone exactly when the absolute value of p is at most one minus twice the largest zero angle over pi; at the basepoint one the Thorin density is certified smallest at the origin, so the shifted clock is a stable variable plus a generalized gamma convolution; between the basepoints one half and one the shifted clocks are almost generalized gamma convolutions, unconditionally; the clock of Pólya's Bessel function is the hitting time of an explicit diffusion; adjacent real zeros of a polynomial cannot meet under the backward heat flow before an explicit time; and the Pólya law lies within 2 × 10^-6 in total variation of the ferromagnetic laws of Lee and Yang, a distance that is zero exactly under the hypothesis.
+
+  An appendix lists the scripts and data files behind the tables and figures, which are in the book's repository https://github.com/VadimSokolov/computing_rh.
+source:
+  format: latex
+  dir: .
+  main: main-kdp.tex   # the 7 x 10 in edition, digital and print; main.tex alone builds the authors' draft layout, which is not published
+  aux: main-kdp.aux    # written by the build
+  toc: main-kdp.toc
+  pdf: main-kdp.pdf    # the built PDF; bookrepo.py pdf copies it to pdf above
+  meta: bookmeta.tex   # generated: \BookDOI, \BookVersion ... for the copyright page (\BookISBN only in the print build); \input it in the preamble
+macros: main.tex                 # the file that defines the book's macros
+code_dir: code                   # with the other folders of Appendix A (README, Code and data); code/LICENSE (MIT) covers them all
+environments: {}                 # printed names that \newtheorem does not declare, e.g. {thm: Theorem}
+related_papers:                  # the authors' own papers that results come from; KEY is used in results.yaml origin
+  - key: polson2017
+    citation: "Polson (2017, version 24 of 2026), On Hilbert's 8th problem, arXiv:1708.02653"
+    url: https://arxiv.org/abs/1708.02653
+  - key: polson2026
+    citation: "Polson (2026), On Hilbert's 8th Problem: the reciprocal Xi clock, Thorin measures, van Dantzig pairs, zero free approximations, hitting times and the reciprocal zeta function, first edition, Independently published"
+    url: https://www.amazon.com/dp/B0HKPL1X1S
+chapters:                        # from bookrepo.py scan; stems are public file names (shortened by hand before the first release)
+  - key: "1"
+    title: "Introduction and foundations"
+    stem: 01_introduction_and_foundations
+  - key: "2"
+    title: "Evaluating the Xi function"
+    stem: 02_evaluating_the_xi_function
+  - key: "3"
+    title: "The Thorin measure at finite resolution"
+    stem: 03_thorin_measure_at_finite_resolution
+  - key: "4"
+    title: "Weak limits, hyperbolic complete monotonicity and a Bosch type theorem"
+    stem: 04_weak_limits_hcm_and_a_bosch_type_theorem
+  - key: "5"
+    title: "The heat trace, the arithmetic and the limits of finite information"
+    stem: 05_heat_trace_arithmetic_and_limits_of_finite_information
+  - key: "6"
+    title: "The reciprocal zeta function"
+    stem: 06_reciprocal_zeta_function
+  - key: "7"
+    title: "Infinite divisibility and truncations of the reciprocal zeta function"
+    stem: 07_infinite_divisibility_and_truncations_of_reciprocal_zeta
+  - key: "8"
+    title: "Probability, hitting times and other criteria"
+    stem: 08_probability_hitting_times_and_other_criteria
+  - key: "9"
+    title: "The basepoint one"
+    stem: 09_basepoint_one
+  - key: "10"
+    title: "The critical strip and Riesz's criterion"
+    stem: 10_critical_strip_and_riesz_criterion
+  - key: "11"
+    title: "Infinite divisibility, the eta analogue and almost generalised gamma convolutions"
+    stem: 11_infinite_divisibility_eta_analogue_and_almost_ggc
+  - key: "12"
+    title: "Conclusions and open problems"
+    stem: 12_conclusions_and_open_problems
+  - key: "13"
+    title: "Ferromagnetic random variables"
+    stem: 13_ferromagnetic_random_variables
+  - key: "A"
+    title: "Code and reproducibility"
+    stem: A_code_and_reproducibility
+  - key: "B"
+    title: "A short history of computations on the zeros"
+    stem: B_history_of_computations_on_the_zeros
+  - key: "C"
+    title: "Notation"
+    stem: C_notation
+  - key: "D"
+    title: "Verification code for the Bosch type theorem"
+    stem: D_verification_code_for_the_bosch_type_theorem
+style:
+  forbid: ["—", "–"]             # characters that may not appear in published text
+  no_hyphenated_words: true
+  allow_hyphenated: ["Vere-Jones", "Barndorff-Nielsen"]   # words that keep their hyphen, e.g. names

@@ -1,0 +1,230 @@
+\subsection{Multiply self decomposable laws and branching}\label{pk:sec:ladder}
+
+The centre clock is self decomposable with no hypothesis (Theorem~\ref{thm:ch12:idsd}), so it is the integral $\int_0^\infty e^{-t}\,dZ_t$ of its driving subordinator $Z$ (Proposition~\ref{sb:prop:bdlp}). The law of $Z_1$ may be self decomposable in its turn, with a driving process of its own, and so on. Read upwards, from the last driving process to the clock, such a chain is what Pakes calls a BDLP ladder \cite[Section 5]{Pakes26}, after the background driving L\'evy process, and how far it goes places a law in one of Urbanik's classes $L_n$. This subsection shows that for the centre clock the chain has exactly three steps, with no hypothesis on the zeros (Theorem~\ref{pk:thm:ladder}), and that the clock is not the martingale limit of a supercritical continuous state branching process, the construction behind one of Pakes's proofs for the Lambert law (Theorem~\ref{pk:thm:nobranch}). Both obstructions come from the bottom of the spectrum: the ladder breaks at a time where the term of the first zero is negative and the other zeros cannot compensate it, and the branching relation breaks at a singularity that a numerical continuation traces to the critical point of $\Xi$ between the first two zeros. Neither says anything about RH. Along the de Bruijn Newman flow, where the zeros move towards the origin and apart, a computation that is numerical for $t>0$ keeps the index two on its window up to $t=27.8$ and finds the index one at $t=27.9$ and at every larger $t$ tested, by the same mechanism (Section~\ref{pk:sec:heatladder}).
+
+\subsubsection{Urbanik's classes and the ladder functions}\label{pk:sec:urbanik}
+
+A law $\mu$ on $\R$ is self decomposable if for every $c\in(0,1)$ there is a law $\mu_c$, the $c$ component of $\mu$, such that the characteristic functions satisfy $\widehat\mu(z)=\widehat\mu(cz)\,\widehat\mu_c(z)$. Urbanik \cite{Urbanik73} let $L_0$ be the class of self decomposable laws, $L_n$ for $n\ge1$ the class of laws in $L_{n-1}$ all of whose components lie in $L_{n-1}$, and $L_\infty=\bigcap_nL_n$. Sato \cite{Sato80} proved that $L_n$ is also the class of limit laws of normed sums of independent summands whose laws lie in $L_{n-1}$, and that $L_\infty$ is the smallest class of laws that contains the stable laws and is closed under convolution and weak limits \cite[Theorem 3.5]{Sato80}. In the language of Section~\ref{sb:sec:sd}, a law lies in $L_n$, $n\ge1$, exactly when it is self decomposable and the law at time one of its driving process lies in $L_{n-1}$ \cite{IJS04}. So $L_1$ consists of the self decomposable laws whose driving process is self decomposable, $L_2$ of those whose driving process has its law in $L_1$, and so on. Pakes counts the steps from one: his class $L^+_n$ consists of the drift free laws on $[0,\infty)$ in $L_{n-1}$, so that $L^+_1$ is the self decomposable class \cite{Pakes26}. We keep Urbanik's indexing.
+
+For laws on $[0,\infty)$ Berg and Forst put the classes in analytic form. Let $f$ be the Laplace exponent of an infinitely divisible law $\mu$ on $[0,\infty)$, so that $\int e^{-ux}\,\mu(dx)=e^{-f(u)}$, and let $(Sf)(u)=uf'(u)$. Then $\mu\in L_n$ if and only if $Sf,S^2f,\dots,S^{n+1}f$ are Bernstein functions \cite[Theorem 1.3]{BergForst83}. For $n=0$ this says that $\mu$ is self decomposable exactly when $Sf$ is the Laplace exponent of a subordinator, its driving process, as in the proof of Proposition~\ref{sb:prop:bdlp}.
+
+For the centre clock $f=\log G$, and $S$ acts on the canonical function $W$ through the ladder functions
+\[
+W^{[0]}=W,\qquad W^{[j+1]}(t)=-t\,\frac d{dt}W^{[j]}(t),\qquad\text{so that}\quad W^{[j]}=\Big(-t\frac d{dt}\Big)^jW .
+\]
+For one exponential, $(-t\frac d{dt})^je^{-at}=\beta_j(at)\,e^{-at}$, where $\beta_0=1$ and $\beta_{j+1}(u)=u\beta_j(u)-u\beta_j'(u)$:
+\[
+\beta_1(u)=u,\quad\beta_2(u)=u^2-u,\quad\beta_3(u)=u^3-3u^2+u,\quad\beta_4(u)=u^4-6u^3+7u^2-u .
+\]
+In general $\beta_j(u)=\sum_{i=1}^j(-1)^{j-i}S(j,i)\,u^i=(-1)^jB_j(-u)$, with $S(j,i)$ the Stirling numbers of the second kind and $B_j$ the Touchard polynomials, and since $\beta_j(u)e^{-u}=(-u\frac d{du})^je^{-u}$ and $-u\frac d{du}$ multiplies Mellin transforms by $s$,
+\begin{equation}\label{pk:eq:mellin}
+\int_0^\infty\beta_j(u)\,e^{-u}u^{s-1}\,du=s^j\,\Gamma(s)\qquad(s>0).
+\end{equation}
+The positive roots of $\beta_3$ are $(3\mp\sqrt5)/2=0.381966$ and $2.618034$, and those of $\beta_4$ are $0.165757$, $1.343380$ and $4.490864$, so that $\beta_4<0$ on $(0,0.165757)\cup(1.343380,4.490864)$. Since $W(t)=\sum_ke^{-a_kt}$ with $\re a_k\ge\gamma_k^2-\frac14>0$ for every zero (Section~\ref{sb:sec:sd}),
+\begin{equation}\label{pk:eq:Wj}
+W^{[j]}(t)=\sum_k\beta_j(a_kt)\,e^{-a_kt},
+\end{equation}
+the series converging absolutely and locally uniformly on $(0,\infty)$; the atoms of an off line zero come in conjugate pairs, so the sum is real.
+
+\begin{lemma}\label{pk:lem:urbanik}
+For every $j\ge0$ and $u\ge0$,
+\begin{equation}\label{pk:eq:Sj}
+\Big(u\frac d{du}\Big)^j\log G(u)=\int_0^\infty\big(1-e^{-ut}\big)\,W^{[j]}(t)\,\frac{dt}t .
+\end{equation}
+For $n\ge0$ the centre clock lies in $L_n$ if and only if $W^{[n+1]}\ge0$ on $(0,\infty)$, and then $W^{[1]},\dots,W^{[n]}$ are nonnegative too. In that case the driving processes $Z^{[1]}=Z$, $Z^{[2]}$, \dots, $Z^{[n+1]}$ exist, each the driving process of the law at time one of the one before; $Z^{[j]}$ has Laplace exponent $(u\frac d{du})^j\log G(u)$ and L\'evy density $W^{[j]}(t)/t$; and for $1\le j\le n$ the law of $Z^{[j]}_s$ is self decomposable for every $s>0$.
+\end{lemma}
+
+\begin{proof}
+By \eqref{pk:eq:Wj}, $W^{[j]}(t)=O(t^je^{-\gamma_1^2t})$ as $t\to\infty$, and by the explicit formula \eqref{pk:eq:Wjarith} below, $W^{[j]}(t)=O(t^{-1/2}\log(1/t))$ as $t\downarrow0$. The case $j=0$ of \eqref{pk:eq:Sj} is the L\'evy Khintchine form of $\log G$ (Section~\ref{sb:sec:sd}). If it holds for $j$, then, since $ue^{-ut}=\frac d{dt}(1-e^{-ut})$,
+\[
+\begin{aligned}
+u\frac d{du}\int_0^\infty\big(1-e^{-ut}\big)W^{[j]}(t)\,\frac{dt}t&=\int_0^\infty ue^{-ut}\,W^{[j]}(t)\,dt\\
+&=\int_0^\infty\big(1-e^{-ut}\big)\,W^{[j+1]}(t)\,\frac{dt}t ,
+\end{aligned}
+\]
+the boundary terms $(1-e^{-ut})W^{[j]}(t)$ vanishing at both ends by the two bounds. A function of the form \eqref{pk:eq:Sj} is a Bernstein function exactly when $W^{[j]}\ge0$: if $W^{[j]}\ge0$ it is a L\'evy Khintchine form, and conversely, if it is a Bernstein function, its derivative $\int_0^\infty e^{-ut}W^{[j]}(t)\,dt$ is completely monotone, hence the Laplace transform of a nonnegative measure, which by the uniqueness of Laplace transforms is $W^{[j]}(t)\,dt$. So by the theorem of Berg and Forst the clock lies in $L_n$ exactly when $W^{[1]},\dots,W^{[n+1]}$ are nonnegative. If $W^{[n+1]}=-t\,(W^{[n]})'\ge0$, then $W^{[n]}$ is nonincreasing, and since it tends to $0$ at infinity it is nonnegative; descending in the same way, so are $W^{[n-1]},\dots,W^{[1]}$. For the driving processes, the Laplace exponent of $\int_0^\infty e^{-t}\,dY_t$ is $\int_0^u\Psi_Y(w)\,dw/w$ when the subordinator $Y$ has Laplace exponent $\Psi_Y$ (proof of Proposition~\ref{sb:prop:bdlp}), so a self decomposable law with Laplace exponent $f$ has a driving process with Laplace exponent $uf'(u)$. Starting from $f=\log G$ and using \eqref{pk:eq:Sj}, $Z^{[j]}$ has Laplace exponent $(u\frac d{du})^j\log G$ and L\'evy density $W^{[j]}(t)/t$ for as long as the laws at time one are self decomposable, and the law of $Z^{[j]}_s$, with L\'evy density $sW^{[j]}(t)/t$, is self decomposable exactly when $W^{[j]}$ is nonincreasing \cite[Corollary 15.11]{Sato99}, that is, when $W^{[j+1]}\ge0$.
+\end{proof}
+
+For one exponential the second rung already fails: $W^{[2]}(t)=(a^2t^2-at)e^{-at}<0$ for $at<1$. So a gamma law, whose canonical function is a multiple of $e^{-at}$, is self decomposable but does not lie in $L_1$, and the question for the clock is whether the sum \eqref{pk:eq:Wj} over all zeros repairs the signs that each of its terms violates.
+
+\subsubsection{The ladder index of the centre clock}\label{pk:sec:index}
+
+\begin{theorem}\label{pk:thm:ladder}
+Unconditionally, that is, using only the verification of RH below height $2197.3$ \cite{PT21}, $W^{[3]}(t)>0$ for every $t>0$, and $W^{[4]}(e^{-4.15})<0$. Consequently $W$, $W^{[1]}$ and $W^{[2]}$ are positive on $(0,\infty)$; the centre clock lies in $L_2$ and not in $L_3$; its driving process $Z=Z^{[1]}$ and the driving process $Z^{[2]}$ of $Z$ are self decomposable at every time, and the driving process $Z^{[3]}$ of $Z^{[2]}$ is self decomposable at no time.
+\end{theorem}
+
+\begin{proof}
+By Lemma~\ref{pk:lem:urbanik} it suffices to prove the two inequalities; the lower ladder functions are then positive, not only nonnegative, since $W^{[j]}$ strictly decreases to $0$ when $W^{[j+1]}>0$. As in the proof of Theorem~\ref{thm:ch12:idsd}, large $t$ is handled with the zeros and small $t$ with the explicit formula, and the two ranges overlap.
+
+Large $t$. Let $\tau_1=(3+\sqrt5)/(2\gamma_1^2)=0.0131039$, so that $\gamma_1^2\tau_1=2.618034$ is the largest root of $\beta_3$; beyond it $\beta_3$ is positive and increasing. The zeros with ordinates below $\Gamma=2197.3$ lie on the line \cite{PT21}; there are $N(\Gamma)=1700$ of them, the last at $2197.2587$, and \texttt{bdlp\_ladder.py} encloses each one in ball arithmetic. For $t\ge\tau_1$ each of them contributes $\beta_3(\gamma^2t)e^{-\gamma^2t}\ge0$ to $W^{[3]}(t)$, and the second contributes at least $\beta_3(\gamma_2^2\tau_1)e^{-\gamma_2^2t}>99.38\,e^{-\gamma_2^2t}$, since $\gamma_2^2\tau_1=5.7910$. A zero with ordinate $\gamma>\Gamma$, wherever it lies, has $\re a\ge\gamma^2-\frac14$ and $|a|\le\gamma^2+\frac14$, so its term has modulus at most $f(\gamma)=B_3((\gamma^2+\frac14)t)\,e^{-(\gamma^2-\frac14)t}$, where the Touchard polynomial $B_j$ has the moduli of the coefficients of $\beta_j$. Since $vB_j'(v)\le jB_j(v)$, the logarithm of $B_j(v)e^{-v}$ decreases at a rate of at least $\frac12$ for $v\ge2j$, so for $(\Gamma^2+\frac14)t\ge6$ the function $f$ decreases and $f(\gamma)\le f(\Gamma)e^{-(\gamma^2-\Gamma^2)t/2}$. Let
+\[
+N^+(T)=\frac T{2\pi}\log\frac T{2\pi e}+0.1038\log T+0.2573\log\log T+9.3675,
+\]
+an upper bound for $N(T)$ for $T\ge e$ \cite[Corollary 1.2]{HSW22}, whose derivative is at most $\frac1{2\pi}\log\frac T{2\pi}+\frac{0.4}T$ for $T\ge\Gamma$. Partial summation against $N\le N^+$, with $\gamma^2-\Gamma^2\ge2\Gamma(\gamma-\Gamma)$ and $\log\frac\gamma{2\pi}\le\log\frac\Gamma{2\pi}+\frac{\gamma-\Gamma}\Gamma$, bounds the sum of these moduli by
+\[
+\varepsilon(t)=f(\Gamma)\Big(N^+(\Gamma)-1700+\frac L{\Gamma t}+\frac1{2\pi\Gamma^3t^2}\Big),\qquad L=\frac1{2\pi}\log\frac\Gamma{2\pi}+\frac{0.4}\Gamma .
+\]
+The logarithmic derivative of $e^{\gamma_2^2t}\varepsilon(t)$ is at most $3/t-(\Gamma^2-\frac14-\gamma_2^2)<0$ for $t\ge\tau_1$, and $e^{\gamma_2^2\tau_1}\varepsilon(\tau_1)<10^{-27458}$. So $W^{[3]}(t)\ge e^{-\gamma_2^2t}\big(99.38-e^{\gamma_2^2t}\varepsilon(t)\big)>0$ for $t\ge\tau_1$.
+
+Small $t$. Applying $(-t\frac d{dt})^j$ term by term to \eqref{eq:ch2:Warith}, which the Gaussian factors in $r$ and in $\log n$ allow, gives with no hypothesis
+\begin{equation}\label{pk:eq:Wjarith}
+W^{[j]}(t)=\beta_j\big(-\tfrac t4\big)e^{t/4}+A_j(t)-P_j(t),
+\end{equation}
+where
+\begin{gather*}
+A_j(t)=\frac1{2\pi}\int_0^\infty\beta_j(r^2t)\,e^{-r^2t}\,m(r)\,dr,\\
+P_j(t)=\frac1{2\sqrt{\pi t}}\sum_{n\ge2}\frac{\Lambda(n)}{\sqrt n}\,e^{-v_n}q_j(v_n),\qquad v_n=\frac{(\log n)^2}{4t},
+\end{gather*}
+and $q_0=1$, $q_{j+1}(v)=(\frac12-v)q_j(v)+vq_j'(v)$, because $-t\frac d{dt}$ maps $t^{-1/2}$ to $\frac12t^{-1/2}$ and $v_n$ to $v_n$; thus
+\[
+q_3(v)=-v^3+\tfrac92v^2-\tfrac{13}4v+\tfrac18,\qquad q_4(v)=v^4-8v^3+\tfrac{29}2v^2-5v+\tfrac1{16} .
+\]
+In the notation of the proof of Theorem~\ref{thm:ch12:idsd}, $\frac1{2\pi}\int_0^\infty e^{-r^2t}\log\frac r{2\pi}\,dr=s_0(t)(\ell+\alpha_0)$, and since $-t\frac d{dt}$ multiplies $s_0$ by $\frac12$ and maps $\ell$ to $\frac12$, replacing $m(r)$ by $\log\frac r{2\pi}$ in $A_j$ gives
+\[
+\bar A_j(t)=2^{-j}s_0(t)\,(\ell+\alpha_0+j),
+\]
+which also follows from \eqref{pk:eq:mellin} and its derivative in $s$ at $s=\frac12$. For the difference we split the integral at $r=5$. For $r\le5$ we use $|\beta_j(u)|e^{-u}\le u$, valid for $j=2,3,4$ with equality only in the limit $u\downarrow0$, and the bound $\int_0^5r^2|m(r)-\log\frac r{2\pi}|\,dr<0.404$ stated after the proof of Theorem~\ref{thm:ch12:idsd}; for $r\ge5$ we use the bound $r^2|m(r)-\log\frac r{2\pi}|<0.05$ stated there, and substitute $u=r^2t$. This gives
+\[
+|A_j(t)-\bar A_j(t)|\le E_j(t)=\frac1{2\pi}\Big(0.404\,t+0.025\sqrt t\,J_j\Big),
+\]
+where $J_j=\int_0^\infty|\beta_j(u)|\,e^{-u}u^{-3/2}\,du$ satisfies $J_3<1.3313$ and $J_4<1.8295$. Let $\tau_2=1/75$. For $t\le\tau_2$ the main term $\bar A_3(t)$ decreases in $t$, because $-t\frac d{dt}\bar A_3=\bar A_4$ and $\ell+\alpha_0+4>0$; the modulus $|\beta_3(-\frac t4)|e^{t/4}$ of the polar term and $E_3(t)$ increase; and so does the modulus of each term of $P_3(t)$, because $v_n\ge v_2>9$, the polynomials $q_3$ and $q_4$ have no root in $[9,\infty)$, so that $q_3<0<q_4$ there, and $-t\frac d{dt}$ maps the $n$th term of $P_3$ to the $n$th term of $P_4$. At $t=\tau_2$ the four quantities are $\bar A_3(\tau_2)=0.357155$, $0.003378$, $E_3(\tau_2)<0.001469$, and at most $0.057882$ for the sum of the moduli of the terms of $P_3$, in which the terms with $n>200$ are bounded through $e^{-(\log n)^2/8t}\le n^{-\sigma}$, $\sigma=(\log200)/8t$, as in the proof of Theorem~\ref{thm:ch12:idsd}. Hence $W^{[3]}(t)>0.2944$ for $t\le\tau_2$, and since $\tau_2>\tau_1$, $W^{[3]}>0$ on $(0,\infty)$.
+
+Rung four. Let $t_0=e^{-4.15}$. Then $\gamma_1^2t_0=3.1496$ lies in the interval $(1.343380,4.490864)$ on which $\beta_4<0$. The first five zeros contribute $-0.97604$, $0.62189$, $0.22811$, $0.01295$ and $0.00216$ to $W^{[4]}(t_0)$, and all zeros together, with the tail bound above, give $W^{[4]}(t_0)=-0.11089729616255\pm10^{-23}$ in ball arithmetic. The explicit formula confirms the sign without the zeros: at $t_0$ the polar term is $0.004066$, $\bar A_4(t_0)=0.228563$, $P_4(t_0)=0.344026$ and $E_4(t_0)<0.001928$, so that $W^{[4]}(t_0)<0.004066+0.228563+0.001928-0.344026<-0.109$.
+\end{proof}
+
+\begin{remark}\label{pk:rem:ladderproof}
+(a) The large $t$ range can use the verification of RH below height $3\times10^{12}$ \cite{PT21} in place of the $1700$ zeros, with the crude bound $N(r)\le r^2$ for $r\ge200$ that Backlund's explicit form of the Riemann von Mangoldt formula gives \cite{Backlund}; the zeros above that height then contribute less than $e^{-10^{23}}$ for $t\ge\tau_1$, and \cite{HSW22} is not needed. (b) The constants $0.404$ and $0.05$ are computed, by \texttt{idsd\_height.py} and again by \texttt{bdlp\_ladder.py}, which finds $\int_0^5r^2|m(r)-\log\frac r{2\pi}|\,dr<0.40330$, $r^2|m(r)-\log\frac r{2\pi}|<0.0422$ on $[5,10]$ and, from Binet's formula with its leading terms cancelled, $<0.0462$ beyond. The second has an analytic replacement. Binet's formula \cite[(5.9.15)]{DLMF} at $z=\frac14+\frac{ir}2$, with the integral split at $v=r/4$ as in the proof of Theorem~\ref{thm:ch12:idsd}, gives for $r\ge5$
+\[
+r^2\Big|m(r)-\log\frac r{2\pi}\Big|\le\frac18+\frac12+\frac{4r^2}{3(3r^2-1)}+8r\,T_1\Big(\frac r4\Big)\le1.08,
+\]
+where $T_1(a)=\int_a^\infty v\,dv/(e^{2\pi v}-1)$, the four terms coming from $\log|z|$, from $\re\frac1{2z}$ and from the two parts of the integral, on which $|v^2+z^2|$ is at least $(3r^2-1)/16$ and at least $r/4$; none of them increases with $r$, and at $r=5$ they are $0.125$, $0.5$, $0.45045$ and $0.00348$. With $1.08$ in place of $0.05$ the proof goes through unchanged, with $W^{[3]}>0.28$ on $(0,\tau_2]$ and $W^{[4]}(t_0)<-0.090$. (c) The proof uses no zero above $\gamma_2$ except through the signs of their terms, no bound for $S(t)$ and no asymptotic argument. A second certificate in three ranges, in the same program, confirms the theorem: the zeros for $-\log t\le4.3348$; the explicit formula on $3700$ cells of width $0.001$ covering $4.30\le-\log t\le8$, where the least lower bounds are $0.3943$ for $W^{[2]}$ and $0.4096$ for $W^{[3]}$; and lower bounds $6.12$ for $W^{[2]}$ and $4.02$ for $W^{[3]}$ valid for every $t\le e^{-8}$.
+\end{remark}
+
+The ladder breaks where the first zero dominates. At $t_0$ its term, $\beta_4(3.1496)e^{-3.1496}=-0.97604$, is only partly cancelled by the others, which leave $W^{[4]}(t_0)=-0.11090$: the second zero, for which $\gamma_2^2t_0$ already exceeds the largest root $4.490864$ of $\beta_4$, contributes $0.62189$, and the zeros above it are too far out. On the arithmetic side the same failure is the prime $2$: its term in $P_4(t_0)$, $0.343448$, outweighs the archimedean main term $\bar A_4(t_0)=0.228563$. On $-\log t\in[0,10]$ a scan in double precision on a grid of step $0.001$, with the sign at the ends of every interval certified from the zeros, finds no negative value of $W$, $W^{[1]}$, $W^{[2]}$ or $W^{[3]}$, and finds $W^{[4]}<0$ exactly for $-\log t\in(3.946,4.335)$, $W^{[5]}<0$ on $(3.443,4.126)$ and $W^{[6]}<0$ on $(3.146,3.773)\cup(4.403,5.051)$. Every ladder function from the fourth on takes negative values, since $W^{[j+1]}\ge0$ would force $W^{[j]}\ge0$ (Lemma~\ref{pk:lem:urbanik}). Towards the origin the ladder functions approach fixed fractions of $W$: by \eqref{pk:eq:Wjarith}, $W^{[j]}(t)=\bar A_j(t)+O(1)$ as $t\downarrow0$, so that $W^{[2]}/W\to\frac14$ and $W^{[3]}/W\to\frac18$. The two ratios fall from $5.73$ and $5.95$ at $-\log t=4.30$ to $0.614$ and $0.404$ at $8$ and to $0.470$ and $0.291$ at $10$, decreasing throughout $[4.30,10]$, and the ratios of the main terms are $0.2879$ and $0.1535$ at $-\log t=32$. The least values of $W^{[2]}$ and $W^{[3]}$ on $4.30\le-\log t\le8$ are $0.396547$, at $4.30$, and $0.410976$, at $4.335$.
+
+\begin{corollary}\label{pk:cor:unimodal}
+With no hypothesis, for every $s>0$ the laws of $Z_s$ and of $Z^{[2]}_s$ are self decomposable, hence unimodal, and the law of $Z_s$ lies in $L_1$.
+\end{corollary}
+
+\begin{proof}
+The first statement is Theorem~\ref{pk:thm:ladder} with Lemma~\ref{pk:lem:urbanik}, and Yamazato's theorem \cite{Yamazato78}, \cite[Theorem 53.1]{Sato99} gives unimodality. The Laplace exponent of $Z_s$ is $s\,u(\log G)'(u)$, so by \eqref{pk:eq:Sj} its images under $S$ and $S^2$ correspond to $sW^{[2]}$ and $sW^{[3]}$, which are positive, and the theorem of Berg and Forst places $Z_s$ in $L_1$.
+\end{proof}
+
+So Corollary~\ref{sb:cor:unimodal} extends from the clock to its first two driving processes, and Yamazato's theorem gives nothing further along the ladder, since $Z^{[3]}_s$ is not self decomposable.
+
+\begin{remark}\label{pk:rem:Linf}
+The centre clock is not in $L_\infty$, the closure of the stable laws under convolution and weak limits. This follows from Theorem~\ref{pk:thm:ladder}, since $L_\infty\subset L_3$, but it needs no computation. By \cite[Theorem 1.6]{BergForst83}, the Laplace exponents of the laws of $L_\infty$ on $[0,\infty)$ are the functions $\int_{(0,1]}u^\alpha\,\sigma(d\alpha)$ with $\sigma$ a finite measure. The atom of $\sigma$ at $\alpha=1$ is a drift, and for $\alpha<1$, $u^\alpha=\alpha\Gamma(1-\alpha)^{-1}\int_0^\infty(1-e^{-ut})\,t^{-\alpha}\,dt/t$. So a law of $L_\infty$ without drift has the canonical function $k(t)=\int_{(0,1)}\alpha\Gamma(1-\alpha)^{-1}t^{-\alpha}\,\sigma(d\alpha)$, which is at least $c/t$ for $t\ge1$, with $c=\int_{(0,1)}\alpha\Gamma(1-\alpha)^{-1}\,\sigma(d\alpha)>0$ unless the law is degenerate, while $W(t)$ decays like $e^{-\gamma_1^2t}$.
+\end{remark}
+
+\begin{remark}\label{pk:rem:perpetuity}
+The perpetuity $T_{\mathcal W}\stackrel d=\mathsf U(T_{\mathcal W}+J)$ of Remark~\ref{pk:rem:sd} comes from a driving process that is compound Poisson, and the argument there applies to any such process: if the driving process $Y$ of a self decomposable law is compound Poisson with rate $c$ and jumps distributed as $J$, stopping $X=\int_0^\infty e^{-t}\,dY_t$ at the first jump gives $X\stackrel d=\mathsf U^{1/c}(X+J)$, with $\mathsf U$ uniform on $(0,1)$ and the three variables independent. The centre clock satisfies no relation of this form, for any $c>0$ and any $J\ge0$. Such a $J$ would have $\E\log(1+J)<\infty$, since $\log(1+\mathsf U^{1/c}J)\ge\log(1+J)+c^{-1}\log\mathsf U$ and $\E\log(1+\mathsf U^{1/c}J)\le\E\log(1+T)\le\E T=m_0$, and iterating the relation would write $T$ as $\int_0^\infty e^{-t}\,dY_t$ with $Y$ compound Poisson; but the driving process of a self decomposable law is unique in law, its Laplace exponent being $u(\log G)'(u)$, and that of the clock has the infinite L\'evy measure $-W'(x)\,dx$ (Proposition~\ref{sb:prop:bdlp}). Under RH, $-W'(x)=\sum_{\gamma>0}\gamma^2e^{-\gamma^2x}$ is a mixture of exponentials, as is the jump density $\int ze^{-xz}\,U_{\mathcal W}(dz)$ of the driving process $\mathsf Z$ of the Lambert law (Remark~\ref{pk:rem:sd}), but its total mass is infinite.
+\end{remark}
+
+The ladder of this subsection is not the derivative ladder of Theorems~\ref{thm:ch12:idsd}, \ref{thm:ch12:cm}, \ref{thm:ch12:cmint} and \ref{thm:ch12:window} and Table~\ref{tab:ch3:hierarchy}, which climbs the signs $c_k=(-1)^kW^{(k)}>0$. Its rungs are alternating combinations of the same $c_k$, with Stirling numbers as coefficients:
+\begin{gather*}
+W^{[j]}(t)=\sum_{i=1}^j(-1)^{j-i}S(j,i)\,t^ic_i(t),\\
+W^{[3]}=t^3c_3-3t^2c_2+tc_1,\qquad W^{[4]}=t^4c_4-6t^3c_3+7t^2c_2-tc_1 .
+\end{gather*}
+Every rung of the derivative ladder is a consequence of RH, and the whole ladder, complete monotonicity of $W$, is RH. Of the BDLP ladder RH gives only the first rung, since a GGC is self decomposable; a gamma law is a GGC outside $L_1$, so the GGC property alone does not give $W^{[2]}\ge0$. In the other direction, $L_\infty$ lies inside the class of GGCs \cite[Section 4]{BergForst83}, so membership of the clock in $L_\infty$ would imply RH, but no finite rung does: for every $n$ the canonical function $(\log\frac1t)_+^n$, which vanishes on $[1,\infty)$ and so is not completely monotone, defines a law in $L_n$ that is not a GGC, its ladder functions being $n!/(n-j)!\,(\log\frac1t)_+^{n-j}$ for $j\le n$ and the measure $n!\,\delta_1(dt)$ for $j=n+1$. So rungs two and three of the BDLP ladder, which Theorem~\ref{pk:thm:ladder} proves, are unconditional facts about the shape of $W$, set by the first zeros and their spacing, and the ladder stops at a rung that says nothing about RH.
+
+\subsubsection{The ladder along the de Bruijn Newman flow}\label{pk:sec:heatladder}
+
+Theorem~\ref{rz:thm:dbn} places the centre clock in a family of laws. For every $t\ge\Lambda$, and so for every $t\ge0.2$ with no hypothesis, the function $R_t(u)=H_t(0)/H_t(2i\sqrt u)$ of Section~\ref{sec:ch21:flow} is the Laplace transform of a GGC whose Thorin measure has the atoms $a_k(t)=(z_k(t)/2)^2$, where $0<z_1(t)<z_2(t)<\cdots$ are the zeros of $H_t$, and $R_0=1/G$. Since $t$ now denotes the time of the flow, we write $x$ for the variable of the canonical function $W(x;t)=\sum_ke^{-a_k(t)x}$ of $R_t$, whose ladder functions are
+\[
+W^{[j]}(x;t)=\Big(-x\frac\partial{\partial x}\Big)^jW(x;t)=\sum_k\beta_j\big(a_k(t)x\big)\,e^{-a_k(t)x}.
+\]
+Lemma~\ref{pk:lem:urbanik} holds for these laws with the same proof, the bound for small $x$ now coming from the number of zeros of $H_t$, so the law with Laplace transform $R_t$ lies in $L_n$ exactly when $W^{[n+1]}(\cdot\,;t)\ge0$. The flow moves the zeros, and with them the index.
+
+The program \texttt{heat\_ladder.py} computes $H_t$ by Gauss Legendre quadrature in ball arithmetic, its zeros on $(0,600]$ by a sign scan of step $0.2$ and bisection, and the ladder functions $W^{[j]}(x;t)$, $j\le5$, from these zeros on the fixed window $0\le-\log x\le8$, on a grid of step $0.001$, for nine values of $t$ (Table~\ref{pk:tab:heatladder}). Nothing needs computing for $-\log x\le0$: the largest roots of $\beta_2,\dots,\beta_5$ are $1$, $2.618034$, $4.490864$ and $6.510134$, and $a_1(t)x\ge a_1(t)\ge12.47$ in every row. The computation is numerical for $t>0$. The quadrature is checked against a rule with $1024$ nodes, with relative differences below $10^{-46}$ at $z=100$, $300$ and $590$, but its error is not bounded, and the zeros above $z=600$ are left out; an estimate from the density $\frac1{4\pi}\log\frac z{4\pi}$ of the zeros of $H_0$ puts their share of $W^{[3]}$ at $-\log x=8$ below $2\times10^{-9}$, and their share of $W^{[5]}$ below $10^{-5}$. At $t=0$ the computed zeros are the numbers $2\gamma_k$ to double precision, and there are $N(300)=138$ of them, the number that Arb's count of the zeros of $\zeta$ gives; $H_0$ agrees with $\Xi(z/2)/8$, computed from $\zeta$, to $10^{-46}$.
+
+\begin{table}[htbp]
+\centering\footnotesize
+\begin{tabular}{rrrrrllc}
+\toprule
+$t$ & $z_1(t)$ & $a_2/a_1$ & $W^{[2]}/W$ & $W^{[3]}/W$ & $W^{[3]}<0$ & $W^{[4]}<0$ & $n$\\
+\midrule
+0 & 28.2695 & 2.2119 & 0.6144 & 0.4038 & none & $(3.946,4.335)$ & 2\\
+0.2 & 28.1536 & 2.2142 & 0.6131 & 0.4029 & none & $(3.935,4.333)$ & 2\\
+1 & 27.6920 & 2.2239 & 0.6078 & 0.3993 & none & $(3.893,4.321)$ & 2\\
+4 & 25.9874 & 2.2678 & 0.5887 & 0.3864 & none & $(3.737,4.263)$ & 2\\
+10 & 22.7127 & 2.3915 & 0.5545 & 0.3630 & none & $(3.426,4.090)$ & 2\\
+20 & 17.7111 & 2.7188 & 0.5069 & 0.3301 & none & $(2.884,3.675)$ & 2\\
+30 & 13.3727 & 3.2530 & 0.4687 & 0.3030 & $(2.983,3.343)$ & $(2.303,3.153)$ & 1\\
+40 & 9.7966 & 4.0960 & 0.4374 & 0.2807 & $(2.236,3.014)$ & $(1.676,2.593)$ & 1\\
+50 & 7.0629 & 5.3383 & 0.4115 & 0.2620 & $(1.563,2.539)$ & $(1.022,2.035)$ & 1\\
+\bottomrule
+\end{tabular}
+\caption{The ladder functions of $R_t$ along the de Bruijn Newman flow, on the window $0\le-\log x\le8$: the first zero $z_1(t)$ of $H_t$, the ratio $a_2/a_1$ of the first two Thorin atoms, the ratios $W^{[2]}/W$ and $W^{[3]}/W$ at $-\log x=8$, the sets of $-\log x$ on which $W^{[3]}(x;t)<0$ and $W^{[4]}(x;t)<0$, to the grid step $0.001$, and the largest $n$ with $W^{[1]},\dots,W^{[n+1]}\ge0$ on the window: $R_t$ lies in no class above $L_n$, and in $L_n$ if the signs persist for $x<e^{-8}$. On the window $W$, $W^{[1]}$ and $W^{[2]}$ are positive and $W^{[5]}$ takes negative values for every $t$. Numerical for $t>0$; the row $t=0$ is Theorem~\ref{pk:thm:ladder}. Computed by \texttt{heat\_ladder.py}.}
+\label{pk:tab:heatladder}
+\end{table}
+
+The row $t=0$ repeats from the zeros of $H_0$ what Theorem~\ref{pk:thm:ladder} proves for all $x$, with the interval on which $W^{[4]}<0$ found by the scan after it. Along the flow the zeros move towards the origin and apart: $z_1(t)$ falls from $28.27$ to $7.06$ at $t=50$, the ratio $a_2/a_1$ of the first two atoms rises from $2.21$ to $5.34$, and the number of zeros in $(0,600]$ rises from $138$ to $149$. The set on which $W^{[4]}<0$ follows the first atom to smaller values of $-\log x$. It lies where $a_1(t)x$ is in the interval $(1.343380,4.490864)$ on which $\beta_4<0$, less the part on which the other atoms compensate, and at $t=50$, where it covers most of that interval, the first atom alone almost decides the sign. Up to $t=20$ the third ladder function stays nonnegative on the window, and $R_t$ keeps the index two of the clock, as far as the window shows. Between $t=27.8$ and $t=27.9$ it turns negative. The program finds $W^{[3]}\ge0$ on the window at $t=21,\dots,27$ and $t=27.1,\dots,27.8$, which gives $W^{[2]}\ge0$ and $W^{[1]}\ge0$ there as well, by the descent in the proof of Lemma~\ref{pk:lem:urbanik} applied on $[e^{-8},\infty)$; at $t=27.9$ it finds $W^{[3]}<0$ for $3.230<-\log x<3.307$, with least value $-0.0015$, and at $t=30$, $40$ and $50$ on the intervals of the table. So, by this computation, for these $t$ the law with Laplace transform $R_t$, a GGC with no hypothesis, is not in $L_2$, and its index on the window drops to one. The mechanism is that of Theorem~\ref{pk:thm:ladder}, one rung lower: the term of the first atom in $W^{[3]}$ is negative where $a_1(t)x$ lies in $(0.381966,2.618034)$, and once the first two atoms are far enough apart the second no longer compensates it; at the threshold $a_2/a_1$ is between $3.113$ and $3.119$, against $2.212$ for the clock. At $t=50$ the ratio $W^{[2]}/W$, which for $t\le40$ decreases across the whole window, has an interior minimum, $0.276$ at $-\log x=2.682$: the same mechanism has begun to act on the second rung, which a single atom already violates.
+
+Below the window the ratios $W^{[2]}/W$ and $W^{[3]}/W$ tend to $\frac14$ and $\frac18$, at $t=0$ by \eqref{pk:eq:Wjarith} and for every $t\ge0.2$ by the count of the zeros of $H_t$. For fixed $t>0$ the number $N_t(T)$ of zeros of $H_t$ in $(0,T]$ is $\Psi(T)+\frac t{16}\log T+O(1)$, with $\Psi(T)=\frac T{4\pi}\log\frac T{4\pi}-\frac T{4\pi}$: Ki, Kim and Lee proved a formula of this kind for every $t>0$ \cite[Theorem 1.4]{KKL09}, as recalled in \cite[Section 3]{RodgersTao}, and the Polymath project proved it in this form, with effective constants, for $0<t\le\frac12$ \cite[Theorem 1.5]{Polymath}. An error $O(\log T)$ would do. Partial summation against $d\Psi$, with the substitution $u=z^2x/4$ and \eqref{pk:eq:mellin} at $s=\frac12$, gives
+\[
+W^{[j]}(x;t)=\frac{\log(1/x)}{2^{j+3}\sqrt{\pi x}}\,\big(1+o(1)\big)\qquad(x\downarrow0),
+\]
+which at $t=0$ is the leading part of $\bar A_j$. The approach is slow: at the end of the window the two ratios are still between $0.41$ and $0.62$ and between $0.26$ and $0.41$. So for $t>0$ the signs below $x=e^{-8}$ are plausible but not proved, and the last column of the table gives the largest index that the window allows. Either way the index is set by the positions and the spacing of the first zeros: it changes along the flow where every law is a GGC with no hypothesis, and it carries no information about RH.
+
+\subsubsection{No branching process realisation}\label{pk:sec:nobranch}
+
+One of Pakes's proofs that $\mathcal W$ is a Thorin Bernstein function obtains the Lambert law as the limit of a branching process \cite{Pakes20} (Section~\ref{pk:sec:strands}). Let $Y$ be a spectrally positive L\'evy process with Laplace exponent $\Psi_Y(u)=-\log\E e^{-uY_1}$, with the sign of Proposition~\ref{sb:prop:bdlp}, and with finite Malthusian parameter $\Psi_Y'(0)\in(0,\infty)$. Lamperti's time change turns $Y$ into a continuous state branching process $(\mathsf B_t)_{t\ge0}$; started at $\mathsf B_0=z>0$ it has $\E\mathsf B_t=ze^{\Psi_Y'(0)t}$, and the nonnegative martingale $e^{-\Psi_Y'(0)t}\mathsf B_t$ converges almost surely to a limit $\mathsf M$. By the branching property $\E e^{-u\mathsf M}=e^{-z\omega(u)}$ for a function $\omega$ that does not depend on $z$. Conditioning on $\mathsf B_s$ gives $\omega(u)=v_s\big(\omega(ue^{-\Psi_Y'(0)s})\big)$, where $e^{-zv_s(\theta)}=\E e^{-\theta\mathsf B_s}$ and $\partial_sv_s=\Psi_Y(v_s)$, and differentiating at $s=0$ gives
+\begin{equation}\label{pk:eq:branch}
+\Psi_Y'(0)\,u\,\omega'(u)=\Psi_Y\big(\omega(u)\big),
+\end{equation}
+which is \cite[(68)]{Pakes26}. For the Lambert law, $Y$ is the compound Poisson process with unit rate and standard exponential jumps, $\Psi_Y(u)=u/(1+u)$ and $\Psi_Y'(0)=1$, and $\omega=\mathcal W$ solves \eqref{pk:eq:branch}, since differentiating $\mathcal We^{\mathcal W}=u$ gives $u\mathcal W'=\mathcal W/(1+\mathcal W)$ \cite[Section 7]{Pakes26}.
+
+For the centre clock, or $\lambda T$ with $\lambda>0$, to be such a limit we need $z\omega(u)=\log G(\lambda u)$. Then \eqref{pk:eq:branch} determines $\Psi_Y$ on the range $[0,\infty)$ of $\omega$:
+\[
+\Psi_Y(w)=\frac{\Psi_Y'(0)}z\,g(zw),\qquad g=\Psi_Z\circ H=\frac H{H'},
+\]
+where $H$ is the inverse function of $\log G$ and $\Psi_Z(u)=u(\log G)'(u)$ is the Laplace exponent of the driving process of Proposition~\ref{sb:prop:bdlp}. The function $g$ is analytic at $0$, with $g(w)=\sum_{k\ge1}g_kw^k$ and $g_1=1$. For every spectrally positive $Y$ the function $-\Psi_Y''(u)=\sigma^2+\int_0^\infty x^2e^{-ux}\,\Pi(dx)$, with $\sigma^2$ the Gaussian coefficient and $\Pi$ the L\'evy measure of $Y$, is completely monotone (and if $Y$ is a subordinator, so is $\Psi_Y'$). Since $\Psi_Y^{(k)}(0)=\Psi_Y'(0)\,z^{k-1}k!\,g_k$, this forces
+\begin{equation}\label{pk:eq:pattern}
+(-1)^{k-1}g_k\ge0\qquad(k\ge2).
+\end{equation}
+The coefficients $g_k$ need no hypothesis. The Taylor series of $\xi$ at $\frac12$, computed in ball arithmetic, gives that of $\log G(u)=\log\xi(\frac12+\sqrt u)-\log\xi(\frac12)=\sum_{n\ge1}(-1)^{n+1}m_{n-1}u^n/n$, with the Stieltjes moments $m_n=\sum_ka_k^{-n-1}$ of Section~\ref{ch:heat}; reverting the series gives $H$, and composing gives $g=\Psi_Z\circ H$. The program \texttt{branch\_coeffs.py} does this at $3200$ bits for $k\le60$, checks it against the second route $g=H/H'$, which agrees for $k\le59$ (the last coefficient is cut by the length of the series), and checks $m_1,\dots,m_{11}$ against the sums over the first $1700$ zeros. Every sign for $k\le60$ is certified, and Table~\ref{pk:tab:gk} lists the first thirty coefficients.
+
+\begin{table}[htbp]
+\centering\footnotesize
+\begin{tabular}{rlrl}
+\toprule
+$k$ & $g_k$ & $k$ & $g_k$\\
+\midrule
+1 & $1$ & 16 & $1.49524474945\times10^{-15}$\rlap{$^*$}\\
+2 & $-3.48161903048\times10^{-2}$ & 17 & $-5.70288794250\times10^{-16}$\rlap{$^*$}\\
+3 & $5.36818625476\times10^{-3}$ & 18 & $9.65518218408\times10^{-17}$\rlap{$^*$}\\
+4 & $-8.70698237260\times10^{-4}$ & 19 & $-1.21432018700\times10^{-17}$\rlap{$^*$}\\
+5 & $1.36973198860\times10^{-4}$ & 20 & $1.16783296302\times10^{-18}$\rlap{$^*$}\\
+6 & $-2.05209454841\times10^{-5}$ & 21 & $-6.77018656749\times10^{-20}$\rlap{$^*$}\\
+7 & $2.91586074297\times10^{-6}$ & 22 & $-3.60435568970\times10^{-21}$\\
+8 & $-3.92530248114\times10^{-7}$ & 23 & $1.93592106401\times10^{-21}$\\
+9 & $4.99813541563\times10^{-8}$ & 24 & $-3.85744224396\times10^{-22}$\\
+10 & $-5.99595770666\times10^{-9}$ & 25 & $5.68747574953\times10^{-23}$\\
+11 & $6.72224097409\times10^{-10}$ & 26 & $-6.72011823221\times10^{-24}$\\
+12 & $-6.93358579492\times10^{-11}$ & 27 & $6.03459570343\times10^{-25}$\\
+13 & $6.37029732062\times10^{-12}$ & 28 & $-2.66337804089\times10^{-26}$\\
+14 & $-4.81096482192\times10^{-13}$ & 29 & $-4.09850045758\times10^{-27}$\rlap{$^*$}\\
+15 & $2.15183811282\times10^{-14}$ & 30 & $1.42466491988\times10^{-27}$\rlap{$^*$}\\
+\bottomrule
+\end{tabular}
+\caption{The Taylor coefficients of $g=\Psi_Z\circ H$, the only candidate, up to scaling, for the Laplace exponent of a generating process of the centre clock (Theorem~\ref{pk:thm:nobranch}), to twelve digits; a star marks a sign that violates \eqref{pk:eq:pattern}. Every digit shown is certified in ball arithmetic at $3200$ bits from the Taylor series of $\xi$ at $\frac12$, and the signs are certified for $k\le60$: the wrong signs are those with $16\le k\le21$, $29\le k\le35$, $43\le k\le49$ and $56\le k\le60$. Computed by \texttt{branch\_coeffs.py}.}
+\label{pk:tab:gk}
+\end{table}
+
+\begin{theorem}\label{pk:thm:nobranch}
+With no hypothesis, $(-1)^{15}g_{16}<0$: in ball arithmetic $g_{16}=1.49524474945112\times10^{-15}\pm2\times10^{-30}$. Consequently no positive multiple of the centre clock is the martingale limit of a supercritical continuous state branching process with finite Malthusian parameter, from any initial state.
+\end{theorem}
+
+\begin{proof}
+Such a limit would satisfy \eqref{pk:eq:pattern}, which the sign of $g_{16}$ violates.
+\end{proof}
+
+Theorem~\ref{pk:thm:nobranch} needs only one certified sign, but the signs fail for a structural reason, and they keep failing. The reason is Pringsheim's theorem, the power series form of Landau's theorem \cite[Chapter~II, Theorem~5b]{Widder41}: if $(-1)^{k-1}g_k\ge0$ for all large $k$ and the series $\sum g_kw^k$ has a finite radius of convergence $R$, then its sum is singular at $w=-R$. But $g$ is analytic on a neighbourhood of the negative axis. With no hypothesis, $(\log G)'(u)=\sum_k1/(u+a_k)>0$ for $-\gamma_1^2<u\le0$: a zero on the line contributes $1/(u+\gamma^2)>0$, and the conjugate atoms $a$, $\bar a$ of an off line zero together contribute $2\re(u+a)/|u+a|^2$, with $\re(u+a)\ge\gamma^2-\frac14-\gamma_1^2>0$. At $u=-1$, $-100$, $-190$, $-199$ and $-199.7$ the derivative is $0.02314$, $0.02957$, $0.1236$, $1.287$ and $11.08$. So $\log G$ increases from $-\infty$ to $0$ on $(-\gamma_1^2,0]$, its inverse $H$ is analytic on a neighbourhood of $(-\infty,0]$, and so is $g=H/H'$. Hence \eqref{pk:eq:pattern} fails for infinitely many $k$ unless $g$ is entire.
+
+Numerically the radius is finite, $R=7.1565$, and the singularities that fix it lie off the axis. The function $\Xi$ has a critical point $t^*=15.5857085898$ between $\gamma_1$ and $\gamma_2$, certified by bisection on $\Xi'$, and at $u^*=-t^{*2}=-242.914312$ the function $G(u)=\Xi(\sqrt{-u})/\Xi(0)$ has $G'(u^*)=0$ and $G(u^*)=-0.00161241048$. Continued from $0$ around the zero $-\gamma_1^2$ through the upper half plane, $\log G$ reaches $u^*$ with the value
+\[
+\lambda^*=\log|G(u^*)|+i\pi=-6.43002502663+i\pi,
+\]
+of modulus $|\lambda^*|=7.156453$ and argument $\arg\lambda^*=2.687121$, and since $(\log G)'(u^*)=0$, the inverse $H$ has a square root branch point at $\lambda^*$, and by symmetry at $\bar\lambda^*$. Continuing $H$ numerically along the segment from $0$ to $\lambda^*$ in $3000$ steps keeps $|G|=e^{\re\lambda}\ge0.0016$ on the path, away from the zeros of $G$, and brings the preimage to within $2.86$ of $u^*$, at a distance proportional to the square root of the distance from $\lambda^*$ over the last steps, as at a simple critical point; so $\lambda^*$ and $\bar\lambda^*$ are singularities of the principal branch of $g$ (a numerical continuation, not a certificate). The root test agrees: $|g_k|^{1/k}$ is $0.1269$, $0.1274$, $0.1296$, $0.1288$ and $0.1317$ at $k=20$, $30$, $40$, $50$ and $60$, approaching $1/|\lambda^*|=0.13973$ slowly, as the factor $k^{-3/2}$ of a square root singularity predicts, while the consecutive ratios $|g_{k+1}/g_k|$, between $0.120$ and $0.162$ for $2\le k\le9$, swing from $0.005$ to $3.2$ beyond, near each change of sign. The conjugate pair makes $(-1)^{k-1}g_k$ oscillate in $k$ with period $2\pi/(\pi-\arg\lambda^*)=13.8253$, and the certified wrong signs come in the blocks of Table~\ref{pk:tab:gk}, at spacings $13$, $14$ and $13$.
+
+The next critical points of $\Xi$ do not matter. The second, $t^{**}=22.0979772804$ between $\gamma_2$ and $\gamma_3$, has $G(-t^{**2})=1.56051\times10^{-5}>0$ and $\log G(-t^{**2})=-11.0679$, and the third, $26.2722473569$ between $\gamma_3$ and $\gamma_4$, has $G=-1.34670\times10^{-6}$. On the principal branch $g$ is analytic along the whole negative axis, so the real value $-11.0679$ is a singular value only of branches reached by winding around the logarithmic points $-\gamma_k^2$ of $\log G$, and it lies outside the disc of convergence in any case. So the branching obstruction, like the end of the ladder, comes from the bottom of the spectrum: the singularity that forces the changes of sign is created by the critical point of $\Xi$ between $\gamma_1$ and $\gamma_2$.
