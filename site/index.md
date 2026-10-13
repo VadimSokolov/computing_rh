@@ -2,9 +2,9 @@
 
 By Nicholas G. Polson and [Vadim Sokolov](https://orcid.org/0000-0002-6618-2965).
 
-[PDF](https://github.com/VadimSokolov/computing_rh/releases/download/v1.0.0/computing_rh.pdf), [source on GitHub](https://github.com/VadimSokolov/computing_rh/tree/v1.0.0)
+[![PDF](https://vsokolov.org/books/icon-pdf.svg)](https://github.com/VadimSokolov/computing_rh/releases/download/v1.0.0/computing_rh.pdf "PDF") [![Source on GitHub](https://vsokolov.org/books/icon-github.svg)](https://github.com/VadimSokolov/computing_rh/tree/v1.0.0 "Source on GitHub") [![Paperback, available at Amazon](https://vsokolov.org/books/available-at-amazon.png)](https://www.amazon.com/dp/B0HM6X1WMN "Paperback on Amazon")
 
-[![Paperback, available at Amazon](https://vsokolov.org/books/available-at-amazon.png)](https://www.amazon.com/dp/B0HM6X1WMN)
+[![DOI 10.5281/zenodo.23331091](https://zenodo.org/badge/DOI/10.5281/zenodo.23331091.svg)](https://doi.org/10.5281/zenodo.23331091)
 
 ## Description
 
