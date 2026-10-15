@@ -1,0 +1,22 @@
+\section{The scripts of the phase diagram chapter}\label{app:phase}
+
+The scripts of Chapter~\ref{chap:phase} are in the folder \texttt{code/}, each with the data file of its own name in \texttt{data/} and the log of its run on the Hopper cluster. \texttt{phase\_rig.py} and \texttt{phase\_collide.py} compute in ball arithmetic with python-flint \cite{Arb} by the method of the evaluator \texttt{polya\_flint.py} of Section~\ref{app:code:eval}, the trapezoid rule on the real axis, with the weight $e^{tu^2}$ and an enclosure of the error of the rule; the other scripts that evaluate $\xi_t$ or $H_t$ do so in mpmath, by the trapezoid rule of Section~\ref{sec:ch4:trapezoid} applied to the formula for $H_t$ of Section~\ref{sec:ch21:flow}. The computations were first made for the working report \cite{FA26} and recomputed for the book. Table~\ref{tab:app:phase} lists the scripts and what they produce.
+
+\begin{table}[htbp]
+\centering\footnotesize
+\begin{tabular}{@{}lp{0.38\linewidth}p{0.42\linewidth}@{}}
+\toprule
+section & scripts (data files) & tables and results\\
+\midrule
+\ref{cp:sec:see} & \raggedright \texttt{phase\_thorin.py} (\texttt{phase\_thorin.json}) & \raggedright Table~\ref{cp:tab:valleys}; Proposition~\ref{cp:prop:see}; Figures~\ref{cp:fig:phase} and~\ref{cp:fig:thorint}\tabularnewline
+\ref{cp:sec:cert} & \raggedright \texttt{phase\_cert.py} (\texttt{phase\_cert.json}) & \raggedright Table~\ref{cp:tab:K}; the floating point march and its control\tabularnewline
+ & \raggedright \texttt{phase\_rig.py} (\texttt{phase\_rig.json}) & \raggedright Theorem~\ref{cp:thm:rig}, in ball arithmetic\tabularnewline
+\ref{cp:sec:weil} & \raggedright \texttt{phase\_weil.py} (\texttt{phase\_weil.json}) & \raggedright Tables~\ref{cp:tab:weil} and~\ref{cp:tab:weilcheck}; Figure~\ref{cp:fig:weil}\tabularnewline
+\ref{cp:sec:gas} & \raggedright \texttt{phase\_gas.py} (\texttt{phase\_gas.json}) & \raggedright parts (i) and (ii) of Proposition~\ref{cp:prop:gas}; the data of Figure~\ref{cp:fig:flow}\tabularnewline
+ & \raggedright \texttt{phase\_collide.py} (\texttt{phase\_collide.json}) & \raggedright part (iii) of Proposition~\ref{cp:prop:gas}, in ball arithmetic; Figure~\ref{cp:fig:flow}\tabularnewline
+\ref{cp:sec:cost} & \raggedright \texttt{phase\_scaling.py} (\texttt{phase\_scaling.json}) & \raggedright Proposition~\ref{cp:prop:cost}; Figure~\ref{cp:fig:scaling}\tabularnewline
+\bottomrule
+\end{tabular}
+\caption{Scripts of Chapter~\ref{chap:phase}, all in the folder \texttt{code/}, the data files they write in \texttt{data/}, and the tables and results they produce.}
+\label{tab:app:phase}
+\end{table}

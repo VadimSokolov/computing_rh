@@ -1,0 +1,126 @@
+\section{A certificate for one point of the diagram}\label{cp:sec:cert}
+
+This section writes out the finite part of the statement $(0.2,0.6)\in\mathcal G$ as a certified computation with explicit constants, and runs it in ball arithmetic below height $160$. The statement is that $\xi_{0.2}$ has no zero with real part above $0.6$. Given a barrier $X$ (in the variable of $H_{0.2}$, so that it sits at height $X/2$ for $\xi_{0.2}$; see Theorem~\ref{cp:thm:cert}) beyond which this is known \cite{Polymath}, analytically beyond a strip of width one and by a computation of winding numbers in the strip, it is the vanishing of the winding number of $\xi_{0.2}$ around the rectangle $Q=[0.6,0.9]\times[0,X/2]$, and the lemmas below make that winding a certified computation. Throughout, $t=0.2$.
+
+\subsection{The lemmas}\label{cp:sec:lemmas}
+
+\begin{lemma}[Bottom edge]\label{cp:lem:bottom}
+$\xi_t(\sigma)>0$ for every real $\sigma$ and every $t\ge0$.
+\end{lemma}
+
+\begin{proof}
+Lemma~\ref{cp:lem:structure}(ii).
+\end{proof}
+
+\begin{lemma}[Right edge]\label{cp:lem:right}
+For $0\le t\le\frac12$ every zero of $\xi_t$ satisfies $|\beta-\frac12|\le\frac12\sqrt{1-2t}$. In particular for $t=0.2$ every zero has $\beta\le0.8873$, so $\xi_{0.2}$ has no zero on $\re s=0.9$.
+\end{lemma}
+
+\begin{proof}
+De Bruijn's theorem on strips, as in the proof of Theorem~\ref{cp:thm:phase}, with $\Delta=1$ from the critical strip and $\beta-\frac12=\frac12\im z$ up to sign.
+\end{proof}
+
+\begin{lemma}[Tilted bound]\label{cp:lem:tilt}
+Let $0<\eta<\pi/8$, $t\ge0$ and $s=\frac12+x+i\theta$ with $\theta\ge0$. Then
+\[
+|\xi_t(s)|\le K_\eta(t,x)\,e^{-2\eta\theta},\qquad K_\eta(t,x)=4\int_{-\infty}^{\infty}\big|e^{t(u+i\eta)^2}\big|\,|\Phi_{\rm dBN}(u+i\eta)|\,e^{2xu}\,du,
+\]
+and $K_\eta(t,x)$ is finite and even in $x$. Write $\bar K_\eta(t,R)=\max_{|x|\le R}K_\eta(t,x)$.
+\end{lemma}
+
+\begin{proof}
+Since $\Phi_{\rm dBN}$ is even, $\xi_t(s)=4\int_\R e^{tu^2}\Phi_{\rm dBN}(u)e^{2(x+i\theta)u}\,du$. The kernel extends analytically to $|\im u|<\pi/8$ with the same doubly exponential decay, which is Proposition~\ref{prop:tilt} in the variable $v=2u$, so the contour may be moved to $\im u=\eta$, and $|e^{2i\theta(u+i\eta)}|=e^{-2\eta\theta}$.
+\end{proof}
+
+\begin{lemma}[Derivative bound]\label{cp:lem:deriv}
+With the notation of Lemma~\ref{cp:lem:tilt}, for $r>0$, $|\xi_t'(s)|\le r^{-1}\bar K_\eta(t,|x|+r)\,e^{-2\eta(\theta-r)}$, and the factor $e^{-2\eta(\theta-r)}$ may be replaced by $1$ when $\theta\le r$.
+\end{lemma}
+
+\begin{proof}
+Cauchy's estimate on the disc of radius $r$ about $s$. A point $z$ of the disc has $|\re z-\frac12|\le|x|+r$ and $\im z\ge\theta-r$. If $\im z\ge0$, Lemma~\ref{cp:lem:tilt} bounds $|\xi_t(z)|$ by $\bar K_\eta(t,|x|+r)e^{-2\eta\im z}$, which is at most $\bar K_\eta(t,|x|+r)e^{-2\eta(\theta-r)}$ and at most $\bar K_\eta(t,|x|+r)$. If $\im z<0$, which occurs only when $\theta<r$, then $\xi_t(\bar z)=\overline{\xi_t(z)}$ gives the bound $\bar K_\eta(t,|x|+r)$ for $|\xi_t(z)|$. So on the disc $|\xi_t|\le\bar K_\eta(t,|x|+r)e^{-2\eta(\theta-r)}$, and $|\xi_t|\le\bar K_\eta(t,|x|+r)$ when $\theta\le r$.
+\end{proof}
+
+\begin{lemma}[Grid]\label{cp:lem:grid}
+Let $s_0,s_1$ be points of a segment on which $\xi_t$ has no zero, and suppose $|s_1-s_0|\cdot\sup_{[s_0,s_1]}|\xi_t'|<|\xi_t(s_0)|$. Then the change of $\arg\xi_t$ along the segment equals the principal value $\operatorname{Arg}(\xi_t(s_1)/\xi_t(s_0))\in(-\pi,\pi)$.
+\end{lemma}
+
+\begin{proof}
+The image of the segment lies in the open disc of radius $|\xi_t(s_0)|$ about $\xi_t(s_0)$, which does not contain $0$, and on that disc a continuous branch of the argument varies by less than $\pi$ from its value at the centre.
+\end{proof}
+
+\begin{theorem}[The certificate]\label{cp:thm:cert}
+Let $X$ be a barrier for $(0.2,0.6)$ in the variable of $H_{0.2}$, as Polymath15 provide one \cite{Polymath} (no script of this book checks it), that is, a number such that $H_{0.2}$ has no zero $z$ with $\re z\ge X$ and $\im z>0.2$, so that $\xi_{0.2}$ has no zero with $\re s>0.6$ and $\im s\ge X/2$. Let $s_0,\dots,s_M$ be points of the left, top and right edges of $Q$, in order along $\partial Q$ from one bottom corner, $s_0$, to the other, $s_M$, and including the two top corners, and let $B_j$ be ball enclosures of $\xi_{0.2}(s_j)$ with radii $\varepsilon_j$. Suppose that for every $j$ there are $r>0$ and $\eta\in(0,\frac\pi8)$ such that
+\[\begin{gathered}
+|s_{j+1}-s_j|\,\frac{\bar K_\eta(0.2,\,0.4+r)}{r}\,e^{-2\eta(\theta_j-r)}+\varepsilon_j+\varepsilon_{j+1}<\min|B_j|,\\ \theta_j=\min(\im s_j,\im s_{j+1}),
+\end{gathered}\]
+where the factor $e^{-2\eta(\theta_j-r)}$ may be replaced by $1$ when $\theta_j\le r$, and that $\sum_j\operatorname{Arg}(B_{j+1}/B_j)$, evaluated in ball arithmetic, lies within $(-\pi,\pi)$. Then $\xi_{0.2}$ has no zero in $Q$, so $(0.2,0.6)\in\mathcal G$ and $\Lambda\le0.22$.
+\end{theorem}
+
+\begin{proof}
+By Lemma~\ref{cp:lem:bottom}, $\xi_{0.2}$ is real and positive on the bottom edge, so $\arg\xi_{0.2}$ does not change along it, and by Lemma~\ref{cp:lem:right} the right edge is zero free. The hypothesis gives $|\xi_{0.2}(s_j)|\ge\min|B_j|$ at the grid points, and Lemma~\ref{cp:lem:deriv} with $|x|\le0.4$ and $\im z\ge\theta_j$ on the segment from $s_j$ to $s_{j+1}$ bounds the derivative between them, with the factor $1$ when $\theta_j\le r$, so Lemma~\ref{cp:lem:grid} applies to every step, and the winding number is the integer nearest to $\frac1{2\pi}\sum_j\operatorname{Arg}(B_{j+1}/B_j)$, which is $0$. So $\xi_{0.2}$ has no zero in $Q$; it has none with $\re s>0.9$ by Lemma~\ref{cp:lem:right}, none with $\re s>0.6$ and $\im s\ge X/2$ by the barrier, and its zeros in $\im s<0$ are the conjugates of those in $\im s>0$. Hence it has no zero with $\re s>0.6$, which is $(0.2,0.6)\in\mathcal G$, and the last clause is Theorem~\ref{cp:thm:phase}.
+\end{proof}
+
+The number of grid points is of order $(X/2)\sup_jK_\eta e^{2\eta r}/(r\,|\xi_t(s_j)|e^{2\eta\theta_j})$. The decay of $\xi_t$, of order $e^{-\pi\theta/4}$ away from its zeros, cancels against the decay $e^{-2\eta\theta}$ of the derivative bound only at $\eta=\pi/8$, which Lemma~\ref{cp:lem:tilt} excludes, and $K_\eta$ grows without bound as $\eta\uparrow\pi/8$ (Table~\ref{cp:tab:K}); so the tilt trades the rate of growth of the count against the size of the constant, which is what Lemma~\ref{cp:lem:tilt} allows. With a tilt $\eta<\pi/8$ the count grows like $e^{(\pi/4-2\eta)\theta}$. We have no proof that the count is $O(X\log X)$, or polynomial in $X$, when the tilt is chosen at each height. In the runs below, which take the best of three tilts and three radii at each step, the left edge needs on average about $45$ steps per unit height up to height $60$, $73$ up to $120$ and $94$ up to $160$ (Theorem~\ref{cp:thm:rig}).
+
+\begin{proposition}[The certificate in Thorin form]\label{cp:prop:thorincert}
+Let $t\ge0$ and $\frac12<\alpha<\sigma_1$, and suppose $v_t(\sigma,\theta)>0$ for every $(\sigma,\theta)\in[\alpha,\sigma_1]\times[0,T]$ at which $\xi_t(\sigma+i\theta)\ne0$. Then $\xi_t$ has no zero $\beta+i\gamma$ with $\alpha<\beta\le\sigma_1$ and $0<\gamma<T$.
+\end{proposition}
+
+\begin{proof}
+Near a zero $\rho$ of multiplicity $m$, $\xi_t'/\xi_t(s)=m/(s-\rho)+O(1)$, so at $s=\rho-\delta$ with small $\delta>0$ the real part is $-m/\delta+O(1)<0$. If $\alpha<\beta\le\sigma_1$, these points lie in the rectangle for small $\delta$. This is the argument of Remark~\ref{rem:ch2:oneline}, which shows that positivity on every line to the right of $\alpha$ excludes zeros there; the proposition restricts it to a rectangle of finite height.
+\end{proof}
+
+Positivity on the single line $\re s=\alpha$ is not enough (Remark~\ref{rem:ch2:oneline}), which is why the proposition asks for the whole rectangle. It is the pointwise counterpart of Theorem~\ref{cp:thm:cert}: the same evaluations of $\xi_t$ and $\xi_t'$ certify it, with a two dimensional grid and a bound on the derivative of $v_t$ in place of the argument increments, and the margin is the one measured in Proposition~\ref{cp:prop:see}. It costs more points than the winding number, since it covers the rectangle rather than its boundary, but it needs no phase bookkeeping, and its failures are local and interpretable: a negative value of $v_t$ is the off line signature of Section~\ref{ch:offline}.
+
+\subsection{Constants and the march}\label{cp:sec:march}
+
+Table~\ref{cp:tab:K} gives the constants of Lemma~\ref{cp:lem:tilt} at $t=0.2$ and the values of $\xi_{0.2}$ on the real axis that fix the scale. The decay rate $2\eta$ is to be compared with the true rate $\pi/4\approx0.785$: the tilt $\eta=0.38$ gives $0.76$ at the price of a larger constant.
+
+\begin{table}[ht]
+\centering\small
+\begin{tabular}{@{}lccc@{}}
+\toprule
+$\eta$ & decay $e^{-2\eta\theta}$ & $K_\eta(0.2,0.4)$ & $K_\eta(0.2,0.9)$\\
+\midrule
+$0.30$ & $0.60$ & $23.67$ & $25.31$\\
+$0.35$ & $0.70$ & $199.2$ & $231.1$\\
+$0.38$ & $0.76$ & $4847$ & $6776$\\
+\bottomrule
+\end{tabular}
+\qquad
+\begin{tabular}{@{}lc@{}}
+\toprule
+$\sigma$ & $\xi_{0.2}(\sigma)$\\
+\midrule
+$0.5$ & $0.49827$\\
+$0.6$ & $0.49839$\\
+$0.9$ & $0.50013$\\
+$1.0$ & $0.50117$\\
+$1.5$ & $0.50996$\\
+\bottomrule
+\end{tabular}
+\caption{Constants for the certificate at $t=0.2$, in floating point. Script \texttt{phase\_cert.py}.}
+\label{cp:tab:K}
+\end{table}
+
+A floating point march of Lemma~\ref{cp:lem:grid} around $Q_{60}=[0.6,0.9]\times[0,60]$, with the P\'olya route evaluator (the trapezoid rule of Section~\ref{sec:ch4:trapezoid} with the weight $e^{tu^2}$) at $40$ digits (working precision $72$ digits) and an adaptive step keeping $|\xi_t(s_{j+1})-\xi_t(s_j)|<\frac12|\xi_t(s_j)|$, returned the winding $-2.9\times10^{-72}$ in $910$ evaluations. The same evaluator located the zeros of $\xi_{0.2}$ on the critical line below $60$ by sign changes on a grid of step $\frac14$ followed by bisection,
+\[\begin{gathered}
+14.077,\ 20.947,\ 24.952,\ 30.330,\ 32.888,\ 37.503,\\ 40.833,\ 43.282,\ 47.887,\ 49.730,\ 52.905,\ 56.358,\ 59.237,
+\end{gathered}\]
+thirteen zeros, as for $\xi$ below $60$, each moved slightly by the flow (five of them are in Table~\ref{tab:ch21:flowzeros}). For the control function that moves the pair at $30.330$ and $32.888$ to the quadruple $\frac12\pm\frac14+31.609i$ and its conjugates, as in Theorem~\ref{thm:ch13:perturb} (there for $\xi$ and ordinates $1000<A<B\le2000$, here for $\xi_{0.2}$ and the ordinates $30.330$ and $32.888$), the computed winding was $1$ to within $10^{-35}$ in $905$ evaluations: exactly one of the four new zeros, $0.75+31.609i$, lies in $Q_{60}$.
+
+The finite part of Theorem~\ref{cp:thm:cert} was then run in ball arithmetic (Arb through python flint) by \texttt{phase\_rig.py}, which adds every truncation error to the radius of the enclosure. The evaluator is the same trapezoid rule, with $w=s-\frac12=x+i\theta$ and $u_j=jh$: $\xi_t(s)=8h\sum_{j=0}^{J}\omega_je^{tu_j^2}\Phi_{\rm dBN}(u_j)\cosh(2wu_j)+E$, where $Jh\ge3$, $\omega_0=\frac12$, $\omega_j=1$ for $j\ge1$, and $|E|\le E_{\rm cut}+E_{\rm trap}$. For $u\ge3$ the kernel satisfies $|\Phi_{\rm dBN}(u)|\le60\,e^{9u}e^{-\pi e^{4u}}$, so that for $|x|\le1$ the summand is at most $8h\,G(u_j)$ with $G(u)=60\exp(tu^2+11u-\pi e^{4u})$, which decreases with $-G'/G\ge\lambda=4\pi e^{4Jh}-2tJh-11$ for $u\ge Jh$, and the nodes beyond $Jh$ contribute at most $E_{\rm cut}=8G(Jh)/\lambda<10^{-229000}$. The error $E_{\rm trap}$ of the rule is bounded by Poisson summation on the strip $|\im u|<a$, $a=0.30<\pi/8$, in which the integrand of Lemma~\ref{cp:lem:tilt} is analytic: $E_{\rm trap}\le2K_{0.30}(0.2,x)\cosh(2a\theta)/(e^{2\pi a/h}-1)$, with $K_{0.30}(0.2,x)\le23.72$ for $|x|\le0.4$, bounded in the way described below, and $h$ is taken so that this is below $5\times10^{-4}e^{-\pi T/4}$ at the top of the rectangle of height $T$: $h=0.0199$, $0.0106$ and $0.008$ at $T=60$, $120$ and $160$, at the working precisions $219$, $288$ and $334$ bits. The series for the kernel is summed until its tail is below $2^{-{\rm prec}-30}$, the tail after $N$ terms being enclosed by
+\[\begin{aligned}
+&\sum_{n>N}\big|(2\pi^2n^4e^{9u}-3\pi n^2e^{5u})e^{-\pi n^2e^{4u}}\big|\\&\qquad\le|e^{9u}|\Big(2\pi^2+\frac{3\pi}\kappa\Big)\Big(\frac4{\pi\kappa}\Big)^2e^{-2}\,\frac{e^{-\pi(N+1)^2\kappa/2}}{1-e^{-\pi(N+1)\kappa}},\qquad \kappa=\re(e^{4u}),
+\end{aligned}\]
+using $|e^{5u}|\le|e^{9u}|/\kappa$, $n^4e^{-\pi n^2\kappa/2}\le(4/\pi\kappa)^2e^{-2}$ and $n^2\ge(N+1)^2+2(N+1)(n-N-1)$ for the geometric sum, for every $N$ and every $\kappa>0$. At a real node $\kappa=e^{4u}$; at a complex $u$ (the cells of the bounds below and the cross-check) $\kappa$ is a lower bound of $\re(e^{4u})$ over the input ball, and the function returns an indeterminate ball when $\kappa\le0.01$. The constants $\bar K_\eta(0.2,0.4+r)$ were bounded above by interval subdivision of $[0,3]$ into $3\cdot2^{14}$ cells, plus the tail $u\ge3$, below $e^{-25000}$ since $\re e^{4(u+i\eta)}\ge e^{12}\cos(4\eta)>8000$ there, for the three tilts $\eta=0.30$, $0.35$ and $0.38$ and the three radii $r=\frac14$, $\frac38$ and $\frac12$: $24.37$, $24.82$ and $25.36$, then $212.33$, $221.11$ and $231.71$, then $5633.6$, $6170.8$ and $6841.2$, each rounded up (at $r=\frac12$ these exceed the entries of Table~\ref{cp:tab:K} at $x=0.9$ by less than $1\%$). The ordinates of the grid points are exact dyadic numbers, and the abscissae $0.6$ and $0.9$ are balls of radius $2^{-{\rm prec}}$ enclosing them, so that the radius of $\xi_t(s_j)$ is that of the evaluator: an input radius $\delta$ produces an output radius of order $\delta$, however small $|\xi_t|$ is there. At each step the tilt $\eta$ and the radius $r$ giving the smallest derivative bound are used, the step is $0.8\,|\xi_t(s_j)|_{\rm low}$ divided by that bound, capped at $0.5$, and the inequality of Theorem~\ref{cp:thm:cert}, with the exact length of the step and its exact lowest height, is then verified in ball arithmetic, the step being halved when it fails. The arguments $\operatorname{Arg}(B_{j+1}/B_j)$ are summed as balls, and the winding number $W$ is certified when the sum lies within $\pi$ of $2\pi W$. Arb's Gauss Legendre integrator serves only as a cross-check: at four points, of heights $14.5$ to $60$, its enclosure of $\xi_{0.2}$ meets that of the trapezoid rule, and the midpoints differ by at most $4.4\times10^{-30}$.
+
+\begin{theorem}\label{cp:thm:rig}
+$\xi_{0.2}$ has no zero $s$ with $0.6\le\re s\le0.9$ and $0\le\im s\le160$.
+\end{theorem}
+
+\begin{proof}
+For $T=60$, $120$ and $160$ the script walks the boundary of $Q_T=[0.6,0.9]\times[0,T]$ counterclockwise, up the right edge, along the top and down the left edge, with the steps of Theorem~\ref{cp:thm:cert}. The bottom edge is not walked: by Lemma~\ref{cp:lem:bottom} $\xi_{0.2}$ is real and positive on it, so $\arg\xi_{0.2}$ does not change along it, and the script checks that it is positive at the two corners. The run took $4483$ steps for $T=60$ ($1737$ up the right edge, $31$ along the top and $2715$ down the left edge), $13{,}679$ for $T=120$ ($4955$, $11$ and $8713$) and $23{,}219$ for $T=160$ ($8142$, $20$ and $15{,}057$), in $0.5$, $2.4$ and $5.7$ seconds on four processes, and returned the winding number enclosures $[\pm3.94\times10^{-5}]$, $[\pm1.24\times10^{-6}]$ and $[\pm3.47\times10^{-7}]$. In every run the inequality of Theorem~\ref{cp:thm:cert} was verified in ball arithmetic at every step and no step failed, and the sum of the arguments lies within $\pi$ of $0$, so by Lemmas~\ref{cp:lem:bottom} to~\ref{cp:lem:grid} the winding number is $0$ and $\xi_{0.2}$ has no zero in $Q_T$, which for $T=160$ is the theorem. Script \texttt{phase\_rig.py}, data \texttt{phase\_rig.json}.
+\end{proof}
+
+With Lemma~\ref{cp:lem:right} this says that every zero of $\xi_{0.2}$ below height $160$ has $|\beta-\frac12|<0.1$, and the argument change up the left edge below $60$, $40.9$, that is $13.0\pi$ to within the argument at the corners, accounts for the thirteen zeros on the line; as a control, the same script run around $[0.4,0.6]\times[0,60]$, which contains them, returns the winding number enclosure $[13.0000\pm5.04\times10^{-5}]$ in $4841$ steps. What the certificate cannot do is replace the barrier: it certifies the point $(0.2,0.6)$ below the height it reaches and nothing above. The barrier of Polymath15 is near $X=6\times10^{10}$, height $3\times10^{10}$ for $\xi_{0.2}$, and reaching it in this framework requires a Riemann Siegel type evaluator of $H_{0.2}$ such as the effective approximation of \cite{Polymath} (Section~\ref{ch:classical} gives the one for $\zeta$) in ball arithmetic, at a cost of about $\sqrt{\theta/2\pi}$ terms per point (Table~\ref{tab:compare}).

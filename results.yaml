@@ -3120,3 +3120,341 @@
   summary: For exponents between 2 and the HCM threshold, decide whether the power of the exponential of the Pólya variable is infinitely divisible, self decomposable or a generalised gamma convolution, and whether the HCM threshold equals pi over v_m.
   statement: >-
     Let $X$ be the Pólya variable, the symmetric random variable with density $p=\Phi/\xi(\frac12)$, where $\xi(s)=\frac12s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$ and $\Phi(t)=\sum_{n\ge1}(4\pi^2n^4e^{9t/2}-6\pi n^2e^{5t/2})\exp(-\pi n^2e^{2t})$. The variable $e^{\beta X}$ is not infinitely divisible for $0<|\beta|<2$, is self decomposable and not a generalised gamma convolution (GGC) at $|\beta|=2$, and has a hyperbolically completely monotone (HCM) density, so is a GGC, for $|\beta|\ge5.5791422$; it has no HCM density for $|\beta|\le5.5791395$. The HCM threshold, the least $|\beta|$ for which $e^{\beta X}$ has an HCM density, lies between $5.5791395$ and $\pi/0.563096=5.57914219\ldots$. Open problem: for $2<|\beta|$ below the HCM threshold, is $e^{\beta X}$ infinitely divisible, self decomposable or a GGC? Below the threshold it has no HCM density, which leaves the GGC property open, and self decomposability is established only at $|\beta|=2$. Is the HCM threshold exactly $\pi/v_m=5.5791396$, where $v_m=0.5630962646$ is the point at which $F(v)=\Phi(iv)$ has its local maximum on the imaginary axis? That requires $h\ge0$ on the open strip $0<v<v_m$, where $h(x,v)=\operatorname{Im}\big(-\Phi'/\Phi\big)(x+iv)$ and $h(0,v)\to0$ as $v\uparrow v_m$, so that a certificate must replace the balls with positive lower bounds near $iv_m$ by a local argument.
+
+- id: threshold_theorem_shifted_clock_along_heat_flow
+  name: "Threshold theorem along the flow for the shifted clocks of the heat flow function"
+  label: cp:thm:transfer
+  chapter: "15"
+  origin: book
+  status: proved
+  highlight: true
+  summary: >-
+    For every time $t\ge0$ and basepoint $\alpha\ge\frac12$, the shifted clock of the heat flow function $\xi_t$ is the Laplace transform of a generalized gamma convolution exactly when no zero of $\xi_t$ has real part above $\alpha$, and its Thorin measure is then an explicit sum of Cauchy kernels and atoms over the zeros.
+  statement: >-
+    Let $\xi(s)=\frac12s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$ be Riemann's xi function, $\Phi_{\mathrm{dBN}}(u)=\sum_{n\ge1}(2\pi^2n^4e^{9u}-3\pi n^2e^{5u})\exp(-\pi n^2e^{4u})$, $H_t(z)=\int_0^\infty e^{tu^2}\Phi_{\mathrm{dBN}}(u)\cos(zu)\,du$ (so $H_0(z)=\frac18\xi(\frac12+\frac{iz}2)$) and $\xi_t(s)=8H_t(-2i(s-\frac12))=8\int_0^\infty e^{tu^2}\Phi_{\mathrm{dBN}}(u)\cosh((2s-1)u)\,du$, so that $\xi_0=\xi$. For $t\ge0$ and $\alpha\ge\frac12$ let $\varphi_{t,\alpha}(u)=\xi_t(\alpha)/\xi_t(\alpha+\sqrt u)$ for $u\ge0$, the shifted time $t$ clock (for $\alpha=\frac12$ it is $R_t(u)=H_t(0)/H_t(2i\sqrt u)$, the transform of the centre clock of the flow). A generalized gamma convolution (GGC) is a random variable $Y\ge0$ with $\mathbb{E}e^{-uY}=\exp\{-au-\int_{(0,\infty)}\log(1+u/z)\,U(dz)\}$ for $u>0$, a drift $a\ge0$ and a Thorin measure $U$. Then $\varphi_{t,\alpha}$ is the Laplace transform of a GGC if and only if $\alpha\ge\sup_\rho\operatorname{Re}\rho$ over the zeros $\rho$ of $\xi_t$. In that case there is no drift, and the Thorin measure, written in the variable $\theta=\sqrt z$ on $\theta>0$, is $\sum_{\rho=\beta+i\gamma,\ \gamma>0,\ \beta<\alpha}\bigl[P_{\alpha-\beta}(\theta-\gamma)+P_{\alpha-\beta}(\theta+\gamma)\bigr]\,d\theta+\sum_{\rho=\alpha+i\gamma,\ \gamma>0}m_\rho\,\delta_\gamma$, where the sums run over the zeros $\rho=\beta+i\gamma$ of $\xi_t$ with $\gamma>0$ (in the first sum each zero is repeated according to its multiplicity $m_\rho$), $P_a(x)=a/(\pi(a^2+x^2))$ is the Cauchy density of scale $a>0$ and $\delta_\gamma$ is the point mass at $\gamma$. For $t=0$ this is the threshold theorem for the shifted clock of $\xi$.
+
+- id: phase_diagram_theorem_de_bruijn_strip_theorem_in_thorin_form
+  name: "Phase diagram theorem, de Bruijn's strip theorem in Thorin form"
+  label: cp:thm:phase
+  chapter: "15"
+  origin: book
+  status: proved
+  highlight: true
+  summary: >-
+    The set of points $(t,\alpha)$ where the shifted clock of the heat flow function is a generalized gamma convolution is carried along parabolas by the flow (de Bruijn's strip theorem in Thorin form), the de Bruijn Newman constant is the minimum of $t+2(\alpha-\frac12)^2$ over it, and RH holds exactly when the corner $(0,\frac12)$ belongs to it.
+  statement: >-
+    Let $\xi(s)=\frac12s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$ be Riemann's xi function, $\Phi_{\mathrm{dBN}}(u)=\sum_{n\ge1}(2\pi^2n^4e^{9u}-3\pi n^2e^{5u})\exp(-\pi n^2e^{4u})$, $H_t(z)=\int_0^\infty e^{tu^2}\Phi_{\mathrm{dBN}}(u)\cos(zu)\,du$ (so $H_0(z)=\frac18\xi(\frac12+\frac{iz}2)$) and $\xi_t(s)=8H_t(-2i(s-\frac12))$, so that $\xi_0=\xi$ and a zero $x+iy$ of $H_t$ is the zero $\frac12-\frac y2+\frac{ix}2$ of $\xi_t$. For $t\ge0$ and $\alpha\ge\frac12$ let $\varphi_{t,\alpha}(u)=\xi_t(\alpha)/\xi_t(\alpha+\sqrt u)$ for $u\ge0$ (the shifted time $t$ clock), and let the GGC region $\mathcal{G}$ be the set of points $(t,\alpha)$ with $t\ge0$ and $\alpha\ge\frac12$ at which $\varphi_{t,\alpha}$ is the Laplace transform of a generalized gamma convolution; by the threshold theorem for the clocks of $\xi_t$ this holds exactly when $\xi_t$ has no zero with real part above $\alpha$, that is, when every zero $x+iy$ of $H_t$ has $|y|\le2(\alpha-\frac12)$. Let $\Lambda$ be the de Bruijn Newman constant, so that $H_t$ has only real zeros exactly when $t\ge\Lambda$. (i) If $(t_0,\alpha_0)\in\mathcal{G}$, then $(t,\alpha)\in\mathcal{G}$ for every $t\ge t_0$ and every $\alpha\ge\frac12$ with $(\alpha-\frac12)^2+\frac t2\ge(\alpha_0-\frac12)^2+\frac{t_0}2$. (ii) $\Lambda=\min\{t+2(\alpha-\frac12)^2:(t,\alpha)\in\mathcal{G}\}$. (iii) The Riemann Hypothesis (every zero of $\xi$ has real part $\frac12$) holds if and only if $(0,\frac12)\in\mathcal{G}$, and if and only if for every $\delta>0$ there is $t\in[0,\delta]$ with $(t,\frac12+\sqrt{(\delta-t)/2})\in\mathcal{G}$. Part (i) is de Bruijn's strip theorem (if the zeros of $H_{t_0}$ lie in $|\operatorname{Im}z|\le\Delta$, then the zeros of $H_t$ lie in $(\operatorname{Im}z)^2\le\max(\Delta^2-2(t-t_0),0)$ for $t\ge t_0$) read through the threshold theorem, and parts (ii) and (iii) also use the theorem of Rodgers and Tao that $\Lambda\ge0$.
+
+- id: winding_number_certificate_for_point_0_2_0_6_of_phase_diagram
+  name: "Winding number certificate for the point (0.2, 0.6) of the phase diagram"
+  label: cp:thm:cert
+  chapter: "15"
+  origin: book
+  status: proved
+  highlight: false
+  summary: >-
+    Given a barrier above which zeros are excluded (Polymath15 provide one; no script of the book checks it), if a ball arithmetic evaluation of $\xi_{0.2}$ on a grid along the left, top and right edges of a rectangle (on the bottom edge, which is real, $\xi_{0.2}$ is positive) satisfies explicit inequalities with an argument sum in $(-\pi,\pi)$, then $\xi_{0.2}$ has no zero with real part above $0.6$, so the point $(0.2,0.6)$ lies in the GGC region and $\Lambda\le0.22$.
+  statement: >-
+    Let $\Phi_{\mathrm{dBN}}(u)=\sum_{n\ge1}(2\pi^2n^4e^{9u}-3\pi n^2e^{5u})\exp(-\pi n^2e^{4u})$ and $\xi_t(s)=8\int_0^\infty e^{tu^2}\Phi_{\mathrm{dBN}}(u)\cosh((2s-1)u)\,du$, the de Bruijn Newman deformation of Riemann's xi function $\xi(s)=\frac12s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$ (so $\xi_0=\xi$), and $H_t(z)=\frac18\xi_t(\frac12+\frac{iz}2)=\int_0^\infty e^{tu^2}\Phi_{\mathrm{dBN}}(u)\cos(zu)\,du$. The kernel $\Phi_{\mathrm{dBN}}$ continues analytically to $|\operatorname{Im}u|<\pi/8$. For $0<\eta<\pi/8$ and real $x$ put $K_\eta(0.2,x)=4\int_{-\infty}^{\infty}\bigl|e^{0.2(u+i\eta)^2}\bigr|\,|\Phi_{\mathrm{dBN}}(u+i\eta)|\,e^{2xu}\,du$ and $\bar K_\eta(0.2,R)=\max_{|x|\le R}K_\eta(0.2,x)$; they give the bound $|\xi_{0.2}(\frac12+x+i\theta)|\le K_\eta(0.2,x)e^{-2\eta\theta}$ for $\theta\ge0$. Let $X>0$ be a barrier for the point $(0.2,0.6)$ in the variable of $H_{0.2}$, as Polymath15 provide one (no script of the book checks it), that is, a number such that $H_{0.2}$ has no zero $z$ with $\operatorname{Re}z\ge X$ and $\operatorname{Im}z>0.2$, so that $\xi_{0.2}$ has no zero with $\operatorname{Re}s>0.6$ and $\operatorname{Im}s\ge X/2$, and let $Q=\{s:0.6\le\operatorname{Re}s\le0.9,\ 0\le\operatorname{Im}s\le X/2\}$. Let $s_0,\dots,s_M$ be points of the left, top and right edges of $Q$, in order along the boundary of $Q$ from one bottom corner, $s_0$, to the other, $s_M$, and including the two top corners, and let $B_j$ be ball enclosures of $\xi_{0.2}(s_j)$ with radii $\varepsilon_j$. Suppose that for every $j$ there are $r>0$ and a tilt $\eta\in(0,\pi/8)$ (both may depend on $j$) such that $|s_{j+1}-s_j|\,\frac{\bar K_\eta(0.2,\,0.4+r)}{r}\,e^{-2\eta(\theta_j-r)}+\varepsilon_j+\varepsilon_{j+1}<\min|B_j|$, where $\theta_j=\min(\operatorname{Im}s_j,\operatorname{Im}s_{j+1})$, $\min|B_j|$ is the smallest modulus of a point of the ball $B_j$ and the factor $e^{-2\eta(\theta_j-r)}$ may be replaced by $1$ when $\theta_j\le r$, and that $\sum_j\operatorname{Arg}(B_{j+1}/B_j)$ (principal values), evaluated in ball arithmetic, lies within $(-\pi,\pi)$. (The bottom edge needs no points: $\xi_t(\sigma)>0$ for every real $\sigma$ and every $t\ge0$, so the argument of $\xi_{0.2}$ does not change along it.) Then $\xi_{0.2}$ has no zero in $Q$, hence no zero with real part above $0.6$: the point $(0.2,0.6)$ lies in the GGC region (the shifted clock $\xi_{0.2}(0.6)/\xi_{0.2}(0.6+\sqrt u)$ is the Laplace transform of a generalized gamma convolution), and the de Bruijn Newman constant satisfies $\Lambda\le0.22$.
+
+- id: thorin_form_certificate_positive_log_derivative_on_rectangle
+  name: "Certificate in Thorin form, positive logarithmic derivative on a rectangle excludes zeros"
+  label: cp:prop:thorincert
+  chapter: "15"
+  origin: book
+  status: proved
+  highlight: false
+  summary: >-
+    If, for some $\frac12<\alpha<\sigma_1$ and $T>0$, the real part of the logarithmic derivative of $\xi_t$ is positive at every point $\sigma+i\theta$ of the rectangle $[\alpha,\sigma_1]\times[0,T]$ where $\xi_t$ does not vanish, then $\xi_t$ has no zero with real part in $(\alpha,\sigma_1]$ and ordinate in $(0,T)$.
+  statement: >-
+    Let $\Phi_{\mathrm{dBN}}(u)=\sum_{n\ge1}(2\pi^2n^4e^{9u}-3\pi n^2e^{5u})\exp(-\pi n^2e^{4u})$ and $\xi_t(s)=8\int_0^\infty e^{tu^2}\Phi_{\mathrm{dBN}}(u)\cosh((2s-1)u)\,du$, the de Bruijn Newman deformation of Riemann's xi function, and for real $\sigma,\theta$ with $\xi_t(\sigma+i\theta)\ne0$ put $v_t(\sigma,\theta)=\operatorname{Re}\bigl(\xi_t'(\sigma+i\theta)/\xi_t(\sigma+i\theta)\bigr)$ (when the shifted clock $\xi_t(\alpha)/\xi_t(\alpha+\sqrt u)$ is a generalized gamma convolution, $v_t(\alpha,\theta)/\pi$ is its Thorin density in the variable $\theta=\sqrt z$, away from atoms). Let $t\ge0$, $\frac12<\alpha<\sigma_1$ and $T>0$, and suppose $v_t(\sigma,\theta)>0$ for every $(\sigma,\theta)\in[\alpha,\sigma_1]\times[0,T]$ at which $\xi_t(\sigma+i\theta)\ne0$. Then $\xi_t$ has no zero $\beta+i\gamma$ with $\alpha<\beta\le\sigma_1$ and $0<\gamma<T$.
+
+- id: xi_time_0_2_no_zero_in_rectangle_up_to_height_160_certified
+  name: "No zero of the time 0.2 function in the rectangle up to height 160, certified"
+  label: cp:thm:rig
+  chapter: "15"
+  origin: book
+  status: proved
+  highlight: false
+  summary: >-
+    A computation in ball arithmetic certifies that $\xi_{0.2}$ has no zero with real part between $0.6$ and $0.9$ and ordinate between $0$ and $160$, which checks the finite part of the certificate for the point $(0.2,0.6)$ of the phase diagram below height $160$ (the certificate needs it up to the barrier of Polymath15, near height $3\times10^{10}$).
+  statement: >-
+    Let $\Phi_{\mathrm{dBN}}(u)=\sum_{n\ge1}(2\pi^2n^4e^{9u}-3\pi n^2e^{5u})\exp(-\pi n^2e^{4u})$ and $\xi_t(s)=8\int_0^\infty e^{tu^2}\Phi_{\mathrm{dBN}}(u)\cosh((2s-1)u)\,du$, the de Bruijn Newman deformation of Riemann's xi function $\xi(s)=\frac12s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$ (so $\xi_0=\xi$). Then $\xi_{0.2}$ has no zero $s$ with $0.6\le\operatorname{Re}s\le0.9$ and $0\le\operatorname{Im}s\le160$. This is certified by a computation in ball arithmetic (Arb, called from Python): $\xi_{0.2}$ is evaluated by the trapezoid rule for its integral with an enclosure of the error of the rule, and the boundary of the rectangle $[0.6,0.9]\times[0,160]$ is walked counterclockwise, up the right edge, along the top and down the left edge, in $23{,}219$ steps, with the step condition of the winding number certificate for the point $(0.2,0.6)$ (the step length times an explicit bound for $|\xi_{0.2}'|$ along the step, plus the radii of the enclosures at its two ends, is below the smallest modulus of the enclosure at its start) verified at every step. The bottom edge is not walked, since $\xi_{0.2}$ is real and positive on the real axis. The winding number of $\xi_{0.2}$ around the rectangle is enclosed in $[0\pm3.47\times10^{-7}]$, so it is $0$.
+
+- id: heat_flow_zero_pair_near_height_185_still_real_at_minus_0_287979_certified
+  name: "Pair of zeros near height 185 still real at time minus 0.287979, certified"
+  label: cp:prop:gas
+  chapter: "15"
+  origin: book
+  status: proved
+  highlight: false
+  summary: >-
+    A certified computation in ball arithmetic shows that the pair of zeros of the heat flow function near height $185$ is still real at time $-0.287979$, the upper end of the book's bracket for the time of their collision, and certified signs next to the double zero located by Newton's method lower that end to $-0.287979837008$.
+  statement: >-
+    Let $\Phi_{\mathrm{dBN}}(u)=\sum_{n\ge1}(2\pi^2n^4e^{9u}-3\pi n^2e^{5u})\exp(-\pi n^2e^{4u})$ and, for real $t$ of either sign, $\xi_t(s)=8\int_0^\infty e^{tu^2}\Phi_{\mathrm{dBN}}(u)\cosh((2s-1)u)\,du$, the de Bruijn Newman deformation of Riemann's xi function (so $\xi_0$ is the xi function), and $H_t(z)=\frac18\xi_t(\frac12+\frac{iz}2)$. A zero $\frac12+i\gamma$ of $\xi_t$ on the critical line is the real zero $z=2\gamma$ of $H_t$, and while the real zeros are simple they move by $dz_k/dt=2\sum_{j\ne k}(z_k-z_j)^{-1}$. Let $\gamma_{71}<\gamma_{72}$ be the ordinates of the 71st and 72nd zeros of $\xi$ in the upper half plane, the pair near height $185$. At $t=-0.287979$ the signs of $\xi_t(\frac12+i\theta)$ at the $131$ points $\theta=184.6+0.01k$, $k=0,\dots,130$, certified in ball arithmetic (Arb) at $640$ bits from the trapezoid sum for the integral with an enclosure of its discretisation error, show two sign changes; hence the real function $\theta\mapsto\xi_t(\frac12+i\theta)$ has at least two zeros in $[184.6,185.9]$, and the pair $(\gamma_{71},\gamma_{72})$ is still real at $t=-0.287979$. This is the certified upper end of the book's bracket $[-0.28803,-0.287979]$ for the time at which the pair collides when $t$ decreases from $0$; the lower end $-0.28803$ rests on the asymptotic pair law $D^2\approx8(t-t_*)$ for the distance $D$ of the pair in the variable $z$ near its collision time $t_*$, and is not certified. Newton's method on the same trapezoid sum puts the double zero of the pair at $z_*=370.78087$, $t_*=-0.287979837009$; a Krawczyk test certifies a real double zero of the trapezoid sum itself (a statement about the sum, not about $H_t$) in a box of half width $2^{-400}$ about this point, and at $t=t_*+1.2\times10^{-12}$ certified signs $+,-,+$ of $H_t$ at $z_*-4\times10^{-6}$, $z_*$ and $z_*+4\times10^{-6}$ show that the pair is still real there, so the collision lies below $-0.287979837008$. The floating point integration of the motion of the first $600$ zeros that the book reports with this result (with the monotonicity of two gap functionals at the sampled times) is computed, not certified, and is not claimed here.
+
+- id: open_thorin_densities_at_time_0_and_0_2_near_polymath15_barrier
+  name: "Open problem on the candidate Thorin densities at times 0 and 0.2 near the Polymath15 barrier"
+  label: cp:prob:high
+  chapter: "15"
+  origin: book
+  status: open
+  highlight: false
+  summary: >-
+    Compute the functions $v_t/\pi$ of the heat flow function (the Thorin densities of its shifted clocks where these are generalized gamma convolutions) at $t=0$ and $t=0.2$ at heights near $3\times10^{10}$ and measure how their difference grows with the height.
+  statement: >-
+    Let $\Phi_{\mathrm{dBN}}(u)=\sum_{n\ge1}(2\pi^2n^4e^{9u}-3\pi n^2e^{5u})\exp(-\pi n^2e^{4u})$ and $\xi_t(s)=8\int_0^\infty e^{tu^2}\Phi_{\mathrm{dBN}}(u)\cosh((2s-1)u)\,du$, the de Bruijn Newman deformation of Riemann's xi function (so $\xi_0$ is the xi function), with $H_t(z)=\frac18\xi_t(\frac12+\frac{iz}2)$, and put $v_t(\alpha,\theta)=\operatorname{Re}\bigl(\xi_t'(\alpha+i\theta)/\xi_t(\alpha+i\theta)\bigr)$; when the shifted clock $\xi_t(\alpha)/\xi_t(\alpha+\sqrt u)$ is the Laplace transform of a generalized gamma convolution, $v_t(\alpha,\theta)/\pi$ is its Thorin density in the variable $\theta=\sqrt z$, away from atoms. Problem: compute $v_t(\alpha,\theta)$ at $t=0$ and at $t=0.2$ near the barrier of Polymath15, at heights $\theta$ near $3\times10^{10}$, with a Riemann Siegel type evaluator of $H_{0.2}$ such as the effective approximation of Polymath15, and measure how the difference between the functions $v_{0.2}/\pi$ and $v_0/\pi$ grows with the height. The book computes this difference only for $\theta\le100$, from the Pólya integral.
+
+- id: open_boundary_of_ggc_region_for_times_up_to_0_2
+  name: "Open problem on the boundary of the GGC region for 0 at most t at most 0.2"
+  label: cp:prob:boundary
+  chapter: "15"
+  origin: book
+  status: open
+  highlight: false
+  summary: >-
+    Describe the boundary $\alpha^*(t)$ of the GGC region for $0\le t\le0.2$, decide whether it is continuous, and whether $(\alpha^*(t)-\frac12)^2+\frac t2$ is strictly decreasing where $\alpha^*(t)>\frac12$.
+  statement: >-
+    Let $\xi_t(s)=8\int_0^\infty e^{tu^2}\Phi_{\mathrm{dBN}}(u)\cosh((2s-1)u)\,du$ be the de Bruijn Newman deformation of Riemann's xi function, with $\Phi_{\mathrm{dBN}}(u)=\sum_{n\ge1}(2\pi^2n^4e^{9u}-3\pi n^2e^{5u})\exp(-\pi n^2e^{4u})$. The GGC region $\mathcal{G}$ is the set of points $(t,\alpha)$, $t\ge0$, $\alpha\ge\frac12$, at which the shifted clock $\xi_t(\alpha)/\xi_t(\alpha+\sqrt u)$ is the Laplace transform of a generalized gamma convolution; this holds exactly when $\alpha\ge\alpha^*(t)$, where $\alpha^*(t)=\max(\frac12,\sup\operatorname{Re}\rho)$ over the zeros $\rho$ of $\xi_t$. Problem: describe the boundary $\alpha^*(t)$ of $\mathcal{G}$ for $0\le t\le0.2$ as far as computation and the known zero free regions allow; is $\alpha^*$ continuous, and is $(\alpha^*(t)-\frac12)^2+\frac t2$ strictly decreasing in $t$ where $\alpha^*(t)>\frac12$? (By the phase diagram theorem it is nonincreasing there.)
+
+- id: open_phase_diagram_coordinate_for_symmetrised_truncations
+  name: "Open problem on a coordinate on the phase diagram for the symmetrised truncations"
+  label: cp:prob:trunc
+  chapter: "15"
+  origin: book
+  status: open
+  highlight: false
+  summary: >-
+    Find explicit truncations of the heat flow function, built from finitely many terms without the zeros and converging to it on compact sets, and a point $(t,\alpha)$ outside the known part of the phase diagram such that infinitely many truncations have no zero to the right of $\alpha$ below heights that grow to infinity; Hurwitz's theorem would then add the point to the GGC region.
+  statement: >-
+    Let $\xi_t(s)=8\int_0^\infty e^{tu^2}\Phi_{\mathrm{dBN}}(u)\cosh((2s-1)u)\,du$ be the de Bruijn Newman deformation of Riemann's xi function, with $\Phi_{\mathrm{dBN}}(u)=\sum_{n\ge1}(2\pi^2n^4e^{9u}-3\pi n^2e^{5u})\exp(-\pi n^2e^{4u})$, and let the GGC region $\mathcal{G}$ be the set of points $(t,\alpha)$, $t\ge0$, $\alpha\ge\frac12$, at which $\xi_t$ has no zero with real part above $\alpha$, equivalently at which the shifted clock $\xi_t(\alpha)/\xi_t(\alpha+\sqrt u)$ is the Laplace transform of a generalized gamma convolution. The symmetrised truncations are $K_n(w)=\pi^{-w}F_n(w)+\pi^{w-1/2}F_n(\frac12-w)$ with $F_n(w)=\mathbb{E}\bigl[\bigl(\sum_{k\le n}k^{-2}(e_k+e_k')\bigr)^w\bigr]$, where $e_k,e_k'$ are independent standard exponential variables; Conjecture S says that, for every $n$, all zeros of $K_n$ in the strip $0<\operatorname{Re}w<\frac12$ lie on the line $\operatorname{Re}w=\frac14$, and at $t=0$, $\alpha=\frac12$ the Hurwitz argument shows that this for infinitely many $n$ would imply the Riemann Hypothesis. The known part of $\mathcal{G}$ consists of the points $(0,1)$ (the critical strip), $(0.2,0.6)$ (Polymath15) and a point on the level set $t+2(\alpha-\frac12)^2=0.2$ (Polymath15 with the verification of Platt and Trudgian), conditionally on an announced zero free half plane also $(0,\frac78)$, and every point $(t,\alpha)$ with $\alpha\ge\frac12$, $t\ge t_0$ and $(\alpha-\frac12)^2+\frac t2\ge(\alpha_0-\frac12)^2+\frac{t_0}2$ for one of these points $(t_0,\alpha_0)$ (de Bruijn's strip theorem in Thorin form). Problem: give the symmetrised truncations a coordinate on the phase diagram: for some $(t,\alpha)$ outside the known part, is there a family of explicit truncations of $\xi_t$, built from finitely many terms of the Pólya integral or of a Dirichlet series and making no use of the zeros, as the $K_n$ are, that converges to $\xi_t$ uniformly on compact sets, together with heights $h_n\to\infty$ such that for infinitely many $n$ the $n$th truncation has no zero with $\operatorname{Re}s>\alpha$ and $|\operatorname{Im}s|<h_n$? Hurwitz's theorem would then make $(t,\alpha)$ a new point of $\mathcal{G}$; at $t=0$ and $\alpha=\frac12$ the question for the $K_n$ is Conjecture S, and for the finite stages of the Pólya density as a maximum of exponential variables it is the open problem posed with those stages.
+
+- id: open_cholesky_factor_of_weil_gram_matrix_on_hat_functions
+  name: "Open problem on the Cholesky factor of the Weil Gram matrix"
+  label: cp:prob:chol
+  chapter: "15"
+  origin: book
+  status: open
+  highlight: false
+  summary: >-
+    Compute the Cholesky factor of the Weil Gram matrix on hat functions for decreasing width and increasing support, and decide whether its entries converge to an object built from the arithmetic.
+  statement: >-
+    For $h$ smooth enough, with $\hat h(r)=\int h(x)e^{irx}\,dx$, let $W(h)=\hat h(\frac i2)+\hat h(-\frac i2)-\sum_{n\ge2}\frac{\Lambda(n)}{\sqrt n}\bigl(h(\log n)+h(-\log n)\bigr)+\frac1{2\pi}\int_{\mathbb{R}}\hat h(r)\operatorname{Re}\psi\bigl(\frac14+\frac{ir}2\bigr)\,dr-h(0)\log\pi$, where $\Lambda$ is von Mangoldt's function and $\psi=\Gamma'/\Gamma$; by Weil's explicit formula $W(h)=\sum_\rho\hat h(\gamma_\rho)$ over the zeros $\rho=\frac12+i\gamma_\rho$ of Riemann's xi function. For $g$ supported in $[-L/2,L/2]$ and $h=g*\tilde g$ with $\tilde g(x)=\overline{g(-x)}$, under the Riemann Hypothesis (every $\gamma_\rho$ real) $W(h)=\sum_\rho|\hat g(\gamma_\rho)|^2\ge0$ (Weil's criterion). Take the hat functions $g_j(x)=\max(0,1-|x-c_j|/w)$ at nodes $c_j$ spaced $w$ apart inside $[-L/2,L/2]$, $N=L/w-1$ functions in all, and the Weil Gram matrix $G_{jk}=W(g_j*\tilde g_k)$, which is Hermitian. Problem: compute the Cholesky factor of $G$ for decreasing $w$ and increasing $L$, and decide whether its entries converge to an object built from the arithmetic, as the first test of a factorisation $W(g*\tilde g)=\|Ag\|^2$ with $A$ built from the arithmetic.
+
+- id: open_global_monotone_functional_of_zeros_along_heat_flow
+  name: "Open problem on a global functional of the zeros that is monotone along the flow"
+  label: cp:prob:gas
+  chapter: "15"
+  origin: book
+  status: open
+  highlight: false
+  summary: >-
+    Find a global functional of the zeros of $H_t$, monotone along the flow and insensitive to individual close pairs, whose positivity at $t=0$ excludes collisions at positive time.
+  statement: >-
+    Let $\Phi_{\mathrm{dBN}}(u)=\sum_{n\ge1}(2\pi^2n^4e^{9u}-3\pi n^2e^{5u})\exp(-\pi n^2e^{4u})$ and $H_t(z)=\int_0^\infty e^{tu^2}\Phi_{\mathrm{dBN}}(u)\cos(zu)\,du$, the de Bruijn Newman deformation of Riemann's xi function (so $H_0(z)=\frac18\xi(\frac12+\frac{iz}2)$); while simple, its zeros $z_k(t)$ move by $dz_k/dt=2\sum_{j\ne k}(z_k-z_j)^{-1}$, like a log gas. Problem: find a global functional of the zeros of $H_t$, insensitive to individual close pairs, that is monotone along the flow and whose positivity at $t=0$ excludes collisions at positive time. Biane's gap functional, the minimum over one gap of Laguerre's quantity, is local; the functional asked for should instead be one quantity for all the zeros.
+
+- id: polya_kernel_from_sum_of_two_maxima_of_exponentials
+  name: Pólya kernel from a sum of two maxima of exponential variables
+  label: "mw:prop:sum"
+  chapter: "14"
+  origin: book
+  status: proved
+  highlight: false
+  summary: >-
+    The square e^{2Y} of the variable e^Y built from Riemann's xi function has the law of a sum of two independent copies of the maximum M_4 of independent exponential variables, and the Pólya kernel is recovered from the density of the square root of that sum by an explicit change of variables.
+  statement: >-
+    Let $\xi(s)=\frac12s(s-1)\pi^{-s/2}\Gamma(\frac s2)\zeta(s)$ be Riemann's xi function and $Y$ the random variable with $\mathbb{E}e^{sY}=2\xi(s)$ for every complex $s$. Let $M_4$ be the maximum of independent exponential random variables with one variable of each rate $\pi n$, $n\ge1$, and one more of each rate $\pi(2m-1)$, $m\ge1$, so that $\Pr(M_4\le t)=\prod_{n\ge1}(1-e^{-\pi nt})\prod_{m\ge1}(1-e^{-\pi(2m-1)t})=\sum_{n\in\mathbb{Z}}(-1)^ne^{-\pi n^2t}$ for $t>0$, and let $M_4'$ be an independent copy of $M_4$. Then (i) $e^{2Y}$ has the same law as $M_4+M_4'$. (ii) The density of $e^Y=\sqrt{M_4+M_4'}$ is $f(y)=4\sum_{n\ge1}\big(2\pi^2n^4y^3-3\pi n^2y\big)e^{-\pi n^2y^2}$ for $y>0$, and the Pólya kernel $\Phi(u)=2\sum_{n\ge1}\big(2\pi^2n^4e^{9u/2}-3\pi n^2e^{5u/2}\big)\exp(-\pi n^2e^{2u})$, the even function with $\int_{\mathbb{R}}\Phi(u)e^{i\theta u}\,du=\xi(\frac12+i\theta)$, satisfies $\Phi(u)=\frac12e^{3u/2}f(e^u)$.
+
+- id: khinchin_factorisation_of_tilted_maximum_of_exponentials
+  name: Khinchin factorisation of the tilted maximum of exponential variables
+  label: "mw:thm:khinchin"
+  chapter: "14"
+  origin: book
+  status: proved
+  highlight: false
+  summary: >-
+    For sigma above one, the maximum M_4 of independent exponential variables, tilted by the factor m^{sigma/2} and multiplied by an independent geometric factor 4^{-K} that modifies only the prime 2, has the law of a gamma variable divided by pi times the square of a zeta distributed integer.
+  statement: >-
+    Fix $\sigma>1$. Let $M_4$ be the maximum of independent exponential random variables with one variable of each rate $\pi n$, $n\ge1$, and one more of each rate $\pi(2m-1)$, $m\ge1$, and let $\widetilde M_4$ have the tilted law $\Pr(\widetilde M_4\in dm)\propto m^{\sigma/2}\Pr(M_4\in dm)$. Let $K$, $N_\sigma$ and $\Gamma_{1+\sigma/2}$ be independent of each other and of $\widetilde M_4$, where $\Pr(K=k)=(1-a)a^k$ for $k\ge0$ with $a=2^{1-\sigma}$; $N_\sigma=\prod_pp^{G_p}$ is zeta distributed with parameter $\sigma$, that is $\Pr(N_\sigma=n)=n^{-\sigma}/\zeta(\sigma)$ for $n\ge1$, the product running over the primes $p$ with independent geometric variables $G_p$, $\Pr(G_p=k)=(1-p^{-\sigma})p^{-k\sigma}$; and $\Gamma_{1+\sigma/2}$ is gamma distributed with shape $1+\sigma/2$ and scale $1$. Then $\widetilde M_4\,4^{-K}$ has the same law as $\Gamma_{1+\sigma/2}/(\pi N_\sigma^2)=\frac{\Gamma_{1+\sigma/2}}\pi\prod_pp^{-2G_p}$.
+
+- id: wald_couples_of_maximum_of_exponentials_and_logistic_law
+  name: Wald couples of the maximum of exponential variables and the logistic law
+  label: "mw:thm:wald"
+  chapter: "14"
+  origin: book
+  status: proved
+  highlight: false
+  summary: >-
+    The maximum M_4 of independent exponential variables, paired with a uniform variable on (-1,1) scaled by the square root of pi over two, is a Wald couple, as is the pair of sums of two independent copies, and the square root of M_4 times a standard normal variable has the logistic law. The van Dantzig pair involved is classical and the logistic statement is due to Andrews and Mallows and to Stefanski; the book's addition is their reading through the maximum in the language of Wald couples.
+  statement: >-
+    Call a pair $(\tau,\varsigma)$ of independent random variables with $\tau\ge0$ a Wald couple if $\mathbb{E}e^{s\varsigma}<\infty$ and $\mathbb{E}e^{s\varsigma}\,\mathbb{E}e^{-s^2\tau/2}=1$ for all real $s$; equivalently, with $Z$ standard normal and independent of $\tau$, the characteristic functions $\varphi_1$ of $\varsigma$ and $\varphi_2$ of $\sqrt\tau\,Z$ form a van Dantzig pair, $\varphi_2(t)=1/\varphi_1(it)$. Let $M_4$ be the maximum of independent exponential random variables with one variable of each rate $\pi n$, $n\ge1$, and one more of each rate $\pi(2m-1)$, $m\ge1$, so that $\mathbb{E}e^{-\lambda M_4}=\sqrt{\pi\lambda}/\sinh\sqrt{\pi\lambda}$, let $M_4'$ be an independent copy, let $\upsilon,\upsilon_1,\upsilon_2$ be uniform on $(-1,1)$, independent of each other and of $M_4,M_4'$, and let $c=\sqrt{\pi/2}$. Then $(M_4,c\upsilon)$ and $(M_4+M_4',c(\upsilon_1+\upsilon_2))$ are Wald couples. The associated van Dantzig pairs are $(\sin(ct)/(ct),\ ct/\sinh(ct))$, the characteristic functions of $c\upsilon$ and of $\sqrt{M_4}\,Z$ with $Z$ standard normal and independent of $M_4$, and their squares, and $\sqrt{M_4}\,Z$ has the logistic law, with characteristic function $ct/\sinh(ct)$.
+
+- id: stieltjes_criterion_for_rh_through_smoothed_thorin_density_of_clock
+  name: Stieltjes criterion for RH through the smoothed Thorin density of the clock
+  label: "mw:thm:stieltjes"
+  chapter: "14"
+  origin: book
+  status: proved
+  highlight: false
+  summary: >-
+    The Riemann Hypothesis is equivalent to each of the following: the clock is a GGC, the function G'/G, minus the logarithmic derivative of its transform 1/G, is a Stieltjes function, its heat trace W is completely monotone, and the smoothed Thorin density r_eta(x), the imaginary part of G'/G at minus x minus i eta divided by pi, is nonnegative for all real x and all eta above zero. The form through r_eta is new, and the others are in the book.
+  statement: >-
+    Let $\xi(s)=\frac12s(s-1)\pi^{-s/2}\Gamma(\frac s2)\zeta(s)$, let $\rho$ run over the nontrivial zeros of $\zeta$ with $\operatorname{Im}\rho>0$, counted with multiplicity, put $a_\rho=-(\rho-\frac12)^2$ and $G(\lambda)=\xi(\frac12+\sqrt\lambda)/\xi(\frac12)=\prod_\rho(1+\lambda/a_\rho)$. Let $T$ be the clock, the random variable with $\mathbb{E}e^{-\lambda T}=1/G(\lambda)$, which exists with no hypothesis on the zeros. Put $W(x)=\sum_\rho e^{-a_\rho x}$ for $x>0$, so that $(G'/G)(\lambda)=\sum_\rho(\lambda+a_\rho)^{-1}=\int_0^\infty e^{-\lambda x}W(x)\,dx$, and $r_\eta(x)=\frac1\pi\operatorname{Im}\frac{G'}G(-x-i\eta)$ for $x\in\mathbb{R}$ and $\eta>0$, wherever $-x-i\eta$ is not a pole of $G'/G$. The following are equivalent. (a) The Riemann Hypothesis (RH). (b) $T$ is a generalised gamma convolution (GGC), that is $\mathbb{E}e^{-\lambda T}=\exp\big(-a\lambda-\int_{(0,\infty)}\log(1+\lambda/x)\,U(dx)\big)$ for some $a\ge0$ and positive measure $U$, the Thorin measure; then $T$ has the same law as $\sum_{\gamma>0}e_\gamma/\gamma^2$ with independent standard exponential variables $e_\gamma$, and its Thorin measure is $U_{\mathrm{RH}}=\sum_{\gamma>0}\delta_{\gamma^2}$, the ordinates $\gamma=\operatorname{Im}\rho$ counted with multiplicity. (c) $G'/G$ is a Stieltjes function, that is of the form $b+\int_{[0,\infty)}\sigma(dx)/(\lambda+x)$ with $b\ge0$ and $\sigma$ a positive measure. (d) $r_\eta(x)\ge0$ for all $x\in\mathbb{R}$ and $\eta>0$ for which $-x-i\eta$ is not a pole of $G'/G$. (e) $W$ is completely monotone. In that case $r_\eta(x)=\sum_{\gamma>0}\eta/(\pi((x-\gamma^2)^2+\eta^2))$ is the Poisson smoothing of $U_{\mathrm{RH}}$ at scale $\eta$ and $U_{\mathrm{RH}}((0,x])=N(\sqrt x)$, where $N(t)$ is the number of zeros $\rho$ with $0<\operatorname{Im}\rho\le t$, counted with multiplicity.
+
+- id: off_line_zero_makes_smoothed_thorin_density_of_clock_negative
+  name: An off line zero makes the smoothed Thorin density of the clock negative
+  label: "mw:lem:detect"
+  chapter: "14"
+  origin: book
+  status: proved
+  highlight: false
+  summary: >-
+    If a zero has real part beta above one half and ordinate gamma, the smoothed Thorin density r_eta of the clock at the point gamma squared minus delta squared, with delta equal to beta minus one half, tends to minus infinity as eta increases to twice delta times gamma. An explicit formula gives its value for eta below that and shows when it is negative.
+  statement: >-
+    Let $\xi(s)=\frac12s(s-1)\pi^{-s/2}\Gamma(\frac s2)\zeta(s)$, let $\rho'$ run over the nontrivial zeros of $\zeta$ with $\operatorname{Im}\rho'>0$, counted with multiplicity, put $a_{\rho'}=-(\rho'-\frac12)^2$, $G(\lambda)=\xi(\frac12+\sqrt\lambda)/\xi(\frac12)=\prod_{\rho'}(1+\lambda/a_{\rho'})$, so that $1/G$ is the Laplace transform of the clock, and $r_\eta(x)=\frac1\pi\operatorname{Im}\frac{G'}G(-x-i\eta)$ for $x\in\mathbb{R}$ and $\eta>0$. Let $\rho=\beta+i\gamma$ be a zero of multiplicity $m$ with $\beta>\frac12$ and $\gamma>0$, and put $\delta=\beta-\frac12$, $x_\rho=\gamma^2-\delta^2$ and $b=2\delta\gamma$, so that $a_\rho=x_\rho-ib$. Then $r_\eta(x_\rho)\to-\infty$ as $\eta\uparrow b$. More precisely, for $0<\eta<b$ such that $-x_\rho-i\eta$ is not a pole of $G'/G$, $\pi r_\eta(x_\rho)=\eta\Big(A_\eta-\frac{2m}{b^2-\eta^2}\Big)$, where $A_\eta=\frac1\eta\sum_{\rho'}\operatorname{Im}\,(a_{\rho'}-x_\rho-i\eta)^{-1}$, the sum running over the zeros $\rho'$ with $\operatorname{Im}\rho'>0$, counted with multiplicity, whose $a_{\rho'}$ is neither $a_\rho$ nor $\overline{a_\rho}$. Hence $r_\eta(x_\rho)<0$ at every $\eta\in(0,b)$ with $A_\eta<2m/b^2$. If all the other zeros lie on the critical line, $A_\eta\to A_0=\sum_{\gamma'}(\gamma'^2-x_\rho)^{-2}$ as $\eta\downarrow0$, the sum running over the ordinates $\gamma'>0$ of those zeros, counted with multiplicity.
+
+- id: explicit_ggc_within_laplace_distance_of_the_clock
+  name: An explicit GGC within a stated Laplace distance of the clock
+  label: "mw:prop:approx"
+  chapter: "14"
+  origin: book
+  status: proved
+  highlight: false
+  summary: >-
+    The sum of independent exponential variables divided by the squares of the ordinates of the zeros up to height 3 times 10^12 is a GGC whose Laplace transform is within 2.5 times 10^-11 of the transform of the clock, by a certified bound that uses the verification of RH up to that height and nothing about the zeros above it.
+  statement: >-
+    Let $\xi(s)=\frac12s(s-1)\pi^{-s/2}\Gamma(\frac s2)\zeta(s)$, let $\rho_k=\beta_k+i\gamma_k$, $k\ge1$, be the nontrivial zeros of $\zeta$ with $\gamma_k>0$ in nondecreasing order of $\gamma_k$, counted with multiplicity, and put $a_k=-(\rho_k-\frac12)^2$, $G(\lambda)=\xi(\frac12+\sqrt\lambda)/\xi(\frac12)=\prod_k(1+\lambda/a_k)$ and $G_K(\lambda)=\prod_{k\le K}(1+\lambda/\gamma_k^2)$. Let $T$ be the clock, with $\mathbb{E}e^{-\lambda T}=1/G(\lambda)$. For laws $P,Q$ on $[0,\infty)$ with Laplace transforms $L_P,L_Q$ let $d_L(P,Q)=\sup_{\lambda\ge0}|L_P(\lambda)-L_Q(\lambda)|$. Let $H=3\times10^{12}$ and let $N$ be the number of zeros with $0<\gamma_k\le H$, all of which lie on the critical line by the verification of RH up to height $H$ of Platt and Trudgian. Let $T^{[N]}=\sum_{k\le N}e_k/\gamma_k^2$ with independent standard exponential variables $e_k$, the GGC with Laplace transform $1/G_N$, and put $\varepsilon_H=\sum_{k>N}1/|a_k|$ and $S_K=\sup_{\lambda\ge0}\lambda/G_K(\lambda)$ for $K\le N$. Then $d_L\big(T,T^{[N]}\big)\le S_K\,\varepsilon_H$ for every $K\le N$, with $\varepsilon_H<1.4798\times10^{-12}$ and $S_{1700}<16.85$, so that $d_L\big(T,T^{[N]}\big)<2.5\times10^{-11}$. The proof uses only the verification of RH up to height $H$ and makes no assumption on the zeros above $H$.
+
+- id: term_of_one_zero_in_thorin_density_of_basepoint_family_lambda_chart
+  name: Term of one zero in the Thorin density of the basepoint family in the lambda chart
+  label: "mw:prop:lambda"
+  chapter: "14"
+  origin: book
+  status: proved
+  highlight: false
+  summary: >-
+    In the Laplace variable lambda the term of a single zero in the Thorin density at basepoint alpha is a sum of two Poisson kernels divided by twice the square root of lambda. It equals a factor kappa above one times a function that is a Cauchy density when delta is positive, has total mass the sign of delta, and near its peak is a Lorentzian of full width 4 |delta| gamma up to a relative error of order delta squared over gamma squared.
+  statement: >-
+    Let $\xi$ be Riemann's xi function, $\alpha>\frac12$, $P_\delta(\theta)=\delta/(\pi(\delta^2+\theta^2))$ the Poisson kernel of width $\delta$ (so that $P_{-a}=-P_a$), and $u_\alpha(\lambda)=\operatorname{Re}\frac{\xi'}\xi(\alpha+i\sqrt\lambda)/(2\pi\sqrt\lambda)$ for $\lambda>0$, the density in the variable $\lambda$ of the Thorin measure of the shifted clock $T_\alpha$, the law with Laplace transform $\xi(\alpha)/\xi(\alpha+\sqrt\lambda)$, when every zero has real part below $\alpha$. Let $\rho=\beta+i\gamma$ be a nontrivial zero of $\zeta$ with $\gamma>0$ and put $\delta=\alpha-\beta\ne0$ and $c=\alpha-\rho=\delta-i\gamma$. The term of $\rho$ in $u_\alpha=\sum_{\gamma>0}u_\rho$, where the zeros $\rho$ and $\bar\rho$ are paired, is $u_\rho(\lambda)=\big(P_\delta(\sqrt\lambda-\gamma)+P_\delta(\sqrt\lambda+\gamma)\big)/(2\sqrt\lambda)$ for $\lambda>0$, and it satisfies the following. (a) $u_\rho(\lambda)=\kappa_\rho(\lambda)C_\rho(\lambda)=\delta(\lambda+|c|^2)/(\pi\sqrt\lambda\,|c^2+\lambda|^2)$, where $\kappa_\rho(\lambda)=(\lambda+\gamma^2+\delta^2)/(2\gamma\sqrt\lambda)$ and $C_\rho(\lambda)=\frac1\pi\cdot2\delta\gamma/\big((\lambda-\gamma^2+\delta^2)^2+4\delta^2\gamma^2\big)$; for $\delta>0$, $C_\rho$ is the Cauchy density centred at $\gamma^2-\delta^2$ with half width $2\delta\gamma$. (b) $\int_0^\infty u_\rho(\lambda)\,d\lambda=\operatorname{sign}\delta$. (c) $\kappa_\rho(\lambda)\ge\sqrt{1+\delta^2/\gamma^2}>1$ for every $\lambda>0$, $\kappa_\rho(\gamma^2-\delta^2)=(1-\delta^2/\gamma^2)^{-1/2}$ when $|\delta|<\gamma$, and for $K\ge1$ and $|\delta|\le\gamma/(2K)$, $|\kappa_\rho(\lambda)-1|\le(K^2/2+1)\,\delta^2/\gamma^2$ for $|\lambda-\gamma^2|\le K|\delta|\gamma$. Hence near its peak the term is a Lorentzian of full width $4|\delta|\gamma$ at half height, with the sign of $\delta$, up to a relative error $O(\delta^2/\gamma^2)$, while $u_\rho(\lambda)\sim\delta/(\pi(\gamma^2+\delta^2)\sqrt\lambda)$ as $\lambda\downarrow0$ and $u_\rho(\lambda)\sim\delta/(\pi\lambda^{3/2})$ as $\lambda\to\infty$.
+
+- id: clock_is_not_a_maximum_of_independent_exponential_variables
+  name: The clock is not a maximum of independent exponential variables
+  label: "mw:prop:nomax"
+  chapter: "14"
+  origin: book
+  status: proved
+  highlight: false
+  summary: >-
+    The negative logarithm of the distribution function of the clock is not completely monotone, so the clock is not the maximum of independent exponential variables with any rates, nor of a Poisson cloud of exponential clocks. The proof compares the first two exponential terms of the tail of the clock, and the coefficient of the second is negative where complete monotonicity would force it to be nonnegative.
+  statement: >-
+    Let $\xi$ be Riemann's xi function, $T$ the clock, the random variable with $\mathbb{E}e^{-\lambda T}=\xi(\frac12)/\xi(\frac12+\sqrt\lambda)$, and $F_T(t)=\Pr(T\le t)$. Then $-\log F_T$ is not completely monotone on $(0,\infty)$. Hence $T$ does not have the law of a maximum of independent exponential variables $E_i/r_i$, with $E_i$ standard exponential and deterministic rates $r_i>0$ with $\sum_ie^{-r_it}<\infty$ for $t>0$, for any choice of the rates, nor of the maximum of a Poisson cloud of exponential clocks, that is of the variables $E_i/x_i$ attached to the points $x_i$ of a Poisson process of intensity $\nu$ on $(0,\infty)$; for both of these laws $-\log F(t)=\int e^{-xt}\,\nu(dx)$ for a positive measure $\nu$, which is completely monotone in $t$. The proof uses the verification of RH up to height $3\times10^{12}$ and the simplicity of the zeros of height below $200$.
+
+- id: gumbel_limit_for_maxima_of_independent_copies_of_the_clock
+  name: Gumbel limit for maxima of independent copies of the clock and of the maximum M_4
+  label: "mw:prop:gnedenko"
+  chapter: "14"
+  origin: book
+  status: proved
+  highlight: false
+  summary: >-
+    The maximum of n independent copies of the clock, scaled by the square of the first zero ordinate and centred at an explicit logarithm, converges to the Gumbel law, and divided by log n it tends to the reciprocal of that square; the maximum of n copies of M_4, scaled by pi and centred at log(2n), has the same Gumbel limit. This is Gnedenko's theorem applied to the exponential tails of M_4 and of the clock; the book's addition is the reading of the norming constant of the clock as the first atom of its Thorin measure, with the constant given by the first residue.
+  statement: >-
+    Let $\xi$ be Riemann's xi function, $\Xi(\theta)=\xi(\frac12+i\theta)$, $\gamma_1$ the least positive ordinate of a zero of $\zeta$ (the zero $\frac12+i\gamma_1$ is simple) and $R_1=-2\gamma_1\Xi(0)/\Xi'(\gamma_1)$, the residue at $\lambda=-\gamma_1^2$ of $\xi(\frac12)/\xi(\frac12+\sqrt\lambda)$, the Laplace transform of the clock $T$. Let $M_4$ be the maximum of independent exponential random variables with one variable of each rate $\pi n$, $n\ge1$, and one more of each rate $\pi(2m-1)$, $m\ge1$, and let $M_4^{(j)}$ and $T^{(j)}$, $j\le n$, be independent copies of $M_4$ and of $T$. (i) $\Pr(M_4>t)\sim2e^{-\pi t}$ as $t\to\infty$, and $\Pr\big(\pi\max_{j\le n}M_4^{(j)}-\log(2n)\le x\big)\to\exp(-e^{-x})$ as $n\to\infty$, for every real $x$. (ii) $\Pr(T>t)\sim(R_1/\gamma_1^2)\,e^{-\gamma_1^2t}$ as $t\to\infty$, $\Pr\Big(\gamma_1^2\max_{j\le n}T^{(j)}-\log\frac{R_1n}{\gamma_1^2}\le x\Big)\to\exp(-e^{-x})$ for every real $x$, and $\max_{j\le n}T^{(j)}/\log n\to1/\gamma_1^2$ in probability.
+
+- id: finite_maxima_converge_to_maximum_and_finite_stages_to_xi
+  name: Convergence of the finite maxima and of the finite stages of xi
+  label: "mw:thm:finite"
+  chapter: "14"
+  origin: book
+  status: proved
+  highlight: false
+  summary: >-
+    Truncating the maximum M_4 at N exponential variables of each kind gives a maximum that differs from M_4 only on an event of probability at most C sqrt(N) e^{-pi sqrt(N)/2}, and the finite stage xi_N of the xi function and its symmetrisation converge to xi uniformly on compact subsets of the open critical strip at the rate N^{1/4} e^{-pi sqrt(N)/4}.
+  statement: >-
+    Let $(E_n)_{n\ge1}$ and $(E'_m)_{m\ge1}$ be independent standard exponential random variables, for $N\ge1$ let $M_4^{(N)}=\max\big\{E_n/(\pi n)\ (n\le N),\ E'_m/(\pi(2m-1))\ (m\le N)\big\}$, and let $M_4=\lim_NM_4^{(N)}$ be the maximum of all the variables $E_n/(\pi n)$ and $E'_m/(\pi(2m-1))$, $n,m\ge1$. Let $\xi(s)=\frac12s(s-1)\pi^{-s/2}\Gamma(\frac s2)\zeta(s)$ be Riemann's xi function, and define the finite stage $\xi_N(s)=\frac{(s-1)\,\mathbb{E}(M_4^{(N)})^{s/2}}{2(1-2^{1-s})}$ and its symmetrisation $\xi_N^{\mathrm{sym}}(s)=\frac12\big(\xi_N(s)+\xi_N(1-s)\big)$, so that the same expression with $M_4$ in place of $M_4^{(N)}$ is $\xi(s)$ (here $\xi_N$ is the finite stage, not $\xi$ evaluated at $N$). Then (i) $M_4^{(N)}\uparrow M_4$ almost surely, and $\Pr(M_4^{(N)}\ne M_4)\le C\sqrt N\,e^{-\pi\sqrt N/2}$ for a constant $C$ independent of $N$. (ii) For every compact set $K$ in the open strip $0<\operatorname{Re}s<1$ there is a constant $C_K$ with $\sup_K|\xi_N-\xi|\le C_K\,N^{1/4}e^{-\pi\sqrt N/4}$ and $\sup_K|\xi_N^{\mathrm{sym}}-\xi|\le C_K\,N^{1/4}e^{-\pi\sqrt N/4}$ for all $N$.
+
+- id: hurwitz_zeros_of_finite_stages_and_sufficient_condition_for_rh
+  name: Zeros of the symmetrised finite stages and a sufficient condition for RH
+  label: "mw:cor:hurwitz"
+  chapter: "14"
+  origin: book
+  status: proved
+  highlight: false
+  summary: >-
+    By Hurwitz's theorem the zeros of the finite stages converge to the zeros of xi in the open strip, a simple zero on the critical line is approached by exactly one zero of the symmetrised stage, which lies on the line, and if the symmetrised stages have no zeros in the right half of the strip up to heights tending to infinity along some sequence of stages then RH holds. Whether RH implies that hypothesis on the stages is open.
+  statement: >-
+    Let $M_4^{(N)}$ be the maximum of the independent exponential variables $E_n/(\pi n)$ ($n\le N$) and $E'_m/(\pi(2m-1))$ ($m\le N$), with $E_n,E'_m$ independent standard exponential variables, let $\xi(s)=\frac12s(s-1)\pi^{-s/2}\Gamma(\frac s2)\zeta(s)$ be Riemann's xi function, $\xi_N(s)=\frac{(s-1)\,\mathbb{E}(M_4^{(N)})^{s/2}}{2(1-2^{1-s})}$ the finite stage and $\xi_N^{\mathrm{sym}}(s)=\frac12\big(\xi_N(s)+\xi_N(1-s)\big)$ its symmetrisation. (a) Every zero of $\xi$ in the open strip $0<\operatorname{Re}s<1$ is a limit of zeros of $\xi_N$, and of zeros of $\xi_N^{\mathrm{sym}}$, with multiplicity, and every limit of zeros of $\xi_N$ inside the open strip is a zero of $\xi$. (b) If $\rho=\frac12+i\gamma$ is a simple zero of $\xi$, then for all large $N$ the function $\xi_N^{\mathrm{sym}}$ has exactly one zero in a small disc about $\rho$, and that zero lies on the critical line. (c) Suppose that there are $N_j\to\infty$ and heights $h_j\to\infty$ such that $\xi^{\mathrm{sym}}_{N_j}$ has no zeros in $\{\frac12<\operatorname{Re}s<1,\ |\operatorname{Im}s|<h_j\}$ for every $j$. Then the Riemann Hypothesis holds. In particular this is so if there are $c>0$ and $N_0$ such that for every $N\ge N_0$ the function $\xi^{\mathrm{sym}}_N$ has no zeros in $\{\frac12<\operatorname{Re}s<1,\ |\operatorname{Im}s|<c\sqrt N\}$.
+
+- id: finite_order_ggc_bondesson_and_hcm_classes_of_the_clock
+  name: Finite order GGC, Bondesson and HCM classes of the clock, and RH as the infinite order case
+  label: "mw:thm:bondesson"
+  chapter: "14"
+  origin: book
+  status: proved
+  highlight: false
+  summary: >-
+    From the verification of RH up to height 3 times 10^12 the clock lies in the finite order GGC and Bondesson classes up to order 1.16 times 10^25 and its Laplace transform is hyperbolically completely monotone up to order 9 times 10^12, while RH is equivalent to the clock being a GGC, to its being in the Bondesson class, and to its transform being hyperbolically completely monotone.
+  statement: >-
+    Let $\xi(s)=\frac12s(s-1)\pi^{-s/2}\Gamma(\frac s2)\zeta(s)$ and let $T$ be the clock, with Laplace transform $\varphi(\lambda)=\xi(\frac12)/\xi(\frac12+\sqrt\lambda)$ and Lévy density $W(x)/x$, where $W(x)=\sum_\rho e^{(\rho-1/2)^2x}$ is summed over the nontrivial zeros $\rho$ of $\zeta$ with $\operatorname{Im}\rho>0$, counted with multiplicity. A function $f$ on an interval is $k$ monotone if $(-1)^jf^{(j)}\ge0$ for $0\le j\le k$, and completely monotone if it is $k$ monotone for every $k$. For $k\ge1$ let $\mathrm{GGC}_k$ be the class of laws on $[0,\infty)$ with a Lévy density $\ell$ such that $x\ell(x)$ is $k$ monotone, and $\mathrm{BO}_k$ the class with $\ell$ itself $k$ monotone, so that $\mathrm{GGC}_k\subset\mathrm{BO}_k$, $\mathrm{GGC}_1$ is the self decomposable class, $\bigcap_k\mathrm{GGC}_k$ is the class GGC of generalised gamma convolutions and $\bigcap_k\mathrm{BO}_k=\mathrm{BO}$ is the Bondesson class. A positive function $\varphi$ on $(0,\infty)$ is HCM (hyperbolically completely monotone) of order $k$ if for every $u>0$ the function $w\mapsto\varphi(uv)\varphi(u/v)$, $w=v+1/v\ge2$, is $k$ monotone on $[2,\infty)$, and HCM if it is HCM of every order. Let $H=3\times10^{12}$. Statements (i) and (ii) are unconditional: they use the verification of RH up to height $H$ of Platt and Trudgian. (i) $T\in\mathrm{GGC}_k$, and hence $T\in\mathrm{BO}_k$, for every $k\le1.16\times10^{25}$. (ii) $\varphi$ is HCM of order $k$ for every $k\le9\times10^{12}$. (iii) With no hypothesis, the following are equivalent: RH; $T$ is a GGC; $T\in\mathrm{BO}$; $\varphi$ is HCM; $\varphi$ is HCM of every order.
+
+- id: finite_arithmetic_form_of_basepoint_density_below_basepoint_one
+  name: Finite arithmetic form of the basepoint density below basepoint one
+  label: "mw:prop:AX"
+  chapter: "14"
+  origin: book
+  status: conditional
+  conditions: >-
+    Part (b) assumes the Riemann hypothesis. Part (a) holds without any hypothesis, and part (c) holds without any hypothesis when delta is at least one half and otherwise needs that every zero lies within delta of the critical line, which the Riemann hypothesis gives for every delta above zero.
+  highlight: false
+  summary: >-
+    For basepoint alpha equal to one half plus delta, a Fejér tapered sum over the primes below e^X, two explicit pole terms and one gamma integral define a quantity A_X, which is half the sum over all zeros rho of a function that is nonnegative on the real line, evaluated at (rho minus one half)/i, is nonnegative under RH, and tends to the real part of the logarithmic derivative of xi at alpha plus it as X grows when every zero lies within delta of the critical line.
+  statement: >-
+    Let $\xi$ be Riemann's xi function, $\Lambda$ the von Mangoldt function, $\psi$ the digamma function, $\alpha=\frac12+\delta$ with $\delta>0$, $t\in\mathbb{R}$ and $X>0$. Put $g_X(x)=e^{-\delta|x|}\cos(tx)\,(1-|x|/X)_+$ and $h_X(r)=\int_{\mathbb{R}}g_X(x)e^{irx}\,dx$, so that $h_X\ge0$ on $\mathbb{R}$: it is $(2\pi)^{-1}$ times the convolution of the two sided Poisson kernel $h_\infty(r)=\frac\delta{\delta^2+(t-r)^2}+\frac\delta{\delta^2+(t+r)^2}$ with the Fejér kernel $4\sin^2(Xr/2)/(Xr^2)$. Define $A_X(\delta,t)=\frac12\Big[h_X(\tfrac i2)+h_X(-\tfrac i2)-\log\pi+\frac1{2\pi}\int_{\mathbb{R}}h_X(r)\operatorname{Re}\psi\big(\tfrac14+\tfrac{ir}2\big)\,dr-2\sum_{n<e^X}\frac{\Lambda(n)}{n^{\alpha}}\cos(t\log n)\Big(1-\frac{\log n}X\Big)\Big]$, where $h_X(\tfrac i2)+h_X(-\tfrac i2)=2\operatorname{Re}\big[J(-\delta+\tfrac12+it)+J(-\delta-\tfrac12+it)\big]$ with $J(c)=-1/c+(e^{cX}-1)/(Xc^2)$. For a nontrivial zero $\rho=\beta+i\gamma$ of $\zeta$ put $\gamma_\rho=(\rho-\frac12)/i$. Then (a) unconditionally, $A_X(\delta,t)=\frac12\sum_\rho h_X(\gamma_\rho)$, the sum over all nontrivial zeros. (b) Under RH, $A_X(\delta,t)\ge0$ for every $X$, $\delta$ and $t$; in particular a single triple $(\delta,t,X)$ with $A_X(\delta,t)<0$ would disprove RH. (c) If every zero has $|\beta-\frac12|<\delta$ (under RH, or unconditionally when $\delta\ge\frac12$), then $A_X(\delta,t)\to\operatorname{Re}\frac{\xi'}\xi(\alpha+it)$ as $X\to\infty$.
+
+- id: open_zero_freeness_of_symmetric_finite_stages_of_the_maximum
+  name: Zero freeness of the symmetric finite stages of the maximum
+  label: "mw:prob:hurwitz"
+  chapter: "14"
+  origin: book
+  status: open
+  highlight: false
+  summary: >-
+    Find heights tending to infinity such that, for infinitely many N, the symmetric finite stage of the maximum has no zeros in the right half of the critical strip below that height, for instance heights of order the square root of N; either statement would prove RH. Numerical counts for N up to 96 suggest that the zeros stay on the line up to a height of order N, and a mechanism for that is the first thing to find.
+  statement: >-
+    Let $\xi$ be Riemann's xi function. For $N\ge1$ let $M_4^{(N)}$ be the maximum of the independent exponential variables $E_n/(\pi n)$ ($n\le N$) and $E'_m/(\pi(2m-1))$ ($m\le N$), with $E_n,E'_m$ independent standard exponential variables, so that $\Pr(M_4^{(N)}\le t)=\sum_{m\ge0}p^{(N)}_me^{-\pi mt}$ where $\sum_{m\ge0}p^{(N)}_mq^m=\prod_{n\le N}(1-q^n)\prod_{m\le N}(1-q^{2m-1})$, and put $D_N(s)=\sum_{m\ge1}p^{(N)}_mm^{-s/2}$, a Dirichlet polynomial with integer coefficients. Let $F_N(s)=\frac{s-1}2\,\mathbb{E}\big(M_4^{(N)}\big)^{s/2}=-\frac{s-1}2\,\Gamma(1+\frac s2)\pi^{-s/2}D_N(s)$ and $F^{\mathrm{sym}}_N(s)=\frac12\big(F_N(s)+F_N(1-s)\big)$; as $N\to\infty$, $F^{\mathrm{sym}}_N\to\mathfrak q\,\xi$ uniformly on compact subsets of the open strip $0<\operatorname{Re}s<1$, with $\mathfrak q(s)=1-2^{-s}-2^{s-1}$. Find heights $h_N\to\infty$ such that for infinitely many $N$ the function $F^{\mathrm{sym}}_N$ has no zeros with $\frac12<\operatorname{Re}s<1$ and $|\operatorname{Im}s|<h_N$, for instance $h_N=c\sqrt N$ with some $c>0$. Either statement implies the Riemann Hypothesis, by Hurwitz's theorem, because a zero of $\xi$ in that region would be a zero of the limit $\mathfrak q\,\xi$. Numerical counts of zeros by the argument principle show, for $N=8$, $16$, $32$, $48$, $64$ and $96$, that all zeros of $F^{\mathrm{sym}}_N$ with $-1\le\operatorname{Re}s\le2$ and $0<\operatorname{Im}s\le T^*(N)$ lie on the critical line, for a height $T^*(N)$ of order $N$ (at $N=128$ a pair outside the strip $0<\operatorname{Re}s<1$ appears at height $60.7$, while the strip has no off line zero below $130$), and the sharper conjecture is $T^*(N)\ge\kappa N$ for some $\kappa>0$ and all $N$, which would also imply RH. A mechanism for $T^*(N)$, presumably through the ratio $|D_N(\sigma+it)/D_N(1-\sigma+it)|$, is the first thing to find.
+
+- id: open_termwise_positive_continuation_of_prime_form_below_basepoint_one
+  name: A termwise positive continuation of the prime form below basepoint one
+  label: "mw:prob:lagarias"
+  chapter: "14"
+  origin: book
+  status: open
+  highlight: false
+  summary: >-
+    Is there a continuation of the sine squared prime form of the Thorin density below basepoint one that is positive term by term, for instance through smoothed prime sums with a cutoff near e^{1/epsilon} whose loss can be controlled by the logarithmic derivative of xi at alpha, the gamma sum and the pole terms? A positive answer for every basepoint in (alpha_0, 1] would prove the zero free region beta at most alpha_0.
+  statement: >-
+    Let $\xi$ be Riemann's xi function. For $\alpha>1$ the density $v_\alpha(\theta)=\operatorname{Re}\frac{\xi'}\xi(\alpha+i\theta)$ has the sine squared prime form, through a signed canonical measure (atoms $\Lambda(n)n^{-\alpha}$ at $\log n$, with $\Lambda$ the von Mangoldt function, an archimedean density and a pole density) whose prime and gamma terms are nonnegative and whose pole terms are negative; its positivity, which is Lagarias positivity for $\alpha>1$, comes from the absence of zeros with real part at least one, not from the terms one by one. The book continues this form below $\alpha=1$ by compensation, and shows that the compensated sine squared sum converges for every $\alpha'>\alpha$ exactly when $\zeta$ has no zero with $\operatorname{Re}s>\alpha$; a smoothed finite form, built from a Fejér tapered sum over the primes with explicit pole terms and a gamma integral, continues the identity below $\alpha=1$ but is not positive term by term. Is there a continuation of the prime form below $\alpha=1$ that is positive term by term? The prime sum diverges there, but smoothed versions of it, with $n^{-\alpha}$ replaced by a weight that cuts off at $n\approx e^{1/\varepsilon}$, remain positive termwise, and the question is whether the loss from the cutoff can be controlled by $(\xi'/\xi)(\alpha)$, the gamma sum and the pole terms. A positive answer on $\alpha\in(\alpha_0,1]$ would prove the zero free region $\beta\le\alpha_0$, that is, that $\zeta$ has no zero with real part above $\alpha_0$.
+
+- id: open_existence_of_half_flow_clock_for_small_positive_times
+  name: Existence of the half flow clock for small positive times
+  label: "mw:prob:flow"
+  chapter: "14"
+  origin: book
+  status: open
+  highlight: false
+  summary: >-
+    For times t between 0 and 0.2, does the law with Laplace transform R_t(lambda/2), half of the clock of the de Bruijn Newman flow, exist as a probability law, and is it infinitely divisible? Unconditionally it is known to exist at t = 0, where it is half the clock, and to exist and be a GGC for t at least 0.2; under RH it exists and is a GGC for every t at least 0.
+  statement: >-
+    Let $\xi$ be Riemann's xi function, $\Phi_{\mathrm{dBN}}(u)=\sum_{n\ge1}\big(2\pi^2n^4e^{9u}-3\pi n^2e^{5u}\big)\exp(-\pi n^2e^{4u})$ the Pólya kernel in the rescaled variable of Rodgers and Tao, so that $H_0(z)=\int_0^\infty\Phi_{\mathrm{dBN}}(u)\cos(zu)\,du=\frac18\xi(\frac12+\frac{iz}2)$, and $H_t(z)=\int_0^\infty e^{tu^2}\Phi_{\mathrm{dBN}}(u)\cos(zu)\,du$ its de Bruijn Newman deformation, with de Bruijn Newman constant $\Lambda$, the least $t$ from which all zeros of $H_t$ are real, known to satisfy $0\le\Lambda\le0.2$ by Rodgers and Tao, Platt and Trudgian, and the Polymath project. Let $R_t(u)=H_t(0)/H_t(2i\sqrt u)$, the Laplace transform of the clock of the flow, with $R_0(u)=\xi(\frac12)/\xi(\frac12+\sqrt u)$. For $t\ge\Lambda$, $R_t$ is the transform of a GGC with Thorin measure $\sum_k\delta_{(z_k(t)/2)^2}$, where $z_k(t)>0$ are the positive zeros of $H_t$, each pair $\pm z$ giving one atom; so the law $T_t$ with Laplace transform $\lambda\mapsto R_t(\lambda/2)$ exists and is a GGC for $t\ge0.2$ unconditionally and, under RH, for every $t\ge0$, and $T_0$ is half the clock, which exists unconditionally. For $0<t<0.2$, does $T_t$ exist as a probability law, and is it infinitely divisible? This is the analogue along the de Bruijn Newman flow of the existence of the clock; it would need an explicit formula for the heat trace of the flow, which the Gaussian tilt destroys.
+
+- id: open_khinchin_analogue_of_tilted_maximum_at_one_half
+  name: An analogue of the Khinchin factorisation at one half
+  label: "mw:prob:khinchin"
+  chapter: "14"
+  origin: book
+  status: open
+  highlight: false
+  summary: >-
+    Is there an analogue at sigma equal to one half of the Khinchin factorisation of the tilted maximum, that is, a factorisation of the tilted law of the clock or of the Pólya variable through a law built from the primes, with the explicit formula replacing the Euler product?
+  statement: >-
+    Let $\xi$ be Riemann's xi function and $\Xi(\theta)=\xi(\frac12+i\theta)$. For $\sigma>1$ the maximum $M_4$ of independent exponential variables with one variable of each rate $\pi n$ and one more of each rate $\pi(2m-1)$, tilted to the law $\propto x^{\sigma/2}\Pr(M_4\in dx)$ and multiplied by an independent factor $4^{-K}$ with $\Pr(K=k)=(1-a)a^k$ for $k\ge0$ and $a=2^{1-\sigma}$, has the law of $\Gamma_{1+\sigma/2}/(\pi N_\sigma^2)$, where $\Gamma_{1+\sigma/2}$ is a gamma variable of shape $1+\sigma/2$ and scale $1$ and $N_\sigma$ is an independent zeta distributed integer, $\Pr(N_\sigma=n)=n^{-\sigma}/\zeta(\sigma)$, built from the primes by the Euler product. Is there an analogue of this factorisation at $\sigma=\frac12$, that is, a factorisation of the tilted law of the clock $T$ (the random variable with Laplace transform $\xi(\frac12)/\xi(\frac12+\sqrt\lambda)$) or of the Pólya variable (the variable with characteristic function $\Xi(\theta)/\Xi(0)$) through a law built from the primes, with the explicit formula replacing the Euler product?

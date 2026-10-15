@@ -1,7 +1,7 @@
 # Appendix B. A short history of computations on the zeros
 
 <!-- cite:begin -->
-From *Computing the Riemann Hypothesis: Thorin Measures, Pólya Densities and Hitting Times* by Nicholas G. Polson and Vadim Sokolov (2026), appendix B. Cite as Polson and Sokolov (2026), *Computing the Riemann Hypothesis: Thorin Measures, Pólya Densities and Hitting Times*, edition 1, https://doi.org/10.5281/zenodo.23331091. Book page: https://vsokolov.org/books/computing_rh/. Source: https://github.com/VadimSokolov/computing_rh.
+From *Computing the Riemann Hypothesis: Thorin Measures, Pólya Densities and Hitting Times* by Nicholas G. Polson and Vadim Sokolov (2026), appendix B. Cite as Polson and Sokolov (2026), *Computing the Riemann Hypothesis: Thorin Measures, Pólya Densities and Hitting Times*, edition 1, https://doi.org/10.5281/zenodo.23400373. Book page: https://vsokolov.org/books/computing_rh/. Source: https://github.com/VadimSokolov/computing_rh.
 <!-- cite:end -->
 
 This appendix tabulates landmarks in the computation of the nontrivial zeros of the Riemann zeta function. The 79 zeros below height 200, on which the book measures distances, are the range Backlund verified in 1914, and the verified height $3\times10^{12}$ is behind several unconditional statements. The book's computations do not extend the table.

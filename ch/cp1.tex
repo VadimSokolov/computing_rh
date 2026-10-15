@@ -1,0 +1,40 @@
+\section{Which computations see past the verified height}\label{cp:sec:routes}
+
+Every route to RH in this book replaces the hypothesis by an infinite family of statements, each of which a finite computation can certify. The question that separates the routes is what happens above the height the computation reaches. If nothing does, the route is finite information in the sense of Section~\ref{ch:finite}: by Theorem~\ref{thm:ch13:perturb} a perturbation with the same zeros below that height and zeros off the line above it passes the same test, so the test certifies no more than a verification of the zeros up to a height determined by its size. If an analytic argument takes over above a barrier, the route turns finite computation into a statement about all zeros.
+
+\begin{definition}\label{cp:def:reach}
+A route \emph{reaches every height} if there are a finite computation $C$ and an analytic statement $A$ valid above a barrier $X$ such that $C$ and $A$ together imply a statement about all zeros of $\xi$, or of a fixed approximant or deformation of $\xi$, that is not implied by the zeros below $X$ alone.
+\end{definition}
+
+\subsection{The finite information routes}\label{cp:sec:finiteinfo}
+
+Most of the book's tests are finite information, and the book measures exactly how much height each one buys. The heat trace has its derivative signs to order $1.16\times10^{25}$ from the verification to $3\times10^{12}$ (Theorem~\ref{thm:ch12:window}), and the order is a height in disguise: an off line zero at height $\gamma$ first breaks the alternation at an order of about $t\gamma^2$, with $t$ the parameter of the heat trace and not the time of the flow. The Bosch function $\varphi(x^p)$ of Section~\ref{ch:boschB} is HCM for $|p|\le1-1/(\pi T_0)$, and $1-p\approx1/(\pi T)$ is again a height (Corollary~\ref{bs:cor:uncond}). Li coefficients see an off line zero at height $\gamma$ and distance $d$ from the line only from an order of about $\gamma^2/d$, while the Hankel test of Section~\ref{sec:ch21:hankel} often registers a pair at an order close to $2k+2$, set by its index $k$, at a cost in precision that grows linearly with the order (Section~\ref{sec:pakes}); either way the order is again a height. The Cauchy flow $\rho_\varepsilon$ is positive on the verified window for every $\varepsilon$, but its minimum is attained at the origin and tends to zero with $\varepsilon$ (Theorem~\ref{thm:dbeta:minall} and Remark~\ref{rem:dbeta:margin}), so positivity is never won by a fixed margin, and positivity on one line is not known to exclude zeros to its right (Remark~\ref{rem:ch2:oneline}). The ferromagnetic distance of Section~\ref{ch:fmapprox} is below $1.932\times10^{-6}$, and it is zero exactly under RH, but the approximating laws keep only the first $K$ zeros, so it sees nothing above them. The Weil Gram matrices and the arithmetic forms of Section~\ref{cp:sec:weil} below have the same property, with a resolution in height set by the support of the test functions.
+
+These routes are valuable for what they say about the shape of the missing step, positivity uniform in the height (Sections~\ref{sec:ch25:open} and~\ref{ch:open}). As computations they are verification in other languages, and in practice less efficient than the evaluators of Appendix~\ref{app:history}.
+
+\subsection{The three routes that reach every height}\label{cp:sec:three}
+
+Three routes in the book reach every height in the sense of Definition~\ref{cp:def:reach}. In each, the analytic statement $A$ comes from a different structure of $\xi$.
+
+\paragraph{The Euler product: basepoints $\alpha\ge1$.} At the basepoint one, the Thorin density of the shifted clock is positive at every height, and the zeros below $2000$ in ball arithmetic and explicit bounds for $S(T)$ \cite{HSW22,Backlund} certify that it is smallest only at the origin (Propositions~\ref{bp:prop:v1min} and~\ref{bp:prop:valpha}). Above the barrier, the analytic input is the explicit bound for $S(T)$, that is, for the number of zeros up to a given height, and positivity itself comes from the Euler product, through the absence of zeros in $\re s\ge1$. Below $\alpha=1$ the same structure gives a statement at every height only together with a zero free half plane (Proposition~\ref{bp:prop:below}); the half plane $\re s>\frac78$ announced in October 2026 \cite{OAI26a} would extend the route to $\alpha\ge\frac78$ (Section~\ref{sec:ch25:open}), and below $\frac78$ nothing is known.
+
+\paragraph{The functional equation: symmetrised truncations.} The symmetrised truncations of the Biane, Pitman and Yor lattice of Section~\ref{ch:rz4} have all their zeros in the strip on the line, at every height, for $n\le24$ and $n=32,36$, proved above explicit thresholds and computed below them (Theorem~\ref{rz:thm:symhurwitz} and Corollaries~\ref{rz:cor:Ssmall} and~\ref{rz:cor:Storus}). Above the threshold the analytic input is the symmetry of the functional equation, which makes the truncation immune to the mechanism that defeats the one sided version. RH would follow from infinitely many $n$ (Problem~\ref{rz:prob:S}), and no argument uniform in $n$ is known.
+
+\paragraph{The heat flow: positive time.} At time $t>0$ and for a suitable $y_0>0$, the function $H_t$ has no zeros with $\im z\ge y_0$ above a barrier, by an analytic argument, the effective Riemann Siegel approximation of Polymath15 \cite{Polymath}; a computation of winding numbers keeps zeros from entering through a strip of width one at the barrier for the times up to $t$, and the verification of RH covers the zeros below it. Together they give an upper bound for $\Lambda$, since then $\Lambda\le t+y_0^2/2$ by de Bruijn's strip theorem \cite[Theorem~13]{deBruijn} (Polymath15 take $t=y_0=0.2$): $\Lambda\le0.22$ \cite{Polymath} and, from the verification to $3\times10^{12}$, $\Lambda\le0.2$ \cite{PT21}. By Theorem~\ref{rz:thm:dbn} each such bound is a GGC statement for the clock $R_t$ of Section~\ref{ch:dbn}. Sections~\ref{cp:sec:transfer} and~\ref{cp:sec:phase} show that this route is the Thorin programme with a second parameter, and Section~\ref{cp:sec:see} shows that nothing in the computed density distinguishes the theorem at $t=0.2$ from the conjecture at $t=0$.
+
+\begin{table}[ht]
+\centering\footnotesize
+\begin{tabular}{@{}p{0.17\textwidth}p{0.27\textwidth}p{0.29\textwidth}p{0.17\textwidth}@{}}
+\toprule
+route & analytic input above the barrier & what is certified at every height & what is missing\\
+\midrule
+\raggedright basepoint $\alpha\ge1$ & \raggedright Euler product, explicit bounds for $S(T)$ & \raggedright the shifted clock is a GGC, its density minimal at the origin & any basepoint below $\frac78$\\
+\raggedright symmetrised truncations & \raggedright functional equation symmetry & \raggedright zeros of $K_n$ in the strip on the line, $n\le24$ and $n=32,36$ (floating point counts below the thresholds) & infinitely many $n$\\
+\raggedright heat flow & \raggedright Riemann Siegel at $t>0$ & \raggedright $\Lambda\le0.2$; GGC at points $(t,\alpha)$ & a tail at $t=0$\\
+\bottomrule
+\end{tabular}
+\caption{The three routes of the book that reach every height. All other routes are finite information.}
+\label{cp:tab:three}
+\end{table}
+
+The three routes are not independent. The first and the third are the two coordinates of the phase diagram of Section~\ref{cp:sec:phase}: a zero free half plane at time zero is a point $(0,\alpha)$ of the diagram, a certificate at positive time is a point $(t,\alpha)$, and both give bounds on $\Lambda$ through de Bruijn's theorem (Section~\ref{sec:ch21:flow}). The second route has no coordinate on the diagram and stands apart; Problem~\ref{cp:prob:trunc} asks whether it can be given one.

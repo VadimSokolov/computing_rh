@@ -1,0 +1,73 @@
+\section{Clocks along the flow at every basepoint}\label{cp:sec:transfer}
+
+Theorem~\ref{thm:poisson} decides when the shifted clock $\xi(\alpha)/\xi(\alpha+\sqrt u)$ is a generalised gamma convolution: exactly when $\alpha\ge\sup\re\rho$, with the Poisson form of Proposition~\ref{prop:struct} for its Thorin measure. Theorem~\ref{rz:thm:dbn} decides it for the centre clock $R_t$ of the flow when $t\ge\Lambda$, and Corollary~\ref{bh:cor:dbn} gives the converse for $t<\Lambda$. This section proves the common extension, for every time $t\ge0$ and every basepoint $\alpha\ge\frac12$. The proof uses only the Hadamard product of $\xi_t$ and the convolution semigroup of the Cauchy densities.
+
+\begin{lemma}[Structure of $\xi_t$]\label{cp:lem:structure}
+For every $t\ge0$: (i) $\xi_t$ is entire of order at most one, real on the real axis, and $\xi_t(1-s)=\xi_t(s)$; (ii) $\xi_t(\frac12+x)>0$ for real $x$; (iii) with $w=s-\frac12$ and the zeros written $\rho=\frac12+\tilde\rho$,
+\[
+\xi_t(\tfrac12+w)=\xi_t(\tfrac12)\prod\Big(1-\frac{w^2}{\tilde\rho^2}\Big),
+\]
+the product running over one representative of each pair $\{\tilde\rho,-\tilde\rho\}$, with multiplicity, and $\sum_\rho|\tilde\rho|^{-2}<\infty$.
+\end{lemma}
+
+\begin{proof}
+Since $\Phi_{\rm dBN}(u)\le Ce^{9u-\pi e^{4u}}$ for $u\ge0$ and $|\cos(zu)|\le e^{|z|u}$,
+\[
+|H_t(z)|\le C\int_0^\infty e^{tu^2+|z|u+9u-\pi e^{4u}}\,du\le\exp(C'|z|\log|z|)
+\]
+for large $|z|$, the maximum of the exponent being attained near $u=\frac14\log(|z|/4\pi)$; so $H_t$ and $\xi_t$ are entire of order at most one. Evenness of $H_t$ gives the reflection symmetry, and reality of the integrand on the imaginary axis gives $\xi_t$ real on the real axis, with
+\[
+\xi_t(\tfrac12+x)=8\int_0^\infty e^{tu^2}\Phi_{\rm dBN}(u)\cosh(2xu)\,du>0,
+\]
+since $\Phi_{\rm dBN}>0$. Hadamard's theorem for order at most one gives $H_t(z)=e^{a+bz}\prod_kE_1(z/z_k)$ over the zeros, none of which is zero since $H_t(0)>0$. Pairing $z_k$ with $-z_k$, a zero by evenness, gives $E_1(z/z_k)E_1(-z/z_k)=1-z^2/z_k^2$, and the paired product converges absolutely because the convergence exponent of a function of order at most one is at most one, so $\sum|z_k|^{-2}<\infty$. Evenness forces $b=0$, and the substitution $z=-2iw$, $\tilde\rho=iz_k/2$ gives (iii). This is the product used in the proof of Theorem~\ref{rz:thm:dbn}, proved here for every $t\ge0$.
+\end{proof}
+
+\begin{lemma}[One conjugate pair]\label{cp:lem:pair}
+Let $d,\gamma\in\R$, not both zero, and $\varphi(u)=(d^2+\gamma^2)/((\sqrt u+d)^2+\gamma^2)$ for $u\ge0$.
+\begin{enumerate}
+\item[(a)] If $d>0$, then $\varphi$ is the Laplace transform of a GGC whose Thorin measure, in the chart $\theta=\sqrt z$, is $[P_d(\theta-\gamma)+P_d(\theta+\gamma)]\,d\theta$ on $\theta>0$ (compare Proposition~\ref{prop:struct}):
+\[
+-\log\varphi(u)=\int_0^\infty\log\Big(1+\frac u{\theta^2}\Big)\big[P_d(\theta-\gamma)+P_d(\theta+\gamma)\big]\,d\theta.
+\]
+\item[(b)] If $d=0$, then $\varphi(u)=(1+u/\gamma^2)^{-1}$, an exponential law, with Thorin measure $\delta_{\gamma^2}$ in the variable $z$, that is, $\delta_\gamma$ in the chart $\theta=\sqrt z$.
+\item[(c)] If $d<0$, then $\varphi$ has a pole at $u_0=(-d+i\gamma)^2\in\cut$ and is not the Laplace transform of a GGC.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(a) Both sides vanish at $u=0$, so it suffices to compare derivatives in $u>0$. On the left, with $F(u)=(\sqrt u+d)^2+\gamma^2$, $F'/F=(\sqrt u+d)/(\sqrt u\,F)$. On the right, differentiating under the integral and using the symmetry $\theta\mapsto-\theta$ of the second kernel,
+\[\begin{aligned}
+\int_{-\infty}^{\infty}\frac{P_d(\theta-\gamma)}{\theta^2+u}\,d\theta&=\frac{\pi}{\sqrt u}\int_{-\infty}^\infty P_d(\theta-\gamma)P_{\sqrt u}(\theta)\,d\theta\\&=\frac{\pi}{\sqrt u}P_{d+\sqrt u}(\gamma)=\frac{d+\sqrt u}{\sqrt u\,((d+\sqrt u)^2+\gamma^2)},
+\end{aligned}\]
+by the semigroup property $P_a*P_b=P_{a+b}$. The integral converges, since $\log(1+u/\theta^2)$ is integrable at $0$ and $O(\theta^{-2})$ at infinity, and the measure is positive since $d>0$. (b) is immediate. (c) The equation $\sqrt u+d-i\gamma=0$ has the solution $\sqrt u=-d+i\gamma$, whose real part is positive, so it is the principal root and $u_0$ lies off $(-\infty,0]$ (if $\gamma=0$ then $u_0=d^2>0$); the Laplace transform of a GGC is holomorphic on $\cut$ \cite{Bondesson}.
+\end{proof}
+
+\begin{theorem}[Threshold along the flow]\label{cp:thm:transfer}
+Let $t\ge0$ and $\alpha\ge\frac12$. The shifted time $t$ clock
+\[
+\varphi_{t,\alpha}(u)=\frac{\xi_t(\alpha)}{\xi_t(\alpha+\sqrt u)}
+\]
+is the Laplace transform of a GGC if and only if $\alpha\ge\sup_\rho\re\rho$ over the zeros $\rho$ of $\xi_t$. In that case its Thorin measure, in the chart $\theta=\sqrt z$, is
+\[
+\sum_{\substack{\rho=\beta+i\gamma\\ \gamma>0,\ \beta<\alpha}}\big[P_{\alpha-\beta}(\theta-\gamma)+P_{\alpha-\beta}(\theta+\gamma)\big]\,d\theta\;+\sum_{\substack{\rho=\alpha+i\gamma\\ \gamma>0}}m_\rho\,\delta_{\gamma},
+\]
+where the first sum counts each zero with its multiplicity and $m_\rho$ is the multiplicity of $\rho$; this is the Poisson form of Proposition~\ref{prop:struct} for $\xi_t$.
+\end{theorem}
+
+\begin{proof}
+By Lemma~\ref{cp:lem:structure}, with $a=\alpha-\frac12\ge0$,
+\[
+\varphi_{t,\alpha}(u)=\prod\frac{1-a^2/\tilde\rho^2}{1-(a+\sqrt u)^2/\tilde\rho^2}=\prod_\rho\Big(1-\frac{\sqrt u}{\rho-\alpha}\Big)^{-1},
+\]
+where the last product runs over all zeros and is grouped so that each finite partial product contains, with every zero, its partner under $\tilde\rho\mapsto-\tilde\rho$; the denominators do not vanish since $\xi_t(\alpha)>0$. Because $\xi_t$ is real on the real axis, the zeros are also closed under conjugation, and regrouping into conjugate pairs is legitimate: both groupings give absolutely convergent products, the conjugate pairing because $(1-\sqrt u/(\rho-\alpha))(1-\sqrt u/(\bar\rho-\alpha))=1+(2d\sqrt u+u)/(d^2+\gamma^2)$ with $d=\alpha-\beta$ bounded (the zeros of $H_t$ lie in $|\im z|\le1$ by de Bruijn's strip theorem \cite[Theorem 13]{deBruijn}, as in Section~\ref{sec:ch21:flow}; and $0\le d\le2\alpha-1$ directly when $\alpha\ge\sup\re\rho$, the only case in which the pairing is used, by the symmetry $\rho\mapsto1-\rho$) and $\sum|\rho-\alpha|^{-2}<\infty$, and the partial products over $|\gamma|\le T$ agree. Hence
+\[
+\varphi_{t,\alpha}(u)=\prod_{\{\rho,\bar\rho\}}\frac{d^2+\gamma^2}{(\sqrt u+d)^2+\gamma^2},
+\]
+a product of the functions of Lemma~\ref{cp:lem:pair}, one for each conjugate pair, every pair being genuine because $\xi_t$ has no real zeros by Lemma~\ref{cp:lem:structure}(ii).
+
+If $\alpha\ge\sup\re\rho$, every factor is a GGC transform by Lemma~\ref{cp:lem:pair}(a) and (b). Finite products of GGC transforms are GGC transforms with Thorin measures adding, the partial products converge pointwise to $\varphi_{t,\alpha}$, which is continuous with $\varphi_{t,\alpha}(0)=1$, so by the continuity theorem and the closure of the class under weak limits (\cite[Theorem~3.1.5]{Bondesson}, Section~\ref{sec:weak:limits}) the limit is a GGC transform. Its Thorin measure is the full sum $\mu$ displayed in the theorem, and there is no drift, by the following monotone convergence argument. Write $\mu_T$ for the sum of the kernels and atoms over the zeros with $0<\gamma\le T$, so that $\mu_T\uparrow\mu$ as $T\to\infty$, and $\varphi_T$ for the partial product over the same zeros. By Lemma~\ref{cp:lem:pair}, $-\log\varphi_T(u)=\int\log(1+u/\theta^2)\,\mu_T(d\theta)$ for $u\ge0$, and the integrand is nonnegative, so by monotone convergence $-\log\varphi_T(u)$ increases to $\int\log(1+u/\theta^2)\,\mu(d\theta)$. Since $\varphi_T(u)\to\varphi_{t,\alpha}(u)>0$, this gives $-\log\varphi_{t,\alpha}(u)=\int\log(1+u/\theta^2)\,\mu(d\theta)<\infty$ for every $u\ge0$, which is the form of a GGC transform with Thorin measure $\mu$ and no drift. If some zero has $\beta>\alpha$, then $\xi_t(\alpha+\sqrt{u_0})=0$ at $u_0=(\rho-\alpha)^2$, whose principal root is $\rho-\alpha$ because $\re(\rho-\alpha)>0$, so $\varphi_{t,\alpha}$ has a pole in $\cut$ and is not a GGC transform.
+\end{proof}
+
+\begin{remark}\label{cp:rem:transfer}
+At $t=0$ the theorem is Theorem~\ref{thm:poisson}, and at $\alpha=\frac12$ it is Theorem~\ref{rz:thm:dbn} for $t\ge\Lambda$ and Corollary~\ref{bh:cor:dbn} for $t<\Lambda$. The proof uses nothing about $\xi_t$ beyond Lemma~\ref{cp:lem:structure}, so it applies to any even real entire function of order at most one with a genus zero product in $w^2$, positive on the real axis, in particular to the perturbation of Theorem~\ref{thm:ch13:perturb}, whose shifted clocks are therefore not GGC transforms at any basepoint below the real part of the displaced zeros. The Thorin density of $\varphi_{t,\alpha}$ in the chart $\theta$ is $\pi^{-1}\re(\xi_t'/\xi_t)(\alpha+i\theta)$ away from atoms, which is $\rho_{\alpha-1/2,t}(\theta)$ of Section~\ref{sec:ch21:flow}, where for $t\ge\Lambda$ it is already identified as the Thorin density of $R_t$ at resolution $\alpha-\frac12$. The shifted time $t$ clock is a function of $u$ only: where the threshold condition fails the theorem claims no probability law behind it, and for $\alpha=\frac12$ and $0<t<0.2$ it is open, without RH, whether $R_t$ is the transform of a probability law at all (Problem~\ref{mw:prob:flow}); the basepoint family at $t=0$ and the flow at $\alpha=\frac12$ are the two one parameter families of laws compared in Section~\ref{mw:sec:weak}.
+\end{remark}
