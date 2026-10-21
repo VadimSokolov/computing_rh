@@ -1,0 +1,96 @@
+\subsection{Problem \ref{pol:op:sign} again: the compensated condition at almost all heights in the strip}
+
+Write $D_\alpha(r)=\re\frac{\xi'}{\xi}(\alpha+ir)-\frac{\xi'}{\xi}(\alpha)$ and let $N(\sigma,T)$ count zeros with $\beta>\sigma$ and $0<\gamma\le T$.
+
+\begin{lemma}\label{pol:lem:Bbound}
+For $\alpha>\frac12$, unconditionally, $0<b_\alpha=\frac{\xi'}{\xi}(\alpha)\le2a_1(\alpha-\tfrac12)<0.04621\,(\alpha-\tfrac12)$.
+\end{lemma}
+
+\begin{proof}
+With $a=\alpha-\frac12$, $b_\alpha=\frac{d}{da}\log F(a^2)=2a\,\psi'(a^2)$, where $\psi=\log F$. By Theorem~\ref{thm:ch12:idsd} $\psi$ is a Bernstein function, so $\psi'$ is completely monotone and in particular $\psi'(a^2)\le\psi'(0)=a_1=0.0231050$. This is part (i) of Theorem~\ref{thm:dbeta:minall}, where $V_f=2a_1=0.04620998623$ (Table~\ref{tab:dbeta:minall}) and the bound is proved for every $\alpha>\frac12$.
+\end{proof}
+
+\begin{theorem}[Almost all heights]\label{pol:thm:almostall}
+Fix $\frac12<\alpha\le1$ and put $\sigma=\frac12(\alpha+\frac12)$. There is $T_0$ such that for $T\ge T_0$ the exceptional set $E_\alpha(T)=\{r\in[T,2T]:D_\alpha(r)\le0\}$ has measure
+\begin{equation}\label{pol:eq:almostall}
+|E_\alpha(T)|\le C\Big(1+\frac{1}{\alpha-\frac12}\Big)\big(N(\sigma,3T)+1\big)
+\end{equation}
+with an absolute constant $C$. By Ingham's density theorem \cite{Ingham40}
+\[
+|E_\alpha(T)|\ll_\alpha T^{3(1-\sigma)/(2-\sigma)}(\log T)^5=o(T),
+\]
+and under the density hypothesis $|E_\alpha(T)|\ll T^{2(1-\sigma)+\epsilon}$. In particular the compensated clock condition holds at every basepoint in the strip on a set of heights of full density.
+\end{theorem}
+
+\begin{proof}
+By the Hadamard product, summed symmetrically, $\re\frac{\xi'}{\xi}(s)=\sum_\rho\re\frac{1}{s-\rho}$ over all nontrivial zeros, so with $c_\rho=\alpha-\beta_\rho$,
+\[
+D_\alpha(r)=\sum_\rho\left[\frac{c_\rho}{c_\rho^2+(r-\gamma_\rho)^2}-\frac{c_\rho}{c_\rho^2+\gamma_\rho^2}\right],
+\]
+the sum running over zeros of both signs of $\gamma$. Call a zero harmful if $\beta>\alpha$, so $c<0$, and good if $|\beta-\frac12|\le\sigma-\frac12$, so $c\in[c_{\min},c_{\max}]$ with $c_{\min}=\alpha-\sigma=\frac12(\alpha-\frac12)$ and $c_{\max}=\alpha-1+\sigma\le\frac34$. Every zero that is not harmful contributes a nonnegative first term. Hence
+\[
+\begin{gathered}
+D_\alpha(r)\ge L(r)-b_\alpha-N_h(r),\\
+N_h(r)=\sum_{\text{harmful}}\frac{|c|}{c^2+(r-\gamma)^2},
+\end{gathered}
+\]
+where $L(r)$ is the first term of any one good zero. The second terms of all zeros, harmful ones included, sum to $b_\alpha$, so no separate bound for the harmful second terms is needed.
+
+The local term. By Littlewood's theorem \cite{Littlewood24} that gaps between consecutive ordinates tend to zero, for $r\ge T_0$ the window $[r-1,r+1]$ contains an ordinate. If one such zero is good, $L(r)\ge\frac{c}{c^2+1}\ge\kappa:=\frac{c_{\min}}{c_{\min}^2+1}\ge\frac45c_{\min}$, since $c\mapsto c/(c^2+1)$ increases on $(0,1)$. Otherwise $r$ lies within $1$ of a zero that is not good, that is one with $\beta>\sigma$ or its mirror with $\beta<1-\sigma$; the measure of such $r$ in $[T,2T]$ is at most $4N(\sigma,2T+1)$.
+
+The harmful sum. Since $\int_{\mathbb R}\frac{|c|}{c^2+(r-\gamma)^2}dr=\pi$, the harmful zeros with $\frac T2\le\gamma\le3T$ contribute at most $2\pi N(\alpha,3T)\le2\pi N(\sigma,3T)$ to $\int_T^{2T}N_h$, and the remaining harmful zeros contribute $o(1)$ by the trivial bound $|c|/(r-\gamma)^2$ and Ingham's bound for $N(\alpha,t)$. By Markov's inequality, $N_h(r)>\kappa/2$ on a set of measure at most $\frac2\kappa(2\pi N(\sigma,3T)+o(1))$.
+
+Outside these two sets, Lemma~\ref{pol:lem:Bbound} gives $b_\alpha\le0.04621(\alpha-\frac12)=0.09242\,c_{\min}$, hence $D_\alpha(r)\ge\kappa-\frac\kappa2-0.0925\,c_{\min}\ge(0.4-0.0925)c_{\min}>0$. Adding the two exceptional measures and using $\kappa\ge\frac45c_{\min}$ gives \eqref{pol:eq:almostall}.
+\end{proof}
+
+Theorem~\ref{pol:thm:almostall} has the same content as Remark~\ref{rem:dbeta:average}, which obtains the comparison from Theorem~\ref{thm:dbeta:comp} with $\sigma_0=\frac12+(\alpha-\frac12)/\sqrt2$ in place of $\sigma$ and a lower bound growing like $\log\theta$; the proof here is direct, and Theorem~\ref{ag:thm:almost} gives a statement of the same kind for the mass of the negative part of the density.
+
+To the right of the strip the inequality holds on the grid numerically (Section~\ref{pol:sec:qrh}), and at all heights for every $\alpha\ge1$ by Proposition~\ref{bp:prop:valpha}. Below $1$ it holds at all heights, on every line to the right of $\alpha_0$, under a quasi Riemann hypothesis at $\alpha_0$ (Theorem~\ref{pol:thm:qrhpair}).
+
+\subsection{Problem \ref{pol:op:pf2} again: coalescing points and the PF$_3$, PF$_4$ conditions}
+
+Theorem~\ref{pol:thm:approxpf} controls PF$_n$ minors up to an additive error of $1.1\times10^{-8}$ for $n=3$ and $1.2\times10^{-7}$ for $n=4$, which is enough wherever the minors of $f_{\mathrm{on}}$ are larger than that, but not where they vanish. They vanish in two places: at coalescing points and far in the tail. When all $x_i$ and all $y_j$ coalesce at points whose difference is $x$, the minor divided by the two Vandermonde products tends to a constant multiple of the Hankel determinant $\mathcal H_n(x)=\det[f_X^{(i+j)}(x)]_{i,j<n}$, and the PF$_n$ condition becomes $(-1)^{n(n-1)/2}\mathcal H_n(x)\ge0$; for $n=2$ this is log concavity.
+
+\begin{proposition}\label{pol:prop:hankel}
+In the tail the coalescing conditions hold, unconditionally, for every $n$ with $\gamma_n<H$: for an exponential sum $f=\sum_k\eta_ke^{-\gamma_kx}$,
+\[
+\mathcal H_n(x)=\sum_{|S|=n}\Big(\prod_{k\in S}\eta_k\Big)\prod_{k<l\in S}(\gamma_l-\gamma_k)^2\,e^{-x\sum_{k\in S}\gamma_k},
+\]
+and the term of $S=\{1,\dots,n\}$ dominates as $x\to\infty$, with sign $(-1)^{\lfloor n/2\rfloor}=(-1)^{n(n-1)/2}$ by the alternation of the residues.
+\end{proposition}
+
+\begin{proof}
+$[f^{(i+j)}(x)]_{i,j<n}=V\,\mathrm{diag}(\eta_ke^{-\gamma_kx})\,V^{\top}$ with $V=[(-\gamma_k)^i]_{i<n,\,k}$, so the Cauchy Binet formula gives the sum over $n$ element subsets $S$, each weighted by $\det(V_S)^2=\prod_{k<l\in S}(\gamma_l-\gamma_k)^2$. The residue expansion of Lemma~\ref{pol:lem:residue} with $T$ between $\gamma_n$ and $\min(\gamma_{n+1},H)$ shows that the remaining terms, including those that contain the remainder $E_T$ and its derivatives, are smaller by a factor of order $e^{-(T-\gamma_n)x}$.
+\end{proof}
+
+Numerically, combining quadrature on $[0,1.6]$ with the residue expansion with fourteen zeros beyond, $-\mathcal H_3/f_X^3$ and $\mathcal H_4/f_X^4$ are positive at every point of a grid of step $0.02$ on $[0,4]$; their smallest values, $1.05\times10^{-21}$ and $2.08\times10^{-39}$, occur at $x=4$, where Proposition~\ref{pol:prop:hankel} predicts exponential decay. So PF$_3$ and PF$_4$ hold at coalescing points on the grid and, by Proposition~\ref{pol:prop:hankel}, as $x\to\infty$, and the scan of separated minors in Section~\ref{pol:sec:progress} finds none that is negative. A complete proof of PF$_3$ would need three things that are not proved here: an explicit threshold in $x$ in Proposition~\ref{pol:prop:hankel}, a bound for nearly coalescing points, and a bound for separated points in the tail.
+
+\subsection{Problem \ref{pol:op:even} again: almost all zeros of the even and odd parts are on the line}
+
+Let $B_\alpha(w)=\frac1{2i}(\xi(\alpha+w)-\xi(\alpha-w))$ be the odd part, so that $A_\alpha(it)=\re\xi(\alpha+it)$ and $B_\alpha(it)=\im\xi(\alpha+it)$, and let $N_A(T)$, $N_B(T)$ count the zeros with $0<\im w\le T$ and $N_A^0(T)$, $N_B^0(T)$ those on the imaginary axis.
+
+\begin{theorem}[Zero accounting for the even and odd parts]\label{pol:thm:accounting}
+Let $\frac12<\alpha\le1$ be such that no zero of $\xi$ lies on the line $\re s=\alpha$, which excludes at most countably many $\alpha$. Then, with no other hypothesis, as $T\to\infty$ through values that are not ordinates of zeros of $\xi$, $A_\alpha$ or $B_\alpha$,
+\begin{equation}\label{pol:eq:accounting}
+\begin{gathered}
+N_A(T)=U_\alpha(T)+2N(\alpha,T)+O(\log T),\\
+N_A^0(T)\ge\left\lfloor U_\alpha(T)+\tfrac12\right\rfloor,
+\end{gathered}
+\end{equation}
+and the same holds for $B_\alpha$ with $\lfloor U_\alpha(T)\rfloor$ in place of $\lfloor U_\alpha(T)+\frac12\rfloor$. Consequently
+\begin{equation}\label{pol:eq:offaxis}
+\begin{gathered}
+N_A(T)-N_A^0(T)\le2N(\alpha,T)+O(\log T),\\
+N_B(T)-N_B^0(T)\le2N(\alpha,T)+O(\log T),
+\end{gathered}
+\end{equation}
+so by Ingham's density theorem all but $O(T^{3(1-\alpha)/(2-\alpha)}\log^5T)$ of the zeros of $A_\alpha$ and of $B_\alpha$ up to height $T$ are purely imaginary, a proportion tending to one.
+\end{theorem}
+
+\begin{proof}
+For $\re w\ge\alpha$ both $\alpha+w$ and $\alpha-w$, reflected by the functional equation to $1-\alpha+w$, have real part at least $1$, where $\log|\xi(\sigma+it)|$ is strictly increasing in $\sigma$ because every zero has $\beta<1$; as $\alpha+\re w>1-\alpha+\re w$, $|\xi(\alpha+w)|>|\xi(\alpha-w)|$ and $A_\alpha(w)\ne0$. So all zeros lie in $|\re w|<\alpha$. Apply the argument principle to $A_\alpha$ on the rectangle $|\re w|\le X$, $0\le\im w\le T$ with $X=2$. On the real axis $A_\alpha>0$. On the right side $A_\alpha=\frac12\xi(\alpha+w)(1+q)$ with $|q|<1$, so its argument changes by that of $\xi$ along $\re s=\alpha+X$ up to $O(1)$, and the left side contributes the same by the symmetries $A_\alpha(-w)=A_\alpha(w)$ and $A_\alpha(\bar w)=\overline{A_\alpha(w)}$. The argument principle for $\xi$ on $[\alpha,\alpha+X]\times[0,T]$ converts the change along $\re s=\alpha+X$ into $\pi U_\alpha(T)+2\pi N(\alpha,T)$ plus a horizontal variation at height $T$. The two horizontal variations, of $\xi$ and of $A_\alpha$, are $O(\log T)$ by Backlund's argument \cite{Backlund} with Jensen's formula, since $\log|\xi|$ and $\log|A_\alpha|$ vary by $O(\log T)$ on discs of bounded radius at height $T$, by Stirling's formula and polynomial bounds for $\zeta$. This gives the first identity in \eqref{pol:eq:accounting}. For the second, $A_\alpha(it)=|\xi(\alpha+it)|\cos(\pi U_\alpha(t))$ with $U_\alpha$ continuous from $U_\alpha(0)=0$, so every level $k-\frac12\le U_\alpha(T)$ is crossed at least once. The odd part is treated in the same way with $\sin$, except that $B_\alpha$ is odd, with a simple zero at $w=0$ on the bottom edge, so the contour is indented above $0$, which changes the count by $\frac12$, inside $O(\log T)$, and $B_\alpha(\bar w)=-\overline{B_\alpha(w)}$ replaces $A_\alpha(\bar w)=\overline{A_\alpha(w)}$. Subtracting gives \eqref{pol:eq:offaxis}.
+\end{proof}
+
+Theorem~\ref{pol:thm:accounting} sharpens the half integer crossing picture into a balance sheet. Numerically, at $\alpha=0.55$ the clock reaches $U_{0.55}(300)=137.921$; $\re\xi(0.55+it)$ has $138=\lfloor137.921+\frac12\rfloor$ zeros on $(0,300]$ and $\im\xi(0.55+it)$ has $137=\lfloor137.921\rfloor$, and the argument principle counts $138.000$ zeros of $A_{0.55}$ and $137.0$ zeros of $B_{0.55}$ in the box, so the balance is exact there with no off axis zeros.
+
+The odd part family also clarifies Problem~\ref{pol:op:deriv}. Since $B_{\frac12+a}(w)/a\to-i\,\xi'(\frac12+w)$ locally uniformly as $a\downarrow0$, the derivative $\xi'$ is the endpoint of the odd part family, just as $\xi$ is the endpoint of the even part family. Under RH every $B_\alpha$ has only imaginary zeros, and Hurwitz's theorem then gives the Riemann Hypothesis for $\xi'$. Theorem~\ref{pol:thm:accounting} cannot be pushed to $a\to0$ directly, because the known bounds for $N(\alpha,T)$ grow to a positive proportion of all zeros as $\alpha\downarrow\frac12$, and Hurwitz's theorem needs every zero of $B_\alpha$ on the axis, not almost every one; this is why the Riemann Hypothesis for $\xi'$ remains open.

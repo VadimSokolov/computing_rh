@@ -1,0 +1,58 @@
+\section{Is the $2\sin^2$ lemma useful with regard to P\'olya's work?}\label{pol:sec:lemma}
+
+\subsection{Where it helps}
+
+The lemma is applied at a basepoint $\alpha$ through the weight $e^{-\alpha x}$ in its hypothesis, which on the kernel side is the tilt $e^{au}$, the non even half of P\'olya's universal factor $\cosh(au)$; it computes the continuous Thorin densities of which P\'olya's approximations are the roundings, up to the affine term of its compensation (Theorem~\ref{rz:thm:gammaggc}, Proposition~\ref{pol:prop:gram}); and positivity of the Thorin density at a basepoint makes the clock increasing along $\re s=\alpha$ and places the real zeros of $\re\xi(\alpha+it)$ at its half integer crossings (Proposition~\ref{pol:prop:round}).
+
+\subsection{Where it cannot help}
+
+\emph{The Bessel test.} The Bessel model $f(\nu)=K_\nu(2\pi)$ is even in $\nu$, of order one, with zeros $\pm iz_n$ on $\re\nu=0$ (Section~\ref{pol:sec:xistar}) and $\sum z_n^{-2}<\infty$, so the product formula and the basepoint theorem (Theorem~\ref{thm:poisson}) apply verbatim, as in Theorem~\ref{thm:biane:clock}, which is the case $\alpha=0$: $K_\alpha(2\pi)/K_{\alpha+\sqrt s}(2\pi)$ is a GGC for every $\alpha\ge0$, with Lorentzian Thorin density when $\alpha>0$. The hypothesis of the lemma at basepoint $\alpha$ is that $(\log f)''$ is completely monotone on $(\alpha,\infty)$. Table~\ref{pol:tab:bessel} shows the signs of $(-1)^jd^{2+j}\log K_\nu(2\pi)/d\nu^{2+j}$: the third entry is negative at every $\nu\le5$ and a later entry fails at $\nu=8$. So the primal measure of the lemma is signed at every basepoint tested, although the reciprocal law is a GGC at every basepoint. The lemma's success for $\xi$ at $\alpha>1$ is a cancellation, as Chapter~\ref{chap:basepoint} already observes.
+
+\begin{table}[ht]
+\centering\small
+\fitwidth{\begin{tabular}{ccccccc}
+\toprule
+$\nu$ & $j=0$ & $j=1$ & $j=2$ & $j=3$ & $j=4$ & $j=5$\\
+\midrule
+$0.25$ & $0.1482$ & $6.7\times10^{-4}$ & $-2.7\times10^{-3}$ & $-9.8\times10^{-5}$ & $3.9\times10^{-4}$ & $3.6\times10^{-5}$\\
+$1$ & $0.1469$ & $2.6\times10^{-3}$ & $-2.5\times10^{-3}$ & $-3.7\times10^{-4}$ & $3.2\times10^{-4}$ & $1.3\times10^{-4}$\\
+$3$ & $0.1373$ & $6.6\times10^{-3}$ & $-1.3\times10^{-3}$ & $-6.8\times10^{-4}$ & $-1.4\times10^{-5}$ & $1.5\times10^{-4}$\\
+$5$ & $0.1223$ & $8.0\times10^{-3}$ & $-1.5\times10^{-4}$ & $-4.6\times10^{-4}$ & $-1.6\times10^{-4}$ & $6.9\times10^{-6}$\\
+$8$ & $0.0991$ & $7.1\times10^{-3}$ & $5.6\times10^{-4}$ & $-6.9\times10^{-5}$ & $-7.7\times10^{-5}$ & $-3.5\times10^{-5}$\\
+\bottomrule
+\end{tabular}}
+\caption{$(-1)^j\frac{d^{2+j}}{d\nu^{2+j}}\log K_\nu(2\pi)$.}\label{pol:tab:bessel}
+\end{table}
+
+\emph{Kernel multipliers.} P\'olya's universal factors $e^{\lambda u^2}$ and $\cosh(au)$ multiply the kernel, but the lemma acts on $\log f$ and has no composition rule that carries a lemma statement at one value of $\lambda$ or $a$ to another, which is why the heat flow row of Table~\ref{cp:tab:three} stands apart from the basepoint row.
+
+\subsection{Verdict}
+The lemma is not a mechanism for producing real zeros: in the Bessel model, where P\'olya's theorem gives real zeros and every basepoint law is a GGC, the positivity the lemma needs is false. Any route to RH through the lemma must therefore control a cancellation between signed primal measures, and P\'olya's own tools (universal factors, difference equations for $K_\nu$, Hermite Biehler) are the natural candidates for that control.
+
+\section{What would help show RH}
+
+None of P\'olya's theorems crosses into the critical strip. Each stops at the same place as the basepoint programme.
+
+\begin{enumerate}
+\item The cosh factor and de Bruijn's strip theorem give real zeros of the even part for $\alpha\ge1/2+\Delta$, the same threshold $\sigma_{\max}$ as the basepoint laws. Proposition~\ref{pol:prop:round} identifies the two families, so no gain in the strip.
+\item The heat flow factor $e^{\lambda u^2}$ reaches $\Lambda\le0.2$ (Platt and Trudgian, sharpening the bound $0.22$ of Polymath 15), inside the strip in the Gaussian sense, and $\Lambda\ge0$ by Rodgers and Tao; the remaining gap is the whole problem.
+\item The P\'olya Schur and Schoenberg ladders are equivalent to RH; their first rungs hold: the Tur\'an inequality for the first is a theorem, and log concavity for the second is settled by a floating point certificate in Section~\ref{pol:sec:progress}.
+\item The Mellin criterion does not apply to $\Phi$ (Section~\ref{pol:sec:mellin}): for $q=1$ the Mellin transform has the zero of Theorem~\ref{thm:ch13:mellin}, and for $q\ge2$ there is no factorisation $\Phi(t)=\mathcal F(t^{2q})$. A different criterion, applied to a different factorisation of the P\'olya density, such as its signed mixture of Gamma(2) and Gamma(3) densities (Section~\ref{sec:maxexp:gamma}) or its representation through maxima (Chapter~\ref{chap:maxwald}), would be needed.
+\item The Bessel model is a laboratory. Since its analogue of RH is a theorem of P\'olya, any proposed mechanism can be tested on it before it is tried on $\xi$; the $2\sin^2$ positivity mechanism already fails this test.
+\end{enumerate}
+
+\begin{problem}\label{pol:op:sign}
+Find a sign condition on the primal measure of the lemma that holds for the Bessel model at every basepoint $\alpha>0$, is preserved by the Euler product, that is, by adding the primal measures of the Euler factors, and fails for the Davenport Heilbronn function.
+\end{problem}
+
+\begin{problem}\label{pol:op:even}
+Prove real rootedness of $A_\alpha=\frac12(\xi(\alpha+w)+\xi(\alpha-w))$ for one fixed $\alpha\in(\frac12,1)$ without proving the quasi Riemann hypothesis at $\alpha$, by a P\'olya type argument that uses the Euler product (the odd part $B_\alpha$ need not be real rooted).
+\end{problem}
+
+\begin{problem}\label{pol:op:deriv}
+Determine whether the derivative laws $\xi^{(2n)}(\frac12)/\xi^{(2n)}(\frac12+\sqrt s)$, or their counterparts $F^{(n)}(0)/F^{(n)}(s)$ with derivatives taken in the Thorin variable $s$, are GGCs for some $n$. For the first family, Ki and Kim give a local statement and Conrey the proportion of zeros on the line, for large $n$; for the second, Griffin, Ono, Rolen and Zagier give the first $d$ rungs of the P\'olya Schur ladder for $n\ge N(d)$ (Section~\ref{pol:sec:progress}). For neither family is a global statement known for any $n$, and one for a single $n$ would be the first unconditional GGC in its family.
+\end{problem}
+
+\begin{problem}\label{pol:op:midpoint}
+Under RH, which is what makes the midpoint rule of Proposition~\ref{pol:prop:round} available for every $\alpha>\frac12$, prove that it converges, $\mu^P_\alpha-\mu^{(\alpha)}\to0$ weakly as $\alpha\downarrow\frac12$, with an explicit rate, so that the atomic and continuous descents can be run together.
+\end{problem}

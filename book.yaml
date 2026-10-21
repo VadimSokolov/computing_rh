@@ -17,12 +17,12 @@ authors:
 credit_names: ""                 # how a citation names the authors, e.g. "Polson and Sokolov"; empty: built from the family names
 year: 2026
 edition: "1"
-version: "1.1.0"                 # the release tag is v<version>
+version: "1.2.0"                 # the release tag is v<version>
 date_released: "2026-10-14"      # YYYY-MM-DD, set at release
 publisher: "Independently published"   # the imprint KDP shows for a free KDP ISBN
 # no isbn: a free KDP ISBN may be used only on KDP, so it goes on the ISBN line of kdp.md (private) and is printed
 # only in the print edition (kdp.py interior); this file is published (references/publishing.md)
-doi: "10.5281/zenodo.23400373" # this edition's DOI; zenodo.py reserve writes it before the final build
+doi: "10.5281/zenodo.23543693" # this edition's DOI; zenodo.py reserve writes it before the final build
 license_text: CC-BY-4.0          # text, figures and PDF
 license_code: MIT
 repository: https://github.com/VadimSokolov/computing_rh   # the public repository; its name is the slug
@@ -52,7 +52,7 @@ description: |
 
   New results: the reciprocal Xi function at x to the power p is hyperbolically completely monotone exactly when the absolute value of p is at most one minus twice the largest zero angle over pi; at the basepoint one the Thorin density is certified smallest at the origin, so the shifted clock is a stable variable plus a generalized gamma convolution; between the basepoints one half and one the shifted clocks are almost generalized gamma convolutions, unconditionally; the clock of Pólya's Bessel function is the hitting time of an explicit diffusion; adjacent real zeros of a polynomial cannot meet under the backward heat flow before an explicit time; and the Pólya law lies within 2 × 10^-6 in total variation of the ferromagnetic laws of Lee and Yang, a distance that is zero exactly under the hypothesis.
 
-  An appendix lists the scripts and data files behind the tables and figures, which are in the book's repository https://github.com/VadimSokolov/computing_rh.
+  The scripts and data files behind the tables and figures are in the book's repository https://github.com/VadimSokolov/computing_rh, listed in code/README.md.
 source:
   format: latex
   dir: .
@@ -62,8 +62,8 @@ source:
   pdf: main-kdp.pdf    # the built PDF; bookrepo.py pdf copies it to pdf above
   meta: bookmeta.tex   # generated: \BookDOI, \BookVersion ... for the copyright page (\BookISBN only in the print build); \input it in the preamble
 macros: main.tex                 # the file that defines the book's macros
-code_dir: code                   # with the other folders of Appendix A (README, Code and data); code/LICENSE (MIT) covers them all
-environments: {}                 # printed names that \newtheorem does not declare, e.g. {thm: Theorem}
+code_dir: code                   # with the other folders that code/README.md names; code/LICENSE (MIT) covers them all
+environments: {resultpar: Result}                 # printed names that \newtheorem does not declare, e.g. {thm: Theorem}
 related_papers:                  # the authors' own papers that results come from; KEY is used in results.yaml origin
   - key: polson2017
     citation: "Polson (2017, version 24 of 2026), On Hilbert's 8th problem, arXiv:1708.02653"
@@ -117,6 +117,24 @@ chapters:                        # from bookrepo.py scan; stems are public file 
   - key: "15"
     title: "The Thorin phase diagram"
     stem: 15_thorin_phase_diagram
+  - key: "16"
+    title: "Pólya and the zeros of entire functions"
+    stem: 16_polya_and_the_zeros_of_entire_functions
+  - key: "17"
+    title: "Yoshida's Hermitian forms, Weil positivity and the Thorin programme"
+    stem: 17_yoshida_hermitian_forms_and_weil_positivity
+  - key: "18"
+    title: "Zhu's compact windows and the Landau Widom horizon"
+    stem: 18_zhu_compact_windows_and_the_landau_widom_horizon
+  - key: "19"
+    title: "Three families of generalised gamma convolutions and the deconvolution obstruction"
+    stem: 19_three_families_of_ggc_and_the_deconvolution_obstruction
+  - key: "20"
+    title: "Deconvolution as a damped Weil criterion"
+    stem: 20_deconvolution_as_a_damped_weil_criterion
+  - key: "21"
+    title: "Thorin representations, Dirichlet L functions and the Linnik constant"
+    stem: 21_thorin_representations_dirichlet_l_functions_and_the_linnik_constant
   - key: "A"
     title: "Code and reproducibility"
     stem: A_code_and_reproducibility
@@ -126,10 +144,7 @@ chapters:                        # from bookrepo.py scan; stems are public file 
   - key: "C"
     title: "Notation"
     stem: C_notation
-  - key: "D"
-    title: "Verification code for the Bosch type theorem"
-    stem: D_verification_code_for_the_bosch_type_theorem
 style:
   forbid: ["—", "–"]             # characters that may not appear in published text
   no_hyphenated_words: true
-  allow_hyphenated: ["Vere-Jones", "Barndorff-Nielsen"]   # words that keep their hyphen, e.g. names
+  allow_hyphenated: ["Vere-Jones", "Barndorff-Nielsen", "Heath-Brown"]   # words that keep their hyphen, e.g. names

@@ -1,0 +1,81 @@
+\subsection{Problem \ref{pol:op:sign}: the exact form of the $2\sin^2$ lemma}
+
+Stieltjes inversion gives the Thorin density itself, with no sign assumption on the primal measure.
+
+\begin{theorem}\label{pol:thm:exactlemma}
+Let $f$ be a real entire function with no zeros in $\re z>\alpha-\delta$ for some $\delta>0$ and with $\frac{f'}{f}(z)=O(\log|z|)$ uniformly on $\re z\ge\alpha$. This holds for $\xi$ with $\alpha>\sigma_{\max}$, with $\delta=\alpha-\sigma_{\max}$, the bound following from the Hadamard product because $O(\log T)$ zeros have ordinate in $[T,T+1]$, and for $\nu\mapsto K_\nu(2\pi)$ with $\alpha>0$, with $\delta=\alpha$, the zeros being purely imaginary with spacing about $\pi/\log y$ at height $y$. Let $\psi(u)=\log f(\alpha+w)-\log f(\alpha)-w\frac{f'}{f}(\alpha)$ with $w=\sqrt{2u}$ the principal root. Then $\psi'$ is holomorphic on $\mathbb C\setminus(-\infty,0]$, $\psi'(u)=O(|u|^{-1/2}\log|u|)$, and
+\begin{equation}\label{pol:eq:stieltjes}
+\begin{gathered}
+\psi'(u)=\int_0^\infty\frac{\omega_\alpha(z)}{z+u}\,dz,\\[4pt]
+\omega_\alpha(z)=\frac{1}{\pi\sqrt{2z}}\left[\re\frac{f'}{f}\!\left(\alpha+i\sqrt{2z}\right)-\frac{f'}{f}(\alpha)\right].
+\end{gathered}
+\end{equation}
+Hence the compensated reciprocal $e^{wf'(\alpha)/f(\alpha)}f(\alpha)/f(\alpha+w)$ is the Laplace transform in $u$ of a GGC if and only if
+\begin{equation}\label{pol:eq:exactlemma}
+\re\frac{f'}{f}(\alpha+ir)\ge\frac{f'}{f}(\alpha)\qquad\text{for all } r>0,
+\end{equation}
+that is, if and only if the clock at basepoint $\alpha$ runs at least as fast at every height as at height zero.
+\end{theorem}
+
+\begin{proof}
+For $u\notin(-\infty,0]$ the root $w$ has positive real part, so $\alpha+w$ stays in the zero free half plane and $\psi'(u)=\big[\frac{f'}{f}(\alpha+w)-\frac{f'}{f}(\alpha)\big]/w$ is holomorphic there. By the hypothesis on $\frac{f'}{f}$ the numerator of $\psi'$ is $O(\log|w|)$, whence the bound on $\psi'$; the zero free strip of width $\delta$ makes $\psi'$ continuous up to the cut. Cauchy's formula on a keyhole contour around the cut, with the bound to discard the large circle and the integrability of $\omega_\alpha$ at $0$ (where $\omega_\alpha(z)=O(\sqrt z)$ by the evenness of $r\mapsto\re\frac{f'}{f}(\alpha+ir)$), gives the Stieltjes representation with density $-\frac1\pi\im\psi'(-z+i0)$. At $u=-z+i0$ the root is $w=ir$, $r=\sqrt{2z}$, and $-\frac1\pi\im\psi'=\frac{1}{\pi r}\re\big[\frac{f'}{f}(\alpha+ir)-\frac{f'}{f}(\alpha)\big]$, which is $\omega_\alpha$. A Stieltjes function with zero constant term is the derivative of a Thorin Bernstein function exactly when its representing density is nonnegative, which is \eqref{pol:eq:exactlemma}. Finally, if $\log f$ has the representation of the lemma with $\nu(dx)=e^{-\alpha x}\mu_f(dx)$, then $\frac{f'}{f}(\alpha+w)-\frac{f'}{f}(\alpha)=\int(1-e^{-wx})\nu(dx)$ and $\omega_\alpha(z)=\frac{1}{\pi r}\int2\sin^2(rx/2)\,\nu(dx)$, which is the $2\sin^2$ lemma.
+\end{proof}
+
+The right sign condition on the primal measure is not $\nu\ge0$ but
+\begin{equation}\label{pol:eq:cosine}
+\int\big(1-\cos(rx)\big)\,\nu(dx)\ge0\qquad\text{for all } r,
+\end{equation}
+that the cosine transform of $\nu$ is maximal at the origin, read in this way because $\nu$ has infinite mass for $\xi$ and for the Bessel model. Its local form at $r=0$ is $-(\log f)'''(\alpha)\ge0$, the $j=1$ column of Table~\ref{pol:tab:bessel}, which is positive at every basepoint; the failures in that table are in higher columns, which \eqref{pol:eq:cosine} does not require. Numerically, \eqref{pol:eq:exactlemma} holds for the Bessel model at $\alpha=0.25,1,3,8$ on $0<r\le60$ (grid of step $0.02$), and for $\xi$ at $\alpha=1,0.75,0.6,0.55$ on $0<r\le100$ (grid of step $0.01$). That the condition holds for the Bessel model at every $\alpha>0$ rests on these numerics, and that it fails for the Davenport Heilbronn function (Problem~\ref{pol:op:sign}) is not discussed here. For $\xi$, condition \eqref{pol:eq:exactlemma} reads $\re\frac{\xi'}{\xi}(\alpha+ir)\ge b_\alpha=\frac{\xi'}{\xi}(\alpha)$, the compensated companion of Lagarias's criterion $\re\frac{\xi'}{\xi}>0$; in the variable $u=w^2/2$ the Thorin densities of the basepoint law and of the compensated reciprocal differ by the stable term $b_\alpha/(\pi\sqrt{2z})$ of Proposition~\ref{bp:prop:valpha}, where the stable factor is $e^{-b_\alpha\sqrt u}$ in the variable $u$ of that proposition. To the right of $1$ the primes enter exactly as the lemma predicts. Write $\frac{\xi'}{\xi}=\mathcal A+\frac{\zeta'}{\zeta}$ with the archimedean part $\mathcal A(s)=\frac1s+\frac1{s-1}-\frac12\log\pi+\frac12\frac{\Gamma'}{\Gamma}(\frac s2)$.
+
+\begin{proposition}[Primes and the compensated clock]\label{pol:prop:primes}
+For $\alpha>1$ and real $r$, write $D_\alpha(r)=\re\frac{\xi'}{\xi}(\alpha+ir)-\frac{\xi'}{\xi}(\alpha)$, which is $v_\alpha(r)-b_\alpha$ in the notation of Section~\ref{ch:basepoint}. Then
+\begin{equation}\label{pol:eq:primes}
+\begin{split}
+D_\alpha(r)&=\big[\re\mathcal A(\alpha+ir)-\mathcal A(\alpha)\big]\\
+&\quad+\sum_{n\ge2}\frac{\Lambda(n)}{n^\alpha}\,2\sin^2\!\Big(\frac{r\log n}{2}\Big).
+\end{split}
+\end{equation}
+The prime sum is nonnegative; it is the $2\sin^2$ transform of the positive measure $\sum\Lambda(n)n^{-\alpha}\delta_{\log n}$. The archimedean bracket equals $\sum_{k\ge1}q_{\alpha+2k}(r)-q_{\alpha-1}(r)$ with $q_c(r)=r^2/(c(c^2+r^2))$, so that only the pole term is negative, and it is nonnegative for every $r$ if and only if $\zeta(3,1+\frac\alpha2)\ge8(\alpha-1)^{-3}$, that is, if and only if $\alpha\ge\alpha_1=7.78918\ldots$; the compensated condition then holds from the identity alone. For $1<\alpha<\alpha_1$ the bracket dips below zero (its minimum is $-4.83$ at $\alpha=1.2$, $r=1.57$; $-0.74$ at $\alpha=2$; $-0.011$ at $\alpha=6$), and the primes must make up the deficit. They do, for every $\alpha\ge1$, by Proposition~\ref{bp:prop:valpha}, whose proof combines the zeros below height $2000$, the bounds of \cite{HSW22} for the zeros above, and a computation in ball arithmetic; \eqref{pol:eq:primes} is \eqref{bp:eq:excess}.
+\end{proposition}
+
+\begin{proof}
+For $\alpha>1$, $\re\frac{\zeta'}{\zeta}(\alpha+ir)-\frac{\zeta'}{\zeta}(\alpha)=\sum\Lambda(n)n^{-\alpha}(1-\cos(r\log n))$ by the Dirichlet series, and $1-\cos x=2\sin^2(x/2)$. For the bracket, $\re\psi(x+iy)-\psi(x)=\sum_{k\ge0}y^2/((x+k)((x+k)^2+y^2))$ for the digamma function $\psi$, so with $x=\alpha/2$, $y=r/2$ the term $\frac12\Gamma'/\Gamma(s/2)$ contributes $\sum_{k\ge0}q_{\alpha+2k}(r)$; the term $k=0$ cancels the contribution $-q_\alpha(r)$ of $1/s$, and $1/(s-1)$ contributes $-q_{\alpha-1}(r)$. Each ratio $((\alpha-1)^2+r^2)/((\alpha+2k)^2+r^2)$ increases with $r$, so the bracket $r^2\big[\sum_{k\ge1}\frac{1}{(\alpha+2k)((\alpha+2k)^2+r^2)}-\frac{1}{(\alpha-1)((\alpha-1)^2+r^2)}\big]$ is nonnegative for every $r$ if and only if it is nonnegative as $r\to0$, that is, if and only if $\sum_{k\ge1}(\alpha+2k)^{-3}\ge(\alpha-1)^{-3}$, which is $\zeta(3,1+\frac\alpha2)\ge8(\alpha-1)^{-3}$. The quantity $(\alpha-1)^3\sum_{k\ge1}(\alpha+2k)^{-3}=\sum_{k\ge1}\big(\frac{\alpha-1}{\alpha+2k}\big)^3$ increases with $\alpha$, so the condition holds exactly for $\alpha\ge\alpha_1$, where this quantity equals $1$.
+\end{proof}
+
+As $\alpha\downarrow1$ the deficit of the bracket comes from the pole term, $\re\frac{1}{\alpha-1+ir}-\frac{1}{\alpha-1}\sim-\frac1{\alpha-1}$ for fixed $r\ne0$, and the prime sum compensates it because $-\frac{\zeta'}{\zeta}(\alpha)\sim\frac1{\alpha-1}$. Grouping $\frac1{s-1}$ with $\frac{\zeta'}{\zeta}(s)$, which is holomorphic on $\re s\ge1$ by the prime number theorem, both pieces stay finite at $\alpha=1$. Below $1$ the Dirichlet series is gone and \eqref{pol:eq:primes} has no direct analogue; this is the wall that Proposition~\ref{bp:prop:valpha} meets at $\alpha=1$.
+
+
+
+\begin{proposition}\label{pol:prop:comp}
+If $\re\frac{\xi'}{\xi}(\alpha+ir)\ge b_\alpha$ for all real $r$ and every $\alpha>\alpha_0\ge\frac12$, then no zero of $\zeta$ has real part greater than $\alpha_0$. For $\alpha_0=\frac12$ it implies RH.
+\end{proposition}
+
+\begin{proof}
+$b_\alpha=\frac{\xi'}{\xi}(\alpha)>0$ for $\alpha>\frac12$, because $\xi$ is increasing on $(\frac12,\infty)$. The hypothesis therefore gives $\re\frac{\xi'}{\xi}>0$ on the half plane $\re s>\alpha_0$. Directly, near a zero $\rho$ with $\re\rho>\alpha_0$ and multiplicity $m\ge1$ the function $\frac{\xi'}{\xi}(s)-m/(s-\rho)$ is holomorphic, hence bounded, so $\re\frac{\xi'}{\xi}(\rho-\varepsilon)=-m/\varepsilon+O(1)$ as $\varepsilon\downarrow0$, while $b_{\re\rho-\varepsilon}$ stays bounded; the hypothesis at $\alpha=\re\rho-\varepsilon>\alpha_0$ and $r=\im\rho$ fails for small $\varepsilon>0$, so there is no such zero; this is condition (iv) of Theorem~\ref{ri:thm:ggcriesz}.
+\end{proof}
+
+Under RH the compensated condition holds at every $\alpha>\frac12$, and it holds unconditionally for $\alpha\ge1$ (Theorem~\ref{thm:dbeta:minall} and Proposition~\ref{bp:prop:valpha}), so Proposition~\ref{pol:prop:comp} has a converse for $\alpha_0=\frac12$. The delicate range is below the first zero: there the numerics show $\re\frac{\xi'}{\xi}(\alpha+ir)$ rising from its value at $r=0$ like $r^2$ (Figure~\ref{pol:fig:two}, right). The refined problem is to prove $\re\frac{\xi'}{\xi}(\alpha+ir)\ge b_\alpha$ at one $\alpha<1$ for all heights. By Proposition~\ref{pol:prop:comp}, doing so for all $\alpha$ above some $\alpha_0<1$ implies a quasi Riemann hypothesis at $\alpha_0$, and by Corollary~\ref{pol:cor:equiv} it is equivalent to one, whereas on a single line it is not known to imply anything about the zeros to its right (compare Remark~\ref{rem:ch2:oneline}).
+
+\subsection{Problem \ref{pol:op:even}: local reality and certificates to height 300}
+
+\begin{proposition}[Local reality, unconditional]\label{pol:prop:local}
+Let $K$ be such that the first $K$ zeros of $\xi$ in the upper half plane, ordered by ordinate, are simple and on the line, with ordinates $\gamma_1<\dots<\gamma_K$, and fix $\Gamma\in(\gamma_K,\gamma_{K+1})$. There is $\alpha_K>\frac12$ such that for $\frac12<\alpha<\alpha_K$ the zeros of $A_\alpha$ in $|w|<\Gamma$ are exactly $\pm i\tau_k(\alpha)$, $k\le K$, simple and purely imaginary, with $\tau_k(\alpha)\to\gamma_k$.
+\end{proposition}
+
+\begin{proof}
+$A_\alpha\to\xi(\frac12+w)$ uniformly on $|w|\le\Gamma$, so by Hurwitz's theorem $A_\alpha$ has exactly one zero in a small disc around each $\pm i\gamma_k$ and none elsewhere in $|w|<\Gamma$. $A_\alpha$ is even and real on the real axis, so its zero set is invariant under $w\mapsto-\bar w$; a unique zero in a disc centred on the imaginary axis is therefore on that axis.
+\end{proof}
+
+This is the even part analogue of the local theorem of Ki and Kim for the derivatives of $\xi$ (item P13 of Section~\ref{pol:sec:papers}). For $\alpha=0.6$ and $0.75$ the argument principle on the rectangle $|\re w|\le1$, $0\le\im w\le100$, which contains every zero of $A_\alpha$ up to that height by de Bruijn's strip theorem, counts $29.000$ zeros, and Table~\ref{pol:tab:clock} lists $29$ sign changes of $\re\xi(\alpha+it)$. So every zero of $A_{0.6}$ and $A_{0.75}$ up to height $100$ is purely imaginary. At $\alpha=0.55$ the same count to height $300$ gives $138.000$ zeros against $138$ sign changes, so every zero of $A_{0.55}$ up to height $300$ is purely imaginary as well. Together with Proposition~\ref{pol:prop:round} this is a Turing type method for Thorin atoms in the strip: it verifies the even part laws to a given height without any statement about $\re\xi'/\xi$.
+
+\subsection{Problem \ref{pol:op:deriv}: derivatives in the Thorin variable are the shifted Jensen polynomials}
+
+Since $\xi(\frac12+z)=\frac18(4z^2-1)\widehat\zeta(\frac12+z)$ with $\widehat\zeta(s)=\pi^{-s/2}\Gamma(s/2)\zeta(s)$, the sequence of Griffin, Ono, Rolen and Zagier \cite{GORZ19}, defined by $(4z^2-1)\widehat\zeta(\frac12+z)=\sum_n\gamma_{\mathrm{GORZ}}(n)z^{2n}/n!$, is $\gamma_{\mathrm{GORZ}}(n)=8\xi(\frac12)\,n!\,a_n$, a constant multiple of our $g_n=n!\,a_n$. Their shifted Jensen polynomials are therefore, up to a constant factor, the polynomials $J_{d,n}(x)=\sum_{j=0}^d\binom dj g_{n+j}x^j$ of Section~\ref{fm:sec:momenttest}, the Jensen polynomials of the $n$th derivative $F^{(n)}(s)$ in the Thorin variable. By P\'olya and Schur, the law with Laplace transform $F^{(n)}(0)/F^{(n)}(s)$ is a GGC if and only if $J_{d,n}$ is real rooted for every $d$.
+
+\begin{corollary}
+For every $d$ there is $N(d)$ such that for all $n\ge N(d)$ the derivative laws $F^{(n)}(0)/F^{(n)}(s)$ satisfy the first $d$ rungs of the P\'olya Schur ladder \cite{GORZ19}. Under RH they are GGCs for every $n$, by Laguerre's theorem that the Laguerre P\'olya class is closed under differentiation.
+\end{corollary}
+
+The first case is classical. Since $F'(s)=\xi'(\frac12+\sqrt s)/(2\sqrt s\,\xi(\frac12))$, the zeros of $F'$ are the squares $s=w^2$ of the zeros $w\ne0$ of $\xi'(\frac12+w)$, so the law $F'(0)/F'(s)$ is a GGC if and only if every zero of $\xi'$ other than $\frac12$ lies on the critical line. That is the Riemann Hypothesis for $\xi'$, which RH implies and which is not known to imply RH; Conrey's theorem \cite{Conrey83} gives a positive proportion of its zeros on the line. In general $F^{(n)}(w^2)=(D^n\xi)(\frac12+w)/\xi(\frac12)$ with $D=\frac{1}{2w}\frac{d}{dw}$, so the derivative laws in the Thorin variable correspond to powers of this Bessel type operator rather than of $\frac{d}{dw}$. Numerically $\xi'(\frac12+w)$ has $29$ zeros with $1<\im w<100$ in the box $|\re w|\le0.6$, all on the imaginary axis.
+
+Numerically every $J_{d,n}$ with $2\le d\le15$ and $0\le n\le25$, $364$ polynomials in all, has only real negative zeros, computed at $150$ digits from the coefficients of Section~\ref{pol:sec:lp}. The refined problem is a uniform statement: one $n$ for which all rungs hold. As in Section~\ref{fm:sec:momenttest}, and following Farmer \cite{Farmer22}, large $n$ carries little information about RH, so the useful direction is the opposite one, small $n$ with all $d$, which is RH itself at $n=0$.

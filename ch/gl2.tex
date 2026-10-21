@@ -1,0 +1,106 @@
+\section{The Thorin property at every tilt}\label{gl:sec:thorin}
+
+\subsection{Conventions}
+
+The centre clock is the book's $T$ (Section~\ref{ch:clock}), the variables $e_\gamma$ are independent standard exponentials as in the book, and $Y=\sqrt{2T}\,Z$, with $Z$ a standard normal variable independent of $T$, is the variable $Y_{1/2}$ of Section~\ref{ch:strip}. The letter $T$ also stands for a height, but only in $N(T)$ and $S(T)$, as in the book, and as the cut height of the anchored tail of Section~\ref{gl:sec:numerics}. The transfer function from the real axis to the critical line is written $\mathfrak T(t)$ (Proposition~\ref{gl:prop:transfer}), and $\mathfrak B(z)$ is its Blaschke product in $z=t^2$, so that $\mathfrak T(t)=\mathfrak B(t^2)$ (Proposition~\ref{gl:prop:inner}). Completed Dirichlet $L$ functions are written $\xi(s,\chi)$, as in the book, and $\Lambda$ is the von Mangoldt function. The tilt $u_0$ and the basepoint $\alpha$ are different parameters: the clock tilted by $u_0$ reads $\xi$ at $\tfrac12+\sqrt{u_0+u}$, the shifted clock at basepoint $\alpha$ reads it at $\alpha+\sqrt u$, and the two agree only at the centre. In Section~\ref{gl:sec:where} only, $\alpha$ is also the circle method variable, and $N$, $L$, $\lambda$, $\theta$, $c$ and $\varpi$ have their circle method meanings there.
+
+\subsection{Generalised gamma convolutions}
+
+A probability law on $[0,\infty)$ is a generalised gamma convolution (GGC) if its Laplace transform has the form
+\begin{equation}\label{gl:eq:ggc}
+\varphi(s)=\exp\Big(-bs-\int_{(0,\infty)}\log\Big(1+\frac st\Big)\,U(dt)\Big),\qquad s\ge0,
+\end{equation}
+with $b\ge0$ and a nonnegative Thorin measure $U$ satisfying $\int_{(0,1]}|\log t|\,U(dt)<\infty$ and $\int_{(1,\infty)}t^{-1}U(dt)<\infty$; see Bondesson \cite{Bondesson} and equation \eqref{eq:ch3:ggc}, where the drift is $d$ and the Thorin variable $z$. We use three standard facts.
+\begin{enumerate}
+\renewcommand{\theenumi}{(G\arabic{enumi})}
+\renewcommand{\labelenumi}{\theenumi}
+\item\label{gl:G1} The right side of \eqref{gl:eq:ggc} extends to an analytic, zero free function on $\C\setminus(-\infty,-t_0]$, where $t_0=\inf\operatorname{supp}U$.
+\item\label{gl:G2} If $t_j>0$ and $\sum_j1/t_j<\infty$, then $\prod_jt_j/(t_j+s)$ is the Laplace transform of $\sum_je_j/t_j$ with $e_j$ independent unit exponentials, a GGC with $b=0$ and $U=\sum_j\delta_{t_j}$.
+\item\label{gl:G3} If $\inf\operatorname{supp}U>c$ with $c>0$, then $\varphi(-c)<\infty$ and $\varphi(s-c)/\varphi(-c)$ is again of the form \eqref{gl:eq:ggc}, with Thorin measure $U(\cdot+c)$. This is closure under exponential tilting.
+\end{enumerate}
+The class is also closed under independent sums, positive scaling and weak limits (equation \eqref{eq:ch3:ggc}), and, by a theorem of Bondesson \cite{Bond2015}, under products of independent GGC variables. It is not closed under products with arbitrary independent positive variables (an exponential times an independent two point variable is a mixture of two exponentials with rates $a\ne b$, whose Thorin measure would be the signed measure $\delta_a+\delta_b-\delta_c$ for a rate $c$ between $a$ and $b$), under harmonic means (Proposition~\ref{rz:prop:hmfalse}), or under mixtures (Proposition~\ref{gl:prop:mixture}).
+
+\subsection{Completed Dedekind zeta functions}
+
+Let $F$ be a number field of degree $n=r_1+2r_2$ and discriminant $d_F$. Put $\Gamma_\R(s)=\pi^{-s/2}\Gamma(s/2)$, $\Gamma_\C(s)=2(2\pi)^{-s}\Gamma(s)$ and
+\begin{equation}\label{gl:eq:xiF}
+\xi_F(s)=s(s-1)\,|d_F|^{s/2}\,\Gamma_\R(s)^{r_1}\,\Gamma_\C(s)^{r_2}\,\zeta_F(s).
+\end{equation}
+Then $\xi_F$ is entire of order one, real on the real axis, and $\xi_F(s)=\xi_F(1-s)$. For $F=\mathbb Q$ it is $2\xi(s)$, with Riemann's $\xi(s)=\tfrac12s(s-1)\Gamma_\R(s)\zeta(s)$. Its zeros are the nontrivial zeros of $\zeta_F$, written $\rho=\tfrac12+w_\rho$ with $|\Re w_\rho|<\tfrac12$.
+
+\begin{lemma}[Evenness]\label{gl:lem:even}
+$E_F(w):=\xi_F(\tfrac12+w)$ is even and entire, so $E_F(w)=G_F(w^2)$ with $G_F$ entire. The zeros of $G_F$ are the points $z_\rho=w_\rho^2$, one for each pair $\{\rho,1-\rho\}$.
+\end{lemma}
+
+\begin{proof}
+The functional equation gives $E_F(-w)=\xi_F(\tfrac12-w)=\xi_F(\tfrac12+w)=E_F(w)$, and an even entire function is an entire function of $w^2$.
+\end{proof}
+
+\begin{lemma}[Product formula]\label{gl:lem:product}
+Let $Z_F$ be the multiset of the values $z_\rho\neq0$, one for each pair of zeros, and let $2m_F$ be the order of vanishing of $\xi_F$ at $\tfrac12$. Then, with absolute convergence since $\sum_{z\in Z_F}|z|^{-1}<\infty$,
+\begin{equation}\label{gl:eq:product}
+G_F(u)=c_F\,u^{m_F}\prod_{z\in Z_F}\Big(1-\frac uz\Big),\qquad c_F\neq0.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+$G_F$ is entire of order $\tfrac12$ because $E_F$ has order one, so Hadamard's theorem gives the product with no exponential factor. Convergence of $\sum|z_\rho|^{-1}=\sum|\rho-\tfrac12|^{-2}$ follows from the Riemann von Mangoldt formula $N_F(T)\asymp T\log T$.
+\end{proof}
+
+The function $G_F$ is not normalised, unlike the function $G$ of Section~\ref{ch:clock}: for $F=\mathbb Q$ one has $G_{\mathbb Q}=2\xi(\tfrac12)\,G$.
+
+Under GRH every $z\in Z_F$ equals $-\gamma^2$ for an ordinate $\gamma>0$, while a real zero $\beta\in(\tfrac12,1)$, which GRH excludes, would give $z=(\beta-\tfrac12)^2\in(0,\tfrac14)$.
+
+\subsection{The equivalence theorem}
+
+For $u_0\ge0$ with $\xi_F(\tfrac12+\sqrt{u_0})\neq0$, tilt the centre clock by $u_0$:
+\begin{equation}\label{gl:eq:Phi}
+\varphi_{F,u_0}(s):=\frac{\xi_F(\tfrac12+\sqrt{u_0})}{\xi_F(\tfrac12+\sqrt{u_0+s})}=\frac{G_F(u_0)}{G_F(u_0+s)},\qquad s\ge0.
+\end{equation}
+By Lemma~\ref{gl:lem:even} the branch of the square root does not matter. For $F=\mathbb Q$ this is the function $\widetilde\varphi_{u_0}$ of Section~\ref{tf:sec:tilt}.
+
+\begin{theorem}[Thorin property of the tilted clock]\label{gl:thm:family}
+Let $u_0\ge0$. The following are equivalent.
+\begin{enumerate}
+\item[(i)] $\xi_F(\tfrac12+\sqrt{u_0})\neq0$ and $\varphi_{F,u_0}$ is the Laplace transform of a GGC.
+\item[(ii)] Every $z_\rho$ is real with $z_\rho<u_0$, and $m_F=0$ if $u_0=0$. Equivalently, every nontrivial zero of $\zeta_F$ lies on the critical line or is a real zero $\beta$ with $|\beta-\tfrac12|<\sqrt{u_0}$, and $\zeta_F(\tfrac12)\neq0$ when $u_0=0$.
+\end{enumerate}
+When they hold, $b=0$ and the Thorin measure is
+\begin{equation}\label{gl:eq:UF}
+U_{F,u_0}=\sum_{\gamma>0}\delta_{u_0+\gamma^2}+m_F\,\delta_{u_0}+\sum_\beta\delta_{u_0-(\beta-\frac12)^2},
+\end{equation}
+where $\tfrac12+i\gamma$ runs over critical line zeros with $\gamma>0$ and $\beta$ over real zeros in $(\tfrac12,1)$, all with multiplicity.
+\end{theorem}
+
+\begin{proof}
+(i) implies (ii). By \ref{gl:G1} the Laplace transform extends to an analytic zero free function on $\C\setminus(-\infty,0]$, and it agrees with $G_F(u_0)/G_F(u_0+s)$, which is meromorphic, on $s>0$. Hence $G_F(u_0+s)$ has no zeros off $(-\infty,0]$, so every zero $z$ of $G_F$ satisfies $z-u_0\le0$, and $z\neq u_0$ because $G_F(u_0)\neq0$. Imaginary $w_\rho$ is a critical line zero, real $w_\rho$ a real zero with $(\beta-\tfrac12)^2<u_0$. At $u_0=0$ a central zero would make $G_F(0)=0$.
+
+(ii) implies (i). Under (ii), Lemma~\ref{gl:lem:product} gives
+\[
+\varphi_{F,u_0}(s)=\Big(\frac{u_0}{u_0+s}\Big)^{m_F}\prod_{z\in Z_F}\frac{u_0-z}{u_0-z+s},
+\]
+where every rate $u_0-z$ is positive, equal to $u_0+\gamma^2$ or to $u_0-(\beta-\tfrac12)^2$, and the reciprocals are summable. Fact~\ref{gl:G2} gives the GGC with Thorin measure \eqref{gl:eq:UF}.
+\end{proof}
+
+For a general field at $u_0=0$ the theorem is Proposition~\ref{prop:sqfree:thorinK}, which assumes $\zeta_F(\tfrac12)\ne0$. That assumption is not automatic, since Armitage found fields with $\zeta_F(\tfrac12)=0$ \cite{Armitage71}, and here a central zero appears in the conclusion as the atom $m_F\delta_{u_0}$.
+
+\begin{corollary}[The tilts]\label{gl:cor:basepoints}
+\begin{enumerate}
+\item[(a)] At $u_0=0$: $\xi_F(\tfrac12)/\xi_F(\tfrac12+\sqrt s)$ is a GGC Laplace transform if and only if all nontrivial zeros of $\zeta_F$ lie on the critical line and $\zeta_F(\tfrac12)\neq0$.
+\item[(b)] For every $u_0\ge\tfrac14$, in particular at $u_0=\tfrac14$ and $u_0=1$, where $\xi_F$ is read from $1$ and from $\tfrac32$: $\varphi_{F,u_0}$ is a GGC Laplace transform if and only if every nontrivial zero lies on the critical line or on the real axis.
+\item[(c)] Define the Thorin threshold $u^*_F=\max\{(\beta-\tfrac12)^2\}$ over real zeros $\beta\in[\tfrac12,1)$, with $u_F^*=0$ if there are none. If all nonreal zeros are on the critical line, the Thorin property holds at tilt $u_0$ exactly for $u_0>u_F^*$, and also at $u_0=0$ when there are no real zeros at all.
+\item[(d)] When the property holds at two tilts $u_1<u_0$, the measures are shifts of one another, $U_{F,u_0}=U_{F,u_1}(\cdot-(u_0-u_1))$, and $\varphi_{F,u_1}(s)=\varphi_{F,u_0}(s-(u_0-u_1))/\varphi_{F,u_0}(-(u_0-u_1))$, the tilt \ref{gl:G3}.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+(a) and (b) are Theorem~\ref{gl:thm:family} at $u_0=0$ and for $u_0\ge\tfrac14$, since every real zero in $(0,1)$ has $(\beta-\tfrac12)^2<\tfrac14$. (c) restates the condition $z_\rho<u_0$ for the real values $z_\rho$. (d) follows from \eqref{gl:eq:UF} and \eqref{gl:eq:Phi}; for $\xi$ it is the forward and backward tilt of Theorem~\ref{tf:thm:tilt}(a).
+\end{proof}
+
+\begin{remark}[The tilt and Landau's theorem]
+Suppose the Thorin property holds at the tilt $1$. Descending from tilt $1$ to tilt $0$ is the tilt \ref{gl:G3} with $c=1$, admissible exactly when $\varphi_{F,1}(-1)<\infty$. Since $\varphi_{F,1}$ is the Laplace transform of a positive measure, Landau's theorem \cite[Ch.~II, Theorem~5b]{Widder41} puts its abscissa of convergence at a real singularity. So $\varphi_{F,1}(-1)<\infty$ if and only if $G_F$ has no zero in $[0,1]$, that is, $\xi_F$ has no real zero in $[\tfrac12,\tfrac32]$. For $\xi$ there is no real zero, so under RH the descent to tilt $0$ is possible, and it is Theorem~\ref{tf:thm:tilt}(a) (Section~\ref{tf:sec:tilt}). What is specific to number fields is that a central zero or a real zero in $(\tfrac12,1)$ blocks the descent to tilt $0$.
+\end{remark}
+
+\begin{remark}[The Thorin measure is the zero counting measure]\label{gl:rem:counting}
+For $F=\mathbb Q$, $\zeta(\tfrac12)\neq0$ and $\zeta(\sigma)<0$ on $(0,1)$, so there are no central or real zeros. By Corollary~\ref{gl:cor:basepoints}, the Thorin property of $\xi$ at any tilt $u_0$ is equivalent to RH, with Thorin measure $\sum_{\gamma>0}\delta_{u_0+\gamma^2}$; at tilt $u_0=1$ the smallest atom is $1+\gamma_1^2=200.7905$.
+\end{remark}

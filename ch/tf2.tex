@@ -1,0 +1,84 @@
+\section{The basepoint family: a Poisson semigroup to the right of the zeros}\label{tf:sec:poisson}
+
+For real $\varepsilon$ and $\theta$ such that $\tfrac12+\varepsilon+i\theta$ is not a zero of $\xi$, let
+\[
+\rho_\varepsilon(\theta)=\frac1\pi\,\re\frac{\xi'}{\xi}\big(\tfrac12+\varepsilon+i\theta\big)
+\]
+be the density of~\eqref{eq:rho}, now for every real $\varepsilon$ and not only for $\varepsilon>0$, and let $P_a(x)=a/(\pi(a^2+x^2))$ for real $a\ne0$ be the Poisson kernel of Section~\ref{ch:clock}, with $P_a*P_b=P_{a+b}$ for $a,b>0$. For $\varepsilon>0$ the shifted clock at the basepoint $\tfrac12+\varepsilon$ has Thorin density $\rho_\varepsilon$ in the chart $\theta=\sqrt z$ whenever it is a GGC and no zero lies on the line $\re s=\tfrac12+\varepsilon$ (Theorem~\ref{thm:poisson}). The function $(\theta,\varepsilon)\mapsto\rho_\varepsilon(\theta)$ is harmonic off the zeros, odd in $\varepsilon$ by the functional equation, and Hadamard's product gives the absolutely convergent expansion
+\begin{equation}\label{tf:eq:poissonform}
+\rho_\varepsilon(\theta)=\sum_\rho P_{\varepsilon-(\beta-\frac12)}(\theta-\gamma),\qquad \varepsilon\ne\beta-\tfrac12,
+\end{equation}
+over all zeros with multiplicity (Proposition~\ref{prop:struct}). A zero with $\beta-\tfrac12<\varepsilon$ contributes a positive Cauchy density and one with $\beta-\tfrac12>\varepsilon$ a negative one.
+
+\begin{theorem}[Where the Poisson semigroup holds]\label{tf:thm:poisson}
+\begin{enumerate}
+\item[(a)] If $\varepsilon_0>\beta-\tfrac12$ for every zero, then $\rho_{\varepsilon_0+a}=P_a*\rho_{\varepsilon_0}$ for every $a>0$, and $\rho_\varepsilon>0$ for every $\varepsilon\ge\varepsilon_0$. This holds for every $\varepsilon_0\ge\tfrac12$, with no hypothesis.
+\item[(b)] If $\varepsilon_0\ge0$ lies at positive distance from the set $\{\beta-\tfrac12\}$ and some zero has $\beta-\tfrac12>\varepsilon_0$, then $\rho_{\varepsilon_0+a}\ne P_a*\rho_{\varepsilon_0}$ for some $a>0$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(a) Every term of~\eqref{tf:eq:poissonform} at $\varepsilon_0$ is a Cauchy density $P_c(\theta-\gamma)$ with $c=\varepsilon_0-(\beta-\tfrac12)>0$, and $P_a*P_c=P_{a+c}$. The terms are positive, so the convolution passes through the sum by monotone convergence. For $\varepsilon_0\ge\tfrac12$, $c\ge1-\beta>0$. (b) Now $|c|\ge c_0>0$ for every term, and $|c|<1$ because $0\le\varepsilon_0<\tfrac12$, so $|P_c(\theta-\gamma)|\le\min\big((\pi c_0)^{-1},(\pi(\theta-\gamma)^2)^{-1}\big)$, and by the Riemann von Mangoldt formula the sum is $O(\log(2+|\theta|))$. Hence $w(\theta,a)=(P_a*\rho_{\varepsilon_0})(\theta)$ is defined and harmonic in $a>0$. If $w(\cdot,a)=\rho_{\varepsilon_0+a}$ for every $a>0$, then off the zeros $\rho_\varepsilon(\theta)$ would agree with a function harmonic on the whole half plane $\{\varepsilon>\varepsilon_0\}$, and in particular bounded near every point $(\gamma,\beta-\tfrac12)$ with $\beta-\tfrac12>\varepsilon_0$. But near a zero, $\xi'/\xi(s)=m_\rho/(s-\rho)+O(1)$, so $\rho_\varepsilon(\theta)$ is unbounded there.
+\end{proof}
+
+Part (a) is the semigroup of Remark~\ref{cp:rem:semigroups}. Part (b) is its converse (a rightmost zero need not exist).
+
+\begin{theorem}[Deconvolution form of RH]\label{tf:thm:deconv}
+Let $\varepsilon_0>\beta-\tfrac12$ for every zero (for instance $\varepsilon_0\ge\tfrac12$), and let $0\le\varepsilon_1<\varepsilon_0$.
+\begin{enumerate}
+\item[(a)] There is a positive measure $\nu$ on $\R$ with $\int(1+x^2)^{-1}\nu(dx)<\infty$ and $\rho_{\varepsilon_0}=P_{\varepsilon_0-\varepsilon_1}*\nu$ if and only if $\beta-\tfrac12\le\varepsilon_1$ for every zero. When it exists, $\nu$ is unique: it is $\rho_{\varepsilon_1}\,d\theta$ if $\beta-\tfrac12<\varepsilon_1$ for every zero, and otherwise the vague limit of $\rho_\varepsilon\,d\theta$ as $\varepsilon\downarrow\varepsilon_1$, which carries point masses $m_\rho\delta_\gamma$ at the zeros with $\beta-\tfrac12=\varepsilon_1$.
+\item[(b)] In particular RH holds if and only if $\rho_{\varepsilon_0}=P_{\varepsilon_0}*\mu$ for a positive measure $\mu$ (with $\int(1+x^2)^{-1}\mu(dx)<\infty$, which is automatic since $P_{\varepsilon_0}*\mu=\rho_{\varepsilon_0}$ is finite), and then $\mu=\sum_\gamma\delta_\gamma$, the sum over the ordinates of all zeros, of both signs, with multiplicity.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+If every zero has $\beta-\tfrac12<\varepsilon_1$, Theorem~\ref{tf:thm:poisson}(a) gives $\nu=\rho_{\varepsilon_1}\,d\theta$. If every zero has $\beta-\tfrac12\le\varepsilon_1$ with equality for some, write $\rho_{\varepsilon_0}=P_{\varepsilon_0-\varepsilon}*\rho_\varepsilon$ for $\varepsilon_1<\varepsilon<\varepsilon_0$ and let $\varepsilon\downarrow\varepsilon_1$: by~\eqref{tf:eq:poissonform} the terms of the zeros with $\beta-\tfrac12<\varepsilon_1$ converge to Cauchy densities and those with $\beta-\tfrac12=\varepsilon_1$ to point masses at their ordinates, and the sum over the zeros passes to the limit by the domination of the discussion after Remark~\ref{rem:ch2:oneline}, so $\rho_\varepsilon\,d\theta$ converges vaguely to a positive measure $\nu$, the sum of these limits. Then $P_{\varepsilon_0-\varepsilon_1}*\nu=\rho_{\varepsilon_0}$ term by term, because $P_{\varepsilon_0-\varepsilon_1}*P_{\varepsilon_1-(\beta-\frac12)}=P_{\varepsilon_0-(\beta-\frac12)}$ and $P_{\varepsilon_0-\varepsilon_1}*\delta_\gamma=P_{\varepsilon_0-(\beta-\frac12)}(\cdot-\gamma)$ when $\beta-\tfrac12=\varepsilon_1$, all terms being positive; in particular $\int(1+x^2)^{-1}\nu(dx)<\infty$. Conversely, suppose $\nu$ exists and some zero has $\beta-\tfrac12>\varepsilon_1$. The Poisson integral $u(\theta,\varepsilon)=(P_{\varepsilon-\varepsilon_1}*\nu)(\theta)$ is harmonic on $\{\varepsilon>\varepsilon_1\}$, and for $\varepsilon>\varepsilon_0$ it equals $P_{\varepsilon-\varepsilon_0}*\rho_{\varepsilon_0}=\rho_\varepsilon(\theta)$ by Theorem~\ref{tf:thm:poisson}(a). The set $\{\varepsilon>\varepsilon_1\}$ minus the zeros is connected and $u(\theta,\varepsilon)-\rho_\varepsilon(\theta)$ is harmonic on it and vanishes on the open set $\{\varepsilon>\varepsilon_0\}$, so $u=\rho_\varepsilon$ there. Then $\rho_\varepsilon(\theta)$ is bounded near a zero with $\beta-\tfrac12>\varepsilon_1$, which contradicts the pole of $\xi'/\xi$. For uniqueness, let $\nu$ and $\nu'$ both qualify and put $\sigma=\nu-\nu'$, a signed measure with $\int(1+x^2)^{-1}|\sigma|(dx)<\infty$. For $\varepsilon>\varepsilon_0$ the Poisson integrals of $\nu$ and $\nu'$ at height $\varepsilon-\varepsilon_1$ both equal $P_{\varepsilon-\varepsilon_0}*\rho_{\varepsilon_0}$, so the harmonic function $(P_{\varepsilon-\varepsilon_1}*\sigma)(\theta)$ on $\{\varepsilon>\varepsilon_1\}$ vanishes for $\varepsilon>\varepsilon_0$, hence everywhere by real analyticity, and letting $\varepsilon\downarrow\varepsilon_1$ gives $\sigma=0$, since the Poisson integral of a signed measure $\sigma$ with $\int(1+x^2)^{-1}|\sigma|(dx)<\infty$ converges vaguely to $\sigma$. Part (b) is the case $\varepsilon_1=0$: $\beta-\tfrac12\le0$ for every zero means $\beta=\tfrac12$ for every zero by the symmetry $\rho\mapsto1-\rho$, and~\eqref{tf:eq:poissonform} at $\beta=\tfrac12$ gives $\mu$.
+\end{proof}
+
+The \emph{if} direction of (b), and the atoms at a boundary line in (a), are Theorem~\ref{thm:poisson}, Proposition~\ref{prop:struct} and Theorem~\ref{cp:thm:transfer}; what this chapter adds is the \emph{only if} direction and the uniqueness. Theorem~\ref{tf:thm:deconv} turns the obstruction of Section~\ref{ag:sec:exactly} into an exact statement: $\sigma_{\max}-\tfrac12$ is the depth to which the Thorin density at a basepoint beyond the zeros can be deconvolved into a positive measure. Two remarks qualify it. First, positivity of $\rho_{\varepsilon_1}$ is necessary for deconvolvability to $\varepsilon_1$ but not sufficient: below $\sigma_{\max}-\tfrac12$ the function $\rho_{\varepsilon_1}$ may well be positive (Remark~\ref{rem:ch2:oneline} and Section~\ref{tf:sec:window}), and still $P_{\varepsilon_0-\varepsilon_1}*\rho_{\varepsilon_1}\ne\rho_{\varepsilon_0}$. Second, the deconvolution is unbounded. On the Fourier side $\widehat{P_a}(x)=e^{-a|x|}$, and in the explicit formula the frequency $x=\log n$ carries the weight $\Lambda(n)n^{-\alpha}$ at basepoint $\alpha$. Deconvolving by $P_a$ multiplies that weight by $n^{a}$, so the prime sums converge absolutely only for $\alpha>1$, and below the basepoint one they need cancellation, which is a zero free region (Proposition~\ref{bp:prop:below}).
+
+\begin{proposition}[The smoothed prime sums at a basepoint]\label{tf:prop:mellin}
+Let $\chi$ be a primitive nonprincipal character, $N>0$, and $s=\alpha+ib$ such that $s-k$ is not a zero of $L(s,\chi)$ for any integer $k\ge0$. Put
+\[
+E(N,s)=\sum_{n\ge1}\chi(n)\Lambda(n)n^{-s}e^{-n/N}+\frac{L'}{L}(s,\chi),
+\]
+the difference between the smoothed prime sum and $-L'/L(s,\chi)$. Then
+\begin{equation}\label{tf:eq:mellin}
+\begin{aligned}
+E(N,s)={}&-\sum_\rho m_\rho\,\Gamma(\rho-s)N^{\rho-s}\\
+&+\sum_{k\ge1}\frac{(-1)^k}{k!}\Big(-\frac{L'}{L}\Big)(s-k,\chi)N^{-k},
+\end{aligned}
+\end{equation}
+where $\rho$ runs over all zeros of $L(s,\chi)$, trivial ones included, with multiplicity $m_\rho$. Hence, for fixed $s$, $E(N,s)=O(N^{\sigma_{\max}(\chi)-\alpha})+O(N^{-1})$ as $N\to\infty$, where $\sigma_{\max}(\chi)$ is the supremum of $\beta$ over the nontrivial zeros $\beta+i\gamma$ of $L(s,\chi)$. Under GRH the sum over the nontrivial zeros is $N^{1/2-\alpha}F_s(\log N)$, where $F_s(x)=-\sum m_\rho\Gamma(\rho-s)e^{i(\gamma-b)x}$, summed over the nontrivial zeros $\rho=\tfrac12+i\gamma$, is an almost periodic function none of whose coefficients vanishes; so $F_s(\log N)$ does not tend to zero, and for $\alpha<\tfrac32$ the error $E(N,s)$ is not $o(N^{1/2-\alpha})$.
+\end{proposition}
+
+% CHECK: Davenport pinpoint changed from Chapters 16 and 17 (source) to Chapters 16 and 19 (review of 17 October 2026, MINOR at L132, medium confidence): Chapter 16 is N(T,chi) with the local formula for L'/L, Chapter 19 the explicit formula for psi(x,chi); to be confirmed by the citation verifier.
+\begin{proof}
+This is the explicit formula for the smoothed prime sum (compare \cite[Chapter~19]{Davenport}); the derivation is given for the order of the error. Insert $e^{-x}=\frac1{2\pi i}\int_{(c)}\Gamma(w)x^{-w}dw$ with $c>\max(0,1-\alpha)$ and sum: the smoothed prime sum is $\frac1{2\pi i}\int_{(c)}(-L'/L)(s+w,\chi)\Gamma(w)N^w\,dw$. Move the contour to $\re w=-R$ with $R\to\infty$ along a sequence avoiding the poles; $\Gamma(w)$ decays like $e^{-\pi|\im w|/2}$ and $L'/L$ grows at most polynomially on suitable horizontal segments and vertical lines~\cite[Chapters 16 and 19]{Davenport}, so the integrals vanish in the limit. The poles are simple by the hypothesis on $s$. The residues are $(-L'/L)(s,\chi)$ at $w=0$, which is moved to the left side, $-m_\rho\Gamma(\rho-s)N^{\rho-s}$ at $w=\rho-s$, since $-L'/L$ has residue $-m_\rho$ at $\rho$, and $(-1)^k(k!)^{-1}(-L'/L)(s-k,\chi)N^{-k}$ at $w=-k$. The sum over $\rho$ converges absolutely and is dominated by the zeros with $|\gamma-b|$ small, because $|\Gamma(\rho-s)|$ decays exponentially in $|\gamma-b|$; the nontrivial zeros contribute $O(N^{\sigma_{\max}(\chi)-\alpha})$, the trivial zeros $O(N^{-\alpha})$, and $O(N^{-1-\alpha})$ for odd $\chi$, and the last sum is $O(N^{-1})$. Under GRH each nontrivial term is $|\Gamma(\rho-s)|N^{1/2-\alpha}$ times a phase, $\Gamma$ has no zeros, and the series defining $F_s$ converges absolutely, so $F_s$ is almost periodic in the sense of Bohr with the nonzero coefficients $-m_\rho\Gamma(\rho-s)$, and its mean square is the sum of the squares of their moduli, which is positive.
+\end{proof}
+
+% CHECK: GRH for chi_4 to height 2.5e7 is the citation Platt16 (conductor up to 400000, height 1e8/q with q = 4); it is not reproduced by code/tf_primes.py, which finds the 26 zeros of L(s, chi_4) below height 62 only (checks-T1.md, status cannot be reproduced).
+So recovering the Thorin density at basepoint $\alpha$ to accuracy $\eta$ from the primes with this smoothing needs primes up to about $N\approx\eta^{-1/(\alpha-\sigma_{\max}(\chi))}$, which is unbounded as $\alpha\downarrow\sigma_{\max}(\chi)$. This is a heuristic reading of the proposition as the deconvolution of Theorem~\ref{tf:thm:deconv} paid for in primes: the identity is for the weight $e^{-n/N}$, and it does not bound every method that uses the primes up to $N$. Proposition~\ref{bp:prop:below} gives the same exponent for the compensated prime sums of $\xi$ (the book writes $\Theta$ for $\sigma_{\max}$ there), and Section~\ref{bp:eta:sec:levy} treats $L(s,\chi_{12})$, where no pole needs compensating. Table~\ref{tf:tab:mellin} shows the exponent for $\chi_4$, for which GRH is verified to height $2.5\times10^7$~\cite{Platt16}: the measured exponent matches $\tfrac12-\alpha$ to within $0.006$ for $0.6\le\alpha\le1.2$, while at $\alpha=1.5$ the $O(N^{-1})$ term is of the same size as the zero sum, between $1.1$ and $2.3$ times it.
+
+\begin{table}[htbp]
+\centering\footnotesize\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}ccccccc@{}}
+\toprule
+$\alpha$ & $N=10^3$ & $10^4$ & $10^5$ & $2.5\times10^5$ & slope & $\tfrac12-\alpha$\\
+\midrule
+$1.5$ & $3.83\times10^{-3}$ & $3.97\times10^{-4}$ & $4.72\times10^{-5}$ & $2.00\times10^{-5}$ & $-0.949$ & $-1.00$\\
+$1.2$ & $1.56\times10^{-2}$ & $3.03\times10^{-3}$ & $6.24\times10^{-4}$ & $3.36\times10^{-4}$ & $-0.695$ & $-0.70$\\
+$1.0$ & $5.86\times10^{-2}$ & $1.83\times10^{-2}$ & $5.73\times10^{-3}$ & $3.78\times10^{-3}$ & $-0.499$ & $-0.50$\\
+$0.9$ & $1.21\times10^{-1}$ & $4.78\times10^{-2}$ & $1.87\times10^{-2}$ & $1.35\times10^{-2}$ & $-0.400$ & $-0.40$\\
+$0.8$ & $2.60\times10^{-1}$ & $1.29\times10^{-1}$ & $6.36\times10^{-2}$ & $4.95\times10^{-2}$ & $-0.302$ & $-0.30$\\
+$0.7$ & $5.66\times10^{-1}$ & $3.57\times10^{-1}$ & $2.22\times10^{-1}$ & $1.86\times10^{-1}$ & $-0.203$ & $-0.20$\\
+$0.6$ & $1.23\times10^{0}$ & $9.78\times10^{-1}$ & $7.69\times10^{-1}$ & $6.93\times10^{-1}$ & $-0.103$ & $-0.10$\\
+\bottomrule
+\end{tabular}
+\caption{Mean modulus of $E(N,s)$ of~\eqref{tf:eq:mellin} for $\chi_4$ over $s=\alpha+10i$ and $s=\alpha+25i$, with prime powers summed up to $40N$, and the slope of $\log_{10}$ of the mean against $\log_{10}N$ fitted by least squares on the four values of $N$. Four values of $N$ and two values of $b$ illustrate the GRH statement of the proposition and do not verify it. Script \texttt{tf\_primes.py}.}
+\label{tf:tab:mellin}
+\end{table}
+
+The identity~\eqref{tf:eq:mellin} itself was checked in the $56$ cases of the table: $E(N,s)$ and the right side, built from the zeros of $L(s,\chi_4)$ of height below $62$, the trivial zeros $-1,-3,\dots,-15$ and the terms $m\le9$, agree to $5.4\times10^{-14}$ in absolute value (script \texttt{tf\_primes.py}).
+
+The book's route through basepoints, positivity at every height for $\alpha\ge1$ (Section~\ref{cp:sec:three}), stops at $\alpha=1$, the edge of the known zero free half plane; the cost exponent and the zero free half plane are two faces of one fact (Proposition~\ref{bp:prop:below}), not cause and effect.

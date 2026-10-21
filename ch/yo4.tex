@@ -1,0 +1,74 @@
+\section{An uncertainty barrier}\label{yo:sec:barrier}
+
+Every prime side computation is limited in one of two ways. Compact support in the level variable keeps the prime sum finite but limits the level to $\log n\le X$. A finite basis limits the frequency, the ordinate $|\tau|\le T$. For the tent coefficient $D$ of Proposition~\ref{yo:prop:tent} the limit in level runs into zero verification, which is what the next proposition makes precise.
+
+\begin{proposition}\label{yo:prop:barrier}
+Suppose all zeros with $0<\gamma\le H$ lie on the critical line, and let $D_{\rm on}\ge0$ be the part of $D$ from on line zeros. Then for every $x>0$
+\[
+|D(x)-D_{\rm on}(x)|\le\varepsilon_H(x):=8\cosh^2\frac x4\sum_{\gamma>H}\frac1{\gamma^2},
+\]
+the sum being over all zeros above $H$, counted with multiplicity. With $H=3\times10^{12}$ (Platt and Trudgian \cite{PT21}, the height $H_0$ of Theorem~\ref{thm:dbeta:minall}) the sum differs from $(\log(H/2\pi)+1)/(2\pi H)=1.4797\times10^{-12}$ by less than $2\times10^{-24}$ (Theorem~\ref{ag:thm:explicit}), so that $\varepsilon_H(x)<1.184\times10^{-11}\cosh^2(x/4)$.
+\end{proposition}
+
+\begin{proof}
+Off line zeros have $|\gamma|>H$ and $|\delta|<\frac12$, so $|\sin(\gamma_\rho x/2)|^2\le\cosh^2(\delta x/2)\le\cosh^2(x/4)$ and $|\gamma_\rho|^2\ge\gamma^2$. Each off line zero therefore contributes at most $4\cosh^2(x/4)/\gamma^2$ to $D$, and summing over all such zeros, two (a zero and its conjugate) for each ordinate $\gamma>H$ of the upper half plane, gives the bound.
+\end{proof}
+
+The proposition is of use only against a lower bound for $D_{\rm on}$. Every term of $D_{\rm on}$ is nonnegative, so the first $N$ zeros, which are on the line, give one: $D_{\rm on}(x)\ge L_N(x):=\sum_{n\le N}8\sin^2(\gamma_nx/2)/\gamma_n^2$. For the $N=1700$ certified zeros of the book the least value of $L_N$ on $[0.05,47.1]$ is $0.040704$, at $x=25.383$, and $0.04070$ is a lower bound for it computed by branch and bound (\texttt{yo\_tent.py}, \texttt{code/\allowbreak README.md}); on $[0.05,16]$ the least value is $0.0531$.
+
+\begin{proposition}[Computed positivity of the tent coefficient]\label{yo:prop:Dpos}
+For the $N=1700$ certified zeros of the book let $L_N(x)=\sum_{n\le N}8\sin^2(\gamma_nx/2)/\gamma_n^2$, and let $H=3\times10^{12}$. Since all zeros with $0<\gamma\le H$ lie on the critical line \cite{PT21}, $D(x)\ge L_N(x)-\varepsilon_H(x)$ for every $x>0$. Moreover $L_N(x)>\varepsilon_H(x)$ on $[0.05,47.48]$, so $D>0$ on $[0.05,47.48]$ from the verification of RH up to $H$ and the first $1700$ zeros alone, with no prime sum. The first inequality is proved. The second is computed in double precision and not in ball arithmetic: for $x<46.688$ it follows from the floor $0.04070$ of $L_N$ on $[0.05,47.1]$, found by branch and bound, and for $46.688\le x\le47.48$ from a grid of step $5\times10^{-4}$ and the Lipschitz constant $10.85$ of $L_N$.
+\end{proposition}
+
+The level $47.10$ at which $\varepsilon_H$ reaches $0.05$ ($e^{47.10}=2.85\times10^{20}$) is arithmetically right, but it is the barrier only if $D_{\rm on}$ stays above $0.05$, which it does not; with the floor $0.0407$ the bound reaches it at $x=46.69$ ($e^{46.69}=1.9\times10^{20}$), and pointwise at $x=47.48$ ($e^{47.48}=4.2\times10^{20}$). The barrier is at about $47$ either way, because $\varepsilon_H$ grows exponentially. A prime side computation of $D$ at a level below $47.48$, which needs all prime powers up to $e^x$, can therefore only confirm a positive sign that the zeros already give; it cannot produce a negative value of $D$, which is how an off line zero would show. To see one through $D$ a computation must reach levels beyond $47.48$, with all prime powers up to $4\times10^{20}$, or heights beyond $H$, and the second is the zero verification itself.
+
+In frequency, Proposition~\ref{yo:prop:mult} makes the same point for a basepoint $\alpha\ge\sigma_{\max}$: a test vector with spectrum concentrated in $|\tau|\le T<H$ sees only the symbol there, and a zero $\beta+i\gamma$ with $\gamma>H$ contributes to the Hadamard sum for the symbol the term $(\alpha-\beta)/((\alpha-\beta)^2+(\tau-\gamma)^2)$, of modulus at most $|\alpha-\beta|/(\gamma-T)^2$.
+
+What the barrier does not say. Proposition~\ref{yo:prop:barrier} is proved for the single coefficient $D$ and for no other vector. A normalised function supported in the window $[-a,a]$ and modulated to a height above $H$ (Proposition~\ref{yo:prop:W}) sees an off line zero there with a weight that does not decay with the height, and $\varepsilon_H$, which carries the factor $\gamma^{-2}$ of the tent, does not bound the contribution of the zeros above $H$ to the form of such a vector. Nor could a perturbation bound of size $10^{-11}$ settle the sign of a windowed form at $\alpha=\frac12$, whose least eigenvalue is below $10^{-15}$ from $a=0.8$ on (Table~\ref{yo:tab:lam}). The tent is one vector of the window, so the level $x_*$ of Remark~\ref{yo:rem:scale} bounds Yoshida's threshold only from above, $a_0\le x_*/2$, and the window experiment of Chapter~\ref{chap:zhu} (Table~\ref{zh:tab:det}) finds a hypothetical off line pair at half lengths far below $x_*/2$.
+
+\section{The question of a path to RH}\label{yo:sec:path}
+
+The chapter does not give a path to RH. Every criterion proved here has the same structure. On the RH side it is a positivity statement: $D\ge0$, $T_k\ge0$ for infinitely many $k$, the modulated heat trace of Proposition~\ref{yo:prop:W} nonnegative, a Pick function, a coercive damped form. On the other side it is the presence of a pole off the real axis, or a negative Cauchy kernel, at an off line ordinate. The barrier of Section~\ref{yo:sec:barrier} then says, for the tent coefficient $D$, that a computation at levels below $47$ cannot go beyond what zero verification already knows; for the other quantities no such statement is proved there. A proof needs an inequality valid at all levels or all heights at once, and it must use the Euler product: the function $f_{\rm DH}$ of Davenport and Heilbronn \cite{DH36} (Section~\ref{pk:sec:theta}) shares the functional equation and has zeros off the line, so it violates the analogue of every criterion in this chapter.
+
+What the chapter does change is the shape of the missing inequality. Theorem~\ref{yo:thm:coercive} puts it in its sharpest form:
+\begin{equation}\label{yo:eq:target}
+\re\frac{\xi'}{\xi}(\alpha+i\tau)\ \ge\ \frac{\xi'}{\xi}(\alpha)\qquad\text{for all }\tau,\ \alpha\in(\tfrac12,1],
+\end{equation}
+which we write $v_\alpha(\tau)\ge b_\alpha$ as in Theorem~\ref{thm:dbeta:minall}. Taken as a family over $\alpha\in(\frac12,1]$, and not line by line, this is equivalent to the coercivity of every damped Yoshida form with the constant it has on functions of low frequency. Three facts about it:
+\begin{enumerate}
+\item It is true with no hypothesis for every $\alpha\ge1$ and every $\tau$ (Propositions~\ref{bp:prop:v1min} and \ref{bp:prop:valpha}), and for $\frac12<\alpha\le\alpha_{\max}=7.35$ and $0<|\tau|\le H-\frac{1+\sqrt2}2$ (Theorem~\ref{thm:dbeta:minall}(ii)); for $\frac12<\alpha<1$ and all $\tau$ it is equivalent to RH (Theorem~\ref{thm:dbeta:minall}(vi)). On the line $\alpha=1$ the minimum is at $\tau=0$, the next lowest local minimum of $v_1$, at $\tau=17.49$, is $4.90$ times $b_1$, and on $[20,2000]$ the least value is $8.23\,b_1$, at $\tau=27.67$ (computed by \texttt{yo\_symbol.py}, \texttt{code/\allowbreak README.md}).
+\item If it holds, even in the weak form $v_{\alpha'}(\tau)>0$, on every line $\re s=\alpha'$ with $\alpha<\alpha'\le1$, then $\sigma_{\max}\le\alpha$, since a zero $\rho_0=\beta_0+i\gamma_0$ with $\beta_0>\alpha$ sends $v_{\alpha'}(\gamma_0)$ to $-\infty$ as $\alpha'\uparrow\beta_0$; on all of $(\frac12,1]$ it is RH. On a single line it is not known to exclude a zero to its right (Remark~\ref{rem:ch2:oneline}). Its $\alpha\downarrow\frac12$ limit, under RH, is the sharpened Laguerre inequality $-(\log\Xi)''(\tau)\ge2p_1$.
+\item Its failure mode is local. A zero with $\beta>\alpha$ would create a negative Cauchy kernel of height $1/(\pi(\beta-\alpha))$ at its ordinate, competing against a symbol of size $\frac1{2\pi}\log\tau$ there. So the inequality at $\alpha$ asks for control of $-\re\zeta'/\zeta(\alpha+i\tau)$ by $\frac12\log(\tau/2\pi)$, a one sided bound on $\zeta'/\zeta$; the Fej\'er tapered form of the question is Proposition~\ref{mw:prop:AX}. No method known today proves it at any fixed $\alpha<1$ for all $\tau$; the zero free half plane $\re s>\frac78$ announced in October 2026 (Section~\ref{sec:ch25:open}) has not been refereed and is not counted.
+\end{enumerate}
+
+\section{Open problems}\label{yo:sec:open}
+
+What remains:
+
+\begin{problem}[The symbol inequality below the line $\alpha=1$]\label{yo:op:symbol}
+The inequality $v_\alpha(\tau)\ge b_\alpha$ is a theorem of the book for every $\alpha\ge1$ and every $\tau$ (Propositions~\ref{bp:prop:v1min} and \ref{bp:prop:valpha}), and for $\frac12<\alpha\le\alpha_{\max}$ up to height $3\times10^{12}-1.21$ (Theorem~\ref{thm:dbeta:minall}(ii)); for $\frac12<\alpha<1$ and all $\tau$ it is equivalent to RH (Theorem~\ref{thm:dbeta:minall}(vi)). What is open is the region $\alpha<1$ above the verified height. Determine the part of it in which $v_\alpha(\tau)>b_\alpha$ can be proved with no hypothesis and with explicit constants; the Vinogradov Korobov region $\alpha\ge1-c(\log|\tau|)^{-2/3}(\log\log|\tau|)^{-1/3}$ \cite{Vinogradov58,Korobov58} is the natural target. A proof on every line of a strip $\alpha_0<\alpha\le1$ and for all $\tau$ would give $\sigma_{\max}\le\alpha_0$ (Section~\ref{yo:sec:path}), which is why the target is a region that narrows with the height.
+\end{problem}
+
+\begin{problem}[A prime side proof at $\alpha=1$]\label{yo:op:primes}
+The book proves $v_1(\tau)\ge b_1$ through the zeros (Proposition~\ref{bp:prop:v1min}), by the Cauchy kernels of the ordinates nearest to $\tau$ and a bound on the gaps between them (compare Lemma~\ref{yo:lem:gap}). At $\alpha=1$ the statement can be written entirely in primes. Since $\xi'/\xi(1)=1+\frac{\gamma_E}2-\frac12\log4\pi$ and $\re\frac1{i\tau}=0$, it reads
+\[
+\sum_{n\ge2}\frac{\Lambda(n)}{n}\cos(\tau\log n)\ \le\ \frac12\re\psi\Bigl(\frac{1+i\tau}2\Bigr)-\frac12\log\pi+\frac1{1+\tau^2}-\frac{\xi'}{\xi}(1)\qquad(\tau\ne0),
+\]
+the left side being the conditionally convergent series for $-\re\zeta'/\zeta(1+i\tau)$. Find a proof using only Mertens type information, in the spirit of the Fej\'er taper of Proposition~\ref{mw:prop:AX}; the right side grows like $\frac12\log(\tau/2\pi)$ and the left side is $O(\log\log\tau)$ under RH.
+\end{problem}
+
+\begin{problem}[L\"owner at a single window]\label{yo:op:lowner}
+By Theorem~\ref{yo:thm:lowner}, positivity on $K(a)$ is positivity of the L\"owner matrices of $g_a$ on the lattice $\frac\pi a\mathbb Z$. L\"owner's hard theorem \cite{Lowner34,Donoghue74} recovers the Pick property from L\"owner matrices on all finite subsets of an interval. What does positivity on the lattice alone, for one fixed $a$, imply about the location of the zeros? A positive answer that grew with $a$ would quantify Yoshida's threshold $a_0$.
+\end{problem}
+
+\begin{problem}[The constants of the ladder and of the window]\label{yo:op:orders}
+Determine the order of $K_0$ for the ladder and of $a_0$ for Yoshida's window, for a single off line pair, and compare with the displacement $\sigma_{\max}-\frac12$ and with the de Bruijn Newman constant $\Lambda\le2(\sigma_{\max}-\frac12)^2$ (de Bruijn \cite{deBruijn}, in the normalisation of Rodgers and Tao \cite{RodgersTao} used in Section~\ref{ch:dbn}). For the ladder the computations of Section~\ref{yo:sec:rungs} give $K_0(\sec\theta_*-1)\approx0.70$ for the pair of the stress test (Remark~\ref{yo:rem:stress}) and, over fourteen pairs, a first failing order that grows like $\gamma^2$ and, at fixed $\gamma$, like $1/\delta$ and not like the heuristic $\gamma^2/\delta^2$; its dependence on $\delta$ and on the spacing of the true ordinates is what is to be determined. For the window only $a_0\le x_*/2$ is known (Remark~\ref{yo:rem:scale}), and the window experiment of Chapter~\ref{chap:zhu} (Table~\ref{zh:tab:det}) finds the threshold far below it.
+\end{problem}
+
+\begin{problem}[Zero density and the barrier]\label{yo:op:density}
+Proposition~\ref{yo:prop:barrier} allows every zero above $H$ to have $\delta$ arbitrarily close to $\frac12$. Zero density estimates make zeros with large $\delta$ rare. Sharpen the barrier level using an explicit $N(\sigma,T)$ bound, and determine whether any prime side computation of $D$ at feasible levels can, even in principle, exclude off line zeros beyond the verified height. For windows no barrier is proved: decide whether a window of half length $a$ below about $23.7$ (level $47.48$) can see an off line zero above $H$, for which Section~\ref{zh:sec:horizon} of Chapter~\ref{chap:zhu} gives numerical evidence and a heuristic horizon, not a proof.
+\end{problem}
+
+\subsection*{Notes}
+
+The forms of this chapter are Yoshida's \cite{Yoshida92}, and the explicit formula is Weil's \cite{Weil52}. Lagarias's criterion \cite{Lagarias} asks only for $v_\alpha>0$; the minimum at the origin of Theorem~\ref{thm:dbeta:minall}(vi) sharpens it. In integrated form, under RH, the minimum at the origin says that $\sigma\mapsto|\xi(\sigma+i\tau)|/\xi(\sigma)$ is nondecreasing on $(\frac12,\infty)$, a normalised version of the reformulation of Sondow and Dumitrescu \cite{SD10} that $|\xi(\sigma+i\tau)|$ increases in $\sigma$. Theorem~\ref{yo:thm:D} is classical in substance.

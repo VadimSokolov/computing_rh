@@ -1,6 +1,6 @@
 \section{The clock as a random variable}\label{ch:clocklaw}
 
-The clock variable $T$ of Section~\ref{ch:clock}, with $\E e^{-uT}=1/G(u)$, exists unconditionally and is self decomposable (Theorem~\ref{thm:ch12:idsd}). Under RH it is $T=\sum_{\gamma>0}e_\gamma/\gamma^2$ with independent standard exponential variables $e_\gamma$ (Proposition~\ref{prop:rigid}), and if the zeros are also simple, the theorems of Kent and Krein make it the hitting time of a level by a diffusion whose Dirichlet spectrum is $\{\gamma^2\}$ \cite{Kent80}, \cite[Section 16.3]{P26}. Its law can be computed from the P\'olya density with no zero as input, and the first zero appears in it as the rate of decay, $\gamma_1^2$ (Section~\ref{sec:ch18:law}). The other zeros are much harder to see: in time they enter through exponentially subdominant terms that cost digits of accuracy, and Monte Carlo sampling through Williams' representation of the P\'olya variable needs about $10^6$ draws to show even the first zero (Section~\ref{sec:ch18:reach}). Computation can instead approximate the clock by explicit generalised gamma convolutions that keep the verified zeros as atoms and replace the others by a smooth tail (Section~\ref{sec:ch18:kent}); at large values of the variable $u$ their error is governed by the argument function $S(t)$ beyond the last zero used (Section~\ref{sec:ch18:moments}).
+The clock variable $T$ of Section~\ref{ch:clock}, with $\E e^{-uT}=1/G(u)$, exists unconditionally and is self decomposable (Theorem~\ref{thm:ch12:idsd}). Under RH it is $T=\sum_{\gamma>0}e_\gamma/\gamma^2$ with independent standard exponential variables $e_\gamma$ (Proposition~\ref{prop:rigid}), and if the zeros are also simple, the theorems of Kent and Krein make it the hitting time of a level by a diffusion whose Dirichlet spectrum is $\{\gamma^2\}$ \cite{Kent80}, \cite[Section 16.3]{P26}.
 
 \subsection{The law of the clock and its decay rate}\label{sec:ch18:law}
 
@@ -10,11 +10,40 @@ Under RH, with simple zeros, the density also has the spectral expansion \cite{K
 \[
 f(t)=\sum_k R_ke^{-\gamma_k^2t},\qquad P(T>t)=\sum_k\frac{R_k}{\gamma_k^2}e^{-\gamma_k^2t},\qquad R_k=\frac{2i\gamma_k\,\xi(\tfrac12)}{\xi'(\tfrac12+i\gamma_k)},
 \]
-whose coefficients are the residues of the transform at its poles $u=-\gamma_k^2$. The first step of the proof of Theorem~\ref{bs:thm:nb} derives it by a contour shift, with $R_k=-2\gamma_k\Xi(0)/\Xi'(\gamma_k)$ in the role of $c_n$ there, and the P\'olya route supplies both the ordinates, as its Newton roots, and the values of $\xi'$ at them. The residues alternate in sign, because $\Xi'$ changes sign at consecutive simple zeros (Exercise~\ref{ex:ch18:residues}), and they grow like $e^{\pi\gamma_k/4}$ up to powers of $\gamma_k$ and the factor $1/|\zeta'(\rho_k)|$, because Stirling's formula puts the factor $e^{-\pi\gamma_k/4}$ into $|\Xi'(\gamma_k)|=|\xi'(\rho_k)|$; thus $R_1=1.0164\times10^4$ and $R_2=-1.1775\times10^6$. The series converges for $t>0$ but cancels heavily at small $t$, so near the origin Talbot's contour, which uses the transform only away from the poles, is the better tool (Exercise~\ref{ex:ch18:origin}); under the hypotheses of Theorem~\ref{bs:thm:nb} the line $\re t=0$ is a natural boundary of the density. Computed with $50$ digits from the $79$ zeros below $200$, the spectral expansion agrees with the Talbot values to $24$ digits for $0.010\le t\le0.12$. Beyond that range the Talbot values lose relative accuracy as $\bar F(t)$ falls, down to six digits at $t=0.3$, and the spectral expansion is the accurate one (Figure~\ref{fig:clocklaw}).
+whose coefficients are the residues of the transform at its poles $u=-\gamma_k^2$. The first step of the proof of Theorem~\ref{bs:thm:nb} derives it by a contour shift, with $R_k=-2\gamma_k\Xi(0)/\Xi'(\gamma_k)$ in the role of $c_n$ there, and the P\'olya route supplies both the ordinates, as its Newton roots, and the values of $\xi'$ at them. The residues alternate in sign (Exercise~\ref{ex:ch18:residues}) and grow like $e^{\pi\gamma_k/4}$ up to powers of $\gamma_k$ and the factor $1/|\zeta'(\rho_k)|$, because Stirling's formula puts the factor $e^{-\pi\gamma_k/4}$ into $|\Xi'(\gamma_k)|=|\xi'(\rho_k)|$; thus $R_1=1.0164\times10^4$ and $R_2=-1.1775\times10^6$. The series converges for $t>0$ but cancels heavily at small $t$, so near the origin Talbot's contour is the better tool (Exercise~\ref{ex:ch18:origin}). Computed with $50$ digits from the $79$ zeros below $200$, the spectral expansion agrees with the Talbot values to $24$ digits for $0.010\le t\le0.12$. Beyond that range the Talbot values lose relative accuracy as $\bar F(t)$ falls, down to six digits at $t=0.3$, and the spectral expansion is the accurate one (Figure~\ref{fig:clocklaw}).
 
-The law is unimodal with no hypothesis (Corollary~\ref{sb:cor:unimodal}) and sharply concentrated. Its mean and variance are $\E T=0.0231050$ and $\operatorname{Var}T=3.71726\times10^{-5}$ (Section~\ref{ch:clock}) and its median is $0.0220$; $P(T\le0.009)=1.4\times10^{-7}$, the density is $6.5\times10^{-24}$ at $t=0.005$, and $P(T>0.1)=1.07\times10^{-7}$.
+The primes give a second expansion of $f$, with no hypothesis. Write $\xi=\eta\zeta$ with the gamma factor $\eta(s)=\frac12s(s-1)\pi^{-s/2}\Gamma(\frac s2)$, and put $\phi_\eta(u)=\xi(\frac12)/\eta(\frac12+\sqrt u)$.
 
-The hazard $h=f/\bar F$ tends to the principal eigenvalue $\gamma_1^2$. Under RH with simple zeros the leading term of the spectral expansion dominates, and $h(t)-\gamma_1^2=O(e^{-(\gamma_2^2-\gamma_1^2)t})$ (Exercise~\ref{ex:ch18:hazard}). This is the quasi stationary behaviour of a hitting time; Roberts \cite[Section 2]{Roberts91} obtains approximations of Brownian boundary hitting laws from approximations of the conditioned diffusion. The Talbot side shows the limit with no zero as input: $h(0.05)=199.72$, $h(0.1)=199.7904544$ and $h(0.25)=199.79045483$, the last equal to $\gamma_1^2$ to the eleven digits shown, which is the accuracy of the inversion that far into the tail. The spectral expansion, which has $\gamma_1$ as input, gives $h(0.25)=199.790454832386859463$, equal to $\gamma_1^2$ to all $21$ digits. The rate of approach is the spectral gap: a fit of $\log|h(t)-\gamma_1^2|$ on $[0.05,0.12]$ has slope $-242.12$, against $-(\gamma_2^2-\gamma_1^2)=-242.14$.
+\begin{proposition}\label{tx3:prop:mobius}
+Let $c>\frac14$, let $g_1$ be the inverse Laplace transform of $\phi_\eta$ along $\re u=c$, and let $q_\lambda(x)=\frac{\lambda}{2\sqrt\pi}x^{-3/2}e^{-\lambda^2/4x}$ for $x>0$, both extended by $0$ to $x\le0$. Then for every $t>0$
+\[
+f(t)=\sum_{n\ge1}\frac{\mu(n)}{\sqrt n}\,g_n(t),\qquad g_n=g_1*q_{\log n},\qquad|g_n(t)|\le\sup_{0<x\le t}|g_1(x)|\,\operatorname{erfc}\Big(\frac{\log n}{2\sqrt t}\Big),
+\]
+so the series converges absolutely, faster than any power of $n$. Moreover $g_1(t)=2\xi(\tfrac12)e^{t/4}+O(e^{\varepsilon t})$ as $t\to\infty$ for every $\varepsilon>0$.
+\end{proposition}
+
+\begin{proof}
+On $\re u=c$ we have $\re\sqrt u\ge\sqrt c>\frac12$, so the series \eqref{rz:eq:basic} for $1/\zeta(\frac12+\sqrt u)$ converges absolutely there, with the sum of the absolute values of its terms at most $\zeta(\frac12+\sqrt c)$. By Stirling's formula $|\phi_\eta(u)|$ decays faster than any power of $|u|$ on vertical lines in $\re u>0$, uniformly on compact ranges of $\re u$; hence $|g_1(x)|\le C_ce^{cx}$, the Laplace transform of $g_1$ is $\phi_\eta$ on $\re u>c$, and $f$, whose transform $\phi_\eta(u)/\zeta(\frac12+\sqrt u)$ is integrable on the line, is its Bromwich integral along $\re u=c$. Dominated convergence inverts the series term by term. The term of $n$ is $\phi_\eta(u)e^{-\sqrt u\log n}$, and $e^{-\lambda\sqrt u}$ is the transform of $q_\lambda$ by \eqref{rz:eq:levy}, which gives the convolution; the bound follows from $\int_0^tq_\lambda=\operatorname{erfc}(\lambda/2\sqrt t)$. Finally $\phi_\eta$ is analytic off $(-\infty,0]$ except for a simple pole at $u=\frac14$, where $\eta(\frac12+\sqrt u)=\frac12(u-\frac14)+O((u-\frac14)^2)$, so the residue is $2\xi(\frac12)$; moving the contour to $\re u=\varepsilon$ gives the asymptotic of $g_1$.
+\end{proof}
+
+So $g_1$ is not a density: it grows like $2\xi(\frac12)e^{t/4}$. The same contour shift gives $g_n(t)=2\xi(\frac12)n^{-1/2}e^{t/4}+O_n(e^{\varepsilon t})$, so for fixed $N$ the partial sum over $n\le N$ is $2\xi(\frac12)e^{t/4}\sum_{n\le N}\mu(n)/n+O_N(e^{\varepsilon t})$ and grows, while $f$ decays like $e^{-\gamma_1^2t}$. For large $t$ the series therefore rests on the cancellation $\sum_n\mu(n)/n=0$, the prime number theorem. For small $t$ it converges very fast. Computed by Talbot inversion at $30$ digits (\texttt{bn\_tail.py}), the terms with $n\le5$ ($n\le7$ at $t=0.04$) agree with the Talbot value of $f$ to at least $20$ digits at $t=0.008,0.012,0.016,0.02,0.03,0.04$. Relative to $f$, the term of the prime $2$ is $1\times10^{-26}$ at $t=0.008$, $3\times10^{-9}$ at $t=0.02$ and $2.8$ percent at $t=0.04$. The two expansions are complementary. For relative accuracy $10^{-8}$ the spectral expansion needs $50$ zeros at $t=0.008$, $10$ at $t=0.02$ and $2$ at $t=0.06$ (among $1,2,5,10,20,50,120$ zeros), while the M\"obius series needs only $n=1$ up to $t=0.02$, and $n\le3$ at $t=0.04$.
+
+
+\begin{resultpar}
+The law is unimodal with no hypothesis (Corollary~\ref{sb:cor:unimodal}) and sharply concentrated. Its mean and variance are $\E T=0.0231050$ and $\operatorname{Var}T=3.71726\times10^{-5}$ (Section~\ref{ch:clock}) and its median is $0.0220$. At the other end, with no hypothesis, $P(T\le y)\le\exp\{-(1+o(1))(\log\frac1y)^2/16y\}$ as $y\downarrow0$, so the density vanishes to infinite order at the origin: Chernoff's bound $P(T\le y)\le e^{uy}/G(u)$, with $\log G(u)\sim\frac{\sqrt u}4\log u$ by Stirling's formula for $\xi$, is optimised at $\sqrt u\approx\log(1/y)/4y$.\label{tx3:res:lowertail}
+\end{resultpar}
+
+\begin{proposition}\label{tx2:prop:pf}
+RH holds if and only if the density $f$ of $T$ is a P\'olya frequency function of infinite order, that is $\det[f(x_i-y_j)]_{i,j\le r}\ge0$ for every $r$ and all $x_1<\cdots<x_r$, $y_1<\cdots<y_r$.
+\end{proposition}
+
+\begin{proof}
+Under RH, $f$ is the density of $\sum_\gamma e_\gamma/\gamma^2$ (Proposition~\ref{prop:rigid}), exponential densities are P\'olya frequency functions, and the class is closed under convolution and weak limits. Conversely, by Schoenberg's theorem \cite{Schoenberg51} the bilateral Laplace transform of an integrable P\'olya frequency function of infinite order is $1/\Psi$ with $\Psi(u)=Ce^{-cu^2+bu}\prod_k(1+\lambda_ku)e^{-\lambda_ku}$, $c\ge0$, $\lambda_k$ real. Here the transform is $1/G$, so $G(u)=\xi(\frac12+\sqrt u)/\xi(\frac12)$ has only real zeros. Its zeros are $u=-a_k$ with $a_k=-(\rho-\frac12)^2$, which is real only if $\rho-\frac12$ is real or purely imaginary, and $\xi$ has no real zeros, so every $\rho$ is on the critical line.
+\end{proof}
+
+This is the one sided form of the criterion of Proposition~\ref{pol:prop:pf} for the two sided density. Under RH with simple zeros, assuming that the spectral expansion converges absolutely for $t>0$ and may be differentiated termwise, the opposite signs of $R_1$ and $R_2$ make the upper tail of $f$ log concave: $f(t)=R_1e^{-\gamma_1^2t}(1-\varepsilon(t))+O(e^{-\gamma_3^2t})$ with $\varepsilon=|R_2/R_1|e^{-\Delta t}$ and $\Delta=\gamma_2^2-\gamma_1^2$, so $(\log f)''(t)=-\Delta^2\varepsilon/(1-\varepsilon)^2+O(e^{-(\gamma_3^2-\gamma_1^2)t})<0$ for large $t$. On $91$ logarithmically spaced points of $[0.006,0.08]$, which carry all but $6\times10^{-6}$ of the mass, a floating point Talbot computation at $25$ digits (no interval arithmetic) gives $(\log f)''<0$ with maximum $-0.026$, the first two orders of hyperbolic complete monotonicity of $f$. These are necessary conditions for Proposition~\ref{tx2:prop:pf} tested in the bulk of the law, not a proof.
+
+The hazard $h=f/\bar F$ tends to the principal eigenvalue $\gamma_1^2$. Under RH with simple zeros the leading term of the spectral expansion dominates, and $h(t)-\gamma_1^2=O(e^{-(\gamma_2^2-\gamma_1^2)t})$ (Exercise~\ref{ex:ch18:hazard}). This is the quasi stationary behaviour of a hitting time; Roberts \cite[Section 2]{Roberts91} obtains approximations of Brownian boundary hitting laws from approximations of the conditioned diffusion. The Talbot side shows the limit with no zero as input: $h(0.05)=199.72$, $h(0.1)=199.7904544$ and $h(0.25)=199.79045483$, the last equal to $\gamma_1^2$ to the eleven digits shown. The rate of approach is the spectral gap: a fit of $\log|h(t)-\gamma_1^2|$ on $[0.05,0.12]$ has slope $-242.12$, against $-(\gamma_2^2-\gamma_1^2)=-242.14$.
 
 \begin{figure}[t]
 \centering
@@ -23,9 +52,29 @@ The hazard $h=f/\bar F$ tends to the principal eigenvalue $\gamma_1^2$. Under RH
 \label{fig:clocklaw}
 \end{figure}
 
+The clock also generates a natural exponential family in the sense of Barndorff-Nielsen. The cumulant generating function $K(\theta)=\log\E e^{\theta T}=\log\{\xi(\frac12)/\xi(\frac12+\sqrt{-\theta})\}$ is finite exactly for $\theta<\gamma_1^2$ and $K'(\theta)\to\infty$ as $\theta\uparrow\gamma_1^2$, so the family is regular and steep with natural parameter space $(-\infty,\gamma_1^2)$, whose boundary is the first zero; under RH the tilted laws are $\sum_\gamma e_\gamma/(\gamma^2-\theta)$. The saddlepoint approximation of Barndorff-Nielsen and Cox \cite{BNC79}, $\hat f(y)=\exp\{K(\hat\theta)-\hat\theta y\}/\sqrt{2\pi K''(\hat\theta)}$ with $K'(\hat\theta)=y$, needs $\xi$ only on the real axis $s\ge\frac12$ (for $y<\E T$) and on the segment of the critical line from $\frac12$ to $\frac12+i\gamma_1$ (for $y>\E T$), so it never passes the first zero. It is not normalised (it integrates to $0.98492$) and agrees with the Talbot density to about $0.5$ percent in the lower tail and within $2.5$ percent on $[0.011,0.035]$ (Table~\ref{tx2:tab:sp}); in the upper tail the ratio tends to $e/\sqrt{2\pi}=1.0844$, the error of the approximation for an exponential density, because the tail is $R_1e^{-\gamma_1^2y}$. As $y\downarrow0$ the exponent $K(\hat\theta)-\hat\theta y$ is $-(1+o(1))(\log\frac1y)^2/16y$, the Chernoff exponent above, but slowly: at $y=0.006$ the leading term gives $-272$ against $-33.0$ for the exact $\log f$, while the saddlepoint, which keeps all of $\xi$, is within $0.5$ percent of $f$. The tail formula of Lugannani and Rice \cite{LugannaniRice80}, built from the same $\hat\theta$, $K(\hat\theta)$ and $K''(\hat\theta)$, is within $1.4$ percent of the Talbot values of $P(T\le y)$ and within $2.4$ percent of those of $P(T>y)$ at the sampled $y$ (\texttt{bn\_tail.py}, part a).
+
+\begin{table}[t]
+\centering\small
+\begin{tabular}{rrlll}
+\toprule
+$y$ & $\hat\theta$ & $f(y)$ (Talbot) & $\hat f(y)$ & ratio\\
+\midrule
+0.0060 & $-15909.8$ & $5.165\times10^{-15}$ & $5.138\times10^{-15}$ & 0.9949\\
+0.0120 & $-1674.1$ & 1.7018 & 1.6953 & 0.9962\\
+0.0201 & $-114.5$ & 80.1084 & 78.5287 & 0.9803\\
+0.0239 & 19.4 & 61.4522 & 59.9432 & 0.9754\\
+0.0401 & 148.8 & 3.3491 & 3.4507 & 1.0303\\
+0.0800 & 182.8 & 0.0012 & 0.0013 & 1.0762\\
+\bottomrule
+\end{tabular}
+\caption{The saddlepoint density of the clock against the Talbot inversion of its Laplace transform, both from $\xi$ alone.}
+\label{tx2:tab:sp}
+\end{table}
+
 \subsection{The cost of the zeros in time and in samples}\label{sec:ch18:reach}
 
-The time domain sees the higher atoms only through exponentially subdominant terms. We fit sums of $p$ exponentials to $P(T>t)$ by Prony's method, from $40$ values at $t=0.03,0.032,\dots,0.108$ carrying relative noise from $10^{-16}$ down to $10^{-45}$ (Table~\ref{tab:prony}). With $p=4$ terms the first atom is correct to all nine digits shown, the second to six, the third to four and the fourth to two per cent, and the results do not improve as the noise falls. The error comes from the neglected terms, whose relative size on a window starting at $t_0$ is $e^{-(\gamma_{p+1}^2-\gamma_1^2)t_0}$ up to a factor set by the residues. Resolving the $k$th atom therefore needs data accurate to about $(\gamma_k^2-\gamma_1^2)t_0/\log10$ digits, a number that grows without bound in $k$: a hazard rate method reaches the first atom, and every further atom costs digits.
+We fit sums of $p$ exponentials to $P(T>t)$ by Prony's method, from $40$ values at $t=0.03,0.032,\dots,0.108$ carrying relative noise from $10^{-16}$ down to $10^{-45}$ (Table~\ref{tab:prony}). The error of the fitted atoms comes from the neglected terms, whose relative size on a window starting at $t_0$ is $e^{-(\gamma_{p+1}^2-\gamma_1^2)t_0}$ up to a factor set by the residues. Resolving the $k$th atom therefore needs data accurate to about $(\gamma_k^2-\gamma_1^2)t_0/\log10$ digits, a number that grows without bound in $k$.
 
 \begin{table}[t]
 \centering\small
@@ -48,7 +97,7 @@ Sampling meets the same cancellation in another currency. By the identity $2\xi(
 \[
 2\,\Xi(z)=\E\big[e^{Y/2}\cos(zY)\big].
 \]
-The P\'olya variable is $Y$ tilted by $e^{Y/2}$, and $\Xi(z)$ is the mean of a random variable with finite variance, since $\E e^{Y}=2\xi(1)=1$, so a sample mean estimates it at every $z$. We draw $n=10^6$ copies of $S_2$, truncating the series after $2000$ terms and replacing the remainder, whose variance is about $3\times10^{-12}$, by its mean $4/(2000\pi^2)$, and compare the estimates with $\Xi(z)$ in Table~\ref{tab:ch18:mc}, a check of the identity on the critical line; Table~\ref{bp:tab:bpy} checks it at real $s$ (Section~\ref{bp:sec:mellin}).
+$\Xi(z)$ is the mean of a random variable with finite variance, since $\E e^{Y}=2\xi(1)=1$, so a sample mean estimates it at every $z$. We draw $n=10^6$ copies of $S_2$ and compare the estimates with $\Xi(z)$ in Table~\ref{tab:ch18:mc}, a check of the identity on the critical line; Table~\ref{bp:tab:bpy} checks it at real $s$ (Section~\ref{bp:sec:mellin}).
 
 \begin{table}[htbp]
 \centering\small
@@ -69,28 +118,21 @@ $z$ & Monte Carlo & standard error & $\Xi(z)$ & $n$ with standard error $|\Xi(z)
 \label{tab:ch18:mc}
 \end{table}
 
-The standard error settles at $3.5\times10^{-4}$, the standard deviation of $e^{Y/2}\cos(zY)/2$ over $\sqrt n$, while $|\Xi(z)|$ decays like $e^{-\pi z/4}$. The sample size needed to resolve the sign of $\Xi$ therefore grows like $e^{\pi z/2}$: about $10^8$ at $z=20$ and $10^{15}$ at $z=30$. Even the first sign change, at $z=14.13$, needs about $10^{6}$ samples: between the first two zeros $|\Xi|$ is at most $8.0\times10^{-4}$ (at $z=15.59$), and resolving it at two standard errors takes about $8\times10^5$ samples. Figure~\ref{fig:ch18:mc} shows where $|\Xi|$ falls below the standard error. The P\'olya route pays for the same cancellation in digits of working precision and Monte Carlo pays for it in samples, and precision is exponentially cheaper. Sampling is the right tool for the law of the P\'olya variable itself, for its moments and for the Bayesian inverse problems of \cite[Section 19.2]{P26}, and the wrong tool for the zeros. Devroye's exact samplers for theta type laws \cite{Devroye86} make sampling efficient, but the sample size needed for the zeros still grows like $e^{\pi z/2}$.
-
-\begin{figure}[!ht]
-\centering
-\includegraphics[width=0.72\textwidth]{fig/williams_mc.pdf}
-\caption{$|\Xi(z)|$ against the Monte Carlo standard error with $10^6$ samples of Williams' variable $S_2$, at the sampled values of $z$ and at the first zero, joined by straight lines.}
-\label{fig:ch18:mc}
-\end{figure}
+The standard error settles at $3.5\times10^{-4}$, the standard deviation of $e^{Y/2}\cos(zY)/2$ over $\sqrt n$, while $|\Xi(z)|$ decays like $e^{-\pi z/4}$. The sample size needed to resolve the sign of $\Xi$ therefore grows like $e^{\pi z/2}$. Even the first sign change, at $z=14.13$, needs about $10^{6}$ samples: between the first two zeros $|\Xi|$ is at most $8.0\times10^{-4}$ (at $z=15.59$), and resolving it at two standard errors takes about $8\times10^5$ samples. Sampling is the right tool for the law of the P\'olya variable itself, for its moments and for the Bayesian inverse problems of \cite[Section 19.2]{P26}, and the wrong tool for the zeros. Devroye's exact samplers for theta type laws \cite{Devroye86} make sampling efficient, but the sample size needed for the zeros still grows like $e^{\pi z/2}$.
 
 \subsection{Kent approximants with a Weyl tail}\label{sec:ch18:kent}
 
-In the rest of this section we write $w$ for the variable $u$ of the clock, as the tables and figures that follow do. Kent's theorem \cite{Kent80} identifies the first hitting time of a level by a diffusion started at a reflecting or entrance end of its interval with the GGC $\prod_n(1+w/\lambda_n)^{-1}$, where the $\lambda_n$ are the Dirichlet eigenvalues of the interval up to that level; the simplest example is the time a three dimensional Bessel process started at $0$ takes to reach the level one, with $\lambda_n=\pi^2n^2/2$ (Section~\ref{bp:sec:mellin}). Krein's inverse spectral theory \cite{DymMcKean76} builds a string, and so a generalised diffusion, from any increasing sequence $\lambda_n>0$ with $\sum1/\lambda_n<\infty$. The GGCs that arise as such hitting times are therefore exactly those without drift whose Thorin measure consists of unit atoms at distinct points. By Proposition~\ref{prop:rigid} the clock is one of them exactly when RH holds and the zeros are simple, and its diffusion then has Dirichlet spectrum $\{\gamma^2\}$; Section~\ref{ri:sec:kill} reads each $1/\zeta(2k)$, up to an explicit factor, as the probability that this diffusion reaches its level before an independent killing. The shifted clocks above the centre are not hitting times of Kent's kind, but with no hypothesis they are the tilted centre clock run through the inverse local time of a sticky Brownian motion (Section~\ref{ch:bphit}), and Section~\ref{pm:sec:map} places all these processes in one map.
+In the rest of this section we write $w$ for the variable $u$ of the clock. Kent's theorem \cite{Kent80} identifies the first hitting time of a level by a diffusion started at a reflecting or entrance end of its interval with the GGC $\prod_n(1+w/\lambda_n)^{-1}$, where the $\lambda_n$ are the Dirichlet eigenvalues of the interval up to that level. Krein's inverse spectral theory \cite{DymMcKean76} builds a string, and so a generalised diffusion, from any increasing sequence $\lambda_n>0$ with $\sum1/\lambda_n<\infty$. The GGCs that arise as such hitting times are therefore exactly those without drift whose Thorin measure consists of unit atoms at distinct points. By Proposition~\ref{prop:rigid} the clock is one of them exactly when RH holds and the zeros are simple, and its diffusion then has Dirichlet spectrum $\{\gamma^2\}$.
 
-The approximants of the clock that Kent's theorem suggests are the transforms $1/G_N(w)$ of the partial products $G_N(w)=\prod_{k\le N}(1+w/\gamma_k^2)$, each the transform of the hitting time of a finite string with $N$ point masses. They are admissible in the closure criterion of Corollary~\ref{cor:weak:closure}, and they are the approximating sequence, under RH, in the proof of \cite[Proposition 18.10]{P26}; Section~\ref{sec:weak:limits} lists them, with and without the Weyl tail of this section, among the approximants whose positivity is proved independently of $\xi$. They converge slowly. With $\tau_1(N)=\sum_{k>N}\gamma_k^{-2}$, the relative error $G(w)/G_N(w)-1$ of the clock transform lies, under RH, between $w\tau_1(N)$ and $e^{w\tau_1(N)}-1$; it is of order one at $w=100$ for $N=20$ and at $w=1000$ for $N=300$.
+The approximants of the clock that Kent's theorem suggests are the transforms $1/G_N(w)$ of the partial products $G_N(w)=\prod_{k\le N}(1+w/\gamma_k^2)$, each the transform of the hitting time of a finite string with $N$ point masses. They are admissible in the closure criterion of Corollary~\ref{cor:weak:closure}, and they are the approximating sequence, under RH, in the proof of \cite[Proposition 18.10]{P26}. They converge slowly. With $\tau_1(N)=\sum_{k>N}\gamma_k^{-2}$, the relative error $G(w)/G_N(w)-1$ of the clock transform lies, under RH, between $w\tau_1(N)$ and $e^{w\tau_1(N)}-1$.
 
-We keep the verified zeros as atoms and replace the others by their average density. By the Riemann von Mangoldt formula $N(t)=\vartheta(t)/\pi+1+S(t)$, with the Riemann Siegel theta function $\vartheta$ and the argument function $S(t)=\pi^{-1}\arg\zeta(\frac12+it)$ of Section~\ref{ch:classical}, the zeros above the cutoff $\Theta_N$ have density $\vartheta'(\gamma)/\pi\approx\frac1{2\pi}\log\frac\gamma{2\pi}$, which is positive for $\gamma>6.3$. So
+We keep the verified zeros as atoms and replace the others by their average density. By the Riemann von Mangoldt formula $N(t)=\vartheta(t)/\pi+1+S(t)$ of Section~\ref{ch:classical}, the zeros above the cutoff $\Theta_N$ have density $\vartheta'(\gamma)/\pi\approx\frac1{2\pi}\log\frac\gamma{2\pi}$, which is positive for $\gamma>6.3$. So
 \[
 G_N^{\rm W}(w)=\prod_{k\le N}\Big(1+\frac w{\gamma_k^2}\Big)\exp\Big\{\int_{\Theta_N}^\infty\log\Big(1+\frac w{\gamma^2}\Big)\frac{\vartheta'(\gamma)}\pi\,d\gamma\Big\},
 \]
-with W for Weyl, has reciprocal equal to the Laplace transform of a GGC with $N$ unit atoms and the continuous Thorin density $\vartheta'(\sqrt z)/(2\pi\sqrt z)$ on $z>\Theta_N^2$. That Thorin measure is not a sum of unit atoms, so, unlike $1/G_N$, the approximant is not a hitting time of the kind in Kent's theorem; the closure criterion needs only the GGC property. For $\Theta_N$ we take the Gram point $g_{N-1}$ of Section~\ref{sec:ch5:turing}, where $\vartheta(\Theta_N)/\pi+1=N$. For the values of $N$ used here it lies between $\gamma_N$ and $\gamma_{N+1}$, so $S(\Theta_N)=0$ and the smooth count agrees with the true count at the cutoff, as in Section~\ref{ch:distances}, where $\Theta_{1700}$ is the point $T_*$.
+with W for Weyl, has reciprocal equal to the Laplace transform of a GGC with $N$ unit atoms and the continuous Thorin density $\vartheta'(\sqrt z)/(2\pi\sqrt z)$ on $z>\Theta_N^2$. For $\Theta_N$ we take the Gram point $g_{N-1}$ of Section~\ref{sec:ch5:turing}, where $\vartheta(\Theta_N)/\pi+1=N$. For the values of $N$ used here it lies between $\gamma_N$ and $\gamma_{N+1}$, so $S(\Theta_N)=0$.
 
-Table~\ref{tab:ch18:kent} compares the two approximants with the clock computed from $\xi$. The Weyl tail improves the approximation by at least two orders of magnitude at every $N$ and $w$ tested. With the first $1700$ zeros ($\gamma_{1700}=2197.26$) its error is $3\times10^{-11}$ at $w=1$ and $3\times10^{-7}$ at $w=10^4$, where the partial product is wrong by a factor of more than a hundred. Figure~\ref{fig:ch18:kent} plots the same data.
+Table~\ref{tab:ch18:kent} compares the two approximants with the clock computed from $\xi$.
 
 \begin{table}[htbp]
 \centering\footnotesize
@@ -110,18 +152,11 @@ $N$ & $w=1$ & $w=100$ & $w=1000$ & $w=10^4$\\
 \label{tab:ch18:kent}
 \end{table}
 
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=0.8\textwidth]{fig/kenttail.pdf}
-\caption{Relative error of Kent approximants to the clock transform, without (dashed) and with (solid) the Weyl tail.}
-\label{fig:ch18:kent}
-\end{figure}
-
 At the four points $w=1,100,1000,10^4$ the table exhibits an explicit positive Thorin measure whose Thorin transform $\int\log(1+w/z)\,U(dz)$ matches $\log G(w)$ to within $3\times10^{-7}$. This is a finite instance of the weak Thorin condition of \cite[Section 18.2.3]{P26}, which asks for such a measure, to within any $\eta>0$, at every finite set of points, and which is equivalent to RH by the closure criterion of Corollary~\ref{cor:weak:closure}. A finite instance proves nothing: agreement for $w\le10^4$ cannot detect off line zeros above the verified height, which change $\log G$ there by far less than the error. The error of the Weyl tail grows linearly in $w$, and to first order it is a weighted average of $S$ beyond the cutoff,
 \[
 \log G(w)-\log G_N^{\rm W}(w)\approx w\big(\tau_1(N)-\tau_1^{\rm W}(N)\big)=2w\int_{\Theta_N}^\infty\frac{S(\gamma)}{\gamma^3}\,d\gamma,
 \]
-where $\tau_1^{\rm W}(N)=\int_{\Theta_N}^\infty\gamma^{-2}\vartheta'(\gamma)\pi^{-1}d\gamma$ is the Weyl estimate of $\tau_1(N)$ and the identity is an integration by parts that uses $S(\Theta_N)=0$. No tail built on the smooth count can follow $S$ without the zeros. The Taylor coefficients of $\xi$ at the centre carry more information, and Section~\ref{sec:ch18:moments} uses them.
+where $\tau_1^{\rm W}(N)=\int_{\Theta_N}^\infty\gamma^{-2}\vartheta'(\gamma)\pi^{-1}d\gamma$ is the Weyl estimate of $\tau_1(N)$ and the identity is an integration by parts that uses $S(\Theta_N)=0$.
 
 \subsection{Moment matching and the error at large $w$}\label{sec:ch18:moments}
 
@@ -130,7 +165,7 @@ The error of the Weyl tail comes from the first order term of $\log(1+w/\gamma^2
 p_1=\sum_ka_k^{-1}=c_2=0.0231049931154189707889,\\
 p_2=\sum_ka_k^{-2}=c_2^2-2c_4=0.0000371725992852696862,
 \end{gather*}
-and $\tau_m(N)=p_m-\sum_{k\le N}\gamma_k^{-2m}$. Here $p_1=\E T$ and $p_2=\operatorname{Var}T$ (Section~\ref{ch:clock}). We therefore replace the Weyl density $\vartheta'(\gamma)/\pi$ on $[\Theta_N,\infty)$ by $\lambda\,\vartheta'(\gamma)/\pi$ on $[\Theta_N',\infty)$, and choose the two parameters $\lambda$ and $\Theta_N'$ so that the tail reproduces $\tau_1(N)$ and $\tau_2(N)$ exactly. The tail density remains positive, so the approximant is still a GGC. The adjustments are small: for $N=79$ the cutoff moves from $199.649$ to $199.675$ and $\lambda=1.000059$, and for $N=1700$ it moves from $2197.87959$ to $2197.87923$ and $\lambda=0.99999992$.
+and $\tau_m(N)=p_m-\sum_{k\le N}\gamma_k^{-2m}$. Here $p_1=\E T$ and $p_2=\operatorname{Var}T$ (Section~\ref{ch:clock}). We therefore replace the Weyl density $\vartheta'(\gamma)/\pi$ on $[\Theta_N,\infty)$ by $\lambda\,\vartheta'(\gamma)/\pi$ on $[\Theta_N',\infty)$, and choose the two parameters $\lambda$ and $\Theta_N'$ so that the tail reproduces $\tau_1(N)$ and $\tau_2(N)$ exactly. The tail density remains positive, so the approximant is still a GGC. The adjustments are small: for $N=79$ the cutoff moves from $199.649$ to $199.675$ and $\lambda=1.000059$.
 
 \begin{table}[htbp]
 \centering\footnotesize
@@ -153,22 +188,15 @@ $N$ & tail & $w=1$ & $w=10^2$ & $w=10^4$ & $w=10^5$ & $w=10^6$ & $w=10^7$\\
 \label{tab:ch18:kent2}
 \end{table}
 
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=0.8\textwidth]{fig/kenttail2.pdf}
-\caption{The Kent approximants at large $w$, with the dotted lines at $w=\Theta_N^2$ (labelled $T_N^2$ in the plot). Moment matching gains ten to twelve digits at $w=1$ and about two as $w$ approaches $\Theta_N^2$. Beyond $\Theta_N^2$ the Weyl tail levels off at a floor set by $S$, while the error of the matched tail, whose density is rescaled by $\lambda$, grows like $|\lambda-1|\sqrt w\log w$.}
-\label{fig:ch18:kent2}
-\end{figure}
+Table~\ref{tab:ch18:kent2} shows two regimes. For $w$ below $\Theta_N^2$ moment matching gains ten to twelve digits at $w=1$ and about two as $w$ approaches $\Theta_N^2$. Well beyond $\Theta_N^2$ the gain disappears, and at $w=10^7$ with $N=79$ the matched tail is worse than the plain Weyl tail. For $w\gg\Theta_N^2$ the matched tail differs from the Weyl tail mainly by $(\lambda-1)\int_{\Theta_N'}^\infty\log(1+w/\gamma^2)\,\vartheta'(\gamma)\pi^{-1}d\gamma$, which grows like $(\lambda-1)\frac{\sqrt w}2\log\frac{\sqrt w}{2\pi}$, while the error of the Weyl tail tends to a constant.
 
-Table~\ref{tab:ch18:kent2} and Figure~\ref{fig:ch18:kent2} show two regimes. For $w$ below $\Theta_N^2$ moment matching gains ten to twelve digits at $w=1$ and about two as $w$ approaches $\Theta_N^2$: with $1700$ zeros the error at $w=10^4$ falls from $2.9\times10^{-7}$ to $7\times10^{-13}$, and at $w=10^5$ from $2.8\times10^{-6}$ to $3.6\times10^{-10}$. Well beyond $\Theta_N^2$ the gain disappears, and at $w=10^7$ with $N=79$ the matched tail is worse than the plain Weyl tail. The cause is the rescaling of the whole tail. For $w\gg\Theta_N^2$ the matched tail differs from the Weyl tail mainly by $(\lambda-1)\int_{\Theta_N'}^\infty\log(1+w/\gamma^2)\,\vartheta'(\gamma)\pi^{-1}d\gamma$, which grows like $(\lambda-1)\frac{\sqrt w}2\log\frac{\sqrt w}{2\pi}$, while the error of the Weyl tail tends to a constant.
-
-That constant is a weighted average of $S$ beyond the cutoff. Under RH, since $S(\Theta_N)=0$ and no ordinate lies in $(\gamma_N,\Theta_N]$, the true tail sum minus its Weyl estimate is a Stieltjes integral against $S$, and an integration by parts gives
+Under RH, since $S(\Theta_N)=0$ and no ordinate lies in $(\gamma_N,\Theta_N]$, the true tail sum minus its Weyl estimate is a Stieltjes integral against $S$, and an integration by parts gives
 \begin{align*}
 \log G_N^{\rm W}(w)-\log G(w)&=-\int_{\Theta_N}^\infty\log\Big(1+\frac w{\gamma^2}\Big)\,dS(\gamma)=-\int_{\Theta_N}^\infty\frac{2w\,S(\gamma)}{\gamma(\gamma^2+w)}\,d\gamma\\
 &\longrightarrow\;-2\int_{\Theta_N}^\infty\frac{S(\gamma)}\gamma\,d\gamma\qquad(w\to\infty).
 \end{align*}
-The limit is $-\ell_N$, with $\ell_N=2\int_{\Theta_N}^\infty S(\gamma)\gamma^{-1}\,d\gamma$ as in Exercise~\ref{ex:ch18:floor}. It is finite because $\int_0^tS(u)\,du=O(\log t)$ (Littlewood; Section~\ref{sec:ch5:turing}), and in general it is not zero. The measured errors of the Weyl tail level off at about $6\times10^{-3}$ for $N=79$ and $2\times10^{-3}$ for $N=300$; for $N=1700$ the error is still rising at $w=10^7$, where it is $9.3\times10^{-5}$, so its level is not yet reached.
+The limit is $-\ell_N$, with $\ell_N=2\int_{\Theta_N}^\infty S(\gamma)\gamma^{-1}\,d\gamma$ as in Exercise~\ref{ex:ch18:floor}. It is finite because $\int_0^tS(u)\,du=O(\log t)$ (Littlewood; Section~\ref{sec:ch5:turing}), and in general it is not zero. The measured errors of the Weyl tail level off at about $6\times10^{-3}$ for $N=79$ and $2\times10^{-3}$ for $N=300$.
 
 The constant is not an obstruction of principle. It depends only on $\gamma_1,\dots,\gamma_N$ and on $\xi$ along the real axis, and Stirling's formula gives $\ell_N$ in closed form (Exercise~\ref{ex:ch18:floor}). It is also a floor only for the Weyl density. Adding to $\vartheta'/\pi$ a continuous $\omega$ with compact support in $(\Theta_N,\infty)$ and $\int\omega=0$ changes the limit by $-2\int\omega(\gamma)\log\gamma\,d\gamma$, and two wide bumps of opposite sign placed far apart give this any value while the density stays positive, so a suitable positive tail removes the constant.
 
-Of the two tails computed here, the matched tail is the better one for $w$ up to about $\Theta_N^2$ and the plain Weyl tail beyond. With them the clock is within a small computed distance of an explicit GGC at every scale computed, and at large $w$ that distance is a weighted integral of $S$ beyond the cutoff, the quantity whose integrals Turing's method bounds (Section~\ref{ch:turing}).
+

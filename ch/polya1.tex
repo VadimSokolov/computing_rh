@@ -1,0 +1,40 @@
+\section{P\'olya's question}\label{pol:sec:intro}
+
+P\'olya spent a decade, from 1918 to 1927, on a single question: when does the Fourier transform of a positive even kernel have only real zeros? The motivation was Riemann's formula
+\begin{equation}\label{pol:eq:riemann}
+\begin{gathered}
+\Xi(t)=\xi\!\left(\tfrac12+it\right)=2\int_0^\infty \Phi(u)\cos(tu)\,du,\\[4pt]
+\Phi(u)=2\sum_{n\ge1}\left(2\pi^2n^4e^{9u/2}-3\pi n^2e^{5u/2}\right)e^{-\pi n^2e^{2u}},
+\end{gathered}
+\end{equation}
+in which the Riemann Hypothesis is the statement that $\Xi$ has only real zeros. The Thorin programme of this book reads the same function from the other side, through the reciprocal $\varphi(s)=\xi(1/2)/\xi(1/2+\sqrt s)$, which is unconditionally the Laplace transform of a self decomposable law $\mu$ on $[0,\infty)$ (Theorem~\ref{thm:ch12:idsd}), and is the Laplace transform of a generalised gamma convolution (GGC) exactly when RH holds (Proposition~\ref{prop:rigid}). P\'olya works on the kernel $\Phi$, multiplying it by factors that preserve real zeros, while the Thorin programme works on the logarithm of the transform, asking for positivity of a measure.
+
+This chapter asks three questions. Which of P\'olya's results have not yet been brought into the Thorin programme? Which of them would help to show RH? Is the $2\sin^2$ lemma useful with regard to his work?
+
+A remark on sources. P\'olya's papers on zeros are collected in Volume II of his Collected Papers, edited by Boas \cite{Kac74}. We did not have the full text of every paper discussed below. The Acta paper of 1926 \cite{Polya} was read in part, and what is said of it comes from its first page and from the careful secondary accounts of Newman and Wu \cite{NewmanWu20}, Lagarias \cite{Lagarias05}, Gasper \cite{Gasper08} and Haglund \cite{Haglund09}; every formula used below for P\'olya's $\Xi^*$ was rederived and checked numerically. Whether a result is already part of the programme is judged by comparison with the earlier chapters, the first author's paper \cite{P17} (version 24 of arXiv 1708.02653) and monograph \cite{P26}.
+
+\section{Notation and the Thorin dictionary}
+
+We use the Titchmarsh normalisation \eqref{pol:eq:riemann}. Since $\Phi$ is even and positive,
+\begin{equation}\label{pol:eq:F}
+\begin{gathered}
+\xi\!\left(\tfrac12+w\right)=2\int_0^\infty\Phi(u)\cosh(wu)\,du=\sum_{k\ge0}c_kw^{2k},\\[4pt] c_k=\frac{2}{(2k)!}\int_0^\infty\Phi(u)u^{2k}\,du>0 .
+\end{gathered}
+\end{equation}
+Put $F(s)=\xi(1/2+\sqrt s)/\xi(1/2)=\sum_{k\ge0}a_ks^k$ with $a_k=c_k/c_0>0$. Then $F$ is entire of order one half with $F(s)=\prod_\rho(1-s/s_\rho)$, $s_\rho=(\rho-1/2)^2$, the product taken over zeros in the upper half plane (one factor for each pair $\rho,1-\rho$), and $\varphi=1/F$ is the Laplace transform of the reciprocal Xi law $\mu$; we write $Y\sim\mu$. Its exponent $\psi=\log F$ satisfies $\psi'(s)=\int_0^\infty e^{-sx}W(x)\,dx$ with the heat trace $W(x)=\sum_{\gamma>0}e^{(\rho-1/2)^2x}$, and the dictionary of Section~\ref{ch:heat} reads: $W\ge0$ (infinite divisibility, unconditional), $-W'\ge0$ (self decomposability, unconditional), $W$ completely monotone (GGC, equivalent to RH). Under RH the Thorin measure is $U=\sum_{\gamma>0}\delta_{\gamma^2}$ and $Y\stackrel{d}{=}\sum_\gamma E_\gamma/\gamma^2$.
+
+At a basepoint $\alpha$ the law $\mu^{(\alpha)}$ has Laplace transform $\xi(\alpha)/\xi(\alpha+\sqrt s)$; it is a GGC if and only if $\alpha\ge\sigma_{\max}=\sup\re\rho$, unconditionally for $\alpha\ge1$ (Theorem~\ref{thm:poisson}), and its Thorin distribution in the ordinate variable is the clock
+\begin{equation}\label{pol:eq:clock}
+U_\alpha(\tau)=\frac1\pi\,\Delta_0^\tau\arg\xi(\alpha+i\tau),\qquad \frac{d}{d\tau}U_\alpha(\tau)=\frac1\pi\re\frac{\xi'}{\xi}(\alpha+i\tau).
+\end{equation}
+With $\tau_\alpha$ the inverse of the clock and $g$ a standard gamma subordinator, $\mu^{(\alpha)}$ is the law of $\int_0^\infty dg_v/\tau_\alpha(v)^2$.
+
+The $2\sin^2$ lemma (Lemma~\ref{rz:lem:P1}) rests on the identity, for $x,w>0$ and $u=w^2/2$,
+\begin{equation}\label{pol:eq:lemma}
+\begin{gathered}
+e^{-wx}+wx-1=\int_0^\infty\log\!\left(1+\frac uz\right)\varpi_x(z)\,dz,\\[4pt] \varpi_x(z)=\frac{x}{\pi\sqrt{2z}}\,2\sin^2\!\left(x\sqrt{z/2}\right)\ge0 .
+\end{gathered}
+\end{equation}
+Consequently, if $\log f(\alpha+w)/f(\alpha)-wf'(\alpha)/f(\alpha)=\int(e^{-wx}-1+wx)e^{-\alpha x}\mu_f(dx)/x$ with $\mu_f\ge0$, the compensated reciprocal $e^{wf'(\alpha)/f(\alpha)}f(\alpha)/f(\alpha+w)$, $w=\sqrt{2u}$, is a GGC in $u$ with Thorin density $\int\varpi_x(z)e^{-\alpha x}\mu_f(dx)/x$. Differentiating twice in $w$, the hypothesis $\mu_f\ge0$ is the statement that $(\log f)''$ is completely monotone on $(\alpha,\infty)$.
+
+\paragraph{Notation.} The function $F$ is the function $G$ of Section~\ref{ch:clock}, and $Y\sim\mu$ is the clock variable $T$, so that $\varphi=1/F$ is its Laplace transform. The coefficients $a_k$ are the scaled moments $b_k$ of Section~\ref{fm:sec:momenttest} (Table~\ref{fm:tab:newton}), not the exponents $a_j$ of Section~\ref{ch:heat}. The word clock in this chapter means the argument clock $U_\alpha$, the cumulative Thorin mass $M_\varepsilon(\theta)=\pi^{-1}\arg\xi(\frac12+\varepsilon+i\theta)$ of Section~\ref{ch:turing} with $\varepsilon=\alpha-\frac12$ and $\theta=\tau$, and not the Laplace transform $1/G$ of the earlier chapters. We write $b_\alpha=\frac{\xi'}{\xi}(\alpha)$ for the drift of Section~\ref{ch:basepoint}. Finally $X=Z\sqrt{2Y}$ is the variable $Y_{1/2}$ of Section~\ref{ch:strip}, with density $f_X$, and not the P\'olya variable $X$ of Section~\ref{ch:clock}, whose density is $\Phi/\Xi(0)$.

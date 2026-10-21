@@ -1,0 +1,67 @@
+[   0.0s] ok   A: the 1700 ordinates are strictly increasing (certified)
+[   0.0s] ok   A: the largest gap is the first one, gamma_2 minus gamma_1 (certified against every other gap)
+[   0.0s] ok   A: the largest later gap is gamma_4 minus gamma_3 (certified against every gap with index at least 2)
+[   0.0s] A: gamma_1 = 14.1347251417, gamma_2 = 21.0220396388, first gap 6.887314497036861, largest later gap 5.414018545713824 (between ordinates 3 and 4)
+[   0.0s] A: largest gaps (n, gap): 1: 6.8873145, 3: 5.4140185, 8: 4.6780776, 5: 4.6511166, 14: 4.2807655, 2: 3.9888179, 33: 3.8609244, 25: 3.6827881
+[   0.0s] ok   A: v1min.json first gap overlaps the first gap from the 1700 ordinates (same value)
+[   0.0s] ok   A: v1min.json largest later gap overlaps the largest later gap of the 1700 ordinates
+[   0.0s] A: certified summary: 1800 zeros, largest ordinate 2304.3051386704, max gap [6.88731449703686120217122, largest later gap [5.41401854571382 +/- 4.45
+[   0.0s] A: S(T) = N(T) minus theta(T)/pi minus 1 at both sides of the 1700 ordinates lies in [-1.2266, 1.2343]
+[   0.0s] ok   theta prime (digamma) equals the difference quotient of theta (log Gamma) at T = 2524 to 1e-9
+[   0.0s] ok   theta second derivative (polygamma) equals the difference quotient of theta prime at T = 2524 to 1e-9
+[   0.0s] ok   theta prime and theta second derivative agree with mpmath siegeltheta at T = 2524 to 1e-20
+[   0.0s] ok   theta second derivative is positive at T = 284, 2524, X0 and 1e300 (it is positive for every T > 0)
+[   0.0s] ok   theta second derivative >= 1/(2T) minus 1/T^2 at T = 284, 2524, X0, 1e30 (the bound used in (D); a ball of 320 bits cannot see the slack 1/T^2 beyond 1e45)
+[   0.0s] B: variant chapter   at T = 2524, h = 8.3: left 7.9202665, right 7.9201776, margin 8.89e-5; threshold in (2523.781418, 2523.781418]
+[   0.0s] B: variant endpoints at T = 2524, h = 8.3: left 7.9202665, right 7.9196934, margin 0.000573; threshold in (2522.591170, 2522.591170]
+[   0.0s] B: variant published at T = 2524, h = 8.3: left 7.9202665, right 7.9203355, margin -6.90e-5; threshold in (2524.169594, 2524.169594]
+[   0.0s] claim Trudgian left side 8.3 theta prime(2524)/pi          line 291  chapter 7.92027    computed 7.92027    agrees 
+[   0.0s] claim Trudgian right side 2 B(2524 + 8.3), no 0.2/T        line 291  chapter 7.92018    computed 7.92018    agrees 
+[   0.0s] B: chapter variant threshold 2523.7814, so the lemma needs T >= 2524; published variant (with 0.2/T) threshold 2524.1696
+[   0.0s] claim Trudgian threshold T >= 2524 (h = 8.3)               line 291  chapter 2524       computed 2524       agrees
+[   0.4s] ok   B: derivative of (left minus right) is positive on the geometric grid from 2524 to 1e30 (3094 points); beyond, theta'' >= 1/(2T) minus 1/T^2 and 2 T B'(T + h) <= 0.224 + 0.556/log T give it
+[   0.4s] ok   B: Trudgian inequality (chapter variant) holds at every point of the geometric grid from 2524 to 1e30 (6156 points)
+[   0.4s] B: at gamma_1500 (T = 1980.9100): h = 8.3 gives 7.60021 against 7.84871 (FAILS); the step Trudgian needs here is 8.5714
+[   0.4s] B: at gamma_1700 (T = 2197.2587): h = 8.3 gives 7.73713 against 7.87934 (FAILS); the step Trudgian needs here is 8.4526
+[   0.4s] B: at end_of_certified_1800 (T = 2304.3051): h = 8.3 gives 7.79997 against 7.89337 (FAILS); the step Trudgian needs here is 8.3994
+[   0.4s] B: at T_2000 (T = 2000.0000): h = 8.3 gives 7.61288 against 7.85155 (FAILS); the step Trudgian needs here is 8.5603
+[   0.4s] B: at T_2500 (T = 2500.0000): h = 8.3 gives 7.90765 against 7.91737 (FAILS); the step Trudgian needs here is 8.3102
+[   0.4s] ok   B: the Trudgian inequality fails (certified false or undecided) at the end 2304.3 of the certified zeros
+[   0.4s] C: HSW22 constant bound, h = 8.3: h theta prime(T)/pi > 2 x 2.5167 for T >= 283.78392 (bracket top 283.7839238154605)
+[   0.4s] C: HSW22 constant bound, h = 6.8874: h theta prime(T)/pi > 2 x 2.5167 for T >= 619.99372 (bracket top 619.9937208027247)
+[   0.4s] C: HSW22 constant bound, h = 5.36: h theta prime(T)/pi > 2 x 2.5167 for T >= 2294.36199 (bracket top 2294.3619874855344)
+[   0.4s] claim HSW22 threshold in T for h = 8.3 (round up)          line review M10 chapter 284        computed 284        agrees 
+[   0.4s] C: smallest step the constant bound gives for T >= 2304.305139: h = 2 x 2.5167 x pi / theta prime(T) = 5.356074519
+[   0.4s] claim every gap below 5.36 on [2304.3, X0]                 line M10  chapter 5.36       computed 5.3560745  agrees (computed below 5.36)
+[   0.4s] ok   C: the HSW22 step on [2304.3, X0 minus h] is below 5.36
+[   0.4s] D: h = 8.3: at X0 left 29.46686 against right 12.64904; D_h(X0 minus h) = 16.8178; T D_h'(X0 minus h) = 1.08507; explicit lower bound for T D_h' = 1.08507
+[   0.4s] ok   D: h = 8.3: D_h(X0 minus h) > 0 and the explicit lower bound of T D_h' is positive
+[   0.4s] D: h = 6.8874: at X0 left 24.45181 against right 12.64904; D_h(X0 minus h) = 11.8028; T D_h'(X0 minus h) = 0.860249; explicit lower bound for T D_h' = 0.860249
+[   0.4s] ok   D: h = 6.8874: D_h(X0 minus h) > 0 and the explicit lower bound of T D_h' is positive
+[   0.4s] D: h = 5.36: at X0 left 19.02920 against right 12.64904; D_h(X0 minus h) = 6.38017; T D_h'(X0 minus h) = 0.617156; explicit lower bound for T D_h' = 0.617156
+[   0.4s] ok   D: h = 5.36: D_h(X0 minus h) > 0 and the explicit lower bound of T D_h' is positive
+[   0.4s] claim left side at X0, h = 8.3 (review: 29.4)              line review M10 chapter 29.4       computed 29.5       DIFFERS the printed value is the truncation, not the rounding
+[   0.4s] claim right side at X0, h = 8.3 (review: 12.6)             line review M10 chapter 12.6       computed 12.6       agrees 
+[   0.6s] ok   D: h = 8.3: D_h > 0 at all 20012 grid points from X0 to 1e3000
+[   1.3s] ok   D: h = 6.8874: D_h > 0 at all 20012 grid points from X0 to 1e3000 and D_h' > 0 at those below 1e45
+[   1.3s] ok   E: the first gap gamma_2 minus gamma_1 is below 6.8874 (certified)
+[   1.3s] ok   E: the HSW22 lemma with h = 6.8874 starts at T = 619.99, below the end 2304.3 of the certified zeros, so the two ranges overlap
+[   1.3s] ok   E: the largest gap among the ordinates above gamma_2 (5.414...) is below 5.42
+[   1.3s] E: every gap is at most 6.88731449704 (< 6.8874); above gamma_2 at most max(5.414018546, 5.3560745) = 5.414018546; the HSW22 argument with h = 6.8874 starts at T = 619.99 (355 ordinates of the file lie below it)
+[   1.4s] ok   F: P_gamma(tau) >= P_gamma(0) iff tau^2 <= 3 gamma^2 minus c^2, exact rational arithmetic, 4000 random samples, and equality at the boundary
+[   1.4s] F: kappa_1 = (1/2)(log xi)''(1/2) = 0.023104993115419 from the closed form; sum over the 1700 zeros 0.02260843061 plus the tail 0.000496630 = 0.02310506054
+[   1.4s] ok   F: kappa_1 from the zeros and the tail agrees with the closed form to 3e-6
+[   1.4s] claim kappa_1 = sum 1/gamma^2 (line 56)                    line 56   chapter 0.0231049931 computed 0.0231049931 agrees 
+[   1.4s] claim 2 kappa_1 = L(0) (line 298)                          line 298  chapter 0.046210   computed 0.046210   agrees 
+[   1.4s] claim 1/(c^2 + 4.15^2) at c = 1/2                          line 278  chapter 0.057233   computed 0.057233   agrees 
+[   1.4s] claim 1/(c^2 + 3.4437^2) at c = 1/2                        line review M10 chapter 0.082583   computed 0.082583   agrees 
+[   1.4s] claim 2/gamma_1^2                                          line 278  chapter 0.010010   computed 0.010010   agrees 
+[   1.4s] claim margin 0.057233 minus 0.010010 minus 0.046210 (unrounded inputs) line 278  chapter 0.001013   computed 0.001012   DIFFERS 
+[   1.4s] claim corrected margin (unrounded inputs)                  line review M10 chapter 0.026362   computed 0.026362   agrees 
+[   1.4s] F: at c = 1/2 the chapter margin is 0.00101232 and the corrected margin 0.0263623; without the term 2/gamma_1^2 (which repeats P_gamma_n(0), already inside the sum of all P_gamma(0) = xi'/xi(alpha) <= 2 c kappa_1) they are 0.0110228 and 0.0363727
+[   1.4s] ok   F: 4.15 = 8.3/2 and 3.4437 = 6.8874/2 exactly; the largest distance from tau >= gamma_1 to the nearest ordinate is half of the largest gap, 3.44365724852
+[   1.4s] claim gamma_2 minus gamma_1 (line 291: 6.887; review: 6.8873) line 291  chapter 6.8873     computed 6.8873     agrees 
+[   1.4s] claim largest gap above gamma_2, gamma_4 minus gamma_3 (review: 5.414) line review M10 chapter 5.414      computed 5.414      agrees 
+[   1.4s] claim gamma_1500 (review M9)                               line review M9 chapter 1980.91    computed 1980.91    agrees 
+[   1.4s] claims that differ from the printed digits: ['left side at X0, h = 8.3 (review: 29.4)', 'margin 0.057233 minus 0.010010 minus 0.046210 (unrounded inputs)']
+[   1.4s] all checks pass: True ; elapsed 1.4 s

@@ -1,0 +1,43 @@
+yo_tent.py: 1700 certified zeros from data/zeros_1700.txt (gamma_1 = 14.134725141734, gamma_1700 = 2197.2587470402), primes to e^16, grid step 0.0001, quick = False
+zero count 1500: gamma_N = 1980.910043, tail start T* = 1982.004201, mean tail of D = 0.00216938
+zero count 1700: gamma_N = 2197.258747, tail start T* = 2198.415929, mean tail of D = 0.00198584
+prime powers to e^16 = 8886110: 595877 of them (0.2 s)
+
+minimum of D on [0.05, 16] (prime side, grid step 0.0001): 0.05504122 at x = 8.0391; refined 0.0550411467 at x = 8.039064
+the six lowest local minima on the grid (x, D): (8.0391, 0.055041), (15.5390, 0.055651), (15.5409, 0.055703), (15.5378, 0.055703), (15.5364, 0.055711), (15.5344, 0.055831)
+zero side with smooth tail at the minimiser: N = 1500: 0.05503990, N = 1700: 0.05505243
+CLAIM min of D on [0.05, 16] (prime side)                  line 149  chapter 0.0550 at x = 8.04     mine 0.0550 at x = 8.04         agrees
+
+mean of D on [2, 16]: exact integration of the prime side 0.092409282, trapezoid on the grid 0.092409282 (difference 2.47e-10), 4 kappa_1 = 0.092419972
+mean from the zeros, 4 kappa_1 minus (4/(b minus a)) sum [sin(b gamma) minus sin(a gamma)]/gamma^3: N = 1500: 0.092409282, N = 1700: 0.092409282
+mean minus 4 kappa_1 = -1.069e-05; the zero side formula gives -1.069e-05
+CLAIM mean of D on [2, 16] (prime side)                    line 149  chapter 0.092409               mine 0.092409                   agrees
+CLAIM 4 kappa_1                                            line 149  chapter 0.092420               mine 0.092420                   agrees
+
+prime side minus (zero side + tail) on 20001 points of [0.5, 16]: {"mean_tail_N1500": {"max": "0.0001831", "argmax": "3.7612", "median": "7.401e-06", "p95": "3.467e-05"}, "rvm_tail_N1500": {"max": "0.000183", "argmax": "3.7612", "median": "7.402e-06", "p95": "3.467e-05"}, "mean_tail_N1700": {"max": "0.0001678", "argmax": "3.7612", "median": "6.307e-06", "p95": "2.983e-05"}, "rvm_tail_N1700": {"max": "0.0001678", "argmax": "3.7612", "median": "6.306e-06", "p95": "2.98e-05"}}
+
+barrier: Sigma_0 estimate (log(T0/2 pi)+1)/(2 pi T0) = 1.47970e-12 (book: below 1.48e-12), epsilon_H = 8 Sigma_0 cosh^2(x/4) = 1.1840e-11 cosh^2(x/4)
+level where epsilon_H = 0.05: x = 47.1002, e^x = 2.853e+20
+CLAIM epsilon_H = 8 Sigma_0 cosh^2(x/4), constant          line 375  chapter 1.18e-11               mine 1.184e-11                  agrees
+CLAIM level where epsilon_H = 0.05                         line 382  chapter 47.10                  mine 47.10                      agrees
+CLAIM e^47.1                                               line 382  chapter about 2.9e20           mine 2.853e+20 (e^47.10 = 2.853e+20) agrees
+rigorous floor of D_on on [0.05, 16] from the first 1700 certified zeros: min L_N = 0.05306578 at x = 8.03924, certified lower bound 0.05306378 (tolerance 2e-06, 16435 evaluations, 0.3 s); mpmath check 0.05306578064; estimate with the smooth tail 0.055052
+rigorous floor of D_on on [16, 47.1] from the first 1700 certified zeros: min L_N = 0.04070374 at x = 25.38270, certified lower bound 0.04070174 (tolerance 2e-06, 20548 evaluations, 0.4 s); mpmath check 0.04070373998; estimate with the smooth tail 0.042690
+rigorous floor of D_on on [0.05, 47.1] from the first 1700 certified zeros: min L_N = 0.04070374 at x = 25.38270, certified lower bound 0.04070174 (tolerance 2e-06, 28523 evaluations, 0.5 s); mpmath check 0.04070373998; estimate with the smooth tail 0.042690
+upper bound of D_on at the minimiser x = 25.382698: L_N + 8 (kappa_1 minus the first 1700 terms of sum gamma^-2) = 0.04070373998 + 8 * 4.965625e-04 = 0.044676, below 0.05
+with the certified floor 0.040702 on [16, 47.1] the level where epsilon_H reaches the floor is x = 46.6887 (e^x = 1.891e+20); with the chapter floor 0.05 it is 47.1002
+CLAIM floor D_on >= 0.05 on [16, 47.1] (rigorous, first 1700 zeros) line 382  chapter not computed           mine certified lower bound 0.040702 does NOT support 0.05 (1700 zero truncation costs about 0.0020; estimate with smooth tail 0.04269)
+first level where the certified lower bound L_N(x) minus Lipschitz margin stops exceeding epsilon_H(x): x = 47.4815; first grid point (step 0.0005) where L_N(x) <= epsilon_H(x): x = 47.4862
+
+D plus the pair term of an off line quadruple, first negative x on [0.5, 60] (step 0.01), zeros N = 1700 (and N = 1500)
+(gamma, delta) = (100, 0.3): prediction 18.14 (chapter 18.1); first negative on the step 0.01 grid 17.34 (N = 1700), refined crossing 17.333961; N = 1500: grid 17.34; fine grid (step 0.0005): 17.334, refined 17.333961; chapter 17.3
+CLAIM first negative x, (gamma, delta) = (100, 0.3)        line 152  chapter 17.3                   mine 17.34 (fine grid 17.334, prediction 18.1) agrees
+(gamma, delta) = (100, 0.2): prediction 27.21 (chapter 27.2); first negative on the step 0.01 grid 25.38 (N = 1700), refined crossing 25.376377; N = 1500: grid 25.38; fine grid (step 0.0005): 25.3765, refined 25.376377; chapter 25.4
+CLAIM first negative x, (gamma, delta) = (100, 0.2)        line 152  chapter 25.4                   mine 25.38 (fine grid 25.3765, prediction 27.2) agrees
+(gamma, delta) = (1000, 0.3): prediction 33.49 (chapter 33.5); first negative on the step 0.01 grid 32.83 (N = 1700), refined crossing 32.829226; N = 1500: grid 32.83; fine grid (step 0.0005): 32.415, refined 32.414653; chapter 32.9
+CLAIM first negative x, (gamma, delta) = (1000, 0.3)       line 152  chapter 32.9                   mine 32.83 (fine grid 32.415, prediction 33.5) differs
+window minima of D (actual zeros, windows of length 0.4): minimum over all windows 0.04269 at x = 25.50, maximum 0.07733
+wrote /Users/vsokolov/Dropbox/papers/computing_rh_book/fig/yo_D.pdf
+wrote /Users/vsokolov/Dropbox/papers/computing_rh_book/fig/yo_off.pdf
+
+total 6.8 s

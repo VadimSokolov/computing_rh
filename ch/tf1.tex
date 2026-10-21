@@ -1,0 +1,61 @@
+\section{Three families, and the tilt}\label{tf:sec:intro}
+
+Let $\xi$ be Riemann's function, with zeros $\rho=\beta+i\gamma$, and $\Xi(\theta)=\xi(\tfrac12+i\theta)$. The centre clock is the variable $T\ge0$ with
+\[
+\E\big[e^{-uT}\big]=\frac{\xi(\tfrac12)}{\xi(\tfrac12+\sqrt u)},\qquad u\ge0,
+\]
+which exists with no hypothesis (Theorem~\ref{thm:ch12:idsd}) and is a GGC exactly under RH, with Thorin measure $\sum_{\gamma>0}\delta_{\gamma^2}$ (Proposition~\ref{prop:rigid}). Heights are written $h$ in this chapter. A basepoint $\alpha=\tfrac12+\varepsilon$ is also called the level $\varepsilon$, the resolution of Section~\ref{ch:clock}. Put
+\[
+\sigma_{\max}=\sup_\rho\,\re\rho\in[\tfrac12,1],
+\]
+so that RH is $\sigma_{\max}=\tfrac12$. Since $\beta<1$ for every zero, every level $\varepsilon\ge\tfrac12$ lies strictly to the right of every zero, $\varepsilon>\beta-\tfrac12$, whether or not $\sigma_{\max}<1$; the latter is the quasi Riemann hypothesis, and the zero free half plane $\re s>\tfrac78$ announced in October 2026~\cite{OAI26a} (Section~\ref{sec:ch25:open}), not yet refereed, would give $\sigma_{\max}\le\tfrac78$.
+
+The book meets the clock inside three one parameter families, each containing it as the boundary case $p=0$:
+\begin{enumerate}
+\item[(A)] the \emph{tilt} $u_0\ge0$, the Esscher transform $\xi(\tfrac12+\sqrt{u_0})/\xi(\tfrac12+\sqrt{u_0+u})$ (Theorem~\ref{bp:thm:sub} and Corollary~\ref{bp:cor:kent} at $u_0=\tfrac14$);
+\item[(B)] the \emph{basepoint} $\alpha=\tfrac12+\varepsilon$, the shifted clock $\xi(\alpha)/\xi(\alpha+\sqrt u)$, whose Thorin density is a sum of Cauchy kernels over the zeros (Theorem~\ref{thm:poisson} and Proposition~\ref{prop:struct});
+\item[(C)] the \emph{heat time} $t\ge0$, the clock of the de Bruijn Newman function $H_t$ (Section~\ref{sec:ch21:flow} and Theorem~\ref{rz:thm:dbn}).
+\end{enumerate}
+This chapter adds the converse half of the Poisson semigroup and the deconvolution form of RH (Theorems~\ref{tf:thm:poisson}(b) and~\ref{tf:thm:deconv}), the measured exponents of Table~\ref{tf:tab:mellin} for the smoothed prime sums, and, in Section~\ref{tf:sec:window}, the visibility curve at every level with its closed forms in three lattice models and its level count.
+
+\begin{proposition}[Invertible families do not localise the difficulty]\label{tf:prop:noinfo}
+Let $\{S_p\}_{p\ge0}$ be maps on a set $\mathcal D$ of Laplace transforms, with $S_0$ the identity. If each $S_p$ is injective on $\mathcal D$, maps GGC Laplace transforms in $\mathcal D$ to GGC Laplace transforms, and has an inverse on $S_p(\mathcal D)$ that does the same, then for every $\varphi\in\mathcal D$ and every $p$, $S_p\varphi$ is a GGC Laplace transform exactly when $\varphi$ is.
+\end{proposition}
+
+\begin{proof}
+If $\varphi$ is a GGC transform so is $S_p\varphi$, and if $S_p\varphi$ is one so is $S_p^{-1}S_p\varphi=\varphi$.
+\end{proof}
+
+In such a family the Thorin property is equally hard at every parameter: knowing it at some $p>0$ would already prove RH. The tilt is a family of this kind, and no unconditional point is known in it. The basepoint and heat families are not of this kind: the property is known at $\varepsilon\ge\tfrac12$ and at $t\ge0.2$, and their inverses do not preserve it. The two fail in opposite ways. The inverse of the Cauchy smoothing is an unbounded operator, with Fourier multiplier $e^{a|x|}$, so the step towards RH is an ill posed computation. The inverse of the heat flow is bounded, a Gaussian average, so the step towards RH is a stable computation; but by Corollary~\ref{tf:cor:average} a property that Gaussian averaging preserves and that implies real zeros holds for no $H_t$.
+
+\subsection{The tilt: invertible and uninformative}\label{tf:sec:tilt}
+
+Write $G(u)=\xi(\tfrac12+\sqrt u)/\xi(\tfrac12)$ as in Section~\ref{ch:clock}, an entire function of $u$, and for $u_0\ge0$
+\[
+\widetilde\varphi_{u_0}(u)=\frac{G(u_0)}{G(u_0+u)},\qquad u\ge0 ,
+\]
+the Laplace transform of the clock tilted by $e^{-u_0T}$, that is of the variable $\widetilde T_{u_0}$ with law $e^{-u_0t}P(T\in dt)/\E e^{-u_0T}$ (the $\widetilde T$ of Theorem~\ref{bp:thm:sub} for $u_0=\tfrac14$). Each pair $\{\rho,1-\rho\}$ of zeros gives the number $a_\rho=-(\rho-\tfrac12)^2=\gamma_\rho^2=\gamma^2-(\beta-\tfrac12)^2-2i\gamma(\beta-\tfrac12)$, the $a_k$ of~\eqref{eq:ch2:hadamard}, where $\gamma_\rho=-i(\rho-\tfrac12)=\gamma-i(\beta-\tfrac12)$ is the complex ordinate of $\rho$, and Hadamard's product~\eqref{eq:ch2:hadamard} gives $G(u)=\prod(1+u/a_\rho)$, absolutely convergent since $\sum|a_\rho|^{-1}<\infty$. On the line $a_\rho=\gamma^2$.
+
+\begin{theorem}[The tilt family]\label{tf:thm:tilt}
+\begin{enumerate}
+\item[(a)] For $u_1\ge0$,
+\[
+\widetilde\varphi_{u_0+u_1}(u)=\frac{\widetilde\varphi_{u_0}(u_1+u)}{\widetilde\varphi_{u_0}(u_1)},
+\]
+so the forward tilt is the Esscher transform by $e^{-u_1\widetilde T_{u_0}}$, and it maps GGCs to GGCs, moving the Thorin measure up by $u_1$. Backward, if $\widetilde\varphi_{u_0+u_1}$ is a GGC transform with Thorin measure in $(u_1,\infty)$, then
+\[
+\widetilde\varphi_{u_0}(u)=\frac{\widetilde\varphi_{u_0+u_1}(u-u_1)}{\widetilde\varphi_{u_0+u_1}(-u_1)}
+\]
+is a GGC transform, with the Thorin measure moved down by $u_1$; the denominator is $G(u_0+u_1)/G(u_0)$, finite and positive.
+\item[(b)] $\widetilde\varphi_{u_0}$ is the Laplace transform of a GGC exactly when every $u_0+a_\rho$ is real and positive. In particular $\im(u_0+a_\rho)=-2\gamma(\beta-\tfrac12)$ does not depend on $u_0$.
+\item[(c)] For $\xi$, the Thorin property at one tilt is equivalent to the property at every tilt and to RH.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(a) The identity is the definition. If $\varphi(u)=\exp(-du-\int\log(1+u/z)\,U(dz))$, then $\varphi(u_1+u)/\varphi(u_1)=\exp(-du-\int\log(1+u/(z+u_1))\,U(dz))$, a GGC with the same drift and the Thorin measure moved up by $u_1$. Backward, if $U$ lies in $(u_1,\infty)$ and $\varphi(-u_1)$ is finite, as it is here, then $\varphi(u-u_1)/\varphi(-u_1)=\exp(-du-\int\log(1+u/(z-u_1))\,U(dz))$, a GGC with the measure moved down. (b) If every $u_0+a_\rho$ is real and positive, $\widetilde\varphi_{u_0}(u)=\prod(u_0+a_\rho)/(u_0+a_\rho+u)$ is the transform of $\sum_\rho e_\rho/(u_0+a_\rho)$ with independent unit exponentials $e_\rho$, a GGC. Conversely a GGC transform extends to an analytic zero free function on $\cut$, while $\widetilde\varphi_{u_0}$ has poles at $u=-(u_0+a_\rho)$, so each of these lies in $(-\infty,0)$. (c) The zeta function has no real zeros in $(0,1)$, so $\gamma\ne0$ for every zero, and $\xi(\tfrac12)\ne0$. By (b) the property at any $u_0$ says that every $a_\rho$ is real, that is $\beta=\tfrac12$; conversely, under RH every $a_\rho=\gamma^2>0$, and (b) gives the property at every $u_0\ge0$.
+\end{proof}
+
+Theorem~\ref{gl:thm:family} states the equivalence for the Dedekind zeta function of every number field and every $u_0\ge0$, and Theorem~\ref{tf:thm:tilt} is its case of $\mathbb Q$.
+
+In the chart $\theta=\sqrt z$ of the Thorin measure the tilt is the deformation $\theta\mapsto\sqrt{\theta^2+u_0}$ of the atoms, not a smoothing. What the tilt can move is real zeros: for the Dedekind zeta function $\zeta_K$ of a quadratic field $K$ with $\zeta_K(\tfrac12)\ne0$, a real zero $\beta\in(\tfrac12,1)$ of $\zeta_K$, which is a real zero of $L(s,\chi)$ for the quadratic character $\chi$ of $K$, gives a real $a_\rho=-(\beta-\tfrac12)^2<0$, admissible exactly when $u_0>(\beta-\tfrac12)^2$.

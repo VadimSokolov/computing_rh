@@ -1,0 +1,85 @@
+\section{The master theorem route}\label{gl:sec:rmt}
+
+By Theorem~\ref{gl:thm:family} and Remark~\ref{gl:rem:counting}, the Thorin property of the centre clock is equivalent to RH, so a proof of it that avoids the zeros (Problem~\ref{gl:op:direct}) cannot take RH as an input. The route of~\cite{P17} expands $\xi(\tfrac12)/\xi(\tfrac12+\sqrt u)$ term by term and passes to an integral representation of the GGC through the Ramanujan master theorem. We isolate what the extension of Chaudhry and Qadir~\cite{ChaudhryQadir12} settles in that step and what it leaves open.
+
+\subsection{The growth hypothesis}
+
+Chaudhry and Qadir~\cite[\S4]{ChaudhryQadir12} enlarge Hardy's class to $Q_\infty(\kappa,\delta)$ (their $\varepsilon$ is called $\kappa$ here, because $\varepsilon=\alpha-\tfrac12$ in Section~\ref{gl:sec:Lchi}): meromorphic $F(s;0)$, analytic for $\Re(s)<\delta$, not identically zero at the nonpositive integers, with
+\begin{equation}\label{gl:eq:CQ}
+|\Gamma(s)F(s;0)| \le C\,|\tau|^{\kappa(\sigma-\delta)},\qquad s=\sigma+i\tau,\ |\tau|\to\infty,
+\end{equation}
+uniformly for $\sigma_1\le\sigma\le\sigma_2<\delta$. Their Theorem~4.1 grants the master theorem to the class, and their Examples~5.5 and~5.6 place $\zeta(s)/[\Gamma(1-s)\zeta(1-s)]$ and $\zeta(1-s)/[\Gamma(s)\zeta(s)]$ in $Q_\infty(1,\tfrac12)$. The function to which the route applies the theorem is $F(s;0)=\xi(\tfrac12)/\xi(\tfrac12+s)$.
+% CHECK: the pinpoints of ChaudhryQadir12 (Section 4, Theorem 4.1, Examples 5.5 and 5.6) are not verified against the paper (misc/reviews/nick-linnik/review-A.md Section 6, medium confidence).
+
+\begin{lemma}\label{gl:lem:stirling}
+Assume RH, and let $0<\sigma_1\le\sigma_2<\tfrac12$. Then $F(s;0)=\xi(\tfrac12)/\xi(\tfrac12+s)$ satisfies
+\[
+|\Gamma(s)\,\xi(\tfrac12)/\xi(\tfrac12+s)| \le C_\eta\,e^{-\pi|\tau|/4}\,|\tau|^{\sigma/2-9/4+\eta},\qquad |\tau|\ge1,
+\]
+uniformly for $\sigma_1\le\sigma\le\sigma_2$, for every $\eta>0$. In particular the growth condition~\eqref{gl:eq:CQ} of $Q_\infty(1,\tfrac12)$ holds on such strips, with exponential room. By the functional equation the same argument gives, for $-\sigma_2\le\sigma\le-\sigma_1$, the exponent $\tfrac32\sigma-\tfrac94+\eta$, which is smaller.
+\end{lemma}
+
+\begin{proof}
+Write $\xi(\tfrac12+s)=\tfrac12 w(w-1)\pi^{-w/2}\Gamma(w/2)\zeta(w)$ with $w=\tfrac12+s$, so $\tfrac12<\Re w<1$. Stirling's formula $|\Gamma(x+iy)|\asymp|y|^{x-1/2}e^{-\pi|y|/2}$ gives $|\Gamma(w/2)|\asymp|\tau|^{\sigma/2-1/4}e^{-\pi|\tau|/4}$, and $|w(w-1)|\asymp\tau^2$. Under RH, $1/\zeta(w)=O(|\tau|^\eta)$ uniformly for $\Re w\ge\tfrac12+\sigma_1$~\cite[Section~14.2]{Titchmarsh}. So $|1/\xi(\tfrac12+s)|\ll e^{\pi|\tau|/4}|\tau|^{-\sigma/2-7/4+\eta}$, and multiplying by $|\Gamma(s)|\asymp|\tau|^{\sigma-1/2}e^{-\pi|\tau|/2}$ gives the bound. For $-\sigma_2\le\sigma\le-\sigma_1$ use $F(s;0)=F(-s;0)$, which is the functional equation $\xi(\tfrac12+s)=\xi(\tfrac12-s)$, and $|\Gamma(s)/\Gamma(-s)|\asymp|\tau|^{2\sigma}$: the bound at $-s$ has the exponent $-\sigma/2-\tfrac94+\eta$, and the factor $|\tau|^{2\sigma}$ turns it into $\tfrac32\sigma-\tfrac94+\eta$.
+\end{proof}
+
+The strip must avoid $\sigma=0$, where $F(s;0)$ has its poles at $s=i\gamma$. And without RH no polynomial bound for $1/\zeta$ is known on any fixed vertical strip $\sigma_0<\Re w<1$ of the critical strip, so unconditionally the growth condition is only known where $\Re(\tfrac12+s)\ge1$, outside the range of the class.
+
+\subsection{The absolute convergence hypothesis}
+
+With $g$ the density of the clock $T$ (it exists, since $T$ is self decomposable and not degenerate), the interchange of sum and integral requires
+\begin{equation}\label{gl:eq:fubini}
+\int_0^\infty g(y)\,\mathfrak R(z/y)\,dy < \infty,\qquad \mathfrak R(w):=\sum_{k\ge1}b_kw^k,\quad b_k:=\frac{1}{\Gamma(k)}\,\frac{\xi(\tfrac12)}{\xi(\tfrac12+k)}.
+\end{equation}
+
+\begin{lemma}\label{gl:lem:fubini}
+With no hypothesis on the zeros, $\mathfrak R$ is entire of order $\tfrac23$, and~\eqref{gl:eq:fubini} holds for every $z>0$.
+\end{lemma}
+
+\begin{proof}
+Stirling applied to $\Gamma(k/2+1/4)$ gives $\log\xi(\tfrac12+k) = \tfrac{k}{2}\log k + O(k)$, so the coefficients satisfy $\log(1/b_k) = \tfrac{3k}{2}\log k + O(k)$ and $\mathfrak R$ has order $\tfrac23$. In particular $\mathfrak R(w)\le e^{w^{3/4}}$ for $w\ge w_0$, so $\mathfrak R(z/y)$ grows at most like $e^{(z/y)^{3/4}}$ as $y\to0^+$, and convergence is a condition on the left tail of $g$. Stirling's formula for $\xi(\tfrac12+x)$ gives $\log\E[e^{-uT}]=-\log\big(\xi(\tfrac12+\sqrt u)/\xi(\tfrac12)\big)\sim-\tfrac14\sqrt u\log u$ as $u\to\infty$, and the exponential Tauberian theorem of Kasahara~\cite{Kasahara78} converts this into $-\log\Pr(T\le y)\sim\tfrac1{16}\,y^{-1}\log^2(1/y)$ as $y\to0^+$. The clock is self decomposable (Theorem~\ref{thm:ch12:idsd}) with the infinite L\'evy measure $W(x)\,dx/x$, so it has no atom, and it is unimodal~\cite{Yamazato78} (Section~\ref{sb:sec:sd}), with a mode $m>0$ and a density $g$ that is nondecreasing on $(0,m)$. Hence $g(y)\le y^{-1}\Pr(T\le2y)$ for $2y\le m$, that is, $g(y)\le y^{-1}\exp\{-\tfrac1{32}\,y^{-1}\log^2(1/y)\,(1+o(1))\}$, which beats $e^{(z/y)^{3/4}}$ since $1>\tfrac34$. For $y\ge y_0$ the argument $z/y$ stays in $[0,z/y_0]$, where $\mathfrak R$ is bounded, and $\int g=1$.
+\end{proof}
+
+\subsection{What remains open}\label{gl:sec:rmt-open}
+
+Two obstructions remain.
+\begin{enumerate}
+\item[(i)] \emph{The poles at the zeros.} The class requires analyticity on $\Re s<\tfrac12$, and the residue argument of Chaudhry and Qadir assumes that the only poles are those of $\Gamma(s)$. But $\xi(\tfrac12)/\xi(\tfrac12+s)$ has further poles at $s=\rho-\tfrac12$, which lie on $\Re s=0$ under RH and in the strip $|\Re s|<\tfrac12$ in general, so it is not in $Q_\infty(1,\tfrac12)$ with or without RH. A contour argument that handles them is available only once their location is known, and assuming it is assuming RH.
+\item[(ii)] \emph{The $\sqrt u$ distortion.} The theorem of Chaudhry and Qadir is stated on vertical strips in the variable $s$, while the Laplace variable of the clock is $u=s^2$, and the squaring map carries the strip $|\Re s|<1$ onto the parabolic region $\{|\Im u|<2\sqrt{1-\Re u}\}$. Whether the master theorem survives this change of variable needs a separate argument; Proposition~\ref{tx:prop:hardy} gives it in the shifted variable $w=u-1$, where it holds and is empty.
+\end{enumerate}
+
+\subsection{The master theorem in other variables}\label{tx:sec:vars}
+
+Hardy's class consists of the $\varphi$ analytic on $\Re w\ge-\delta$ ($0<\delta<1$) with $|\varphi(v+i\tau)|\le Ce^{Pv+A|\tau|}$, $A<\pi$; for them $\int_0^\infty x^{w-1}\sum_{k\ge0}(-x)^k\varphi(k)/k!\,dx=\Gamma(w)\varphi(-w)$ on $0<\Re w<\delta$.
+
+\begin{proposition}\label{tx:prop:hardy}
+The function $\varphi(w)=\xi(\tfrac32)/\xi(\tfrac12+\sqrt{1+w})$, with the principal root, is analytic and bounded on $\Re w\ge-\delta$. Hence it is in Hardy's class with $P=0$ and any $A$, with no hypothesis on the zeros. The image of $\Re w\ge-\delta$ under $w\mapsto\frac12+\sqrt{1+w}$ lies in $\{\sigma+i\tau:\sigma-\frac12\ge\sqrt{1-\delta+\tau^2}\}$, which contains no zero, so the identity carries no information on them.
+\end{proposition}
+
+\begin{proof}
+Let $z=x+iy=\sqrt{1+w}$. Then $x^2-y^2=\Re(1+w)\ge1-\delta>0$, which gives the region ($\sigma-\frac12=x$, $\tau=y$) and shows that $|\arg z|<\frac\pi4$ and $|z|^2\ge1-\delta$. A zero $\rho=\beta+i\gamma$ with $\frac12+z=\rho$ would need $|\gamma|<\beta-\frac12<\frac12$, but $|\gamma|>14$, so $\varphi$ is analytic. For large $|z|$, $\Re(\frac12+z)\ge\frac12+|z|/\sqrt2>1$ and $\zeta(\frac12+z)\to1$, so Stirling gives $\log|\xi(\frac12+z)|=\frac12|z|(\cos\theta\log|z|-\theta\sin\theta)(1+o(1))$ with $\theta=\arg z$, and $\cos\theta\ge1/\sqrt2$. Thus $\xi(\frac12+z)$ grows faster than any $e^{c|z|}$ and $\varphi$ is bounded.
+\end{proof}
+
+By contrast, the Thorin property is a statement on the cut $w\in(-\infty,-1]$, which maps onto the critical line. This does not contradict Lemma~\ref{gl:lem:stirling}, which concerns the variable $s$ and needs RH. The other two variables fail for exact reasons.
+
+\emph{The variable $\alpha$.} Fix $s>0$ and $\delta<\min(1,\sqrt s)$. The function $a\mapsto\xi(1+a)/\xi(1+a+\sqrt s)$ is analytic on $\Re a\ge-\delta$, since $\Re(1+a+\sqrt s)>1$ there, and of polynomial growth by Stirling and the convexity bound for $\zeta$. The master theorem evaluates $\xi(\alpha)/\xi(\alpha+\sqrt s)$ at $\alpha=1-w\in(1-\delta,1)$, but only while $\alpha+\sqrt s>1$, in the region of the Euler product. Letting $s\to0$, which the Thorin property at $\alpha$ requires, needs $\delta\to0$ unless there is a zero free strip $\beta\le1-\delta$, that is $\Theta\le1-\delta$ for $\Theta=\sup\beta$, which is not known for any $\delta>0$. So the route is exactly as strong as the hypothesis on $\Theta$ it needs.
+
+\emph{The Thorin variable.} Unconditionally $\xi(\frac12)/\xi(\frac12+\sqrt u)=\exp\{-\int_0^\infty(1-e^{-ut})W(t)\,dt/t\}$ with $W(t)=\sum_{\Im\rho>0}e^{-\lambda_\rho t}$, $\lambda_\rho=-(\rho-\frac12)^2$, as in Theorem~\ref{thm:ch12:idsd}. The master theorem needs $W$ to be given by a Taylor series at $0$. But $W(t)\sim\log(1/t)/(8\sqrt{\pi t})$ (Section~\ref{ch:heat}), so $W$ has none: its Mellin transform is $\Gamma(w)Z(w)$ with $Z(w)=\sum_{\Im\rho>0}\lambda_\rho^{-w}$, convergent for $\Re w>\frac12$, and the singular term gives the double pole $\int_0^1t^{w-3/2}\log(1/t)\,dt=(w-\frac12)^{-2}$, whereas a Taylor series would give only simple poles at $w=0,-1,\dots$.
+
+\subsection{Why the square root stays}\label{tx:sec:nosqrt}
+
+Let $L$ be the class of the functions $s\mapsto\E e^{-sX}$, $X$ a real random variable, finite on an interval.
+
+\begin{theorem}\label{tx:thm:nosqrt}
+\begin{enumerate}
+\item[(a)] For every real $\alpha$, $s\mapsto\xi(\alpha)/\xi(\alpha+s)$ is not in $L$, whether or not RH holds.
+\item[(b)] For every real $\alpha$, $t\mapsto\xi(\alpha+it)/\xi(\alpha)$ is, unconditionally, the characteristic function of the density $\Phi(u)e^{(\alpha-\frac12)u}/\xi(\alpha)$, with $\Phi$ of~\eqref{eq:ch2:Phi}, but it is never infinitely divisible, hence never an EGGC. At $\alpha=\frac12$ it is the member $\Xi(t)/\Xi(0)$ of the van Dantzig pair of Theorem~\ref{thm:ch12:idsd}.
+\item[(c)] For every real $\alpha$, $t\mapsto\xi(\alpha)/\xi(\alpha+it)$ is unbounded, so it is not a characteristic function.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(a) By Stirling, $\log\{\xi(\alpha)/\xi(\alpha+s)\}=-\frac12s\log s\,(1+o(1))$, while, if $\E e^{-sX}$ agreed with it on an interval, it would be finite and agree with it on all of $\mathbb R$, since the transform of a positive measure is singular at the real end points of its interval of convergence \cite{Widder41} and $\xi(\alpha)/\xi(\alpha+s)$ is analytic near the real axis; then $\E e^{-sX}\ge\Pr(X\le M)e^{-sM}$ decays at most exponentially as $s\to\infty$. (b) $\Phi$ is even and positive, since $2\pi n^2e^{2u}>3$ for $u\ge0$, and $\xi(\frac12+iz)=\int_{\mathbb R}\Phi(u)e^{izu}du$ continues to $z=t-i(\alpha-\frac12)$, which gives the density, integrable because $\Phi(u)=O(e^{\frac92|u|-\pi e^{2|u|}})$. The function is entire in $t$ and vanishes at $t=\gamma-i(\beta-\alpha)$ for every zero $\rho$, whereas an infinitely divisible law with $\E e^{cX}<\infty$ for every real $c$ has $\E e^{zX}=e^{\psi(z)}$ for every complex $z$, with $\psi$ its L\'evy Khintchine exponent \cite{Sato99}, so its characteristic function has no zero in $\mathbb C$. (c) $|\xi(\alpha+it)|\to0$ faster than any power.
+\end{proof}
+
+The EGGC reading of the reciprocal that survives is therefore the symmetric one, $\xi(\alpha)/\xi(\alpha+|t|)=\E e^{-t^2H}$, with $H$ a GGC when $\alpha\ge\sup_\rho\re\rho$ (Theorem~\ref{thm:poisson}, Section~\ref{sec:ch3:hierarchy}), which contains the square root. Without it, the structure that exists lives on the $\xi$ side and stops at $\alpha=1$. For $\alpha>1$, with $G\sim\mathrm{Gamma}(1+\frac\alpha2,1)$ and $N$ independent, $\Pr(N=n)=n^{-\alpha}/\zeta(\alpha)$, the identity $\xi(s)=(s-1)\pi^{-s/2}\Gamma(1+\frac s2)\zeta(s)$ gives $\xi(\alpha+s)/\xi(\alpha)=(1+\frac s{\alpha-1})\E e^{-sL}$ with $L=\frac12\log\pi-\frac12\log G+\log N$ infinitely divisible, and $\xi(\alpha)/\xi(\alpha+s)$ is the quotient of a gamma transform by an infinitely divisible one, whose L\'evy measure enters with its sign reversed, $1/\E N^{-s}=\zeta(\alpha)\sum_n\mu(n)n^{-\alpha-s}$ being M\"obius signed.

@@ -1,0 +1,163 @@
+\section{GRH from the Thorin property, and families of characters}\label{gl:sec:grh}
+
+\begin{theorem}\label{gl:thm:grh}
+Let $\chi$ be a real primitive character with quadratic field $F$.
+\begin{enumerate}
+\item[(a)] If $\varphi_{F,1}$ is the Laplace transform of a GGC, then RH holds and every nontrivial zero of $L(s,\chi)$ lies on the critical line or is real.
+\item[(b)] If $\varphi_{F,0}$ is the Laplace transform of a GGC, equivalently $\varphi_{F,1}$ is one with Thorin measure in $(1,\infty)$, then $L(s,\chi)$ satisfies GRH and $L(\tfrac12,\chi)\neq0$.
+\end{enumerate}
+If $\varphi_{F_q,0}$ is a GGC Laplace transform for every $q\ge3$, with $F_q=\mathbb Q(\zeta_q)$, then GRH holds for all Dirichlet $L$ functions, and $L(\tfrac12,\chi)\neq0$ for every primitive character $\chi$.
+\end{theorem}
+
+\begin{proof}
+Apply Corollary~\ref{gl:cor:basepoints} to $\zeta_F=\zeta\,L(s,\chi)$, part (b) of the corollary for the tilt $u_0=1$ and part (a) for $u_0=0$; for $\zeta$ itself real zeros in $(0,1)$ are excluded because $\zeta(\sigma)<0$ there, and $\zeta(\tfrac12)\neq0$. The last statement uses equation~\eqref{gl:eq:cyclotomic}: the zeros of $\zeta_{F_q}$ are those of the functions $L(s,\chi)$ for the primitive characters $\chi$ of conductor dividing $q$, and every primitive character of conductor $f\ge3$ occurs for $q=f$. Part (a) of the corollary then puts all of them on the critical line and excludes $L(\tfrac12,\chi)=0$.
+\end{proof}
+
+\begin{remark}[The Siegel zero is a threshold crossing]
+A real zero $\beta$ contributes the atom $u_0-(\beta-\tfrac12)^2$, positive while $u_0>(\beta-\tfrac12)^2$ and crossing zero as the tilt descends to $(\beta-\tfrac12)^2$. A Siegel zero near $1$ pushes the threshold $u_F^*$ of Corollary~\ref{gl:cor:basepoints}(c) towards $\tfrac14$, leaving only tilts above a value near $\tfrac14$.
+\end{remark}
+
+\subsection{Numerical verification for the characters modulo 4 and 5}\label{gl:sec:numchi}
+
+We take $\chi_4$ (odd, so $a=1$) and the real character $\chi_5$ modulo $5$, the Legendre symbol (even, so $a=0$). The numbers are computed by \texttt{gl\_dirichlet.py}, in ball arithmetic where a count or a sign is certified and otherwise in mpmath, except those of the last paragraph, by \texttt{gl\_zeta\_moments.py} (\texttt{code/\allowbreak README.md}). Write $N(T,\chi)$ for the number of zeros of $\xi(s,\chi)$ with $0<\Im s<T$, $\theta_\chi(T)/\pi=\tfrac{T}{2\pi}\log\tfrac{qT}{2\pi e}+\tfrac a4-\tfrac18$ for the smooth count and $S(T,\chi)=N(T,\chi)-\theta_\chi(T)/\pi$ for its fluctuation.
+
+\emph{Zeros.} Sign changes of the real function $\xi(\tfrac12+it,\chi)$ on $0<t<300$ give the first ordinates $6.0209489$ and $6.6484533$. The counts, $203$ and $214$, are certified: the argument principle in ball arithmetic gives $N(300,\chi)=203$ and $214$, equal to the numbers of sign changes, so no zero below $300$ was missed and all are simple and on the line. The smooth counts $\theta_\chi(T)/\pi$ at $T=300$ are $203.15$ and $213.56$, so $S(300,\chi_4)=-0.153$ and $S(300,\chi_5)=+0.443$.
+
+\emph{No real or central zeros.} On a grid of step $0.005$ in $[\tfrac12,1)$ the smallest values of $L(\sigma,\chi)$ are the central ones, $L(\tfrac12,\chi_4)=0.66769$ and $L(\tfrac12,\chi_5)=0.23175$, and ball arithmetic certifies $L(\sigma,\chi)>0$ on $[\tfrac12,2]$, with $32$ pieces and smallest lower bound $0.033$ for $\chi_4$ and $101$ pieces and $0.0031$ for $\chi_5$. Since $\xi(\sigma,\chi)=\xi(1-\sigma,\chi)$ and the gamma factor is positive, $\xi(\sigma,\chi)>0$ on $[0,1]$, so neither function has a real zero in the critical strip, and neither has a central zero. So both Thorin thresholds are $0$, and the untilted clock is available under GRH. For $\chi_4$ the book also certifies the absence of real zeros with a positive kernel (Section~\ref{sec:dbeta:kernel}).
+
+\emph{Power sums.} Let $p_j(\chi)=\sum_{\gamma>0}\gamma^{-2j}$ be the power sums of the ordinates. The zero side is
+\[
+\sum_{0<\gamma<X}\gamma^{-2j}+\int_X^\infty t^{-2j}\,\frac1{2\pi}\log\frac{qt}{2\pi}\,dt,\qquad X=300,
+\]
+the sum over the ordinates below $X$ plus the tail started at $X$. The function side is read from the Taylor coefficients of $\log\xi(\tfrac12+s,\chi)$, in which $s^{2j}$ has the coefficient $(-1)^{j+1}p_j/j$; it uses no zeros. Table~\ref{gl:tab:powersums} gives the two sides.
+
+\begin{table}[htbp]
+\caption{The power sums $p_j(\chi)$ of the ordinates for the characters modulo $4$ and $5$: the zero side, the function side, the relative error, and the difference of the two sides times $300^{2j}$.}
+\label{gl:tab:powersums}
+\centering
+\small
+\begin{tabular}{cccccc}
+\toprule
+$q$ & $j$ & zero side & function side & \shortstack{relative\\error} & \shortstack{difference\\$\times\,300^{2j}$}\\
+\midrule
+$4$ & $1$ & $0.0780131$ & $0.0780148$ & $2.2\times10^{-5}$ & $-0.1512$\\
+ & $2$ & $9.288458\times10^{-4}$ & $9.288458\times10^{-4}$ & $2.0\times10^{-8}$ & $-0.1498$\\
+ & $3$ & $2.216962\times10^{-5}$ & $2.216962\times10^{-5}$ & $9.2\times10^{-12}$ & $-0.1484$\\
+\midrule
+$5$ & $1$ & $0.0784620$ & $0.0784571$ & $6.3\times10^{-5}$ & $0.4423$\\
+ & $2$ & $7.178001\times10^{-4}$ & $7.178001\times10^{-4}$ & $7.6\times10^{-8}$ & $0.4414$\\
+ & $3$ & $1.316152\times10^{-5}$ & $1.316152\times10^{-5}$ & $4.6\times10^{-11}$ & $0.4405$\\
+\bottomrule
+\end{tabular}
+\end{table}
+With $N(t,\chi)=\theta_\chi(t)/\pi+S(t,\chi)$, integration by parts gives the error of a tail started at the height $X$ as $S(X,\chi)X^{-2j}-2j\int_X^\infty S(t,\chi)\,t^{-2j-1}\,dt$, up to the difference between the density of the tail and $\theta_\chi'/\pi$, which is of order $X^{-2j-1}$. So the error falls with $j$ like $X^{-2j}$, and it is not of the size $X^{1-2j}\log X$ of the tail itself. In Table~\ref{gl:tab:powersums} the last column is within $3$ percent of $S(300,\chi_4)=-0.1526$ and $S(300,\chi_5)=+0.4431$ for every $j$.
+
+\emph{Transfer function and products.} The transfer function $\mathfrak T_\chi(t)$, the ratio $\xi(\tfrac12+it,\chi)/\xi(\tfrac12+t,\chi)$, has the values $\mathfrak T_{\chi_4}(2)=0.53522$ and $\mathfrak T_{\chi_4}(5)=0.014573$. The Hadamard product $\prod_{\gamma>0}(1+s^2/\gamma^2)$ at $s=3$, over the $203$ and $214$ ordinates with the tail started at $300$, is $1.9524380$ and $1.9736682$, against $\xi(\tfrac72,\chi)/\xi(\tfrac12,\chi)=1.9524675$ and $1.9735809$ for $\chi_4$ and $\chi_5$. The relative differences, $-1.5\times10^{-5}$ and $+4.4\times10^{-5}$, are the size $S(300,\chi)\,s^2/300^2$ of the fluctuation term of the tail. A match at this level does not by itself show that the product has no exponential factor; that is Lemma~\ref{gl:lem:product}, whose argument covers $\xi(s,\chi)$ for a real character, because $\xi(\tfrac12+s,\chi)$ is even in $s$ (Proposition~\ref{gl:prop:Lreal}).
+
+\emph{Negative moments and the tilt.} The negative moments, computed as the Mellin integral of equation~\eqref{gl:eq:negmom} for $\xi(s,\chi)$, are
+\[
+\E\big[T_{\chi_4}^{-1/2}\big] = 3.7574677\ldots,\qquad \E\big[T_{\chi_5}^{-1/2}\big] = 3.7097072\ldots,
+\]
+smaller than $6.7333$ for $\zeta$ because the first zeros are lower. In equation~\eqref{gl:eq:chi-classical}, $(\xi'/\xi)(1,\chi_4)=0.0777840$ and $(\xi'/\xi)(1,\chi_5)=0.0782785$. The difference from $p_1(\chi)$ is $2.30835\times10^{-4}$ for $\chi_4$ and $1.78632\times10^{-4}$ for $\chi_5$; the series of equation~\eqref{gl:eq:classical-series} through $j=12$ agrees to $3\times10^{-28}$. Since $\xi(1,\chi_4)=\tfrac4\pi\cdot\tfrac\pi4=1$, $\E[e^{-T_{\chi_4}/4}]=\xi(\tfrac12,\chi_4)=0.9807136$, and the product over the zeros with the tail gives $0.9807140$, a relative difference of $4.2\times10^{-7}$.
+
+\emph{The tilt $u_0=1$.} For $\zeta$, the product $\prod_\gamma(1+\gamma^2)/(1+\gamma^2+s)$ over the first $400$ ordinates with the Riemann von Mangoldt tail started at $\gamma_{400}$ matches $\xi(\tfrac32)/\xi(\tfrac12+\sqrt{1+s})$ to the tail error: the zero side is $0.9332865$ against $0.9332901$ at $s=3$, a relative difference of $3.8\times10^{-6}$, and $0.3287603$ against $0.3287814$ at $s=50$, a relative difference of $6.4\times10^{-5}$. With the anchored tail of equation~\eqref{gl:eq:anchored} the differences are $9.5\times10^{-9}$ and $1.6\times10^{-7}$.
+
+\subsection{The family: sum and mixture}\label{gl:sec:family}
+
+The cyclotomic field settles one family question. By Proposition~\ref{gl:prop:dedekind}, the independent sum of the character variables of conductor dividing $q$ is the Thorin variable of $\mathbb Q(\zeta_q)$, a GGC whenever the Thorin property holds there. Averages are another matter. Let $\mathcal F_q$ be the real primitive characters modulo $q$ together with one representative of each conjugate pair of complex ones, and let $T^{(q)}$ be the variable of a uniformly chosen member, under GRH for the members and with their central values nonzero, so that their clocks exist (Propositions~\ref{gl:prop:Lreal} and~\ref{gl:prop:Lcomplex}). Its moments are the averages
+\[
+\E\big[(T^{(q)})^k\big] = \frac{1}{|\mathcal F_q|}\sum_{\mathcal F_q}\E[T_\bullet^k],
+\]
+but the next proposition shows that $T^{(q)}$ is in general not a GGC. Here the Thorin measures of the members are sums of unit point masses, repeated according to multiplicity, so their Laplace transforms $\varphi_i(s)=\prod_t t/(t+s)$ are meromorphic on $\C$ with poles at the points $s=-t$.
+
+\begin{proposition}[Mixtures of clocks]\label{gl:prop:mixture}
+Let $\varphi_1,\varphi_2$ be Laplace transforms of GGCs with zero drift and Thorin measures $U_1,U_2$ that are sums of unit point masses, repeated according to multiplicity, let $0<\lambda<1$, and put $\varphi=\lambda\varphi_1+(1-\lambda)\varphi_2$.
+\begin{enumerate}
+\item[(a)] If $\varphi(-x)=0$ for some $x>0$ that is not an atom of $U_1$ or $U_2$, then $\varphi$ is not the Laplace transform of a GGC.
+\item[(b)] Let $t_1<t_2$ be consecutive points of $\operatorname{supp}U_1\cup\operatorname{supp}U_2$ with $t_1$ an atom of only one of the measures and $t_2$ an atom of only the other. If $U_1+U_2$ has an odd number of atoms in $(0,t_1]$, counted with multiplicity, then $\varphi$ has a zero in $(-t_2,-t_1)$, so $\varphi$ is not the Laplace transform of a GGC, for any $\lambda$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(a) Suppose $\varphi=g$ on $(0,\infty)$ with $g(s)=\exp(-ds-\int\log(1+s/t)\,U(dt))$. Both are analytic on $\C\setminus(-\infty,0]$, so they agree there. For $|s|\le x+1$ off the negative axis, $|1+s/t|\le1+(x+1)/t$, so $|g(s)|\ge\exp(-d(x+1)-\int\log(1+(x+1)/t)\,U(dt))>0$, the integral being finite by the conditions on a Thorin measure. Letting $s\to-x$ from the upper half plane, $\varphi(s)\to\varphi(-x)=0$ because $-x$ is not a pole, a contradiction. (b) For $y>0$ off the atoms, $\varphi_i(-y)=\prod_tt/(t-y)$ has the sign $(-1)^{N_i(y)}$, with $N_i(y)$ the number of atoms of $U_i$ in $(0,y)$. Say $t_1$ is an atom of $U_1$ and $t_2$ of $U_2$. As $y\downarrow t_1$, $|\varphi_1(-y)|\to\infty$ while $\varphi_2(-y)$ stays bounded, so $\varphi(-y)$ has the sign $(-1)^{n_1}$, where $n_i$ is the number of atoms of $U_i$ in $(0,t_1]$. As $y\uparrow t_2$, $\varphi_2$ dominates and the sign is $(-1)^{n_2}$, since $U_2$ has no atom in $(t_1,t_2)$. These signs differ when $n_1+n_2$ is odd, and the intermediate value theorem gives the zero; (a) applies.
+\end{proof}
+
+Part (b) concerns two clocks. If no atom is common to the two measures, its hypothesis fails only when every maximal run of consecutive atoms of one measure, except the last run, has an even number of atoms (counted with multiplicity), because the numbers of atoms at the changes from one measure to the other are the partial sums of the run lengths; the odd configuration of (b) is the case in which some such partial sum is odd.
+
+Modulo $5$ the family has two members, $\chi_5$ and the conjugate pair $\{\psi,\bar\psi\}$ with $\psi(2)=i$, so that $\lambda=\tfrac12$ is the uniform average. Under GRH and with $L(\tfrac12,\chi_5)L(\tfrac12,\psi)\neq0$ the clocks of the two members are the Thorin variables of Propositions~\ref{gl:prop:Lreal} and~\ref{gl:prop:Lcomplex}, the second for the product $\xi_{\psi\bar\psi}(s)=\xi(s,\psi)\,\xi(s,\bar\psi)$; numerically $L(\tfrac12,\chi_5)=0.23175$ and $L(\tfrac12,\psi)=0.76375+0.21696\,i$, with enclosures that exclude $0$ (the part \texttt{central} of \texttt{gl\_mixture\_mod5.py}, at $128$ bits). In the variable $y=\sqrt{-s}$ the atoms are the ordinates: for the pair $4.1329037$, $6.1835782$, $8.4572292$, $9.4429311$ (the absolute values of the ordinates of $L(s,\psi)$), and for $\chi_5$ $6.6484533$, $9.8314444$. These are all the atoms below $9.84$: the argument principle certifies exactly $3$ zeros of $\xi(\tfrac12+it,\chi_5)$ and $5$ zeros of $L(s,\psi)$, two with positive and three with negative ordinate, below height $12$. Three atoms lie in $(0,6.6484533]$, and the next atom belongs to the pair, so by (b) the mixture vanishes between $y=6.6484533$ and $y=8.4572292$ for every $\lambda$; the same happens between $9.4429311$ and $9.8314444$, with five atoms below.
+
+Numerically, on the negative axis the mixture is $M_\lambda(y)=\lambda A(y)+(1-\lambda)B(y)$, with $A(y)=\xi(\tfrac12,\chi_5)/\xi(\tfrac12+iy,\chi_5)$ and $B(y)=\xi_{\psi\bar\psi}(\tfrac12)/\xi_{\psi\bar\psi}(\tfrac12+iy)$. We computed it in ball arithmetic at $128$ bits for $\lambda=0.01$, $0.1$, $0.5$, $0.9$ and $0.99$. In all ten cases the signs at the two ends of the interval are opposite, and each interval contains exactly one zero (the argument principle on a thin rectangle about the interval gives the count); Table~\ref{gl:tab:mixture} lists the zeros.
+
+\begin{table}[htbp]
+\caption{The zero $y$ of the mixture $M_\lambda=\lambda A+(1-\lambda)B$ modulo $5$ in each of the two intervals between a pole of $A$ and a pole of $B$, for five weights; each interval contains exactly one zero.}
+\label{gl:tab:mixture}
+\centering
+\small
+\begin{tabular}{ccc}
+\toprule
+$\lambda$ & zero in $(6.6484533,\,8.4572292)$ & zero in $(9.4429311,\,9.8314444)$\\
+\midrule
+$0.01$ & $6.64874689$ & $9.83141547$\\
+$0.1$ & $6.65169528$ & $9.83112598$\\
+$0.5$ & $6.67865792$ & $9.82859297$\\
+$0.9$ & $6.98112355$ & $9.80692785$\\
+$0.99$ & $8.03540132$ & $9.65957988$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{proposition}[The family modulo $5$]\label{gl:prop:mod5}
+Under GRH for $L(s,\chi_5)$ and $L(s,\psi)$, for every $\lambda\in(0,1)$ the function $\lambda\,\xi(\tfrac12,\chi_5)/\xi(\tfrac12+\sqrt u,\chi_5)+(1-\lambda)\,\xi_{\psi\bar\psi}(\tfrac12)/\xi_{\psi\bar\psi}(\tfrac12+\sqrt u)$ of $u\ge0$ is not the Laplace transform of a GGC. In particular the variable $T^{(5)}$, the case $\lambda=\tfrac12$, is not a GGC.
+\end{proposition}
+
+\begin{proof}
+The central values are nonzero, as computed, so under GRH the clocks of the two members are the Thorin variables of Propositions~\ref{gl:prop:Lreal} and~\ref{gl:prop:Lcomplex}, whose Thorin measures are sums of unit point masses at the squared ordinates. The certified atoms above put the two members in the odd configuration of Proposition~\ref{gl:prop:mixture}(b). The location of the zeros uses no hypothesis; the hypothesis enters only through the identification of the Thorin measures of the two members.
+\end{proof}
+
+\subsection{Landau Siegel zeros and the twisted heat trace}\label{gl:sec:landau}
+
+Let $\chi$ be a primitive real character of conductor $q\ge3$. Siegel's theorem gives $1-\beta\gg_\varepsilon q^{-\varepsilon}$ for a real zero $\beta$ of $L(s,\chi)$, with an ineffective constant, and the classical effective bound is only $1-\beta\gg q^{-1/2}\log^{-2}q$ \cite{Davenport}.
+
+\begin{theorem}[Banks, Kerr; unrefereed]\label{gl:thm:ls}
+There are absolute constants $q_0$ and $\delta_0>0$ such that for every primitive real character $\chi$ of conductor $q\ge q_0$, every real zero $\beta\in(0,1)$ of $L(s,\chi)$ satisfies $(1-\beta)\log q\ge\delta_0$. Banks gives $q_0=10^{10}$ and $\delta_0=3.0\times10^{-3}$.
+\end{theorem}
+
+The preprints \cite{Banks26,Kerr26} are dated October 2026 and have not been refereed (Section~\ref{gl:sec:linnik}). Banks describes the proof as an arithmetic comparison of the archimedean and the $p$ adic size of an interpolation determinant in the field $\mathbb Q(\sqrt2,\sqrt{\chi(-1)q})$, and Kerr gives a simplification; we have not checked either. The half plane $\Re s>\tfrac78$ for every Dirichlet $L$ function reported in Section~\ref{gl:sec:linnik} \cite{OAI26a}, if it stands, would give $1-\beta\ge\tfrac18$ for every real zero and so imply Theorem~\ref{gl:thm:ls} for every $q\ge3$. Banks refers to a proof by OpenAI; whether that is the release of \cite{OAI26a} we cannot say.
+
+\paragraph{The twisted heat trace.} Let $z_\rho=(\rho-\tfrac12)^2$, the variable of this chapter (the atom of a zero is $u_0-z_\rho$, Theorem~\ref{gl:thm:family}), so that $z_\rho=-\gamma^2$ for $\rho=\tfrac12+i\gamma$ and $z_\rho=(\beta-\tfrac12)^2>0$ for a real zero $\beta$. As in Section~\ref{ch:heat}, with the zeros counted with multiplicity and $t>0$ the heat time, the twisted heat trace is
+\[
+W(t;\chi)=\sum_{\Im\rho>0}e^{tz_\rho}+\tfrac12\sum_{\rho\ \mathrm{real}}e^{tz_\rho}.
+\]
+This symbol $W(t;\chi)$ is not the root number $W_\chi$ of Section~\ref{gl:sec:Lchi}, which equals $1$ for real $\chi$. If $L(\tfrac12,\chi)\ne0$ and $|\gamma|>|\beta-\tfrac12|$ for every zero $\beta+i\gamma$ (so that $\Re(-z_\rho)>0$ and the integral converges), then for $u\ge0$
+\[
+\log\frac{\xi(\tfrac12+\sqrt u,\chi)}{\xi(\tfrac12,\chi)}=\int_0^\infty(1-e^{-ut})\,\frac{W(t;\chi)}{t}\,dt,
+\]
+and the ratio $\xi(\tfrac12,\chi)/\xi(\tfrac12+\sqrt u,\chi)$ is the Laplace transform of a GGC if and only if $W(\cdot\,;\chi)$ is completely monotone, which as in Section~\ref{ch:heat} is the ladder $(-1)^kW^{(k)}(t;\chi)>0$. The Gaussian explicit formula, with $a\in\{0,1\}$ the parity of $\chi$ and $\psi$ the digamma function, reads
+\begin{equation}\label{gl:eq:ef}
+\begin{split}W(t;\chi)&=\frac{\log(q/\pi)}{4\sqrt{\pi t}}+\frac1{4\pi}\int_{-\infty}^{\infty}e^{-tr^2}\Re\,\psi\Big(\frac{1+2a}{4}+\frac{ir}2\Big)dr\\&\qquad-\frac1{2\sqrt{\pi t}}\sum_{n\ge2}\frac{\Lambda(n)\chi(n)}{\sqrt n}\,e^{-(\log n)^2/4t}.\end{split}
+\end{equation}
+Compared with the formula for $\xi$ in equation~\eqref{eq:ch2:Warith} the polar term $e^{t/4}$ is absent, because $L(s,\chi)$ is entire, $-\log\pi$ in $m(r)$ becomes $-\log(\pi/q)$, and the prime sum carries the factor $\chi(n)$.
+
+\paragraph{A real zero as a failure of rung one.} A real zero $\beta\in(\tfrac12,1)$ and its mirror $1-\beta$ contribute together the single term $e^{ct}$ with $c=(\beta-\tfrac12)^2=\tfrac14-\beta(1-\beta)$, which grows with $t$. This is the defect that a complex off line pair cannot model in Theorem~\ref{xg:thm:defect}, whose defect needs a nonzero imaginary part.
+
+\begin{proposition}\label{gl:prop:rung1}
+Let $\beta\in(\tfrac12,1)$ be the largest real zero of $L(s,\chi)$, suppose every nonreal zero of $L(s,\chi)$ lies on the critical line, and put $c=(\beta-\tfrac12)^2$. Then $W(t;\chi)\to\infty$ and $-W'(t;\chi)<0$ for all $t>t_1=\max\{1,c^{-1}\log(C'\log q/c)\}$, where $C'$ is an absolute constant. If moreover $q\ge q_0$, put $\eta=\delta_0/\log q$; then $c\le\tfrac14-\eta(1-\eta)$, so by Theorem~\ref{gl:thm:ls} the growth rate $c$ of such a term is at least $\eta(1-\eta)$ below the rate $\tfrac14$ of the pole term $e^{t/4}$ of $\zeta$.
+\end{proposition}
+
+\begin{proof}
+Under the hypotheses,
+\[
+W(t;\chi)=\sum_{\gamma>0}e^{-t\gamma^2}+me^{ct}+(\text{terms }e^{c't}\text{ from the other real zeros, }c'\le c),
+\]
+and $-W'(t;\chi)\le\sum_{\gamma>0}\gamma^2e^{-t\gamma^2}-ce^{ct}$. By the bound $N(T,\chi)\ll(T+1)\log(q(T+2))$ for the zero counting function, the sum is at most $C'\log q$ at $t=1$ and decreases in $t$, so $-W'<0$ as soon as $ce^{ct}>C'\log q$, which holds for $t\ge t_1$; and $W\ge e^{ct}\to\infty$. For the last statement, the identity $c=\tfrac14-\beta(1-\beta)$ and $\beta\le1-\eta$ (Theorem~\ref{gl:thm:ls}), with $\beta(1-\beta)$ decreasing on $(\tfrac12,1)$, give $\beta(1-\beta)\ge\eta(1-\eta)$.
+\end{proof}
+
+Thus a real zero with $\beta>1-\eta$, which Theorem~\ref{gl:thm:ls} excludes for $q\ge q_0$, would, under the hypotheses of Proposition~\ref{gl:prop:rung1}, be seen on rung one at the scale $t_1$. The difficulty is uniformity in $q$: for a given $\chi$ of small conductor the verification of GRH by Platt \cite{Platt16} covers a real zero, and for general $q$ equation~\eqref{gl:eq:ef} is the only handle. For complex pairs the book's detection of a pair at height $a$ is Proposition~\ref{prop:ch12:ray}, and nothing in Theorem~\ref{gl:thm:ls} touches complex zeros.
+
+\paragraph{The pole lock, a heuristic.} The prime sum of equation~\eqref{gl:eq:ef} suggests why a zero near $1$ is tied to the primes with $\chi(p)=-1$. Suppose, as a model and not as a claim that such a character exists, that $\chi(p)=-1$ for every prime $p$. The prime term of equation~\eqref{gl:eq:ef} is then
+\[
+\frac1{2\sqrt{\pi t}}\sum_p\frac{\log p}{\sqrt p}\,e^{-(\log p)^2/4t}+O(1)\;\approx\;\frac1{2\sqrt{\pi t}}\int_0^\infty e^{u/2-u^2/4t}\,du=e^{t/4}\,\Phi\big(\sqrt{t/2}\big),
+\]
+where $\Phi$ is the standard normal distribution function and the $O(1)$, which comes from the prime powers (mainly the squares, where $\chi(p^2)=1$) and tends to $-\tfrac14$ as $t\to\infty$, is not negligible for $t\le3$. As $t\to\infty$ this is $e^{t/4}(1+o(1))$: on the prime side, such a character produces the growth that the pole of $\zeta$ produces in equation~\eqref{eq:ch2:Warith}. A real zero $\beta$ is the same picture with the rate reduced from $\tfrac14$ to $(\beta-\tfrac12)^2$, and the reduction $\beta(1-\beta)$ is what Theorem~\ref{gl:thm:ls} bounds below. Numerically (the script \texttt{gl\_pole\_lock.py}, primes up to $6\times10^6$) the ratio of the prime sum to $e^{t/4}$ is $0.402$, $0.510$, $0.645$, $0.735$ This is a heuristic about a hypothetical character.
+
+\paragraph{What does not transfer.} The proof of Theorem~\ref{gl:thm:ls} as Banks describes it is not a positivity statement and not a complete monotonicity statement, and it concerns the single point $s=1$ through the pole of $\zeta_K(s)=\zeta(s)L(s,\chi)$ of the quadratic field $K=\mathbb Q(\sqrt{\chi(-1)q})$ of $\chi$. The Thorin measure is a statement about the whole zero set in the variable $z_\rho$, and we see no way to recast the determinant argument as a rung of the ladder.

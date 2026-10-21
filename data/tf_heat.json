@@ -1,0 +1,252 @@
+{
+ "script": "tf_heat.py",
+ "mode": "full",
+ "parameters": {
+  "dps": 40,
+  "U": "1.5",
+  "legendre_nodes": 200,
+  "legendre_nodes_second_rule": 160,
+  "hermite_nodes": 80,
+  "hermite_nodes_second_rule": 40,
+  "double_precision_legendre": 200,
+  "double_precision_hermite": 80,
+  "node_checks": {
+   "legendre_weight_sum_err": "1.15e-40",
+   "hermite_weight_sum_err": "6.89e-41",
+   "hermite_second_moment_err": "4.59e-41"
+  },
+  "numpy_nodes_against_polished_nodes": {
+   "legendre_max_abs_node_diff": "2.22e-16",
+   "legendre_max_rel_weight_diff": "2.23e-11",
+   "hermite_max_abs_node_diff": "8.88e-16",
+   "hermite_max_rel_weight_diff": "2.73e-14"
+  }
+ },
+ "definition": "Phi_dBN(u) = sum_{n>=1} (2 pi^2 n^4 e^(9u) - 3 pi n^2 e^(5u)) exp(-pi n^2 e^(4u)); H_t(z) = int_0^inf e^(t u^2) Phi_dBN(u) cos(z u) du; Xi(theta) = xi(1/2 + i theta), xi(s) = s(s-1)/2 pi^(-s/2) Gamma(s/2) zeta(s); Rodgers and Tao normalisation, Section sec:ch21:flow of the book",
+ "normalisation": [
+  {
+   "z": "0",
+   "H0_integral": "0.06214009727353926373909671746067471498",
+   "Xi_over_8": "0.06214009727353926373909671746067471498",
+   "abs_diff": "1.435e-42",
+   "rel_diff": "2.309e-41",
+   "digits_agreeing": "40.64",
+   "rule_B_abs_diff_from_A": "1.363e-41",
+   "imag_part_of_Xi_over_8": "0.0"
+  },
+  {
+   "z": "5",
+   "H0_integral": "0.0537448174558512923484166006294729018",
+   "Xi_over_8": "0.0537448174558512923484166006294729018",
+   "abs_diff": "1.435e-42",
+   "rel_diff": "2.67e-41",
+   "digits_agreeing": "40.57",
+   "rule_B_abs_diff_from_A": "1.22e-41",
+   "imag_part_of_Xi_over_8": "1.75e-44"
+  },
+  {
+   "z": "10",
+   "H0_integral": "0.03444374966802552402863029226205195299",
+   "Xi_over_8": "0.03444374966802552402863029226205195299",
+   "abs_diff": "0.0",
+   "rel_diff": "0.0",
+   "digits_agreeing": "all",
+   "rule_B_abs_diff_from_A": "1.148e-41",
+   "imag_part_of_Xi_over_8": "1.88e-43"
+  },
+  {
+   "z": "20",
+   "H0_integral": "0.004745981288866960528010065225227058945",
+   "Xi_over_8": "0.004745981288866960528010065225227058945",
+   "abs_diff": "8.968e-44",
+   "rel_diff": "1.89e-41",
+   "digits_agreeing": "40.72",
+   "rule_B_abs_diff_from_A": "8.789e-42",
+   "imag_part_of_Xi_over_8": "2.14e-44"
+  },
+  {
+   "z": "28.27",
+   "H0_integral": "-0.00000004749890321180184628572771860079387768",
+   "Xi_over_8": "-0.00000004749890321180184628572771860079387913",
+   "abs_diff": "1.453e-42",
+   "rel_diff": "3.059e-35",
+   "digits_agreeing": "34.51",
+   "rule_B_abs_diff_from_A": "8.774e-42",
+   "imag_part_of_Xi_over_8": "2.86e-49"
+  }
+ ],
+ "average": [
+  {
+   "t": "0.2",
+   "s": "0.2",
+   "sigma": "0.632455532034",
+   "z": "0",
+   "H0_reference": "0.06214009727353926373909672",
+   "mp_average": "0.06214009727353926373909671746067471498",
+   "mp_abs_err": "0.0",
+   "mp_rel_err": "0.0",
+   "mp_abs_err_smaller_rules": "1.076e-41",
+   "double_reference_at_nearest_double_z": "0.062140097273539263739",
+   "double_numpy_nodes": {
+    "average": "0.062140097273537184",
+    "abs_err": "2.079e-15",
+    "rel_err": "3.346e-14"
+   },
+   "double_accurate_nodes": {
+    "average": "0.06214009727353929",
+    "abs_err": "2.301e-17",
+    "rel_err": "3.703e-16"
+   }
+  },
+  {
+   "t": "0.2",
+   "s": "0.2",
+   "sigma": "0.632455532034",
+   "z": "10",
+   "H0_reference": "0.03444374966802552402863029",
+   "mp_average": "0.03444374966802552402863029226205195299",
+   "mp_abs_err": "0.0",
+   "mp_rel_err": "0.0",
+   "mp_abs_err_smaller_rules": "1.004e-41",
+   "double_reference_at_nearest_double_z": "0.034443749668025524029",
+   "double_numpy_nodes": {
+    "average": "0.03444374966802319",
+    "abs_err": "2.336e-15",
+    "rel_err": "6.782e-14"
+   },
+   "double_accurate_nodes": {
+    "average": "0.03444374966802553",
+    "abs_err": "9.366e-18",
+    "rel_err": "2.719e-16"
+   }
+  },
+  {
+   "t": "0.2",
+   "s": "0.2",
+   "sigma": "0.632455532034",
+   "z": "28.27",
+   "H0_reference": "-4.749890321180184628572772e-8",
+   "mp_average": "-0.00000004749890321180184628572771860079387775",
+   "mp_abs_err": "6.751e-44",
+   "mp_rel_err": "1.421e-36",
+   "mp_abs_err_smaller_rules": "8.871e-42",
+   "double_reference_at_nearest_double_z": "-4.7498903211765014986e-8",
+   "double_numpy_nodes": {
+    "average": "-4.7498905923684466e-08",
+    "abs_err": "2.712e-15",
+    "rel_err": "5.709e-8"
+   },
+   "double_accurate_nodes": {
+    "average": "-4.7498903214617416e-08",
+    "abs_err": "2.852e-18",
+    "rel_err": "6.005e-11"
+   }
+  },
+  {
+   "t": "0.5",
+   "s": "0.5",
+   "sigma": "1.0",
+   "z": "0",
+   "H0_reference": "0.06214009727353926373909672",
+   "mp_average": "0.06214009727353926373909671746067471498",
+   "mp_abs_err": "7.175e-43",
+   "mp_rel_err": "1.155e-41",
+   "mp_abs_err_smaller_rules": "9.327e-42",
+   "double_reference_at_nearest_double_z": "0.062140097273539263739",
+   "double_numpy_nodes": {
+    "average": "0.062140097273537184",
+    "abs_err": "2.079e-15",
+    "rel_err": "3.346e-14"
+   },
+   "double_accurate_nodes": {
+    "average": "0.06214009727353927",
+    "abs_err": "9.132e-18",
+    "rel_err": "1.47e-16"
+   }
+  },
+  {
+   "t": "0.5",
+   "s": "0.5",
+   "sigma": "1.0",
+   "z": "10",
+   "H0_reference": "0.03444374966802552402863029",
+   "mp_average": "0.03444374966802552402863029226205195299",
+   "mp_abs_err": "1.435e-42",
+   "mp_rel_err": "4.166e-41",
+   "mp_abs_err_smaller_rules": "1.076e-41",
+   "double_reference_at_nearest_double_z": "0.034443749668025524029",
+   "double_numpy_nodes": {
+    "average": "0.034443749668023195",
+    "abs_err": "2.329e-15",
+    "rel_err": "6.762e-14"
+   },
+   "double_accurate_nodes": {
+    "average": "0.034443749668025526",
+    "abs_err": "2.427e-18",
+    "rel_err": "7.047e-17"
+   }
+  },
+  {
+   "t": "0.5",
+   "s": "0.5",
+   "sigma": "1.0",
+   "z": "28.27",
+   "H0_reference": "-4.749890321180184628572772e-8",
+   "mp_average": "-0.00000004749890321180184628572771860079387756",
+   "mp_abs_err": "1.173e-43",
+   "mp_rel_err": "2.469e-36",
+   "mp_abs_err_smaller_rules": "8.969e-42",
+   "double_reference_at_nearest_double_z": "-4.7498903211765014986e-8",
+   "double_numpy_nodes": {
+    "average": "-4.74989059224159e-08",
+    "abs_err": "2.711e-15",
+    "rel_err": "5.707e-8"
+   },
+   "double_accurate_nodes": {
+    "average": "-4.7498903211829506e-08",
+    "abs_err": "6.449e-20",
+    "rel_err": "1.358e-12"
+   }
+  }
+ ],
+ "tail": {
+  "Phi_dBN(1.5)": "5.3590109819e-544",
+  "log10_Phi_dBN(1.5)": "-543.27092",
+  "bound_B(1.5)": "1.07307219555e-543",
+  "log10_bound_B(1.5)": "-542.96937",
+  "B_decreasing_beyond_1.5 (9 - 4 pi e^6 < 0)": true,
+  "exponent_slope_for_t_0.2_at_1.5": "-5060.0357",
+  "Phi_dBN(2)": "9.2038924e-4059",
+  "log10_Phi_dBN(2)": "-4058.036",
+  "Phi_dBN(3)": "1.7076267e-222046",
+  "log10_Phi_dBN(3)": "-222045.77",
+  "below_1e-200_for_all_u_ge_1.5": true
+ },
+ "sympy": {
+  "E[(z + sqrt(2 s) N)^2 - c]": "-c + 2*s + z**2",
+  "equals z^2 - c + 2 s": true,
+  "discriminant_in_z": "4*c - 8*s",
+  "discriminant_zero_at_s": [
+   "c/2"
+  ],
+  "real_zeros_exactly_when": "s <= c/2"
+ },
+ "arithmetic": {
+  "eps_star_from_7_over_8": "3/8",
+  "2 eps*^2 at eps*=1/2": "1/2",
+  "2 eps*^2 at eps*=3/8": "9/32",
+  "9/32 as decimal": "0.28125",
+  "9/32 greater than 0.2": true,
+  "y with 2 y^2 = 0.2 (sqrt 0.1)": "0.316227766017",
+  "1/2 + sqrt(0.1)": "0.816227766017",
+  "rounds_to_0.816": true
+ },
+ "zero_near_28.27": {
+  "gamma_1": "14.13472514173469379045725",
+  "2 gamma_1": "28.2694502834693875809145",
+  "distance_of_28.27": "0.000549717",
+  "within_6e-4": true,
+  "H0(28.27)": "-4.74989032118e-8"
+ },
+ "seconds": 2.0
+}

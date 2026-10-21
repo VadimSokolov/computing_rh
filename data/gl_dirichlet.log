@@ -1,0 +1,150 @@
+# gl_dirichlet.py --parts zeros,real,classical --out data/gl_dirichlet.json
+# started 2026-10-17 10:25:02 ; python-flint arb, mpmath 1.4.1
+character tables agree with flint (Conrey labels) and Hurwitz L agrees with dirichlet_l at 1/2 + 17.25 i
+== zeros (C:705): certified count and ordinates, T = 300.0
+  chi4: certified N(300.0) = 203 (enclosure [203.000000000 +/- 3e-14]), sign changes 203, all simple and on the line: True
+  chi4: first ordinates 6.0209489047, 10.2437703042, 12.9880980123 ; max enclosure width 2.17e-17 ; main term (T/2pi)log(qT/2pi e) = 203.02758 ; theta/pi = 203.15261 ; S(T) = N - theta/pi = -0.152606 ; 2.9 s
+  claim chi_4 first ordinate                           chapter 6.0209489        mine 6.0209489              agrees
+  claim chi_4 count                                    chapter 203              mine 203.0                  agrees
+  claim chi_4 main term                                chapter 203.03           mine 203.02758              agrees
+  chi5: certified N(300.0) = 214 (enclosure [214.000000000 +/- 3e-14]), sign changes 214, all simple and on the line: True
+  chi5: first ordinates 6.64845334473, 9.83144443289, 11.9588456261 ; max enclosure width 6.10e-15 ; main term (T/2pi)log(qT/2pi e) = 213.6819 ; theta/pi = 213.55693 ; S(T) = N - theta/pi = 0.443074 ; 8.0 s
+  claim chi_5 first ordinate                           chapter 6.6484533        mine 6.64845334             agrees
+  claim chi_5 count                                    chapter 214              mine 214.0                  agrees
+  claim chi_5 main term                                chapter 213.68           mine 213.6819               agrees
+== real axis (C:707)
+  chi4: grid min of L over (0,1), step 0.005: 0.5019550621 at sigma = 0.005 ; grid min over [1/2, 1): 0.6676914572 at 0.500 ; L(1/2) = 0.66769145718960917666
+  chi4: L(sigma) > 0 certified on [1/2, 2] by 32 ball pieces (smallest lower bound 0.03308): True
+  claim L(1/2, chi_4)                                  chapter 0.66769          mine 0.66769146             agrees
+  claim min L chi_4 grid                               chapter 0.502            mine 0.50195506             agrees
+  chi5: grid min of L over (0,1), step 0.005: 0.002405786512 at sigma = 0.005 ; grid min over [1/2, 1): 0.2317509475 at 0.500 ; L(1/2) = 0.23175094750401575588
+  chi5: L(sigma) > 0 certified on [1/2, 2] by 101 ball pieces (smallest lower bound 0.003078): True
+  chi5: L(0) = 0 (trivial zero, even character), L'(0) = 0.48121182506, so L(0.005) is about 0.0024060591
+  claim L(1/2, chi_5)                                  chapter 0.23175          mine 0.23175095             agrees
+  claim min L chi_5 grid                               chapter 0.0024           mine 0.0024057865           agrees
+== classical identity and the values at 1 (C:707, C:729)
+  Taylor chi4: p_1 = 0.078014824944822442304, p_2 = 0.000928845784839603, p_3 = 2.21696157742475e-5 (two radii agree to [58, 59, 58, 57, 57, 56] digits)
+  chi4: (xi'/xi)(1) formula = 0.077783989961792964431 ; series sum (-1)^(j+1) p_j/4^(j-1) = 0.077783989961792964431 ; agree to 27 digits
+  chi4: xi(1/2) = 0.980713614057714, xi(1) = 1.0, E exp(-H/4) = xi(1/2)/xi(1) = 0.980713614057714, zero product with tail = 0.980714025974413 (relative difference 4.2e-7)
+  chi4: p_1 - (xi'/xi)(1) = 0.000230834983029 ; p_2/4 - p_3/16 = 0.000230825845224 (difference 9.14e-9) ; p_2/4 - p_3/16 + ... to j = 12 = 0.000230834983029 (difference -3.17e-28)
+  claim (xi'/xi)(1, chi_4) chapter                     chapter 0.0777840        mine 0.0777839899618        agrees
+  claim (xi'/xi)(1, chi_4) book                        chapter 0.0777839899618  mine 0.077783989961793      agrees
+  claim xi(1/2, chi_4) chapter                         chapter 0.9807136        mine 0.980713614058         agrees
+  claim xi(1/2, chi_4) book                            chapter 0.98071361405771 mine 0.980713614057714      agrees
+  claim xi(1, chi_4)                                   chapter 1                mine 1.0                    agrees
+  claim E exp(-H_chi4/4)                               chapter 0.9807136        mine 0.980713614058         agrees
+  Taylor chi5: p_1 = 0.078457108717528271963, p_2 = 0.000717800091512003, p_3 = 1.31615200130164e-5 (two radii agree to [58, 58, 58, 57, 56, 55] digits)
+  chi5: (xi'/xi)(1) formula = 0.078278476997143248499 ; series sum (-1)^(j+1) p_j/4^(j-1) = 0.078278476997143248499 ; agree to 28 digits
+  chi5: xi(1/2) = 0.943751437986687, xi(1) = 0.962423650119207, E exp(-H/4) = xi(1/2)/xi(1) = 0.980598760088442, zero product with tail = 0.98059755544417 (relative difference 1.23e-6)
+  chi5: p_1 - (xi'/xi)(1) = 0.000178631720385 ; p_2/4 - p_3/16 = 0.000178627427877 (difference 4.29e-9) ; p_2/4 - p_3/16 + ... to j = 12 = 0.000178631720385 (difference -2.41e-29)
+  claim (xi'/xi)(1, chi_5)                             chapter 0.0782785        mine 0.0782784769971        agrees
+# done, wrote data/gl_dirichlet.json ; total 15.8 s
+# gl_dirichlet.py --parts table,transfer,negmom,complex,dedekind,levy --out data/gl_dirichlet.json
+# started 2026-10-17 10:25:18 ; python-flint arb, mpmath 1.4.1
+character tables agree with flint (Conrey labels) and Hurwitz L agrees with dirichlet_l at 1/2 + 17.25 i
+== power sums table (C:710 to C:721)
+  chi4 j=1: zero side 0.07801314487, function side 0.07801482494, relative error 2.2e-5 ; residual*T^(2j) = -0.1512 (S(T) = -0.1526)
+        cut at the last zero 298.870320307: zero side 0.07802367313, relative error 0.00011
+  chi4 j=2: zero side 0.0009288457663, function side 0.0009288457848, relative error 2.0e-8 ; residual*T^(2j) = -0.1498 (S(T) = -0.1526)
+        cut at the last zero 298.870320307: zero side 0.0009288458838, relative error 1.1e-7
+  chi4 j=3: zero side 2.216961577e-5, function side 2.216961577e-5, relative error 9.2e-12 ; residual*T^(2j) = -0.1484 (S(T) = -0.1526)
+        cut at the last zero 298.870320307: zero side 2.216961578e-5, relative error 5.0e-11
+  claim chi4 j=1 zero side (cut T = 300)               chapter 0.0780237        mine 0.07801314487          differs
+  claim chi4 j=1 zero side (cut at last zero)          chapter 0.0780237        mine 0.07802367313          agrees
+  claim chi4 j=1 function side                         chapter 0.0780148        mine 0.07801482494          agrees
+  claim chi4 j=1 relative error (cut T = 300)          chapter 1.1e-4           mine 2.15e-5                differs
+  claim chi4 j=1 relative error (cut at last zero)     chapter 1.1e-4           mine 0.000113               agrees
+  claim chi4 j=2 zero side (cut T = 300)               chapter 9.288459e-4      mine 0.0009288457663        differs
+  claim chi4 j=2 zero side (cut at last zero)          chapter 9.288459e-4      mine 0.0009288458838        agrees
+  claim chi4 j=2 function side                         chapter 9.288458e-4      mine 0.0009288457848        agrees
+  claim chi4 j=2 relative error (cut T = 300)          chapter 1.0e-7           mine 1.99e-8                differs
+  claim chi4 j=2 relative error (cut at last zero)     chapter 1.0e-7           mine 1.07e-7                agrees within 1 unit of the last digit
+  claim chi4 j=3 zero side (cut T = 300)               chapter 2.216962e-5      mine 2.216961577e-5         agrees
+  claim chi4 j=3 zero side (cut at last zero)          chapter 2.216962e-5      mine 2.216961578e-5         agrees
+  claim chi4 j=3 function side                         chapter 2.216962e-5      mine 2.216961577e-5         agrees
+  claim chi4 j=3 relative error (cut T = 300)          chapter 2.3e-11          mine 9.18e-12               differs
+  claim chi4 j=3 relative error (cut at last zero)     chapter 2.3e-11          mine 4.99e-11               differs
+  chi5 j=1: zero side 0.07846202264, function side 0.07845710872, relative error 6.3e-5 ; residual*T^(2j) = 0.4423 (S(T) = 0.4431)
+        cut at the last zero 299.766703023: zero side 0.07846428314, relative error 9.1e-5
+  chi5 j=2: zero side 0.000717800146, function side 0.0007178000915, relative error 7.6e-8 ; residual*T^(2j) = 0.4414 (S(T) = 0.4431)
+        cut at the last zero 299.766703023: zero side 0.0007178001711, relative error 1.1e-7
+  chi5 j=3: zero side 1.316152001e-5, function side 1.316152001e-5, relative error 4.6e-11 ; residual*T^(2j) = 0.4405 (S(T) = 0.4431)
+        cut at the last zero 299.766703023: zero side 1.316152001e-5, relative error 6.7e-11
+  claim chi5 j=1 zero side (cut T = 300)               chapter 0.0784643        mine 0.07846202264          differs
+  claim chi5 j=1 zero side (cut at last zero)          chapter 0.0784643        mine 0.07846428314          agrees
+  claim chi5 j=1 function side                         chapter 0.0784571        mine 0.07845710872          agrees
+  claim chi5 j=1 relative error (cut T = 300)          chapter 9.1e-5           mine 6.26e-5                differs
+  claim chi5 j=1 relative error (cut at last zero)     chapter 9.1e-5           mine 9.14e-5                agrees
+  claim chi5 j=2 zero side (cut T = 300)               chapter 7.178002e-4      mine 0.000717800146         agrees within 1 unit of the last digit
+  claim chi5 j=2 zero side (cut at last zero)          chapter 7.178002e-4      mine 0.0007178001711        agrees
+  claim chi5 j=2 function side                         chapter 7.178001e-4      mine 0.0007178000915        agrees
+  claim chi5 j=2 relative error (cut T = 300)          chapter 1.1e-7           mine 7.59e-8                differs
+  claim chi5 j=2 relative error (cut at last zero)     chapter 1.1e-7           mine 1.11e-7                agrees
+  claim chi5 j=3 zero side (cut T = 300)               chapter 1.316152e-5      mine 1.316152001e-5         agrees
+  claim chi5 j=3 zero side (cut at last zero)          chapter 1.316152e-5      mine 1.316152001e-5         agrees
+  claim chi5 j=3 function side                         chapter 1.316152e-5      mine 1.316152001e-5         agrees
+  claim chi5 j=3 relative error (cut T = 300)          chapter 1.7e-11          mine 4.59e-11               differs
+  claim chi5 j=3 relative error (cut at last zero)     chapter 1.7e-11          mine 6.71e-11               differs
+== transfer function and Hadamard product (C:723)
+  chi4: T_chi(2) = 0.535223352307 (imaginary part -1.6e-42: rounding only, reality follows from the functional equation)
+  chi4: T_chi(5) = 0.0145726967125 (imaginary part -2.0e-43: rounding only, reality follows from the functional equation)
+  chi4: Hadamard product with the tail started at the last zero 298.8703203: 1.9526230298 (relative difference to xi(7/2)/xi(1/2): 7.96e-5)
+  chi4: Hadamard product at s = 3: without tail 1.89501594379, with tail 1.95243802837, xi(7/2)/xi(1/2) = 1.95246754924 ; relative difference with tail 1.512e-5
+  claim T_chi4(2)                                      chapter 0.53522          mine 0.53522335             agrees
+  claim T_chi4(5)                                      chapter 0.014573         mine 0.014572697            agrees
+  claim chi_4 product s=3 (tail from T = 300) vs 1.952622677 chapter 1.952622677      mine 1.95243802837          differs
+  claim chi_4 product s=3 (tail from last zero) vs 1.952622677 chapter 1.952622677      mine 1.9526230298           differs
+  claim chi_4 xi(7/2)/xi(1/2) vs 1.952467549           chapter 1.952467549      mine 1.95246754924          agrees
+  chi5: T_chi(2) = 0.53354016473 (imaginary part 9.5e-43: rounding only, reality follows from the functional equation)
+  chi5: T_chi(5) = 0.0167268025771 (imaginary part -3.2e-43: rounding only, reality follows from the functional equation)
+  chi5: Hadamard product with the tail started at the last zero 299.766703: 1.97370835207 (relative difference to xi(7/2)/xi(1/2): 6.46e-5)
+  chi5: Hadamard product at s = 3: without tail 1.913581883, with tail 1.97366820033, xi(7/2)/xi(1/2) = 1.97358092053 ; relative difference with tail 4.422e-5
+  claim chi_5 product s=3 (tail from T = 300) vs 1.973707919 chapter 1.973707919      mine 1.97366820033          differs
+  claim chi_5 product s=3 (tail from last zero) vs 1.973707919 chapter 1.973707919      mine 1.97370835207          differs
+  claim chi_5 xi(7/2)/xi(1/2) vs 1.973580921           chapter 1.973580921      mine 1.97358092053          agrees
+== negative moment E H^(-1/2) (C:727)
+  check on zeta: E H^(-1/2) = 6.73327231275663516 (chapter C:407: 6.733272312756635)
+  claim zeta E H^(-1/2)                                chapter 6.733272312756635 mine 6.7332723127566352     agrees
+  chi4: E H^(-1/2) function side (Mellin integral on the real axis) = 3.75746765090615 ; zero clock (203 zeros and tail) = 3.7575162340 ; relative difference 1.29e-05
+  claim E H_chi4^(-1/2)                                chapter 3.7574677        mine 3.75746765091          agrees
+  chi5: E H^(-1/2) function side (Mellin integral on the real axis) = 3.70970717130456 ; zero clock (214 zeros and tail) = 3.7095725868 ; relative difference 3.63e-05
+  claim E H_chi5^(-1/2)                                chapter 3.7097072        mine 3.7097071713           agrees
+== complex character modulo 5 (C:541, C:556)
+  psi(2) = i, a = 1, root number W = (0.850650808352 + 0.525731112119j) (modulus 1.0)
+  xi(1/2+s, psi)/xi(1/2-s, psi) at s = 0.7 = (0.992217660737 - 0.12451551599j), modulus 1.0 ; W^(-1) xi/conj(xi) = (0.992217660737 - 0.12451551599j)
+  same ratio for xi_(psi psibar) = (1.0 + 0.0j) (an identity: xi_(psi psibar)(s) = xi_(psi psibar)(1 - s))
+  claim ratio psi real part                            chapter 0.99222          mine 0.99221766             agrees
+  claim ratio psi imaginary part                       chapter -0.12452         mine -0.12451552            agrees
+  claim ratio xi_(psi psibar)                          chapter 1                mine 1.0                    agrees
+== Dedekind zeta functions (C:584)
+  AFE self check on zeta at s = 0.3: -4.73886109191549 against -4.73886109191549 (difference 0.0)
+  Qi s=2.0: Euler product (P = 10000000, tail by the prime number theorem) ratio 1.0, without tail 0.999999994141 ; AFE ratio 1.0 ; AFE against Euler 3.91e-13
+  Qi s=3.7: Euler product (P = 10000000, tail by the prime number theorem) ratio 1.0, without tail 1.0 ; AFE ratio 1.0 ; AFE against Euler 7.72e-18
+  Qi s=0.3: AFE built from the ideal counts a_n (n <= 30) and the gamma factor of F alone: ratio 1.0 ; constant between xi_F and s(s-1)Lambda = 2.0
+  Q5 s=2.0: Euler product (P = 10000000, tail by the prime number theorem) ratio 2.0, without tail 1.99999998828 ; AFE ratio 2.0 ; AFE against Euler 5.38e-14
+  Q5 s=3.7: Euler product (P = 10000000, tail by the prime number theorem) ratio 2.0, without tail 2.0 ; AFE ratio 2.0 ; AFE against Euler 2.83e-16
+  Q5 s=0.3: AFE built from the ideal counts a_n (n <= 30) and the gamma factor of F alone: ratio 2.0 ; constant between xi_F and s(s-1)Lambda = 1.0
+  claim Q(i) ratio s=2                                 chapter 1                mine 1.0                    agrees
+  claim Q(sqrt5) ratio s=2                             chapter 2                mine 2.0                    agrees
+  claim Q(i) ratio s=0.3                               chapter 1                mine 1.0                    agrees
+  claim Q(sqrt5) ratio s=0.3                           chapter 2                mine 2.0                    agrees
+  E H_F for Q(i) from xi_F built by the AFE: p_1(F) = 0.10111981806 ; p_1(zeta) = 0.0231049931154 ; p_1(chi_4) = 0.0780148249448 ; sum = 0.10111981806
+  claim E H_zeta                                       chapter 0.0231050        mine 0.02310499312          agrees
+  claim E H_chi4                                       chapter 0.0780148        mine 0.07801482494          agrees
+  claim E H_F = sum                                    chapter 0.1011198        mine 0.1011198181           agrees
+  (7.3 s)
+== Levy decomposition (C:615)
+  Q (alpha, s) = (3.0, 1.0): LHS 0.02224947770669039 ; gamma and polynomial integrals -0.03764890212743106 ; Binet checks -2.47e-32, n/a
+     N = 30000: prime ideal sum 0.05989837932898925 ; difference LHS - RHS 5.051e-10 ; density one tail 5.041e-10 ; difference with tail 1.075e-12
+  claim Q difference at N = 30000 (chapter value, N not stated) chapter 5.05e-10         mine 5.051e-10              agrees
+     N = 2000000: prime ideal sum 0.05989837983400478 ; difference LHS - RHS 1.167e-13 ; density one tail 1.167e-13 ; difference with tail 2.182e-18
+  Qi (alpha, s) = (3.0, 1.5): LHS 0.1840652709172651 ; gamma and polynomial integrals 0.09149378367838327 ; Binet checks -9.86e-32, -2.47e-31
+     N = 30000: prime ideal sum 0.09257148645552941 ; difference LHS - RHS 7.834e-10 ; density one tail 7.818e-10 ; difference with tail 1.518e-12
+  claim Qi difference at N = 30000 (chapter value, N not stated) chapter 7.83e-10         mine 7.834e-10              agrees
+     N = 2000000: prime ideal sum 0.0925714872387027 ; difference LHS - RHS 1.791e-13 ; density one tail 1.792e-13 ; difference with tail -7.257e-17
+  Q5 (alpha, s) = (2.5, 1.0): LHS 0.09089190624934367 ; gamma and polynomial integrals 0.03582615789945757 ; Binet checks -2.47e-32, n/a
+     N = 30000: prime ideal sum 0.05506563163352601 ; difference LHS - RHS 1.167e-7 ; density one tail 1.166e-7 ; difference with tail 1.446e-10
+  claim Q5 difference at N = 30000 (chapter value, N not stated) chapter 1.17e-7          mine 1.167e-7               agrees
+     N = 2000000: prime ideal sum 0.05506574812973587 ; difference LHS - RHS 2.202e-10 ; density one tail 2.201e-10 ; difference with tail 7.683e-15
+  (0.5 s)
+# done, wrote data/gl_dirichlet.json ; total 11.5 s

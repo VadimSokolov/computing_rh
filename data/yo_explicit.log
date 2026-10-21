@@ -1,0 +1,87 @@
+yo_explicit.py: dps 30, 1700 certified zeros from data/zeros_1700.txt (first 14.1347251417347, last 2197.25874704021), quick = False
+
+== kappa_1, kappa_2 (lines 56 and 266) ==
+Taylor coefficients of log xi(1/2 + z): a_1 = 0.0, a_3 = 0.0 (both must vanish by the functional equation)
+kappa_1 = a_2 = 0.02310499311541897078893381
+kappa_2 = minus 2 a_4 = 0.00003717259928526968616486626
+zeros: N = 1700, gamma_N = 2197.25874704, tail start T* = 2198.41592855
+sum_{n<=N} gamma^-2 = 0.0226084306086834, plus smooth tail 0.000496459 = 0.0231048896070184, difference to kappa_1 = -1.04e-7
+sum_{n<=N} gamma^-4 = 3.71725683518854e-5, plus smooth tail 3.0911956e-11 = 3.71725992638417e-5, difference to kappa_2 = -2.14e-14
+book (Chapter 18, p_1 and p_2): 0.0231049931154189707889 and 0.0000371725992852696862; differences 3.38e-23 and -3.51e-23
+CLAIM kappa_1 = (1/2)(log xi)''(1/2)               line 56   chapter 0.0231049931         mine 0.023104993115418971     diff 1.54e-11    agrees
+
+== xi'/xi(1) (line 454) and the inequality of line 266 ==
+xi'/xi(1) closed form 0.023095708966121033814; numerical derivative of log xi (step 1e-4, fourth order) 0.023095708966121033814; difference -5.72e-23
+CLAIM xi'/xi(1) = 1 + gamma_E/2 minus (1/2) log 4 pi line 454  chapter 0.0230957            mine 0.023095708966121034     diff 8.97e-9     agrees
+alpha = 0.55 2 xi'/xi = 0.004620980037, lower bound 0.004620980037, upper bound 0.004620998623, inside: True
+alpha = 0.6  2 xi'/xi = 0.009241848562, lower bound 0.009241848556, upper bound 0.009241997246, inside: True
+alpha = 0.75 2 xi'/xi = 0.02310267039, lower bound 0.02310266983, upper bound 0.02310499312, inside: True
+alpha = 1    2 xi'/xi = 0.04619141793, lower bound 0.04619139993, upper bound 0.04620998623, inside: True
+
+== Theta(0.003) and V_1(h_x) (line 80) ==
+V_1(h_x) from the t integral: 6.0846679894460153111436
+V_1(h_x) from the real variable form: 6.0846679894460153111436 (Pf = -25.7519446035526, integral of g h_x = 0.248525720189755)
+difference of the two forms: 7.89e-31
+CLAIM V_1(h_0.003), t integral form                line 80   chapter 6.08466798944601     mine 6.0846679894460153       diff 5.31e-15    AGREES TO ONE UNIT (truncated)
+CLAIM V_1(h_0.003), real variable form             line 80   chapter 6.08466798944601     mine 6.0846679894460153       diff 5.31e-15    AGREES TO ONE UNIT (truncated)
+prime side of (yo:EF): pole 2.00150056264065, minus log(pi) h_x(0) = -5.89572830918099, prime sum 2.0654e-17, V_1 6.08466798944602; T(h_x) = 2.190440242905680660247151
+Theta(0.003) prime side 1.095220121452840330123576, zero side (1700 zeros) 1.095220121452840330123576, difference 0.0
+CLAIM Theta(0.003), prime side                     line 80   chapter 1.09522012145284     mine 1.0952201214528403       diff 3.3e-16     agrees
+CLAIM Theta(0.003), zero side                      line 80   chapter 1.09522012145284     mine 1.0952201214528403       diff 3.3e-16     agrees
+
+== V_1(Delta_1) (line 139) ==
+closed form of Proposition yo:prop:tent (c): -0.508475971876589998128503815
+residue series:                              -0.508475971876589998128503815
+difference -1.18e-30 (agreement to 29 digits)
+CLAIM V_1(Delta_1), closed form                    line 139  chapter -0.50847597187659    mine -0.50847597187659        diff 1.87e-18    agrees
+CLAIM V_1(Delta_1), residue series                 line 139  chapter -0.50847597187659    mine -0.50847597187659        diff 1.87e-18    agrees
+
+== Table yo:tab:D and <chi_0, chi_0> (lines 149, 402, 410 to 419) ==
+zero count 1500: gamma_N = 1980.910043, T* = 1982.004201, mean tail 2(log(T/2pi)+1)/(pi T) = 0.0021693806 (at T*) and 0.0021704014 (at gamma_N)
+zero count 1700: gamma_N = 2197.258747, T* = 2198.415929, mean tail 2(log(T/2pi)+1)/(pi T) = 0.001985836 (at T*) and 0.0019867293 (at gamma_N)
+x      prime        chap prime   | zeros1500    z1500+mean   z1500+rvm    z1700+mean   | residuals prime minus (zeros + mean tail at T*) | V1 closed | V1 series
+0.2    prime 0.1089995807 (chapter 0.1089996) | 1500 zeros 0.10682771  +mean tail at gamma_N 0.10899811  (chapter zero 0.1089981, reproduced: True) | +mean at T* 0.10899709  +rvm 0.10899955  | z1700+mean(gamma_N) 0.10900102 
+       prime minus chapter zero column 1.48e-6 (chapter prime minus zero 1.5e-6); residuals prime minus (zeros + tail): 1500 mean(T*) 2.489e-6, 1500 rvm 3.041e-8, 1500 rvm+Landau 3.041e-8 (Landau 0), 1700 rvm 8.8e-9, 1700 rvm+Landau 8.8e-9; V1 closed 0.25787886899 series 0.25787886899 (difference -2.22e-30)
+0.5    prime 0.08032516076 (chapter 0.0803252) | 1500 zeros 0.078156642 +mean tail at gamma_N 0.080327044 (chapter zero 0.0803270, reproduced: True) | +mean at T* 0.080326023 +rvm 0.080324185 | z1700+mean(gamma_N) 0.080326475
+       prime minus chapter zero column -1.84e-6 (chapter prime minus zero -1.8e-6); residuals prime minus (zeros + tail): 1500 mean(T*) -8.619e-7, 1500 rvm 9.754e-7, 1500 rvm+Landau 9.754e-7 (Landau 0), 1700 rvm 1.1e-7, 1700 rvm+Landau 1.1e-7; V1 closed 0.15008050562 series 0.15008050562 (difference -1.28e-30)
+log2   prime 0.1271111721 (chapter 0.1271112) | 1500 zeros 0.12478434  +mean tail at gamma_N 0.12695474  (chapter zero 0.1269547, reproduced: True) | +mean at T* 0.12695372  +rvm 0.12695263  | z1700+mean(gamma_N) 0.12696938 
+       prime minus chapter zero column 0.000156 (chapter prime minus zero 0.000156); residuals prime minus (zeros + tail): 1500 mean(T*) 0.0001574, 1500 rvm 0.0001585, 1500 rvm+Landau 1.108e-6 (Landau 0.00015742946), 1700 rvm 0.0001429, 1700 rvm+Landau 9.262e-7; V1 closed -0.049985283523 series -0.049985283523 (difference -7.64e-31)
+1.0    prime 0.08801461047 (chapter 0.0880146) | 1500 zeros 0.085844252 +mean tail at gamma_N 0.088014653 (chapter zero 0.0880147, reproduced: True) | +mean at T* 0.088013633 +rvm 0.088013945 | z1700+mean(gamma_N) 0.088016261
+       prime minus chapter zero column -8.95e-8 (chapter prime minus zero -1.0e-7); residuals prime minus (zeros + tail): 1500 mean(T*) 9.779e-7, 1500 rvm 6.654e-7, 1500 rvm+Landau 6.654e-7 (Landau 0), 1700 rvm -2.602e-7, 1700 rvm+Landau -2.602e-7; V1 closed -0.50847597188 series -0.50847597188 (difference -1.18e-30)
+1.5    prime 0.08981894086 (chapter 0.0898189) | 1500 zeros 0.087648176 +mean tail at gamma_N 0.089818578 (chapter zero 0.0898186, reproduced: True) | +mean at T* 0.089817557 +rvm 0.089818099 | z1700+mean(gamma_N) 0.089820697
+       prime minus chapter zero column 3.41e-7 (chapter prime minus zero 3.0e-7); residuals prime minus (zeros + tail): 1500 mean(T*) 1.384e-6, 1500 rvm 8.418e-7, 1500 rvm+Landau 8.418e-7 (Landau 0), 1700 rvm -4.168e-7, 1700 rvm+Landau -4.168e-7; V1 closed -1.5290923084 series -1.5290923084 (difference -5.92e-31)
+log5   prime 0.1343264197 (chapter 0.1343264) | 1500 zeros 0.13192599  +mean tail at gamma_N 0.13409639  (chapter zero 0.1340964, reproduced: True) | +mean at T* 0.13409537  +rvm 0.13409483  | z1700+mean(gamma_N) 0.13411801 
+       prime minus chapter zero column 0.00023 (chapter prime minus zero 0.00023); residuals prime minus (zeros + tail): 1500 mean(T*) 0.000231, 1500 rvm 0.0002316, 1500 rvm+Landau 3.997e-7 (Landau 0.00023118773), 1700 rvm 0.000209, 1700 rvm+Landau 5.314e-7; V1 closed -1.7886645686 series -1.7886645686 (difference -1.18e-30)
+2.0    prime 0.1066822483 (chapter 0.1066822) | 1500 zeros 0.10451464  +mean tail at gamma_N 0.10668504  (chapter zero 0.1066850, reproduced: True) | +mean at T* 0.10668402  +rvm 0.10668373  | z1700+mean(gamma_N) 0.10668195 
+       prime minus chapter zero column -2.75e-6 (chapter prime minus zero -2.8e-6); residuals prime minus (zeros + tail): 1500 mean(T*) -1.771e-6, 1500 rvm -1.477e-6, 1500 rvm+Landau -1.477e-6 (Landau 0), 1700 rvm 1.567e-6, 1700 rvm+Landau 1.567e-6; V1 closed -2.8014464587 series -2.8014464587 (difference -3.94e-31)
+3.0    prime 0.0794185778 (chapter 0.0794186) | 1500 zeros 0.077247168 +mean tail at gamma_N 0.079417569 (chapter zero 0.0794176, reproduced: True) | +mean at T* 0.079416548 +rvm 0.079416813 | z1700+mean(gamma_N) 0.079420132
+       prime minus chapter zero column 9.78e-7 (chapter prime minus zero 1.0e-6); residuals prime minus (zeros + tail): 1500 mean(T*) 2.03e-6, 1500 rvm 1.764e-6, 1500 rvm+Landau 1.764e-6 (Landau 0), 1700 rvm -4.383e-7, 1700 rvm+Landau -4.383e-7; V1 closed -5.8689144266 series -5.8689144266 (difference -7.89e-31)
+4.0    prime 0.07028186109 (chapter 0.0702819) | 1500 zeros 0.068115061 +mean tail at gamma_N 0.070285463 (chapter zero 0.0702855, reproduced: True) | +mean at T* 0.070284442 +rvm 0.070284214 | z1700+mean(gamma_N) 0.070284224
+       prime minus chapter zero column -3.64e-6 (chapter prime minus zero -3.6e-6); residuals prime minus (zeros + tail): 1500 mean(T*) -2.581e-6, 1500 rvm -2.353e-6, 1500 rvm+Landau -2.353e-6 (Landau 0), 1700 rvm -1.405e-6, 1700 rvm+Landau -1.405e-6; V1 closed -9.3938463516 series -9.3938463516 (difference -1.58e-30)
+6.0    prime 0.09624644627 (chapter 0.0962464) | 1500 zeros 0.094073303 +mean tail at gamma_N 0.096243704 (chapter zero 0.0962437, reproduced: True) | +mean at T* 0.096242683 +rvm 0.096242545 | z1700+mean(gamma_N) 0.096244267
+       prime minus chapter zero column 2.75e-6 (chapter prime minus zero 2.7e-6); residuals prime minus (zeros + tail): 1500 mean(T*) 3.763e-6, 1500 rvm 3.901e-6, 1500 rvm+Landau 3.901e-6 (Landau 0), 1700 rvm 2.961e-6, 1700 rvm+Landau 2.961e-6; V1 closed -17.164353268 series -17.164353268 (difference -6.31e-30)
+D(log 2) = 0.127111172075141, <chi_0, chi_0> = D(log 2)/log 2 = 0.183382657594389
+CLAIM <chi_0, chi_0> at a = (1/2) log 2            line 149  chapter 0.18338              mine 0.18338265759438936      diff 2.66e-6     agrees
+
+== entries of the prime side matrix at a = 1, alpha = 1/2 against Theorem yo:thm:lowner (i) (line 199) ==
+zero count 1500, T* = 1982.004201, predicted tail magnitude (2/a) sum_{gamma > T*} gamma^-2 = 0.0010846903 (at gamma_N: 0.0010852007)
+zero count 1700, T* = 2198.415929, predicted tail magnitude (2/a) sum_{gamma > T*} gamma^-2 = 0.000992918 (at gamma_N: 0.00099336464)
+(n,m) = (0,0): prime side 0.0533411241719; zero side N=1500 0.0522573192, difference 0.0010838 (predicted 0.00108469, residual -8.85e-7); N=1700 0.0523476126, difference 0.000993511 (predicted 0.000992918, residual 5.94e-7)
+(n,m) = (0,1): prime side -0.0546149996682; zero side N=1500 -0.053531193, difference -0.00108381 (predicted -0.00108469, residual 8.85e-7); N=1700 -0.053621487, difference -0.000993512 (predicted -0.000992918, residual -5.94e-7)
+(n,m) = (1,2): prime side -0.0638970440429; zero side N=1500 -0.062813233, difference -0.00108381 (predicted -0.00108469, residual 8.8e-7); N=1700 -0.062903528, difference -0.000993516 (predicted -0.000992918, residual -5.98e-7)
+(n,m) = (2,-1): prime side -0.0577090144598; zero side N=1500 -0.056625207, difference -0.00108381 (predicted -0.00108469, residual 8.83e-7); N=1700 -0.056715501, difference -0.000993513 (predicted -0.000992918, residual -5.95e-7)
+(n,m) = (3,3): prime side 0.135332719648; zero side N=1500 0.1342488926, difference 0.00108383 (predicted 0.00108469, residual -8.63e-7); N=1700 0.1343391916, difference 0.000993528 (predicted 0.000992918, residual 6.1e-7)
+check: entry (0,0) at a = 1 equals D(2)/2 = 0.0533411241718557
+
+== Table yo:tab:W (lines 432 to 438) and eq:ch12:Garith at t = x/2 ==
+x = 0.01  T = 0          prime 0.29939602250755916 zero 0.29939602250755916 | difference -2.47e-31 (30 digits) | Garith minus prime 0.0 | chapter prime 0.299396022507559 (mine minus it 1.558e-16), chapter zero 0.299396022507559 (mine minus it 1.558e-16)
+x = 0.01  T = 14.134725  prime 2.0336504097797901 zero 2.0336504097797901 | difference 0.0 (99 digits) | Garith minus prime 0.0 | chapter prime 2.0336517 (mine minus it -1.29e-6), chapter zero 2.0336504 (mine minus it 9.78e-9)
+x = 0.05  T = 17         prime 1.1492339922973239 zero 1.1492339922973239 | difference 0.0 (99 digits) | Garith minus prime 1.97e-31 | chapter prime 1.149233992297324 (mine minus it -1.436e-16), chapter zero 1.149233992297324 (mine minus it -1.436e-16)
+x = 0.2   T = 14.134725  prime 1.0000758297481932 zero 1.0000758297481932 | difference -1.97e-31 (30 digits) | Garith minus prime 1.97e-31 | chapter prime 1.000075829748193 (mine minus it 1.894e-16), chapter zero 1.000075829748193 (mine minus it 1.894e-16)
+x = 0.2   T = 17         prime 0.23294889502165518 zero 0.23294889502165518 | difference -9.86e-32 (30 digits) | Garith minus prime 0.0 | chapter prime 0.232948895021655 (mine minus it 1.836e-16), chapter zero 0.232948895021655 (mine minus it 1.836e-16)
+x = 0.5   T = 21.022040  prime 1.0003507865281999 zero 1.0003507865281999 | difference 3.94e-31 (30 digits) | Garith minus prime 0.0 | chapter prime 1.000350786528200 (mine minus it -1.156e-16), chapter zero 1.000350786528200 (mine minus it -1.156e-16)
+x = 0.5   T = 30         prime 0.92716761518108766 zero 0.92716761518108766 | difference -1.06e-29 (28 digits) | Garith minus prime 9.86e-32 | chapter prime 0.927167615181088 (mine minus it -3.405e-16), chapter zero 0.927167615181088 (mine minus it -3.405e-16)
+row x = 0.01, T = 14.134725: zero side at T = gamma_1 minus zero side at T = 14.134725 is 2.67e-8; the archimedean integral cut to |t| <= L changes the prime side by {'30': '-0.0976', '35': '-0.01304', '40': '-0.001089', '50': '-1.8e-6', '60': '-4.241e-10'}
+the archimedean integral of this row by the trapezoid rule of step h on [-110, 110]: error of the prime side {'1': '-0.01216', '0.5': '-0.0005037', '0.4': '-0.0001045', '0.3': '-7.624e-6', '0.25': '-9.388e-7', '0.2': '-4.057e-8'} (the chapter row is high by 1.29e-6)
+
+total 15.8 s

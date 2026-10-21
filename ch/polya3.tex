@@ -1,0 +1,50 @@
+\section{The Laguerre P\'olya class in the Thorin variable}\label{pol:sec:lp}
+
+\begin{proposition}\label{pol:prop:lp}
+The following are equivalent.
+\begin{enumerate}
+\item[(i)] RH.
+\item[(ii)] $F(s)=\xi(1/2+\sqrt s)/\xi(1/2)$ belongs to the Laguerre P\'olya class of type I, that is, it is a locally uniform limit of polynomials with only negative zeros.
+\item[(iii)] The sequence $g_k=k!\,a_k$, where $F(s)=\sum a_ks^k$, is a P\'olya Schur multiplier sequence.
+\item[(iv)] For every $d$ the Jensen polynomial $J_d(x)=\sum_{k=0}^d\binom dkg_kx^k$ has only real, negative zeros.
+\item[(v)] The reciprocal Xi law is a GGC.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Under RH every $s_\rho=-\gamma^2$ is negative and $F(s)=\prod_\gamma(1+s/\gamma^2)$ with $\sum\gamma^{-2}<\infty$, which is of type I; conversely a function of type I has only real nonpositive zeros, so every $s_\rho\le0$, and $s_\rho=(\rho-1/2)^2\le0$ forces $\rho-1/2\in i\mathbb R$. The equivalence of (ii), (iii) and (iv) is the theorem of P\'olya and Schur, since $\sum g_ks^k/k!=F(s)$. The equivalence with (v) is Proposition~\ref{prop:rigid}.
+\end{proof}
+
+The ladder (iv) is the coefficient counterpart of the monotonicity ladder $T_k=(-1)^kW^{(k)}\ge0$ of Theorem~\ref{thm:ch12:cm}. Its first rung, for $F$ and for every derivative of $F$, is the Tur\'an inequality $g_k^2\ge g_{k-1}g_{k+1}$ for $k\ge1$, the condition that the Jensen polynomials $J_{2,n}$, $n\ge0$, are real rooted; for $F$ alone it is the case $k=1$. With $m_k=(2k)!\,c_k=2\int_0^\infty\Phi(u)u^{2k}\,du$ it reads $m_k^2\ge\frac{2k-1}{2k+1}m_{k-1}m_{k+1}$, which is the Tur\'an inequality proved unconditionally by Csordas, Norfolk and Varga (1986) \cite{CNV86}; in the scaled moments $a_k$, which are the $b_j$ of Section~\ref{fm:sec:momenttest}, it is \eqref{fm:eq:newton}, whose margins are in Table~\ref{fm:tab:newton}.
+
+\paragraph{Numerics.} Computing the $c_k$ from \eqref{pol:eq:F} by quadrature on the kernel reproduces $\Xi(0)=\xi(1/2)=0.497120778188314$ to fifteen digits and gives $a_1=0.0231049931$ and the values $a_2,a_3,a_4$ of Table~\ref{fm:tab:newton}. The Tur\'an ratios $g_k^2/(g_{k-1}g_{k+1})$ decrease slowly from $1.0748$ at $k=1$ and stay above $1.0109$ for all $k\le40$. The Jensen polynomials $J_d$ of every degree $2\le d\le30$, computed with 120 digits, have only real negative zeros.
+
+\begin{remark}
+The ladder (iv) at fixed degree $d$ is a finite set of polynomial inequalities in $a_1,\dots,a_d$, and so is checkable to any degree; but for each fixed $d$ it is implied by information about finitely many zeros, which is why it cannot prove RH by itself.
+\end{remark}
+
+\section{P\'olya frequency functions: the two sided criterion}\label{pol:sec:pf}
+
+Schoenberg (1951) \cite{Schoenberg51} proved that an integrable function $f$ on $\mathbb R$ is a P\'olya frequency function of every order (PF$_\infty$) if and only if its bilateral Laplace transform is $1/\Psi(s)$ on a strip around the origin, with $\Psi$ a function of the form \eqref{pol:eq:LP} with $m=0$ and $\Psi(0)>0$ that is not of the form $Ce^{\kappa s}$. The name honours P\'olya, and the theorem is the two sided counterpart of the Thorin theory.
+
+\begin{proposition}\label{pol:prop:pf}
+Let $Y\sim\mu$ be the reciprocal Xi law and $Z$ a standard normal variable independent of $Y$. Unconditionally, $X=Z\sqrt{2Y}$ has a smooth symmetric density $f_X$ with characteristic function and bilateral Laplace transform
+\begin{equation}\label{pol:eq:X}
+\mathbb Ee^{itX}=\frac{\xi(1/2)}{\xi(1/2+t)},\qquad \mathbb Ee^{zX}=\frac{\Xi(0)}{\Xi(z)}\quad(|\re z|<\gamma_1).
+\end{equation}
+Moreover RH holds if and only if $f_X$ is PF$_\infty$.
+\end{proposition}
+
+This is the equivalence of Section~\ref{ch:clock}, between RH and the law of $Z\sqrt{2Y}$ as a sum of Laplace variables, read through Schoenberg's theorem; the same equivalence is stated for the Laguerre P\'olya class in \cite[Theorem 2.3 and Corollary 2.4]{KPS24}, and its forward half is item (iv) of Theorem~\ref{fm:thm:dual}.
+
+\begin{proof}
+$\mathbb Ee^{itX}=\mathbb Ee^{-t^2Y}=\varphi(t^2)=\xi(1/2)/\xi(1/2+t)$, which is integrable in $t$ since $\xi(1/2+t)$ grows like $\exp(\frac t2\log t)$, so $f_X$ exists and is smooth. For real $z$, $\mathbb Ee^{zX}=\mathbb Ee^{z^2Y}=\varphi(-z^2)$, and $\varphi(-z^2)=\xi(1/2)/\xi(1/2+iz)=\Xi(0)/\Xi(z)$ by evenness; the Laplace transform of the positive measure $\mu$ converges up to its first singularity on the negative real axis (Landau's theorem), which is at $-\gamma_1^2$, because a zero off the line gives a nonreal $s_\rho$ and the zero of lowest ordinate is on the line. Under RH, $\Xi(z)/\Xi(0)=\prod_\gamma(1-z^2/\gamma^2)=\prod_\gamma(1-z/\gamma)e^{z/\gamma}(1+z/\gamma)e^{-z/\gamma}$ is of Schoenberg's form, so $f_X$ is PF$_\infty$. Conversely if $f_X$ is PF$_\infty$ then $\Xi(z)/\Xi(0)$ agrees on a strip with an entire function having only real zeros, hence everywhere, and RH follows.
+\end{proof}
+
+The Thorin atoms $\gamma^2$ become Schoenberg's $\pm1/\gamma$. Under RH, $X\stackrel{d}{=}\sum_\gamma L_\gamma/\gamma$ with independent standard Laplace variables $L_\gamma$, because a Laplace variable is $Z\sqrt{2E}$. The PF ladder PF$_2\supset$ PF$_3\supset\cdots\supset$ PF$_\infty$ is a third ladder, after $T_k$ and the Jensen degrees. PF$_2$ is log concavity of $f_X$.
+
+\paragraph{Numerics.} Fourier inversion of \eqref{pol:eq:X} gives $f_X$. On $[0,1.6]$ with step $0.02$ every second difference of $\log f_X$ is negative (the largest is $-2.6\times10^{-5}$), so PF$_2$ holds on the grid; all $3000$ random pairs of ordered triples $x_1<x_2<x_3$, $y_1<y_2<y_3$ in $[-0.8,0.8]$ have a positive normalised determinant $\det[f_X(x_i-y_j)]_{i,j\le3}/\prod_if_X(x_i-y_i)$, the smallest being $6.7\times10^{-9}$.
+
+\begin{problem}\label{pol:op:pf2}
+Prove unconditionally, in exact or interval arithmetic, that $f_X$ is log concave, that is PF$_2$ (Theorem~\ref{pol:thm:pf2} gives a floating point certificate), and then that it is PF$_n$ for $n\ge3$ (Section~\ref{pol:sec:progress}). The case of PF$_2$ would be a two sided analogue of the unconditional self decomposability of $\mu$, one rung up the Schoenberg ladder.
+\end{problem}

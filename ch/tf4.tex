@@ -1,0 +1,61 @@
+\section{The heat flow: a stable step that cannot carry real zeros}\label{tf:sec:heat}
+
+With the de Bruijn Newman kernel $\Phi_{\rm dBN}$ of Section~\ref{sec:ch21:flow},
+\[
+H_t(z)=\int_0^\infty e^{tu^2}\Phi_{\rm dBN}(u)\cos(zu)\,du,\qquad H_0(z)=\tfrac18\,\Xi(z/2),
+\]
+the function $H_t$ is defined for every real $t$, since the kernel decays like $e^{9u}\exp(-\pi e^{4u})$, and the zeros of $H_0$ are the points $2\gamma_\rho$, with imaginary parts $-2(\beta-\tfrac12)$. The de Bruijn Newman constant $\Lambda$ satisfies $0\le\Lambda\le0.2$~\cite{RodgersTao,PT21}.
+
+\begin{theorem}[The heat family]\label{tf:thm:heat}
+\begin{enumerate}
+\item[(a)] $\partial_tH_t=-\partial_z^2H_t$, so $H_t=e^{-tD^2}H_0$ with $D=d/dz$.
+\item[(b)] For real $t$, $s>0$ and complex $z$, with $Z$ a standard normal variable,
+\[
+H_{t-s}(z)=\E\big[H_t\big(z+\sqrt{2s}\,Z\big)\big].
+\]
+\item[(c)] Forward in $t$ real zeros persist, and if the zeros of $H_{t_0}$ lie in $|\im z|\le r$, then those of $H_t$ lie in $(\im z)^2\le\max(r^2-2(t-t_0),0)$ for $t\ge t_0$~\cite[Theorem~13]{deBruijn}.
+\item[(d)] Backward in $t$ real zeros are not preserved: $f(z)=z^2-c$, $c>0$, has real zeros, and $\E f(z+\sqrt{2s}Z)=z^2-c+2s$ has none once $s>c/2$. For $H$ itself, $H_t$ has nonreal zeros for every $t<0$~\cite{RodgersTao}.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(a) Differentiate under the integral: $\partial_t$ brings down $u^2$ and $\partial_z^2$ brings down $-u^2$. (b) $\E\cos((z+\sigma Z)u)=\cos(zu)e^{-\sigma^2u^2/2}$ for complex $z$, and with $\sigma^2=2s$ the factor $e^{-su^2}$ turns the kernel $e^{tu^2}\Phi_{\rm dBN}$ into $e^{(t-s)u^2}\Phi_{\rm dBN}$; Fubini applies because $\Phi_{\rm dBN}$ decays like $e^{9u}\exp(-\pi e^{4u})$, for every real $t$. (c) is de Bruijn's theorem, in the form used by Polymath15~\cite{Polymath} and in the proof of Theorem~\ref{cp:thm:phase}. (d) is the computation shown and the theorem of Rodgers and Tao.
+\end{proof}
+
+\begin{corollary}[No averaging stable property carries real zeros]\label{tf:cor:average}
+Let $\mathcal P$ be a property of entire functions that is preserved by $f\mapsto\E f(\cdot+\sqrt{2s}Z)$ for some $s>0$. If $\mathcal P$ implies that all zeros are real, then $H_t$ has $\mathcal P$ for no real $t$.
+\end{corollary}
+
+\begin{proof}
+If $H_{t_0}$ has $\mathcal P$, then by (b), applied $k$ times, so does $H_{t_0-ks}$ for every integer $k\ge1$, and for $t_0-ks<0$ it has only real zeros, against (d). The proof uses only that some $H_t$ has a nonreal zero, which is Newman's theorem $\Lambda>-\infty$~\cite{Newman1976}.
+\end{proof}
+
+The corollary is the heat flow form of the criticality filter of Section~\ref{pk:sec:filter}: Proposition~\ref{pk:prop:filter} shows that no property of the kernel $\Phi_t$ that holds at some $t<0$ can force real zeros. The step towards RH, from $t=0.2$ down to $0$, is an average of $H_{0.2}$ against a Gaussian of variance $0.4$: a contraction, stable to compute.
+
+A Gauss Legendre rule with $200$ nodes in $u$ on $[0,1.5]$, beyond which $\Phi_{\rm dBN}<10^{-540}$, and a Gauss Hermite rule with $80$ nodes reproduce $H_0(z)$ from $H_{0.2}$ at $z=0$, $10$ and $28.27$ to a relative error below $10^{-35}$ in $40$ digit arithmetic. The step away from RH, $e^{-tD^2}$, preserves real zeros, as the operator of the Laguerre P\'olya theory, and is a deconvolution in $z$. In the basepoint family the roles are reversed: the positivity preserving step is a convolution and the step towards RH an unbounded deconvolution.
+
+The two informative families are tied by the conserved quantity of Theorem~\ref{cp:thm:phase}: a basepoint offset $\varepsilon$ is worth heat time $2\varepsilon^2$, and $\Lambda\le2(\sigma_{\max}-\tfrac12)^2$. The critical strip, $\sigma_{\max}\le1$, gives de Bruijn's $\Lambda\le\tfrac12$; the half plane announced in October 2026~\cite{OAI26a}, not yet refereed, would give $\sigma_{\max}\le\tfrac78$ and, conditionally on it, $\Lambda\le\tfrac9{32}$, weaker than the known $0.2$; and $\Lambda\le0.2$ corresponds to the basepoint $\tfrac12+\sqrt{0.1}=0.816$ (Corollary~\ref{cp:cor:known}). In the language of Theorem~\ref{tf:thm:deconv}, whose \emph{if} direction holds for $\xi_t$ by the product of Lemma~\ref{cp:lem:structure}, the bound $\Lambda\le0.2$ of Platt and Trudgian, obtained through the Polymath15 framework, says that the Thorin density of $\xi_{0.2}$ deconvolves to a positive measure all the way to the line; RH asks for the same at $t=0$, and by Corollary~\ref{tf:cor:average} no property preserved by the Gaussian average joining the two times can carry it.
+
+\paragraph{What would get past the obstruction.}\makeatletter\protected@edef\@currentlabel{\thesection}\makeatother\phantomsection\label{tf:sec:past} This paragraph is a heuristic reading of the theorems above. In the basepoint family a proof needs a bound, uniform in the height, for the deconvolution of $\rho_{\varepsilon_0}$; from the primes that means cancellation in $\sum\Lambda(n)n^{-\alpha-ib}$ below $\alpha=1$, which is a zero free region by Proposition~\ref{bp:prop:below}, and the half plane announced in October 2026~\cite{OAI26a}, not yet refereed, would move the end of the range to $\alpha=\tfrac78$. In the heat family a proof needs a property of $H_0$ that implies real zeros and that fails for every $H_t$ with $t<0$, since those have nonreal zeros (Theorem~\ref{tf:thm:heat}(d)): a property that sees the boundary $t=\Lambda$ itself. In the tilt family nothing can be gained. And since $\Lambda\ge0$, any such statement must hold at the boundary with no slack (Remark~\ref{cp:rem:semigroups}).
+
+\subsection{Open problems}\label{tf:sec:open}
+
+\begin{problem}[How many levels, for the actual zeros]\label{tf:prob:levels}
+Corollary~\ref{tf:cor:levels} counts levels in a model with one quadruple among regularly spaced zeros, and only at its ordinate. Turn it into a certificate: find levels $\varepsilon_1<\dots<\varepsilon_K$ such that positivity of every $\rho_{\varepsilon_k}$ on $[0,h]$, together with positivity of $\mathcal L_\Xi$, excludes all off line zeros up to height $h$, allowing several off line zeros, irregular spacing, and minima off the ordinate (Exercise~\ref{ex:ch15:beside}). Is $K$ still of order $\log h$? Such a certificate is finite information in the sense of Section~\ref{ch:finite} and Theorem~\ref{thm:ch13:perturb}, so its interest is as a different verification of RH up to height $h$, from $\xi$ on lines to the right of the critical line rather than from sign changes on it.
+\end{problem}
+
+\begin{problem}[Stability with an a priori bound]\label{tf:prob:three}
+On a strip $\tfrac12+\varepsilon_1\le\re s\le\tfrac12+\varepsilon_0$ free of zeros, Hadamard's three lines theorem bounds the error of an approximation $g$ to $\xi'/\xi$ at level $\varepsilon$ by $\eta^{\lambda}M^{1-\lambda}$, $\lambda=(\varepsilon-\varepsilon_1)/(\varepsilon_0-\varepsilon_1)$, where $\eta$ is the error at $\varepsilon_0$ and $M$ a bound at $\varepsilon_1$. The bound $M$ presupposes the zero free strip. Is there a formulation in which the a priori bound comes from the Thorin structure itself, for instance from positivity of $\rho_\varepsilon$ at the levels already certified?
+\end{problem}
+
+\begin{problem}[Seeing the boundary]\label{tf:prob:heat}
+By Theorem~\ref{tf:thm:heat}(d), a property of $H_0$ that implies real zeros fails for $H_t$ at every $t<0$. Which of the positivity statements of the book, for instance the GGC property of the clock, whose Laplace transform is $R_0$, the case $t=0$ of $R_t(s)=H_t(0)/H_t(2i\sqrt s)$ in Theorem~\ref{rz:thm:dbn}, or the P\'olya frequency property of the density of $Z\sqrt{2T}$ (Proposition~\ref{pol:prop:pf}, where the clock is written $Y$), can be shown to fail for $t<0$ by a mechanism visible at finite height, as Lehmer pairs make $\Lambda$ close to $0$ visible~\cite{CSV94}?
+\end{problem}
+
+\begin{problem}[The window below $\delta$]\label{tf:prob:window}
+For a quadruple at distance $\delta>\delta_c$ the level test detects it on a set of levels contained in $(0,\delta)$, an interval $(\varepsilon_c,\delta)$ in our examples. At the ordinate $\varepsilon_c$ is the inverse of the visibility curve of Proposition~\ref{tf:prop:curve}. Describe the distribution of $\delta_{\rm det}$, and of the onset $\varepsilon_c(\delta,\gamma^*)$, over heights in terms of the local zero statistics, and compare it with the prediction of the sine kernel; Table~\ref{tf:tab:deltac} gives its lower end, $\delta_c$.
+\end{problem}
+
+\subsection*{Notes}
+
+The ordinate formula for $\pi\rho_\varepsilon(\gamma)$, the first order visibility condition and the lattice threshold $(\sqrt6/\pi)\Delta$ of Section~\ref{tf:sec:window} are those of Section~\ref{sec:ch13:visibility}, and inserting hypothetical quadruples into the density computed from the zeros is the device of Section~\ref{ag:sec:num}; the closed forms of Proposition~\ref{tf:prop:curve}, the level count of Corollary~\ref{tf:cor:levels} and the computations at the actual zeros are in this chapter. The bound $\Lambda\le0.2$ is that of Platt and Trudgian \cite{PT21}, and the visibility of a Lehmer pair through $\Lambda$ is the work of Csordas, Smith and Varga \cite{CSV94}.

@@ -1,0 +1,251 @@
+\section{Dirichlet \texorpdfstring{$L$}{L} functions and number fields}\label{gl:sec:Lchi}
+
+This section carries the construction of Section~\ref{gl:sec:thorin} from $\xi$ to Dirichlet $L$ functions and to Dedekind zeta functions. The numbers are computed by the scripts \texttt{gl\_dirichlet.py} and \texttt{gl\_sinsq\_chi4.py} (\texttt{code/\allowbreak README.md}).
+
+Let $\chi$ be a primitive character modulo $q>1$ of parity $a\in\{0,1\}$, $\chi(-1)=(-1)^a$, and
+\begin{gather*}
+\xi(s,\chi) = \Big(\frac q\pi\Big)^{(s+a)/2}\Gamma\Big(\frac{s+a}{2}\Big)L(s,\chi),\\
+\xi(s,\chi) = W_\chi\,\xi(1-s,\bar\chi),\qquad |W_\chi|=1,
+\end{gather*}
+an entire function of order one~\cite{Davenport}.
+
+\subsection{The positivity obstacle}\label{gl:sec:obstacle}
+
+For $\Re(s)>1$,
+\begin{equation}\label{gl:eq:Lchi}
+\log L(s,\chi)=\sum_{n\ge2}\frac{\chi(n)\Lambda(n)}{\log n}\,n^{-s},
+\end{equation}
+so the analogue of $\mu^\sigma$ (Lemma~\ref{gl:lem:levy}) carries the weights $\chi(p)^r$: complex for complex $\chi$, signed for real nonprincipal $\chi$. Then $L(\sigma+it,\chi)/L(\sigma,\chi)$ is the characteristic function of no probability law: by uniqueness its only candidate has the weights $\chi(n)n^{-\sigma}/L(\sigma,\chi)$ at $-\log n$, and these are not all nonnegative.
+
+On the critical line the Thorin construction needs no Euler product at all, only evenness and the Hadamard product of the completed function.
+
+\subsection{Real characters}
+
+For a real primitive character, $\bar\chi=\chi$ and $W_\chi=1$, so $\xi(s,\chi)=\xi(1-s,\chi)$ and $\xi(\cdot,\chi)$ is real on the real axis.
+
+\begin{proposition}\label{gl:prop:Lreal}
+Let $\chi$ be a real primitive character, and assume GRH for $L(s,\chi)$ and $L(\tfrac12,\chi)\neq0$. Write the zeros as $\tfrac12\pm i\gamma$ with $\gamma>0$, counted with multiplicity. Then $T_\chi\stackrel{d}{=}\sum_{\gamma>0}e_\gamma/\gamma^2$ is a GGC with
+\begin{equation}\label{gl:eq:thorin-chi}
+\frac{\xi(\tfrac12,\chi)}{\xi(\tfrac12+\sqrt u,\chi)} = \E\big[e^{-uT_\chi}\big],\qquad u \ge 0,
+\end{equation}
+with cumulants $(j-1)!\,p_j(\chi)$, $p_j(\chi)=\sum_{\gamma>0}\gamma^{-2j}$. Propositions~\ref{gl:prop:tilt} to~\ref{gl:prop:interp} hold with $\xi$ replaced by $\xi(\cdot,\chi)$, with GRH for $L(s,\chi)$ and $L(\tfrac12,\chi)\neq0$ in the place of RH and $\xi(\tfrac12)\neq0$, and with the values at $u_0=\tfrac14$, which use $\xi(1)=\tfrac12$, replaced by those below; in particular
+\begin{gather}
+\sum_{\gamma>0}\frac{1}{\gamma^2+\tfrac14} = \frac{\xi'}{\xi}(1,\chi) = \frac12\log\frac q\pi+\frac12\,\psi\Big(\frac{1+a}{2}\Big)+\frac{L'}{L}(1,\chi),\label{gl:eq:chi-classical}\\
+\E\big[e^{-T_\chi/4}\big] = \frac{\xi(\tfrac12,\chi)}{\xi(1,\chi)}.\notag
+\end{gather}
+\end{proposition}
+
+\begin{proof}
+$\xi(\tfrac12+s,\chi)$ is even, entire of order one and nonzero at $s=0$, so the argument of Lemmas~\ref{gl:lem:even} and~\ref{gl:lem:product} gives $\xi(\tfrac12+s,\chi)/\xi(\tfrac12,\chi)=\prod_\gamma(1+s^2/\gamma^2)$, and~\ref{gl:G2} gives~\eqref{gl:eq:thorin-chi}. The later propositions used only this product, evenness and growth on the real axis. For~\eqref{gl:eq:chi-classical}, take the logarithmic derivative of the product at $s=\tfrac12$ and of the definition of $\xi(\cdot,\chi)$ at $s=1$.
+\end{proof}
+
+
+
+The hypothesis $L(\tfrac12,\chi)\neq0$ is Chowla's conjecture for real characters, still open; a central zero would put an atom at $u_0$ in the tilted Thorin measure (Theorem~\ref{gl:thm:family}) and block the untilted clock (Corollary~\ref{gl:cor:basepoints}(a)). Lemma~\ref{gl:lem:stirling} holds for $\xi(\cdot,\chi)$ under GRH, with the same decay $e^{-\pi|\tau|/4}$ and the power $|\tau|^{\sigma/2-a/2-1/4+\eta}$ in place of $|\tau|^{\sigma/2-9/4+\eta}$, so the master theorem analysis of Section~\ref{gl:sec:rmt} carries over with the same two obstructions.
+
+\subsection{Complex characters}
+
+For complex $\chi$ the functional equation links $\xi(s,\chi)$ to a different function, $\xi(1-s,\bar\chi)$. So $\xi(\tfrac12+s,\chi)$ is not even, its ordinates are not symmetric under $\gamma\mapsto-\gamma$, and the pairing behind~\eqref{gl:eq:thorin-chi} fails. Rotating by the root number makes the function real on the critical line, but not even, and it stays complex on the real axis, where a Laplace transform must be positive.
+
+\begin{proposition}\label{gl:prop:Lcomplex}
+Let $\chi$ be a complex primitive character and $\xi_{\chi\bar\chi}(s) := \xi(s,\chi)\xi(s,\bar\chi)$. Then $\xi_{\chi\bar\chi}(s)=\xi_{\chi\bar\chi}(1-s)$ and $\xi_{\chi\bar\chi}(\sigma)=|\xi(\sigma,\chi)|^2$ for real $\sigma$. If GRH holds for $L(s,\chi)$ and $L(\tfrac12,\chi)\neq0$, then
+\[
+\frac{\xi_{\chi\bar\chi}(\tfrac12)}{\xi_{\chi\bar\chi}(\tfrac12+\sqrt u)} = \E\big[e^{-uT_{\chi\bar\chi}}\big],\qquad T_{\chi\bar\chi}\stackrel{d}{=}\sum_{\gamma\in\Gamma_\chi}\frac{e_\gamma}{\gamma^2},
+\]
+where $\Gamma_\chi$ is the multiset of all ordinates of zeros of $L(s,\chi)$, of both signs.
+\end{proposition}
+
+\begin{proof}
+The root numbers multiply to $W_\chi W_{\bar\chi}=|W_\chi|^2=1$, and $\xi(\sigma,\bar\chi)=\overline{\xi(\sigma,\chi)}$ for real $\sigma$. The zeros of $L(s,\bar\chi)$ are the conjugates $\tfrac12-i\gamma$, so $\xi_{\chi\bar\chi}$ has zeros at $\tfrac12\pm i\gamma$ for every $\gamma\in\Gamma_\chi$, and the even product argument applies: each ordinate of $L(s,\chi)$ gives one factor $1+u/\gamma^2$, its partner $\tfrac12-i\gamma$ among the zeros of $L(s,\bar\chi)$ being the other zero of the pair, so no ordinate is counted twice.
+\end{proof}
+
+
+
+\subsection{The Dedekind route}
+
+Let $\chi$ be a real primitive character of conductor $q$ and $F=\mathbb Q(\sqrt D)$, with $D=\chi(-1)q$ a fundamental discriminant. Then $\zeta_F(s)=\zeta(s)L(s,\chi)$, and $F$ is real quadratic, $(r_1,r_2)=(2,0)$, for even $\chi$ and imaginary quadratic, $(r_1,r_2)=(0,1)$, for odd $\chi$. More generally, for $q\ge3$ the cyclotomic field $F_q=\mathbb Q(\zeta_q)$ is totally complex of degree $\varphi(q)$ and
+\begin{equation}\label{gl:eq:cyclotomic}
+\zeta_{F_q}(s)=\prod_{\chi\bmod q}L(s,\chi^*),
+\end{equation}
+with $\chi^*$ the primitive character inducing $\chi$. Every primitive character of conductor dividing $q$ occurs, complex ones together with their conjugates. And Dedekind zeta functions have nonnegative coefficients,
+\[
+\log\zeta_F(s)=\sum_{n\ge2}\frac{\Lambda_F(n)}{\log n}\,n^{-s},\qquad \Lambda_F(n)=\sum_{N\mathfrak p^r=n}\log N\mathfrak p\ \ge0,
+\]
+which is why one passes to fields.
+
+\begin{proposition}\label{gl:prop:dedekind}
+For a quadratic field, $\xi_F(s)=2\,\xi(s)\xi(s,\chi)$ when $\chi$ is even and $\xi_F(s)=2q^{-1/2}\xi(s)\xi(s,\chi)$ when $\chi$ is odd. Consequently, at any tilt $u_0\ge0$ at which $\xi$ and $\xi(\cdot,\chi)$ both have the Thorin property in the sense of Theorem~\ref{gl:thm:family}, so does $\xi_F$, its tilted clock is the independent sum of the tilted clocks of $\xi$ and of $\xi(\cdot,\chi)$, and
+\[
+U_{F,u_0}=U_{\mathbb Q,u_0}+U_{\chi,u_0},
+\]
+where $U_{\chi,u_0}$ is the Thorin measure of the tilted clock of $\xi(\cdot,\chi)$, defined as $U_{F,u_0}$ is in Theorem~\ref{gl:thm:family}; at $u_0=0$ this reads $T_F\stackrel d=T_\zeta+T_\chi$, with $T_\zeta=T$ the centre clock of $\xi$. For a cyclotomic field, under the hypotheses of Propositions~\ref{gl:prop:Lreal} and~\ref{gl:prop:Lcomplex}, $T_{F_q}$ is the independent sum of $T_\zeta$, of $T_\chi$ over the real primitive characters of conductor $f\mid q$ with $f>1$, and of $T_{\chi\bar\chi}$ over the conjugate pairs of complex primitive characters of conductor dividing $q$. In particular the cumulants add: $p_j(F)=p_j(\zeta)+p_j(\chi)$ for a quadratic field.
+\end{proposition}
+
+For $\mathbb Q(i)$ at basepoints $\alpha\ge1$, where no hypothesis is needed, this is Proposition~\ref{prop:dbeta:factor} and Corollary~\ref{cor:dbeta:dom}, with the constant $2\cdot4^{-1/2}=1$.
+
+\begin{proof}
+For even $\chi$ the gamma factors agree, $\Gamma_\R(s)^2$ on both sides, and $|d_F|=q$. For odd $\chi$ the duplication formula gives $\Gamma_\R(s)\Gamma_\R(s+1)=\Gamma_\C(s)$, while $\xi(s,\chi)=q^{(s+1)/2}\Gamma_\R(s+1)L(s,\chi)$ carries an extra $q^{1/2}$. The constants cancel in the ratios~\eqref{gl:eq:Phi}, so the Laplace transforms multiply and the variables add. The cyclotomic case follows from~\eqref{gl:eq:cyclotomic} in the same way: the factors there are primitive, half of the characters modulo $q\ge3$ are odd, so the gamma factors multiply to $\Gamma_\C(s)^{\varphi(q)/2}$, and the discriminant is the product of the conductors.
+\end{proof}
+
+
+
+\subsection{The L\'evy decomposition of \texorpdfstring{$\xi_F$}{xi F}, with signs}
+
+For $\alpha>1$ and $s\ge0$ put $h_s(x)=e^{-sx}-1+sx\ge0$. Binet's formula gives
+\begin{gather*}
+\log\frac{\Gamma_\R(\alpha+s)}{\Gamma_\R(\alpha)}-s\frac{\Gamma_\R'}{\Gamma_\R}(\alpha)=\int_0^\infty h_s(x)\frac{e^{-\alpha x}}{1-e^{-2x}}\frac{dx}x,\\
+\log\frac{\Gamma_\C(\alpha+s)}{\Gamma_\C(\alpha)}-s\frac{\Gamma_\C'}{\Gamma_\C}(\alpha)=\int_0^\infty h_s(x)\frac{e^{-\alpha x}}{1-e^{-x}}\frac{dx}x,
+\end{gather*}
+a linear factor gives $\log\frac{z+s}z-\frac sz=-\int_0^\infty h_s(x)e^{-zx}\frac{dx}x$ for $z>0$, and
+\[
+\log\frac{\zeta_F(\alpha+s)}{\zeta_F(\alpha)}-s\frac{\zeta_F'}{\zeta_F}(\alpha)=\sum_{n\ge2}\frac{\Lambda_F(n)}{\log n}\,n^{-\alpha}h_s(\log n).
+\]
+
+\begin{proposition}\label{gl:prop:levyF}
+For $\alpha>1$ and $s\ge0$,
+\begin{equation}\label{gl:eq:levyF}
+\log\frac{\xi_F(\alpha+s)}{\xi_F(\alpha)}-s\,\frac{\xi_F'}{\xi_F}(\alpha)=\int_0^\infty h_s(x)\,e^{-\alpha x}\,\frac{\nu_F(dx)}x
+\end{equation}
+with the signed measure
+\begin{equation}\label{gl:eq:nuF}
+\nu_F(dx)=\Big(\frac{r_1}{1-e^{-2x}}+\frac{r_2}{1-e^{-x}}-1-e^x\Big)dx+\sum_{n\ge2}\Lambda_F(n)\,\delta_{\log n}(dx).
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Add the decompositions above. The density $-(1+e^x)$ comes from the factors $\alpha+s$ and $\alpha-1+s$ of $s(s-1)$, both with positive $z$ since $\alpha>1$, and $|d_F|^{s/2}$ is linear in $s$ and only changes the drift.
+\end{proof}
+
+For $F=\mathbb Q$, where $\xi_{\mathbb Q}=2\xi$, this is Proposition~\ref{bp:prop:levy}; for $\chi_4$ and $\chi_{12}$ it is Propositions~\ref{prop:dbeta:levy} and~\ref{bp:eta:prop:levy}.
+
+\begin{remark}[Where positivity fails, and why it is the same question]
+The polynomial factor contributes the density $-(1+e^x)$, which dominates the positive continuous part for large $x$. By the prime ideal theorem $\Lambda_F$ has mean value one, so on average the atoms $\sum\Lambda_F(n)\delta_{\log n}$ cancel $-e^x\,dx$, and by the explicit formula what remains is a sum over the zeros of $\zeta_F$. Positivity of any smoothed $\nu_F$ is therefore again a statement about zeros: the Dedekind route does not give the Thorin property for free.
+\end{remark}
+
+\subsection{The sine squared lemma: from primes to the Thorin measure}\label{gl:sec:sinsq}
+
+Proposition~\ref{gl:prop:levyF} writes $\log\xi_F$ against a signed L\'evy measure. The sine squared lemma~\cite[Lemma~8.1]{P17}, first in~\cite[Lemma~1]{P17v5}, converts any such decomposition into a Thorin representation of the reciprocal~\cite[Theorem~8.2]{P17}; in the book it is equation~\eqref{eq:sin2} of Section~\ref{ch:clock}, applied to $\xi$ in Proposition~\ref{bp:prop:sin2} and to $\xi(\cdot,\chi_4)$ after the L\'evy form of Proposition~\ref{prop:dbeta:levy} (Section~\ref{sec:ch16:sin2}). In the chart $z=b^2$ the kernel identity~\eqref{eq:sin2} reads, for $w,x>0$,
+\begin{equation}\label{gl:eq:sinsq}
+e^{-wx}-1+wx=\frac x\pi\int_0^\infty\log\Big(1+\frac{w^2}{b^2}\Big)\,2\sin^2\Big(\frac{bx}2\Big)\,db ,
+\end{equation}
+and the book gives its proof. For a function $f$ below write $v_\alpha(b)=\Re\frac{f'}{f}(\alpha+ib)$. For $f=\xi$ this is the function $v_\alpha$ of Section~\ref{ch:clock}, $v_\alpha/\pi$ is the density $\rho_{\alpha-1/2}$ of~\eqref{eq:rho}, and the measure $U_\alpha(dt)=v_\alpha(\sqrt t)\,dt/(2\pi\sqrt t)$ is that of~\eqref{eq:Ualpha}.
+% CHECK: the pinpoints [P17, Theorem 8.2] and [P17v5, Lemma 1] are not verified against the papers; the book's own citations confirm [P17, Lemma 8.1] (ch/ch02.tex) and [P17, Proposition 9.5] (ch/ch02.tex, used below). See misc/reviews/nick-linnik/review-A.md Section 6.
+
+\begin{proposition}[The lemma on the prime side]\label{gl:prop:sinsq}
+Let $f$ be $\xi_F$, or $\xi(\cdot,\chi)$ for a real primitive $\chi$, and let $\alpha>1$. Then
+\begin{equation}\label{gl:eq:sinsq-thorin}
+\frac{f(\alpha)}{f(\alpha+\sqrt u)}=\exp\Big(-\int_0^\infty\log\Big(1+\frac u{b^2}\Big)\,\frac{v_\alpha(b)}\pi\,db\Big),\qquad u\ge0,
+\end{equation}
+where
+\begin{equation}\label{gl:eq:Malpha}
+v_\alpha(b)=\frac{f'}{f}(\alpha)+\int_0^\infty2\sin^2\Big(\frac{bx}2\Big)e^{-\alpha x}\,\nu(dx)=\Re\frac{f'}{f}(\alpha+ib),
+\end{equation}
+and $\nu$ is the L\'evy measure of $f$: $\nu_F$ of~\eqref{gl:eq:nuF} for $\xi_F$, and for $\xi(\cdot,\chi)$
+\[
+\nu_\chi(dx)=\sum_{n\ge2}\chi(n)\Lambda(n)\,\delta_{\log n}(dx)+\frac{e^{(1-a)x}}{2\sinh x}\,dx,
+\]
+that is $(2\sinh x)^{-1}dx$ for odd $\chi$ and $(1-e^{-2x})^{-1}dx$ for even $\chi$, from the gamma factor $\Gamma_\R(s+a)$.
+\end{proposition}
+
+\begin{proof}
+For $\xi_F$ the decomposition
+\[
+\log\frac{f(\alpha+w)}{f(\alpha)}-w\,\frac{f'}{f}(\alpha)=\int_0^\infty h_w(x)\,e^{-\alpha x}\,\frac{\nu(dx)}x
+\]
+is Proposition~\ref{gl:prop:levyF}, and for $\xi(\cdot,\chi)$ it follows in the same way from Binet's formula for $\Gamma_\R(s+a)$ and~\eqref{gl:eq:Lchi}. Insert~\eqref{gl:eq:sinsq} and interchange the integrals; this is justified for $\alpha>1$ because the kernels are nonnegative and $\int\min(1,x)\,e^{-\alpha x}|\nu|(dx)<\infty$ (near $0$ the density of $|\nu|$ is of order $1/x$, and at infinity $e^{-\alpha x}|\nu|(dx)$ is dominated by $e^{-(\alpha-1)x}dx$ and by the prime sum $\sum\Lambda_F(n)n^{-\alpha}$). The linear term is absorbed using $\int_0^\infty\log(1+w^2/b^2)\,db=\pi w$, which gives the first form of $v_\alpha$ with $u=w^2$. For the second, differentiate the decomposition in $w$: $\int(1-e^{-wx})e^{-\alpha x}\nu(dx)=(f'/f)(\alpha+w)-(f'/f)(\alpha)$. The left side is analytic for $\Re w>1-\alpha$ by the same bound, the right side is meromorphic with poles at the zeros, and they agree for $w>0$, so both continue to $w=ib$; taking real parts gives $\int2\sin^2(bx/2)e^{-\alpha x}\nu(dx)=\Re(f'/f)(\alpha+ib)-(f'/f)(\alpha)$.
+\end{proof}
+
+For a real character the arithmetic part of $v_\alpha(b)$ is
+\[
+-\sum_{n\ge2}\chi(n)\Lambda(n)\,n^{-\alpha}\cos(b\log n),
+\]
+absolutely convergent for $\alpha>1$. At $\alpha=1$ it converges conditionally for nonprincipal $\chi$, and for $\xi_F$ the prime sum diverges and converges only together with the density $-e^x$ of~\eqref{gl:eq:nuF}, as in Proposition~\ref{bp:prop:sin2}.
+
+
+
+\begin{lemma}\label{gl:lem:pair}
+For $c\in\C$ with $\Re c>0$ and $w>0$,
+\[
+\frac1\pi\int_{-\infty}^{\infty}\log\Big(1+\frac{w^2}{b^2}\Big)\,\Re\frac1{c+ib}\,db=2\log\Big|1+\frac wc\Big| .
+\]
+For $\Re c<0$ the right side is replaced by $-2\log|1-w/c|$.
+\end{lemma}
+
+\begin{proof}
+Write $\log(1+w^2/b^2)=\int_0^w2w'(b^2+w'^2)^{-1}dw'$. For $w'>0$ the function $b\mapsto(c+ib)^{-1}(b^2+w'^2)^{-1}$ is rational and $O(|b|^{-3})$, with poles at $ic$, $iw'$ and $-iw'$. If $\Re c>0$ the pole $ic$ lies in the upper half plane, and closing the contour in the lower half plane picks up only $-iw'$, so that $\int_{-\infty}^\infty db/((c+ib)(b^2+w'^2))=-2\pi i/((c+w')(-2iw'))=\pi/(w'(c+w'))$. Since $|\Re(c+ib)^{-1}|\le|\Re c|^{-1}$ and $\int_{-\infty}^\infty2w'(b^2+w'^2)^{-1}db=2\pi$, Fubini applies, and taking real parts,
+\[
+\frac1\pi\int_{-\infty}^\infty\log\Big(1+\frac{w^2}{b^2}\Big)\Re\frac1{c+ib}\,db=\Re\int_0^w\frac{2\,dw'}{c+w'}=2\log\Big|\frac{c+w}c\Big| .
+\]
+If $\Re c<0$ the same computation, closing in the upper half plane, gives $-2\log|(c-w)/c|$.
+\end{proof}
+
+Zeros $\rho=\beta+i\gamma$ are counted with multiplicity. Say that $f$ has the \emph{Thorin property at the basepoint} $\alpha>\tfrac12$ if $f(\alpha)\ne0$ and $u\mapsto f(\alpha)/f(\alpha+\sqrt u)$ is the Laplace transform of a GGC.
+
+\begin{theorem}[The basepoint family of the lemma]\label{gl:thm:sinsq}
+Let $f$ be as in Proposition~\ref{gl:prop:sinsq}, with zeros $\rho=\beta+i\gamma$.
+\begin{enumerate}
+\item[(a)] If every zero has $\beta<\alpha$, then~\eqref{gl:eq:sinsq-thorin} holds with
+\[
+\frac{v_\alpha(b)}\pi=\frac1\pi\sum_\rho\Re\frac{1}{\alpha+ib-\rho}=\frac1\pi\sum_\rho\frac{\alpha-\beta}{(\alpha-\beta)^2+(b-\gamma)^2}>0,
+\]
+so $f$ has the Thorin property at the basepoint $\alpha$, with no drift and Thorin measure $U_\alpha(dt)=v_\alpha(\sqrt t)\,dt/(2\pi\sqrt t)$. Since every zero has $\beta<1$, this holds unconditionally for every $\alpha\ge1$.
+\item[(b)] If some zero has $\beta>\alpha$ and $f(\alpha)\neq0$, then $f$ does not have the Thorin property at the basepoint $\alpha$. Hence $f$ has it at every basepoint $\alpha>\tfrac12$ if and only if every zero lies on the critical line.
+\item[(c)] Under GRH, and if $f(\tfrac12)\ne0$, with $\varepsilon=\alpha-\tfrac12$,
+\[
+\frac{v_\alpha(b)}\pi=\sum_{\gamma>0}\big(P_\varepsilon(b-\gamma)+P_\varepsilon(b+\gamma)\big),\qquad P_\varepsilon(x)=\frac{\varepsilon}{\pi(\varepsilon^2+x^2)},
+\]
+the Poisson smoothing at height $\varepsilon$ of the zero counting measure. As $\alpha\downarrow\tfrac12$, $(v_\alpha(b)/\pi)\,db\to\sum_{\gamma>0}\delta_\gamma$ vaguely on $[0,\infty)$, and $U_\alpha$ tends to the untilted Thorin measure $\sum_\gamma\delta_{\gamma^2}$ of Theorem~\ref{gl:thm:family}.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(a) By Hadamard's factorisation $f(s)=e^{A+Bs}\prod_\rho(1-s/\rho)e^{s/\rho}$ and the functional equation, $\Re(f'/f)(s)=\sum_\rho\Re(s-\rho)^{-1}$, absolutely convergent, for all $s$ off the zeros, and $\Re B=-\sum_\rho\Re\rho^{-1}$~\cite[Ch.~12]{Davenport}. Each term of the sum is positive when $\Re s>\beta$, which gives the formula for $v_\alpha$ and its positivity. For a zero $\rho$ put $\omega_\rho=\alpha-\rho$, so that $\Re\omega_\rho=\alpha-\beta>0$ and the term of $\rho$ in $v_\alpha(b)$ is $\Re(\omega_\rho+ib)^{-1}$, and for $w>0$ put
+\[
+I_\rho=\frac1\pi\int_0^\infty\log\Big(1+\frac{w^2}{b^2}\Big)\Re\frac1{\omega_\rho+ib}\,db\ \ge0 .
+\]
+Since $\Re(\omega_{\bar\rho}+ib)^{-1}=\Re(\omega_\rho-ib)^{-1}$, the substitution $b\mapsto-b$ and Lemma~\ref{gl:lem:pair} give $I_\rho+I_{\bar\rho}=2\log|1+w/\omega_\rho|$, and $|1+w/\omega_{\bar\rho}|=|1+w/\omega_\rho|$. The function $f$ is real on the real axis, so $\rho\mapsto\bar\rho$ permutes the zeros, and since all terms are nonnegative we may sum:
+\[
+\int_0^\infty\log\Big(1+\frac{w^2}{b^2}\Big)\frac{v_\alpha(b)}\pi\,db=\sum_\rho I_\rho=\sum_\rho\log\Big|1+\frac w{\omega_\rho}\Big| .
+\]
+On the other side the Hadamard product gives $f(\alpha+w)/f(\alpha)=e^{Bw}\prod_\rho(1+w/\omega_\rho)e^{w/\rho}$, an absolutely convergent product, and the left side is positive because $f$ is real and has no zero on $[\alpha,\infty)$. Taking logarithms and using $\Re B=-\sum_\rho\Re\rho^{-1}$, we get $\log f(\alpha+w)/f(\alpha)=\sum_\rho\log|1+w/\omega_\rho|$, the series converging absolutely. With $u=w^2$ this is~\eqref{gl:eq:sinsq-thorin} with density $v_\alpha/\pi$. In the variable $t=b^2$ the exponent is $\int_0^\infty\log(1+u/t)\,U_\alpha(dt)$ and it is finite; this is equivalent to the integrability conditions on a Thorin measure stated with~\eqref{gl:eq:ggc}, so $U_\alpha$ is a Thorin measure with no drift.
+
+(b) Let $\rho$ be a zero with $\beta>\alpha$ and put $u_\rho=(\rho-\alpha)^2$. Since $\Re(\rho-\alpha)=\beta-\alpha>0$, the principal square root of $u_\rho$ is $\rho-\alpha$, and $u_\rho\notin(-\infty,0]$, because otherwise $\rho-\alpha$ would be purely imaginary. The function $f(\alpha+\sqrt u)$ is analytic on $\C\setminus(-\infty,0]$ and vanishes at $u_\rho$, so $f(\alpha)/f(\alpha+\sqrt u)$ has a pole there. If $f$ had the Thorin property at $\alpha$, this function would coincide on $u>0$, hence on $\C\setminus(-\infty,0]$, with a GGC transform, which is analytic there by~\ref{gl:G1}: a contradiction. If every zero lies on the critical line, then $\beta=\tfrac12<\alpha$ for every $\alpha>\tfrac12$ and (a) gives the Thorin property at every basepoint $\alpha>\tfrac12$. If some zero is off the line, the functional equation gives one with $\beta>\tfrac12$, and the property fails at every $\alpha\in(\tfrac12,\beta)$, by the argument above where $f(\alpha)\neq0$ and by definition where $f(\alpha)=0$.
+
+(c) Under GRH every zero is $\tfrac12\pm i\gamma$ with $\gamma>0$, since $f(\tfrac12)\ne0$, and (a) applies for every $\alpha>\tfrac12$; with $\alpha-\beta=\varepsilon$ the two zeros $\tfrac12\pm i\gamma$ contribute $P_\varepsilon(b-\gamma)+P_\varepsilon(b+\gamma)$. Let $h$ be continuous with compact support in $[0,R]$ and let $0<\varepsilon\le1$. For $\gamma\le R+1$ the integral of $h$ against $P_\varepsilon(b-\gamma)+P_\varepsilon(b+\gamma)$ over $[0,\infty)$ tends to $h(\gamma)$, because $\gamma>0$ is a point of continuity of $h$ extended by zero and $\int_0^\infty P_\varepsilon(b+\gamma)\,db\le\varepsilon/(\pi\gamma)$. For $\gamma>R+1$ and $b\in[0,R]$ one has $|b\mp\gamma|\ge\gamma-R\ge\gamma/(R+1)$, so the integral is at most $2R\|h\|_\infty(R+1)^2\varepsilon/(\pi\gamma^2)$. The zeros with $\gamma>R+1$ therefore contribute at most a constant times $\varepsilon\sum_\gamma\gamma^{-2}$, which tends to $0$, and the finitely many others give $\sum_{\gamma>0}h(\gamma)$ in the limit, so $\int h\,(v_\alpha/\pi)\,db\to\sum_{\gamma>0}h(\gamma)$. Under $b\mapsto b^2$ this is the convergence of $U_\alpha$ to $\sum_\gamma\delta_{\gamma^2}$.
+\end{proof}
+
+If the half plane of \cite{OAI26a}, which has not been refereed (Section~\ref{sec:ch25:open}), stands, then every zero of every Dirichlet $L$ function has $\beta\le\tfrac78$, and part~(a) gives the Thorin property of $\xi(\cdot,\chi)$ for every real primitive character $\chi$, and of $\xi_F$ for every quadratic field $F$, at every basepoint $\alpha>\tfrac78$, with Thorin density $v_\alpha/\pi$ a sum of Lorentzians of widths at least $\alpha-\tfrac78$. This is Theorem~\ref{pol:thm:qrh}(i) carried from $\zeta$ to the family, and it lowers the unconditional end $\alpha\ge1$ of part~(a) to $\alpha>\tfrac78$ under that hypothesis. At $\alpha=\tfrac78$ itself part~(a) does not apply, since the half plane does not exclude a zero on the line $\Re s=\tfrac78$.
+
+For $\xi$ these statements are in the book: part~(a) is the first sentence of Theorem~\ref{thm:poisson}; parts~(a) and~(b) together, with the borderline case in which a zero on the line $\Re s=\alpha$ contributes an atom, are Theorem~\ref{rz:thm:threshold}, and Theorem~\ref{ri:thm:ggcriesz} treats the basepoints $\tfrac12\le\alpha<1$; and the Poisson form of part~(c) is Proposition~\ref{prop:struct}. For $\chi_4$ the corresponding result is Proposition~\ref{prop:dbeta:thorin}, and for $\chi_{12}$ at the basepoint one Proposition~\ref{bp:eta:prop:thorin}. In part~(c) the vague convergence holds without RH, as shown after Remark~\ref{rem:ch2:oneline} and in~\cite[Proposition~9.5]{P17}: the limit is then the counting measure of the ordinates of the zeros on the line, the pairs off the line contributing signed mass whose total variation tends to zero. Without $f(\tfrac12)\ne0$ a central zero of order $2m$ adds the term $2m\,P_\varepsilon(b)$ to $v_\alpha/\pi$, of mass $m$ on $(0,\infty)$, which concentrates at $b=0$ as $\varepsilon\downarrow0$; the limit is then not a Thorin measure (Corollary~\ref{gl:cor:basepoints}(a)).
+
+
+
+The tilt family and the basepoint family meet at the centre. Theorem~\ref{gl:thm:family} tilts by $u_0$, reads $f$ at $\tfrac12+\sqrt{u_0+u}$, and shifts each atom from $\gamma^2$ to $u_0+\gamma^2$. The lemma's family reads $f$ at $\alpha+\sqrt u$ and smooths each atom by a Poisson kernel of width $\alpha-\tfrac12$. One consequence differs. At the centre $f(\tfrac12+w)$ is even in $w$ and $v_{1/2}(0)=0$; for $\alpha>\tfrac12$ the function $f(\alpha+w)$ is not even, and under the hypothesis of part~(a) $v_\alpha(0)=(f'/f)(\alpha)>0$ is a sum of positive terms. The Thorin measure then has a component like that of a stable law of index $\tfrac12$, its density behaving like $v_\alpha(0)/(2\pi\sqrt t)$ as $t\downarrow0$, and the shifted clock $T_\alpha$ has $\E[T_\alpha]=\infty$. At every basepoint $\alpha\ge1$ the book proves the exact split into a positive stable variable of index $\tfrac12$ and a GGC, for $\xi$ in Propositions~\ref{bp:prop:v1min} and~\ref{bp:prop:valpha} and for $\chi_4$ and $\chi_{12}$ in Theorem~\ref{thm:dbeta:minall}(v) with the paragraph after it. The moment dictionary of Section~\ref{gl:sec:numerics} lives only at the centre.
+
+\begin{remark}[What the lemma buys, and what it cannot]\label{gl:rem:buys}
+Reaching the centre means running the Poisson smoothing backwards from $\alpha$ to $\tfrac12$. In the variable $x=\log n$ the smoothing multiplies the weight of $n$ by $n^{-(\alpha-1/2)}$, so undoing it replaces $n^{-\alpha}$ by the divergent $n^{-1/2}$: the backward step is the explicit formula, and it is ill posed. Chapter~\ref{chap:tf} measures its cost. By Theorem~\ref{tf:thm:deconv} the Thorin density at a basepoint beyond the zeros is the Poisson smoothing of a positive measure down to the line $\Re s=\tfrac12+\varepsilon_1$ exactly when no zero has $\beta-\tfrac12>\varepsilon_1$. Under GRH, by Proposition~\ref{tf:prop:mellin} and Table~\ref{tf:tab:mellin} (for $\chi_4$) the number of primes needed for accuracy $\delta$ is of order $\delta^{-1/(\alpha-1/2)}$, unbounded as $\alpha\downarrow\tfrac12$. Section~\ref{dc:sec:weil} of Chapter~\ref{chap:dc} shows that the deconvolved object is Weil's distribution of the explicit formula. Positivity on a single line is not known to exclude zeros to its right (Remark~\ref{rem:ch2:oneline} and Section~\ref{sec:ch25:open}). For $\xi$, Proposition~\ref{bp:prop:valpha} proves that the minimum of $v_\alpha$ on the line is at $b=0$ for every $\alpha\ge1$, and for $\chi_4$ and $\chi_{12}$ Theorem~\ref{thm:dbeta:minall}(v) does; the theorem also certifies it for every $\alpha\in(\tfrac12,\alpha_{\max}]$ up to the height to which GRH is verified (Table~\ref{tab:dbeta:minall}), and shows that the statement on the whole lines for all $\alpha\in(\tfrac12,1)$ together is equivalent to GRH. Our computations for $\chi_4$ below agree. A real zero $\beta>\alpha$ adds the term $-(\beta-\alpha)/((\beta-\alpha)^2+b^2)$ to $v_\alpha(b)$, whose modulus is largest at $b=0$, so the origin is where a real exceptional zero acts first: a Siegel zero is a failure of the lemma's positivity at the origin. The classical zero free region arguments live on the L\'evy side of the lemma, which restates their conclusions as positivity of a Thorin density. That is a translation, and this chapter obtains no new estimate from it, for Linnik's constant $K$ or for the least prime in a progression.
+\end{remark}
+
+\emph{Numerical check for $\chi_4$.} The script \texttt{code/gl\_sinsq\_chi4.py} checks the lemma for $\chi_4$ at $30$ digits. At $\alpha=2$, with the prime powers up to $N$ and the integral over $b$ done term by term (each prime term is the kernel identity), the integral in~\eqref{gl:eq:sinsq-thorin} differs from $\log\xi(\alpha+w,\chi_4)/\xi(\alpha,\chi_4)$ by $-4.4\times10^{-8}$, $-1.2\times10^{-9}$ and $6.2\times10^{-11}$ for $N=10^4$, $10^5$ and $10^6$ at $w=1$ and $w=3$; this difference is the tail of the prime sum beyond $N$. The prime side of~\eqref{gl:eq:Malpha}, over the prime powers up to $2\times10^6$, agrees with $v_\alpha(b)/\pi$ computed directly from $\xi'/\xi$ to $9.4\times10^{-11}$ at $\alpha=2$ and to $1.9\times10^{-7}$ at $\alpha=\tfrac32$. The zero side, the sum of part~(a) over the $203$ zeros of $L(s,\chi_4)$ below height $300$ found by the script, with the tail beyond height $300$ taken from the smooth zero density, differs from the direct value by $1.1\times10^{-6}$ to $1.7\times10^{-6}$ at $\alpha=\tfrac32$ and $2$ for $0\le b\le50$; once the tail is anchored to the exact zero count at the cut, as in~\eqref{gl:eq:anchored}, the difference falls to between $9.7\times10^{-9}$ and $1.7\times10^{-8}$, far inside the enclosure of $1.6\times10^{-5}$ to $2.7\times10^{-5}$ that the explicit bound for the zero count used in the proof of Theorem~\ref{thm:dbeta:minall}(v) guarantees.
+
+On the lines $\alpha=1,\tfrac34,\tfrac35,\tfrac{11}{20}$ the minimum of $v_\alpha(b)$ over $0\le b\le150$, on grids of step $0.1$ and $0.005$, is at $b=0$ (Table~\ref{gl:tab:sinsqmin}), where $v_\alpha(0)=b_\alpha=(\xi'/\xi)(\alpha,\chi_4)$.
+
+\begin{table}[htbp]
+\centering\small
+\begin{tabular}{cccc}
+\toprule
+$\alpha$ & $v_\alpha(0)=b_\alpha$ & $2(\alpha-\tfrac12)\,p_1(\chi_4)$ & ratio\\
+\midrule
+$1$ & $0.0777839900$ & $0.0780148250$ & $0.99704$\\
+$\tfrac34$ & $0.0389784293$ & $0.0390074125$ & $0.99926$\\
+$\tfrac35$ & $0.0156011077$ & $0.0156029650$ & $0.99988$\\
+$\tfrac{11}{20}$ & $0.0078012503$ & $0.0078014825$ & $0.99997$\\
+\bottomrule
+\end{tabular}
+\caption{The minimum of $v_\alpha(b)$ over $0\le b\le150$ for $\chi_4$, always at $b=0$, against the bound $2(\alpha-\tfrac12)\,p_1(\chi_4)=(\alpha-\tfrac12)V_f$ of Theorem~\ref{thm:dbeta:minall}(i), with $V_f=2p_1(\chi_4)=0.1560296499$. Computed by \texttt{code/gl\_sinsq\_chi4.py} (\texttt{data/gl\_sinsq\_chi4.json}).}
+\label{gl:tab:sinsqmin}
+\end{table}
+
+These checks test different things. For $\alpha=2$ and $\tfrac32$ every zero of $L(s,\chi_4)$ has real part below $1<\alpha$, so Proposition~\ref{gl:prop:sinsq} and part~(a) of Theorem~\ref{gl:thm:sinsq} hold with no hypothesis, and the comparisons above are identities up to truncation: they test the quadrature, the truncation of the prime sums, the zero list and its tail, and the code, not the theorem and not GRH. The grid of the table is a finite test of the function $v_\alpha$, consistent with GRH; part~(ii) of Theorem~\ref{thm:dbeta:minall} turns it into a theorem for $0<|b|\le2.5\times10^7-1.21$, using the verification of GRH for $\chi_4$ to height $2.5\times10^7$~\cite{Platt16}, and for $\alpha<1$ the function $v_\alpha/\pi$ is the Thorin density of $\xi(\alpha,\chi_4)/\xi(\alpha+\sqrt u,\chi_4)$ only if no zero lies to the right of $\alpha$, which is known below that height and open above it. The lemma's output is not computable from the primes alone in practice for $\alpha\le1$: the plain prime sum at $b=0$ over the prime powers up to $2\times10^6$ differs from $v_\alpha(0)$ by $0.17$, $12$, $260$ and $1100$ percent of the value at $\alpha=1,\tfrac34,\tfrac35,\tfrac{11}{20}$, so the minima of the table come from the zeros and from the direct values of $\xi'/\xi$, not from the primes.
+
+Finally, with the smoothing run backwards by a smooth cutoff, the peaks of $-\sum_{n\le N}\chi_4(n)\Lambda(n)n^{-1/2}\cos(b\log n)\,\cos^2\big(\tfrac\pi2\tfrac{\log n}{\log N}\big)$, $N=2\times10^6$, lie within $0.003$ of all fourteen zeros of $L(s,\chi_4)$ below height $40$. Up to height $45$ the seventeen zeros are matched by seventeen peaks and there is no other peak above half the largest value. This tests the explicit formula with the smoothing run backwards, and it locates the ordinates from the primes; it does not test the lemma.

@@ -1,0 +1,116 @@
+\section{The comb barrier, basepoints and damping}\label{zh:sec:comb}
+
+Damping to a basepoint $\alpha\ge\frac12$ (Section~\ref{yo:sec:damped}) replaces $\Lambda(n)n^{-1/2}$ by $\Lambda(n)n^{-\alpha}$ in the comb. Put
+\begin{equation}\label{zh:eq:Aa}
+A_a(\alpha)=\sum_{\log n<2a}\frac{2\Lambda(n)}{n^{\alpha}},\qquad T_1(\alpha,a)=2\pi e^{A_a(\alpha)},
+\end{equation}
+so that $A_a(\frac12)=A_a$ and $T_1(\frac12,a)=T_1$. For $\alpha>\frac12$ the height $T_1(\alpha,a)$ is a definition by analogy and not the cutoff of a theorem: Zhu's Theorem 1.1 is a statement about the undamped form, no damped analogue is proved here, and for $\frac12<\alpha<1$ the pole part of the damped form, with kernel $2e^{-(\alpha-1/2)|y|}\cosh(y/2)$, grows like $e^{(1-\alpha)|y|}$ and is not a positive rank one term. By the prime number theorem, as $a\to\infty$,
+\begin{equation}\label{zh:eq:trichotomy}
+\begin{gathered}
+A_a(\alpha)\sim\frac{2e^{2(1-\alpha)a}}{1-\alpha}\quad(\tfrac12\le\alpha<1),\qquad A_a(1)=4a-2\gamma_E+o(1),\\
+A_a(\alpha)\ \text{increases to}\ -2\frac{\zeta'}{\zeta}(\alpha)\quad(\alpha>1).
+\end{gathered}
+\end{equation}
+Table~\ref{zh:tab:comb} lists the values, computed by \texttt{zh\_comb.py} (\texttt{code/\allowbreak README.md}).
+
+\begin{table}[htbp]
+\centering\small
+\fitwidth{\begin{tabular}{rrrrrrr}
+\toprule
+& \multicolumn{2}{c}{$\alpha=\frac12$} & \multicolumn{2}{c}{$\alpha=0.75$} & \multicolumn{2}{c}{$\alpha=1$}\\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-7}
+$a$ & $A_a(\alpha)$ & $\log_{10}T_1$ & $A_a(\alpha)$ & $\log_{10}T_1$ & $A_a(\alpha)$ & $\log_{10}T_1$\\
+\midrule
+0.35 & 0.980 & 1.22 & 0.824 & 1.16 & 0.693 & 1.10\\
+0.80 & 2.942 & 2.08 & 2.278 & 1.79 & 1.772 & 1.57\\
+1.60 & 14.323 & 7.02 & 8.497 & 4.49 & 5.222 & 3.07\\
+2.00 & 24.383 & 11.39 & 12.566 & 6.26 & 6.874 & 3.78\\
+3.00 & 75.190 & 33.45 & 26.647 & 12.37 & 10.856 & 5.51\\
+4.00 & 213.548 & 93.54 & 49.930 & 22.48 & 14.855 & 7.25\\
+5.00 & 588.024 & 256.17 & 88.183 & 39.10 & 18.844 & 8.98\\
+\bottomrule
+\end{tabular}}
+\caption{The comb constant $A_a(\alpha)$ of \eqref{zh:eq:Aa} and the barrier height $T_1(\alpha,a)=2\pi e^{A_a(\alpha)}$ at three basepoints. The column $\alpha=\frac12$ is Zhu's \cite{Zhu26}, who prints $A_{0.8}(\frac12)=2.9420$ and $T_1=119$ at $a=0.8$, $1.0\times10^7$ at $a=1.6$ and $2.4\times10^{11}$ at $a=2$; the digits here are $2.94197$, $119$, $1.04\times10^7$ and $2.44\times10^{11}$. For $\alpha>1$ the constant is bounded by $-2\zeta'(\alpha)/\zeta(\alpha)=18.88$, $3.01$, $1.14$ at $\alpha=1.1$, $1.5$, $2$.}
+\label{zh:tab:comb}
+\end{table}
+
+
+
+\begin{corollary}\label{zh:prop:fullsymbol}
+Let $\alpha\ge1$, $a>0$ and $f\in C(a)$, and write $F=\widehat f$ and $b_\alpha=\xi'(\alpha)/\xi(\alpha)$. With no hypothesis on the zeros,
+\[
+\langle f,f\rangle_\alpha=\frac1\pi\int_{\R}|F(t)|^2\,\re\frac{\xi'}{\xi}(\alpha+it)\,dt\ \ge\ 2b_\alpha\|f\|^2,\qquad b_\alpha=\inf_{t\in\R}\re\frac{\xi'}{\xi}(\alpha+it)>0,
+\]
+and the constant $2b_\alpha$ does not depend on $a$.
+\end{corollary}
+
+\begin{proof}[First proof, $\alpha\ge1$]
+Let $\sigma_{\max}=\sup_\rho\re\rho$ be the largest real part of a zero (Section~\ref{yo:sec:mult}). Then $\sigma_{\max}\le1\le\alpha$ and no zero has real part $\alpha$, so Proposition~\ref{yo:prop:mult} gives the identity, and Theorem~\ref{yo:thm:coercive}(i) gives the inequality with $m_\alpha=\inf_t\re\frac{\xi'}\xi(\alpha+it)$. By part (ii) of that theorem, which for $\alpha\ge1$ needs no hypothesis (Propositions~\ref{bp:prop:v1min} and~\ref{bp:prop:valpha}), $m_\alpha=b_\alpha$, and $b_\alpha>0$ because the density $v_\alpha=\re\frac{\xi'}\xi(\alpha+i\cdot)$ is positive (Theorem~\ref{thm:poisson}).
+\end{proof}
+
+\begin{proof}[Second proof, $\alpha>1$]
+Let $g=f*\widetilde f$, which is supported in $[-2a,2a]$ and has $\widehat g=|F|^2$. By \eqref{yo:EF} with the damping $e^{-(\alpha-1/2)|y|}$, the form is the sum of a pole part, an archimedean part and the prime part $-\sum_{n\ge2}\Lambda(n)n^{-\alpha}\bigl(g(\log n)+g(-\log n)\bigr)$. Since $\int_{\R}|F(t)|^2\cos(t\log n)\,dt=\pi\bigl(g(\log n)+g(-\log n)\bigr)$, which vanishes for $\log n>2a$, and since for $\alpha>1$ the full comb $\sum_{n\ge2}2\Lambda(n)n^{-\alpha}\cos(t\log n)$ converges absolutely and uniformly in $t$, the prime part equals $-\frac1{2\pi}\int|F|^2\sum_{n\ge2}2\Lambda(n)n^{-\alpha}\cos(t\log n)\,dt$ with the full comb, inserted term by term. The pole part is $\int g(y)\bigl(e^{-(\alpha-1)|y|}+e^{-\alpha|y|}\bigr)dy$, which is $\frac1{2\pi}\int|F|^2\,2\re\bigl(\frac1s+\frac1{s-1}\bigr)dt$ at $s=\alpha+it$, because $e^{-w|y|}$ has Fourier transform $2w/(w^2+t^2)$. The archimedean part is the Poisson smoothing by $P_{\alpha-1/2}$ of the multiplier $\re\psi(\frac14+\frac{it}2)-\log\pi$, and this is $\re\psi(\frac s2)-\log\pi$ at $s=\alpha+it$, because $z\mapsto\psi(\frac14+\frac{iz}2)$ is holomorphic for $\im z<\frac12$. Now $\frac{\xi'}\xi(s)=\frac1s+\frac1{s-1}-\frac12\log\pi+\frac12\psi(\frac s2)+\frac{\zeta'}\zeta(s)$ and $-\frac{\zeta'}\zeta(s)=\sum\Lambda(n)n^{-s}$ for $\re s>1$, so the three multipliers add up to $2\re\frac{\xi'}\xi(\alpha+it)$, and $\langle f,f\rangle_\alpha=\frac1{2\pi}\int|F|^2\,2\re\frac{\xi'}\xi(\alpha+it)\,dt$. This symbol is positive (Theorem~\ref{thm:poisson}) and tends to infinity like $\frac12\log|t|$, because $\re\frac{\zeta'}\zeta$ is bounded on the line $\re s=\alpha$; its infimum is therefore positive and equals $2b_\alpha$ by Theorem~\ref{yo:thm:coercive}(ii), and Plancherel, $\int|F|^2=2\pi\|f\|^2$, gives the bound.
+\end{proof}
+
+For $\alpha\ge1$ no certificate is needed: the damped form is positive on every window (Theorem~\ref{yo:thm:damped}(i)), although the envelope height $T_1(1,a)$ still grows like $e^{4a}$ (Table~\ref{zh:tab:comb}). The line $\re s=1$ is the same boundary as in the basepoint picture: the shifted clock $\xi(\alpha)/\xi(\alpha+\sqrt u)$ is a GGC with Thorin density $v_\alpha>0$ for every $\alpha\ge1$ with no hypothesis, and for $\alpha<1$ exactly when $\alpha\ge\sigma_{\max}$ (Theorem~\ref{thm:poisson}). The one sided bound on $\zeta'/\zeta$ that corresponds to $v_\alpha>0$ is the bound of Theorem~\ref{pol:thm:qrh}(ii), which for $\alpha<1$ holds under the hypothesis of that theorem.
+
+For $\frac12\le\alpha<1$ the full comb diverges, since $\sum\Lambda(n)n^{-\alpha}$ diverges, and the second proof is not available. The symbol $\re\frac{\xi'}\xi(\alpha+it)$ still exists by analytic continuation, and the damped form is its multiplier whenever $\alpha\ge\sigma_{\max}$ and no zero has real part $\alpha$ (Proposition~\ref{yo:prop:mult}). Positivity of the symbol on this one line follows from the absence of zeros with real part at least $\alpha$ and is not known to imply it (Remark~\ref{rem:ch2:oneline}), whereas positivity of the damped form on every window is equivalent to the absence of zeros with real part greater than $\alpha$ (Theorem~\ref{dc:thm:damped}, Remark~\ref{yo:rem:single}). What the comb would have to supply there is the one sided bound for $-\re\zeta'/\zeta(\alpha+it)$ of Section~\ref{yo:sec:path}, that is cancellation in $\sum\Lambda(n)n^{-\alpha-it}$ beyond what absolute convergence gives, which is Problem~\ref{yo:op:symbol} of Chapter~\ref{chap:yoshida}.
+
+\subsection{Damping removes the collapse}\label{zh:sec:damp}
+
+Write $\lambda_{\min}(\alpha,a)$ for the least eigenvalue of the damped form of Section~\ref{yo:sec:damped} on the window $[-a,a]$, over complex test functions in $C(a)$ (Section~\ref{yo:sec:coercive}), and $\lambda_{\min}^{\rm even}(\alpha,a)$ for the infimum of $\langle f,f\rangle_\alpha/\|f\|^2$ over real even $f\in C(a)$. By the splitting of Section~\ref{zh:sec:zhu}, $\lambda_{\min}(\alpha,a)\le\lambda_{\min}^{\rm even}(\alpha,a)$.
+
+Let $p_1=\frac12(\log\xi)''(\frac12)=0.0231049931\ldots$, which is $\sum_{\gamma>0}\gamma^{-2}$ under RH, and $p_2=3.7172599\ldots\times10^{-5}$, which is $\sum_{\gamma>0}\gamma^{-4}$ under RH, as in Theorem~\ref{yo:thm:coercive}.
+
+\begin{theorem}[Two parameter bound]\label{zh:thm:twoparam}
+Let $a>0$ and $\alpha>\frac12$, and write $b_\alpha=\xi'(\alpha)/\xi(\alpha)$.
+\begin{enumerate}
+\item[(i)] With no hypothesis, $\lambda_{\min}(\alpha,a)\ge\lambda_{\min}(\frac12,a)$.
+\item[(ii)] If RH holds, or if $\alpha\ge1$, then $\lambda_{\min}(\alpha,a)\ge2b_\alpha$. Here $2b_\alpha\le4p_1(\alpha-\frac12)$ with no hypothesis, and under RH $2b_\alpha\ge4p_1(\alpha-\frac12)-4p_2(\alpha-\frac12)^3$.
+\end{enumerate}
+Hence, under RH, $\lambda_{\min}(\alpha,a)\ge\max\bigl(\lambda_{\min}(\tfrac12,a),\,2b_\alpha\bigr)$ for every $\alpha>\frac12$ and every $a>0$.
+\end{theorem}
+
+\begin{proof}
+(i) Put $\varepsilon=\alpha-\frac12$ and recall $e^{-\varepsilon|y|}=\int_{\R}P_\varepsilon(\lambda)e^{i\lambda y}d\lambda$ with the Poisson kernel $P_\varepsilon(\lambda)=\varepsilon/(\pi(\varepsilon^2+\lambda^2))$. For $f\in C(a)$ put $f_\lambda(y)=e^{i\lambda y}f(y)\in C(a)$, so that $f_\lambda*\widetilde{f_\lambda}=e^{i\lambda y}\,(f*\widetilde f)$. The interchange of $\mathcal Y$ and the integral over $\lambda$ is that of the proof of Theorem~\ref{yo:thm:damped}(iii), taken from the basepoint $\frac12$, and gives
+\[
+\begin{aligned}
+\langle f,f\rangle_\alpha&=\mathcal Y\bigl(e^{-\varepsilon|y|}f*\widetilde f\bigr)=\int_{\R}P_\varepsilon(\lambda)\langle f_\lambda,f_\lambda\rangle_{1/2}\,d\lambda\\
+&\ge\lambda_{\min}(\tfrac12,a)\int_{\R}P_\varepsilon(\lambda)\|f_\lambda\|^2d\lambda=\lambda_{\min}(\tfrac12,a)\|f\|^2,
+\end{aligned}
+\]
+because $\|f_\lambda\|=\|f\|$ and $\int P_\varepsilon=1$.
+
+(ii) Under RH, $\sigma_{\max}=\frac12$ and no zero has real part $\alpha>\frac12$; for $\alpha\ge1$, $\sigma_{\max}\le1\le\alpha$ and no zero has real part $\alpha$. In both cases Theorem~\ref{yo:thm:coercive}(i) gives $\lambda_{\min}(\alpha,a)\ge2m_\alpha$, and part (ii) of that theorem gives $m_\alpha=b_\alpha$, under RH and with no hypothesis for $\alpha\ge1$. The bounds on $2b_\alpha$ are Theorem~\ref{yo:thm:coercive}(iv).
+\end{proof}
+
+At $a=0.8$ the first bound is certified: Corollary 6.3 of \cite{Zhu26} gives $\lambda_{\min}(\frac12,0.8)\ge8.9\times10^{-18}$ for complex test functions, so by (i) $\langle f,f\rangle_\alpha\ge8.9\times10^{-18}\|f\|^2$ for every $\alpha\ge\frac12$ and every $f\in C(0.8)$, with no hypothesis. The second bound is not a multiple of $4p_1(\alpha-\frac12)$ but only comparable to it: $2b_\alpha$ lies between $4p_1(\alpha-\frac12)-4p_2(\alpha-\frac12)^3$ and $4p_1(\alpha-\frac12)$, so under RH a bound $\lambda_{\min}(\alpha,a)\ge4p_1(\alpha-\frac12)$ would fail for large $a$, where $\lambda_{\min}(\alpha,a)\to2b_\alpha$ (Theorem~\ref{yo:thm:coercive}(i) and (ii)). Unconditionally the second bound is available for $\alpha\ge1$ only (Corollary~\ref{zh:prop:fullsymbol}); at a single $\alpha<1$ with no zero on the line the inequality $\lambda_{\min}(\alpha,a)\ge2b_\alpha$ for all $a$ is equivalent to $\sigma_{\max}\le\alpha$ together with $v_\alpha\ge b_\alpha$ on the line (Remark~\ref{yo:rem:line}).
+
+The theorem has a numerical counterpart for the windows of Table~\ref{zh:tab:hp}. The matrices of that table, with the damping, give upper bounds for $\lambda_{\min}^{\rm even}(\alpha,a)$ (computed at $60$ digits, for $26$ and $40$ modes, \texttt{code/\allowbreak README.md}). In all $44$ values, for $a=0.5$ and $0.8$ and $\alpha-\frac12$ between $10^{-17}$ and $10^{-3}$, the finite section value lies above both bounds of the theorem: the least ratio to the floor $2b_\alpha$ is $1.030$ at $a=0.8$, $\alpha-\frac12=10^{-4}$ and $1.121$ at $a=0.5$, $\alpha-\frac12=10^{-3}$, and the least ratio to the undamped value of the same size is $1.011$ at $a=0.5$, $\alpha-\frac12=10^{-7}$ and $1.047$ at $a=0.8$, $\alpha-\frac12=10^{-17}$.
+
+The damped value is the sum of the two terms and not their maximum. For $\alpha-\frac12=\varepsilon$ the difference $\lambda_{\min}^{\rm even}(\frac12+\varepsilon,a)-\lambda_{\min}^{\rm even}(\frac12,a)$ equals $s\cdot4p_1\varepsilon$ with $s=1.111$ at $a=0.5$ for $\varepsilon$ from $10^{-7}$ to $10^{-4}$ and $s=1.082$ at $a=0.8$ for $\varepsilon$ from $10^{-17}$ to $10^{-14}$, the same at $26$ and $40$ modes to the digits quoted. For larger $\varepsilon$ at $a=0.8$ the factor $s$ falls, to $1.067$, $1.043$, $1.040$ and $1.030$ at $\varepsilon=10^{-10}$, $10^{-8}$, $10^{-6}$ and $10^{-4}$, so that from $\varepsilon=10^{-8}$ on the finite section value lies within $4.5$ percent of the floor $2b_\alpha$; the fall begins at $\varepsilon$ of order $10^{-10}$, where $\varepsilon$ times the slope is of the size of the gap of about $10^{-11}$ to the second even eigenvalue.
+
+Far above the crossover the least eigenvalue is close to the floor, as the converged entries of Table~\ref{yo:tab:lam} show.
+
+The two terms of the theorem are equal, to first order in the damping, at the crossover $\varepsilon_\times=\lambda_{\min}^{\rm even}(\frac12,a)/(4p_1)$, at which the least eigenvalue is about twice $\lambda_{\min}^{\rm even}(\frac12,a)$ (the damping at which it exactly doubles is $0.90$ times $\varepsilon_\times$ at $a=0.5$ and $0.92$ times $\varepsilon_\times$ at $a=0.8$, for $26$ modes). Its value depends on which number is used for $\lambda_{\min}^{\rm even}(\frac12,a)$, and Table~\ref{zh:tab:cross} gives the choices. The $26$ mode values are not converged.
+
+\begin{table}[htbp]
+\centering\small
+\begin{tabular}{rlrr}
+\toprule
+$a$ & value used for $\lambda_{\min}^{\rm even}(\frac12,a)$ & $\lambda$ & $\lambda/(4p_1)$\\
+\midrule
+0.5 & Zhu, certified upper bound & $1.05\times10^{-6}$ & $1.14\times10^{-5}$\\
+0.5 & $26$ modes, Table~\ref{zh:tab:hp} & $9.743\times10^{-7}$ & $1.05\times10^{-5}$\\
+0.5 & extrapolated from $256$ to $400$ modes & $9.33\times10^{-7}$ & $1.01\times10^{-5}$\\
+0.8 & Zhu, certified lower bound & $8.9\times10^{-18}$ & $9.6\times10^{-17}$\\
+0.8 & extrapolated from $256$ to $400$ modes & $1.63\times10^{-17}$ & $1.77\times10^{-16}$\\
+0.8 & $26$ modes, Table~\ref{zh:tab:hp} & $2.144\times10^{-17}$ & $2.32\times10^{-16}$\\
+0.8 & Zhu, certified upper bound & $2.27\times10^{-17}$ & $2.46\times10^{-16}$\\
+\bottomrule
+\end{tabular}
+\caption{The crossover $\varepsilon_\times=\lambda/(4p_1)$ of Theorem~\ref{zh:thm:twoparam} for several values of $\lambda=\lambda_{\min}^{\rm even}(\frac12,a)$, with $4p_1=0.0924200$. The extrapolated values are three point power law fits to the finite sections of $60$ digit matrices (script \texttt{code/zh\_window\_eigs.py}, record \texttt{data/zh\_window\_eigs.json}), not bounds; Zhu's reference values of his Table 1, $9.34\times10^{-7}$ and $1.65\times10^{-17}$, give $1.01\times10^{-5}$ and $1.79\times10^{-16}$.}
+\label{zh:tab:cross}
+\end{table}
+
+The explanation of the collapse is the one given at the end of Section~\ref{yo:sec:damped}. A damping of the size of the crossover already doubles the finite section values (computed); for larger damping the least eigenvalue is, under RH, at least $2b_\alpha$, a margin of order $\alpha-\frac12$ in place of $\lambda_{\min}^{\rm even}(\frac12,a)$. Whether certificates for the damped forms say more or less about the zeros than the certificates at $\alpha=\frac12$ is not settled here (Problem~\ref{zh:op:damped}).
