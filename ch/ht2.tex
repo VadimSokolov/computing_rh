@@ -1,0 +1,318 @@
+\section{Jensen hitting times}\label{ht:sec:jensen}
+
+Proposition~\ref{ht:prop:red} asks for GGC laws converging to $\mu$. Truncated Hadamard products supply them but are circular, because they are built from the zeros. A family built from data that are known unconditionally comes from the Taylor coefficients of $G$, and it is the probabilistic form of the Jensen and P\'olya criterion (Proposition~\ref{pol:prop:lp}).
+
+\subsection{The family}
+Write $G(u)=\sum_{k\ge0}c_ku^k$. The coefficients are positive and computable without any hypothesis: $G(u)=\E\cosh(\sqrt u\,V)$ with $V$ the symmetric variable of Section~\ref{ht:sec:families} (Proposition~\ref{ht:prop:bpy} identifies it with the logarithm of a size biased range of a Brownian bridge), so that
+\[
+c_k=\frac{\E V^{2k}}{(2k)!},
+\]
+the even moments of $V$ divided by $(2k)!$. For $d\ge1$ put
+\[
+J_d(u)=\sum_{k=0}^d\binom dk\frac{k!}{d^k}\,c_ku^k=\sum_{k=0}^dc_k\prod_{j<k}\Big(1-\frac jd\Big)u^k .
+\]
+Up to the scaling $X=u/d$ and a constant this is the Jensen polynomial of degree $d$ and shift $0$ of Griffin, Ono, Rolen and Zagier \cite{GORZ19}, whose sequence $g(n)$ (not to be confused with the ordinates) is defined by $(-1+4z^2)\Lambda(\tfrac12+z)=\sum g(n)z^{2n}/n!$; since $(-1+4z^2)\Lambda(\tfrac12+z)=8\xi(\tfrac12+z)$, their $g(k)$ is a constant multiple of $k!\,c_k$.
+
+\begin{proposition}\label{ht:prop:jensen}
+\begin{enumerate}
+\item $J_d\to G$ uniformly on compact sets, without any hypothesis.
+\item If $J_d$ has only real zeros, they are negative, $J_d(u)=\prod_{j\le d}(1+u/\ell_{d,j})$, and $1/J_d$ is the Laplace transform of the GGC law $\mu_d$ of $\sum_{j\le d}e_j/\ell_{d,j}$: the time a pure birth chain with rates $\ell_{d,1},\dots,\ell_{d,d}$ takes to pass through $d$ states.
+\item RH holds if and only if $\mu_d$ exists for every $d$, and then $\mu_d\Rightarrow\mu$.
+\item $\mu_d$ exists for every $d\le2\cdot10^{17}$, unconditionally (proved, quoted through \cite{GORZ19}).
+\item Every $\mu_d$ has the same mean $c_1=p_1$ as $\mu$, and its variance exceeds that of $\mu$ by $2c_2/d$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+For (1), the factors $\prod_{j<k}(1-j/d)$ lie in $[0,1]$ and tend to $1$, and $\sum c_k|u|^k<\infty$. For (2), a polynomial with positive coefficients has no zeros in $[0,\infty)$, and a product of linear factors with negative zeros is the transform of a sum of independent exponentials. For (3), if every $J_d$ is hyperbolic then $G$, as a locally uniform limit of polynomials with only negative zeros, has only negative zeros by Hurwitz's theorem, which is RH; Bondesson's continuity theorem (Corollary~\ref{cor:weak:closure}) gives the same conclusion directly from $\mu_d\Rightarrow\mu$. Conversely under RH $G$ is in the Laguerre and P\'olya class, and the Jensen polynomials of such a function are hyperbolic (Proposition~\ref{pol:prop:lp}, \cite{GORZ19}). Part (4) is the theorem of Chasse on the Jensen polynomials of this sequence, as quoted in a footnote of \cite{GORZ19}.
+% UNCHECKED: Chasse's theorem (every Jensen polynomial of degree at most 2e17 and shift 0 is hyperbolic) is quoted from the footnote of GORZ as the source quotes it; neither Chasse nor the footnote was read.
+Part (5) follows from the factors $1$ and $1-1/d$ at $k=1,2$: the cumulants are $\kappa_1=c_1$ and $\kappa_2=c_1^2-2c_2(1-1/d)$, while $\operatorname{Var}\mu=c_1^2-2c_2=\sum\gamma^{-4}$.
+\end{proof}
+
+So the Jensen laws are what Proposition~\ref{ht:prop:red} asks for, built from Brownian moments rather than from zeros, and they exist up to degree $2\cdot10^{17}$ by the cited theorem. Their existence for every $d$ is RH. The questions are how fast they converge, and what the existence of $\mu_d$ at a given degree says about the zeros.
+
+\subsection{Rate of convergence}
+Since $\prod_{j<k}(1-j/d)=1-k(k-1)/(2d)+O(k^4/d^2)$ and $\sum_kk(k-1)c_ku^k=u^2G''(u)$,
+\[
+J_d(u)=G(u)-\frac{u^2G''(u)}{2d}+O(d^{-2}).
+\]
+At a simple zero $u_n=-\gamma_n^2$ this moves the zero by
+\[
+\frac{\ell_{d,n}}{\gamma_n^2}-1=\frac{A_n}{2d}+O(d^{-2}),\qquad A_n=\frac{u_nG''(u_n)}{G'(u_n)} .
+\]
+The coefficients $c_k$, $k<600$, were computed from the moments of P\'olya's kernel by a trapezoid rule at $260$ digits; two step sizes agree to a relative $2\times10^{-205}$ for every $k<600$, and $c_1=0.02310499311541$ and $c_2=2.48334053\times10^{-4}$ agree with $(\log\xi)''(\tfrac12)/2$ and with $(c_1^2-\sum\gamma^{-4})/2$ to twenty and twelve digits (computed, code/ht\_jensen.py). The zeros of $J_d$ near $-\gamma_n^2$ were found by Newton's method at full and half precision, with relative changes below $10^{-110}$. Table~\ref{ht:tab:jensen} compares the relative shifts with $A_n/(2d)$; here $A_1,\dots,A_6=-8.69,-16.37,-15.15,-29.57,-15.83,-32.02$ (computed, from the zeros plus a smooth tail they agree to five digits).
+
+\begin{table}[ht]
+\centering\scriptsize\setlength{\tabcolsep}{3pt}
+\begin{tabular}{ccccccc}
+\toprule
+$d$ & $n=1$ & $n=2$ & $n=3$ & $n=4$ & $n=5$ & $n=6$ \\
+\midrule
+$80$ & $-0.0513$ & $-0.0905$ & $-0.0871$ & $-0.140$ & $-0.104$ & $-0.153$ \\
+$640$ & $-0.00674$ & $-0.0126$ & $-0.0117$ & $-0.0221$ & $-0.0127$ & $-0.0241$ \\
+$10240$ & $-0.000424$ & $-0.000799$ & $-0.000739$ & $-0.00144$ & $-0.000774$ & $-0.00156$ \\
+$A_n/2d$ & $-0.000424$ & $-0.000799$ & $-0.000740$ & $-0.00144$ & $-0.000773$ & $-0.00156$ \\
+\bottomrule
+\end{tabular}
+\caption{Relative shift $\ell_{d,n}/\gamma_n^2-1$ of the zeros of the Jensen polynomials, against the first order prediction; the last row is $A_n/(2d)$ at $d=10240$ (computed).}\label{ht:tab:jensen}
+\end{table}
+
+The laws converge at the same rate. Inverting $1/(uJ_d(u))$ by Talbot's method (at two contour sizes, agreeing to $3\times10^{-17}$) and comparing with the residue expansion of $\mu$, the largest difference of distribution functions over the grid $y=0.007+0.001\,i$, $i=0,\dots,73$, is given in Table~\ref{ht:tab:jlaw}; the maximum sits at $y\approx0.016$ to $0.017$, and $d\cdot\sup|F_d-F|$ increases towards a limit of about $2.76$ (computed, code/ht\_jlaws.py). On a coarser grid of $18$ equispaced points of this interval the supremum is smaller by up to fourteen per cent, so the grid has to be named.
+
+\begin{table}[ht]
+\centering\small
+\begin{tabular}{cccccc}
+\toprule
+$d$ & $10$ & $40$ & $160$ & $640$ & $2560$\\
+\midrule
+$\sup|F_d-F|$ & $0.155$ & $0.0560$ & $0.0163$ & $0.00425$ & $0.00107$\\
+$d\cdot\sup|F_d-F|$ & $1.55$ & $2.24$ & $2.60$ & $2.72$ & $2.75$\\
+\bottomrule
+\end{tabular}
+\caption{Distance between the distribution functions of the Jensen law $\mu_d$ and of $\mu$ on the grid of $74$ points of $[0.007,0.08]$ (computed).}\label{ht:tab:jlaw}
+\end{table}
+
+\subsection{What a degree can see}
+The first order formula also says what the existence of $\mu_d$ certifies. Near a zero at $u$ the correction $-u^2G''/(2d)$ acts like a heat flow of duration proportional to $u^2/d$. For a quadratic model $G\approx(u-a)^2+b^2$ of an off line pair with $a=\delta^2-\gamma^2$ and $b=2\delta\gamma$, the correction is $-u^2/d$, and the zeros of $J_d$ are real exactly when $b^2<|u|^2/d$. An off line pair at height $\gamma$ and displacement $\delta$ is therefore invisible to the Jensen polynomials below the degree
+\[
+d^*(\gamma,\delta)\approx\frac{|u|^2}{b^2}\approx\frac{\gamma^2}{4\delta^2}
+\]
+(heuristic: the quadratic model ignores the other zeros).
+
+This was tested on Davenport and Heilbronn. With $600$ coefficients of $G_{DH}$ computed in the same way from the positive kernel of Proposition~\ref{ht:prop:dhtheta}, the zero of $J_d^{DH}$ starting at $u_\rho=(0.3085+85.6993i)^2=-7344.28+52.88i$ was followed as $1/d$ increases from $0$ (computed at $240$ and $280$ digits, code/ht\_dh.py). Its imaginary part squared decreases linearly in $1/d$, with slope $-6.27\times10^7$ at $1/d=0$ against $|u_\rho|^2=5.39\times10^7$ in the quadratic model, and the pair is real below and complex above the double root $d^*=20784.9$ of $J_d$ (both coefficient sets give $20784.92$): at $d=20619$ it is real and at $d=20833$ it has imaginary part $2.44$. The model value is $\gamma^2/(4\delta^2)=19290$. So the Jensen polynomials of Davenport and Heilbronn are not all hyperbolic, as they cannot be, but the first failure caused by this zero is near degree $2\cdot10^4$, far beyond the degrees at which the coefficient ladder of Table~\ref{ht:tab:dh} was tested.
+
+For $\xi$ the same scaling turns Chasse's theorem around. An off line zero at height $\gamma$ would first make $\mu_d$ fail near $d\approx\gamma^2/(4\delta^2)$. Since every zero below $3\cdot10^{12}$ is on the line and $\delta<\frac12$, the heuristic predicts that the Jensen laws exist up to degree of order $10^{25}$, well beyond the cited $2\cdot10^{17}$, which corresponds through the same scaling to heights near $\sqrt{2\cdot10^{17}}\approx4.5\cdot10^8$. Conversely, certifying $\mu_d$ for all $d\le D$ says about the zeros what a verification up to height about $\sqrt D$ says, at a cost that grows like $D\approx\gamma^2$ rather than the $\gamma^{1+o(1)}$ of direct zero verification. This is a heuristic: the other zeros change $d^*$ by about $8\%$ for Davenport and Heilbronn (the ratio $20785/19290$ is $1.0775$). The unconditional ladder of Section~\ref{ch:heat} trades height against order in a similar way.
+
+\subsection{A Hermite identity and the de Bruijn flow}
+Write $u=-z^2$ and use $c_k=\E V^{2k}/(2k)!$. Since $(2k)!=4^kk!(\frac12)_k$ and $\prod_{j<k}(1-j/d)\,(-1)^k=(-d)_k/d^k$,
+\begin{gather*}
+J_d(-z^2)=\E\,C_d(zV),\\
+C_d(x)={}_1F_1\Big(-d;\tfrac12;\frac{x^2}{4d}\Big)=(-1)^d\frac{d!}{(2d)!}H_{2d}\Big(\frac x{2\sqrt d}\Big),
+\end{gather*}
+with $H_{2d}$ the Hermite polynomial (proved). So the Jensen polynomial is the expectation, over the Brownian variable $V$, of a fixed even polynomial with $2d$ real zeros; for each $d$ it plays the role that $\cos$ plays for $G$ itself, since $G(-z^2)=\E\cos(zV)$. The identity holds to forty digits at the five pairs $(d,z)=(5,0.7),(10,2),(20,3.5),(40,5),(100,7)$ (computed, code/ht\_jensen.py). The Plancherel and Rotach asymptotics of $H_{2d}$ give, for bounded $x$,
+\[
+C_d(x)=e^{x^2/(8d)}\cos\Big(x\sqrt{1+\tfrac1{4d}}\Big)+O(x^3/d^2)
+\]
+with an additive error (heuristic: the error term is quoted from the leading term of Szeg\H{o}'s expansion and was not proved here), which is of the size seen at $x=7$: the two sides differ by $5.5\cdot10^{-2}$, $3.1\cdot10^{-4}$, $2.9\cdot10^{-6}$ for $d=10,100,1000$ (computed). With $V=2u$ in P\'olya's variable this is
+\begin{gather*}
+J_d(-z^2)\approx\frac8{\Xi(0)}H_{t}\big(2z(1+\tfrac1{8d})\big),\qquad t=\frac{z^2}{2d},\\
+H_t(x)=\int_0^\infty e^{tu^2}\Phi_{\mathrm{dBN}}(u)\cos(xu)\,\mathrm{d}u,
+\end{gather*}
+the de Bruijn and Newman function at the height dependent time $t=z^2/(2d)$ (Section~\ref{ch:dbn}). Near height $\gamma$ the Jensen truncation of degree $d$ therefore resembles the de Bruijn flow run for time $\gamma^2/(2d)$, to first order. Heuristically this gives the resolution law: an off line pair at height $\gamma$ which the de Bruijn flow merges at time $t_c$ is seen by $J_d$ when
+\[
+d>d^*=\frac{\gamma^2}{2t_c}.
+\]
+For an isolated pair $t_c\approx2\delta^2$, which recovers $\gamma^2/(4\delta^2)$. For Davenport and Heilbronn the flow $H_t$ of the kernel of $G_{DH}$ was computed: the double root of $H_t$ near $z=85.6175$ occurs at $t_c=0.176507$ (steps $h=1/250$ and $1/300$ give $0.17650714$ and $0.17650712$; the step $h=1/200$ gave $0.17639$ and is not converged; computed, code/ht\_dh.py, data/ht\_dh\_flow.log), hence $d^*=85.699^2/(2\cdot0.176507)=20804.8$, against the directly tracked $20784.9$: agreement to $0.1\%$ (computed). The approximation $19290$ does not give this agreement; the value $20805$ comes from the exact $t_c$.
+
+This also answers the converse half of Problem~\ref{ht:prob:jensen} at the heuristic level. If RH holds up to height $T$ and $\Lambda\le\Lambda_0$, then near every height $\gamma\ge T$ the Jensen truncation of degree $d\le T^2/(2\Lambda_0)$ is the de Bruijn flow at time at least $\Lambda_0$, where all zeros are real, while below $T$ the zeros are real to begin with. So one expects $J_d$ hyperbolic for
+\[
+d\le D(T)=\frac{T^2}{2\Lambda_0}.
+\]
+With de Bruijn's $\Lambda_0=\frac12$ \cite{deBruijn} and the height $5.45\cdot10^8$ reached by van de Lune, te Riele and Winter \cite{LRW86} this gives $D\approx3.0\cdot10^{17}$, the order of Chasse's $2\cdot10^{17}$ (it has not been checked that this is how Chasse's bound was obtained). With $T=3\cdot10^{12}$ and $\Lambda_0=0.2$ \cite{PT21} it gives $D\approx2.25\cdot10^{25}$. Making this rigorous needs a uniform error bound in the Plancherel and Rotach step and control of the height dependence of $t$, which is the remaining content of Problem~\ref{ht:prob:jensen}.
+
+\subsection{Assessment}
+The Jensen laws are a concrete, unconditional and non circular family of hitting times converging to $\mu$, at the rate $2.8/d$ in distribution function on the grid above. They realise Proposition~\ref{ht:prop:red} up to degree $2\cdot10^{17}$, and their existence at every degree is RH. But each degree sees only an off line pair of displacement $\delta$ at heights up to about $2\delta\sqrt d$, an insensitivity of the same $\delta^2$ type as that found for boundaries in Proposition~\ref{ht:prop:resp} (with $\gamma^{-2}$ here and $\gamma^{-4}$ there). Approximating hitting times built this way do not escape the need to control the zeros at every height; they convert it into a sequence of finite positivity problems whose size grows like the square of the height.
+
+\section{Extreme value hitting times}\label{ht:sec:ev}
+
+The simplest hitting times with an infinite spectrum are extreme values. If $e_1,\dots,e_n$ are independent standard exponentials, R\'enyi's representation gives
+\[
+\max_{k\le n}e_k\overset{d}{=}\sum_{k=1}^n\frac{e_k}k,
+\]
+the passage time of a pure birth chain with rates $1,2,\dots,n$, and $\max_ke_k-\log n$ tends to the Gumbel law, whose bilateral Laplace transform is $\Gamma(1+s)$ \cite{Renyi53} (compare Chapter~\ref{chap:maxwald}, Proposition~\ref{mw:prop:sum} and Corollary~\ref{cor:maxexp:renyi}). Since $1/\Gamma(1+s)=e^{\gamma_Es}\prod_k(1+s/k)e^{-s/k}$ is in the Laguerre and P\'olya class, the Gumbel density $e^{-x-e^{-x}}$ is a P\'olya frequency function of infinite order in Schoenberg's sense \cite{Schoenberg51}, and its Hadamard truncations are the centred maxima of $n$ exponentials. Curry and Schoenberg \cite{CurrySchoenberg66} showed that P\'olya frequency functions are limits of B splines and used this extreme value example as an illustration.
+% UNCHECKED: the content of Curry and Schoenberg (limits of B splines, the extreme value illustration) is stated as in the source; the paper was not read.
+For $\mu$ the same structure holds, with the integers replaced by the $\gamma^2$.
+
+\subsection{B splines and Dirichlet means}
+\begin{proposition}\label{ht:prop:bspline}
+Let $0<\lambda_1<\dots<\lambda_N$ and let $f_N$ be the density of $\sum_{k\le N}e_k/\lambda_k$. Then
+\[
+f_N(y)=\Big(\prod_{k\le N}\lambda_k\Big)\frac{y^{N-1}}{(N-1)!}\int M(x;\lambda_1,\dots,\lambda_N)e^{-xy}\,\mathrm{d}x,
+\]
+where $M(\cdot;\lambda_1,\dots,\lambda_N)$ is the Curry and Schoenberg B spline with knots $\lambda_k$, normalised to integral one. Equivalently $M$ is the density of the Dirichlet mean $D_N=\sum_kW_k\lambda_k$ with $(W_k)$ uniform on the simplex, and the formula is the case of Dirichlet parameter $N$ of the density formula of James, Roynette and Yor \cite[Theorem 2.1]{JRY}.
+\end{proposition}
+% UNCHECKED: the identification with Theorem 2.1 of James, Roynette and Yor (case of parameter N) is quoted from the source; the paper was not read.
+
+\begin{proof}
+By partial fractions $f_N(y)=(\prod\lambda_k)(-1)^{N-1}[\lambda_1,\dots,\lambda_N]e^{-\lambda y}$, a divided difference in $\lambda$. The Hermite and Genocchi formula $[\lambda_1,\dots,\lambda_N]g=\E\,g^{(N-1)}(D_N)/(N-1)!$, with $g(\lambda)=e^{-\lambda y}$ and $g^{(N-1)}=(-y)^{N-1}e^{-\lambda y}$, gives the result, and the density of $D_N$ is the B spline \cite{CurrySchoenberg66}.
+\end{proof}
+
+For the knots $1,\dots,n$ the B spline is the cardinal one and the formula returns $ne^{-y}(1-e^{-y})^{n-1}$, the density of the maximum. For the knots $\gamma_1^2,\dots,\gamma_N^2$ it returns the Kent density of the truncation $\mu_N$: the reciprocal $\xi$ law is, under RH, the limit of $y^{N-1}$ times Laplace transforms of B splines whose knots are the squared zeros. The positivity of these densities is the positivity of B splines with real knots, and it is the reality of the knots that RH asserts. As $N\to\infty$ the Dirichlet mean $D_N$ concentrates near $\frac1N\sum\gamma_k^2$ and the representation degenerates, as noted in Section~\ref{ht:sec:yor}.
+
+\subsection{The extremal process}
+The infinite version uses the extremal process of the Gumbel law. Let $\Gamma_1<\Gamma_2<\cdots$ be the points of a unit Poisson process on $(0,\infty)$ and $G_k=-\log\Gamma_k$; then $G_1>G_2>\cdots$ are the points of the Poisson process with intensity $e^{-x}\,\mathrm{d}x$, the limit of the top order statistics of $n$ exponentials minus $\log n$, and $G_1$ is standard Gumbel. (These $G_k$ are the extremal points, and have nothing to do with the function $G$.)
+
+\begin{theorem}\label{ht:thm:extremal}
+For any $0<\lambda_1\le\lambda_2\le\cdots$ with $\sum1/\lambda_k<\infty$, and $b_k=k/\lambda_k$,
+\[
+\sum_k\frac{e_k}{\lambda_k}\overset{d}{=}\sum_{k\ge1}b_k\,(G_k-G_{k+1}),
+\]
+and if moreover $k\log k/\lambda_k\to0$, the series may be rearranged:
+\[
+\sum_{k\ge1}b_k\,(G_k-G_{k+1})=b_1G_1+\sum_{k\ge2}(b_k-b_{k-1})G_k.
+\]
+In particular, under RH, $\mu$ is the law of $\sum_kk\gamma_k^{-2}(G_k-G_{k+1})$, a linear functional of the Gumbel extremal process. For finite $N$ the truncation $\mu_N$ is the L statistic $\sum_{k\le N}b_k(e_{(N-k+1)}-e_{(N-k)})$ of $N$ exponentials, with $e_{(0)}=0$.
+\end{theorem}
+
+\begin{proof}
+The ratios $\Gamma_k/\Gamma_{k+1}$ are independent with laws $\mathrm{Beta}(k,1)$, so $G_k-G_{k+1}=\log(\Gamma_{k+1}/\Gamma_k)$ are independent exponentials of rates $k$. Then $b_k(G_k-G_{k+1})\overset d=e_k/\lambda_k$, which gives the first statement. The partial sums of the rearranged series equal those of the first series plus $b_KG_{K+1}$, and $G_{K+1}\sim-\log K$ almost surely, so the rearrangement converges when $b_K\log K\to0$; for $\lambda_k=\gamma_k^2$ this holds since $b_k\asymp(\log k)^2/k$. Without the condition on $\lambda_k$ the second form can fail: the condition $\sum1/\lambda_k<\infty$ with $\lambda_k$ increasing gives only $k/\lambda_k\to0$. The finite statement is R\'enyi's representation of the spacings.
+\end{proof}
+
+The weights $b_k=k/\gamma_k^2$ are $0.0050$, $0.0045$, $0.0048$, $0.0043$, $0.0046$ for $k\le5$ (computed), they are not monotone, and for large $k$ they behave like $(\log k)^2/(4\pi^2k)$. The top of the extremal process, the largest values, determines the bulk of $\mu$, and the deep points, which accumulate at $-\infty$ like $-\log k$, determine its lower tail. RH is the statement that these weights are attached to real atoms; the representation itself holds for any positive spectrum.
+
+\subsection{Smoothed zeros}
+The extremal form suggests replacing the zeros by their expected positions. Let $\hat t_k$ solve $\vartheta(\hat t_k)=(k-\frac32)\pi$, with $\vartheta$ the Riemann and Siegel theta function, so that $\hat t_k$ is the midpoint of the Gram interval in which Gram's law puts $\gamma_k$; then $\hat t_1,\hat t_2,\hat t_3=14.52,20.65,25.49$ against $14.13,21.02,25.01$ (computed). The law
+\[
+\hat\mu=\mathcal L\Big(\sum_k\frac{e_k}{\hat t_k^2}\Big)=\mathcal L\Big(\sum_kk\hat t_k^{-2}(G_k-G_{k+1})\Big)
+\]
+is an explicit GGC hitting time defined without reference to any zero. It has the same counting function of Thorin atoms as $\mu$ to leading order, hence the same small time behaviour $-\log\hat\mu(0,t]\sim(\log(1/t))^2/(16t)$ (Section~\ref{ch:clocklaw}). More generally let $\hat\mu^{[N]}$ use the true $\gamma_k$ for $k\le N$ and $\hat t_k$ beyond. Since the first $1.2\cdot10^{13}$ zeros are on the line, $\hat\mu^{[N]}$ is a GGC unconditionally for every $N$ up to that size. Table~\ref{ht:tab:smooth} compares them with $\mu$, using $4\cdot10^5$ smoothed zeros plus an integral for the rest, Talbot inversion in double precision, and the residue expansion of $\mu$ on the grid $y=0.007+0.001\,i$ of Section~\ref{ht:sec:jensen} (computed, code/ht\_ev.py).
+
+\begin{table}[ht]
+\centering\footnotesize
+\begin{tabular}{ccc}
+\toprule
+$N$ & $\sup|F_N-F|$ & mean error \\
+\midrule
+$0$ & $1.25\cdot10^{-2}$ & $-2.2\cdot10^{-4}$ \\
+$1$ & $3.2\cdot10^{-3}$ & $4.6\cdot10^{-5}$ \\
+$2$ & $2.7\cdot10^{-3}$ & $-3.6\cdot10^{-5}$ \\
+$5$ & $8.6\cdot10^{-4}$ & $1.1\cdot10^{-5}$ \\
+$10$ & $2.5\cdot10^{-5}$ & $-3.2\cdot10^{-7}$ \\
+$30$ & not resolved & $3.4\cdot10^{-8}$ \\
+$100$ & not resolved & $-8.4\cdot10^{-9}$ \\
+\bottomrule
+\end{tabular}
+\caption{The smoothed zero laws $\hat\mu^{[N]}$, with the first $N$ zeros exact and the rest at the Gram midpoints, against $\mu$. The inversion in double precision resolves differences of distribution functions only down to about $2\cdot10^{-6}$ for $y\ge0.011$ (and $1.8\cdot10^{-5}$ below), so the supremum for $N=30$ and $N=100$ is unchecked; the source printed $2.7\cdot10^{-6}$ and $6.8\cdot10^{-7}$.}\label{ht:tab:smooth}
+\end{table}
+
+The smoothed law alone is within $1.3\%$ of $\mu$ in distribution function, and inserting the first ten zeros brings the error to $2.5\cdot10^{-5}$, forty times better than the Jensen law of degree $2560$ ($1.07\cdot10^{-3}$). The error is governed by $\sum_{k>N}|\gamma_k^{-2}-\hat t_k^{-2}|$, that is by the fluctuation $S(t)$ of the zero counting function, and the extremal representation shows where it enters: through the weights on the points $G_k$ with $k>N$ (heuristic). These laws are as unconditional as the zero verification they use, and their convergence to $\mu$ as $N\to\infty$ is again RH. What they add is speed: the smooth part carries the archimedean information exactly, and only the fluctuation $S(t)$ needs the zeros. Section~\ref{sec:ch18:kent} has the Kent approximants with a Weyl tail above a Gram point, which are the continuous counterpart; the two tables are not the same experiment.
+
+\subsection{The P\'olya density}
+Curry and Schoenberg's theory applies to P\'olya frequency functions, those whose bilateral Laplace transform is the reciprocal of a Laguerre and P\'olya function. The P\'olya density $p(u)=4\Phi_{\mathrm{dBN}}(|u|)/\Xi(0)$ of $V/2$ has bilateral transform $\xi(\frac12+s/2)/\xi(\frac12)=G(s^2/4)$. It is not a P\'olya frequency function of infinite order: an entire bilateral transform does not exclude that (the Gaussian density is one, with transform $e^{cs^2}$), but a transform that is entire and has zeros is not the reciprocal of an entire function. This was also confirmed directly. With $p$ normalised by $p(0)=1$, the Toeplitz determinants $\det[p((i-j)h)]_{i,j\le k}$ are nonnegative for $k\le4$ at every tested step, but for $k=5$ they are $-4.0\cdot10^{-11}$ and $-1.4\cdot10^{-7}$ at $h=0.03$ and $h=0.05$ (also $-2.1\cdot10^{-20}$ at $0.01$ and $-1.8\cdot10^{-14}$ at $0.02$; the same to eighty digits at $90$ and $130$ digit precision) and positive for $h\ge0.07$ among the tested steps (computed, code/ht\_ev.py). So $p$ appears log concave and to be $\mathrm{PF}_4$, but it is not $\mathrm{PF}_5$; the $k=6$ minor is negative at $h=0.05$ and $0.07$ ($-2.3\cdot10^{-9}$ and $-5.2\cdot10^{-6}$). The object to which Curry and Schoenberg apply is the dual density $f$ of $\mu$, whose transform $1/G=1/\E\cosh(\sqrt u\,V)$ is the reciprocal of the transform of $p$ in the variable $\sqrt u$; $f$ is $\mathrm{PF}_\infty$ if and only if RH holds (Proposition~\ref{tx2:prop:pf}). The extreme value structure is on the P\'olya side as well, in a different form: Biane, Pitman and Yor's variable \cite{BPY01} is the range of a Brownian bridge, and by the Jacobi triple product the alternating theta function
+\[
+\sum_{n\in\mathbb Z}(-1)^nq^{n^2}=\prod_{m\ge1}(1-q^{2m})(1-q^{2m-1})^2,\qquad q=e^{-x},
+\]
+is the distribution function of the maximum of independent exponentials of rates $2m$ and, twice, $2m-1$. With $x=2a^2$ this is Kolmogorov's law of $\sup|b|$. Its Mellin transform carries the factor $1-2^{1-s}$, whose zeros lie on $\re s=1$; heuristically this is a reason, unrelated to RH, why a reciprocal law built from this maximum is not a GGC, and only the nonalternating theta function, which is not a product of distribution functions, gives $\xi$ alone.
+
+\subsection{Assessment}
+The extreme value view gives three things: the B spline and Dirichlet mean form of every truncation (Proposition~\ref{ht:prop:bspline}), a representation of $\mu$ as a linear functional of the Gumbel extremal process (Theorem~\ref{ht:thm:extremal}), and the smoothed zero laws, the fastest converging approximating hitting times found here, at the cost of using the verified zeros. None of them is non circular in the way the Jensen laws are, and the Jensen laws converge slowly. The trade off between the two families is the same as before: the information about the location of the zeros has to be put in, either through the zeros themselves or through a positivity condition at every degree.
+
+\section{The prime side hitting times have a universal limit}\label{ht:sec:prime}
+
+\subsection{Truncated Euler products}
+
+For $P\ge2$ let $\zeta_P(z)=\prod_{p\le P}(1-p^{-z})^{-1}$ and let $N_P$ be the random integer with $\Pr(N_P=n)=n^{-\alpha}/\zeta_P(\alpha)$ for $n$ composed of primes up to $P$. Then $L=\log N_P=\sum_{p\le P}(\log p)G_p$ with independent geometric variables $G_p$, $\Pr(G_p=k)=(1-p^{-\alpha})p^{-k\alpha}$, so $L$ is infinitely divisible with finite mean $\E L=B_{\alpha,P}=\sum_{p\le P}\log p\,p^{-\alpha}/(1-p^{-\alpha})$, and
+\[
+-\log\E e^{-wL}=\sum_{p\le P}\sum_{k\ge1}\frac{p^{-k\alpha}}k\big(1-e^{-wk\log p}\big),\qquad\re w\ge0.
+\]
+Let $T_a$ denote the first passage time of standard Brownian motion to the level $a$, so that $\E e^{-uT_a}=e^{-a\sqrt{2u}}$.
+
+\begin{proposition}[Truncated Euler products and first passage to the mean level]\label{ht:thm:trunc}
+For every $\alpha>0$ and every $P$, the function
+\[
+\Phi_{\alpha,P}(u)=\frac{e^{-B_{\alpha,P}\sqrt{2u}}}{\E e^{-\sqrt{2u}\,L}}=\frac{\zeta_P(\alpha)}{\zeta_P(\alpha+\sqrt{2u})}\,e^{-B_{\alpha,P}\sqrt{2u}}
+\]
+is the Laplace transform of a GGC law $Y_P$ with zero drift, whose Thorin measure has density in the ordinate $\tau$ (with atom positions $\tau^2/2$)
+\[
+\frac1\pi\sum_{p\le P}\sum_{k\ge1}\log p\;p^{-k\alpha}\big(1-\cos(k\tau\log p)\big)\ \ge0 .
+\]
+In particular this holds on the critical line $\alpha=\frac12$, unconditionally. If $Y_P$ is independent of $N_P$ and of the Brownian motion, then
+\[
+T_{\E\log N_P}\ \overset{d}{=}\ Y_P+T_{\log N_P}.
+\]
+\end{proposition}
+
+\begin{proof}
+Put $\tilde\mu=\sum_{p\le P}\sum_{k\ge1}\log p\,p^{-k\alpha}\delta_{k\log p}$, a positive measure with $\int(1\wedge x)\tilde\mu(\,\mathrm{d}x)<\infty$ because the sum is finite over $p$ and converges over $k$. With $f(w)=\E e^{-wL}$ the formula above reads $\log f(w)/f(0)-w f'(0)/f(0)=\int(e^{-wx}-1+wx)\tilde\mu(\,\mathrm{d}x)/x$, since $\tilde\mu(\,\mathrm{d}x)/x$ puts the mass $p^{-k\alpha}/k$ at $k\log p$ and $-f'(0)/f(0)=\E L$. The sine squared lemma (Lemma~\ref{rz:lem:sin2}) therefore gives $\Phi_{\alpha,P}(u)=\exp\big(-\int_0^\infty\log(1+2u/\tau^2)U(\,\mathrm{d}\tau)\big)$ with $U(\,\mathrm{d}\tau)=\pi^{-1}\int(1-\cos\tau x)\tilde\mu(\,\mathrm{d}x)\,\,\mathrm{d}\tau$, which is the stated density and is nonnegative termwise; there is no drift because $-\log\Phi_{\alpha,P}(u)=O(\sqrt u)$. For the second statement, $\E e^{-uT_{\log N_P}}=\E e^{-\sqrt{2u}L}$ and $\E e^{-uT_{\E L}}=e^{-\sqrt{2u}\E L}$, so $\E e^{-uT_{\E L}}=\Phi_{\alpha,P}(u)\,\E e^{-uT_{\log N_P}}$.
+\end{proof}
+
+The zeros of $1/\zeta_P(\alpha+w)$ lie on the line $\re w=-\alpha$ and cause no difficulty: the principal branch $w=\sqrt{2u}$ maps $\cut$ into the half plane $\re w>0$, where $\zeta_P(\alpha+w)$ has neither zeros nor poles, as a GGC Laplace transform requires. The mechanism of Proposition~\ref{ht:thm:trunc} is a Jensen gap: for any infinitely divisible $L\ge0$ with finite mean the same argument gives $T_{\E L}\overset d=Y+T_L$ with $Y$ a GGC independent of $L$, a sharpened form of Jensen's inequality $\E e^{-wL}\ge e^{-w\E L}$; nothing arithmetic is used beyond the infinite divisibility of $\log N_P$. The proposition is the statement of \cite{PolsonEuler26} for truncated products, proved here from the sine squared lemma of the book; the corresponding statement at $\alpha>1$ for the full product $\zeta$ is not used in this chapter. As a check, the source reports at $\alpha=\frac12$, $P=13$ and $u=0.7$ the Thorin integral $5.92746438$ against $-\log\Phi_{1/2,13}(0.7)=5.92746429$; this was not recomputed.
+
+The difficulty is the limit $P\to\infty$. For $\alpha\le1$ the compensator $B_{\alpha,P}$ diverges, like $P^{1-\alpha}/(1-\alpha)$ when $\alpha<1$ and like $\log P$ when $\alpha=1$, and it does so faster than $\log\zeta_P(\alpha+w)$ for any $w>0$. Hence $-\log\Phi_{\alpha,P}(u)\to\infty$ for every $u>0$. The laws escape to infinity and have no weak limit, so Bondesson's closure theorem has nothing to act on.
+
+\subsection{The universal limit}
+
+The escape of the Euler family can be undone by centring and scaling. At $\alpha=\frac12$ write $L_P=\log N_P=\sum_{p\le P}(\log p)G_p$; its cumulants satisfy $\kappa_j(P)=\sum_{p\le P}(\log p)^j\sum_{m\ge1}m^{j-1}p^{-m/2}\asymp\sqrt P(\log P)^{j-1}$. The Laplace exponent of $Y_P$ is $-\log\E e^{-uY_P}=K_P(\sqrt{2u})$ with
+\[
+\begin{split}K_P(w)&=\log\E e^{-w(L_P-\E L_P)}=\sum_{p\le P}\sum_{m\ge1}\frac{p^{-m/2}}m\big(e^{-wm\log p}-1+wm\log p\big)\\&=\sum_{j\ge2}\frac{(-1)^j\kappa_jw^j}{j!}\quad(|w|<\tfrac12;\text{ the proof does not use the series}).\end{split}
+\]
+In particular $Y_P$ has mean $\kappa_2(P)=\operatorname{Var}L_P$ and a tail of index $\frac32$ governed by $\kappa_3(P)$.
+
+\begin{theorem}[Universal limit of the Euler hitting times]\label{ht:thm:32}
+As $P\to\infty$,
+\[
+Z_P=\frac{Y_P-\kappa_2(P)}{\kappa_3(P)^{2/3}}\ \Longrightarrow\ Z,\qquad \log\E e^{-sZ}=\frac{(2s)^{3/2}}6,\quad\re s\ge0,
+\]
+a spectrally positive stable law of index $\frac32$. More precisely, for $\re s\ge0$,
+\[
+\Big|\log\E e^{-sZ_P}-\frac{(2s)^{3/2}}6\Big|\le\frac{|s|^2}6\rho_4(P),\qquad\rho_j(P)=\frac{\kappa_j(P)}{\kappa_3(P)^{j/3}},
+\]
+and $\rho_4(P)\to0$.
+\end{theorem}
+
+\begin{proof}
+Put $c=\kappa_3^{2/3}$ and $w=\sqrt{2s/c}$ with the principal root, so $\re w\ge0$. Then $\log\E e^{-sZ_P}=s\kappa_2/c-K_P(w)$. For $\re x\ge0$ one has $|e^{-x}-1+x-x^2/2+x^3/6|\le|x|^4/24$, since $|e^{-\xi}|\le1$ on the segment from $0$ to $x$. Apply this with $x=wm\log p$ in the second form of $K_P$: the terms of degree two and three sum to $\kappa_2w^2/2-\kappa_3w^3/6$, and the rest is at most $\kappa_4|w|^4/24$. Now $\kappa_2w^2/2=\kappa_2s/c$ cancels the centring, $\kappa_3w^3/6=\kappa_3(2s/c)^{3/2}/6=(2s)^{3/2}/6$ because $c^{3/2}=\kappa_3$, and $\kappa_4|w|^4/24=|s|^2\rho_4/6$. Finally $\rho_4\asymp P^{-1/6}(\log P)^{1/3}\to0$. At $\re s=0$ this gives the characteristic functions, so L\'evy's continuity theorem gives weak convergence; the limit $\exp((2s)^{3/2}/6)$ has a Laplace exponent $Cs^{3/2}$ with $C>0$, that of a spectrally positive stable law of index $\frac32$.
+\end{proof}
+
+Exact computation from the truncated Euler product confirms the limit, with the slow rate $P^{-1/6}$ that the cumulant estimate predicts (computed, code/ht\_euler32.py; primes up to $10^7$):
+
+\begin{table}[ht]
+\centering
+\small\setlength{\tabcolsep}{3.5pt}\begin{tabular}{cccccc|c}
+\toprule
+$P$ & $10^3$ & $10^4$ & $10^5$ & $10^6$ & $10^7$ & limit\\
+\midrule
+$s=0.5$ & $0.1466$ & $0.1523$ & $0.1563$ & $0.1591$ & $0.1612$ & $0.1667$\\
+$s=1$ & $0.3946$ & $0.4158$ & $0.4307$ & $0.4416$ & $0.4498$ & $0.4714$\\
+$s=2$ & $1.0443$ & $1.1200$ & $1.1752$ & $1.2168$ & $1.2484$ & $1.3333$\\
+\bottomrule
+\end{tabular}
+\caption{The quantity $\log\E e^{-sZ_P}$ for $P=10^3,\dots,10^7$, against its limit $(2s)^{3/2}/6$ (computed).}\label{ht:tab:euler32}
+\end{table}
+
+The rate is explicit. Continuing the expansion one term further,
+\begin{gather*}
+\log\E e^{-sZ_P}=\frac{(2s)^{3/2}}6-\rho_4(P)\frac{(2s)^2}{24}+\rho_5(P)\frac{(2s)^{5/2}}{120}-\cdots,
+\end{gather*}
+and $\rho_4(P)\sim2^{-1/3}P^{-1/6}(\log P)^{1/3}$. The exact values of $\rho_4(P)$ are $0.54$, $0.37$, $0.26$, $0.19$, $0.13$ at $P=10^3,\dots,10^7$, while the asymptotic expression gives $0.48$, $0.36$, $0.26$, $0.19$, $0.14$ (computed). With the $\rho_4$ and $\rho_5$ terms the expansion reproduces every entry of Table~\ref{ht:tab:euler32} to within $1.8\cdot10^{-2}$ at $P=10^3$ and $2.2\cdot10^{-4}$ at $P=10^7$; at $P=10^7$ and $s=1$ it gives $0.44986$ against the exact $0.44983$ (computed). The bound of the theorem gives the rate for the first half of Problem~\ref{ht:prob:rate} in the sense of a bound on the Laplace exponent, and the expansion is a computed description of the next terms.
+
+The limit depends only on the central limit structure of $\log N_P$. It is the same for every Euler product with the same prime weights, whatever its zeros, and being centred and supported on the whole line it is not even a hitting time. The renormalisation that rescues the Euler family erases exactly the information that RH concerns. This is the prime side counterpart of the Davenport and Heilbronn test of Section~\ref{ht:sec:dh}.
+
+\section{Thorin rigidity}\label{ht:sec:rigid}
+
+A second obstruction is structural.
+
+\begin{theorem}[Thorin rigidity]\label{ht:thm:rigid}
+If $\mu=\mu_1*\mu_2$ with $\mu_1$ and $\mu_2$ GGC laws, then RH holds and
+\[
+U_1=\sum_{\gamma>0}a_\gamma\delta_{\gamma^2},\qquad U_2=\sum_{\gamma>0}(m_\gamma-a_\gamma)\delta_{\gamma^2},\qquad0\le a_\gamma\le m_\gamma ,
+\]
+where $m_\gamma$ is the multiplicity of the zero (so $m_\gamma=1$ for simple zeros), and $\mu_1$ is the law of $\sum_\gamma g_\gamma/\gamma^2$ with independent gamma variables $g_\gamma$ of shapes $a_\gamma$. No GGC law with drift or with a nonzero absolutely continuous Thorin part is a GGC factor of $\mu$ with a GGC cofactor.
+\end{theorem}
+
+\begin{proof}
+Drifts and Thorin measures add under convolution of GGC laws and are determined by the Laplace transform. So $\mu$ is a GGC, which is RH, with drift zero and Thorin measure $\sum m_\gamma\delta_{\gamma^2}$; the nonnegative measures $U_1,U_2$ summing to it are carried by the points $\gamma^2$ with masses in $[0,m_\gamma]$.
+\end{proof}
+
+The hypothesis that the cofactor is also a GGC cannot be dropped. Assume RH with simple zeros and take $\gamma_1^2<a<\gamma_2^2$. The function $(1+u/a)/((1+u/\gamma_1^2)(1+u/\gamma_2^2))$ is a mixture of two exponential transforms with weights $(1-\gamma_1^2/a)/(1-\gamma_1^2/\gamma_2^2)$ and $(1-\gamma_2^2/a)/(1-\gamma_2^2/\gamma_1^2)$, both positive with sum one, so the exponential law of rate $a$ is an exact factor of $\mu$, with a probability cofactor that is the convolution of this mixture with the remaining exponentials. The same holds for a GGC whose Thorin density is supported inside $(\gamma_1^2,\gamma_2^2)$ with total mass at most one: each cofactor term is a mixture of exponentials, hence infinitely divisible \cite{Goldie67,Steutel67}, so the exact factor exists with a cofactor that is a probability law (proved). Hence only factorisations into two GGC laws are rigid.
+
+Every prime built law met so far is a GGC with an absolutely continuous Thorin measure: the Euler laws for $\alpha>1$, the truncated Euler laws $Y_P$, and the basepoint laws $\mu^{(\alpha)}$ for $\alpha\ge1$. None can be an exact factor of $\mu$ with a GGC cofactor. A proof through such pieces must therefore be a limit in which absolutely continuous Thorin measures converge vaguely to $\sum\delta_{\gamma^2}$. The basepoint descent is a limit of this kind; the Euler family, by Theorem~\ref{ht:thm:32}, is not, after the one centring and scaling treated there.
+
+\section{What the prime side limit would have to be}\label{ht:sec:target}
+
+Remove the compensator $B_{1/2,P}/\pi$ from the Thorin density of $Y_P$ at $\alpha=\frac12$ (it is the Thorin density of the stable factor $e^{-B\sqrt{2u}}$) and add the archimedean density $\pi^{-1}A_{1/2}(\tau)$, where $A_{1/2}(\tau)=\re A(\tfrac12+i\tau)$ and $A(z)=\frac1z+\frac1{z-1}-\frac12\log\pi+\frac12\psi(\frac z2)$ is the archimedean part of $\xi'/\xi$. What remains is the formal Thorin density $\pi^{-1}[A_{1/2}(\tau)+\re\zeta_P'/\zeta_P(\tfrac12+i\tau)]$. Against test functions whose Fourier transforms decay fast enough the prime sums converge, and the explicit formula identifies the limit. In the Gaussian case it is the identity (Weil's explicit formula with the test function $e^{-xr^2}$, proved)
+\begin{multline*}
+\sum_{\gamma>0}e^{u_\rho x}=e^{x/4}+(\text{archimedean terms})\\
+-\frac1{2\sqrt{\pi x}}\sum_{n\ge2}\frac{\Lambda(n)}{\sqrt n}e^{-(\log n)^2/(4x)},
+\end{multline*}
+whose left side is $W(x)$ and in which the pole of $\zeta$ appears as $e^{x/4}$. The zeros emerge from the primes as atoms, but only weakly and only after the pole term is added; at no finite stage is the prime side density positive, already at $\tau=0$, where $A_{1/2}(0)=-\frac12\log\pi+\frac12\psi(\frac14)=-2.686<0$ and $\zeta_P'/\zeta_P(\frac12)<0$. The positivity a prime side hitting time proof needs is positivity of this limit against every admissible test function, which is a Weil type criterion at the centre of the strip (compare Chapters~\ref{chap:yoshida} and~\ref{chap:dc}), the same inequality that is stated at $\alpha=1$ on windows of one mean zero spacing in \cite{P17}, now required at $\alpha=\frac12$ where the pole term has exponential size. % UNCHECKED: the inequality at alpha = 1 on windows of one mean zero spacing is stated as in the source; Polson's paper was not read for this statement.
+
+\begin{remark}[Shape of a hitting time proof, heuristic]\label{ht:cor:shape}
+A proof of RH through hitting times built from the primes would have to produce GGC laws whose Thorin measures converge vaguely to $\sum\delta_{\gamma^2}$, which is what weak convergence to $\mu$ means by the continuity theorem. By Theorem~\ref{ht:thm:rigid} they cannot be exact factors of $\mu$ with GGC cofactors. The truncated Euler family does not do it after centring and scaling (Theorem~\ref{ht:thm:32}), but that excludes one renormalisation of one family only. And the positivity of the limit would be a Weil type criterion at the centre, by the heuristic of the preceding paragraph. Only the statement about exact factors is a theorem; the others are heuristic.
+\end{remark}
+
+\section{Diffusion approximations}\label{ht:sec:diffusion}
+
+Diffusion approximations in the sense of Roberts, Gelman and Gilks \cite{RGG97}, in which high dimensional Markov chains, suitably sped up, converge to a Langevin diffusion, offer half of what is needed. (The boundary crossing approach of Roberts and Shortland is a different tool and is treated in Section~\ref{ht:sec:rs}.) The hitting time of a level by a one dimensional diffusion started at an entrance or reflecting end is a GGC, by Kent's theorem \cite{Kent80} (Section~\ref{sec:ch18:kent}); from an interior point it need not be. For reflected Brownian motion on $[0,\infty)$ started at $x\in(0,1)$ the time to reach $1$ has transform $\cosh(x\sqrt{2u})/\cosh(\sqrt{2u})$, and $-\varphi'/\varphi=\sum_k1/(u+\lambda_k)-\sum_k1/(u+\mu_k)$ with $\lambda_k=(k+\frac12)^2\pi^2/2$ and $\mu_k=\lambda_k/x^2>\lambda_k$, so the Thorin measure would have negative atoms. Hence any family of processes converging weakly to a one dimensional diffusion started at an entrance or reflecting end, with hitting times converging in law, has a GGC limit, so positivity comes for free from the diffusion limit; and RH together with the simplicity of the zeros is equivalent to $\mu$ being the hitting time of a level by a one dimensional generalised diffusion started at an entrance end.
+
+The other half is identification. The limiting diffusion must have speed measure with spectrum exactly $\{\gamma^2\}$, and diffusion limits of this type are universal: the limit depends only on averaged quantities such as a Fisher information constant. That is the same washing out as in Theorem~\ref{ht:thm:32}; a diffusion scaling of the Euler family is the cruder Gaussian scaling, under which $Y_P/\operatorname{Var}L_P\to1$ in probability (the fluctuation scale $\kappa_3^{2/3}$ is $o(\kappa_2)$) and every trace of the zeros disappears. A diffusion approximation would supply positivity only if the chains before the limit already carried the arithmetic at the scale the limit sees, and by Theorem~\ref{ht:thm:rigid} this must happen through Thorin measures concentrating onto the $\gamma^2$, not through exact factors with GGC cofactors. Its natural role is as a tool: if Markov chains built from the primes approximated the Krein string operator, for example through discretisations of the canonical systems of \cite{Lagarias06}, a weak convergence theorem of Roberts type is what would carry nonnegativity to the limit.

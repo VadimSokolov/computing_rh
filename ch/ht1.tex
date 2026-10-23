@@ -1,0 +1,322 @@
+\section{The law and its density}\label{ht:sec:law}
+
+Let $u_\rho=(\rho-\tfrac12)^2$ for each zero $\rho=\tfrac12+\delta+i\gamma$ of $\zeta$ in the upper half plane, so that $G(u)=\prod_{\gamma>0}(1-u/u_\rho)$ is an entire function of order one half, and under RH $u_\rho=-\gamma^2$. With no hypothesis the function $1/G$ is the Laplace transform of a self decomposable law $\mu$ on $[0,\infty)$, the law of the clock $T$, whose canonical function is $W(x)=\sum_{\gamma>0}e^{u_\rho x}$; the law $\mu$ is a generalised gamma convolution (GGC) if and only if RH holds, and then its Thorin measure is $\sum_{\gamma>0}\delta_{\gamma^2}$, so that $T=\sum_{\gamma>0}e_\gamma/\gamma^2$ with independent standard exponential variables $e_\gamma$ (Theorem~\ref{thm:ch12:idsd} and Proposition~\ref{prop:rigid}). The mean of $T$ is $p_1=\sum_{\gamma>0}\gamma^{-2}=0.0231049931$ (Section~\ref{ch:clock}).
+
+The spectral expansion of the density $f$ of $\mu$ over the zeros is in Section~\ref{sec:ch18:law}, with the residues $R_k$ computed there. Here the residues are written $w_\gamma=1/G'(-\gamma^2)=R_k$, and the point is what holds without any hypothesis on the zeros.
+
+\subsection{The partial fraction series diverges, the density series converges}
+
+If the zeros are simple, $1/G$ has the poles $u_\rho$ with residues $1/G'(u_\rho)$, and a Mittag Leffler expansion would read $1/G(u)=\sum_\rho1/(G'(u_\rho)(u-u_\rho))$. It does not converge. Under RH, $G'(-\gamma^2)=\xi'(\tfrac12+i\gamma)/(2i\gamma\,\xi(\tfrac12))$, and the gamma factor of $\xi$ gives $|w_\gamma|\asymp\gamma^{-3/4}e^{\pi\gamma/4}/|\zeta'(\rho)|$, so the weights alternate in sign and are enormous: $w_{\gamma_1}=1.0164\times10^4$, $w_{\gamma_2}=-1.1775\times10^6$, $w_{\gamma_5}=8.0078\times10^9$, and $w_{\gamma_{120}}=-3.909\times10^{89}$ at $\gamma_{120}=269.970$, where $\log|w_{\gamma_{120}}|=206.3$ against $\pi\gamma/4=212.0$ (computed, code/ht\_residues.py and code/ht\_resid.py). Neither $\sum w_\gamma/(u+\gamma^2)$ nor $\sum w_\gamma/\gamma^2$ converges. Multiplying by $e^{uy}$ before summing cures this, because $e^{-\gamma^2y}$ beats $e^{\pi\gamma/4}$ for every $y>0$.
+
+\begin{theorem}[Grouped residue expansion]\label{ht:thm:grouped}
+There are radii $R_n\to\infty$ with $R_n\in[n,2n]$ such that for every $y>0$
+\begin{equation}\label{ht:eq:res}
+f(y)=\lim_{n\to\infty}\sum_{|u_\rho|<R_n}\operatorname*{Res}_{u=u_\rho}\frac{e^{uy}}{G(u)},
+\end{equation}
+with no hypothesis on the zeros. A simple zero contributes $e^{u_\rho y}/G'(u_\rho)$, a zero of multiplicity $m$ contributes $e^{u_\rho y}P_\rho(y)$ with $P_\rho$ a polynomial of degree $m-1$, and a pair of zeros $\tfrac12\pm\delta+i\gamma$ off the line has conjugate values $u_\rho$ and contributes $2\re\big(e^{u_\rho y}/G'(u_\rho)\big)$. For $y$ in a compact subset of $(0,\infty)$ the error after the $n$th group is at most $R_n\exp(-\tfrac12R_ny+C\sqrt{R_n}\log R_n)+\exp(-c\sqrt{R_n}\log R_n)$ for constants $c,C>0$.
+\end{theorem}
+
+\begin{proof}[Sketch]
+Write $f(y)=(2\pi i)^{-1}\int_{1-i\infty}^{1+i\infty}e^{uy}G(u)^{-1}\,\mathrm{d}u$, which converges absolutely because $\log|G(1+it)|$ grows like $c\sqrt{|t|}\log|t|$ with $c>0$. Close the contour by an arc of the circle $|u|=R$. The function $G$ has order one half and $\log\max_{|u|=r}|G|\sim\frac14\sqrt r\log r$, so the minimum modulus theorem for functions of finite order \cite{Levin64} produces $R_n\in[n,2n]$ with $\log|G(u)|\ge-C\sqrt{R_n}\log R_n$ on the whole circle $|u|=R_n$. On the part of the arc in $\re u\le-R_n/2$ the factor $|e^{uy}|\le e^{-R_ny/2}$ dominates. On the rest of the arc $\sqrt u$ has argument at most $\pi/3$ and $\re(\frac12+\sqrt u)\ge\frac12\sqrt{R_n}$, so $\zeta(\tfrac12+\sqrt u)$ is bounded away from zero, Stirling's formula gives $\log|G(u)|\ge c\sqrt{R_n}\log R_n$, and $|e^{uy}|\le e^y$. Both contributions tend to zero, and the residue theorem gives \eqref{ht:eq:res}.
+\end{proof}
+
+% UNCHECKED: the minimum modulus theorem is quoted from the source (Levin, Chapter I); its number and the constants were not checked.
+The expansion therefore holds for every $y>0$ as it stands, multiple zeros and off line zeros included, provided the residues are summed in the order of $|u_\rho|$ and grouped between the radii $R_n$. Only absolute convergence needs a hypothesis.
+
+\begin{theorem}[Residue expansion]\label{ht:thm:res}
+Assume that the zeros of $\zeta$ are simple and that $|\xi'(\rho)|\ge e^{-C|\gamma|}$ for some constant $C$ and all zeros. Then the series
+\begin{equation}\label{ht:eq:resRH}
+f(y)=\sum_{\gamma>0}\frac{e^{u_\rho y}}{G'(u_\rho)},\qquad y>0,
+\end{equation}
+converges absolutely and locally uniformly. Under RH it reads $f(y)=\sum_{\gamma>0}w_\gamma e^{-\gamma^2y}$ with $w_\gamma=1/G'(-\gamma^2)=\gamma^2\prod_{\gamma'\ne\gamma}(1-\gamma^2/\gamma'^2)^{-1}$.
+\end{theorem}
+
+\begin{proof}
+The hypothesis gives $|1/G'(u_\rho)|\le2|\gamma||\xi(\tfrac12)|e^{C|\gamma|}$, against $|e^{u_\rho y}|\le e^{-(\gamma^2-1/4)y}$. The product form of $w_\gamma$ is the derivative of the Hadamard product at $-\gamma^2$.
+\end{proof}
+
+The hypothesis is conditional: it is a lower bound for $|\zeta'(\rho)|$ times the gamma factor, expected to hold with room to spare (Gonek's conjectures predict polynomial bounds for $1/|\zeta'(\rho)|$ on the line), and it is not known. % UNCHECKED: Gonek's conjectures are mentioned in the source without a citation and were not read.
+
+The weights of \eqref{ht:eq:resRH} are exactly those of the classical formula for the density of a sum of independent exponentials with rates $\lambda_k$, so under RH Theorem~\ref{ht:thm:res} says that $\mu$ is the law of $\sum_\gamma e_\gamma/\gamma^2$, written out as a density. The series cannot be integrated term by term, since $\sum w_\gamma/\gamma^2$ diverges: the mass $\int f=1$ and the mean $\int yf=p_1$ are properties of the sum, not of the terms. With the first $120$ zeros the series reproduces the density at $y\ge0.008$ to the digits of Table~\ref{ht:tab:f}, its integral over $[0.008,\infty)$ is $0.9999999995$ (so $5\times10^{-10}$ of the mass lies below $0.008$, where the series is not used), and its first moment over $[0.008,\infty)$ is $0.0231049931114$ against $p_1=0.0231049931154$, although the zeros used have $\sum\gamma^{-2}=0.0203057$: the residues carry the whole function $G$, not just the zeros summed (computed, code/ht\_resid.py). The positivity of $f$, which holds unconditionally because $\mu$ is a probability law, is a massive cancellation: near $y=0.008$ the largest single term exceeds $f(y)$ by a factor of about $e^{28.5}$ (the term $-7.83\times10^6$ at $\gamma=49.77$ against $f(0.008)=3.42\times10^{-6}$, computed).
+
+\begin{table}[ht]
+\centering\footnotesize\setlength{\tabcolsep}{3pt}
+\begin{tabular}{cccccccccc}
+\toprule
+$y$ & $0.010$ & $0.015$ & $0.020$ & $0.025$ & $0.030$ & $0.040$ & $0.050$ & $0.060$ & $0.100$\\
+\midrule
+$f(y)$ & $0.0244$ & $28.765$ & $80.104$ & $53.175$ & $23.433$ & $3.4137$ & $0.4660$ & $0.0632$ & $2.14\times10^{-5}$\\
+\bottomrule
+\end{tabular}
+\caption{The density of $\mu$ from the residue expansion with the first $120$ zeros (computed, $110$ digits, agreeing with $140$ digits to $10^{-103}$).}\label{ht:tab:f}
+\end{table}
+
+\begin{proposition}[Tail of the density]\label{ht:prop:tail}
+Let $\gamma_1<\gamma_2<\gamma_3$ be the first three ordinates and $c_3=\tfrac12(\gamma_2^2+\gamma_3^2)$. With no hypothesis,
+\[
+f(y)=w_1e^{-\gamma_1^2y}+w_2e^{-\gamma_2^2y}+O\big(e^{-c_3y}\big),\qquad y\to\infty,
+\]
+with the same bound for each derivative, where $w_1=1.01635\times10^4>0$ and $w_2=-1.17754\times10^6<0$.
+\end{proposition}
+
+\begin{proof}
+Shift the Bromwich line to $\re u=-c_3$. Only the poles $-\gamma_1^2$ and $-\gamma_2^2$ are crossed: a zero with $u_\rho$ to the right of $-c_3$ has $\gamma^2-\delta^2<c_3$, so $\gamma<23.2$, and every such zero is known to lie on the line and to be simple. On $\re u=-c_3$ the function $|G|$ is bounded below and grows like $e^{c\sqrt{|t|}\log|t|}$, so the shifted integral is $O(e^{-c_3y})$, and differentiating under the integral gives the derivatives.
+\end{proof}
+
+\subsection{Density and canonical function}
+
+The density \eqref{ht:eq:res} and the canonical function $W(x)=\sum e^{u_\rho x}$ are sums over the same exponentials, with weights $1/G'(u_\rho)$ and $1$ respectively. They are tied by Steutel's equation for infinitely divisible laws on $[0,\infty)$,
+\begin{equation}\label{ht:eq:steutel}
+y\,f(y)=\int_0^yf(y-x)W(x)\,\mathrm{d}x,
+\end{equation}
+which is the Laplace transform of the identity $-\varphi'=\varphi\,G'/G$ for $\varphi=1/G$, with $G'/G=\int e^{-ux}W(x)\,\mathrm{d}x$. The GGC property is a statement about $W$ (complete monotonicity, whose weights are all one); the residue expansion moves the question to $f$, whose weights alternate.
+
+\section{Kent's formula}\label{ht:sec:kent}
+
+Kent \cite{Kent80} showed that the first passage time of a generalised diffusion, equivalently of a Krein string, from its entrance point to a level is a sum $\sum_ne_n/\lambda_n$ of independent exponentials, where the $\lambda_n$ are the Dirichlet eigenvalues of the string, and that its density has the eigenfunction expansion
+\begin{equation}\label{ht:eq:kent}
+f(t)=\sum_n\lambda_n\prod_{m\ne n}\frac{\lambda_m}{\lambda_m-\lambda_n}\,e^{-\lambda_nt}.
+\end{equation}
+Writing $G(u)=\prod(1+u/\lambda_m)$, the weight is $1/G'(-\lambda_n)$, so \eqref{ht:eq:kent} is the residue expansion. The theorem is used in the book in Section~\ref{sec:ch18:kent} (Kent approximants) and in Corollary~\ref{bp:cor:kent}.
+
+\begin{proposition}[Kent's formula and the residue expansion]\label{ht:prop:kent}
+If RH holds and the zeros are simple, \eqref{ht:eq:resRH} is Kent's expansion \eqref{ht:eq:kent} with $\lambda_n=\gamma_n^2$, and $f$ is the density of the hitting time of a Krein string with Dirichlet spectrum $\{\gamma_n^2\}$. Without these hypotheses the grouped expansion \eqref{ht:eq:res} is the formal continuation of Kent's formula to complex eigenvalues: an off line pair contributes $2\re\big(e^{u_\rho y}/G'(u_\rho)\big)$, a multiple zero contributes a polynomial times an exponential, and no string has such a spectrum, so the formula survives while its probabilistic meaning does not.
+\end{proposition}
+
+\begin{proof}
+The weights agree by the product formula of Theorem~\ref{ht:thm:res}. The existence of the string for an increasing sequence $\lambda_n$ with $\sum1/\lambda_n<\infty$ is Krein's inverse spectral theorem \cite{DymMcKean76}, as in Section~\ref{sec:ch18:kent}. The spectrum of a string is real, positive and simple.
+\end{proof}
+
+\subsection{A check: Brownian exit from an interval}
+
+The exit time of standard Brownian motion from $(-1,1)$, started at $0$, has Laplace transform $1/\cosh\sqrt{2u}$, eigenvalues $\lambda_k=(k+\frac12)^2\pi^2/2$ and residues $(-1)^k\pi(k+\frac12)$, which gives the theta series $f(t)=\sum_k(-1)^k\pi(k+\frac12)e^{-(k+\frac12)^2\pi^2t/2}$. Numerically it has mass $1$ and mean $1$ (to $40$ digits, the theta series and its dual series agreeing to $4\times10^{-61}$), and its Laplace transform at $u=1$ equals $1/\cosh\sqrt2=0.459098131085425$ to fifteen digits. The truncated Kent products $\lambda_k\prod_{m<N,m\ne k}\lambda_m/(\lambda_m-\lambda_k)$ converge to the residues, slowly for large $k$ (computed, code/ht\_kent.py):
+
+\begin{center}
+\begin{tabular}{cccc}
+\toprule
+$k$ & $N=50$ & $N=400$ & residue\\
+\midrule
+$0$ & $1.5630$ & $1.5698$ & $1.5708$\\
+$1$ & $-4.5050$ & $-4.6860$ & $-4.7124$\\
+$5$ & $-9.4241$ & $-16.0202$ & $-17.2788$\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{What is special about $\xi$}
+
+For the exit time the weights grow like $\sqrt{\lambda_k}$: the function $\cosh\sqrt{2u}$ has exponential type in $\sqrt u$ and lies in Krein's class, so that $\sum|w_k|/\lambda_k^2<\infty$ and the partial fraction series of $1/\cosh\sqrt{2u}$ converges, although $\sum w_k/\lambda_k$ converges only conditionally. For $\xi$ the weights grow like $e^{\pi\sqrt\lambda/4}$ up to the factor $1/|\zeta'(\rho)|$. Krein's class $K$ consists of the real entire functions $E$ with simple real zeros $a_k$ whose reciprocal has the expansion
+\[
+\frac1{E(z)}=c+\sum_kc_k\Big(\frac1{z-a_k}+\frac1{a_k}\Big),\qquad\sum_k\frac{|c_k|}{a_k^2}<\infty,
+\]
+and Krein's theorem says that every function in $K$ has exponential type and lies in the Cartwright class \cite{Levin96}. % UNCHECKED: Krein's theorem and the definition of the class are quoted from the source; the lectures of Levin were not read for this chapter.
+
+\begin{proposition}[Not in Krein's class]\label{ht:prop:krein}
+The function $\xi(\frac12+it)$ does not belong to Krein's class, whether or not RH holds. Moreover, under RH the partial fraction series of $1/G$ over the points $u_\rho=-\gamma_n^2$ does not converge absolutely.
+\end{proposition}
+
+\begin{proof}
+Along the imaginary direction of $t$, $\log|\xi(\tfrac12+it)|$ grows like $\tfrac12|t|\log|t|$, so $\xi(\tfrac12+it)$ has order one and infinite type, hence is not of exponential type, and Krein's theorem excludes it from $K$. For $1/G$ the argument is different, since $G$ has exponential type zero. Under RH absolute convergence needs $\sum|w_\gamma|/\gamma^4<\infty$, but $|w_\gamma|\asymp\gamma^{-3/4}e^{\pi\gamma/4}/|\zeta'(\rho)|$ and $|\zeta'(\tfrac12+i\gamma)|\ll\gamma^{1/4}\log^2\gamma$ by the convexity bound, so the terms tend to infinity.
+\end{proof}
+
+The residue expansion of the density is the natural substitute for the partial fraction expansion that Krein's theorem forbids: multiplying by $e^{uy}$ is the regularisation that a function of infinite type requires. Under RH the truncations $G_N$ have finitely many zeros and are trivially in $K$; the divergence appears only in the limit, as the weights $1/G_N'(u_\rho)$ grow to the residues (Table~\ref{ht:tab:trunc}). The theory of Ostrovskii on the class $K$, and the work of Kamynin, Ostrovskii and Vishnyakova on zeros of entire functions that are characteristic functions, concern the class to which $\xi(\frac12+it)=\E\cos(tV)$ belongs; we state no result from it. % UNCHECKED: Ostrovskii (parametric description of the class K, comb functions), Kamynin and Ostrovskii, Ostrovskii and Vishnyakova: only survey summaries were available to the source and none was read for this chapter.
+
+\section{Processes behind the reciprocal xi law}\label{ht:sec:processes}
+
+Under RH there are two processes whose hitting times have law $\mu$.
+\begin{enumerate}
+\item The Krein string of Proposition~\ref{ht:prop:kent} (for simple zeros), a generalised diffusion whose time to reach the end has law $\sum e_\gamma/\gamma^2$.
+\item A pure birth chain that leaves its $n$th state at rate $\gamma_n^2$ (with multiplicities counted as repeated rates). Since $\sum\gamma^{-2}<\infty$ the chain explodes in finite time, and its explosion time has law $\mu$.
+\end{enumerate}
+Conversely, any process with nonnegative speed measure, or any family of GGC laws, that produces $1/G$ proves RH. This is the probabilistic form of the Hilbert and P\'olya idea; its operator theoretic counterpart, de Branges spaces and canonical systems attached to $\zeta$ and to Dirichlet $L$ functions, has been studied by Lagarias \cite{Lagarias06}.
+
+\begin{proposition}[Reduction to approximating hitting times]\label{ht:prop:red}
+RH holds if and only if there are GGC laws, for instance hitting times of strings, converging weakly to $\mu$.
+\end{proposition}
+
+\begin{proof}
+Under RH the laws of $\sum_{n\le N}e_n/\gamma_n^2$ converge to $\mu$. Conversely, a weak limit of GGC laws is a GGC (Corollary~\ref{cor:weak:closure}, Bondesson's continuity theorem \cite{Bondesson}), and $\mu$ is a GGC only under RH.
+\end{proof}
+
+The limit therefore costs nothing. The entire content of a hitting time proof is the construction of approximating processes whose speed measures remain nonnegative.
+
+\section{The candidate families}\label{ht:sec:families}
+
+\begin{description}
+\item[De Bruijn and Newman.] Replacing Riemann's kernel by $e^{tu^2}\Phi_{\mathrm{dBN}}(u)$ gives laws $\mu_t$ that are GGC exactly when $t\ge\Lambda$ (Corollary~\ref{bh:cor:dbn}), and hitting times of strings when moreover the zeros are simple, which is so for $t>\Lambda$. Rodgers and Tao proved $\Lambda\ge0$ \cite{RodgersTao}, and $\Lambda\le0.2$ is known \cite{PT21}. RH is $\Lambda=0$: the strings would have to exist for every $t>0$ and fail for every $t<0$, so any positivity preserving evolution in $t$ would have to be sharp at $t=0$. % UNCHECKED: simplicity of the zeros of the flowed function for t > Lambda is quoted from review A1 as known; no source was read for it.
+\item[Basepoint.] For $\alpha\ge1$ the law $\mu^{(\alpha)}$ with Laplace transform $\xi(\alpha)/\xi(\alpha+\sqrt u)$ is a GGC with Lorentzian Thorin density $\pi^{-1}\re\xi'/\xi(\alpha+i\tau)$, the hitting time of a diffusion with continuous spectrum, and as $\alpha\downarrow\frac12$ the spectrum sharpens onto the atoms $\gamma^2$. Survival of these laws down to $\alpha$ is the quasi Riemann hypothesis at $\alpha$ (Theorem~\ref{rz:thm:threshold}, Chapter~\ref{chap:basepoint}, Section~\ref{pol:sec:qrh}).
+\item[Truncated Hadamard products.] These are hitting times exactly when the zeros used lie on the line (Proposition~\ref{ht:prop:trunc}); the construction is circular.
+\item[Riemann's integral.] Since $G(u)=\E\cosh(\sqrt u\,V)$ with $V$ symmetric and density proportional to $\Phi_{\mathrm{dBN}}(|v|/2)$, the function $\varphi=1/G$ is the harmonic mean, over the random half width $V/\sqrt2$, of the transforms $\sech(\sqrt u\,V)$ of Brownian exit times. Each is a GGC, and a harmonic mean of GGC transforms need not be one. Jensen's inequality gives $\varphi(u)\le\E\sech(\sqrt u\,V)$, a scale mixture of GGC transforms (the exit time from $(-a,a)$ has Thorin atoms at $(k+\frac12)^2\pi^2/(2a^2)$), and the reciprocal of a mixture is not a mixture of reciprocals, so this route gives bounds and not the GGC property.
+\item[Tilted balance.] For $\lambda>\frac14$, $Y_\lambda+T_{\log N}$ equals an explicit archimedean law, where $Y_\lambda$ is the Esscher tilt of $\mu$ and $T_{\log N}$ the first passage of drifted Brownian motion to the random level $\log N$, with $N$ zeta distributed \cite{P17}, and the limit $\lambda\downarrow\frac14$ meets the pole of $\zeta$. % UNCHECKED: the identity is stated as in the source; the related decomposition proved in the book is Theorem bp:thm:sub, and Polson's paper was not read for this statement.
+\item[Truncated Euler products.] For every $\alpha>0$ and every $P$ there is a GGC $Y_P$ with $T_{\E\log N_P}\overset d=Y_P+T_{\log N_P}$ (Proposition~\ref{ht:thm:trunc}). It is the one family built from the primes that exists unconditionally at $\alpha=\frac12$, and it escapes as $P\to\infty$.
+\end{description}
+
+\section{Truncations, total positivity and the HCM route}\label{ht:sec:density}
+
+\subsection{Bondesson's finite approximations}
+
+Bondesson's construction of GGC laws starts from finite convolutions of exponentials and passes to weak limits \cite{Bondesson}. For $N\ge1$ order the zeros by height, never splitting a pair $\tfrac12\pm\delta+i\gamma$, and put
+\[
+G_N(u)=\prod_{n\le N}\Big(1-\frac u{u_{\rho_n}}\Big),\qquad\varphi_N=1/G_N .
+\]
+Then $\varphi_N$ is the Laplace transform of a signed measure $\mu_N$ of total mass one, a probability law when the first $N$ zeros lie on the line, with density the finite residue sum $f_N(y)=\sum_{n\le N}e^{u_{\rho_n}y}/G_N'(u_{\rho_n})$ (for simple zeros).
+
+\begin{proposition}[Truncations]\label{ht:prop:trunc}
+\begin{enumerate}
+\item[(i)] $\varphi_N\to\varphi$ pointwise on $[0,\infty)$, and for each fixed zero the finite weight converges to the residue, $1/G_N'(u_\rho)\to1/G'(u_\rho)$, with correction factor $\prod_{n>N}(1-u_\rho/u_{\rho_n})^{-1}\approx\exp\big(+u_\rho\sum_{n>N}u_{\rho_n}^{-1}\big)$, which under RH equals $\exp(\gamma^2\sum_{n>N}\gamma_n^{-2})>1$.
+\item[(ii)] $\mu_N$ is a GGC if and only if the first $N$ zeros lie on the line; in particular it is a GGC, unconditionally, for every $N\le N_0(H)$, the number of zeros below the verified height $H=3\cdot10^{12}$ \cite{PT21}.
+\item[(iii)] RH holds if and only if every $\mu_N$ is a GGC, and then $\mu$ is a GGC by Bondesson's continuity theorem (Corollary~\ref{cor:weak:closure}).
+\item[(iv)] Under RH, for $u\ge0$, $0\le\log G(u)-\log G_N(u)\le u\,\tau_1(N)$ with $\tau_1(N)=\sum_{n>N}\gamma_n^{-2}\approx(\log(T_N/2\pi)+1)/(2\pi T_N)$, where $T_N$ is the height of the $N$th zero.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(i) is the convergence of the Hadamard product and of its derivative at $u_\rho$; the sign follows from $\prod(1-x_n)^{-1}\approx\exp(\sum x_n)$ with $x_n=u_\rho/u_{\rho_n}$, which is positive under RH. (ii) A finite product $\prod(1-u/u_n)^{-1}$ is a GGC Laplace transform exactly when every $u_n$ is real and negative, and $u_\rho=(\delta+i\gamma)^2$ is real and negative exactly when $\delta=0$; when a pair is not split, $G_N$ is real. (iii) If some zero is off the line, $\mu_N$ fails to be a GGC for all large $N$; conversely use (ii) and Bondesson's theorem. (iv) Under RH $\log G(u)-\log G_N(u)=\sum_{n>N}\log(1+u/\gamma_n^2)\le u\tau_1(N)$ for $u\ge0$.
+\end{proof}
+
+The proposition shows both the reach and the limit of the method. The approximants are explicit GGC laws, unconditionally, up to a height of $3\cdot10^{12}$ (the relative error of the clock transform is also bounded in Section~\ref{sec:ch18:kent}). But Bondesson's closure theorem needs all $N$, and (iii) only restates RH: the method converts RH into the statement that no truncation ever leaves the GGC class, and gives no mechanism to prevent it.
+
+\begin{table}[ht]
+\centering\small
+\begin{tabular}{crrrr}
+\toprule
+ & $N=10$ & $N=30$ & $N=60$ & $N=120$\\
+\midrule
+first zero, raw & $1476$ & $3118$ & $4447$ & $5808$\\
+first zero, corrected & $9970$ & $10132$ & $10155$ & $10161$\\
+second zero, corrected & $-1.068\times10^6$ & $-1.160\times10^6$ & $-1.173\times10^6$ & $-1.176\times10^6$\\
+fifth zero, corrected & $4.15\times10^9$ & $7.28\times10^9$ & $7.80\times10^9$ & $7.96\times10^9$\\
+\bottomrule
+\end{tabular}
+\caption{Finite truncation weights $1/G_N'(u_\rho)$ against the residues $w_{\gamma}=1.0164\times10^4$, $-1.1775\times10^6$ and $8.0078\times10^9$ at the first, second and fifth zeros. The corrected rows multiply the raw weight by the factor of Proposition~\ref{ht:prop:trunc}(i), with $\sum_{n>N}\gamma_n^{-2}$ taken from the exact total $p_1$; for the first zero and $N=120$ the factor is $\exp(199.79\times0.0027993)=1.7494$ and the corrected weight agrees with the residue to $0.025$ per cent (computed, code/ht\_resid.py).}\label{ht:tab:trunc}
+\end{table}
+
+\subsection{P\'olya frequency functions}
+
+By Proposition~\ref{tx2:prop:pf}, RH holds if and only if the density $f$ of $\mu$ is a P\'olya frequency function of infinite order, so that RH sits at the top of a ladder $\mathrm{PF}_2\Leftarrow\mathrm{PF}_3\Leftarrow\cdots\Leftarrow\mathrm{PF}_\infty\iff\mathrm{RH}$ of determinant inequalities on the explicit function \eqref{ht:eq:res}, alongside the ladder of derivatives of $W$ (Section~\ref{ch:heat}). The lowest rung, $\mathrm{PF}_2$, is log concavity of $f$. It is not settled by self decomposability, which gives unimodality (Corollary~\ref{sb:cor:unimodal}) but not log concavity. If an off line zero exists, Schoenberg's theorem \cite{Schoenberg51} says some rung fails, and the heuristic of the Gaussian window argument suggests that it fails only at an order that grows with the height of that zero.
+
+\subsection{Log concavity}
+
+The rung $\mathrm{PF}_2$ splits into three ranges of $y$.
+
+\begin{theorem}[Log concavity in the tail]\label{ht:thm:lctail}
+There is $Y$ such that $f$ is strictly log concave on $[Y,\infty)$, with no hypothesis.
+\end{theorem}
+
+\begin{proof}
+By Proposition~\ref{ht:prop:tail}, $f(y)=w_1e^{-\gamma_1^2y}(1+\varepsilon(y)+\eta(y))$ with $\varepsilon(y)=(w_2/w_1)e^{-\Delta y}$, $\Delta=\gamma_2^2-\gamma_1^2=242.1$, and $\eta$, together with its first two derivatives, of size $O(e^{-(c_3-\gamma_1^2)y})$. Then $(\log f)''=\Delta^2\varepsilon(1+o(1))+O(e^{-(c_3-\gamma_1^2)y})$. Since $w_2/w_1<0$ the first term is negative, and since $c_3-\gamma_1^2=333.9>\Delta$ it dominates the second for large $y$.
+\end{proof}
+
+The sign of $w_2/w_1$ is the whole point: the second residue is negative, and this negative correction bends $\log f$ downwards. The same mechanism operates at every pair of consecutive rates in a sum of exponentials. On the numerical grid of step $0.001$ in $[0.008,0.2]$ one finds $(\log f)''<0$ with minimum $-2.59\times10^6$ at $y=0.008$ and value $-6.3\times10^{-15}$ at $y=0.2$ (computed, code/ht\_resid.py; the value $-4.8\times10^{-5}$ near $y=0.106$ is the two term tail value, not a grid computation). That this holds on all of $[0.008,\infty)$ is Theorem~\ref{ht:thm:lc}, a computation based on an explicit remainder bound that needs no hypothesis on the zeros but one numerical input that is not enclosed, so its status is computed.
+
+Near the origin the density is governed by the archimedean growth of $\xi$. Write $\psi=\log G$ and $\Lambda_f(y)=\sup_{u>0}(\psi(u)-uy)$. Chernoff's bound gives $\log P(T\le y)\le-\Lambda_f(y)$ (Section~\ref{ch:clocklaw}), and the saddle point approximation
+\begin{equation}\label{ht:eq:saddle}
+\log f(y)\approx-\Lambda_f(y)-\tfrac12\log\big(2\pi|\psi''(u_y)|\big),\qquad\psi'(u_y)=y,
+\end{equation}
+gives $(\log f)''\approx-1/|\psi''(u_y)|$, which is large and negative: since $\psi(u)\sim\frac14\sqrt u\log u$, one finds $\sqrt{u_y}\approx\log(1/y)/4y$ and $\Lambda_f''(y)$ of order $\log^2(1/y)/y^3$.
+
+\begin{proposition}[Log concavity near the origin]\label{ht:prop:lc0}
+If the saddle point approximation \eqref{ht:eq:saddle} holds as $y\to0$ together with two derivatives, then $f$ is strictly log concave on $(0,y_0]$ for some $y_0>0$.
+\end{proposition}
+
+The hypothesis is the usual one for densities of infinitely divisible laws with regularly varying exponent. Making it rigorous with derivatives requires control of $\psi$ in a sector around the positive axis, which the growth of $\xi$ to the right of the critical line supplies but which is not written out here, so the status is conditional. Table~\ref{ht:tab:saddle} shows the approximation against $\log f$ at five points as reported in the source; these values were not reproduced and are unchecked. What remains of log concavity, unlike RH, is a problem about a fixed analytic function on a bounded range, and it is expected to be true.
+
+\begin{table}[ht]
+\centering\small
+\begin{tabular}{cccccc}
+\toprule
+$y$ & $\log f(y)$ & saddle \eqref{ht:eq:saddle} & $\log P(T\le y)$ & $-\Lambda_f(y)$ & $\Lambda_f''(y)$\\
+\midrule
+$0.008$ & $-12.5846$ & $-12.5857$ & $-21.40$ & $-19.06$ & $2.62\times10^6$\\
+$0.010$ & $-3.7121$ & $-3.7144$ & $-11.82$ & $-9.75$ & $1.09\times10^6$\\
+$0.012$ & $0.5749$ & $0.5710$ & $-6.91$ & $-5.09$ & $5.19\times10^5$\\
+$0.015$ & $3.3592$ & $3.3511$ & $-3.30$ & $-1.84$ & $2.01\times10^5$\\
+$0.020$ & $4.3833$ & $4.3636$ & $-1.07$ & $-0.16$ & $5.38\times10^4$\\
+\bottomrule
+\end{tabular}
+\caption{The lower tail of $\mu$ and the saddle point approximation, as printed in the source (unchecked: not reproduced). The Chernoff exponent $-\Lambda_f(y)$ bounds $\log P(T\le y)$ from above, as it must.}\label{ht:tab:saddle}
+\end{table}
+
+\subsection{A certificate for log concavity on $[0.008,\infty)$}
+
+The grouped expansion has an explicit error once the Bromwich line is moved to a vertical line that passes between two consecutive poles. Let $N=120$ and $c=\frac12(\gamma_{120}^2+\gamma_{121}^2)=73296.53$, with $\gamma_{120}=269.970$ and $\gamma_{121}=271.494$ (computed).
+
+\begin{proposition}[Explicit truncation]\label{ht:prop:explicit}
+With no hypothesis, for every $y>0$ and $j\ge0$,
+\[
+\Big|f^{(j)}(y)-\sum_{n\le120}w_n(-\gamma_n^2)^je^{-\gamma_n^2y}\Big|\le M_je^{-cy},\qquad M_j=\frac1{2\pi}\int_{-\infty}^\infty\frac{|{-c}+it|^j}{|G(-c+it)|}\,\mathrm{d}t .
+\]
+Numerically $\log M_0=206.26$ and $M_{j+1}/M_j=1.0000185\,c$ for $j=0,1,2$ (computed).
+\end{proposition}
+
+\begin{proof}
+Shift the Bromwich line to $\re u=-c$. The poles crossed are those with $\re u_\rho=\delta^2-\gamma^2>-c$, which forces $\gamma<\sqrt{c+\frac14}<270.8$; these are the first $120$ zeros, which are simple and on the line. On $\re u=-c$ the function $1/|G|$ is integrable, because $\re\sqrt u$ grows like $|t|^{1/2}$ and with it $|\xi(\frac12+\sqrt u)|$. Differentiating under the integral gives the derivatives.
+\end{proof}
+
+The bound uses nothing about zeros above height $270.8$, and it is minute: with $\log M_j=206.26,217.46,228.67,239.87,251.07$ for $j\le4$, $M_je^{-cy}\le e^{-330}$ for $y\ge0.008$. The constants $M_j$, $j\le8$, were enclosed by ball arithmetic with the integral cut at $|t|=2^{20}$ and the zeros and the derivative of $\zeta$ taken from Arb; $M_0=3.78781207977\times10^{89}$ is enclosed to a relative $1.6\times10^{-12}$. The integrand at $|t|=2^{20}$ is $10^{-572}$ of its peak, but the tail beyond is not bounded analytically, and the aliasing of the circle quadrature for $\zeta'$ was checked at two sizes and not certified. So the $M_j$ are computed, and not proved.
+
+Two devices make log concavity checkable. The first is an exact identity for sums of exponentials: if $f=\sum_kw_ke^{-\lambda_ky}$ then
+\begin{equation}\label{ht:eq:pair}
+ff''-f'^2=\frac12\sum_{j,k}w_jw_k(\lambda_j-\lambda_k)^2e^{-(\lambda_j+\lambda_k)y}.
+\end{equation}
+Every pair term decays like $e^{-(\lambda_j+\lambda_k)y}$, and the slowest is the pair $(1,2)$, whose coefficient $w_1w_2(\lambda_2-\lambda_1)^2$ is negative. Once that term dominates the sum of the absolute values of the others, which happens at some $y$ and then persists, $g=ff''-f'^2$ is negative for good. With the truncation bound added, the ratio of the other terms to the leading one is $2.83$ at $y=0.02$, $1.39$ at $0.022$, $0.622$ at $0.025$, $0.033$ at $0.04$ and $2.2\times10^{-5}$ at $0.08$ (computed), and in ball arithmetic it is below one and decreasing on the grid $0.025,0.030,\dots,0.3$, with the enclosure $0.621855669841\pm2\times10^{-13}$ at $y=0.025$. Hence $g<0$ on $[0.025,\infty)$, given the $M_j$.
+
+The second device is a Taylor model for the window below $0.025$. At a point $y_i$ compute $g^{(m)}(y_i)$ for $m<K=6$ from \eqref{ht:eq:pair} or by Leibniz's rule, and bound $|g^{(K)}|$ on $[y_i,y_i+h]$ by replacing every $f^{(j)}$ with $A_j(y_i)=\sum_{n\le120}|w_n|\lambda_n^je^{-\lambda_ny_i}+M_je^{-cy_i}$, which dominates $|f^{(j)}|$ on the whole step because each term decreases in $y$. If the Taylor polynomial of $g$ plus the remainder is negative on $[y_i,y_i+h]$ after adding the truncation errors, then $g<0$ there; take the largest such $h$ and move on. In ball arithmetic at $400$ bits, with the range $[0.008,0.08]$ split into seven sub windows (five of them in $[0.008,0.012]$), every sub window was covered. Table~\ref{ht:tab:cert} lists the windows; the step counts depend on the rule that chooses $h$, which the source does not give, so those of the check (a greedy doubling rule) are printed and the source's $25856$ steps (its parts sum to $25859$), $73$ and $74$ are not reproduced.
+
+\begin{table}[ht]
+\centering\small
+\begin{tabular}{ccc}
+\toprule
+window & Taylor steps & method\\
+\midrule
+$[0.008,0.012]$ & $29984$ & Taylor model, $K=6$, $400$ bits\\
+$[0.012,0.020]$ & $88$ & Taylor model, $K=6$, $400$ bits\\
+$[0.020,0.080]$ & $90$ & Taylor model, $K=6$, $400$ bits\\
+$[0.025,\infty)$ & none & pair identity \eqref{ht:eq:pair} with Proposition~\ref{ht:prop:explicit}\\
+\bottomrule
+\end{tabular}
+\caption{Windows on which $(\log f)''<0$ was verified, given the constants $M_j$ (computed, code/ht\_lcert.py). The step count near $0.008$ is large because of the cancellation in \eqref{ht:eq:res}.}\label{ht:tab:cert}
+\end{table}
+
+\begin{theorem}[Log concavity, computed]\label{ht:thm:lc}
+Assume the values of the constants $M_j$, $j\le8$, of Proposition~\ref{ht:prop:explicit}, which are computed by quadrature. Then, with no hypothesis on the zeros, the density $f$ of $\mu$ is strictly log concave on $[Y_{\!*},\infty)$ with $Y_{\!*}=0.008$.
+\end{theorem}
+
+Its status is computed until the $M_j$ are enclosed with a bound on the tail of the integral. The range it leaves open, $(0,Y_{\!*})$, carries mass $P(T<Y_{\!*})=5\times10^{-10}$ (computed), and there the saddle point approximation \eqref{ht:eq:saddle} would give log concavity with $\Lambda_f''(y)$ of order $10^6$ and growing (Proposition~\ref{ht:prop:lc0}, conditional). Closing it rigorously needs either more zeros, so that $c$ grows and the window can be pushed down (at $y=0.005$ the $120$ term sum with its truncation balls still encloses $g=-6.5\times10^{-40}$ away from zero, with ball radius $7.6\times10^{-49}$ against a cancellation of $6.3\times10^{35}$ in $f$, but no Taylor model was run below $0.008$), or a rigorous saddle point bound. Neither involves the location of the zeros. Log concavity of $f$ is the strong unimodality of $\mu$, by the theorem of Ibragimov \cite{Ibragimov56}.
+% UNCHECKED: Ibragimov's theorem (a density is strongly unimodal if and only if it is log concave) is credited as the review asks; the paper was not read.
+
+
+\subsection{Off line zeros are invisible to the low rungs}
+
+The pair of zeros $\tfrac12\pm\delta+i\gamma$ contributes $2|G'(u_\rho)|^{-1}e^{(\delta^2-\gamma^2)y}\cos(2\delta\gamma y-\arg G'(u_\rho))$ to the density, while $u_\rho$ makes the angle $\theta_\rho=2\arctan(\delta/\gamma)$ with the negative axis. Over the range $y\lesssim\gamma^{-2}$ in which it is not exponentially negligible its phase moves by only about $2\delta/\gamma$, and Schoenberg's theorem requires exactly that $u_\rho$ stay near the negative axis. A determinant of order $k$ resolves the density to roughly $k$ derivatives, so the first failing rung is expected, heuristically, to be of order $\gamma/\delta$ at best, and larger once the lower zeros are allowed to smooth the pair. For a zero above the verified height this is at least of order $10^{12}$. The question which rung fails first is therefore answered, heuristically, by: none that can be computed. In an experiment reported in the source, nine toy densities were built from the residue formula with the first $m-1$ zeros on the line and the $m$th replaced by an off line pair (at $\gamma_m=30.4$, $43.3$, $67.1$ and $\delta=0.45$, $0.25$, $0.1$); all were positive, log concave on $(0,0.2]$ and had nonnegative Toeplitz determinants of orders three and four. This experiment was not reproduced here and is unchecked. Numerical confirmation of low rungs, for either ladder, carries no information about zeros above the verified height.
+
+\subsection{The HCM route}
+
+Bondesson calls a density $f$ on $(0,\infty)$ hyperbolically completely monotone (HCM) if, for each $u>0$, $f(uv)f(u/v)$ is a completely monotone function of $v+1/v$. HCM densities are GGC densities, and the class is closed under products, quotients and powers $|q|\ge1$ of independent variables \cite{Bondesson} (Chapter~\ref{chap:hcm}). HCM is a sufficient condition for the GGC property, not a necessary one, so it gives a route to RH in one direction only.
+
+\begin{proposition}[HCM route]\label{ht:prop:hcm}
+If the density $f$ of $\mu$ is HCM, then $\mu$ is a GGC and RH holds.
+\end{proposition}
+
+The $k$th rung of this route is $(-1)^k\partial_w^k[f(uv)f(u/v)]\ge0$ with $w=v+1/v$. Bondesson's representation $f(x)=Cx^{\beta-1}h_1(x)h_2(1/x)$, with $h_1,h_2$ Laplace transforms of GGC laws, gives a consequence that is easy to test: an HCM density extends to a holomorphic function on $\cut$ with no zeros there, since $h_1(x)$ and $h_2(1/x)$ have the form $\exp(-ax-\int\log(1+x/t)U(\,\mathrm{d}t))$ and are holomorphic and zero free on $\cut$.
+
+\begin{theorem}[No HCM]\label{ht:thm:nohcm}
+\begin{enumerate}
+\item[(i)] No density of a sum of $n\ge2$ independent exponential variables with distinct rates is HCM (proved).
+\item[(ii)] With the first $120$ terms of \eqref{ht:eq:resRH}, the continuation of $f$ to $\re z>0$ vanishes at
+\[
+z_*=0.013831874754506+0.020001801712034\,i
+\]
+(computed). If the omitted terms are controlled by an explicit remainder bound on a sector containing $z_*$, this proves that $f$ is not HCM.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(i) The density is an exponential polynomial $\sum_{k\le n}c_ke^{-\lambda_kz}$ with distinct real $\lambda_k$ and nonzero $c_k$. It has at most $n-1$ real zeros, by the Descartes rule for exponential sums, and infinitely many zeros altogether, since an entire function of order one with finitely many zeros is a polynomial times an exponential, which a sum of two or more exponentials with distinct rates is not. So it has nonreal zeros, which lie in $\cut$, and no HCM density has any. For $e^{-x}-e^{-2x}$ they are the points $2\pi ik$, $k\ne0$.
+
+(ii) Newton's method on the $120$ term sum at $50$ digits gives the stated $z_*$, floating point and not enclosed; the largest term of the normalised sum $f(z)e^{\gamma_1^2z}/w_1$ at $z_*$ has modulus $5.4$, and the normalised sum is $1.9\times10^{-12}$ at the printed fifteen digits (the root to forty digits was not tested). The argument principle on the box $0.012\le\re z\le0.15$, $0<\im z\le0.05$ gives winding number $5$ for the $120$ term sum, and $1$ on a box of half width $10^{-3}$ around $z_*$ (floating point, code/ht\_resid.py).
+\end{proof}
+
+Part (ii) is a computation on the $120$ term sum and not a proof, for four reasons. The series \eqref{ht:eq:resRH} presupposes RH and simple zeros, and its convergence for $\re z>0$ needs the hypothesis of Theorem~\ref{ht:thm:res}. The termwise estimate for the omitted zeros uses residues that are not controlled. The remainder bound of Proposition~\ref{ht:prop:explicit} does not apply: it is for real $y$ only, because on $\re u=-c$ the factor $|e^{uz}|=e^{-c\re z-t\im z}$ grows with $|t|$ while $1/|G(-c+it)|$ decays only like $\exp(-c'\sqrt{|t|}\log|t|)$, so the integral diverges for every nonreal $z$. And the argument principle needs that bound on the boundary of the box. A proof is within reach and needs no hypothesis on the zeros: bend the contour of the Bromwich integral at $-c$ into the two rays $\arg(u+c)=\pm(\pi/2+\eta)$ with $\eta$ a little above $\arg z_*=55.3^\circ$, where the poles are real up to $|u|=9\times10^{24}$ and within angle $1/\gamma$ of the negative axis above, the rays cross none of them, and $1/|G|$ decays on them, which gives an explicit remainder bound on a sector containing $z_*$. If RH fails then $f$ is not HCM at all, because HCM densities are GGC, so only the case of RH needs the computation. Under RH, simple zeros and two hypotheses on the zeros, Theorem~\ref{bs:thm:nb} proves that the density is not HCM.
+
+For the two exponential density the failure of the HCM ladder appears only at high order. With $w=2.1$, the normalised derivative $(-1)^k\partial_w^k[f(uv)f(u/v)]/f(uv)f(u/v)$ of $f=e^{-x}-e^{-2x}$ at $u=5$ is positive for $k\le14$ and equals $-1.21\times10^9$ at $k=15$ (stable between $300$ and $450$ digits). At $u=6$ and $u=7$ the first negative order is $14$ and $18$, and for $u=3,4,8,10$ none appears up to order $40$ (computed, code/ht\_hcm2exp.py). Low order evidence for an HCM property of $f$ would therefore have been misleading. Since the computed zero indicates that the HCM class is not available even under RH, Proposition~\ref{ht:prop:hcm}, while true, is vacuous for this law as far as the computed zero shows: the HCM route to RH appears closed, provided the bound of the bent contour is supplied.

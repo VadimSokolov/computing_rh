@@ -1,0 +1,128 @@
+% ch/ht4.tex: Section 13 of the chapter of N. Polson (the frontier, partial complete monotonicity, QRH and the prime sum, prime built hitting times, zero density, where arithmetic enters), editor E2. Labels ht:*. External labels used: ht:thm:32, ht:thm:rigid, ht:cor:shape (ht2 or ht1), ht:sec:yor, ht:sec:expansions (ht5), ht:sec:angle, ht:prob:rs (ht5). Numbers from misc/reviews/nick-hitting_times/checks-G2.md.
+\section{What the reciprocal Xi function proves}\label{ht:sec:frontier}
+
+Every route in this chapter ends in an equivalence with RH whose unconditional part stops exactly where classical knowledge stops. This section records the frontier for each, adds one quantitative statement about the canonical function, and identifies the single inequality at which arithmetic would have to enter.
+
+\subsection{Partial complete monotonicity}
+The law $\mu$ is a GGC if and only if its canonical function $\Theta(x)=\sum_{\gamma>0}e^{s_\rho x}$ is completely monotone, that is $(-1)^n\Theta^{(n)}(x)\ge0$ for all $n$ and $x$. Each zero on the line contributes $\gamma^{2n}e^{-\gamma^2x}>0$; an off line pair contributes an oscillating term. The verified zeros give a quantitative piece of this condition.
+
+\begin{theorem}\label{ht:thm:partialcm}
+Let $T=3\cdot10^{12}$, so that every zero with $0<\gamma\le T$ is on the line \cite{PT21}. For every $x\ge1/T$ and every integer
+\[
+0\le n\le\frac{(T^2-\gamma_1^2-1)\,x-5}{\log(T^2/\gamma_1^2)},
+\]
+we have $(-1)^n\Theta^{(n)}(x)>0$. Numerically the bound is $n\le1.7\cdot10^{23}x$. RH holds if and only if the bound can be replaced by $n<\infty$ for every $x>0$. Status: proved, with the verification height $T$ as input; the constants are computed (\texttt{code/ht\_misc.py}).
+\end{theorem}
+
+\begin{proof}
+The zeros with $\gamma\le T$ contribute $\sum\gamma^{2n}e^{-\gamma^2x}\ge\gamma_1^{2n}e^{-\gamma_1^2x}$. A zero with $\gamma>T$ has $s_\rho=(\delta+i\gamma)^2$ with $|\delta|<\frac12$, so its contribution has modulus at most $g(\gamma)=(\gamma^2+\frac14)^ne^{-(\gamma^2-\frac14)x}$. Under the bound on $n$ we have $n\le T^2x/52$, so $g$ is decreasing for $\gamma\ge T$ and $g(T+j+1)/g(T+j)\le e^{-1.9Tx}\le e^{-1.9}$. There are at most $2\log(T+j+1)$ zeros with $T+j<\gamma\le T+j+1$, by an explicit bound for the argument of $\zeta$ \cite{HSW22}, so the tail is at most $4\log(T+1)g(T)/(1-e^{-1.9})<136\,g(T)<e^5g(T)$. The bound on $n$ gives $n\log((T^2+\frac14)/\gamma_1^2)+5<(T^2-\frac14-\gamma_1^2)x$, which makes this smaller than $\gamma_1^{2n}e^{-\gamma_1^2x}$.
+\end{proof}
+
+At scale $x$ the $n$th Bernstein condition weighs the zeros by $\gamma^{2n}e^{-\gamma^2x}$, which peaks at $\gamma^2=n/x$. The theorem says that the conditions which only look below height $T$ hold, and no more: it is zero verification written as complete monotonicity, with the same height to order trade off as the Jensen degree ($d\approx\gamma^2$, a heuristic of Section~\ref{ht:sec:jensen}) and the first order boundary response ($\delta^2/\gamma^4$, Remark~\ref{ht:rem:resp}).
+
+\subsection{The frontier}
+Table~\ref{ht:tab:frontier} lists the equivalent forms of RH that the reciprocal Xi law provides, the classical statement each is equivalent to, and how far each is known unconditionally.
+
+\begin{table}[ht]
+\centering\scriptsize\setlength{\tabcolsep}{3pt}
+\begin{tabular}{p{3.1cm}p{3.1cm}p{3.1cm}}
+\toprule
+Reciprocal Xi form & Classical form & Known unconditionally \\
+\midrule
+$\mu$ is a GGC & RH & Theorem~\ref{ht:thm:partialcm}: Bernstein order $1.7\cdot10^{23}x$ \\
+density of $\mu$ is $\mathrm{PF}_\infty$ & RH (Schoenberg \cite{Schoenberg51}) & log concave on $[0.008,\infty)$ (computed, Section~\ref{ht:sec:expansions}) \\
+$\mu^{(\alpha)}$ GGC for all $\alpha>\frac12$ & $\Re\,\xi'/\xi>0$ on $\Re s>\frac12$ (Lagarias \cite{Lagarias}) & $\alpha\ge1$ only \\
+$\mu^{(\alpha)}$ GGC at one $\alpha<1$ & quasi RH at $\alpha$ & announced for $\alpha\ge\frac78$ \cite{OAI26a}, open below \\
+de Bruijn laws $\mu_t$ GGC & $t\ge\Lambda$ & $t\ge0.2$ \cite{PT21} \\
+Jensen laws $\mu_d$ exist & Jensen and P\'olya criterion & $d\le2\cdot10^{17}$ \cite{GORZ19} \\
+hybrid laws $\hat\mu^{[N]}$ GGC & zeros up to $\gamma_N$ on the line & $N\le1.2\cdot10^{13}$ \\
+GGC limit of prime built laws & Weil type positivity at the centre & the scaling of Theorem~\ref{ht:thm:32} erases the zeros; Theorem~\ref{ht:thm:primebuilt} for $\theta<\beta<2-\theta$ under $\mathrm{QRH}(\theta)$ \\
+boundary, Brownian, extremal representations & none & exist for every law \\
+\bottomrule
+\end{tabular}
+\caption{Equivalent forms of RH from the reciprocal Xi law and their unconditional frontier. The Jensen bound is Chass\'e's, as quoted in \cite{GORZ19}.}\label{ht:tab:frontier}
+\end{table}
+% UNCHECKED: d <= 2e17 of the Jensen row is quoted from GORZ19 through the chapter source, Chasse's paper not read.
+
+Two entries carry the diagnosis. First, the base point row: Lagarias proved that RH is equivalent to $\Re\,\xi'/\xi(s)>0$ throughout $\Re s>\frac12$ \cite{Lagarias}, and the Thorin density of $\mu^{(\alpha)}$ is exactly $\pi^{-1}\Re\,\xi'/\xi(\alpha+it)$ whenever $\mu^{(\alpha)}$ is a GGC (Section~\ref{ht:sec:yor}, Theorem~\ref{thm:poisson}). So the base point descent is Lagarias' criterion, and pushing it below $\alpha=1$ at a single value is the quasi Riemann hypothesis there. That is the announced half plane $\Re s>\frac78$ of \cite{OAI26a} (Section~\ref{sec:ch25:open}), not yet refereed, and it is open for every $\alpha<\frac78$; before the announcement the zero free regions of de la Vall\'ee Poussin and of Vinogradov and Korobov, which shrink to $\Re s=1$ as the height grows, were the best known. Second, the last row: the probabilistic representations exist for every law and carry no information. Every unconditional entry in the right column except the base point, quasi Riemann hypothesis and prime built rows also holds for Davenport and Heilbronn below the height of their first off line zero, apart from the log concavity row, which has been computed for $\mu$ only and is not claimed for them. The base point and prime built rows rest on the zero free half plane $\Re s\ge1$ and on the prime sum, which come from the Euler product and fail for Davenport and Heilbronn, whose function has zeros with real part greater than $1$ \cite{DH36}. % UNCHECKED: zeros of f_DH with real part greater than 1 are quoted from the classical result of Davenport and Heilbronn, not checked against the paper
+So the entries that survive for Davenport and Heilbronn cannot be extended to RH without the Euler product, and the entries that use the Euler product are the ones that fail for it.
+
+\subsection{The quasi Riemann hypothesis and the prime sum}
+Write $\mathrm{QRH}(\alpha)$ for the statement that every zero has real part at most $\alpha$, where $\frac12\le\alpha<1$. It was announced for $\alpha=\frac78$ in October 2026, with a formal proof in Lean that has not yet been refereed \cite{OAI26a}, and it is open for every $\alpha<\frac78$. It is exactly a statement about the prime sum, and exactly a statement about the base point hitting times.
+
+\begin{proposition}\label{ht:prop:qrh}
+For $\frac12\le\alpha<1$ the following are equivalent.
+\begin{enumerate}
+\item $\mathrm{QRH}(\alpha)$.
+\item $\psi(x)=x+O(x^{\alpha+\varepsilon})$ for every $\varepsilon>0$.
+\item The Dirichlet series $D(s)=\sum_{n\ge1}(\Lambda(n)-1)n^{-s}$ converges for $\Re s>\alpha$, so that $-\zeta'/\zeta=\zeta+D$ there.
+\item $\Re\,\xi'/\xi(s)>0$ for $\Re s>\alpha$.
+\item The base point laws $\mu^{(\beta)}$ are GGCs, that is diffusion hitting times, for every $\beta>\alpha$.
+\end{enumerate}
+Status: proved (the equivalence of (4) and (5) with (1) is Theorem~\ref{thm:poisson} and Remark~\ref{rem:ch2:oneline}).
+\end{proposition}
+
+\begin{proof}
+(1) and (2) are equivalent by the explicit formula. (2) gives $\sum_{n\le x}(\Lambda(n)-1)=\psi(x)-\lfloor x\rfloor=O(x^{\alpha+\varepsilon})$, and partial summation gives (3). Under (3), $-\zeta'/\zeta=\zeta+D$ is analytic in $\Re s>\alpha$ apart from the pole at $1$, so $\zeta$ has no zeros there, which is (1). Under (1), the zeros pair as $\rho$ and $1-\bar\rho$ with real parts in $[1-\alpha,\alpha]$, so each term $\Re1/(s-\rho)$ of $\Re\,\xi'/\xi(s)$ is positive when $\Re s>\alpha$, which is (4). By Theorem~\ref{thm:poisson}, $\mu^{(\beta)}$ is a GGC if and only if $\beta\ge\sup_\rho\Re\rho$, which gives (1) if and only if (5); and (4) is Lagarias' criterion on the half plane, Remark~\ref{rem:ch2:oneline}, whose last step shows that positivity of $\Re\,\xi'/\xi$ on every line to the right of $\alpha$ excludes zeros there.
+\end{proof}
+
+So the quasi Riemann hypothesis does control the prime sum below $1$: under $\mathrm{QRH}(\alpha)$, a smoothed explicit formula expresses the Thorin density of $\mu^{(\beta)}$ at height $t$, for $\beta>\alpha$, as the archimedean term plus a prime sum $\Re\sum_n\Lambda(n)n^{-\beta-it}w(n/X)$ minus a smooth main term in $X^{1-\beta-it}$, with an error $O(X^{\alpha-\beta}\log t)$ from the zeros (compare Proposition~\ref{bp:prop:below}). The base point hitting times are then built from the primes up to $X$ to within that error. Two facts stop this from being used to go further.
+
+First, positivity cannot be carried downward in $\beta$. In the variable $w=\sqrt s$, moving the base point is a translation, and if $w\mapsto1/\xi(\beta+w)$ were the Laplace transform of a positive measure in $w$, a translation would be an exponential tilt of that measure and positivity would pass from $\beta$ to $\beta-\Delta$ for free. It never is (for the one sided case see Remark~\ref{tx3:rem:forced}; the lemma adds the two sided case).
+
+\begin{lemma}\label{ht:lem:landau}
+For no real $\beta$ is $w\mapsto1/\xi(\beta+w)$ the one or two sided Laplace transform of a positive measure. Status: proved.
+\end{lemma}
+
+\begin{proof}
+By Landau's theorem the abscissa of convergence of such a transform is a singular point on the real axis \cite{Widder41}. The function $1/\xi(\beta+w)$ is meromorphic with poles only at $w=\rho-\beta$, none of them real, since $\xi(\sigma)>0$ for real $\sigma$. A finite abscissa would therefore have to be a regular point, and an infinite one would make the transform entire, contradicting the poles.
+\end{proof}
+
+This is why every positive representation in this chapter lives in the variable $s=w^2$, where the poles $-\gamma^2$ of the transform are real and negative, and why no translation argument in $\beta$ is available. Second, any step from $\mathrm{QRH}(\alpha)$ to $\mathrm{QRH}(\alpha-\varepsilon)$ is new information about zeros in the strip $\alpha-\varepsilon<\Re s\le\alpha$. Davenport and Heilbronn satisfy all the structural properties used here and have zeros in such strips, so the information cannot come from structure; it must come from the Euler product, through the prime sum above.
+
+\subsection{Prime built hitting times under the quasi Riemann hypothesis}
+Suppose $\mathrm{QRH}(\theta)$ holds for some $\theta<1$; the case $\theta=\frac78$ is the one announced in \cite{OAI26a}, so the statements below are conditional on that announcement for $\theta=\frac78$. Then the base point laws above $\theta$ can be built from the primes, and this is the correct renormalisation of the Euler hitting times of Theorem~\ref{ht:thm:32}. Let $w(u)=(1-u)_+^3$, with Mellin transform $W(z)=3!\,\Gamma(z)/\Gamma(z+4)=6/(z(z+1)(z+2)(z+3))$, and for $\beta>\theta$ define
+\begin{multline*}
+d_X(t)=\frac1\pi\Big(\Re A(\beta+it)-\Re\sum_{n\le X}\frac{\Lambda(n)}{n^{\beta+it}}\Big(1-\frac nX\Big)^3\\
++\Re\,X^{1-\beta-it}W(1-\beta-it)\Big),
+\end{multline*}
+which uses only the primes up to $X$ and the gamma function. Shifting the contour in $\frac1{2\pi i}\int(-\zeta'/\zeta)(s+z)X^zW(z)\,\mathrm dz$ gives the explicit formula
+\begin{multline*}
+\frac1\pi\Re\frac{\xi'}{\xi}(\beta+it)=d_X(t)-\frac1\pi\Re\sum_\rho X^{\rho-\beta-it}W(\rho-\beta-it)\\
++O\big(X^{-1}\log(|t|+2)\big).
+\end{multline*}
+The poles of $W$ at $z=-1,-2,-3$, with residues $-3$, $3$, $-1$, produce the remainder, which is of order $X^{-1}$ and not the $X^{-2-\beta}$ of the first trivial zero alone. The formula is used only for $\theta<\beta<2-\theta$ under $\mathrm{QRH}(\theta)$: for $2-\theta\le\beta\le1+\theta$ a zero with $\beta_\rho=\beta-1$ meets a pole of $W$ (for $\beta>1+\theta$ nothing collides and the $X^{-1}$ remainder dominates), and the remainder $-3X^{-1}(-\zeta'/\zeta)(s-1)$ has poles in the critical strip, so the bound is not uniform.
+
+\begin{theorem}\label{ht:thm:primebuilt}
+Assume $\mathrm{QRH}(\theta)$ and let $\theta<\beta<2-\theta$. Then $|d_X(t)-\pi^{-1}\Re\,\xi'/\xi(\beta+it)|\ll_\beta X^{\theta-\beta}\log(t+2)$ uniformly in $t$, and there is $X_0(\beta,\theta)$ such that for $X\ge X_0$ the function $d_X$ is nonnegative. The GGC laws $\mu^{(\beta)}_X$ with Thorin density $d_X$ in the variable $z=t^2$ are then hitting times built from the primes up to $X$, and $\mu^{(\beta)}_X\Rightarrow\mu^{(\beta)}$ as $X\to\infty$. Conversely, if for some $\beta$ and every $t$ the values $d_X(t)$ are nonnegative for all large $X$, then $\mathrm{QRH}(\beta)$ holds. Status: proved, conditional on $\mathrm{QRH}(\theta)$ for the first part. The unconditional range $1<\beta<2$ is not covered, see the discussion after the proof.
+\end{theorem}
+
+\begin{proof}
+Under $\mathrm{QRH}(\theta)$, $|X^{\rho-\beta-it}|\le X^{\theta-\beta}$ for every zero, and $|W(\rho-\beta-it)|\ll(1+|\gamma-t|)^{-4}$, so the zero sum is $\ll X^{\theta-\beta}\log(t+2)$, and the remainder $O(X^{-1}\log(|t|+2))$ is no larger because $\beta<2-\theta\le1+\theta$. By Proposition~\ref{ht:prop:qrh} the exact density is positive, and it is continuous, so it has a positive minimum on any compact set. For large $t$, $\pi^{-1}\Re\,\xi'/\xi(\beta+it)=\frac1{2\pi}\log(t/2\pi)-\pi^{-1}\Re(-\zeta'/\zeta)(\beta+it)+O(1/t)$ and $\zeta'/\zeta(\beta+it)=o(\log t)$ under $\mathrm{QRH}(\theta)$, % UNCHECKED: the bound zeta'/zeta(beta+it)=o(log t) under QRH(theta), taken from review A2 m10, not rederived
+so the exact density is at least $c\log t$ for large $t$, and the error is a factor $X^{\theta-\beta}$ smaller, which gives $X_0$ (no appeal to the smoothed counting function of zeros is needed). The Laplace exponents converge because $d_X\to\pi^{-1}\Re\,\xi'/\xi$ uniformly against $\log(1+s/t^2)$.
+
+For the converse we cannot use the pointwise limit, since a zero with $\beta_\rho>\beta$ makes the term $X^{\rho-\beta-it}W(\rho-\beta-it)$ grow like $X^{\beta_\rho-\beta}$. Fix $t$ that is not an ordinate of a zero and not half the difference of two ordinates, and put $s=\beta+it$. For $\Re u$ large, $\int_1^\infty\sum_{n\le X}\Lambda(n)n^{-s}(1-n/X)^3X^{-u-1}\mathrm dX=(-\zeta'/\zeta)(s+u)W(u)$, because $\int_0^1(1-v)^3v^{u-1}\mathrm dv=W(u)$. So the Mellin transform $M(u)=\int_1^\infty\pi d_X(t)X^{-u-1}\mathrm dX$ is a combination of $\Re A(s)/u$, of $(\zeta'/\zeta)(s+u)W(u)$ and its conjugate counterpart at $\bar s$, and of $W(1-s)/(u+s-1)$ with its conjugate; the pole at $u=1-s$ of $\zeta'/\zeta(s+u)$ cancels against the main term. It is meromorphic in $\Re u>0$ with poles only at $u=\rho-s$ and $u=\rho-\bar s$, none of them real, and every zero with $\beta_\rho>\beta$ gives a pole with $\Re u=\beta_\rho-\beta>0$ (the choice of $t$ keeps the poles from cancelling). If $d_X(t)\ge0$ for $X\ge X_0$, the transform of the tail $X\ge X_0$ has a real singularity at its abscissa of convergence by Landau's theorem \cite{Widder41}, as in Lemma~\ref{ht:lem:landau}, while $M$ is regular at every real $u>0$; so the abscissa is at most $0$, $M$ is analytic in $\Re u>0$, and no zero has real part above $\beta$. Since $t$ ranges over a set of full measure, this is $\mathrm{QRH}(\beta)$.
+\end{proof}
+
+So under $\mathrm{QRH}(\frac78)$ the reciprocal Xi programme has what the heuristic Remark~\ref{ht:cor:shape} asks for, at every base point $\frac78<\beta<\frac98$: GGC hitting times built from the primes and the gamma function, converging to the base point law. The renormalisation that makes this work is the subtraction of the smooth main term $X^{1-s}W(1-s)$, the contribution of the smoothed prime number theorem, rather than the central limit scaling of Theorem~\ref{ht:thm:32}, which erases the zeros. Whether the same holds unconditionally for $1<\beta<2$ is left open: the two singular terms at $\beta_\rho=\beta-1$ may cancel in the sum, but the proof above does not show it. What $\mathrm{QRH}(\frac78)$ does not give is anything at $\beta\le\frac78$, and in particular at $\frac12$: there the error bound $X^{\theta-\beta}\log(t+2)$ of Theorem~\ref{ht:thm:primebuilt} does not decay.
+
+We computed $d_X$ with $X=10^2,\dots,10^5$ on $0<t<2000$. The error against the exact density is $0.34$, $0.11$, $0.038$, $0.011$ at $\beta=1$, and $0.90$, $0.44$, $0.22$, $0.10$ at $\beta=0.8$ (computed, \texttt{code/ht\_primebuilt.py}): it decays like $X^{1/2-\beta}$, the rate set by the actual zeros, which lie on the line as far as they have been computed. The densities are nonnegative on the window for $X\ge10^3$ at $\beta=1,0.9,0.8,0.7$, with minimum close to the exact minimum ($0.0073$ against $0.0074$ at $\beta=1$). At $\beta=0.6$ they are still negative at $X=10^5$, with minimum $-0.16$ near $t=1164$, against an exact minimum of $0.0015$.
+The obstacle is visible: when the kernel width $\beta-\frac12$ is smaller than the zero spacing, the exact density between consecutive zeros is tiny, and the error must be pushed below it. Near the centre this costs a power of $X$ that grows without bound as $\beta\downarrow\frac12$.
+
+Other consequences of $\mathrm{QRH}(\frac78)$ in this chapter's terms are weaker than what is already known. De Bruijn's theorem turns zeros in the strip $|\Re\rho-\frac12|\le\frac38$ into $\Lambda\le2(\frac38)^2=\frac9{32}=0.28$, which is worse than the proven $0.2$ \cite{PT21}, so it improves neither the de Bruijn laws nor the Jensen degree heuristic $D(T)=T^2/(2\Lambda_0)$ of Section~\ref{ht:sec:jensen}. It removes the defect $D_\beta$ of Proposition~\ref{ag:prop:factor} for $\beta>\frac78$, and it gives $\psi(x)=x+O(x^{7/8+\varepsilon})$, a power saving in the prime number theorem that follows from the announcement \cite{OAI26a} if it stands.
+
+\subsection{Zero density as an almost GGC statement}
+What is known unconditionally is $\mathrm{QRH}$ on average: zero density estimates. Section~\ref{ag:sec:moments} and Theorem~\ref{ag:thm:almost} already turn them into a statement about base point hitting times, and we do not repeat it. Fix $\beta>\frac12$ and split the Thorin density $\pi^{-1}\Re\,\xi'/\xi(\beta+it)$ into the Poisson kernels of the zeros with $\Re\rho<\beta$, which are positive, and those with $\Re\rho>\beta$, which are negative, with total masses $m^+_\beta(T)$ and $m^-_\beta(T)$ on $[0,T]$. The book's theorem bounds $m^-_\beta(T)/m^+_\beta(T)\le T^{e(\beta)-1+o(1)}$ with $e(\beta)<1$ from Ingham's density estimate \cite{Ingham40} and from Guth and Maynard \cite[Theorem 1.2]{GM26}. Selberg's estimate $N(\sigma,T)\ll T^{1-(\sigma-1/2)/4}\log T$ \cite{Selberg46} gives the weaker relative size $T^{-(\beta-1/2)/4}$ for every $\beta>\frac12$, and $N(\sigma,T)\ll T^{30(1-\sigma)/13+o(1)}$ gives $T^{30(1-\beta)/13-1+o(1)}$, which is the stronger of the two once $\beta>0.575$. Both are beaten by Ingham's exponent on $(\frac12,\frac7{10})$, and Guth and Maynard's $15(1-\sigma)/(3+5\sigma)$ is sharper on $[\frac7{10},\frac45]$. % UNCHECKED: the 30(1-sigma)/13 exponent is from the chapter source (Guth and Maynard 2024 preprint form), the paper not read
+The zero count satisfies $\nu_-[0,T]\ll N(\beta,2T)+1$ in the notation above, with $\nu_-$ the negative part of the Thorin measure, because a kernel centred at height $\gamma>2T$ puts mass $O(1/(\gamma-T))$ times its width into $[0,T]$, which sums to $O(1)$ over the sparse set of zeros to the right of $\beta$.
+
+What this does not give is a factor. The negative kernels are not the Thorin density of a second hitting time $G_-$ with $\mu^{(\beta)}*G_-=G_+$: the negative Poisson kernel of a zero to the right of $\beta$ is the Thorin density of the reflected zero, so the product of the two exponentials is analytic in the slit plane, while $\xi(\beta)/\xi(\beta+\sqrt s)$ has poles there. The correct statement is the canonical factorisation of Proposition~\ref{ag:prop:factor}: $\mu^{(\beta)}$ has Laplace transform $\varphi^+_\beta D_\beta$, where $\varphi^+_\beta$ is the Laplace transform of the GGC $T^+_\beta$ whose Thorin density is the positive part above and $D_\beta$ is the defect over the zeros to the right of $\beta$, and the book shows that $T^+_\beta$ is not the sum of a variable with law $\mu^{(\beta)}$ and an independent nonnegative variable. Density estimates say that the defect $D_\beta$ is sparse. Proving that it is empty is $\mathrm{QRH}(\beta)$, and no density estimate, however strong, can do it, because density estimates allow a sparse set of exceptions.
+
+\subsection{Where arithmetic would enter}
+Writing $\xi'/\xi=A+\zeta'/\zeta$ with $A$ the archimedean part, the base point Thorin density is
+\begin{gather*}
+\frac1\pi\Big(\Re A(\alpha+it)-\Re\sum_{n\ge2}\frac{\Lambda(n)}{n^{\alpha+it}}\Big),\\
+\Re A(\alpha+it)=\tfrac12\log\frac t{2\pi}+O(t^{-1}),
+\end{gather*}
+with the Dirichlet series read as $-\zeta'/\zeta(\alpha+it)$ when $\alpha\le1$. For $\alpha>1$ the series converges absolutely and is bounded by $-\zeta'/\zeta(\alpha)$, so positivity for large $t$ is automatic. That the base point laws are GGCs for $\alpha\ge1$ comes from a different fact, which is also arithmetic: every term $\Re1/(s-\rho)$ of $\Re\,\xi'/\xi$ is positive because no zero has real part $\ge1$ (Theorem~\ref{thm:poisson}). For $\alpha<1$ positivity at every $t$ requires the prime sum to stay below $\frac12\log(t/2\pi)$ in real part, uniformly in $t$, with no absolute convergence available. That uniform inequality, a positivity statement about $\sum\Lambda(n)n^{-\alpha-it}$ in the critical strip, is the arithmetic input that the routes of this chapter would need, in the form of Lagarias' criterion. Davenport and Heilbronn fail it, because their function has no prime sum: its logarithmic derivative has no Euler product expansion at all.
+
+\paragraph{Notes.} The sections on curved boundaries, Yor's function, the Davenport Heilbronn test and the frontier are from the chapter of Nick Polson on hitting times and the reciprocal xi function; the statements of Biane, Pitman and Yor, of Pitman and Yor, of James, Roynette and Yor, of Roberts and Shortland and of Kent are those of the cited papers. The factorisation of the base point law used in the discussion of zero density, and the status of $\mathrm{QRH}(\frac78)$, are those of Sections~\ref{ch:almost} and~\ref{ch:path}; the corrections to the identity with $G_-$, to the explicit formula and to the converse of Theorem~\ref{ht:thm:primebuilt} were made in the merge.

@@ -539,6 +539,7 @@ The scripts of Chapter 22 are in the folder `code/`, each with the data files of
 | `code/mi_gb.py` | `data/mi_gb_*.json` | g_b, clocks, zero counts, thresholds, g^{(2)}, g_{9/2}, escape law | each task under 30 s |
 | `code/mi_ladder.py` | `data/mi_ladder_{path,density,arith}.json`, `data/mi_ladder_c1_counts.json`, `data/mi_ladder_c2_counts.json` | Thorin path, interlacing, phase count, arithmetic of the zeta bound | under 30 s |
 | `code/mi_dh.py` | `data/mi_dh_*.json` | Davenport Heilbronn definition, zeros, ladder, order, counts, Table thr, heat flow | each call under 30 s (the variables `MI_*` select subsets) |
+| `code/mi_figs.py` | `data/mi_gb_g92_{a,b,c,d}.json`, `data/mi_ladder_path.json` | `fig/mi_zeros.pdf`, `fig/mi_thorin_path.pdf` (redrawn from the stored data only) | 1 s |
 
 ## Chapter 23: Haseo Ki and the Thorin programme
 
@@ -548,6 +549,28 @@ The scripts of Chapter 23 are in the folder `code/`, with their data files in `d
 |---|---|---|---|
 | `code/ki_tilt.py` | `data/ki_tilt_book.json`, `data/ki_tilt_chapter.json` (and `.log`) | moment tilt of Phi by u^(2n): cumulants, six zeros, Edgeworth shifts, Laplace error (run with `--norm book` or `--norm chapter`, `--out FILE`) | about 2 s per n (mpmath at 40 and 50 digits) |
 | `code/ki_check.py` | `data/ki_check.log` | maximum of x^2/(2 cosh x), saddle formulas, percent claims, normalisation of Phi | seconds |
+
+## Chapter 24: Hitting times and the reciprocal xi function
+
+The scripts of Chapter 24 are in the folder `code/`, each with the data files of the same name in `data/` (the `.log` files are not tracked). They were written for the book from the mathematics, without reading or running the source scripts of Nick Polson. Most were run on Hopper; the commands are in `misc/reviews/nick-hitting_times/checks-G1.md` to `checks-G3.md`.
+
+| script | data | produces | time |
+|---|---|---|---|
+| `code/ht_kent.py` | `data/ht_kent.json` | Brownian exit check, Kent products | 1 s |
+| `code/ht_residues.py` | `data/ht_residues.json` | residue weights, mass, mean, e^28.5 | 3 s |
+| `code/ht_resid.py` | `data/ht_resid.json` (needs `data/zeros_1700.txt`) | residue tables, truncations, (log f)'', winding numbers, c_n, Toeplitz minors | 25 s on Hopper |
+| `code/ht_jensen.py` | `data/ht_jensen.json` | c_k, A_n, Jensen table, Hermite identity | 37 s on Hopper |
+| `code/ht_jlaws.py` | `data/ht_jlaws.json` | Jensen laws table | 160 s on 8 cores of Hopper |
+| `code/ht_dh.py` | `data/ht_dh.json`, `data/ht_dh_flow.json` | Davenport Heilbronn tracking, t_c | 41 s and 33 s on Hopper |
+| `code/ht_ev.py` | `data/ht_ev.json`, `data/ht_ev_smooth.json` | b_k, Gram midpoints, smoothed zero table, Toeplitz minors of p, Euler table | 90 s each on Hopper |
+| `code/ht_euler32.py` | `data/ht_euler32.json` | Euler table for the stable limit, rho_4, rho_5 | 250 s on Hopper |
+| `code/ht_lcert.py` | `data/ht_lcert_M0.json` to `data/ht_lcert_M8.json`, `data/ht_lcert.json` | M_j, pair ratios, Taylor windows, g(0.005) | 9 jobs of 2 min, then 80 s on Hopper |
+| `code/ht_dhsharp.py` | `data/ht_dhsharp.json` | Davenport Heilbronn zero and coefficients, theta, sharp table | 200 s on Hopper |
+| `code/ht_hcm2exp.py` | `data/ht_hcm2exp.json` | two exponential HCM ladder | about 2 min on Hopper |
+| `code/ht_curved.py` | `data/ht_curved_{A,B2,C2,D,E}.json`, `data/ht_curved_A_b_h4e-05.npy` | inverse first passage boundary, solver validation, response, K(t), tail slopes | jobs A to E on Hopper |
+| `code/ht_misc.py` | `data/ht_misc_F.json` | Bernstein constants, N(3e12), shifts, Yor densities, Davenport Heilbronn checks (imports `mi_dh.py`) | job F on Hopper |
+| `code/ht_primebuilt.py` | `data/ht_primebuilt_G2.json` | prime built hitting times against the exact density | Hopper only |
+| `code/ht_figs.py` | `data/ht_curved_{A,C2,D}.json`, `data/ht_curved_A_b_h4e-05.npy`, `data/ht_misc_F.json` | `fig/ht_ifpt.pdf`, `fig/ht_yor.pdf` (redrawn from the stored data only) | 1 s |
 
 ## Reruns and gaps
 
