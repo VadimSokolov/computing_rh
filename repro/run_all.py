@@ -48,6 +48,11 @@ for s in ['hankel', 'kenttail', 'kenttail2', 'kmono', 'perturb', 'selberg', 'spa
     task(s, [PY, '-u', f'{s}.py'], ['zeros'])
 for s in ['biane_clock', 'biane_flow', 'biane_polya', 'biane_traces', 'dbeta_minimum', 'dbeta_thorin', 'dbeta_window', 'dbeta_zeros', 'dbn_collisions', 'dbn_delta', 'dbn_hankel_long', 'hcm', 'idsd_check', 'idsd_height', 'jacobi_dbn', 'jacobi_zeros', 'ladder_bound', 'lchi12', 'lehmer', 'lehmer_dbn', 'lfun', 'li', 'lsin2', 'maxexp_checks', 'maxexp_flow', 'maxexp_hb', 'maxexp_psizeros', 'maxlaw', 'pakes_lambert', 'primeside', 'saddle', 'sensitivity', 'sinh_bench', 'sqfree_atoms', 'sqfree_constants', 'sqfree_gammanu', 'sqfree_quadratic', 'sqfree_sieve', 'sqfree_smooth', 'turing1000', 'wigbiane_ineq', 'wigbiane_poly', 'wigfree_gamma2', 'wigfree_heat', 'wigfree_jacobi', 'williams_mc', 'tilted']:
     task(s, [PY, '-u', f'{s}.py'])
+# Chapters 22 and 23 (scripts of code/mi_*.py and code/ki_*.py; no dependencies checked against the data they read)
+for s in ['mi_friable', 'mi_humps', 'mi_survey', 'mi_depart', 'mi_miyatake', 'mi_gb', 'mi_ladder', 'mi_dh', 'ki_check']:
+    task(s, [PY, '-u', f'{s}.py'])
+task('ki_tilt_book', [PY, '-u', 'ki_tilt.py', '--norm', 'book', '--out', 'ki_tilt_book.json'])
+task('ki_tilt_chapter', [PY, '-u', 'ki_tilt.py', '--norm', 'chapter', '--out', 'ki_tilt_chapter.json'])
 # sqfree_sieve.py needs about 8 GB of memory
 # wigbiane_flow.py reads dbn_collisions.json
 task('wigbiane_flow', [PY, '-u', 'wigbiane_flow.py'], ['dbn_collisions'])

@@ -1,0 +1,124 @@
+\section{Miyatake's theorem and the remainder \texorpdfstring{$R$}{R}}\label{mi:sec:miyatake}
+
+Write $\Xi$ in the form used by Miyatake \cite{Miyatake51b}, as a combination of two shifted Laplace transforms,
+\begin{equation}\label{mi:eq:miyid}
+\Xi(z)=2\pi^2\Big\{G_{\mathrm M}\big(\tfrac12iz-\tfrac94\big)+G_{\mathrm M}\big(\tfrac12iz+\tfrac94\big)\Big\},\qquad G_{\mathrm M}(w)=\int_{-\infty}^\infty\psi_{\mathrm M}(t)e^{wt}\,dt.
+\end{equation}
+% UNCHECKED: Miyatake (paper B): that the identity is stated there in this form, with the constant 2 pi^2, and his own name for psi_M (the identity itself is proved here)
+Let $\Phi$ be the kernel of \eqref{eq:ch2:Phi}, so that $\Xi(z)=\int_{\R}\Phi(u)e^{izu}\,du=2\int_0^\infty\Phi(u)\cos(zu)\,du$ and
+\[
+\Phi(t)=2\pi e^{5t/2}\sum_{n\ge1}(2\pi n^2e^{2t}-3)\,n^2e^{-\pi n^2e^{2t}}.
+\]
+The identity \eqref{mi:eq:miyid} holds exactly when
+\begin{equation}\label{mi:eq:psidef}
+8\pi^2\cosh(9t/2)\,\psi_{\mathrm M}(2t)=\Phi(t).
+\end{equation}
+Indeed, \eqref{mi:eq:psidef} gives $\Xi(z)=8\pi^2\int\cosh(9t/2)\psi_{\mathrm M}(2t)e^{izt}\,dt$, and the substitution $s=2t$ turns this into $4\pi^2\int\cosh(9s/4)\psi_{\mathrm M}(s)e^{izs/2}\,ds=2\pi^2\{G_{\mathrm M}(\frac12iz+\frac94)+G_{\mathrm M}(\frac12iz-\frac94)\}$. Condition \eqref{mi:eq:psidef} forces
+\begin{equation}\label{mi:eq:psiM}
+\psi_{\mathrm M}(t)=\sum_{n\ge1}n^4e^{-2\pi n^2\cosh t}\big(1-R_{\mathrm M}(n^2\pi,t)\big),
+\end{equation}
+where
+\[
+1-R_{\mathrm M}(x,t)=\frac{1-\frac3{2x}e^{-t}}{1+e^{-9t/2}}\,e^{xe^{-t}}\qquad(t>0),
+\]
+extended evenly. Each term of $\Phi(s/2)/(8\pi^2\cosh(9s/4))$ equals $n^4(1-\frac{3}{2x}e^{-s})e^{-xe^s}/(1+e^{-9s/2})$ with $x=\pi n^2$, and $e^{-xe^s}=e^{-2x\cosh s}e^{xe^{-s}}$, which proves \eqref{mi:eq:psiM}. The sum $\psi_{\mathrm M}$ is even, a single term is not, which is the corner discussed below. A numerical check of \eqref{mi:eq:miyid} and \eqref{mi:eq:psidef} agrees to thirteen digits at $z=0$, at $z=5$ and at the first zero of $\Xi$. The remainder $R_{\mathrm M}$ undoes P\'olya's three simplifications: $e^{xe^{-t}}$ desymmetrises the exponential, $1/(1+e^{-9t/2})$ removes the universal factor, and $1-\frac3{2x}e^{-t}$ restores the second theta term. Each term of \eqref{mi:eq:psiM} has a corner at $t=0$, with one sided logarithmic slopes $+0.0222$, $-10.18$, $-25.97$ for $n=1,2,3$ (the slope of term $n$ is $3/(2x-3)+\frac94-x$ with $x=\pi n^2$); only the full sum is smooth, which is Lemma~\ref{mi:lem:kink} in Miyatake's coordinates. The ratio $Q=\psi_{\mathrm M}/e^{-2\pi\cosh t}$ has $Q(0)=6.0590692$ and tends to $1$ as $t\to\infty$ (the factor of the term $n=1$ tends to $1$); numerically it decreases on $[0,6]$, and $Q(0)-1=5.059069$.
+% UNCHECKED: Shi (arXiv 1502.06844): that the head constant beta of Shi's approximants equals Q(0)-1; not printed, see merge-E2.md
+
+Dropping the factors $1-R_{\mathrm M}$ and summing over the $P$ friable integers $n$ (those with every prime factor at most $P$) gives
+\[
+\xi^{(P)}(z)=4\pi^2\sum_{n\ \text{friable}}n^4\Big\{K_{iz/2-9/4}(2\pi n^2)+K_{iz/2+9/4}(2\pi n^2)\Big\},
+\]
+the function that Miyatake studies in paper B \cite{Miyatake51b}. His Theorem I states that $\xi^{(P)}$ has all but finitely many zeros real, with $\frac T{2\pi}\log\frac T{2\pi}-\frac T{2\pi}+O(1)$ of them in $(0,T)$; the proof uses Watson type steepest descent asymptotics for $K_z(a)$, a lower bound $|\zeta_P|\ge\sigma>0$ for the finite Euler product $\zeta_P$ on a strip $\frac12-\varepsilon\le x\le A$, the argument principle and Rouch\'e's theorem.
+% UNCHECKED: Miyatake (paper B): the name "Theorem I", the main term and the error O(1) of the zero count, "all but finitely many", and the ingredients of the proof (the five ranges of the steepest descent estimates, Dirichlet's simultaneous approximation); the method as P grows (sigma tends to 0)
+Hejhal \cite{Hejhal90} proved a theorem of this kind for truncated symmetrised kernels.
+% UNCHECKED: Hejhal (1990): the content of his theorem and its relation to Miyatake's 1951 result
+For $P=2$ we find exactly $79$ real zeros of $\xi^{(2)}$ in $(0,200)$, as many as $\Xi$; the first is $8.9929$, against $14.1347$ for $\Xi$, and the last is $198.07$. The lower bound $\sigma$ on $|\zeta_P|$ tends to $0$ as $P\to\infty$, so the method does not reach the full sum.
+
+The remainder $R_{\mathrm M}$ separates two families. Keeping it with the friable integers gives $\Xi_P^{\mathrm M}=\Xi_P-c_P$ (two integrations by parts with $k_P'(0)=-c_P$), extremely close to $\Xi$ and, like $\Xi_P$, with finitely many real zeros (Theorem~\ref{mi:thm:kink} for $\Xi_P$). Dropping it gives functions of the type of $\xi^{(P)}$ and of P\'olya's approximant, with almost all zeros real but at a distance from the zeros of $\Xi$. For $P=2$ the zeros of $\Xi_2$ differ from the first five zeros of $\Xi$ by $2.5\times10^{-9}$, $4.0\times10^{-7}$, $7.7\times10^{-6}$, $5.536\times10^{-4}$ and $3.702\times10^{-3}$, while those of $\xi^{(2)}$ are off by several units already at the first zero. The P\'olya shift route to $\RH$ through \eqref{mi:eq:miyid} would need the transform $g(x)=G_{\mathrm M}(ix)$ to lie in the Laguerre P\'olya class. It does not. Since $\psi_{\mathrm M}(t)=\Phi(t/2)/(8\pi^2\cosh(9t/4))$, $\psi_{\mathrm M}$ has a pole at $t=2\pi i/9$, inside the strip where $\Phi(t/2)$ is analytic; hence $g(x)=Ce^{-2\pi x/9}(1+o(1))$ with $C=0.0899917116445>0$ (Theorem~\ref{mi:thm:tail}, which proves that $g$ is not Laguerre P\'olya, Corollary~\ref{mi:cor:notLP}), and numerically $g$ has no zeros in $(0,26)\times(-4,4)$ and none on $(0,60]$. The pole terms cancel exactly in the shifted sum \eqref{mi:eq:miyid}. Moreover $Q$ decreases numerically, whereas every universal factor $\E\cosh(tX)$ in the sense of Cardon \cite{Cardon2005} increases in $|t|$.
+% UNCHECKED: Cardon (2005): that the universal factors of the form E cosh(tX) are the class of the cited paper; the monotonicity itself is elementary
+
+Three further facts, all computed except the second half of the third, sharpen this picture. First, interpolating with factors $1-\lambda R_{\mathrm M}$ gives $\Xi_\lambda=(1-\lambda)\xi^{(2)}+\lambda\Xi_P^{\mathrm M}$, where $\Xi_P^{\mathrm M}$ keeps $R_{\mathrm M}$ and has $7$ real zeros in $(0,200)$, the last at $39.53$. The real part $X$ of the first nonreal zero of $\Xi_\lambda$ (the height to which the real zeros survive) satisfies $h(\lambda)\approx h(1)+\frac4\pi\log\frac1\lambda$: for $\lambda=10^{-k}$, $k=0,\dots,8$, one finds $h=44,45,50,51,56,57,62,63,67$ on a grid of step $1$, with a least squares slope of $2.93$ per decade against $\frac4\pi\log10=2.93$. The survivors are zeros of the P\'olya type function, not of $\Xi$. Second, dividing Riemann's kernel $\Phi(u)$ by $\cosh(bu)$ creates a pole inside its strip of analyticity when $b>2$, and for $b\le2$ the transform acquires nonreal zeros at a height that recedes as $b\to0$, in every case computed: the largest admissible $b$ lies in $(1,1.25)$ up to height $40$, in $(0.5,0.75)$ up to $100$ and in $(0.25,0.5)$ up to $160$. This is the computed analogue, for cosh factors, of the theorem of Rodgers and Tao \cite{RodgersTao} that the de Bruijn Newman constant is nonnegative (Sections~\ref{mi:sec:ladder} and \ref{mi:sec:prob}; the threshold $b=2$ is explained in Section~\ref{mi:sec:btwo}). Third, de Bruijn's strip theorem \cite{deBruijn} reduces Miyatake's Theorem I to the zeros of $g^{(P)}(w)=2\sum_{n\ \text{friable}}n^4K_{iw}(2\pi n^2)$: $\xi^{(P)}(z)=2\pi^2\{g^{(P)}(z/2+9i/4)+g^{(P)}(z/2-9i/4)\}$, so if the zeros of $g^{(P)}$ lie in $|\im w|\le\frac94$, every zero of $\xi^{(P)}$ is real. For $P=2$ the ten nonreal zeros of $g^{(2)}$ in the upper half plane with real part below $60$ have imaginary parts rising to $1.964$ (at real part $58.5$), and they appear to approach $2$, because the governing friable Dirichlet polynomial is geometric with zeros on $\re s=0$. For the full sum the condition becomes that partial sums of $\zeta$ have zeros only in $\re s\le\frac12$, which is false \cite{Montgomery83}; and Riemann's own $g$ has, computationally, zeros on a cone starting at $8.96+5.20i$ (Section~\ref{mi:sec:btwo}).
+
+\section{The pole term, the secant and reweighting}\label{mi:sec:sech}
+
+The pole term $\tfrac12/(t^2+\tfrac14)$ is the first term of $\frac\pi2\sech(\pi t)=\sum_k(-1)^k(k+\frac12)/((k+\frac12)^2+t^2)$, the transform of $\tfrac12\sech(u/2)=\sum_k(-1)^ke^{-(2k+1)|u|/2}$. That kernel is smooth because its kinks cancel in Abel sum, $\sum_k(-1)^k(2k+1)=0$.
+
+\begin{proposition}[Kink budget]\label{mi:prop:kinkbudget}
+Replace the pole kernel $e^{-u/2}$ in $k_P$ by an even kernel $\kappa$, smooth on $[0,\infty)$ with derivatives $O(e^{-u/2})$. Then $\lim_{t\to\infty}\Xi_P^\kappa(t)=c_P-\tfrac12-\kappa'(0+)$ along $\R$.
+\end{proposition}
+
+\begin{proof}
+The kernel $k_P^\kappa=k_P+\kappa-e^{-u/2}$ is smooth on $[0,\infty)$ with every derivative $O(e^{-u/2})$, and $\Xi_P^\kappa(t)=(t^2+\frac14)\int_0^\infty k_P^\kappa(u)\cos(tu)\,du$. Two integrations by parts give $\int_0^\infty k\cos(tu)\,du=-k'(0+)t^{-2}-t^{-2}\int_0^\infty k''\cos(tu)\,du$, and the last integral tends to $0$ by the Riemann Lebesgue lemma, so $(t^2+\frac14)\int_0^\infty k\cos(tu)\,du\to-k'(0+)$. For $k=k_P$ the limit is $c_P=-k_P'(0)$ (Theorem~\ref{mi:thm:kink}); for $k=k_P^\kappa$ it is $-k_P'(0)-\kappa'(0+)-\frac12=c_P-\frac12-\kappa'(0+)$, since $(e^{-u/2})'(0)=-\frac12$.
+\end{proof}
+
+So the secant completion, with $\kappa'(0+)=0$, lowers the limit from $c_P$ to $c_P-\frac12$, which is negative as soon as $c_P<\frac12$, unless the slope $-\frac12$ is restored elsewhere. Miyatake's paper A \cite{Miyatake51a} is on the consistent side: there the pole term becomes $\tfrac14\sech(u/4)$, with transform $\pi\sech(2\pi z)$ in the variable $z$ of $\Xi(z)=\int\Phi(u)e^{izu}\,du$, while every theta term is symmetrised, so the whole kernel is smooth.
+% UNCHECKED: Miyatake (paper A): the kernel (1/4) sech(u/4), its transform (the source prints pi sec(2 pi z), in Miyatake's rotated variable; pi sech(2 pi z) here), and that every theta term is symmetrised
+
+\begin{proposition}[Reweighting]\label{mi:prop:reweight}
+For weights $w$ put $D_w=\Xi_w-\Xi=(t^2+\frac14)\sum_n(1-w_n)C_{\pi n^2}$. If $0\le w_n\le w_n'\le1$ for every $n$ then $D_w\ge D_{w'}\ge0$, with $D_{w'}>0$ unless every $w_n'=1$. So among weights in $[0,1]$ that vanish on a given set, the indicator of its complement has the smallest deficit; the friable truncation is of this kind.
+\end{proposition}
+
+\begin{proof}
+Every $C_{\pi n^2}$ is positive on $\R$ (proof of Theorem~\ref{mi:thm:positive}), so $1-w_n\ge1-w_n'\ge0$ termwise gives $D_w\ge D_{w'}\ge0$, with strict inequality for $D_{w'}$ as soon as one $w_n'<1$.
+\end{proof}
+
+Doing better requires some $w_n>1$; then $D_w$ can change sign, and each sign change plants a spurious real zero. For $P=2$, matching the deficit at the heights $\frac{40}3$, $\frac{80}3$, $40$ with weights on $n\in\{1\},\{1,2\},\{1,2,4\}$ gives $2$, $8$, $9$ real zeros in $(0,80)$, each time with one spurious zero (computed). The weights grow like $e^{\pi n^2}$ ($w_4-1\approx3.7\times10^9$), because each correction is a Lorentzian of height $e^{-\pi n^2}$ and width $2\pi n^2$ trying to imitate one of width $2\pi q^2$, where $q$ is the least integer outside the friable set.
+
+\section{The \texorpdfstring{$2\sin^2$}{2 sin^2} lemma and the Thorin programme}\label{mi:sec:sin2}
+
+By Hadamard, $\Xi_P(t)/\Xi_P(0)=\prod_{\re t_0>0}(1-t^2/t_0^2)$, the product over the zeros $t_0$ with positive real part, which is complete when $\Xi_P$ has no zero on $i\R$ (Proposition~\ref{mi:prop:axis}). On the imaginary axis the sine squared lemma in Frullani form (the factor by factor form of \eqref{eq:sin2}),
+\[
+\log(t_0+iy)+\log(t_0-iy)-2\log t_0=4\int_0^\infty\sin^2\!\Big(\frac{xy}2\Big)e^{-t_0x}\,\frac{dx}x\qquad(\re t_0>0),
+\]
+with principal logarithms (for real $t_0$ the left side is $\log(1+y^2/t_0^2)$; for complex $t_0$ it can differ from the principal $\log(1+y^2/t_0^2)$ by $2\pi ik$), applies factor by factor:
+\begin{equation}\label{mi:eq:levy}
+\log\frac{\Xi_P(iy)}{\Xi_P(0)}=\int_0^\infty2\sin^2\!\Big(\frac{xy}2\Big)\nu_P(x)\,dx,
+\end{equation}
+where, with $\gamma_j^{(P)}$ the $R_P$ positive real zeros and $x_0+iy_0$ the departed zeros in the first quadrant,
+\[
+\nu_P(x)=\frac2x\Big[\sum_{j\le R_P}e^{-\gamma_j^{(P)}x}+2\sum_{\text{departed}}e^{-x_0x}\cos(y_0x)\Big].
+\]
+For $\Xi$ under $\RH$, $\nu(x)=\frac2x\sum_\gamma e^{-\gamma x}>0$; this positive density is the starting point of the Thorin representation of the reciprocal $\Xi$ function \cite{P17}. In $\nu_P$ the departed zeros enter through oscillating terms.
+
+\begin{proposition}\label{mi:prop:axis}
+$\sup_{y\in\R}|\Xi_P(iy)/\Xi(iy)-1|$ is at most $6.8\times10^{-13}$ for $P=2$ and at most $3.4\times10^{-35}$ for $P=3$. In particular $\Xi_P$ has no zero on $i\R$, and the $2\sin^2$ exponents of $\Xi_P$ and $\Xi$ agree uniformly to that accuracy.
+\end{proposition}
+
+\begin{proof}
+Theorem~\ref{mi:thm:approx} is stated only for $|\operatorname{Im}t|\le\tfrac32$, so its proof is redone on $i\R$. There $\cos(iyu)=\cosh(yu)$, and by the formula in that proof $\Xi_P(iy)-\Xi(iy)=2(y^2-\frac14)\sum_{m\notin\mathcal F(P)}\int_0^\infty e^{-\pi m^2e^{2u}}e^{u/2}\cosh(yu)\,du$ (with the sign of $t^2+\frac14=\frac14-y^2$ absorbed in the modulus), whose integrand is positive. Using $\cosh(yu)\le e^{|y|u}$ and the substitution $v=e^{2u}$ gives $|\Xi_P(iy)-\Xi(iy)|\le|y^2-\frac14|\sum_{m\notin\mathcal F(P)}(\pi m^2)^{-s}\Gamma(s,\pi m^2)$ with $s=\frac12(|y|+\frac12)$, for every real $y$, and $\Xi(iy)=\xi(\frac12+y)>0$. The supremum of the quotient of this bound by $\xi(\frac12+y)$ was computed at $30$ digits on a grid of step $0.1$ in $[0,40]$: it is $6.75\times10^{-13}$ near $y=7.0$ for $P=2$ ($q=3$) and $3.37\times10^{-35}$ near $y=6.9$ for $P=3$ ($q=5$), and it has fallen below $10^{-20}$ at $y=40$ (the tail decays because $\xi(\frac12+y)$ grows faster than $|y^2-\frac14|\Gamma(s)$). Both suprema are less than $1$, so $\Xi_P(iy)\ne0$ (the supremum over the grid is computed, the bound itself is proved).
+\end{proof}
+
+The true suprema of the ratio, computed at $40$ digits on a grid, are $6.05\times10^{-13}$ at $y=6.85$ for $P=2$ and $3.24\times10^{-35}$ at $y=6.8$ for $P=3$.
+
+\begin{table}[ht]
+\centering
+\footnotesize
+\begin{tabular}{rccc}
+\toprule
+$x$ & $\frac x2\nu_2(x)$ & $\frac x2\nu(x)$ & departed part \\
+\midrule
+0.03 & 6.6432 & 6.6432 & 3.8860 \\
+0.05 & 2.6860 & 2.6860 & 0.9924 \\
+0.1 & 0.62104 & 0.62104 & 0.06521 \\
+0.5 & $8.8375\times10^{-4}$ & $8.8375\times10^{-4}$ & $1.50\times10^{-9}$ \\
+\bottomrule
+\end{tabular}
+\caption{The $2\sin^2$ L\'evy density of $\Xi_2$, from its $6$ real and $190$ traced departed zeros, against that of $\Xi$. $\nu_2>0$ on the whole computed range $[0.02,3]$.}
+\label{mi:tab:levy}
+\end{table}
+
+The departed zeros sit up to $0.34$ radians off the real axis (the maximum, $0.343$, is at $174.36+62.25i$). The six real zeros of $\Xi_2$ differ from the first six zeros of $\Xi$, mainly the sixth ($37.495$ against $37.586$), and the real zeros of $\Xi_2$ together with the departed zeros reproduce $\nu$ to seven digits for $x\le0.1$ (the difference of $\frac x2\nu_2$ and $\frac x2\nu$ is $3.4\times10^{-7}$ at $x=0.03$, a bound set by cutting the chain of departed zeros at height $602$, and at most $2\times10^{-12}$ at $x=0.05$, $0.1$, $0.5$). The departed part alone reproduces the tail of $\nu$ beyond the zeros of $\Xi_2$ to three digits at $x=0.03$ and to one digit at $x=0.5$. On the computed range, $\nu_2$ is positive with minimum $2.6\times10^{-19}$ at $x=3$.
+
+\begin{remark}\label{mi:rem:signnotenough}
+Positivity of the $2\sin^2$ L\'evy density does not force the zeros of an even entire function of order one to be real. For $f(t)=\cos t\,(1-t^2/(10+i)^2)(1-t^2/(10-i)^2)$ the factor by factor form gives
+\[
+\nu(x)=\frac2x\Big[\sum_{k\ge0}e^{-(k+\frac12)\pi x}+2e^{-10x}\cos x\Big]>0\qquad(x>0),
+\]
+since $\sum_ke^{-(k+\frac12)\pi x}>e^{-\pi x/2}+e^{-3\pi x/2}\ge2e^{-\pi x}\ge2e^{-10x}\ge-2e^{-10x}\cos x$. On the computed range $[0.02,3]$ the friable approximant $\Xi_2$ behaves the same way: $\nu_2>0$ there although $\Xi_2$ has infinitely many nonreal zeros. Whether $\nu_P\ge0$ on all of $(0,\infty)$ is open (Problem~\ref{mi:prob:nuP}).
+\end{remark}
+
+What does see the departed zeros is the Thorin structure in $s=y^2$. We have
+\[
+\log\frac{\Xi_P(i\sqrt s)}{\Xi_P(0)}=\sum_{\re t_0>0}\log\Big(1+\frac s{t_0^2}\Big),
+\]
+which is $\int\log(1+s/u)\,U_P(du)$ with $U_P\ge0$ on $(0,\infty)$ only if every $t_0^2>0$. Equivalently, $\nu_P(x)=\frac2x\int e^{-x\sqrt u}\,U_P(du)$ must come from a positive measure supported on the positive axis. The departed zeros place mass of $U_P$ at the complex points $x_0^2-y_0^2+2ix_0y_0$. For $1/\xi_P(\tfrac12+\sqrt s)$ this means a pole at $s=-t_0^2\notin(-\infty,0]$, so by Theorem~\ref{mi:thm:noproxy}, for every finite $P$ and every $w\ne0$ with $\sum_n|w_n|n^{-\sigma}<\infty$ for all $\sigma>0$ (the weights $1_{\mathcal F(P)}$ included), $1/\xi_w(\tfrac12+\sqrt s)$ is not the Laplace transform of a generalised gamma convolution. By Remark~\ref{mi:rem:signnotenough} the sign of the L\'evy density alone is not enough: a route to $\RH$ through the $2\sin^2$ form must use the support of the Thorin measure.

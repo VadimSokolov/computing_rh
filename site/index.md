@@ -2,7 +2,7 @@
 
 By Nicholas G. Polson and [Vadim Sokolov](https://orcid.org/0000-0002-6618-2965).
 
-[![PDF](https://vsokolov.org/books/icon-pdf.svg)](https://github.com/VadimSokolov/computing_rh/releases/download/v1.2.0/computing_rh.pdf "PDF") [![Source on GitHub](https://vsokolov.org/books/icon-github.svg)](https://github.com/VadimSokolov/computing_rh/tree/v1.2.0 "Source on GitHub") [![DOI 10.5281/zenodo.23543693](https://zenodo.org/badge/DOI/10.5281/zenodo.23543693.svg)](https://doi.org/10.5281/zenodo.23543693) [![Paperback, available at Amazon](https://vsokolov.org/books/available-at-amazon.png)](https://www.amazon.com/dp/B0HM6X1WMN "Paperback on Amazon")
+[![PDF](https://vsokolov.org/books/icon-pdf.svg)](https://github.com/VadimSokolov/computing_rh/releases/download/v1.3.0/computing_rh.pdf "PDF") [![Source on GitHub](https://vsokolov.org/books/icon-github.svg)](https://github.com/VadimSokolov/computing_rh/tree/v1.3.0 "Source on GitHub") [![Paperback, available at Amazon](https://vsokolov.org/books/available-at-amazon.png)](https://www.amazon.com/dp/B0HM6X1WMN "Paperback on Amazon")
 
 ## Description
 
@@ -12,11 +12,13 @@ A certified zero off the critical line would refute the hypothesis, but no finit
 
 New results: the reciprocal Xi function at x to the power p is hyperbolically completely monotone exactly when the absolute value of p is at most one minus twice the largest zero angle over pi; at the basepoint one the Thorin density is certified smallest at the origin, so the shifted clock is a stable variable plus a generalized gamma convolution; between the basepoints one half and one the shifted clocks are almost generalized gamma convolutions, unconditionally; the clock of Pólya's Bessel function is the hitting time of an explicit diffusion; adjacent real zeros of a polynomial cannot meet under the backward heat flow before an explicit time; and the Pólya law lies within 2 × 10^-6 in total variation of the ferromagnetic laws of Lee and Yang, a distance that is zero exactly under the hypothesis.
 
+Later chapters read the programme through Pólya's papers on the zeros of entire functions (the Pólya Schur form of the hypothesis, Turán inequalities, a certificate that the two sided reciprocal Xi density is log concave and lies within 1.6 × 10^-10 of a Pólya frequency function of every order), Yoshida's Hermitian form of Weil's explicit formula and Zhu's compact windows (a damped Weil criterion, least eigenvalues and an uncertainty barrier), and Dedekind zeta functions and the Linnik constant. The October 2026 claims of a zero free half plane Re s > 7/8 for all L functions, and the later preprints that lower the constant slightly, are not refereed: the book states only conditional consequences (a principal signal for zeta, the sliver and Mertens estimate, the Thorin property at every basepoint above 7/8), credited to their authors.
+
 The scripts and data files behind the tables and figures are in the book's repository https://github.com/VadimSokolov/computing_rh, listed in code/README.md.
 
 ## How to cite
 
-Polson and Sokolov (2026), *Computing the Riemann Hypothesis: Thorin Measures, Pólya Densities and Hitting Times*, edition 1, https://doi.org/10.5281/zenodo.23543693.
+Polson and Sokolov (2026), *Computing the Riemann Hypothesis: Thorin Measures, Pólya Densities and Hitting Times*, edition 1, https://doi.org/10.5281/zenodo.23583222.
 
 ```bibtex
 @book{polsonsokolov2026computing_rh,
@@ -24,7 +26,7 @@ Polson and Sokolov (2026), *Computing the Riemann Hypothesis: Thorin Measures, P
   title = {{Computing the Riemann Hypothesis: Thorin Measures, Pólya Densities and Hitting Times}},
   year = {2026},
   publisher = {Independently published},
-  doi = {10.5281/zenodo.23543693},
+  doi = {10.5281/zenodo.23583222},
   url = {https://vsokolov.org/books/computing_rh/}
 }
 ```
@@ -45,13 +47,15 @@ Polson and Sokolov (2026), *Computing the Riemann Hypothesis: Thorin Measures, P
 - [Concentration of the Laguerre expressions at the origin along the whole de Bruijn Newman flow, with positivity of $L_{n,t}$ on every window for large $n$ (Newton 2026, Zenodo)](https://vsokolov.org/books/computing_rh/results.html#laguerre_expression_central_second_moment_vanishes_uniformly_along_de_bruijn_newman_flow) (Theorem 8.4.20, page 252): For the probability measures $\mathbb{E}_{n,t}$ defining the Laguerre expressions $L_{n,t}$ of the de Bruijn Newman function, the second moment of the centred variable tends to zero uniformly in $0\le t\le\frac12$, so for every $X$ the expression $L_{n,t}(x)$ is positive on $|x|\le X$ for all large $n$, uniformly in $t$ (Newton 2026, Zenodo); the index is not effective.
 - [RH holds if and only if the density of the clock is a Pólya frequency function of infinite order](https://vsokolov.org/books/computing_rh/results.html#rh_equivalent_to_clock_density_being_polya_frequency_function_of_infinite_order) (Proposition 8.1.2, page 211): RH is equivalent to the density $f$ of the clock being a Pólya frequency function of infinite order, the one sided form of the two sided criterion: under RH $f$ is the density of $\sum_\gamma e_\gamma/\gamma^2$, and conversely Schoenberg's theorem forces $G$ to have only real zeros.
 - [RH holds if and only if a freely infinitely divisible law nu_xi with free cumulant transform log xi(1/2)/xi(1/2+sqrt(-z)) exists](https://vsokolov.org/books/computing_rh/results.html#rh_equivalent_to_existence_of_freely_infinitely_divisible_law_with_cumulant_transform_log_xi_ratio) (Proposition 11.2.4, page 442): RH holds exactly when the function $\mathcal{C}_\xi(z)=\log\{\xi(\frac12)/\xi(\frac12+\sqrt{-z})\}$ is the free cumulant transform of a freely infinitely divisible probability measure, which under RH is $\Lambda_{\rm BP}(\mu_0)$, with compact support, free cumulants $m_{n-1}/n$ and free Lévy measure $N(y^{-1/2})dy/y$.
+- [No reweighting of Riemann's theta series by summable weights has infinitely many real zeros](https://vsokolov.org/books/computing_rh/results.html#no_summable_reweighting_of_the_theta_series_has_infinitely_many_real_zeros) (Theorem 22.2.4, page 764): For nonzero real weights $w_n$ with $\sum|w_n|n^{-\sigma}<\infty$ for every $\sigma>0$ (this includes the friable truncations), the reweighted function has finitely many real zeros and infinitely many nonreal zeros.
+- [Paired form: zeta has no zero to the right of alpha exactly when the real and imaginary parts of xi on the line alpha interlace](https://vsokolov.org/books/computing_rh/results.html#paired_form_of_the_cosh_ladder_hermite_biehler_equivalence_with_zero_free_half_plane) (Theorem 22.13.3, page 785): For $\alpha>\frac12$, zeta has no zero with real part at least $\alpha$ exactly when $E_\alpha(z)=\xi(\alpha-iz)$ is Hermite Biehler, exactly when the real and imaginary parts of $\xi(\alpha+it)$ have only real simple strictly interlacing zeros; hence RH holds if and only if this holds for every $\alpha>\frac12$.
 
-All 412 results of the book (279 proved, 4 computed, 32 conditional, 92 open, 5 counterexample) are on the page [Results by chapter](https://vsokolov.org/books/computing_rh/results.html), each with its statement, status and number.
+All 440 results of the book (303 proved, 5 computed, 32 conditional, 95 open, 5 counterexample) are on the page [Results by chapter](https://vsokolov.org/books/computing_rh/results.html), each with its statement, status and number.
 
 ***
 
 <small>License: Text, figures and PDF: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Code: [MIT](https://opensource.org/license/mit).</small>
 
-<small>This page is generated from the book's repository ([main](https://github.com/VadimSokolov/computing_rh/tree/main)). The numbers and pages are those of the PDF, [version 1.2.0](https://github.com/VadimSokolov/computing_rh/releases/tag/v1.2.0).</small>
+<small>This page is generated from the book's repository ([main](https://github.com/VadimSokolov/computing_rh/tree/main)). The numbers and pages are those of the PDF, [version 1.3.0](https://github.com/VadimSokolov/computing_rh/releases/tag/v1.3.0).</small>
 
 <!-- Generated by bookrepo.py from book.yaml and results.yaml. Edit those files, not this one. -->

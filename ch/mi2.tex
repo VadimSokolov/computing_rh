@@ -1,0 +1,81 @@
+\section{A survey of the breakdown height up to height 21,000}\label{mi:sec:survey}
+
+For every prime $P\le71$ the hump criterion of Theorem~\ref{mi:thm:count} (computed, with $Z$ evaluated by the Riemann Siegel formula and the zeros located by sign changes on a grid of step $0.02$, repeated at step $0.016$ with no change in any count) gives $R_P-N(\tau_P^*)\in\{-1,0,1,2,3\}$, with mean $0.90$ and standard error $0.28$ (sample standard deviation divided by $\sqrt{20}$) over the twenty primes (Table~\ref{mi:tab:survey}); the heights reach $21{,}326$, and no hump was marginal. The offset can be compared with a heuristic ramp model. Near $\tau_P^*$, $\log A$ falls at rate $\pi/4$ while $\log D_P$ is nearly flat, so hump $j$ survives when $\log\max_{I_j}|Z|>\tfrac\pi4(t_j-\tau_P^*)$. Negative humps have density $\log(t/2\pi)/4\pi$ (computed: $0.6475$ against $0.6469$ in a window of $400$ around $\tau_P^*$ at $P=71$) and carry two zeros each, so the model offset is $(2/\pi^2)\log(\tau_P^*/2\pi)\,m_Z(\tau_P^*)$, with $m_Z(T)$ the mean of $\log\max|Z|$ over the negative humps within $200$ of $T$. The model gives the right order of magnitude and no more: its mean over the survey is $0.447$ against the observed $0.90$, and the rows do not follow it closely.
+
+\begin{table}[ht]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3.5pt}
+\begin{tabular}{rrrrrr|rrrrrr}
+\toprule
+$P$ & $\tau_P^*$ & $N$ & $R_P$ & off & model & $P$ & $\tau_P^*$ & $N$ & $R_P$ & off & model\\
+\midrule
+2 & 39.7 & 6 & 6 & 0 & 0.16 & 31 & 5484 & 5039 & 5040 & 1 & 0.42 \\
+3 & 104.7 & 31 & 32 & 1 & 0.23 & 37 & 6733 & 6405 & 6408 & 3 & 0.53 \\
+5 & 201.3 & 80 & 80 & 0 & 0.29 & 41 & 7405 & 7157 & 7160 & 3 & 0.60 \\
+7 & 490.2 & 263 & 264 & 1 & 0.37 & 43 & 8845 & 8799 & 8802 & 3 & 0.58 \\
+11 & 682.5 & 401 & 400 & $-1$ & 0.37 & 47 & 11245 & 11616 & 11616 & 0 & 0.54 \\
+13 & 1163 & 782 & 782 & 0 & 0.37 & 53 & 13933 & 14867 & 14868 & 1 & 0.44 \\
+17 & 1451 & 1027 & 1028 & 1 & 0.47 & 59 & 14893 & 16050 & 16052 & 2 & 0.52 \\
+19 & 2124 & 1631 & 1632 & 1 & 0.43 & 61 & 17966 & 19897 & 19898 & 1 & 0.54 \\
+23 & 3372 & 2838 & 2840 & 2 & 0.41 & 67 & 20174 & 22715 & 22714 & $-1$ & 0.56 \\
+29 & 3852 & 3323 & 3324 & 1 & 0.48 & 71 & 21326 & 24201 & 24200 & $-1$ & 0.64 \\
+\bottomrule
+\end{tabular}
+\caption{The survey (computed). $N=N(\tau_P^*)$, off $=R_P-N$, model is the ramp model's expected offset with the window $200$ for $m_Z$.}
+\label{mi:tab:survey}
+\end{table}
+
+\begin{conjecture}\label{mi:conj:survey}
+\[
+R_P=N(\tau_P^*)+\frac2{\pi^2}\log\frac{\tau_P^*}{2\pi}\,m_Z(\tau_P^*)+O\big((\log q)^{1/2}(\log\log q)^{1/2}\big),
+\]
+with $m_Z(T)$ the mean of $\log\max|Z|$ over negative humps near $T$.
+\end{conjecture}
+
+The status of Conjecture~\ref{mi:conj:survey} is open. The twenty offsets of Table~\ref{mi:tab:survey} are all in $\{-1,\dots,3\}$ and are consistent with a bounded or slowly growing offset, but they differ from the model by a factor of about two on average, the error term is not motivated by the ramp model, and a growth like $\log q$ cannot be tested up to height $21{,}326$.
+
+\section{Where the lost zeros go}\label{mi:sec:lost}
+
+Beyond $\tau_P^*$ the zeros of $\Xi_P$ solve $\Xi=-D_P$. Stirling's formula and the functional equation give $|\Xi(x+iy)|\approx A(x)(x/2\pi)^{|y|/2}$, and matching moduli gives the departure law (heuristic)
+\begin{equation}\label{mi:eq:dep}
+|y_P(x)|\approx\frac{2\log(D_P(x)/A(x))}{\log(x/2\pi)}\sim\frac\pi2\,\frac{x-\tau_P^*}{\log(x/2\pi)} ,
+\end{equation}
+where the second form follows from $\log(D_P/A)\approx\frac\pi4(x-\tau_P^*)$. Using $D_P(x)$ rather than its limit $c_P$ matters: near $\tau_P^*$, $D_P$ is only about $0.3c_P$ (computed: $0.336$ at $P=2$ and $0.310$ at $P=3$), and with $D_P$ the law fits the computed zeros to within $0.11$ (Table~\ref{mi:tab:dep}; the largest difference is $0.104$). Since $|y_P|$ soon exceeds $\frac12$, the departed zeros leave the critical strip altogether.
+
+\begin{table}[ht]
+\centering
+\footnotesize
+\begin{tabular}{rrrrr}
+\toprule
+$P$ & $\operatorname{Re}z$ & $|\operatorname{Im}z|$ & law with $c_P$ & law \eqref{mi:eq:dep} \\
+\midrule
+2 & 45.418 & 4.421 & 5.38 & 4.46 \\
+2 & 57.879 & 12.612 & 13.23 & 12.65 \\
+2 & 70.174 & 19.406 & 19.90 & 19.51 \\
+3 & 111.384 & 3.663 & 4.40 & 3.64 \\
+3 & 128.300 & 12.233 & 12.84 & 12.24 \\
+3 & 148.311 & 21.542 & 22.03 & 21.56 \\
+\bottomrule
+\end{tabular}
+\caption{Departed zeros of $\Xi_P$ (computed, residuals below $10^{-34}$) against the two forms of the departure law. The six zeros are every second zero of the chain of Remark~\ref{mi:prop:zerocount} for $P=2$ and a selection for $P=3$.}
+\label{mi:tab:dep}
+\end{table}
+
+\begin{remark}[Zero count, heuristic]\label{mi:prop:zerocount}
+With $N_P(X)$ the number of zeros of $\Xi_P$ in $0<\operatorname{Re}t<X$ (both half planes), and $y_P(X)$ the departure law \eqref{mi:eq:dep}, the heuristic is
+\[
+N_P(X)=N(X)+\tfrac14y_P(X)+O(1).
+\]
+The $O(1)$ is not derived, and this statement is a heuristic, not a proposition.
+\end{remark}
+
+\begin{proof}[Derivation (heuristic)]
+Apply the argument principle to $\Xi_P$ and to $\Xi$ on $[0,X]\times[-Y,Y]$ with $Y\gg y_P(X)$. On the horizontal sides $|\Xi|\gg|D_P|$, and on the left side both functions are real and positive. On the right side $\Xi_P\approx D_P$ for $|y|<y_P$, where $\arg D_P$ is nearly constant, while $\partial_y\arg\Xi=\operatorname{Re}(\Xi'/\Xi)\approx-\pi/4+y/(2X)$. The odd term integrates to zero, so the two counts differ by $\frac\pi2y_P$ radians, that is $y_P/4$ zeros, up to $O(1)$ from the transitions.
+\end{proof}
+
+The evidence is a computation, not a proof. Argument principle counts, evaluated at $20$ to $40$ digits and equal to an integer within $10^{-15}$, give $N_P(X)-N(X)$ equal to $2$, $3$, $4$, $5$ for $P=2$ at $X=51.5$, $60$, $68$, $80$, against $y_P/4$ equal to $2.17$, $3.47$, $4.59$, $6.12$ ($N_P=12$, $16$, $20$, $26$ against $N=10$, $13$, $16$, $21$). For $P=3$ at $X=120$, $140$, $150$ they give $2$, $4$, $6$ against $2.03$, $4.45$, $5.58$. Every count was repeated with a second contour height and precision ($20$ and $28$ digits), with the same integer. The difference $N_P-N-y_P/4$ is $-0.17$, $-0.47$, $-0.59$, $-1.12$ for $P=2$, and $-4.86$ at $X=600$ ($N_P=384$ at two precisions, $N=341$, $y_P/4=47.86$), so the computed counts do not support a bounded $O(1)$. Tracing the departed zeros of $\Xi_2$ one by one gives, for $P=2$, a single smooth chain running from $41.19+1.46i$ through $45.42+4.42i$ out to $601.90+191.23i$. It has $190$ zeros up to $601.90$ and $189$ with real part below $600$. Each of these zeros was verified individually (residual test), and the chain was traced in one continuous job to $601.90$. The argument principle on the whole region $\operatorname{Re}t<600$ gives $N_P=384=6+2\cdot189$, the six real zeros and the chain with its conjugates. The chain count ($189$ departed zeros below $600$) and the difference $N_P-N=43$ are different quantities, and $43$ is compared with $y_P/4=47.86$ above. So for $P=2$ the lost humps release their zeros in pairs, and these, together with about $y_P/4$ new zeros, populate one curve (observed for $P=2$, and in the counts for $P=3$). Its density in the upper half plane is, heuristically,
+\[
+\frac1{4\pi}\log\frac x{2\pi}+\frac\pi{16\log(x/2\pi)},
+\]
+larger than the density $\frac1{4\pi}\log\frac x{2\pi}$ of lost humps by the factor $1+\pi^2/(4\log^2(x/2\pi))$, which is algebra: $(\pi/(16L))/(L/(4\pi))=\pi^2/(4L^2)$ with $L=\log(x/2\pi)$. Integrated from $41.19$ to $600$ this density gives $197.4$ zeros, against the $189$ of the chain (four per cent more), and the spacings of the chain, $4.13$, $3.72$ and $3.39$ near $x=45$, $100$ and $150$, exceed the reciprocal density there, $3.90$, $3.43$ and $3.18$, by $6$ to $9$ per cent (over the whole chain the spacings lie between $2.537$ and $4.228$).

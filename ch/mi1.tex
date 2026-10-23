@@ -1,0 +1,238 @@
+\section{Riemann's representation, the friable approximant and the kink}\label{mi:sec:friable}
+
+\subsection{Riemann's representation and the kink identity}\label{mi:sec:riemann}
+
+Let $\psi(x)=\sum_{n\ge1}e^{-\pi n^2x}$ and $\Theta_3=1+2\psi$, so that $\Theta_3(1/x)=\sqrt x\,\Theta_3(x)$. Riemann's formula
+\[
+\xi(s)=\frac12+\frac{s(s-1)}2\int_1^\infty\psi(x)\big(x^{s/2-1}+x^{-(1+s)/2}\big)dx
+\]
+becomes, with $s=\tfrac12+it$ and $x=e^{2u}$,
+\begin{align}\label{mi:eq:riemannt}
+\Xi(t)&=\frac12-2\left(t^2+\tfrac14\right)\int_0^\infty\psi(e^{2u})e^{u/2}\cos(tu)\,du\nonumber\\
+&=\left(t^2+\tfrac14\right)\int_0^\infty k(u)\cos(tu)\,du,
+\end{align}
+where $k(u)=e^{-u/2}-2e^{u/2}\psi(e^{2u})$; the pole term $\tfrac12$ has been absorbed using $\int_0^\infty e^{-u/2}\cos(tu)\,du=\tfrac12/(t^2+\tfrac14)$. Since $k(u)=2\cosh(u/2)-e^{u/2}\Theta_3(e^{2u})$ and the theta functional equation makes $e^{u/2}\Theta_3(e^{2u})$ even, $k$ extends to an even real analytic function on $\R$. This folded kernel is the new ingredient; the classical kernel is the one of Equation~\eqref{eq:ch2:Phi}, $\Xi(t)=2\int_0^\infty\Phi(u)\cos(tu)\,du$ with $\Phi$ positive, even and analytic exactly in the strip $|\operatorname{Im}u|<\pi/4$ (Titchmarsh \cite[(2.16.1)]{Titchmarsh}). The two are related by
+\[
+\Phi(u)=2\sum_{n\ge1}\big(2\pi^2n^4e^{9u/2}-3\pi n^2e^{5u/2}\big)e^{-\pi n^2e^{2u}}=\tfrac12\big(\tfrac14k(u)-k''(u)\big),\qquad u\ge0,
+\]
+which follows from two integrations by parts in \eqref{mi:eq:riemannt}: since $k'(0)=0$ (Lemma~\ref{mi:lem:kink} below), $\int_0^\infty(\tfrac14k-k'')\cos(tu)\,du=(t^2+\tfrac14)\int_0^\infty k\cos(tu)\,du=\Xi(t)$, and the terms $e^{-u/2}$ cancel in $\tfrac14k-k''$.
+
+\begin{lemma}[Kink identity]\label{mi:lem:kink}
+$\tfrac12+\psi(1)+4\psi'(1)=0$; equivalently $k'(0)=0$.
+\end{lemma}
+
+\begin{proof}
+Differentiate $\Theta_3(1/x)=\sqrt x\,\Theta_3(x)$ at $x=1$ to get $-\Theta_3'(1)=\tfrac12\Theta_3(1)+\Theta_3'(1)$, that is $\Theta_3(1)+4\Theta_3'(1)=0$, and insert $\Theta_3=1+2\psi$. Then $k'(0)=-\tfrac12-\psi(1)-4\psi'(1)=0$.
+\end{proof}
+
+The folded pole part $e^{-|u|/2}$ has a corner at the origin and the theta part has exactly the opposite corner. Their cancellation is the smoothness of $k$ at $0$, equivalent to the evenness of the analytic continuation of $\Phi$; it is a consequence of the functional equation, and Theorem~\ref{mi:thm:noproxy} shows that no reweighting of the theta series with $\sum_n|w_n|n^{-\sigma}<\infty$ for every $\sigma>0$ keeps it.
+
+\subsection{The friable approximant}\label{mi:sec:def}
+
+\begin{definition}\label{mi:def:XiP}
+For a prime $P$ let $\psi_P(x)=\sum_{n\in\mathcal F(P)}e^{-\pi n^2x}$ and
+\[
+\Xi_P(t)=\frac12-2\left(t^2+\tfrac14\right)\int_0^\infty\psi_P(e^{2u})e^{u/2}\cos(tu)\,du,\qquad\xi_P(\tfrac12+it)=\Xi_P(t).
+\]
+Let $q=q(P)$ be the least prime above $P$.
+\end{definition}
+
+$\Xi_P$ is even, entire of order one, real on $\R$, and $\xi_P(s)=\xi_P(1-s)$ by construction. The Mellin transform $\int_0^\infty\psi_P(x)x^{s/2-1}dx$ of $\psi_P$, taken at $s/2$, is $\pi^{-s/2}\Gamma(s/2)\zeta_P(s)$ for $\operatorname{Re}s>0$, which is the sense in which $\Xi_P$ is the Euler product truncation of Riemann's exact kernel.
+
+\begin{proposition}[Incomplete gamma form]\label{mi:prop:incgamma}
+\begin{align*}
+\xi_P(s)=\frac12+\frac{s(s-1)}2\sum_{n\in\mathcal F(P)}\Big[&(\pi n^2)^{-s/2}\,\Gamma\big(\tfrac s2,\pi n^2\big)\\
+&+(\pi n^2)^{-(1-s)/2}\,\Gamma\big(\tfrac{1-s}2,\pi n^2\big)\Big].
+\end{align*}
+\end{proposition}
+
+\begin{proof}
+With $x=e^{2u}$, Definition~\ref{mi:def:XiP} is Riemann's formula with $\psi_P$ in place of $\psi$. The series converges absolutely and uniformly for $x\ge1$, so it can be integrated term by term, and $\int_1^\infty e^{-\pi n^2x}x^{z-1}dx=(\pi n^2)^{-z}\Gamma(z,\pi n^2)$ for $z=s/2$ and, since $x^{-(1+s)/2}=x^{(1-s)/2-1}$, for $z=(1-s)/2$.
+\end{proof}
+
+All computations in this chapter use this form; with all integers it reproduces $\xi(\tfrac12+it)$ to working precision (computed: relative difference below $10^{-26}$ for $t\le50$ at $40$ digits).
+
+\subsubsection{The literal Euler product and its poles}
+
+One could instead symmetrise the finite Euler product directly, setting $F_P(s)=E_P(s)+E_P(1-s)$ with $E_P(s)=\tfrac12s(s-1)\Gamma_{\mathbb R}(s)\zeta_P(s)$ and $\Gamma_{\mathbb R}(s)=\pi^{-s/2}\Gamma(s/2)$. Since $\zeta_P$ has poles at $s=2\pi ik/\log p$, $F_P$ has poles on $\operatorname{Re}s=0$ and $\operatorname{Re}s=1$.
+
+\begin{proposition}\label{mi:prop:decomp}
+For $0<\operatorname{Re}s<1$, $\xi_P(s)=\tfrac12+F_P(s)-\tfrac{s(s-1)}2[\mathcal I_P(s)+\mathcal I_P(1-s)]$ with $\mathcal I_P(s)=\sum_{n\in\mathcal F(P)}(\pi n^2)^{-s/2}\gamma(\tfrac s2,\pi n^2)$. The poles of $F_P$ cancel against those of $\mathcal I_P$, so the theta form is the pole free regularisation of the symmetrised Euler product.
+\end{proposition}
+
+\begin{proof}
+For $0<\operatorname{Re}s<1$ both $\operatorname{Re}s>0$ and $\operatorname{Re}(1-s)>0$, so the Dirichlet series $\sum_{n\in\mathcal F(P)}(\pi n^2)^{-s/2}\Gamma(\tfrac s2)=\Gamma_{\mathbb R}(s)\zeta_P(s)$ and its reflection converge absolutely, and $\Gamma=\gamma+\Gamma(\cdot,\pi n^2)$ termwise in Proposition~\ref{mi:prop:incgamma} gives the identity. The statement about poles concerns the meromorphic continuations: $\xi_P$ is entire, $F_P$ has the poles above, and on $\operatorname{Re}s=0$ and $\operatorname{Re}s=1$ the function $\mathcal I_P$ is its continuation, not the series, which diverges there.
+\end{proof}
+
+The unregularised $F_P$ pays for its poles with spurious zeros near them. For $P=2$, near the poles $1+2\pi ik/\log2$, the computed zeros of $F_2$ include $1.5151+9.1951i$, $1.3184+18.0602i$, $1.2268+27.3286i$, $1.1815+45.4005i$, $0.7885+72.7840i$ (inside the critical strip, with its mirror at $0.2115$) and $1.1200+108.8198i$ (computed, residual below $10^{-26}$; this is a selection and not a list of all the zeros of $F_2$).
+
+\section{Approximation, the kink constant and no finite proxy}\label{mi:sec:approx}
+
+\begin{theorem}\label{mi:thm:approx}
+Let $\delta_P=\sum_{m\notin\mathcal F(P)}e^{-\pi m^2}/(\pi m^2)$. For $|\operatorname{Im}t|\le\tfrac32$,
+\[
+|\Xi_P(t)-\Xi(t)|\le\left|t^2+\tfrac14\right|\delta_P,\qquad\delta_P\le\frac{e^{-\pi q^2}}{\pi q^2(1-e^{-2\pi q})}.
+\]
+\end{theorem}
+
+\begin{proof}
+Every $m<q$ is $P$ friable, so every excluded $m$ satisfies $m\ge q$, and $\Xi_P-\Xi=2(t^2+\tfrac14)\sum_{m\notin\mathcal F(P)}\int_0^\infty e^{-\pi m^2e^{2u}}e^{u/2}\cos(tu)\,du$. For $t=x+iy$ with $|y|\le\frac32$ we have $|\cos(tu)|e^{u/2}\le e^{3u/2}e^{u/2}=e^{2u}$, and $\int_0^\infty e^{-\alpha e^{2u}}e^{2u}du=e^{-\alpha}/(2\alpha)$; with $\alpha=\pi m^2$ and the factor $2$ this gives the first bound. For the second, $m^2\ge q^2+2q(m-q)$ gives $e^{-\pi m^2}/(\pi m^2)\le e^{-\pi q^2}e^{-2\pi q(m-q)}/(\pi q^2)$, and the geometric series in $m-q$ is summed.
+\end{proof}
+
+Computed values: $\delta_P=1.85875\cdot10^{-14}$, $9.8969\cdot10^{-37}$, $9.0827\cdot10^{-70}$, $2.1406\cdot10^{-168}$ for $P=2,3,5,7$; on a grid of $|\operatorname{Im}t|\le\tfrac32$ the ratio $|\Xi_P-\Xi|/(|t^2+\tfrac14|\delta_P)$ is at most $0.9756$, $0.9907$, $0.9952$, $0.9980$, attained at $t=-\tfrac32i$.
+
+\begin{corollary}[Certified tracking]\label{mi:cor:rouche}
+If $\gamma$ is a simple zero of $\Xi$ and $|\Xi|>|t^2+\tfrac14|\delta_P$ on $|t-\gamma|=r\le\tfrac32$, then $\Xi_P$ has exactly one zero in the disc, it is real, and $\gamma_P-\gamma=-(\Xi_P-\Xi)(\gamma)/\Xi'(\gamma)\,(1+O(\eta))$ with $\eta$ the ratio of $\max|\Xi_P-\Xi|$ on the disc to $\min|\Xi|$ on the circle.
+\end{corollary}
+
+\begin{proof}
+On the circle $|\Xi_P-\Xi|\le|t^2+\tfrac14|\delta_P<|\Xi|$ by Theorem~\ref{mi:thm:approx}, so Rouch\'e's theorem gives $\Xi_P$ the same number of zeros in the disc as $\Xi$, namely one. The disc is symmetric about the real axis and $\Xi_P$ is real on $\R$, so the conjugate of the zero is also a zero in the disc, and uniqueness makes it real. The first order formula is the Taylor expansion of $\Xi_P=\Xi+D_P$ at $\gamma$, whose remainder is controlled on the disc by Cauchy's estimates.
+\end{proof}
+
+For $P=2$ the predicted shifts $-D_2(\gamma_k)/\Xi'(\gamma_k)$ are $+2.487\times10^{-9}$, $-4.027\times10^{-7}$, $+7.648\times10^{-6}$, $-5.539\times10^{-4}$, $+3.695\times10^{-3}$ at the first five zeros, and the computed shifts are $+2.487\times10^{-9}$, $-4.027\times10^{-7}$, $+7.648\times10^{-6}$, $-5.536\times10^{-4}$, $+3.702\times10^{-3}$ (computed at $40$ digits); the first three agree to the digits shown, and the fourth and fifth agree to three digits, the relative difference at the fifth zero being $2\cdot10^{-3}$ (second order effects). The shifts grow like $e^{\pi\gamma/4}$, one decade every $4\ln10/\pi=2.93$ units of height.
+
+\begin{theorem}[Kink constant]\label{mi:thm:kink}
+Folding $\Xi_P$ as in \eqref{mi:eq:riemannt} with kernel $k_P(u)=e^{-u/2}-2e^{u/2}\psi_P(e^{2u})$, put $c_P=-k_P'(0)$. Then
+\[
+c_P=\sum_{m\notin\mathcal F(P)}(4\pi m^2-1)e^{-\pi m^2}=4\pi q^2e^{-\pi q^2}(1+O(q^{-2}))>0,
+\]
+and $\Xi_P(t)=c_P+O_P(t^{-2})$ for real $t\to\infty$. Hence $\Xi_P$ has finitely many real zeros.
+\end{theorem}
+
+\begin{proof}
+Differentiating, $k_P'(0)=-\tfrac12-\psi_P(1)-4\psi_P'(1)$; subtracting Lemma~\ref{mi:lem:kink} leaves $\sum_{m\notin\mathcal F(P)}(1-4\pi m^2)e^{-\pi m^2}$. Since $k_P$ is smooth on $[0,\infty)$ with every derivative $O(e^{-u/2})$, two integrations by parts give $\int_0^\infty k_P(u)\cos(tu)\,du=-k_P'(0)t^{-2}+O(t^{-4})$, and multiplying by $t^2+\frac14$ gives the limit. Since $c_P>0$, $\Xi_P$ is positive for large real $t$, so its real zeros lie in a bounded set.
+\end{proof}
+
+Computed: $c_2=5.89126\cdot10^{-11}$ against the leading term $5.944\cdot10^{-11}$, and $c_3=2.43420\cdot10^{-32}$ against $2.442\cdot10^{-32}$. For $P=2$ the ratio $\Xi_2(t)/c_2$ is $0.450$, $0.775$, $0.934$, $0.983$, $0.9956$ at $t=50,100,200,400,800$, and $t^2(\Xi_2-c_2)\to-1.65\cdot10^{-7}$, the predicted $c_P/4+k_P'''(0)$. The limit regime is visible only above the breakdown height $\tau_P^*$ of Section~\ref{mi:sec:humps}: for $P=3$ the function $\Xi_3$ is still dominated by $\Xi$ at $t=50$ and $t=100$.
+
+\begin{theorem}[No summable proxy]\label{mi:thm:noproxy}
+For any real weights $w\ne0$ with $\sum_n|w_n|n^{-\sigma}<\infty$ for every $\sigma>0$ (this includes the weights $1_{\mathcal F(P)}$, for which the sum is $\zeta_P(\sigma)$, and so $\Xi_P$), put $\psi_w=\sum w_ne^{-\pi n^2x}$ and
+\[
+\Xi_w(t)=\frac12-2\left(t^2+\tfrac14\right)\int_0^\infty\psi_w(e^{2u})e^{u/2}\cos(tu)\,du.
+\]
+Then $\Xi_w$ is even, entire of order at most one, and has finitely many real zeros and infinitely many nonreal zeros.
+\end{theorem}
+
+\begin{proof}
+Let $k_w(u)=e^{-u/2}-2e^{u/2}\psi_w(e^{2u})$. The series $\psi_w(x)$ converges absolutely and locally uniformly on $\operatorname{Re}x>0$ with $|\psi_w(x)|=O_\sigma(x^{-\sigma/2})$ as $x\downarrow0$ for every $\sigma>0$ (since $\sup_nn^\sigma e^{-\pi n^2x}=O_\sigma(x^{-\sigma/2})$), and $e^{2u}$ has positive real part for $|\operatorname{Im}u|<\pi/4$, so $k_w$ is analytic in that strip and real analytic on $\R$; all its derivatives are $O(e^{-u/2})$ at $+\infty$. Repeated integration by parts gives $\int_0^\infty k_w(u)\cos(tu)\,du=\sum_j(-1)^{j+1}k_w^{(2j+1)}(0)t^{-2j-2}+\dots$, and hence $\Xi_w(t)\sim(-1)^{j_0+1}k_w^{(2j_0+1)}(0)\,t^{-2j_0}$ as $t\to\infty$ on $\R$, for the least $j_0$ with $k_w^{(2j_0+1)}(0)\ne0$. Such a $j_0$ exists. Otherwise the odd part of $k_w$, which is real analytic on $\R$, would vanish to infinite order at $0$, hence identically; then $k_w(-u)=k_w(u)\to0$ as $u\to\infty$, and this gives $\psi_w(x)\sim\tfrac12x^{-1/2}$ as $x\downarrow0$, impossible since $|\psi_w(x)|=O_\sigma(x^{-\sigma/2})$ with $\sigma<1$. So $\Xi_w$ has a nonzero power law limit or decay on $\R$ and finitely many real zeros. With $s=\tfrac{|y|}2+\tfrac14$, the substitution $v=e^{2u}$ gives the bound $|\Xi_w(x+iy)|\le\tfrac12+|t^2+\tfrac14|\,\pi^{-s}\Gamma(s)\sum_n|w_n|n^{-1/2}$, from $\sum_n|w_n|(\pi n^2)^{-s}\le\pi^{-s}\sum_n|w_n|n^{-1/2}$ for $s\ge\tfrac14$, for $t=x+iy$, so the order is at most one. Suppose $\Xi_w$ had finitely many zeros. By Hadamard's theorem it would be $P(t)e^{at}$ with $P$ a polynomial; evenness forces $a=0$, and boundedness on $\R$ (from the asymptotics) makes $P$ constant. The constant is $\Xi_w(i/2)=\tfrac12$, since $t^2+\tfrac14=0$ there. Then the cosine transform of $\psi_w(e^{2u})e^{u/2}$ vanishes for all real $t$, so $\psi_w=0$ on $[1,\infty)$; if $n$ is the least index with $w_n\ne0$, multiplying $\sum_{m\ge n}w_me^{-\pi m^2x}=0$ by $e^{\pi n^2x}$ and letting $x\to\infty$ gives $w_n=0$, a contradiction. Hence $\Xi_w$ has infinitely many zeros, and so infinitely many nonreal ones.
+\end{proof}
+
+The proof of Theorem~\ref{mi:thm:kink} never uses friability. For every nonempty set $E$ of omitted integers, the function built from the series over the integers outside $E$ has $c_E=\sum_{m\in E}(4\pi m^2-1)e^{-\pi m^2}>0$, so it tends to $c_E$ on $\R$ and has finitely many real zeros. Hardy's theorem \cite{Hardy14} that $\Xi$ has infinitely many real zeros therefore uses every integer in the theta series: the primes hide in the smoothness of the kernel at the origin. (Theorem~\ref{mi:thm:noproxy} is the statement for summable weights; the statement for omitted integers is the one just given, and the weights equal to $1$ except at one integer are outside its hypothesis, since $\sum n^{-\sigma}$ diverges for $\sigma\le1$.)
+
+\section{The deficit: positivity and Lorentzian form}\label{mi:sec:deficit}
+
+For real $t$, the termwise form of the definition gives
+\begin{equation}\label{mi:eq:D}
+D_P(t)=\left(t^2+\tfrac14\right)\sum_{m\notin\mathcal F(P)}C_{a_m}(t),\qquad C_a(t)=\int_0^\infty f_a(w)\cos\!\left(\tfrac{tw}2\right)dw,
+\end{equation}
+where $w=2u$, $f_a(w)=e^{-ae^w}e^{w/4}$ and $a_m=\pi m^2\ge9\pi$. Put $b=a-\tfrac14$ and $\mathcal L_a(t)=e^{-a}b/(b^2+t^2/4)$, the cosine transform of $e^{-a}e^{-bw}$.
+
+\begin{theorem}\label{mi:thm:positive}
+$D_P(t)>0$ for all real $t$, and $D_P>D_{P'}$ when $P<P'$. Hence $\Xi_P>\Xi_{P'}>\Xi$ on $\R$.
+\end{theorem}
+
+\begin{proof}
+For $a\ge\tfrac32$, $f_a'=f_a(\frac14-ae^w)<0$ and $f_a''=f_a(x^2-\tfrac32x+\tfrac1{16})>0$ with $x=ae^w\ge a$, so $f_a$ is integrable, strictly convex and decreasing to $0$. With $K(w)=(1-\cos\lambda w)/\lambda$, $K'=\sin\lambda w$, two integrations by parts give P\'olya's formula $\int_0^\infty f_a(w)\cos(\lambda w)\,dw=\lambda^{-2}\int_0^\infty f_a''(w)(1-\cos\lambda w)\,dw$ for $\lambda>0$, which is strictly positive because $f_a''>0$ (and the case $\lambda=0$ is $\int f_a>0$). So $C_a>0$. Monotonicity in $P$ holds term by term, since $\mathcal F(P)\subset\mathcal F(P')$.
+\end{proof}
+
+\begin{lemma}\label{mi:lem:twoside}
+If $F(0)=F'(0)=0$ and $F,F',F''$ are integrable on $[0,\infty)$, then the cosine and sine transforms of $F$ at $\lambda>0$ are at most $\min(\|F\|_1,\|F''\|_1/\lambda^2)$ in absolute value, and the sine bound needs only $F(0)=0$. Hence $|\cdot|(\beta^2+\lambda^2)\le\beta^2\|F\|_1+\|F''\|_1$ for every $\beta>0$.
+\end{lemma}
+
+\begin{proof}
+Integrability of $F$ and $F'$ makes $F\to0$ at infinity, and integrability of $F'$ and $F''$ makes $F'\to0$. Two integrations by parts give $\int_0^\infty F\cos\lambda w\,dw=-\lambda^{-1}\int_0^\infty F'\sin\lambda w\,dw=-\lambda^{-2}\int_0^\infty F''\cos\lambda w\,dw$, where the boundary terms vanish because $F(0)=F'(0)=0$. For the sine transform, $\int_0^\infty F\sin\lambda w\,dw=\lambda^{-1}\int_0^\infty F'\cos\lambda w\,dw=-\lambda^{-2}\int_0^\infty F''\sin\lambda w\,dw$, which uses only $F(0)=0$. The bound by $\|F\|_1$ is trivial, and $\min(A,B/\lambda^2)(\beta^2+\lambda^2)\le\beta^2A+B$.
+\end{proof}
+
+\begin{theorem}[Uniform Lorentzian bound]\label{mi:thm:lorentz}
+For $a\ge9\pi$ and all real $t$, $|C_a(t)-\mathcal L_a(t)|\le\delta(a)\mathcal L_a(t)$ with
+\[
+\delta(a)=\frac1b\left[\frac{2ab^2}{(b-1)^3}+\frac{2ab}{(b-1)^2}+\frac{2a^2}{(b-2)^3}+\frac a{b-1}\right]\le\frac{5.61}a .
+\]
+\end{theorem}
+
+\begin{proof}
+Write $f_a=e^{-a}e^{-bw}e^{-a\varphi}$ with $\varphi=e^w-1-w\ge0$. Then $C_a-\mathcal L_a$ is the cosine transform of $h=e^{-a}e^{-bw}g$ with $g=e^{-a\varphi}-1$, and $h(0)=h'(0)=0$. The bounds $|g|\le\tfrac a2w^2e^w$, $|g'|\le awe^w$, $|g''|\le a^2w^2e^{2w}+ae^w$ in $h''=e^{-a}e^{-bw}(b^2g-2bg'+g'')$ give $e^a\|h\|_1\le a/(b-1)^3$ and $e^a\|h''\|_1\le ab^2/(b-1)^3+2ab/(b-1)^2+2a^2/(b-2)^3+a/(b-1)$. Lemma~\ref{mi:lem:twoside} with $\lambda=t/2$ and $\beta=b$, together with $\mathcal L_a(t)(b^2+t^2/4)=e^{-a}b$, gives the claim.
+\end{proof}
+
+The last inequality follows from monotonicity, which is elementary. With $b=a-\frac14$ and $a\ge9\pi$ (so $b>2$), every term of $\delta(a)$, $a\delta(a)$, $r_1(a)$ and $r_2(a)$ (the last two in Theorem~\ref{mi:thm:curv}) is a positive constant times a product of factors $a/(a-c)$, $(a-c_1)/(a-c_2)$ with $c_2>c_1$, and $1/(a-c)$, where $c\ge0$ and $a>c$; for example $2ab^2/(b(b-1)^3)=2\,(a/(b-1))(b/(b-1))(1/(b-1))$ and $a^2/(b-2)^2=(a/(b-2))^2$. Each such factor is positive and nonincreasing in $a$, so $\delta$, $a\delta$, $1/(1-\delta)$ (as $\delta(9\pi)=0.198<1$), $r_1$ and $r_2$ are nonincreasing on $[9\pi,\infty)$. As an illustration, $a\delta(a)$ equals $5.6067$ at $a=9\pi$, $5.204$, $5.103$, $5.041$, $5.0016$ and $5.00002$ at $a=25\pi$, $49\pi$, $121\pi$, $10^4$, $10^6$, with limit $5$ (the leading terms are $2+2+0+1$ over $b$), and the bound $\delta(a)\le5.61/a$ is the value at $a=9\pi$ propagated by the decrease of $a\delta(a)$. By quadrature the true error at $a=9\pi$ is $0.034$ (computed, $0.03365$), and the bound gives $\delta(9\pi)=0.198$.
+
+Summing, $D_P\approx(t^2+\tfrac14)\sum_{m\notin\mathcal F(P)}\mathcal L_{a_m}(t)$. Since $(t^2+\tfrac14)\mathcal L_a(t)=e^{-a}b\,(t^2+\tfrac14)/(b^2+t^2/4)\le4e^{-a}b$, Theorem~\ref{mi:thm:lorentz} gives $D_P\le(1+\delta(a_q))c_P$ on $\R$, so $\Xi_P$ differs from $\Xi$ on $\R$ by at most $(1+\delta(a_q))c_P\approx4\pi q^2e^{-\pi q^2}$, and the deficit rises to its limit $c_P$ in the form of the Lorentzian $\mathcal L_{a_q}$, whose half width is $2b_q\approx2\pi q^2$. Near the breakdown height $4q^2$ the deficit is only $D_P(4q^2)/c_P\approx4/(\pi^2+4)=0.2884$ of its limit; the measured values are $0.2929$, $0.2901$, $0.2893$, $0.2888$ for $P=2,3,5,7$ (computed).
+
+\begin{theorem}[Curvature]\label{mi:thm:curv}
+For every prime $P$ and $t\ge14$, $(\log D_P)''(t)\ge-2/t^2-r_2(a_q)-r_1(a_q)^2\ge-0.0239$, where, with $\delta=\delta(a)$,
+\begin{align*}
+r_1(a)&=\frac{1}{2(1-\delta)b}\Big(1+\frac{a^2}{(b-2)^2}+\frac a{(b-1)^2}+\frac{2a}{b-1}\Big),\\
+r_2(a)&=\frac{1}{4(1-\delta)b}\Big(\frac4b+\frac{2a^2}{(b-2)^3}+\frac{2a}{(b-1)^3}+\frac{4a}{(b-1)^2}\Big)
+\end{align*}
+bound $|C_a'|/C_a$ and $|C_a''|/C_a$ uniformly in $t$.
+\end{theorem}
+
+\begin{proof}
+Apply Lemma~\ref{mi:lem:twoside} to $f_aw$ (sine) and $f_aw^2$ (cosine), with $f_a\le e^{-a}e^{-bw}$, $|f_a'|\le f_aae^w$, $|f_a''|\le f_a(a^2e^{2w}+ae^w)$, and divide by $C_a\ge(1-\delta)\mathcal L_a$. Positivity of every $C_{a_m}$ transfers the bounds to the sum $S=\sum_mC_{a_m}$, namely $|S'|\le r_1S$ and $|S''|\le r_2S$, because $r_1,r_2$ do not increase with $a$ on $[a_q,\infty)\subset[9\pi,\infty)$ (every term of their formulas is of the form treated after Theorem~\ref{mi:thm:lorentz}; for illustration $r_1=0.0960$, $0.0281$, $0.0136$ and $r_2=0.00435$, $0.00045$, $0.00011$ at $a=9\pi$, $25\pi$, $49\pi$, computed). Then $(\log D_P)''=(\log(t^2+\tfrac14))''+S''/S-(S'/S)^2\ge-2/t^2-r_2-r_1^2$, because $(\log(t^2+\tfrac14))''=2(\tfrac14-t^2)/(t^2+\tfrac14)^2>-2/t^2$. At $a=9\pi$ one finds $\delta=0.19830$, $r_1=0.095954$, $r_2=0.0043527$ and $2/14^2+r_2+r_1^2=0.023764\le0.0239$ (computed).
+\end{proof}
+
+The value $-0.0239$ is slightly looser than the computed $-0.02376$. The computed minima of $(\log D_P)''$ over $t\ge14$ are $-0.010642$, $-0.010240$, $-0.010186$, $-0.010169$ for $P=2,3,5,7$, all at $t=14$, well above the bound.
+
+\section{Humps, pairs and the count of real zeros}\label{mi:sec:humps}
+
+Since $\Xi(0)>0$, call the maximal intervals $I_j\subset(0,\infty)$ on which $\Xi<0$ the negative humps, numbered from the left, with length $\ell_j$ and depth $d_j=\max_{I_j}|\Xi|$; the endpoints of $I_j$ are zeros of $\Xi$ (when the zeros are simple, $I_j=(\gamma_{2j-1},\gamma_{2j})$ for the positive zeros $\gamma_1\le\gamma_2\le\dots$). Let $N(T)$ be the number of zeros $\gamma\in(0,T]$ counted with multiplicity. On $\R$, $\Xi=-AZ$ with $Z$ Hardy's function (Section~\ref{ch:classical}) and $A(t)=\tfrac12(t^2+\tfrac14)\pi^{-1/4}|\Gamma(\tfrac14+\tfrac{it}2)|\sim(\pi/2)^{1/4}t^{7/4}e^{-\pi t/4}$ (the archimedean factor; the asymptotic follows from Stirling's formula). The first hump begins at $\gamma_1=14.13\ldots>14$, so Theorem~\ref{mi:thm:curv} applies on every hump.
+
+\begin{theorem}\label{mi:thm:humps}
+\leavevmode
+\begin{enumerate}
+\item[(1)] Every real zero of $\Xi_P$ lies in a negative hump; $\Xi_P(\gamma_k)=D_P(\gamma_k)>0$ at the zeros $\gamma_k$ of $\Xi$ (so no zero of $\Xi_P$ is a zero of $\Xi$).
+\item[(2)] Each hump holds an even number of zeros of $\Xi_P$, counted with multiplicity, and the number $R_P$ of positive real zeros is even.
+\item[(3)] Assume that every zero of $\Xi$ whose real part lies within $\tfrac12$ of $I_j$ is real (by \cite{PT21} this holds for every hump below $3\cdot10^{12}$), and that $\ell_j<18.29$. Then $I_j$ holds no zero, one double zero or two simple zeros of $\Xi_P$, and two simple zeros precisely when $\max_{I_j}(|\Xi|-D_P)>0$.
+\item[(4)] Surviving humps are nested in $P$: if $I_j$ carries zeros for $\Xi_P$, it does for $\Xi_{P'}$, $P'>P$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(1) Where $\Xi\ge0$ we have $\Xi_P=\Xi+D_P>0$. (2) $\Xi_P$ is positive at both ends of each hump, and $\Xi_P(0)>0$, $\Xi_P(t)\to c_P>0$. (3) By the Hadamard product (Equation~\eqref{eq:ch2:hadamard}), $\Xi$ is of order one and even, so $(\log|\Xi|)''(t)=-\sum_w\operatorname{Re}(t-w)^{-2}$ over all zeros $w$ of $\Xi$ (both signs). A real zero contributes $-(t-w)^{-2}\le0$. A nonreal zero $w=\gamma+i\delta'$ has $0<|\delta'|<\tfrac12$ (the zeros lie in the strip $|\operatorname{Im}w|<\frac12$), and contributes $(\delta'^2-x^2)/(x^2+\delta'^2)^2$ with $x=t-\gamma$, which is negative as soon as $|x|\ge\tfrac12$. For $t\in I_j$ the zeros with $|\operatorname{Re}w-t|<\tfrac12$ are real by hypothesis and all other zeros contribute at most $0$. Keeping only the two endpoints $\alpha<\beta$ of $I_j$, $(\log|\Xi|)''\le-(t-\alpha)^{-2}-(\beta-t)^{-2}\le-8/\ell_j^2$ on $I_j$, the minimum of the right side being at the midpoint. When $8/\ell_j^2>0.0239$, that is $\ell_j<18.29$, Theorem~\ref{mi:thm:curv} makes $g=\log|\Xi|-\log D_P$ strictly concave on $I_j$, and $g\to-\infty$ at both ends. So $g$ has no zero (if $\max g<0$), one double zero (if $\max g=0$) or two simple zeros (if $\max g>0$). A zero of $g$ is a zero of $\Xi_P$ because $\Xi=-|\Xi|$ on $I_j$, and the multiplicities agree: $\Xi_P'=-|\Xi|g'$ where $|\Xi|=D_P$. (4) follows from Theorem~\ref{mi:thm:positive}.
+\end{proof}
+
+The hypothesis of (3) is local: it uses only the zeros near the hump. The humps used in this chapter lie below $21{,}400$ and $\ell_j<18.29$ for them, since the gaps between consecutive zeros there are of the order of $2\pi/\log(t/2\pi)$ (computed from the tabulated zeros), so for those humps (3) is an unconditional theorem given \cite{PT21}.
+
+The two zeros of a surviving hump sit near its ends and are pushed inward, which explains the alternating signs of the first order shifts. Real zeros leave the axis only in pairs. To see this one deforms continuously, for example $\Xi+sD_P$ for $0\le s\le1$; a pair of real zeros of $\Xi+sD_P$ collides where $\log|\Xi|-\log(sD_P)$ attains its maximum zero, near but not at the extremum $t_j$ of the hump. Near the collision $\Xi_P\approx D_P(t_j)-d_j+\tfrac12\Xi''(t_j)(t-t_j)^2$, so the pair is $t_j\pm\sqrt{2(d_j-D_P)/\Xi''(t_j)}$ before and $t_j\pm i\sqrt{2(D_P-d_j)/\Xi''(t_j)}$ after (heuristic).
+
+\begin{theorem}[Count]\label{mi:thm:count}
+Under the hypotheses of Theorem~\ref{mi:thm:humps}(3) for every hump meeting $(0,\tau_P^+)$,
+\[
+R_P=2\#\{j:\max_{I_j}(|\Xi|-D_P)>0\},
+\]
+where the count is over all humps. Let $\tau_P^+$ solve $D_P(\tau)=0.63\,A(\tau)\,\tau^{1/6}\log\tau$; the solution is unique for $\tau\ge14$, and $\Xi_P>0$ on $(\tau_P^+,\infty)$. Then $R_P\le2\lceil N(\tau_P^+)/2\rceil$.
+\end{theorem}
+
+\begin{proof}
+The formula is part (3) summed over the humps meeting $(0,\tau_P^+)$; beyond $\tau_P^+$ there is no zero, as follows. Put $\mathcal R(t)=D_P(t)/(0.63A(t)t^{1/6}\log t)$. Since $D_P=(t^2+\tfrac14)S$ and $|S'|\le r_1(a_q)S$ (Theorem~\ref{mi:thm:curv}), $(\log D_P)'\ge2t/(t^2+\tfrac14)-r_1(a_q)$. Also $(\log A)'=2t/(t^2+\tfrac14)-\tfrac12\operatorname{Im}\frac{\Gamma'}\Gamma(\tfrac14+\tfrac{it}2)$. The terms $2t/(t^2+\tfrac14)$ cancel, and with $\operatorname{Im}\frac{\Gamma'}\Gamma(\tfrac14+iy)=y\sum_{n\ge0}\big((n+\tfrac14)^2+y^2\big)^{-1}\ge\tfrac\pi2-\tfrac1{4y}$ (compare the sum with an integral) we get, for $t\ge14$ (so $y=t/2\ge7$),
+\[
+(\log\mathcal R)'\ge\tfrac12\Big(\tfrac\pi2-\tfrac1{2t}\Big)-r_1(a_q)-\frac1{6t}-\frac1{t\log t}>0.6,
+\]
+using $r_1(a_q)\le r_1(9\pi)=0.0960$. With $\mathcal R(14)<1$ (computed: $D_2(14)<10^{-10}$, and $0.63A(14)14^{1/6}\log14$ is of order $10^{-3}$) and $\mathcal R\to\infty$, the equation $\mathcal R=1$ has exactly one solution $\tau_P^+$ for $t\ge14$ and $\mathcal R>1$ beyond it. By Hiary's estimate $|Z(t)|=|\zeta(\tfrac12+it)|\le0.63t^{1/6}\log t$ \cite{Hiary16}, $|\Xi|=A|Z|<D_P$ for $t>\tau_P^+$, so $\Xi_P>0$ there. Only humps meeting $(0,\tau_P^+)$ count, and there are at most $\lceil N(\tau_P^+)/2\rceil$ of them, each carrying at most two zeros.
+\end{proof}
+
+The monotonicity of $r_1$ used here is the proved one in the proof of Theorem~\ref{mi:thm:curv}, so the uniqueness of $\tau_P^+$ and the positivity beyond it are proved.
+
+\begin{table}[ht]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{rrrrrrr}
+\toprule
+$P$ & $q$ & $\tau_P^*$ & $N(\tau_P^*)$ & $\tau_P^+$ & $N(\tau_P^+)$ & $R_P$ \\
+\midrule
+2 & 3 & 39.73 & 6 & 41.63 & 7 & 6 \\
+3 & 5 & 104.68 & 31 & 107.06 & 32 & 32 \\
+5 & 7 & 201.32 & 80 & 203.99 & 81 & 80 \\
+7 & 11 & 490.18 & 263 & 493.23 & 264 & 264 \\
+\bottomrule
+\end{tabular}
+\caption{Real zero counts (computed in floating point, not certified). $\tau_P^*$ solves $A(\tau)=D_P(\tau)$. For $P\le5$, $R_P$ is a full sign change scan; for $P=7$ it is the hump criterion, with a $215$ digit check of every hump in $[481,501]$, the last surviving pair being $489.7932$ and $491.0605$.}
+\label{mi:tab:count}
+\end{table}
+
+The primes $2,3,5,7$ therefore reproduce the first $264$ zeros of $\Xi$ in the sense that the computed zeros of $\Xi_7$ pair with the first $264$ zeros $\gamma_k$ of $\Xi$, the largest displacement being $0.338$ at $k=264$ (computed); for $P=3$ the largest displacement is $0.764$, for $P=5$ it is $0.208$ and for $P=2$ it is $0.091$. The counts $R_P$ of Table~\ref{mi:tab:count} are computed, and become theorems once a ball arithmetic certificate of the sign of $\max_{I_j}(\log|\Xi|-\log D_P)$ on every hump below $\tau_P^+$ is supplied. The breakdown height has the heuristic form
+\[
+\tau_P^*\approx4q^2+\frac6\pi\log q+\frac4\pi\log\frac{\pi^2+4}4+0.03\approx4q^2+\frac6\pi\log q+1.61,
+\]
+where $\frac4\pi\log\frac{\pi^2+4}4=1.583$ comes from the Lorentzian and Stirling estimates and the remaining $0.03$ is a fitted constant. The formula gives $39.71$, $104.68$, $201.33$, $490.19$ for $q=3,5,7,11$, against the computed $39.73$, $104.68$, $201.32$, $490.18$, and it reproduces all twenty values of Table~\ref{mi:tab:survey} to within $0.05$ (computed).

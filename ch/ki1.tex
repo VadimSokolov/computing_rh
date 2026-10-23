@@ -1,0 +1,89 @@
+\section{The work of Ki and the Thorin dictionary}\label{ki:sec:dict}
+
+\subsection{The strands of the work}
+
+The work of Ki and his coauthors falls into four strands that matter here. The first concerns the heat flow on Fourier transforms of rapidly decaying kernels: Ki and Kim extend a result of Newman on the zeros of Fourier transforms \cite{KiKim02} and answer a question of de Bruijn \cite{KiKim03}, and Ki, Kim and Lee prove that for every positive time the flowed function has all but finitely many of its zeros real and simple \cite{KKL09}. % UNCHECKED: KiKim02 generalises which result of Newman; statements of KiKim02 and KiKim03 not checked against the papers
+The second concerns repeated differentiation: Ki and Kim settle the Fourier P\'olya conjecture \cite{KiKim00}, and Ki studies the Riemann $\Xi$ function under repeated differentiation \cite{Ki06b}. The third concerns approximate zeta functions, which keep the functional equation of a zeta function and lose its Euler product: approximations of the Epstein zeta function \cite{Ki05}, modified Epstein zeta functions \cite{Ki06a}, approximations of the Ramanujan $\Xi$ function \cite{Ki08a}, Weng's zeta functions \cite{Ki10} and, with Komori and Suzuki, Weng zeta functions for Chevalley groups \cite{KKS15}. The fourth concerns the zeros of $\zeta'$ \cite{Ki08b,FarmerKi12,GonekKi18} and is taken up in Section~\ref{ki:sec:open}.
+
+\subsection{Zeros as Thorin atoms}
+
+The P\'olya kernel $\Phi$ and the function $\Xi(\theta)=\xi(\tfrac12+i\theta)=\int_{\R}\Phi(u)\cos(\theta u)\,du$ are those of \eqref{eq:ch2:Phi}, and $X$ is the P\'olya variable with density $\Phi/\Xi(0)$, so that $\Xi(\theta)/\Xi(0)=\E[e^{i\theta X}]$. With $s=-\theta^2$ this reads $\Xi(i\sqrt s)/\Xi(0)=\E[\cosh(\sqrt s\,X)]=G(s)$, the function of Section~\ref{ch:clock}, because $\xi(\tfrac12-\sqrt s)=\xi(\tfrac12+\sqrt s)$. Ki's results concern real entire functions of this kind, and the following lemma carries the Thorin reading over to all of them.
+
+\begin{lemma}\label{ki:lem:dict}
+\begin{enumerate}
+\item[(a)] Let $F$ be an even entire function, real on $\R$, of order less than two, with $F(0)\ne0$. Let $\pm w_k$ be its zeros, with multiplicity (one sign chosen for each pair, and $w_k\ne0$), and put $\lambda_k=w_k^2$. Then $s\mapsto F(i\sqrt s)$ is entire of order less than one and
+\[
+\frac{F(0)}{F(i\sqrt s)}=\prod_k\Bigl(1+\frac{s}{\lambda_k}\Bigr)^{-1},
+\]
+locally uniformly off the points $-\lambda_k$. If every $w_k$ is real, this is the Laplace transform of $T=\sum_k\lambda_k^{-1}e_k$, with $e_k$ independent standard exponential variables: a GGC with zero drift and discrete Thorin measure $\sum_k\delta_{\lambda_k}$. If some $w_k$ is not real, then $\lambda_k\notin(0,\infty)$, and $F(0)/F(i\sqrt s)$ is not the Laplace transform of any GGC.
+\item[(b)] Let $K$ be even and positive, with $K(u)=O(\exp(-|u|^p))$ for some $p>2$, and let $F(z)=\int_{\R}K(u)e^{izu}\,du$. Then $F$ satisfies the hypotheses of (a).
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(a) The function $f(s)=F(i\sqrt s)$ is entire because $F$ is even, and it has the same order as $F$ divided by two, so its order is less than one. Hadamard's theorem gives $f(s)=f(0)\prod_k(1+s/\lambda_k)$ with convergent product, because an entire function of order less than one has genus zero. The product is the Laplace transform of $T$ when all $\lambda_k>0$, since $\E e^{-se_k/\lambda_k}=(1+s/\lambda_k)^{-1}$. A zero $w_k\notin\R$ has $w_k^2\notin(0,\infty)$. A GGC transform $\exp\{-\int\log(1+s/t)\,\mu(dt)\}$ with $\mu\ge0$ on $(0,\infty)$ is analytic on $\C\setminus(-\infty,0]$, while $1/f$ has a pole at $-\lambda_k\notin(-\infty,0]$, of the order of the multiplicity of the zero, which no other factor cancels.
+
+(b) $F(0)=\int K>0$. The bound on $K$ gives $|F(x+iy)|\le C\int e^{|y||u|-|u|^p}du\le C'\exp(c_p|y|^{p/(p-1)})$, so $F$ has order at most $p/(p-1)<2$, and $F$ is even and real.
+\end{proof}
+
+For $F=\Xi$ the zeros $\pm\theta$ are $\pm\gamma$ with $\gamma>0$, and Lemma~\ref{ki:lem:dict}(a) gives $\xi(\tfrac12)/\xi(\tfrac12+\sqrt s)=\prod_{\gamma>0}(1+s/\gamma^2)^{-1}$, the clock of Section~\ref{ch:clock}. RH is the statement that its Thorin measure $\sum_{\gamma>0}\delta_{\gamma^2}$ is a positive measure on $(0,\infty)$. Special cases of the lemma, and the pole argument in its proof, appear in Propositions~\ref{prop:rigid}, \ref{rz:prop:newmanthorin} and \ref{pk:prop:filter}; the general form is needed for the approximations of Section~\ref{ki:sec:approx}. The atoms of a hypothetical counterexample are confined by a simple map.
+
+\begin{lemma}[Strips become confocal parabolas]\label{ki:lem:parab}
+For $\Delta>0$ the map $w\mapsto w^2$ sends the strip $\{|\im w|\le\Delta\}$ onto the closed region to the right of the parabola $\mathcal P_\Delta=\{x+iy:\ x=y^2/(4\Delta^2)-\Delta^2\}$. Every $\mathcal P_\Delta$ has its focus at the origin, the parabolas are nested, and they collapse onto $[0,\infty)$ as $\Delta\downarrow0$.
+\end{lemma}
+
+\begin{proof}
+The line $w=a+ib$, $a\in\R$, $0<b\le\Delta$, goes to $w^2=(a^2-b^2)+2iab$, that is, to the parabola $x=y^2/(4b^2)-b^2$. For fixed $y\ne0$ the right side decreases from $+\infty$ to $y^2/(4\Delta^2)-\Delta^2$ as $b$ increases from $0$ to $\Delta$, so the images of the lines with $0<b\le\Delta$ fill the points with $x\ge y^2/(4\Delta^2)-\Delta^2$, $y\ne0$. The real axis ($b=0$) goes to $[0,\infty)$, and the points $x\in[-\Delta^2,0)$ on the axis $y=0$ are the images of $w=i\sqrt{-x}$. The lines with $b\le\Delta$ lie in the strip and the same computation shows that the image has no point left of $\mathcal P_\Delta$. The focus of $x=y^2/(4\Delta^2)-\Delta^2$ is at $x=-\Delta^2+\Delta^2=0$. For $\Delta'<\Delta$ the parabola $\mathcal P_{\Delta'}$ lies to the right of $\mathcal P_\Delta$ at every height $y\ne0$, and for fixed $y\ne0$ its abscissa tends to $+\infty$ as $\Delta'\downarrow0$.
+\end{proof}
+
+\section{The heat flow, the barrier and the Gaussian tilt}\label{ki:sec:flow}
+
+For real $t$ let $\Xi_t$ be the transform of the damped kernel $e^{tu^2/4}\Phi(u)$ of Section~\ref{sec:biane:flow}, so that $\Xi_t(\theta)=\int_{\R}\Phi(u)e^{tu^2/4}\cos(\theta u)\,du$ and $\Xi_0=\Xi$. With $D=d/d\theta$ we have $D^2\cos(\theta u)=-u^2\cos(\theta u)$, hence $\Xi_t=e^{-(t/4)D^2}\Xi$: the backward heat operator is the Gaussian tilt of the P\'olya density, and $\Xi_t(\theta)=8H_t(2\theta)$ with $H_t$ the function of Section~\ref{sec:ch21:flow}, so that the constants of that section carry over without change. The zeros of $\Xi$ lie in $|\im\theta|<\tfrac12$ and the zeros of $\Xi_t$ in $(\im\theta)^2\le\max(\tfrac14-\tfrac t2,0)$ by de Bruijn's theorem \cite[Theorem~13]{deBruijn} (Theorem~\ref{tf:thm:heat}(c) with $r=1$, since the zeros of $H_0$ lie in $|\im z|\le1$); in particular $\Xi_t$ has only real zeros for $t\ge\tfrac12$. Newman showed that there is a constant $\Lambda$ such that $\Xi_t$ has only real zeros exactly for $t\ge\Lambda$ \cite{Newman1976}, and Rodgers and Tao proved $\Lambda\ge0$ \cite{RodgersTao}; RH is $\Lambda\le0$. By Lemma~\ref{ki:lem:dict}(b), applied to $K=\Phi e^{tu^2/4}$, the atoms of the Thorin measure of $1/\Xi_t$ are the squares of the zeros of $\Xi_t$ in the upper half plane and on the positive axis.
+
+\subsection{The theorem of Ki, Kim and Lee in Thorin form}\label{ki:sec:kkl}
+
+Ki, Kim and Lee proved that for every $t>0$ the function $\Xi_t$ has infinitely many zeros, all but finitely many of them real and simple \cite{KKL09}; this gives $\Lambda<\tfrac12$ and no height beyond which the zeros are real (Remark~\ref{mw:rem:flowcert} records the same statement).
+Lemma~\ref{ki:lem:dict} turns it into a statement on the Thorin measure.
+
+\begin{proposition}[Eventually Thorin]\label{ki:prop:eventual}
+For every $t>0$ there are a finite, conjugation invariant multiset $E_t\subset\C\setminus(0,\infty)$ and a GGC Laplace transform $L_t$, with discrete Thorin measure on $(0,\infty)$ whose atoms are simple beyond a finite level, such that
+\[
+\frac{\Xi_t(0)}{\Xi_t(i\sqrt s)}=L_t(s)\prod_{\eta\in E_t}\Bigl(1+\frac{s}{\eta}\Bigr)^{-1}.
+\]
+$\Xi_t$ has only real zeros exactly when $E_t=\emptyset$.
+\end{proposition}
+
+\begin{proof}
+The kernel $\Phi e^{tu^2/4}$ is even and positive and decays like $\exp(-\pi e^{2u}/2)$, so Lemma~\ref{ki:lem:dict}(b) applies to it for every $p$. Split the zeros of $\Xi_t$ into the real ones and the finitely many nonreal ones, which by the theorem of Ki, Kim and Lee form a conjugation invariant set. The nonreal zeros $w$ give the multiset $E_t=\{w^2\}$, which misses $(0,\infty)$, and the real zeros give $L_t$ by Lemma~\ref{ki:lem:dict}(a). Only finitely many real zeros are multiple.
+\end{proof}
+
+For $t>0$ the tail of the Thorin measure of the reciprocal is therefore positive, and only a finite rational factor has to be settled by computation. The case $t=0$ of the identity would be the clock of $\xi$ with $E_0$ the multiset of squared off line zeros, and RH is the statement that $E_0$ is empty. The barrier of the Polymath project is a separate device, for the zeros that enter the strip from large heights (Chapter~\ref{chap:phase}); the Polymath project proved $\Lambda\le0.22$ \cite{Polymath} with an effective version of the theorem and a barrier, and Platt and Trudgian improved this to $\Lambda\le0.2$ \cite{PT21}.
+
+De Bruijn's strip theorem says where $E_t$ can be; Ki and Kim \cite{KiKim03} proved the form of it that allows finitely many exceptional zeros: if for every $\varepsilon>0$ all but finitely many zeros of a real entire function $f$ of genus at most one lie in $|\im z|\le\Delta+\varepsilon$, then for every $\varepsilon>0$ all but finitely many zeros of $e^{-\lambda D^2}f$ lie in $|\im z|\le\sqrt{\max(\Delta^2-2\lambda,0)}+\varepsilon$. % UNCHECKED: KiKim03 statement as in the chapter source
+That statement is about all but finitely many zeros and does not locate the finitely many exceptions, so by itself it adds nothing to Proposition~\ref{ki:prop:eventual}. What does locate $E_t$ is de Bruijn's theorem for all zeros.
+
+\begin{corollary}[Shrinking parabolas]\label{ki:cor:parab}
+For $0<t<\tfrac12$ every Thorin atom of $\Xi_t$, in particular every $\eta\in E_t$, lies in the closed region to the right of $\mathcal P_{\Delta(t)}$, where $\Delta(t)^2=\tfrac14-\tfrac t2$. The parabolas share the focus $0$ and collapse onto $[0,\infty)$ at $t=\tfrac12$, where de Bruijn's theorem takes over.
+\end{corollary}
+
+\begin{proof}
+By Theorem~\ref{tf:thm:heat}(c) with $r=1$, all zeros of $\Xi_t$ lie in $(\im\theta)^2\le\tfrac14-\tfrac t2=\Delta(t)^2$, and an atom is the square of a zero. Lemma~\ref{ki:lem:parab} gives the region.
+\end{proof}
+
+\subsection{The Gaussian tilt obstruction}\label{ki:sec:obstruction}
+
+Read through Lemma~\ref{ki:lem:dict}, the theorem of Rodgers and Tao says that for every $t<0$ the Thorin measure of $1/\Xi_t$ has atoms off $(0,\infty)$ (Proposition~\ref{ki:prop:obstruction}). This is a filter on proof strategies.
+
+\begin{proposition}[No slack in the Gaussian direction]\label{ki:prop:obstruction}
+Let $\mathcal K$ be a class of positive even kernels closed under $K\mapsto Ke^{-bu^2}$ for every $b>0$. If every $K\in\mathcal K$ has a Fourier transform with only real zeros, then $\Phi\notin\mathcal K$.
+\end{proposition}
+
+\begin{proof}
+If $\Phi\in\mathcal K$, then $\Phi e^{-bu^2}\in\mathcal K$ for every $b>0$, so $\Xi_t$ has only real zeros for every $t<0$, that is, $\Lambda<0$, contradicting $\Lambda\ge0$ \cite{RodgersTao}.
+\end{proof}
+
+The statement is Proposition~\ref{prop:biane:damping}(a) and Proposition~\ref{pk:prop:filter} in other words, and the remark that follows is what the proposition adds. Multiplication by $e^{-bu^2}$ adds $-2b$ to $(\log K)''$ and the linear function $-bv$ to $\log K(\sqrt v)$. Every condition that bounds $(\log K)''$ from above is therefore preserved, including log concavity of $K(u)$ and of $K(\sqrt v)$. No such condition can imply RH together with any further hypotheses that the tilt also preserves. For log concavity this is Proposition~\ref{pk:prop:filter}(ii); see also \cite{Newton26}. The same holds for any form of the sine squared lemma (eq.~\eqref{eq:sin2}) whose positivity hypothesis on the L\'evy measure survives the corresponding tilt. A Thorin argument for RH must therefore use a property that $\Phi$ has and that $\Phi e^{-bu^2}$ loses for every $b>0$.
+
+\begin{remark}[Newman's class]
+Newman \cite{Newman74} characterised the Lee and Yang single spin laws as those whose Fourier transform is in the Laguerre P\'olya class (Proposition~\ref{rz:prop:newmanthorin}); the class is preserved by $e^{bt^2}$, $b>0$. The law with density $\Phi/\Xi(0)$ belongs to it if and only if RH holds, and by Rodgers and Tao $\Phi e^{-bu^2}$ does not belong to it for any $b>0$, so under RH the P\'olya law lies on its boundary.
+\end{remark}

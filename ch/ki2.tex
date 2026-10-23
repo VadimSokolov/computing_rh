@@ -1,0 +1,102 @@
+\section{Derivatives and the Brownian exit time}\label{ki:sec:deriv}
+
+Ki proved \cite{Ki06b} that there are real constants $A_n$ and $\tau_n\to0$ with
+\begin{equation}\label{ki:eq:ki}
+A_n\,\Xi^{(2n)}(\tau_n\theta)\to\cos\theta
+\end{equation}
+locally uniformly on $\C$, where $\Xi$ is the function of Section~\ref{ki:sec:dict} and $\Xi^{(2n)}$ its $2n$th derivative. The theorem is stated for the function $\xi(\tfrac12+i\theta)$, which is the present $\Xi$, so no rescaling of the variable is needed. Ki also treats the Xi functions of automorphic $L$ functions, and Gunns and Hughes extend the result to the Selberg class \cite{GunnsHughes19}. % UNCHECKED: automorphic L functions and the Selberg class extensions, statements not checked
+This section reads \eqref{ki:eq:ki} as a statement about moment tilts of the P\'olya density.
+
+\subsection{Moment tilts}\label{ki:sec:moment}
+
+Since $\Xi^{(2n)}(\theta)=(-1)^n\int_{\R}u^{2n}\Phi(u)\cos(\theta u)\,du$, the ratio $\Xi^{(2n)}(\theta)/\Xi^{(2n)}(0)$ is the characteristic function of $X_n$, the symmetric variable with density proportional to $u^{2n}\Phi(u)$. Write $\ell_n(u)=2n\log u+\log\Phi(u)$ for the logarithm of the tilted density on $u>0$. Because $\log\Phi(u)=\tfrac92u-\pi e^{2u}+O(1)$ as $u\to+\infty$, the tilt concentrates $|X_n|$ near the mode $u_n$, the root of $2\pi e^{2u}=2n/u+\tfrac92$, so that $u_n\sim\tfrac12\log n$; the convergence is slow (computed: $u_n=3.4186$ at $n=10^4$, against $\tfrac12\log n=4.605$). Setting $\theta=0$ in \eqref{ki:eq:ki} gives $A_n\Xi^{(2n)}(0)\to1$, so \eqref{ki:eq:ki} is equivalent to
+\begin{equation}\label{ki:eq:cf}
+\E\bigl[e^{i\theta\tau_nX_n}\bigr]\to\cos\theta\quad\text{locally uniformly on }\C:
+\end{equation}
+$\tau_nX_n$ converges in law to a symmetric sign, and all exponential moments converge. Put $m_n=\E|X_n|$. The family $|\tau_nX_n|$ is uniformly integrable, because its exponential moments are bounded on compact sets by \eqref{ki:eq:cf}, so $\tau_nm_n\to1$, and since the locally uniform convergence in \eqref{ki:eq:cf} is stable under replacing $\tau_n$ by a factor tending to one, one may take $\tau_n=1/m_n$.
+
+\begin{proposition}[Brownian exit time limit]\label{ki:prop:bm}
+Let
+\[
+\psi_n(s)=\frac{\Xi^{(2n)}(0)}{\Xi^{(2n)}(i\sqrt{2s}/m_n)}=\frac{1}{\E[\cosh(\sqrt{2s}\,X_n/m_n)]}.
+\]
+Then $\psi_n(s)\to1/\cosh\sqrt{2s}$ locally uniformly off the poles of the limit. The limit is $\E[e^{-sT}]$ for $T$ the exit time of standard Brownian motion from $(-1,1)$, a GGC with Thorin measure
+\[
+\sum_{k\ge1}\delta_{c_k^2/2},\qquad c_k=\tfrac{(2k-1)\pi}{2}.
+\]
+For each $K$ there is $n_K$ such that for $n\ge n_K$ the $K$ smallest Thorin atoms of $\psi_n$ are positive and simple and converge to $c_k^2/2$. If RH holds, each $\psi_n$ is the Laplace transform of a GGC $T_n$, and $T_n\to T$ in law.
+\end{proposition}
+
+\begin{proof}
+Evaluate the locally uniform limit \eqref{ki:eq:cf}, with $\tau_n=1/m_n$, at $\theta=i\sqrt{2s}$. The formula $\E e^{-sT}=1/\cosh\sqrt{2s}$ is classical, and $\cosh\sqrt{2s}=\prod_k(1+s/(c_k^2/2))$. The statement about atoms is Hurwitz's theorem applied to the entire functions $s\mapsto1/\psi_n(s)$: the zeros of $\cosh\sqrt{2s}$ are simple and real, so for large $n$ there is exactly one zero of $1/\psi_n$ in a small disc around each of them, and since $1/\psi_n$ is real on the real axis the conjugate zero lies in the same disc, so the zero is real. Under RH, $\Xi$ lies in the Laguerre P\'olya class, which is closed under differentiation, so $\Xi^{(2n)}$ has only real zeros; the kernel $u^{2n}\Phi(u)$ is even and positive with the decay required in Lemma~\ref{ki:lem:dict}(b), and Lemma~\ref{ki:lem:dict}(a) applies to each $\psi_n$. Convergence of Laplace transforms on $[0,\infty)$ to a transform that is continuous at $0$ gives convergence in law.
+\end{proof}
+
+By Kent's theorem (Section~\ref{ch:bphit}, \cite{Kent80}) a GGC with discrete Thorin measure is the hitting time of a diffusion governed by a Krein string, and the Riemann string is the unknown of the inverse spectral problem. Under RH, Proposition~\ref{ki:prop:bm} says that the hitting times of the strings of the scaled high derivatives converge in law to the exit time of Brownian motion from an interval, as the clocks of the de Bruijn Newman flow do (Proposition~\ref{xg:prop:large}). Convergence of the strings themselves would need the continuity of Krein's inverse spectral correspondence, which is not used here. The statement about the $K$ smallest atoms is also implied by the local theorem of Ki and Kim recalled in Section~\ref{pol:sec:papers}.
+
+\subsection{The rate of convergence of the atoms}\label{ki:sec:rate}
+
+Write $|X_n|=m_n+V_n$, with $\E V_n=0$, $\sigma_n^2=\E V_n^2$ and $\kappa_n=\E V_n^3$ (the third central moment, which is the third cumulant). The following exact equation for the zeros leads to a conjecture for the rate. Let $\mathcal A_n(\theta)=\E\cos(\theta V_n)$ and $\mathcal B_n(\theta)=\E\sin(\theta V_n)$.
+
+\begin{lemma}\label{ki:lem:zeroeq}
+A real $\theta$ is a zero of $\Xi^{(2n)}$ if and only if
+\[
+\cos(\theta m_n)\,\mathcal A_n(\theta)=\sin(\theta m_n)\,\mathcal B_n(\theta).
+\]
+In particular, where $\sin(\theta m_n)\ne0$ and $\mathcal A_n(\theta)\ne0$, the zeros satisfy $\cot(\theta m_n)=\mathcal B_n(\theta)/\mathcal A_n(\theta)$.
+\end{lemma}
+
+\begin{proof}
+By symmetry of $X_n$, $\E\cos(\theta X_n)=\E\cos(\theta(m_n+V_n))=\cos(\theta m_n)\mathcal A_n(\theta)-\sin(\theta m_n)\mathcal B_n(\theta)$.
+\end{proof}
+
+Now $\mathcal A_n(\theta)=1-\tfrac12\theta^2\sigma_n^2+\dots$ is even in the fluctuation and $\mathcal B_n(\theta)=-\tfrac16\theta^3\kappa_n+\dots$ is odd. Near $\theta m_n=c_k$ we have $\cot(c_k+\delta)=-\tan\delta\approx-\delta$, so the shift of the $k$th zero is $\delta\approx-\mathcal B_n/\mathcal A_n\approx\kappa_n\theta^3/6$. The variance cancels to leading order: broadening the tilted law symmetrically does not move the zeros, and to first order only the third central moment does. This computation is heuristic. It suggests the following statement, which is supported by the numbers below and is not proved.
+
+\begin{remark}[Conjecture: the Edgeworth rate]\label{ki:conj:rate}
+As $n\to\infty$, for each fixed $k$ the $k$th positive zero $z_{k,n}$ of $\Xi^{(2n)}$ satisfies
+\[
+z_{k,n}\,m_n=c_k+\frac{\kappa_n\,c_k^3}{6\,m_n^3}\bigl(1+o(1)\bigr),
+\]
+and, with $\tau_n=1/m_n$,
+\[
+\sup_{0\le s\le S}\Bigl|\psi_n(s)-\frac{1}{\cosh\sqrt{2s}}\Bigr|=\Bigl(\sup_{x\le\sqrt{2S}}\frac{x^2}{2\cosh x}\Bigr)\frac{\sigma_n^2}{m_n^2}\bigl(1+o(1)\bigr).
+\]
+For $S\ge2.133$ the constant is $\max_xx^2/(2\cosh x)=0.53222$, attained at $x=2.06534$ (computed: the maximiser solves $\tanh x=2/x$).
+\end{remark}
+
+The second formula comes from $\E\cosh(x|X_n|/m_n)=\cosh x\,(1+x^2\sigma_n^2/(2m_n^2))+O(\kappa_n/m_n^3)$. A saddle point expansion of $\ell_n$ at $u_n$ gives the orders of the cumulants (heuristic). At the mode, $\ell_n''(u_n)\approx-2n/u_n^2-4n/u_n-9$ and $\ell_n'''(u_n)\approx4n/u_n^3-8n/u_n-18$, so that
+\[
+\sigma_n^2\approx-\frac1{\ell_n''(u_n)},\qquad\kappa_n\approx\ell_n'''(u_n)\,\sigma_n^6,
+\]
+and to leading order $\sigma_n^2\approx u_n/(4n)$ and $\kappa_n\approx-u_n^2/(8n^2)$. The low atoms then move by $O\bigl(1/(n^2\log n)\bigr)$ while the Laplace transform converges at rate $O\bigl(1/(n\log n)\bigr)$. The leading forms are poor at the values of $n$ computed: at $n=10^4$ they exceed the computed $\sigma_n^2$ by $15$ percent and $|\kappa_n|$ by $57$ percent, and the logarithmic factors are not visible, so the numbers below use the full saddle forms.
+
+\subsection{Numerical evidence}\label{ki:sec:numbers}
+
+The script \texttt{code/ki\_tilt.py} computes the tilted law by the trapezoid rule on a window around $u_n$, with $\log\Phi$ used to avoid underflow, in mpmath at 40 and 50 digits with two windows and steps for each $n$, its cumulants, the first six zeros of $\int u^{2n}\Phi(u)\cos(\theta u)\,du$, and the Laplace transform error on $0\le s\le20$. Its output for the normalisation of this book is \texttt{data/ki\_tilt\_book.json} ($n=10,10^2,10^4$) and, for the chapter source's normalisation $\Phi_{\rm dBN}$ of Section~\ref{sec:ch21:flow}, \texttt{data/ki\_tilt\_chapter.json} ($n=5$ and $n=10,10^2,\dots,10^6$); the two runs differ by the scaling $u\mapsto2u$, which doubles $m_n$ and $\sigma_n$ and multiplies $\kappa_n$ by $8$ and leaves $z_{k,n}m_n$, $\sigma_n/m_n$, $\kappa_n/m_n^3$ and the Laplace error unchanged. The rows for $n=10^3$ and $10^6$ of Table~\ref{ki:tab:rate} are those of the second file with $m_n$ and $\sigma_n$ doubled. The two runs for each $n$ agree to $4\times10^{-11}$ relative at worst ($n=5$) and to $10^{-26}$ otherwise.
+
+\begin{table}[h]
+\centering\scriptsize\setlength{\tabcolsep}{3pt}
+\begin{tabular}{rcccccc}
+\toprule
+$n$ & $m_n$ & $\sigma_n$ & $z_{1,n}m_n-c_1$ & Edgeworth & $z_{3,n}m_n-c_3$ & Edgeworth\\
+\midrule
+10 & 0.7832 & 0.1019 & $-4.01\times10^{-5}$ & $-4.00\times10^{-5}$ & $-5.28\times10^{-3}$ & $-5.00\times10^{-3}$\\
+100 & 1.5319 & 0.0530 & $-1.70\times10^{-6}$ & $-1.70\times10^{-6}$ & $-2.12\times10^{-4}$ & $-2.12\times10^{-4}$\\
+$10^3$ & 2.4382 & 0.0224 & $-1.72\times10^{-8}$ & $-1.72\times10^{-8}$ & $-2.15\times10^{-6}$ & $-2.15\times10^{-6}$\\
+$10^4$ & 3.4185 & 0.0086 & $-1.50\times10^{-10}$ & $-1.50\times10^{-10}$ & $-1.87\times10^{-8}$ & $-1.87\times10^{-8}$\\
+$10^6$ & 5.4844 & 0.0011 & $-1.11\times10^{-14}$ & $-1.11\times10^{-14}$ & $-1.39\times10^{-12}$ & $-1.39\times10^{-12}$\\
+\bottomrule
+\end{tabular}
+\caption{Computed shifts of the first and third positive zeros of $\Xi^{(2n)}$, rescaled by $m_n$, against the Edgeworth prediction $\kappa_nc_k^3/(6m_n^3)$ (computed, \texttt{code/ki\_tilt.py}, 40 and 50 digits).}\label{ki:tab:rate}
+\end{table}
+
+For $100\le n\le10^4$ the prediction agrees with the computed shift to within $0.02$ percent for every $k\le6$ (at worst $0.018$ percent, at $n=100$). At $n=10$ the worst $k$ gives $23$ percent, and for small $n$ the higher zeros are not in the regime $c_k^3|\kappa_n|\ll m_n^3$ where the expansion applies. At $n=10^6$ the shift of the first zero is $-1.11\times10^{-14}$ in the mpmath runs and agrees with the prediction. The ratio of the sup of the Laplace transform error on $0\le s\le20$ to $\sigma_n^2/m_n^2$ rises from $0.514$ at $n=5$ through $0.5307$ at $n=10^2$ and $0.53220$ at $n=10^4$ to $0.53221$ at $n=10^6$, against the predicted $0.53222$. At $n=10^4$ the quadrature gives $\sigma_n^2=7.452\times10^{-5}$ and $\kappa_n=-9.27\times10^{-9}$, and the saddle point formulas displayed above agree with these values.
+
+Two consequences matter for computation. The low Thorin atoms of $\Xi^{(2n)}$ are rigid: by $n=100$ the first six rescaled zeros $z_{k,n}m_n$ lie within $3\times10^{-3}$ of the Brownian values $c_k$ (computed: at most $2.26\times10^{-3}$), and by $n=1000$ within $3\times10^{-5}$ ($2.29\times10^{-5}$), and the deviation is governed, to first order, by the third central moment $\kappa_n$, a functional of the moments of $\Phi$. Because the variance drops out of this first order term, any model of $\Phi$ that reproduces the tilted mean and the third central moment reproduces the low atoms of the high derivatives to first order in $\kappa_n/m_n^3$; the variance enters at second order through $\mathcal A_n$.
+
+\begin{remark}[Scale mixtures survive the tilt]\label{ki:rem:mixture}
+If $\Phi(u)=\int\sigma^{-1}g(u/\sigma)\,F(d\sigma)$ is a positive scale mixture, as in the uniform and arcsine mixtures of Sections~\ref{fm:sec:polyamix} and \ref{pk:sec:arcsine}, then
+\[
+u^{2n}\Phi(u)=\int\sigma^{2n}\,\sigma^{-1}\bigl[(u/\sigma)^{2n}g(u/\sigma)\bigr]F(d\sigma)
+\]
+is again a positive scale mixture, of the tilted kernel $u^{2n}g(u)$ with mixing measure reweighted by $\sigma^{2n}$. Concentration of the rescaled mixture needs concentration of every factor after scaling, since a product of independent positive factors concentrates only if each factor does; Remark~\ref{ki:conj:rate} would then say how the third central moment of the reweighted mixture controls the atoms.
+\end{remark}
