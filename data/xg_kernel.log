@@ -1,0 +1,26 @@
+[hopper_run] /scratch/vsokolov/rh_book_repro/agents/xg_kernel: sbatch --wait, 8 cores, 16G, 30 min
+[hopper_run] job 2689144 on hop070.orc.gmu.edu
+Section sec:xg:kernel: the clock as a harmonic mean of Brownian exit time transforms, two examples, and the Gamma mixture bound (40 digits, 12 terms of Phi)
+xi(1/2) = 0.49712077818831410991
+(1) total mass of p on R: 1.0 (quadrature in x), 1.0 (in u of the authors); 1 - mass = 1.15e-41
+    E cosh(1 X): quadrature 1.0233550095820210723, xi(1/2+w)/xi(1/2) 1.0233550095820210723, relative difference 2.3e-41
+    E cosh(3 X): quadrature 1.2293350716948902381, xi(1/2+w)/xi(1/2) 1.2293350716948902381, relative difference 0.0
+    E cosh(10 X): quadrature 8.6770946074743113017, xi(1/2+w)/xi(1/2) 8.6770946074743113017, relative difference 0.0
+    s = 100: G(100) = E cosh(10 X): quadrature 8.6770946074743113017, xi(21/2)/xi(1/2) 8.6770946074743113017, u of the authors 8.6770946074743113017
+    number 1: E exp(-100 T) = 1/G(100) = 0.115245948700227 (quadrature), 0.115245948700227 (xi), 0.115245948700227 (u of the authors)
+    number 2: E L_X(100) = E 1/cosh(10 X) = 0.474190121027123 (quadrature), 0.474190121027123 (u of the authors); Jensen: 0.115246 <= 0.47419: True
+    truncation: the n = 13 term of the integral of G(100) is 1.13e-227, the integrand at x = 4 is 8.72e-4041 (both relative to G(100) = 8.6770946)
+    harmonic mean over arithmetic mean at s = 100: 0.243037
+(2) Example xg:ex:harm: harmonic mean = 2/(5*z**2 + 6*z + 2), poles [-3/5 - I/5, -3/5 + I/5], inverse transform 2*exp(-3*t/5)*sin(t/5) (its Laplace transform equals the harmonic mean exactly)
+    Laplace transform of the inverse at s = 1: quadrature 0.153846153846153846, harmonic mean 0.153846153846153846
+    Laplace transform of the inverse at s = 2: quadrature 0.0588235294117647059, harmonic mean 0.0588235294117647059
+    f(5 pi) = 6.67e-47, f(10 pi) = -1.08e-50; f(2.5 pi) = 0.017967 > 0, f(7.5 pi) = -1.4499e-6 < 0, f(12.5 pi) = 1.1701e-10 > 0; the minimum on (5 pi, 10 pi) is -1.94401e-5 at t = 17.3167
+(3) Example xg:ex:g2: numerator lambda**2*z**2 + 2*lambda*z + z**2 + 2*z + 2 vanishes at s = (-(lam+1) +- i (lam-1))/(lam^2+1), whose imaginary part +-(lam-1)/(lam^2+1) is not zero for real lam != 1
+    lam = 2.0: zero (-0.6 + 0.2j), |E(1+sY)^-2| there 1.03e-40, poles -1 and -0.5
+    lam = 0.5: zero (-1.2 - 0.4j), |E(1+sY)^-2| there 1.03e-40, poles -1 and -2.0
+    lam = 3.0: zero (-0.4 + 0.2j), |E(1+sY)^-2| there 3.25e-41, poles -1 and -0.333333
+    lam = 10.0: zero (-0.108910891089 + 0.0891089108911j), |E(1+sY)^-2| there 1.95e-41, poles -1 and -0.1
+(4) x_0 = 1: P(|X| >= x_0) = 2.525101164e-8, c_2 = 2/P = 79204747.0; (1/G(s))/(c_2 exp(-x_0 sqrt s)) at s = 1, 10, 100, 1e4, 1e6: ['3.35e-8', '2.37e-7', '3.2e-5', '2.0e-7', '1.07e-463']; all <= 1: True
+(4) x_0 = 2: P(|X| >= x_0) = 1.198344919e-71, c_2 = 2/P = 1.6689686e+71; (1/G(s))/(c_2 exp(-x_0 sqrt s)) at s = 1, 10, 100, 1e4, 1e6: ['4.33e-71', '2.66e-69', '3.35e-64', '2.56e-27', '1.0e-92']; all <= 1: True
+(5) gamma_1 = 14.13472514173469379, 2 gamma_1 = 28.269450283469387581; Xi(gamma_1) = 2 int_0^4 Phi(x) cos(gamma_1 x) dx = 5.95e-44 (Xi(0) = 0.4971207782)
+wrote xg_kernel.json in 6.4 s

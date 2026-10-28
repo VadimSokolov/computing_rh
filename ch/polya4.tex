@@ -87,12 +87,42 @@ Let $t_k^*$ be the positive zeros of $\Xi^*$ in increasing order and $\vartheta$
 \end{proposition}
 
 \begin{proof}[Sketch]
-For $\nu=\frac94+\frac{it}2$, the ascending series of $I_{-\nu}$ and the reflection formula give $K_\nu(2\pi)=\frac12\Gamma(\nu)\pi^{-\nu}\big(1+\frac{\pi^2}{1-\nu}+O(t^{-2})\big)$, the companion term $\frac12\Gamma(-\nu)\pi^\nu$ being smaller by a factor of order $t^{-9/2}$. With $s=\frac12+it$ we have $\Gamma(\nu)=(\frac s2+1)\frac s2\,\Gamma(\frac s2)$ and $\Gamma(\frac s2)\pi^{-it/2}=|\cdot|e^{i\vartheta(t)}$, so the phase of $K_\nu(2\pi)$ is $\vartheta(t)+\arg s+\arg(s+2)+\im\frac{\pi^2}{1-\nu}+O(t^{-2})$. Here $\arg s+\arg(s+2)=\pi-\frac3t+O(t^{-3})$ and $\im\frac{\pi^2}{1-\nu}=\frac{2\pi^2t}{t^2+25/4}=\frac{2\pi^2}{t}+O(t^{-3})$, so the phase is $\vartheta(t)+\pi+\frac{2\pi^2-3}{t}+O(t^{-2})$. The zeros of the real part are where this phase lies in $\frac\pi2+\pi\mathbb Z$, which is \eqref{pol:eq:gram}; the indexing is fixed by the first zero.
+For $\nu=\frac94+\frac{it}2$, the ascending series of $I_{-\nu}$ and the reflection formula give $K_\nu(2\pi)=\frac12\Gamma(\nu)\pi^{-\nu}\big(1+\frac{\pi^2}{1-\nu}+O(t^{-2})\big)$, the companion term $\frac12\Gamma(-\nu)\pi^\nu$ being smaller by a factor of order $t^{-9/2}$. With $s=\frac12+it$ we have $\Gamma(\nu)=(\frac s2+1)\frac s2\,\Gamma(\frac s2)$ and $\Gamma(\frac s2)\pi^{-it/2}=|\cdot|e^{i\vartheta(t)}$, so the phase of $K_\nu(2\pi)$ is $\vartheta(t)+\arg s+\arg(s+2)+\im\frac{\pi^2}{1-\nu}+O(t^{-2})$. Here $\arg s+\arg(s+2)=\pi-\frac3t+O(t^{-3})$ and $\im\frac{\pi^2}{1-\nu}=\frac{2\pi^2t}{t^2+25/4}=\frac{2\pi^2}{t}+O(t^{-3})$, so the phase is $\vartheta(t)+\pi+\frac{2\pi^2-3}{t}+O(t^{-2})$. The zeros of the real part are where this phase lies in $\frac\pi2+\pi\mathbb Z$, which is \eqref{pol:eq:gram}; the indexing is fixed by the first zero. The integer can also be fixed without computation, by letting the argument $2\pi$ of $K$ decrease to $0$ as in the proof of Proposition~\ref{pol:prop:skeleton}(ii); at basepoint $\frac94$ the ratio of $K_\nu(a)$ to $\frac12\Gamma(\nu)(a/2)^{-\nu}$ is then $1+O(a^2)$ uniformly in $t$, the companion term contributing $O(a^{9/2})$.
 \end{proof}
 
 Compare the Thorin form of the zero count, $U((0,t])=\vartheta(\sqrt t)/\pi+1+S(\sqrt t)$ under RH. P\'olya's $\Xi^*$ replaces the arithmetic fluctuation $S$ by a bounded rounding error: by Proposition~\ref{pol:prop:gram} its Thorin distribution $N^*(\sqrt t)$ is the rounding of the smooth archimedean distribution $\vartheta(\sqrt t)/\pi+1$. This is the distribution that the $2\sin^2$ lemma computes for the gamma factor in Theorem~\ref{rz:thm:gammaggc}, up to an affine function of $\sqrt t$: that theorem gives $(\vartheta(\sqrt t)-\vartheta'(0)\sqrt t)/\pi$ for the compensated factor $e^{-c\sqrt s}/G(s)$, with $c=-\vartheta'(0)$. In this sense $\Xi^*$ is the zeta function with $\zeta$ replaced by its first Dirichlet term and the result symmetrised, and its reciprocal $\Xi^*(0)/\Xi^*(\sqrt{-s})$ is, by P\'olya's theorem, an unconditional GGC with Thorin measure $\sum_k\delta_{(t_k^*)^2}$.
 
 \paragraph{Numerics.} $\Xi^*$ has 29 zeros in $(0,100]$, as does $\Xi$, but they are displaced: the first eight are $8.9928$, $19.0654$, $24.4748$, $28.9750$, $33.0069$, $36.7367$, $40.2491$, $43.5947$. There are $138$ zeros up to height $300$; at the last, $t^*_{138}=299.627$, the deviation from $k-\frac32$ times $t^*_k$ is $-5.329$, against the constant $-(2\pi^2-3)/\pi=-5.328$ of \eqref{pol:eq:gram} (Figure~\ref{pol:fig:one}, right).
+
+\paragraph{Basepoint $\frac14$.} At basepoint $\frac14$ the zeros of the even part sit at half Gram points with no shift of index, and their displacement from the zeros of $\Xi$ is governed by $S$. This follows a note of Nicholas Polson merged into the book \cite{P26gumbelop}. Let
+\[
+\Xi^\circ(t)=\re K_{\frac14+\frac{it}2}(2\pi),\qquad\psi(t)=\arg K_{\frac14+\frac{it}2}(2\pi),\quad\psi(0)=0,
+\]
+so that $\Xi^\circ$ is, up to a constant, the transform of the law proportional to $\cosh(\frac x2)e^{-2\pi\cosh2x}$, the member of Theorem~\ref{fm:thm:bessel} with $a=2\pi$, $\ell=2$ and $\mu=0$ and one field $\lambda_1=\frac12$.
+
+\begin{proposition}\label{pol:prop:skeleton}
+\begin{enumerate}
+\item[(i)] The zeros of $\Xi^\circ$ are real and simple, $\psi$ is strictly increasing on $[0,\infty)$, and the positive zeros $t^\circ_1<t^\circ_2<\cdots$ are the solutions of $\psi(t^\circ_n)=(n-\frac12)\pi$. So $N^\circ(T)=\#\{n:t^\circ_n\le T\}=\lfloor\psi(T)/\pi+\frac12\rfloor$.
+\item[(ii)] $\psi(t)=\vartheta(t)+O(t^{-1/2})$. Hence $\vartheta(t^\circ_n)/\pi=n-\frac12+O((t^\circ_n)^{-1/2})$, and $t^\circ_n-g_n=O\big((t^\circ_n)^{-1/2}/\log t^\circ_n\big)$ for the half Gram points $\vartheta(g_n)=(n-\frac12)\pi$.
+\item[(iii)] Let $0<\gamma_1\le\gamma_2\le\cdots$ be the ordinates of all zeros of $\xi$ in the upper half plane, with multiplicity and whatever their real parts. Suppose that exactly one zero of $\xi$, counted with multiplicity, has ordinate $\gamma_{n+1}$, and let $S(\gamma_{n+1})$ be the mean of the one sided limits of $S$ there. Then $\vartheta(\gamma_{n+1})=(n-\frac12)\pi-\pi S(\gamma_{n+1})$, and
+\[
+t^\circ_n-\gamma_{n+1}=\frac{\pi S(\gamma_{n+1})}{\vartheta'(\gamma_{n+1})}+O\Big(\frac{\gamma_{n+1}^{-1/2}}{\log\gamma_{n+1}}\Big)
+\]
+with an absolute implied constant.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}[Sketch]
+(i) The zeros are real by Theorem~\ref{fm:thm:bessel}. As in the paragraph before Proposition~\ref{pol:prop:gram}, $K_\nu(2\pi)=K_0(2\pi)\prod_n(1+\nu^2/z_n^2)$, and at $\nu=\frac14+\frac{it}2$ the factor of index $n$ contributes
+\[
+\frac{1/8}{\frac1{16}+(\frac t2+z_n)^2}+\frac{1/8}{\frac1{16}+(\frac t2-z_n)^2}>0
+\]
+to $\psi'(t)$. Since $\Xi^\circ(t)=|K_{\frac14+\frac{it}2}(2\pi)|\cos\psi(t)$ and the modulus does not vanish for real $t$, the zeros on $(0,\infty)$ are where $\psi$ crosses $(\frac12+\mathbb Z)\pi$, each once and simply.
+(ii) For $\nu=\frac14+\frac{it}2$ the ascending series and the reflection formula give, as in the sketch of Proposition~\ref{pol:prop:gram}, $K_\nu(2\pi)=\frac12\Gamma(\nu)\pi^{-\nu}R(t)$ with $R(t)=1+O(t^{-1/2})$: the companion term $\frac12\Gamma(-\nu)\pi^\nu$ is now smaller only by a factor of order $t^{-1/2}$. As $\arg\Gamma(\frac14+\frac{it}2)-\frac t2\log\pi=\vartheta(t)$, $\psi-\vartheta$ is a continuous argument of $R$, zero at $t=0$, and it tends to a multiple of $2\pi$. The multiple is $0$. Replace $2\pi$ by $a\in(0,2\pi]$ in the argument of $K$ and in $(a/2)^{-\nu}$: the ratio $R_a(t)$ is continuous and nonzero, positive at $t=0$, equal to $1+O(t^{-1/2})$ uniformly for $a$ in compact sets, and within $\frac12$ of $1$ for every $t$ once $a$ is small, so the limit of its argument is a multiple of $2\pi$ that depends continuously on $a$ and vanishes for small $a$. The statement on $g_n$ follows with $\vartheta'(t)=\frac12\log\frac t{2\pi}+O(t^{-2})$.
+(iii) Away from ordinates $N(T)=\vartheta(T)/\pi+1+S(T)$, and $N$ jumps from $n$ to $n+1$ at $\gamma_{n+1}$; averaging the one sided limits gives the identity, which needs no hypothesis on the other zeros. Subtracting it from (ii) gives $\vartheta(t^\circ_n)-\vartheta(\gamma_{n+1})=\pi S(\gamma_{n+1})+O(\gamma_{n+1}^{-1/2})$, and the mean value theorem with $\vartheta''(t)=O(1/t)$ and $S(T)=O(\log T)$ gives the displacement.
+\end{proof}
+
+Numerically, $\Xi^\circ$ has 28 zeros in $(0,100]$ (the 29th is $t^\circ_{29}=101.0946$), the first at $t^\circ_1=19.332507$, and $\vartheta(t^\circ_n)/\pi-(n-\frac12)$ increases from $-0.2434$ at $n=1$ to $-0.0155$ at $n=28$ (computed; the existence of the 28 zeros is certified by sign changes in ball arithmetic, \texttt{code/gp\_skeleton.py}). For $n\le28$ the displacement $t^\circ_n-\gamma_{n+1}$ has mean absolute value $0.513$ and correlation $0.889$ with $\pi S(\gamma_{n+1})/\vartheta'(\gamma_{n+1})$ (computed). Each $t^\circ_n$ is paired with $\gamma_{n+1}$, and $\gamma_1$ has no partner.
 
 \begin{figure}[ht]
 \centering

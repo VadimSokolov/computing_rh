@@ -1,0 +1,112 @@
+\section{Second round on the open problems}\label{ev:sec:round2}
+
+% UNCHECKED: the window of Problem 2, the bisection and the merging at $t=-4$ of Problem 3, the geometry and the split of Problem 4 were not recomputed.
+The second round of the source returns to the five problems of Section~\ref{ev:sec:work} with longer computations. The status of each number is stated where it is printed; nothing in this section is in interval arithmetic.
+
+\subsection{Problem 1: the circle test at \texorpdfstring{$N=5$}{N=5}}
+The test of Proposition~\ref{ev:prop:rouche} was repeated for the five term folded kernel, computing $E_5$ as the sum of the omitted incomplete gamma terms $n=6,\ldots,14$ (floating point, $30$ digits for the circle, $80$ digits for the sign changes). Below height $160$, $H^F_5(2x)$ has $53$ sign changes on a grid of step $0.03$ (computed), while $\Xi$ has $58$ ordinates there, so the two counts differ by five. The source states that each sign change lies within the grid resolution of an ordinate of $\Xi$; that was not reproduced, since the largest distance from a sign change to the nearest ordinate is $1.04$. The circle test, sampled at $721$ points of the quarter circle, then gives the rows of Table~\ref{ev:tab:rouche5}, each with the minimum of $|H|/|E_5|$ again on the real axis.
+
+\begin{table}[h]\centering\small
+\begin{tabular}{cccc}
+\toprule
+$T$ & $\mathcal N(T)$ & sampled $\min_\vartheta|H|/|E_5|$ & result\\
+\midrule
+128.548 & 42 & $6.01\times10^6$ & pass\\
+130.333 & 43 & $7.66\times10^5$ & pass\\
+132.293 & 44 & $3.55\times10^5$ & pass\\
+134.127 & 45 & $3.59\times10^4$ & pass\\
+136.436 & 46 & $3.54\times10^4$ & pass\\
+138.926 & 47 & 1191 & pass\\
+140.430 & 48 & 247 & pass\\
+142.118 & 49 & 157 & pass\\
+144.556 & 50 & 57.1 & pass\\
+146.712 & 51 & 3.11 & pass\\
+148.738 & 52 & 1.36 & pass\\
+150.489 & 53 & 0.052 & fail\\
+\bottomrule
+\end{tabular}
+\caption{Rouch\'e tests for $N=5$ (computed: floating point, sampled on the circle, $E_5$ truncated at $n=14$).}\label{ev:tab:rouche5}
+\end{table}
+
+So, on the sampled circles (computed, not interval arithmetic), every zero of $H^F_5(2x)$ with $|x|<148.7$ is real, giving $c\ge148.7/36=4.13$. The margin falls steadily, roughly an order of magnitude every one or two zeros, and the test first fails at $T=150.5$, just above the predicted breakdown at $4\cdot6^2=144$. A failed circle means only that the test stops there, not that a zero has left the line. Across $N=2,\ldots,5$ the computed constants are $3.92,3.62,3.89,4.13$ (the first three certified in Section~\ref{ev:sec:work}). These are heights at which the test succeeded, not breakdown heights: for $N=2$ the first nonreal zero is at $w=43.14-3.28i$ (Section~\ref{ev:sec:work}), which puts the breakdown at $c\le43.14/9=4.79$. So the height rule $T_N\approx4(N+1)^2$ is consistent with $c$ between $3.6$ and $4.2$ at every level tested, and nothing more.
+
+\subsection{Problem 2: fractional shifts and the cotangent law}
+
+For noninteger $\mu$ there is no finite recurrence, but each zero $\nu_k$ of $\operatorname{Re}K_{\mu+i\nu}(a)$ still determines the Robin ratio that the Liouville eigenfunction must satisfy there,
+\[
+\beta_k=\frac{g'(0)}{g(0)}=\frac{aK_{i\nu_k}'(a)}{K_{i\nu_k}(a)},\qquad\lambda_k=\nu_k^2.
+\]
+The problem is whether these values come from an admissible boundary law $\beta(\lambda)=\alpha-m\lambda-\int\sigma(dq)/(q-\lambda)$ with $m\ge0$ and $\sigma\ge0$, which is decreasing between its poles.
+
+\begin{proposition}[Cotangent law]\label{ev:prop:cot}
+For fixed $a>0$ and $\mu>0$ not an integer, as $k\to\infty$,
+\[
+\beta_k=\cot\!\Big(\frac{\pi\mu}2\Big)\sqrt{\lambda_k}\,\big(1+O\big((a/2\nu_k)^{2\mu}\big)\big)+O(1).
+\]
+\end{proposition}
+
+\begin{proof}[Sketch]
+For $\nu$ large compared with $a$, $K_{\mu+i\nu}(a)=\tfrac12\Gamma(\mu+i\nu)(a/2)^{-\mu-i\nu}\big(1+O((a/2\nu)^{2\mu})\big)$ up to a relative term of order $a^2/\nu$ in the leading series, which is absorbed in the $O(1)$, the second term of the small argument expansion being smaller by the stated factor. So the zeros satisfy $\arg\Gamma(\mu+i\nu)-\nu\log(a/2)=\tfrac\pi2+k\pi$, and Stirling gives $\arg\Gamma(\mu+i\nu)=\arg\Gamma(i\nu)+\tfrac{\pi\mu}2+O(1/\nu)$. For $\mu=0$ both terms have equal size and $K_{i\nu}(ae^\tau)\approx|\Gamma(i\nu)|\cos(\arg\Gamma(i\nu)-\nu\log(a/2)-\nu\tau)$, whose logarithmic derivative at $\tau=0$ is $\nu\tan(\arg\Gamma(i\nu)-\nu\log(a/2))$. At the zeros the phase is $\tfrac\pi2-\tfrac{\pi\mu}2$ modulo $\pi$, giving $\nu\cot(\pi\mu/2)$.
+\end{proof}
+
+The proof is a sketch: the phase computation, which gives the leading term, was rederived independently, and the error terms were not, so they are heuristic and the statement is proved only for the leading term. The law matches every integer case of Theorem~\ref{ev:thm:shift}: $\cot(\pi\mu/2)=0$ for odd $\mu$, where $\beta$ is bounded, and $\cot(\pi\mu/2)=\infty$ for even $\mu$, where $\beta$ grows linearly in $\lambda$ through the point mass. Numerically, at $a=2\pi$ the slope of $\beta_k$ against $\sqrt{\lambda_k}$ over the last zeros below $\nu=45$ is $1.0007$ to $1.0008$, $0.4095$ to $0.4100$ and $-0.4178$ to $-0.4172$ for $\mu=\tfrac12,\tfrac34,\tfrac54$, against $\cot(\pi\mu/2)=1$, $0.4142$ and $-0.4142$ (computed; the range is over windows of the last $6$ to $12$ zeros, because the source does not define the window, and at least $45$ digits are needed since $K_{i\nu}(2\pi)$ is of size $10^{-31}$ at $\nu=45$). For $\mu=\tfrac14$ it is $3.04$ to $3.06$ against $2.41$, consistent with the slow correction $(a/2\nu)^{1/2}\approx0.28$ at $\nu=40$.
+
+The sign of $\cot(\pi\mu/2)$ splits the problem in two.
+\begin{itemize}
+\item For $\mu\in(1,2)+2\mathbb Z$, including P\'olya's $\mu=\tfrac54$, $\beta$ decreases like $-c\sqrt\lambda$. Since $\sqrt\lambda$ is a Nevanlinna function, this is, heuristically, the growth of an admissible law with a continuous spread of extra masses, $\sigma$ carried by the negative half line and so off the spectrum, rather than finitely many; numerically $\beta_k=0.37-0.417\sqrt{\lambda_k}+2.43/\sqrt{\lambda_k}$ over the first $24$ zeros, with maximal relative error $3.3\times10^{-3}$ (computed; the accuracy $5\times10^{-4}$ stated by the source was not reproduced by a fit of this form in the maximum norm).
+\item For $\mu\in(0,1)+2\mathbb Z$, including $\mu=\tfrac94$, $\beta$ increases with $\lambda$, so an admissible law needs a pole in every gap between consecutive eigenvalues, that is, coupling to a second string with an interlacing spectrum.
+\end{itemize}
+P\'olya's two term kernel combines one order of each type. Identifying the continuum extension for $\mu=\tfrac54$ and the interlacing string for $\mu=\tfrac94$ is the refined form of the problem (open).
+
+\subsection{Problem 3: where the de Bruijn and Newman zeros collide}
+
+For $t<0$, $H_t(z)=\E H(z+W)$ with $W$ normal of variance $2|t|$, so $H_t$ can be computed by Gaussian convolution of $H$ on a fine real grid (Section~\ref{sec:ch21:flow} and Theorem~\ref{xg:thm:smooth} give the same flow). Counting sign changes of $H_t(2x)$ below $x=100$, where $\Xi$ has $29$ zeros, gives $29$ real zeros for $t=-0.25$ and $-0.5$, then $27$, $19$, $12$ and $8$ for $t=-1,-2,-4,-8$ (computed, step $0.05$, $60$ digits). A bisection of the source places the first collision below height $100$ at $t\approx-0.881$, near $x\approx95.5$, for the pair at $94.651$ and $95.871$, the closest pair below $100$ (gap $1.22$). The recomputation did not repeat this bisection, so the value is unchecked here; the book's own computation of the collision of this pair, with the same neighbourhood, is in Section~\ref{sec:ch21:hankel}. At $t=-4$ a nonreal pair sits near height $33$, at $33.1150940\pm0.1505390\,i$ (computed). The fourth and fifth zeros, at $30.42$ and $32.94$ for $t=0$, have then merged, which is the source's reading and was not checked.
+
+The moment Hankel test sees these collisions, but late. Computed at 130 digits to order $10$, all $D_n$ and $D_n'$ are positive at $t=0$. At $t=-4$ the first negative value is $D_{10}'$, and at $t=-8$ the determinants $D_8,D_9,D_{10}$ and their primed partners are all negative, with $D_1,\ldots,D_7$ and their primed partners positive (computed). A nonreal pair of rank about four is therefore detected only at order eight to ten, about twice its rank. The first collision, of rank about $27$, is far beyond order ten. In this family the test gives the lower bound $\Lambda>-4$ from kernel moments alone: a negative determinant excludes a positive measure, hence real zeros, at $t=-4$, and nonreal zeros at $t=-4$ give $\Lambda>-4$. This is far weaker than Rodgers and Tao \cite{RodgersTao}, and than the moment only bound of the book's own Hankel test along the flow (Table~\ref{tab:ch21:nfail}), which already gives $t^*_{50}\approx-1.03$ with no failing order up to $50$ on $[-1.03,0]$, so that the order needed to see the collision at $-0.881$ exceeds $50$. What the computation adds to that section is the signs at $t=-4$ and $-8$ and the shifted determinants $D_n'$. They show that the Hankel string test does detect a genuine loss of reality when the off line atoms are few, in contrast with the folded kernels of Problem 4.
+
+\subsection{Problem 4: why the first pair is masked}
+
+The off line zeros of the two term folded kernel lie on a regular curve. Starting from $43.139-3.281i$ and $47.523-6.253i$, the source locates $19$ zeros $w_j$ in $[36,150]\times[-40,0]$, with real parts spaced about $4$ apart on average (from the printed end points) and imaginary parts decreasing to $-38.6$ at real part $114.9$, finds by the argument principle $16$ more with imaginary part in $[-60,-40]$ and $25$ more in $[-100,-60]$, and none with real part above $150$ and imaginary part above $-40$. Of this, only the count $19=2+17$ in $[36,150]\times[-40,0]$ is recomputed (Section~\ref{ev:sec:work}); the geometry and the further counts are unchecked.
+
+The Hankel determinants then follow from the Andreief (Heine) identity. With atoms $y_i=1/\gamma_i^2$ and moments $\mu_{j+1}=\sum_iy_i^{j+1}$,
+\[
+D_n=\sum_{|S|=n}\ \prod_{i\in S}y_i\prod_{i<j\in S}(y_i-y_j)^2,
+\]
+summed over $n$ element sets of atoms. A term containing both members of a conjugate pair $y,\bar y$ carries the factor $(y-\bar y)^2=-4(\operatorname{Im}y)^2$ and is typically negative. Table~\ref{ev:tab:mask} shows $D_6$ as atoms are added.
+
+\begin{table}[h]\centering\small
+\begin{tabular}{lc}
+\toprule
+atoms used & $D_6$\\
+\midrule
+7 real atoms only & $1.29\times10^{-105}$\\
+plus the first pair & $-1.81\times10^{-104}$\\
+plus the first two pairs & $-2.27\times10^{-103}$\\
+plus all 19 located pairs & $1.09\times10^{-100}$ (unchecked)\\
+kernel moments (all zeros) & $8.10\times10^{-100}$\\
+\bottomrule
+\end{tabular}
+\caption{The masking of the first nonreal pair in $D_6$ for the two term folded kernel (computed, $250$ digits, except the kernel moments row, which is from $120$ and $240$ digits, and the row marked unchecked, which is the source's value and needs the $19$ located zeros).}\label{ev:tab:mask}
+\end{table}
+
+The source splits the sum over the $22$ atoms of largest modulus by type: all real sets $1.3\times10^{-105}$, sets containing a full pair $-3.4\times10^{-102}$, and sets containing single members of several pairs $+7.2\times10^{-102}$. The first value agrees with the first row of the table; the other two were not recomputed (unchecked), and the selection of the $22$ atoms is not defined in the source. If the split is right, the masking is a cross term effect. The atoms on the curve have moduli $|y_i|$ comparable to the real atoms, because $|\gamma|$ along the curve grows only like the real part, and their mixed products $2\operatorname{Re}\prod$ are positive and larger than the negative full pair terms. A nonreal pair is visible to a finite Hankel test only when the other off line atoms are too small or too spread out to compensate, and the test cannot tell which case it is in (heuristic).
+
+\subsection{Problem 5: forty digit eigenvalues}
+
+In this subsection $x$ is the hitting time variable. At 140 digits, Prony fits of $K$ exponentials to the survival function of the hitting time on windows $x_0+0.003j$, $j<2K$, give the errors in Table~\ref{ev:tab:prony2} (computed; the source used Talbot inversion of degree 160, while the recomputation of this book used the survival series $\sum_kc_ke^{-\lambda_kx}$ over the zeros; the density form of the tail gives larger errors, for example $7\times10^{-13}$ instead of $9\times10^{-14}$ for $\gamma_1$ at $K=6$, so the tail used is the survival function). The rows were reproduced at 100 and 130 digits to the one digit printed.
+
+\begin{table}[h]\centering\scriptsize\setlength{\tabcolsep}{2.5pt}
+\begin{tabular}{ccccccccc}
+\toprule
+$K$ & $x_0$ & $\gamma_1$ & $\gamma_2$ & $\gamma_3$ & $\gamma_4$ & $\gamma_5$ & $\gamma_6$ & $\gamma_8$\\
+\midrule
+6 & 0.02 & $9\times10^{-14}$ & $1\times10^{-9}$ & $3\times10^{-7}$ & $6\times10^{-4}$ & 0.013 & 0.52 & \\
+8 & 0.02 & $5\times10^{-25}$ & $1\times10^{-19}$ & $3\times10^{-16}$ & $3\times10^{-11}$ & $4\times10^{-9}$ & $2\times10^{-5}$ & 0.11\\
+10 & 0.015 & $8\times10^{-34}$ & $1\times10^{-27}$ & $1\times10^{-23}$ & $7\times10^{-18}$ & $4\times10^{-15}$ & $2\times10^{-10}$ & $5\times10^{-5}$\\
+10 & 0.02 & $2\times10^{-39}$ & $7\times10^{-33}$ & $2\times10^{-28}$ & $5\times10^{-22}$ & $6\times10^{-19}$ & $2\times10^{-13}$ & $4\times10^{-7}$\\
+\bottomrule
+\end{tabular}
+\caption{Absolute errors of $\gamma_k$ from Prony fits to the tail of the reciprocal $\Xi$ hitting time at 140 digits (computed).}\label{ev:tab:prony2}
+\end{table}
+
+With ten atoms the first zero comes out to 39 digits and the eighth to 7, from the Laplace transform $\xi(\frac12)/\xi(\frac12+\sqrt s)$ alone in the source, whose method differs from the recomputation (survival series over the zeros). For $K=10$, the only $K$ with two thresholds, the error falls as the threshold rises from $0.015$ to $0.02$, so the table supports a threshold not below $0.02$ at this precision. The trade off between the bias from omitted atoms and the loss of precision is visible in the columns: each extra atom in the fit buys roughly five to seven more digits in the leading eigenvalues (from $K=6$ to $8$ and from $8$ to $10$ the error of $\gamma_1$ falls by $11$ and $14$ digits, so each added pair buys ten to fourteen), and the last atom fitted is always the least accurate because the omitted atoms load onto it. For a Lehmer pair with gap $\delta$ at height $\gamma$ the rates differ by about $2\gamma\delta$, and resolving them requires a window long enough that $e^{-2\gamma\delta x}$ varies appreciably while both terms remain above the working precision, which fixes how many digits a given pair costs (heuristic).

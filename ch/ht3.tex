@@ -146,6 +146,28 @@ From $\E Y^s=2\xi(s)$, $\E^*e^{wU}=\E\,Y^{1/2+w}/\E\,Y^{1/2}=\xi(\frac12+w)/\xi(
 
 So the harmonic mean route of Section~\ref{ht:sec:families} has an explicit Brownian mixing variable: the logarithm of the normalised range of a Brownian bridge, size biased by its square root. Each conditional exit time is a GGC, and $\mu$ is a GGC exactly when the harmonic mean over $U$ preserves that property, which is RH. Proposition~\ref{ht:prop:bpy} puts the problem in Brownian language without changing it.
 
+\begin{remark}\label{ht:rem:chung}
+\begin{resultpar}\label{ht:res:chung}Let $M$ be the maximum of a standard Brownian excursion. Its law is explicit \cite{Chung76,Kennedy76}:
+\[
+\mathbb P(M\le m)=\sum_{n\in\mathbb Z}(1-4n^2m^2)e^{-2n^2m^2}\qquad(m>0),
+\]
+and $Y\overset{d}{=}\sqrt{2/\pi}\,M$, because the range of a Brownian bridge has the law of $M$, by the path transformation of Vervaat \cite{Vervaat79}. With $\psi(x)=\sum_{n\ge1}e^{-\pi n^2x}$ as in Section~\ref{mi:sec:riemann}, and for $y>0$,
+\begin{align*}
+\mathbb P(Y>y)&=2\sum_{n\ge1}(2\pi n^2y^2-1)e^{-\pi n^2y^2},\\
+\E(Y-y)^+&=2y\,\psi(y^2),\\
+f_Y(y)&=2\Phi(\log y)\,y^{-3/2},
+\end{align*}
+where $f_Y$ is the density of $Y$ and $\Phi$ the kernel of \eqref{eq:ch2:Phi}. The first is the formula above at $m=\sqrt{\pi/2}\,y$. It equals $-\frac{d}{dy}\big(2y\psi(y^2)\big)$, and both sides of the second tend to $0$ as $y\to\infty$, which gives the second. The third is $-\frac{d}{dy}$ of the first, compared term by term with \eqref{eq:ch2:Phi} at $u=\log y$. Hence $\E Y^s=2\int_{\R}\Phi(u)e^{(s-\frac12)u}\,\mathrm du=2\xi(s)$ for every complex $s$: the identity of Biane, Pitman and Yor follows from the law of $M$, term by term. With $y=e^u$ and $\E Y=2\xi(1)=1$, the second line gives the folded kernel of \eqref{mi:eq:riemannt} as
+\[
+k(u)=e^{-u/2}-2e^{u/2}\psi(e^{2u})=e^{-u/2}\,\E\min(Y,e^u),\qquad u\in\R.
+\]
+Its evenness is the size bias identity with $g(y)=\min(1,e^u/y)$, and the kink identity $k'(0)=0$ of Lemma~\ref{mi:lem:kink} is its case $g=\mathbf 1_{(0,1)}$, since $k'(0)=\frac12\big(\mathbb P(Y>1)-\E[Y;Y<1]\big)$. As $\E[Y;Y>1]-\mathbb P(Y>1)=\E(Y-1)^+=2\psi(1)$, the kink identity reads
+\[
+\mathbb P\big(M>\sqrt{\pi/2}\big)=\mathbb P(Y>1)=\tfrac12-\psi(1)=0.456783
+\]
+(computed, \texttt{px\_const.py}). Status: proved. This remark follows a note of Nicholas Polson merged into the book \cite{P26excursion}.\end{resultpar}
+\end{remark}
+
 \subsection{Davenport and Heilbronn have the same structure}
 The Biane, Pitman and Yor structure rests on two facts: the theta function behind $\xi$ is positive, and it is self dual. The Davenport Heilbronn function shares both.
 

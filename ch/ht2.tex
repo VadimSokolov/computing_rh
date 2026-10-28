@@ -226,13 +226,106 @@ T_{\E\log N_P}\ \overset{d}{=}\ Y_P+T_{\log N_P}.
 Put $\tilde\mu=\sum_{p\le P}\sum_{k\ge1}\log p\,p^{-k\alpha}\delta_{k\log p}$, a positive measure with $\int(1\wedge x)\tilde\mu(\,\mathrm{d}x)<\infty$ because the sum is finite over $p$ and converges over $k$. With $f(w)=\E e^{-wL}$ the formula above reads $\log f(w)/f(0)-w f'(0)/f(0)=\int(e^{-wx}-1+wx)\tilde\mu(\,\mathrm{d}x)/x$, since $\tilde\mu(\,\mathrm{d}x)/x$ puts the mass $p^{-k\alpha}/k$ at $k\log p$ and $-f'(0)/f(0)=\E L$. The sine squared lemma (Lemma~\ref{rz:lem:sin2}) therefore gives $\Phi_{\alpha,P}(u)=\exp\big(-\int_0^\infty\log(1+2u/\tau^2)U(\,\mathrm{d}\tau)\big)$ with $U(\,\mathrm{d}\tau)=\pi^{-1}\int(1-\cos\tau x)\tilde\mu(\,\mathrm{d}x)\,\,\mathrm{d}\tau$, which is the stated density and is nonnegative termwise; there is no drift because $-\log\Phi_{\alpha,P}(u)=O(\sqrt u)$. For the second statement, $\E e^{-uT_{\log N_P}}=\E e^{-\sqrt{2u}L}$ and $\E e^{-uT_{\E L}}=e^{-\sqrt{2u}\E L}$, so $\E e^{-uT_{\E L}}=\Phi_{\alpha,P}(u)\,\E e^{-uT_{\log N_P}}$.
 \end{proof}
 
-The zeros of $1/\zeta_P(\alpha+w)$ lie on the line $\re w=-\alpha$ and cause no difficulty: the principal branch $w=\sqrt{2u}$ maps $\cut$ into the half plane $\re w>0$, where $\zeta_P(\alpha+w)$ has neither zeros nor poles, as a GGC Laplace transform requires. The mechanism of Proposition~\ref{ht:thm:trunc} is a Jensen gap: for any infinitely divisible $L\ge0$ with finite mean the same argument gives $T_{\E L}\overset d=Y+T_L$ with $Y$ a GGC independent of $L$, a sharpened form of Jensen's inequality $\E e^{-wL}\ge e^{-w\E L}$; nothing arithmetic is used beyond the infinite divisibility of $\log N_P$. The proposition is the statement of \cite{PolsonEuler26} for truncated products, proved here from the sine squared lemma of the book; the corresponding statement at $\alpha>1$ for the full product $\zeta$ is not used in this chapter. As a check, the source reports at $\alpha=\frac12$, $P=13$ and $u=0.7$ the Thorin integral $5.92746438$ against $-\log\Phi_{1/2,13}(0.7)=5.92746429$; this was not recomputed.
+The zeros of $1/\zeta_P(\alpha+w)$ lie on the line $\re w=-\alpha$ and cause no difficulty: the principal branch $w=\sqrt{2u}$ maps $\cut$ into the half plane $\re w>0$, where $\zeta_P(\alpha+w)$ has neither zeros nor poles, as a GGC Laplace transform requires. The mechanism of Proposition~\ref{ht:thm:trunc} is a Jensen gap: for any infinitely divisible $L\ge0$ with finite mean the same argument gives $T_{\E L}\overset d=Y+T_L$ with $Y$ a GGC independent of $L$, a sharpened form of Jensen's inequality $\E e^{-wL}\ge e^{-w\E L}$; nothing arithmetic is used beyond the infinite divisibility of $\log N_P$. The proposition is the statement of \cite{PolsonEuler26} for truncated products, proved here from the sine squared lemma of the book; the corresponding statement at $\alpha>1$ for the full product $\zeta$ is not used in this chapter (Remark~\ref{ht:rem:blocks}). As a check, the source reports at $\alpha=\frac12$, $P=13$ and $u=0.7$ the Thorin integral $5.92746438$ against $-\log\Phi_{1/2,13}(0.7)=5.92746429$; this was not recomputed.
+
+\begin{remark}[One prime blocks: M\"obius, Liouville and the P\'olya Gamma law]\label{ht:rem:blocks}
+The following is from \cite{PolsonRXi26}. Fix a prime $p$ and write $\ell=\log p$, $q=p^{-\alpha}$ with $\alpha>0$, $w=\sqrt{2u}$ and $\vartheta=\tau \ell$. For a single prime the density of Proposition~\ref{ht:thm:trunc} sums in closed form,
+\[
+\frac1\pi\sum_{k\ge1}\ell\,q^k\bigl(1-\cos k\vartheta\bigr)=\frac1\pi\,\frac{\ell\,q(1+q)(1-\cos\vartheta)}{(1-q)(1-2q\cos\vartheta+q^2)},
+\]
+which vanishes at $\tau=2\pi k/\ell$, the ordinates of the zeros of $1-p^{-s}$ on $\re s=0$, that is of the poles of the Euler factor $e_p(s)=(1-p^{-s})^{-1}$: it is the constant $\frac \ell{2\pi}\coth\frac{\alpha \ell}2$ minus the periodic row of Cauchy kernels $\pi^{-1}\alpha/(\alpha^2+(\tau-2\pi k/\ell)^2)$ centred there, so as $\alpha\downarrow0$ its plateau rises like $1/(\pi\alpha)$. The Liouville factor $1/(1+p^{-s})$, the Euler factor of $\sum_n\lambda(n)n^{-s}=\zeta(2s)/\zeta(s)$, gives the odd lattice. Put
+\[
+\Phi^{+}_{p,\alpha}(u)=\frac{1+q}{1+q\,p^{-w}}\exp\Bigl(-\frac{w\ell q}{1+q}\Bigr).
+\]
+For every $\alpha>0$ this is the Laplace transform of a GGC with zero drift, with Thorin density in the ordinate $\tau$
+\[
+\frac1\pi\,\frac{\ell\,q(1-q)(1-\cos\vartheta)}{(1+q)(1+2q\cos\vartheta+q^2)}\ \ge0,
+\]
+whose bumps sit at $\tau=\pi(2k-1)/\ell$, the ordinates of the zeros of $1+p^{-s}$ on $\re s=0$. Indeed $-\log \Phi^{+}_{p,\alpha}(u)=\sum_{k\ge1}(-1)^{k+1}\frac{q^k}k(e^{-wk\ell}-1+wk\ell)$, so the proof of Proposition~\ref{ht:thm:trunc} applies to the signed measure $\sum_k(-1)^{k+1}\ell q^k\delta_{k\ell}$, whose total variation is that of the M\"obius case, and the series $\frac1\pi\sum_k(-1)^{k+1}\ell q^k(1-\cos k\vartheta)$ sums to the displayed density, which is nonnegative although its terms are not. As $\alpha\downarrow0$, $\Phi^{+}_{p,\alpha}(u)\to1/\cosh(\ell\sqrt{u/2})$, the Laplace transform of $\ell^2\omega$ with $\omega$ a P\'olya Gamma variable $\mathrm{PG}(1,0)$ \cite{PSW13}, and the Thorin densities converge vaguely to $\sum_{k\ge1}\delta_{\pi(2k-1)/\ell}$, the Thorin measure of that law (compare Theorem~\ref{mi:thm:levyarea}). In the M\"obius case the compensator $\ell q/(1-q)$ diverges as $\alpha\downarrow0$, because $e_p$ has a pole at $s=0$. The even lattice appears instead through $g(s)=(1-p^{-s})/(s\ell)=p^{-s/2}\sinh(s\ell/2)/(s\ell/2)$, the factor $1-p^{-s}$ with its zero at $s=0$ removed, whose zeros $2\pi ik/\ell$, $k\ne0$, all lie on $\re s=0$: at $\alpha=0$ its compensated reciprocal $e^{wg'(0)/g(0)}g(0)/g(w)$ equals $(w\ell/2)/\sinh(w\ell/2)$, the Laplace transform of $(\ell/2\pi)^2H$, with $H$ the logistic mixing law $H(1,0)$ of \cite{BNKS82}, $\E e^{-uH}=\pi\sqrt{2u}/\sinh(\pi\sqrt{2u})$, whose Thorin atoms are the even lattice $\tau=2\pi k/\ell$, $k\ge1$.
+
+For $\alpha>1$ the products over all primes converge and give the GGC transforms
+\[
+\begin{gathered}\frac{\zeta(\alpha)}{\zeta(\alpha+w)}\,e^{w\frac{\zeta'}{\zeta}(\alpha)}\qquad\text{and}\qquad\frac{\zeta(2\alpha+2w)\,\zeta(\alpha)}{\zeta(\alpha+w)\,\zeta(2\alpha)}\,e^{wG_\lambda(\alpha)},\\G_\lambda(s)=\frac{\zeta'}{\zeta}(s)-2\frac{\zeta'}{\zeta}(2s),\end{gathered}
+\]
+with Thorin densities $\pi^{-1}[\re\frac{\zeta'}{\zeta}(\alpha+i\tau)-\frac{\zeta'}{\zeta}(\alpha)]$ and $\pi^{-1}[\re G_\lambda(\alpha+i\tau)-G_\lambda(\alpha)]$, the sums of the one prime densities. The exponents carry the sign $+$ because $\sum_p\ell q/(1-q)=-\frac{\zeta'}{\zeta}(\alpha)$ and $\sum_p\ell q/(1+q)=-G_\lambda(\alpha)$. The logarithms of the finite products converge for every $u$, since $|e^{-x}-1+x|\le x$ and $\sum_p\ell q/(1-q)<\infty$, the limits are continuous at $u=0$, and the class of GGC laws is closed under weak limits \cite{Bondesson}. For $0<\alpha<1$ neither continued function is the Laplace transform of a probability law (the second is defined only for $\alpha\ne\frac12$, where $\zeta(2\alpha)$ is infinite), whatever the zeros of $\zeta$ do: the first vanishes at $u=(1-\alpha)^2/2$, where $\alpha+w=1$; the second vanishes there when $\frac12<\alpha<1$, and has a pole at $u=(\frac12-\alpha)^2/2$ when $0<\alpha<\frac12$.
+\end{remark}
 
 The difficulty is the limit $P\to\infty$. For $\alpha\le1$ the compensator $B_{\alpha,P}$ diverges, like $P^{1-\alpha}/(1-\alpha)$ when $\alpha<1$ and like $\log P$ when $\alpha=1$, and it does so faster than $\log\zeta_P(\alpha+w)$ for any $w>0$. Hence $-\log\Phi_{\alpha,P}(u)\to\infty$ for every $u>0$. The laws escape to infinity and have no weak limit, so Bondesson's closure theorem has nothing to act on.
 
+\subsection{A Brownian truncation of the Euler product centred at one half}\label{ht:sec:brownian}
+
+In the strip the primes can be truncated not by size but in Brownian time \cite{PolsonRXi26}. Let $W(t)=\sum_{\re\gamma>0}e^{-t\gamma^2}$ be the heat trace over the zeros, counted with multiplicity, and let $T_x$ be the first passage time of standard Brownian motion to the level $x>0$, as above.
+
+\begin{theorem}[Brownian truncated Euler product]\label{ht:thm:euler}
+Let $U>0$ and let $s\in\C$ with $\re(s^2)>-\gamma_1^2$, a region that contains $\R$ and the band $|\im s|<\gamma_1$, and in which $\re(\gamma^2+s^2)>0$ for every zero. Put
+\[
+\begin{split}B_U(x,s)&=\E\bigl[1-e^{-s^2T_x/2};\,T_x\le U\bigr]\\&=\operatorname{erfc}\frac{x}{\sqrt{2U}}-\frac12\Bigl[e^{-xs}\operatorname{erfc}\frac{x-sU}{\sqrt{2U}}+e^{xs}\operatorname{erfc}\frac{x+sU}{\sqrt{2U}}\Bigr],\end{split}
+\]
+\[
+\begin{gathered}k_\infty(u)=e^{u/8}-\frac{\log\pi}{2\sqrt{2\pi u}}+\frac1{2\pi}\int_0^\infty e^{-ur^2/2}\,\re\frac{\Gamma'}{\Gamma}\Bigl(\frac14+\frac{ir}2\Bigr)dr,\\A_U(s)=\int_0^U\bigl(1-e^{-s^2u/2}\bigr)k_\infty(u)\,\frac{du}u,\end{gathered}
+\]
+\[
+R_U(s)=\sum_{\re\gamma>0}\Bigl[E_1\Bigl(\frac{\gamma^2U}2\Bigr)-E_1\Bigl(\frac{(\gamma^2+s^2)U}2\Bigr)\Bigr],\qquad E_1(z)=\int_1^\infty e^{-zv}\,\frac{dv}v .
+\]
+Then, with no hypothesis on the zeros,
+\[
+\begin{gathered}\frac{\xi(\frac12)}{\xi(\frac12+s)}=e^{-A_U(s)}\prod_pE_{p,U}(s)\;e^{-R_U(s)},\\E_{p,U}(s)=\exp\Bigl(\sum_{m\ge1}\frac{p^{-m/2}}m\,B_U(m\log p,s)\Bigr),\end{gathered}
+\]
+the product converging absolutely, and
+\[
+\begin{gathered}|R_U(s)|\le\frac2U\,e^{-m_sU/2}\sum_{\re\gamma>0}\Bigl(\frac1{\re\gamma^2}+\frac1{\re(\gamma^2+s^2)}\Bigr),\\m_s=\gamma_1^2+\min\bigl(0,\re(s^2)\bigr)>0 .\end{gathered}
+\]
+If moreover $\re s>0$ and $\re(s^2)\ge0$, then $E_{p,U}(s)\to(1-p^{-1/2-s})/(1-p^{-1/2})$ as $U\to\infty$, the Euler factor of $1/\zeta(\frac12+s)$ normalised at the centre.
+\end{theorem}
+
+\begin{proof}
+For $\re a,\re b>0$, Frullani's integral gives $\log(b/a)=\int_0^\infty(e^{-au}-e^{-bu})\frac{du}u$ with the principal logarithm. With $a=\gamma^2/2$, $b=(\gamma^2+s^2)/2$ and the paired Hadamard product $\xi(\frac12+s)/\xi(\frac12)=\prod_{\re\gamma>0}(1+s^2/\gamma^2)$,
+\[
+\log\frac{\xi(\frac12+s)}{\xi(\frac12)}=\int_0^\infty\bigl(1-e^{-s^2u/2}\bigr)W\Bigl(\frac u2\Bigr)\frac{du}u,
+\]
+the sum over the zeros and the integral being exchangeable because the integrals of the absolute values are $O(|s|^2/\re\gamma^2)$. Every zero has $\re\gamma^2\ge\gamma_1^2$: on the line trivially, and off it because its ordinate exceeds $3\times10^{12}$ \cite{PT21} while $|\im\gamma|<\frac12$. Split the integral at $U$. On $(U,\infty)$, $\int_U^\infty(e^{-au}-e^{-bu})\frac{du}u=E_1(aU)-E_1(bU)$ gives $R_U(s)$, and $|E_1(z)|\le e^{-\re z}/\re z$ for $\re z>0$, with $\re\gamma^2\ge\gamma_1^2$ and $\re(\gamma^2+s^2)\ge m_s$, gives the bound. On $(0,U]$ insert the arithmetic form \eqref{eq:ch2:Warith} of the heat trace,
+\[
+W\Bigl(\frac u2\Bigr)=k_\infty(u)-\sum_{n\ge2}\frac{\Lambda(n)}{\sqrt n}\,\frac{e^{-(\log n)^2/2u}}{\sqrt{2\pi u}} .
+\]
+Near $u=0$, $k_\infty(u)=O(u^{-1/2}\log(1/u))$ while $1-e^{-s^2u/2}=O(u)$, so the archimedean part converges and gives $A_U(s)$. In the prime part $e^{-x^2/2u}/(u\sqrt{2\pi u})=f_x(u)/x$, where $f_x(u)=x\,e^{-x^2/2u}/\sqrt{2\pi u^3}$ is the density of $T_x$; since $|1-e^{-s^2u/2}|\le1+e^{|s|^2U/2}$ on $[0,U]$ and $\Pr(T_x\le U)=\operatorname{erfc}(x/\sqrt{2U})\le e^{-x^2/2U}$, the double sum and integral converge absolutely, so they may be exchanged, and the prime power $n=p^m$ contributes $-\frac{p^{-m/2}}mB_U(m\log p,s)$. The closed form of $B_U$ is the reflection principle, $\E[e^{-\lambda T_x};T_x\le U]=\frac12[e^{-x\sqrt{2\lambda}}\operatorname{erfc}(\frac x{\sqrt{2U}}-\sqrt{\lambda U})+e^{x\sqrt{2\lambda}}\operatorname{erfc}(\frac x{\sqrt{2U}}+\sqrt{\lambda U})]$ with $\sqrt{2\lambda}=s$, an even entire function of $s$. Exponentiating gives the identity. If $\re s>0$ and $\re(s^2)\ge0$, then $|e^{-s^2T_x/2}|\le1$, dominated convergence gives $B_U(x,s)\to1-\E e^{-s^2T_x/2}=1-e^{-xs}$, and $\sum_m\frac{p^{-m/2}}m(1-p^{-ms})=\log\frac{1-p^{-1/2-s}}{1-p^{-1/2}}$.
+\end{proof}
+
+When $\re(s^2)<0$ the truncation cannot be removed: the integrand of $B_U(x,s)$ then grows exponentially in $u$, and $B_U(x,s)$ is unbounded as $U\to\infty$. The structure, a smoothed Euler product times a smoothed product over the zeros, is that of the hybrid Euler Hadamard product of Gonek, Hughes and Keating \cite{GHK07}; here the smoothing kernel is the first passage density and the identity is exact for every $U$. Table~\ref{ht:tab:euler} checks it, with primes up to $10^3$ for $U\le0.25$ and $10^6$ for $U=1$ and the first $1700$ zeros (\texttt{data/zeros\_1700.txt}) for $R_U$, the rest bounded by the theorem (computed, \texttt{code/rx\_euler.py}).
+
+\begin{table}[ht]
+\centering\scriptsize\setlength{\tabcolsep}{3pt}
+\begin{tabular}{cccc}
+\toprule
+$s$ & $U$ & $\log\frac{\xi(1/2+s)}{\xi(1/2)}$ & $A_U-\sum_p\log E_{p,U}$ \\
+\midrule
+$0.1$ & $0.05$ & $2.31048072572\times10^{-4}$ & $2.30708738670\times10^{-4}$ \\
+$0.1$ & $1$ & $2.31048072572\times10^{-4}$ & $2.31048072572\times10^{-4}$ \\
+$0.49$ & $0.05$ & $5.54643804846\times10^{-3}$ & $5.53831869645\times10^{-3}$ \\
+$0.49$ & $1$ & $5.54643804846\times10^{-3}$ & $5.54643804846\times10^{-3}$ \\
+$2$ & $1$ & $9.21256255914\times10^{-2}$ & $9.21256255914\times10^{-2}$ \\
+$0.3+3i$ & $0.25$ & $-0.207311444533+0.0422063284094i$ & $-0.207311444532+0.0422063284090i$ \\
+\bottomrule
+\end{tabular}
+
+\medskip
+\begin{tabular}{cccc}
+\toprule
+$s$ & $U$ & $R_U$ & bound \\
+\midrule
+$0.1$ & $0.05$ & $3.39\times10^{-7}$ & $1.25\times10^{-2}$ \\
+$0.1$ & $1$ & $2.06\times10^{-48}$ & $3.83\times10^{-45}$ \\
+$0.49$ & $0.05$ & $8.12\times10^{-6}$ & $1.25\times10^{-2}$ \\
+$0.49$ & $1$ & $4.68\times10^{-47}$ & $3.83\times10^{-45}$ \\
+$2$ & $1$ & $3.55\times10^{-46}$ & $3.81\times10^{-45}$ \\
+$0.3+3i$ & $0.25$ & $(-1.15+0.406i)\times10^{-12}$ & $1.62\times10^{-11}$ \\
+\bottomrule
+\end{tabular}
+\caption{Theorem~\ref{ht:thm:euler} (computed, \texttt{code/rx\_euler.py}). The upper block compares the two sides of the identity and the lower block gives the zero remainder $R_U$ and the bound of the theorem for the same rows; the residual is below $10^{-30}$ in every row. The rows with $|\re s|<\frac12$ ($s=0.1$, $0.49$ and $0.3+3i$) have $\frac12+s$ inside the critical strip. At $U=0.05$ the zero remainder is visible; at $U=1$ it is below the working precision ($30$ digits). The bound is loose at small $U$.}\label{ht:tab:euler}
+\end{table}
+
 \subsection{The universal limit}
 
-The escape of the Euler family can be undone by centring and scaling. At $\alpha=\frac12$ write $L_P=\log N_P=\sum_{p\le P}(\log p)G_p$; its cumulants satisfy $\kappa_j(P)=\sum_{p\le P}(\log p)^j\sum_{m\ge1}m^{j-1}p^{-m/2}\asymp\sqrt P(\log P)^{j-1}$. The Laplace exponent of $Y_P$ is $-\log\E e^{-uY_P}=K_P(\sqrt{2u})$ with
+The escape of the truncated Euler family of Proposition~\ref{ht:thm:trunc} can be undone by centring and scaling. At $\alpha=\frac12$ write $L_P=\log N_P=\sum_{p\le P}(\log p)G_p$; its cumulants satisfy $\kappa_j(P)=\sum_{p\le P}(\log p)^j\sum_{m\ge1}m^{j-1}p^{-m/2}\asymp\sqrt P(\log P)^{j-1}$. The Laplace exponent of $Y_P$ is $-\log\E e^{-uY_P}=K_P(\sqrt{2u})$ with
 \[
 \begin{split}K_P(w)&=\log\E e^{-w(L_P-\E L_P)}=\sum_{p\le P}\sum_{m\ge1}\frac{p^{-m/2}}m\big(e^{-wm\log p}-1+wm\log p\big)\\&=\sum_{j\ge2}\frac{(-1)^j\kappa_jw^j}{j!}\quad(|w|<\tfrac12;\text{ the proof does not use the series}).\end{split}
 \]

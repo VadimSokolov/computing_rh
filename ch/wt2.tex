@@ -1,0 +1,102 @@
+\section{Does the extreme value approach offer insight?}\label{wt:sec:insight}
+
+It offers four things, each of which can be checked.
+\begin{enumerate}
+\item A common language for the two sides of the explicit formula. The archimedean place is $u$ times the L\'evy density of $-\frac12\log G_{1/4}$, a log gamma variable of fractional order in the family of Section~\ref{ev:sec:decomp}; the primes are the atomic measure $\sum\Lambda(n)n^{-1/2}\delta_{\log n}$, which is $u$ times the formal L\'evy measure of the zeta distribution on the critical line; and Weil positivity in Gaussian form is complete monotonicity of the compensated difference.
+\item A map of where positivity is easy and where it is hard. For $t\le0.01$ it is inherited from the archimedean part, with the prime 2 a negligible extreme atom. For $t\gtrsim0.05$ it is a statement about an exponentially small difference between two large quantities. This is consistent with the small support theorems of Yoshida and of Connes and Consani, which use no information on the zeros; with the verified zeros, the orders $n\le1.16\times10^{25}$ are known at every $t>0$ (Theorems~\ref{thm:ch12:idsd} and~\ref{thm:ch12:window}). The boundary of the archimedean part alone is computable: its $n$th derivative condition first fails at $t_n\approx n/\lambda_*$, fixed by where its spectral density changes sign.
+\item A computational method. Prony's method on the heat trace computed from the primes recovers the zeros, with the precision cost made explicit (Section~\ref{wt:sec:prony}).
+\item A heuristic point process reading of RH. To first order the primes on the log scale look like the reflected Gumbel process; RH is a second order statement that their fluctuations stay at square root scale; and numerically they are more rigid than a Poisson process.
+\end{enumerate}
+What it does not offer is the missing estimate. In the cancellation regime positivity needs control of $\psi_{\mathrm C}(y)-y$ at square root scale, uniformly, which is RH in von Koch's form (heuristic), so the extreme value view reformulates the obstruction precisely but does not remove it. The two places where it could still help are the spectrum of complex indices of the second order term of $\psi_{\mathrm C}$ (Section~\ref{wt:sec:rigidity}) and the rigidity of the primes, which suggests looking for a structural reason, from the Euler product, why the prime process is less variable than Poisson.
+
+\section{Windows, primes and rigidity}\label{wt:sec:work}
+
+\subsection{The archimedean window: sign structure and asymptotics}
+
+By \eqref{wt:eq:Aspec}, $D_n(t):=(-1)^n\mathcal A^{(n)}(t)=(-\tfrac14)^ne^{t/4}+I_n(t)$ with $I_n(t)=\int_0^\infty\lambda^ne^{-\lambda t}w(\lambda)\,d\lambda$. Its sign structure is simple.
+
+\begin{lemma}\label{wt:lem:w}
+$w$ has exactly one sign change on $(0,\infty)$, from negative to positive, at $\lambda_*=r_*^2$, $r_*=6.28984$, and $w'(\lambda_*)>0$.
+\end{lemma}
+
+\begin{proof}
+With $z=\frac14+\frac{ir}2$, $\frac d{dr}\Re\psi(z)=-\frac12\Im\psi'(z)$ and $\psi'(z)=\sum_{k\ge0}(z+k)^{-2}$ give $\Im\psi'(z)=-\sum_k(\frac14+k)\,r\,|z+k|^{-4}<0$ for $r>0$. So $\Re\psi(\frac14+\frac{ir}2)$ increases strictly in $r$, from $\psi(\frac14)=-4.227$ to $+\infty$, and crosses $\log\pi$ exactly once, with positive slope (this is the monotonicity of $m=2\vartheta'$ of Section~\ref{ch:heat}). The sign of $w$ is that of the numerator.
+\end{proof}
+
+\begin{proposition}[Sign structure]\label{wt:prop:window}
+For every $n\ge1$, $D_n(t)>0$ for small $t>0$. For odd $n$, $D_n$ has exactly one sign change on $(0,\infty)$, at a point $t_n$, and is negative after it. For even $n$, $D_n$ has at most two sign changes, and is positive for large $t$; if it has two, the first is $t_n$ and the second lies where the atom $4^{-n}e^{t/4}$ overtakes the negative part of the density. As $n\to\infty$ a first sign change $t_n$ exists, and $t_n=n/\lambda_*+O(1)$.
+\end{proposition}
+
+\begin{proof}
+The measure $\lambda^n\mu(d\lambda)$, $\mu=\delta_{-1/4}+w(\lambda)\,d\lambda$, read along increasing $\lambda$, has the sign pattern $(-1)^n$ at $\lambda=-\frac14$, then $-$ on $(0,\lambda_*)$ by Lemma~\ref{wt:lem:w}, then $+$. That is one sign change for odd $n$ and two for even $n$. The Laplace kernel $e^{-\lambda t}$ is totally positive, so $D_n$ has no more sign changes in $t$ than the measure has in $\lambda$ (Karlin \cite[Chapter 5]{Karlin68}). As $t\to0$ the density $w(\lambda)\sim(\log\lambda)/(8\pi\sqrt\lambda)$ at infinity makes $I_n(t)\to+\infty$, so $D_n>0$. As $t\to\infty$, $I_n(t)=O(t^{-n-1/2})$ (the density behaves like $c_0\lambda^{-1/2}$ at zero) while the atom is $e^{t/4}4^{-n}$ in size, so for odd $n$ the atom is negative and $D_n<0$ for large $t$, which gives exactly one sign change, and for even $n$ the atom is positive and $D_n>0$ for large $t$, which gives zero or two changes. For the asymptotics, $I_n$ has exactly one zero: write $I_n=B_n-C_n$ with $B_n$ the integral over $(\lambda_*,\infty)$ and $C_n$ the absolute value of the integral over $(0,\lambda_*)$; the ratio $B_n/C_n$ has logarithmic derivative in $t$ equal to minus the difference of two mean values of $\lambda$, the first larger than the second, so it decreases strictly from $+\infty$ to $0$. The location of this zero is computed in Proposition~\ref{wt:prop:expansion}: it is $n/\lambda_*+O(1)$, and the atom, of relative size $O(\sqrt nb^n)$ with $b<1$ near $t=n/\lambda_*$, does not move it by more than an exponentially small amount. So for large $n$, $D_n$ changes sign near $n/\lambda_*$, and this is the first change.
+\end{proof}
+
+The existence of a first sign change for even $n$ is therefore proved for $n$ large, and computed for $n=2,4,6$. A scan of $D_n$ on $[0.005,7]$ at 35 digits (computed) finds exactly one sign change for $n=1$ and $n=3$, at $0.025332$ and $0.076135$ (the entries of Table~\ref{wt:tab:window}), and for $n=2,4,6$ a second change at $1.3612$, $3.2456$ and $5.2669$ (computed), as the proposition allows. In Table~\ref{wt:tab:window} the offset $t_n-n/\lambda_*$ is below $5\times10^{-4}$ for $n\le6$ and decreases from $n=2$ on, so the $O(1)$ term is small in practice.
+
+\subsection{Prime by prime: each extreme atom buys a window}
+
+\begin{resultpar}\label{wt:res:law}
+Let $\mathcal P_S$ be the prime part restricted to the prime powers of a finite set of primes $S$ (all powers of its primes included), and let $t_n(S)$ be the first point where $(-1)^n(\mathcal A-\mathcal P_S)^{(n)}$ fails to be positive. Adding primes in increasing order adds the atoms $\log2,\log4,\log8,\log3,\dots$ of the prime point process in groups. Since $\mathcal A-\mathcal P_S=W+\mathcal P_{\mathrm{rest}}$, the two differ by the omitted prime powers. The first omitted one, $q$, contributes about $\Lambda(q)q^{-1/2}g_t(\log q)$, of exponential size $e^{-(\log q)^2/4t}$, while $W$ and its derivatives decay like $e^{-\gamma_1^2t}$. The two meet at
+\begin{equation}\label{wt:eq:law}
+t(S)\approx\frac{\log q}{2\gamma_1},\qquad q=\text{the smallest prime power not generated by }S.
+\end{equation}
+This is a heuristic balance of exponents. Coefficients, derivative polynomials, the other zeros and the other omitted prime powers contribute corrections, and no uniform bound for them is given, so \eqref{wt:eq:law} is an empirical law for this truncation scheme and not a theorem. Read as an uncertainty principle, a Gaussian of width $\sqrt{2t}$ in $u=\log n$ resolves the first missing atom when its dual width resolves the lowest zero. Table~\ref{wt:tab:pbp} gives the error of this law as $3.2$ percent for $S$ empty, about $1$ percent from $q=5$ on and $0.17$ percent at $q=101$.\end{resultpar}
+
+Table~\ref{wt:tab:pbp} tests \eqref{wt:eq:law}. We computed $t_n(S)$ by an upward scan to the first failure followed by bisection (computed, \texttt{code/wt\_window.py}, 35 and 45 digits, scanned to $0.8$).
+
+\begin{table}[h]\centering\small
+\fitwidth{\begin{tabular}{lccccc}
+\toprule
+primes $S$ & first omitted $q$ & $\log q/2\gamma_1$ & $t_1(S)$ & $t_2(S)$ & $t_3(S)$\\
+\midrule
+none & 2 & 0.0245 & 0.0253 & 0.0510 & 0.0761\\
+2 & 3 & 0.0389 & 0.0394 & 0.146 & 0.223\\
+2, 3 & 5 & 0.0569 & 0.0575 & 0.476 & 0.0608\\
+$\le 5$ & 7 & 0.0688 & 0.0696 & $>0.8$ & 0.0720\\
+$\le 7$ & 11 & 0.0848 & 0.0856 & $>0.8$ & 0.0872\\
+$\le 13$ & 17 & 0.1002 & 0.1010 & $>0.8$ & 0.1022\\
+$\le 31$ & 37 & 0.1277 & 0.1289 & $>0.8$ & 0.1297\\
+$\le 97$ & 101 & 0.1633 & 0.1635 & $>0.8$ & 0.1641\\
+\bottomrule
+\end{tabular}}
+\caption{End of the positivity window of order $n$ when only the primes in $S$ are kept (computed). The entries $>0.8$ mean no failure up to the end of the scan.}\label{wt:tab:pbp}
+\end{table}
+
+Three facts emerge.
+\begin{enumerate}
+\item The law \eqref{wt:eq:law} holds for the order one window. Its error, as a percentage of $t_1(S)$, is $3.2\%$ for $S$ empty ($q=2$), between $0.8\%$ and $1.3\%$ for the next six rows (about 1\% from $q=5$ on), and $0.17\%$ at $q=101$.
+\item Among the orders $1,2,3$ tested, order $1$ always fails first. There is a mechanism for the sign: each omitted term $g_t(\log q)$ is increasing in $t$ for $t<(\log q)^2/2$, since $\partial_t\log g_t(u)=u^2/4t^2-1/2t$, so that $-W'\ge-(\mathcal A-\mathcal P_S)'$ there (Proposition~\ref{wt:prop:cert}(1)). For the higher derivatives $\partial_t^ng_t(u)=(-1)^nn!\,t^{-n}g_t(u)L_n^{(-1/2)}(u^2/4t)$ is positive once $u^2/4t$ exceeds the largest zero of the Laguerre polynomial $L_n^{(-1/2)}$, a threshold that grows with $n$; for a finite set of orders the omitted primes then subtract from the odd order conditions and add to the even ones on a small common interval. This accounts for the parity effect in the table ($t_2>0.8$ once the primes up to 5 are in) but not for a ranking of order 1 against every higher order, and for $S$ empty or $\{2\}$ the table has $t_2<t_3$, so only order 1 is first. There is no fixed $t>0$ at which every $t$ derivative of $g_t(u)$, $u>0$, is nonnegative (otherwise its Taylor series at $t$, of radius $t$, would have a singularity at its positive real radius). That order $1$ binds for all orders is an observation on the computed orders.
+\item Keeping the first factor $e^{-(\log q)^2/4t}$ below $e^{-\gamma_1^2t}$ takes every prime power up to about $e^{2\gamma_1t}$ in this balance, and each atom $\log q$ extends the order one window to about $\log q/2\gamma_1$. These are heuristic scales for this truncation scheme, not theorems of necessary information (a tail can sometimes be bounded without listing its atoms). The full condition on $(0,\infty)$ would need them all.
+\end{enumerate}
+
+\subsection{Rigidity of the prime point process}\label{wt:sec:rigidity}
+
+\begin{resultpar}\label{wt:res:rig}
+Goldston and Montgomery \cite{GoldstonMontgomery87} proved that, under RH, a strong form of Montgomery's pair correlation conjecture for the zeros is equivalent to an asymptotic for the variance of $\psi_{\mathrm C}$ in short intervals. Montgomery and Soundararajan \cite{MontgomerySoundararajan04} refined the constant under a uniform Hardy and Littlewood prime tuples hypothesis, not under RH alone. The local prediction, the GUE prediction transported to the primes, is
+\[
+V_\delta=\frac1{b-a}\int_a^b\frac{[\psi_{\mathrm C}((1+\delta)y)-\psi_{\mathrm C}(y)-\delta y]^2}{\delta y}\,dy\approx\log\frac1\delta+1-\gamma_E-\log2\pi,
+\]
+with $[a,b]=[10^6,10^7]$ here, a normalised mean square (the source's ratio of the variance of the short interval error to $h=\delta y$ with $y$ random is this quantity). A Poisson process with the same intensity, such as the Cram\'er model, gives instead about $\log y-1$, averaged over the range $14.37$. The difference, $\log y$ against $\log(1/\delta)$, measures the rigidity. Table~\ref{wt:tab:rig} compares them (computed, \texttt{code/wt\_rig.py}: random points of $(10^6,10^7)$ and a sieve to $2.1\times10^7$, two independent prime samples, standard errors $0.003$ to $0.03$ and the prime column the first sample; the Cram\'er column is one realisation with standard errors $0.03$ to $0.05$).
+\end{resultpar}
+
+\begin{table}[h]\centering\small
+\fitwidth{\begin{tabular}{ccccc}
+\toprule
+$\delta$ & primes & GUE prediction & Cram\'er model (one realisation) & Poisson $\log y-1$\\
+\midrule
+$10^{-5}$ & 10.13 & 10.10 & 14.40 & 14.37\\
+$10^{-4}$ & 7.71 & 7.80 & 14.53 & 14.37\\
+$10^{-3}$ & 5.32 & 5.49 & 14.60 & 14.37\\
+$3\times10^{-3}$ & 4.04 & 4.39 & 14.81 & 14.37\\
+$10^{-2}$ & 3.22 & 3.19 & 14.76 & 14.37\\
+$10^{-1}$ & 1.10 & 0.89 & 14.55 & 14.37\\
+\bottomrule
+\end{tabular}}
+\caption{$V_\delta$ for the primes, the GUE prediction, the Cram\'er model and the Poisson level (computed). The source printed $10.19,7.69,5.34,4.06,3.23,1.10$ for the primes (all within two standard errors of these) and Cram\'er values $14.19$ to $15.22$ with a last entry $10.09$, which the recomputation does not reproduce.}\label{wt:tab:rig}
+\end{table}
+
+The primes follow the GUE prediction over four decades of $\delta$: the difference is $0.03$, $-0.09$, $-0.17$, $-0.35$, $0.03$, $0.21$ at the six scales printed, so it is within $0.2$ at four of the six and at most $0.35$ at $\delta=3\times10^{-3}$ (from the rounded table values). The Cram\'er model stays near the Poisson level. These finite numerical results are compared with a conjectural variance prediction. They do not establish GUE statistics for the prime point process, since a variance fixes second moments only, and they do not prove an unconditional variance asymptotic. A variance estimate of this kind is a statement under RH in its Goldston and Montgomery form, so by itself it cannot be cited to prove RH; a future unconditional variance bound strong enough could still contribute to a proof, and no impossibility theorem is claimed. That any proof of positivity in the cancellation regime would have to use this property is an opinion, not a result.
+
+\subsection{Second order regular variation}
+
+By the explicit formula, with symmetric truncation in the height, $\psi_{\mathrm C}(y)-y=-\sum_\rho y^\rho/\rho+O(\log y)$ for $y\ge2$. Relative to the first order term $y$, the correction is a superposition of terms $y^{\rho-1}$ with complex indices $\rho-1=-\frac12+\delta+i\gamma$, in the convention $\rho=\frac12+\delta+i\gamma$ of Section~\ref{sec:ch12:ray}. Classical second order regular variation (de Haan and Stadtm\"uller \cite{deHaanStadtmuller96}) requires a limit of $(f(ty)/f(t)-y^{\alpha})/A(t)$ with $A$ regularly varying, and handles one real second order index. For $f=\psi_{\mathrm C}$ no such limit exists: under RH, $(\psi_{\mathrm C}(ty)-ty)/\sqrt t$ is an almost periodic function of $\log t$, and the second order term is an oscillating sum with a whole spectrum of complex indices. What is true is that $\limsup_{y\to\infty}\log|\psi_{\mathrm C}(y)-y|/\log y=\sup\Re\rho$ unconditionally, and RH says that this exponent is $\frac12$, which is von Koch's criterion. A theory of second order regular variation with complex index spectra would turn RH into the statement that the second order spectrum lies on a vertical line. This is recorded as a reformulation only.

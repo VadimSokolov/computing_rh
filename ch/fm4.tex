@@ -5,9 +5,10 @@ By Corollary~\ref{fm:cor:limit} and the remark after it, RH holds exactly when t
 \subsection{P\'olya's approximations}\label{fm:sec:simple}
 
 The Gaussian law $N(0,\operatorname{Var}X)$ is ferromagnetic and lies at total variation distance $1.48\times10^{-2}$ from the P\'olya law. P\'olya kept the leading part of the first term of $\Phi$ and made it even:
-\[
-\Phi^*(t)=8\pi^2\cosh\tfrac{9t}2\,e^{-2\pi\cosh2t},\qquad\int\Phi^*(t)e^{i\theta t}\,dt=4\pi^2\Big[K_{\frac94+\frac{i\theta}2}(2\pi)+K_{\frac94-\frac{i\theta}2}(2\pi)\Big],
-\]
+\begin{gather*}
+\Phi^*(t)=8\pi^2\cosh\tfrac{9t}2\,e^{-2\pi\cosh2t},\\
+\int\Phi^*(t)e^{i\theta t}\,dt=4\pi^2\Big[K_{\frac94+\frac{i\theta}2}(2\pi)+K_{\frac94-\frac{i\theta}2}(2\pi)\Big],
+\end{gather*}
 by $\int e^{-a\cosh u+\nu u}\,du=2K_\nu(a)$, and he proved that this transform has only real zeros \cite{Polya}. So the law with density proportional to $\Phi^*$ is ferromagnetic. It is the law of $\frac\varepsilon2\log G$, where $G$ is generalised inverse Gaussian with density proportional to $g^{5/4}e^{-\pi(g+1/g)}$, since the substitution $g=e^{2t}$ turns $e^{9t/2}e^{-2\pi\cosh2t}$ into that density; so it can be sampled exactly. Keeping the whole first term gives the positive kernel
 \[
 \Psi(t)=\Big(8\pi^2\cosh\tfrac{9t}2-12\pi\cosh\tfrac{5t}2\Big)e^{-2\pi\cosh2t},
@@ -50,6 +51,158 @@ shows that the pair contributes a factor larger than $1$ to $|\varphi_X(z+ia)|^2
 The three multipliers of the proposition with $\operatorname{Var}Y=\frac14$ give total variation distances $2.731\times10^{-3}$, $2.739\times10^{-3}$ and $2.751\times10^{-3}$ from $p$, in the order listed. The flow at $\lambda=0.2$, with $c(m)=0.1$, gives $1.097\times10^{-3}$. For comparison, $\cosh(\sqrt{0.1}\,t)\,p$, with the same contraction, gives $1.094\times10^{-3}$, but whether it is ferromagnetic is not known: the bound of Platt and Trudgian is a statement about the Gaussian flow, and Proposition~\ref{fm:prop:bruijn} needs $\operatorname{Var}Y\ge\frac14$, or $\frac9{64}$ if the announced half plane stands, both above $0.1$ (the distances are enclosed in ball arithmetic by \texttt{fm\_tvcert.py}).
 
 The cosine tilts define a constant in the spirit of $\Lambda$. Let $\Omega$ be the infimum of the $a_0\ge0$ such that $\cosh(at)\,p$ is ferromagnetic for every $a\ge a_0$. Proposition~\ref{fm:prop:bruijn} gives $\Omega\le\frac12$, and $\Omega\le\frac38$ if the half plane $\re s>\frac78$ announced in October 2026 is free of zeros. If RH holds, Proposition~\ref{fm:prop:tilt}(i) gives $\Omega=0$. Conversely, if $\Omega=0$, the tilted laws converge to $p$ in total variation as $a\downarrow0$, and $p$ is ferromagnetic by Theorem~\ref{fm:thm:closed}. So RH holds if and only if $\Omega=0$. Unlike the flow, the operators $\varphi\mapsto\varphi(\cdot+ia)+\varphi(\cdot-ia)$ do not form a semigroup, and we do not know whether the set of good values of $a$ is an interval.
+
+\begin{remark}\label{fm:rem:firstorder}
+To first order the multipliers of this section, and the factor $1+t^2/r^2$ of Remark~\ref{fm:rem:polyfactor}, act on a simple zero in the same way. Let $\varphi(\theta)=L_X(i\theta)=e^{-b\theta^2}\prod_k(1-\theta^2/c_k^2)$ for a ferromagnetic $X$, as in \eqref{fm:eq:had}, and let $c_j$ be a simple zero. The factors $\cosh(\lambda t)$, $e^{\mu t^2}$ and $1+t^2/r^2$ replace $\varphi$, up to a constant, by $\varphi-\kappa\varphi''+O(\kappa^2)$ locally uniformly, with $\kappa=\frac{\lambda^2}2$, $\mu$ and $r^{-2}$ respectively, so the zero moves to $c_j+\kappa\varphi''(c_j)/\varphi'(c_j)+O(\kappa^2)$, where
+\[
+\frac{\varphi''(c_j)}{\varphi'(c_j)}=\frac1{c_j}+4c_j\sum_{k\ne j}\frac1{c_j^2-c_k^2}-4bc_j .
+\]
+This is the velocity of the de Bruijn Newman flow of Section~\ref{sec:ch21:flow}, in the variable $\theta=z/2$ and the time $\mu=t/4$: to first order each multiplier runs the flow for time $\kappa$. The three differ at the next order, where the coefficients of $\varphi''''$ are $\frac{\kappa^2}6$, $\frac{\kappa^2}2$ and $0$. They are not the only operations that preserve the class; dilations do as well. This remark follows a note of Nicholas Polson merged into the book \cite{P26gumbelop}.
+\end{remark}
+
+\subsection{Multipliers on P\'olya's kernel}\label{fm:sec:bessel}
+
+The multipliers $m(t)=e^{\mu t^2}\prod_{k\le N}\cosh(\lambda_kt)$ of Section~\ref{fm:sec:tilts} need a hypothesis when they act on $p$, unless $c(m)\ge\frac14$ (Proposition~\ref{fm:prop:bruijn}), but none when they act on P\'olya's kernel $e^{-2\pi\cosh2t}$ of Section~\ref{fm:sec:simple}, and the kernel itself can be varied. This section follows notes of Nicholas Polson merged into the book \cite{P26wferro,P26gumbel,P26gumbelop,P26bspin}. As in Section~\ref{fm:sec:tilts}, $Y=\sqrt{2\mu}\,Z+\sum_{k\le N}\lambda_k\varepsilon_k$, so that $m(t)=\E e^{tY}$.
+
+\begin{theorem}\label{fm:thm:bessel}
+Let $a,\ell>0$, $\mu\ge0$ and $\lambda_1,\dots,\lambda_N\ge0$, and let $q$ be the probability density proportional to $m(t)e^{-a\cosh\ell t}$.
+\begin{enumerate}
+\item[(i)] The law $q$ is ferromagnetic, it has Gaussian moments of all orders, and $b=0$ in \eqref{fm:eq:had}.
+\item[(ii)] $\int_{\R}m(t)e^{-a\cosh\ell t}\,dt=\frac2\ell\,\E K_{Y/\ell}(a)$, and $L_q(s)=\E K_{(s+Y)/\ell}(a)/\E K_{Y/\ell}(a)$ for complex $s$. For $\mu=0$ the expectations are averages over the $2^N$ values of $Y$.
+\item[(iii)] The clock of $q$ in Theorem~\ref{fm:thm:dual} has $\E e^{-uT_q}=\E K_{Y/\ell}(a)/\E K_{(\sqrt u+Y)/\ell}(a)$ for $u\ge0$. For $m\equiv1$, $T_q=\ell^{-2}\sum_je_j/\nu_j(a)^2$, where $0<\nu_1(a)\le\nu_2(a)\le\dots$ are the zeros of $\nu\mapsto K_{i\nu}(a)$ on $(0,\infty)$, listed with multiplicity.
+\end{enumerate}
+\end{theorem}
+
+For $a=2\pi$, $\ell=2$ and $m\equiv1$, part (iii) is the fifth row of Table~\ref{fm:tab:examples}. For $a=2\pi$, $\ell=2$ and $m(t)=\cosh\frac{9t}2$, $q$ is P\'olya's $\Phi^*$, normalised, and (ii) is Proposition~\ref{pol:prop:bessel}. With one field and no tilt the transform is a multiple of $\re K_{(\lambda_1+i\theta)/\ell}(a)$, a shifted Bessel kernel, as in Theorem~\ref{ev:thm:shift} for integer $\lambda_1/\ell$.
+
+\begin{proof}
+(i) For $m\equiv1$, the substitution $v=\ell t$ and $\int_{\R}e^{-a\cosh v+\nu v}\,dv=2K_\nu(a)$ give the characteristic function $K_{i\theta/\ell}(a)/K_0(a)$. P\'olya proved that $z\mapsto K_{iz}(a)$ has only real zeros \cite{Polya}; we recall a short proof. If $K_{i\zeta}(a)=0$, then $f(x)=K_{i\zeta}(ae^x)$ satisfies $-f''+a^2e^{2x}f=\zeta^2f$ on $[0,\infty)$, by Bessel's equation, with $f(0)=0$, and $f$ and $f'$ decay like $\exp(-ae^x)$ times a power of $e^x$. Integration by parts against $\bar f$ gives
+\[
+\zeta^2\int_0^\infty|f|^2\,dx=\int_0^\infty\big(|f'|^2+a^2e^{2x}|f|^2\big)\,dx>0,
+\]
+since $f\ne0$, so $\zeta$ is real. Every density in the construction is at most a constant times $\exp(\mu t^2+\sum_k\lambda_k|t|-\frac a2e^{\ell|t|})$, so it has Gaussian moments of all orders. Proposition~\ref{fm:prop:tilt}(i), applied once for each field, and Proposition~\ref{fm:prop:tilt}(ii), with any $b_0>\mu$, give the first statement, and $b=0$ by the last statement of Theorem~\ref{fm:thm:hadamard}. (ii) For real $s$, Tonelli's theorem gives $\int e^{st}m(t)e^{-a\cosh\ell t}\,dt=\E\int e^{(s+Y)t}e^{-a\cosh\ell t}\,dt=\frac2\ell\E K_{(s+Y)/\ell}(a)$, which is finite because the left side is; both sides are entire in $s$, since $|K_\nu(a)|\le K_{\re\nu}(a)$. (iii) is Theorem~\ref{fm:thm:dual}(i) with $b=0$ and (ii) at $s=\sqrt u$. For $m\equiv1$, $L_q(s)=K_{s/\ell}(a)/K_0(a)$ vanishes exactly at $s=\pm i\ell\nu_j(a)$, so $c_j=\ell\nu_j(a)$.
+\end{proof}
+
+\begin{proposition}\label{fm:prop:besselgig}
+For real $v$ let $G_v$ have the generalised inverse Gaussian density $g^{v-1}e^{-\frac a2(g+1/g)}/(2K_v(a))$ on $(0,\infty)$. In Theorem~\ref{fm:thm:bessel}, let $V$ have the law of $Y/\ell$ weighted by $K_V(a)$, that is $\E h(V)=\E[h(Y/\ell)K_{Y/\ell}(a)]/\E K_{Y/\ell}(a)$, and given $V$ let $G_V$ have the density of index $V$. Then $q$ is the law of $\ell^{-1}\log G_V$, and also of $\varepsilon\,\ell^{-1}\log G_{|V|}$, with $\varepsilon$ independent of $V$ and $G_{|V|}$. For $\mu=0$, $V$ takes the values $\ell^{-1}\sum_k\eta_k\lambda_k$, $\eta\in\{\pm1\}^N$, with probabilities proportional to $K_{\ell^{-1}\sum_k\eta_k\lambda_k}(a)$.
+\end{proposition}
+
+\begin{proof}
+The substitution $g=e^{\ell t}$ turns $e^{vt}e^{-a\cosh\ell t}\,dt$ into $\ell^{-1}g^{v/\ell-1}e^{-\frac a2(g+1/g)}\,dg$, and $m(t)=\E e^{tY}$. So $e^{\ell X}$, for $X$ with density $q$, has density proportional to $\E\big[g^{Y/\ell-1}e^{-\frac a2(g+1/g)}\big]=\E\big[2K_{Y/\ell}(a)f_{Y/\ell}(g)\big]$, where $f_v$ is the density of $G_v$; this is the mixture stated. The law of $V$ is symmetric, because that of $Y$ is and $K_{-v}=K_v$, and $1/G_v$ has the law of $G_{-v}$, which gives the second form.
+\end{proof}
+
+With one field the two signs have equal weights, and $a=2\pi$, $\ell=2$, $\lambda_1=\frac92$ give the description of $\Phi^*$ in Section~\ref{fm:sec:simple}. With more fields the weights differ: for $\lambda_1=\lambda_2>0$ the index $0$ and the indices $\pm2\lambda_1/\ell$ have total weights in the ratio $K_0(a):K_{2\lambda_1/\ell}(a)$, and $K_v(a)=\int_0^\infty e^{-a\cosh u}\cosh(vu)\,du$ increases in $v>0$. For $\mu=0$ every law $q$ can be sampled exactly, by drawing $V$ and then $G_V$.
+
+\begin{remark}\label{fm:rem:besselgumbel}
+The kernel is a product of two Gumbel distribution functions, and this builds $q$ from independent variables. Let $W_1,W_2$ be independent with $\mathbb P(W_i\le x)=e^{-e^{-x}}$, put $c=\log\frac a2$, $A=(W_1+c)/\ell$ and $B=-(W_2+c)/\ell$. Then
+\[
+\mathbb P(A\le t\le B)=e^{-\frac a2e^{-\ell t}}\,e^{-\frac a2e^{\ell t}}=e^{-a\cosh\ell t},
+\]
+which for $a=2\pi$ and $\ell=2$ is the two sided Gumbel form of P\'olya's kernel in the list after Theorem~\ref{ev:thm:decomp} (there in the variable $u=t/2$). By Fubini's theorem $\E(B-A)^+=\int_{\R}e^{-a\cosh\ell t}\,dt=\frac2\ell K_0(a)$, where $(B-A)^+=\ell^{-1}\log^+\big(4e^{-W_1-W_2}/a^2\big)$. Weight the pair $(A,B)$ by $(B-A)^+/\E(B-A)^+$ and, given the pair, let $U$ be uniform on $[A,B]$; then $U$ has density $\mathbb P(A\le t\le B)/\E(B-A)^+$, which is $q$ for $m\equiv1$. For general $m$ take $Y$ independent of $(W_1,W_2)$, weight by $\mathbf 1_{\{A<B\}}\int_A^Be^{Ys}\,ds$, and give $U$ the density proportional to $e^{Ys}$ on $[A,B]$; the same computation gives the density proportional to $m(t)e^{-a\cosh\ell t}$. The length bias cannot be dropped: an interval equal to $[0,1]$ or $[0,2]$ with probability $\frac12$ each puts a uniform point in $[0,1]$ with probability $\frac34$, whereas the density proportional to $\mathbb P(t\in[A,B])$ gives $[0,1]$ the mass $\frac23$. In the same way the logistic law of scale $1/\pi$ in the second row of Table~\ref{fm:tab:examples} is the law of $(W_1-W_2)/\pi$, because $\Gamma(1+i\theta)\Gamma(1-i\theta)=\pi\theta/\sinh\pi\theta$.
+\end{remark}
+
+\begin{remark}\label{fm:rem:besselcount}
+The proof of Proposition~\ref{prop:biane:phase} holds for $K_{i\nu}(r)$ at every $r>0$, and its Stirling step gives $\vartheta(\nu,r)=\nu\log\frac{2\nu}{er}+\frac\pi4+O(1/\nu)$. So for $m\equiv1$ the number of zeros of $\varphi_q(\theta)=K_{i\theta/\ell}(a)/K_0(a)$ in $(0,\theta]$ is
+\[
+\frac\theta{\pi\ell}\log\frac{2\theta}{ea\ell}+O(1).
+\]
+The zeros of $\varphi_X$ with real part in $(0,\theta]$ are those with $0<\im\rho\le\theta$, counted with no hypothesis by the Riemann von Mangoldt formula $\frac\theta{2\pi}\log\frac\theta{2\pi e}+O(\log\theta)$, and the two main terms agree exactly when $\ell=2$ and $a=2\pi$: among the kernels $e^{-a\cosh\ell t}$, P\'olya's is the only one whose zero count has the main term of the Riemann von Mangoldt formula (compare Section~\ref{ch:biane}). Fields keep the main term. If $\mu=0$, a further field $\lambda$ replaces the transform $F$ by $\re F(\theta-i\lambda)$, up to a constant; as in the paragraph before Proposition~\ref{pol:prop:gram}, $\arg F(\theta-i\lambda)$ increases with $\theta$, the zeros on $(0,\infty)$ are where it crosses $(\frac12+\mathbb Z)\pi$, and an integration by parts against the counting function of $F$ shows that the count changes by $O(1)$. So for $m(t)=\prod_{k\le N}\cosh(\lambda_kt)$ the count is again $\frac\theta{\pi\ell}\log\frac{2\theta}{ea\ell}+O(1)$. A factor $1+t^2/r^2$ (Remark~\ref{fm:rem:polyfactor}) also changes it by $O(1)$, because the zeros of $\varphi\mp\varphi'/r$ interlace with those of $\varphi$, by Rolle's theorem applied to $e^{\mp r\theta}\varphi$. On P\'olya's kernel, then, $N(\theta)-N_q(\theta)=S(\theta)+O(1)$, where $N(\theta)$ counts the zeros of $\xi$ with $0<\im\rho\le\theta$ and $N_q(\theta)$ the zeros of $\varphi_q$ in $(0,\theta]$; Selberg's central limit theorem \cite{Selberg46} makes $S$ unbounded above and below, so $\sup_\theta|N(\theta)-N_q(\theta)|=\infty$ for every such $q$. A Gaussian factor changes the main term: for $\mu>0$ the count is
+\[
+\frac\theta{\pi\ell}\log\frac{2\theta}{ea\ell}+\frac\mu{\ell^2}\log\theta+O(1),
+\]
+on P\'olya's kernel $\vartheta(\theta)/\pi+\frac\mu4\log\theta+O(1)$, the analogue of the term $\frac t{16}\log T$ of Proposition~\ref{cp:prop:count}(ii) with $\mu=\frac t4$. For the proof write $e^{\mu t^2}=\E e^{\sqrt{2\mu}Zt}$ with $Z$ standard normal, so that $\varphi_q(\theta)$ is proportional to $\E\,F(\theta-i\sqrt{2\mu}Z)$, with $F$ the transform for $\mu=0$. Stirling's formula for $K_{(c+i\theta)/\ell}(a)$, uniform for $|c|\le\theta^{1/3}$, and a saddle point at $\sqrt{2\mu}Z\approx\frac{2\mu}\ell\log\theta$ give $\varphi_q(\theta)=A(\theta)\big(\cos\Theta(\theta)+o(1)\big)$ in a strip about the real axis, with $A>0$ and $\Theta(\theta)=\frac\theta\ell\log\frac{2\theta}{ea\ell}+\frac{\pi\mu}{\ell^2}\log\theta+O(1)$; the tails $|c|>\theta^{1/3}$ are controlled by the bound $|\Gamma(\sigma+i\tau)|\ll|\sigma+i\tau|^{\sigma-1/2}e^{\sigma-\pi|\tau|/2}$ for $\sigma\ge0$. As the zeros are real (Theorem~\ref{fm:thm:bessel}), the count is $\Theta(\theta)/\pi+O(1)$.
+\end{remark}
+
+Table~\ref{fm:tab:bessel} lists members fitted to $p$ by minimising $\operatorname{TV}(q,p)$ numerically. The parameters are exact decimals, so each row is one explicit ferromagnetic law, and its distance is enclosed in ball arithmetic as in Section~\ref{fm:sec:compare}.
+
+\begin{table}[htbp]
+\centering\small
+\begin{tabular}{@{}llll@{}}
+\toprule
+$m(t)$ & $a$ & $\ell$ & $\operatorname{TV}(q,p)$\\
+\midrule
+$1$ & $2.838657$ & $2.574646$ & $<3.2\times10^{-4}$\\
+$\cosh(\lambda t)$, $\lambda=2.146184$ & $5.483952$ & $2.062866$ & $<6.1\times10^{-6}$\\
+$\cosh(\lambda t)$, $\lambda=2.618518$ & $2\pi$ & $2$ & $<2.0\times10^{-3}$\\
+$\cosh^2(\lambda t)$, $\lambda=1.792548$ & $2\pi$ & $2$ & $<2.1\times10^{-4}$\\
+$e^{\mu t^2}\cosh(\lambda t)$, $\lambda=2.125355$, $\mu=0.9417395$ & $2\pi$ & $2$ & $<8.0\times10^{-6}$\\
+\bottomrule
+\end{tabular}
+\caption{Laws of Theorem~\ref{fm:thm:bessel} fitted to the P\'olya law. The last three rows keep P\'olya's kernel $e^{-2\pi\cosh2t}$ (Remark~\ref{fm:rem:besselcount}). The parameters are rounded to seven significant digits from a numerical minimisation (\texttt{wf\_fit.py}) and then fixed; the distances are upper bounds enclosed in ball arithmetic and rounded up (\texttt{wf\_tvcert.py}).}
+\label{fm:tab:bessel}
+\end{table}
+
+The second row is the closest law the search found: a second free field did not lower the distance, nor did a tilt with a free kernel (\texttt{wf\_fit.py}). It is ferromagnetic by Theorem~\ref{fm:thm:bessel}, with no positivity proof, and its distance improves the bound $1.266\times10^{-4}$ that the zero completed law $f_{16}$ of Section~\ref{fm:sec:zerocompleted} gives in Proposition~\ref{fm:prop:tvcert}, though not the bound $1.932\times10^{-6}$ of $f_{150}$.
+
+A small distance does not pin the zeros. For every $\theta$, $|\varphi_q(\theta)-\varphi_X(\theta)|\le2\operatorname{TV}(q,p)$, but for the second row, numerically, $|\varphi_X(\theta)|<2\operatorname{TV}(q,p)$ on $[23,100]$ (computed, not certified), so there the inequality does not determine the sign of $\varphi_q$ and the distance does not control its zeros (\texttt{wf\_zeros.py}). The first zero of $\varphi_q$ for the second row is $14.133924$, against $\gamma_1=14.134725$, and over the first twenty zeros the mean and largest distances to $\gamma_1,\dots,\gamma_{20}$ are $0.449$ and $1.145$; for the fourth row, on P\'olya's kernel, they are $0.501$ and $1.284$. The zeros are located by certified sign changes in ball arithmetic; that there are no further zeros in the strip $|\im\theta|<2$ up to the twenty first is computed, by the change of phase on a grid, and not certified. The clock of the second row has $\E T_q=0.0231055$ and $\operatorname{Var}T_q=3.71451\times10^{-5}$, against $\E T=0.0231049931$ and $\operatorname{Var}T=3.71725993\times10^{-5}$ (\texttt{wf\_clock.py}).
+
+A sequence of such laws on one kernel cannot approach $p$, with or without RH.
+
+\begin{proposition}\label{fm:prop:fixedkernel}
+Let $a_n\to a$ and $\ell_n\to\ell$ with $a,\ell>0$, and let $q_n$ be the probability density proportional to $m_n(t)e^{-a_n\cosh\ell_nt}$, where $m_n(t)=\psi_n(it)$ for an even function $\psi_n$ of the Laguerre P\'olya class with $\psi_n(0)>0$. Then $q_n$ does not converge in law to $p$. The multipliers of Theorem~\ref{fm:thm:bessel} are of this form, and so are $e^{\mu t^2}\prod_{k\ge1}\cosh(\lambda_kt)$ with $\sum_k\lambda_k^2<\infty$ and the multiplier $\psi(it)$ of $\Psi$ in Proposition~\ref{fm:prop:psi}.
+\end{proposition}
+
+\begin{proof}
+By the Laguerre P\'olya theorem \cite{Levin64}, $\psi_n(z)=\psi_n(0)e^{-\alpha_nz^2}\prod_j(1-z^2/z_{n,j}^2)$ with $\alpha_n\ge0$ and $z_{n,j}>0$, so $m_n(t)=\psi_n(0)e^{\alpha_nt^2}\prod_j(1+t^2/z_{n,j}^2)$ is even and nondecreasing in $|t|$, and $|m_n(w)|\le m_n(|w|)$ for complex $w$, factor by factor. Write $q_n=g_nk_n$ with $k_n(t)=e^{-a_n\cosh\ell_nt}$ and $g_n$ a multiple of $m_n$. Since $k_n$ decreases in $|t|$, for $U\ge0$
+\[
+1\ge\int_U^{U+1}q_n(t)\,dt\ge g_n(U)\,k_n(U+1),
+\]
+and $k_n(U+1)\to e^{-a\cosh\ell(U+1)}>0$, so the entire functions $g_n$ are bounded on every disc uniformly in $n$ and form a normal family. If $q_n\to p$ in law, a subsequence of $(g_n)$ converges locally uniformly on $\C$ to an entire function $g$, so $q_n\to g(t)e^{-a\cosh\ell t}$ locally uniformly on $\R$ along it, and $\int_\alpha^\beta p=\int_\alpha^\beta g(t)e^{-a\cosh\ell t}\,dt$ for all $\alpha<\beta$. Then $\Phi=\Xi(0)\,g(t)e^{-a\cosh\ell t}$ on $\R$ would extend to an entire function, whereas $\Phi$ has a natural boundary on the lines $\im t=\pm\pi/4$ (Section~\ref{rz:sec:polya}).
+\end{proof}
+
+In particular no choice of fields on one kernel, finitely or infinitely many, gives the P\'olya law; this answers the question of the notes \cite{P26wferro,P26gumbel,P26gumbelop}. A sequence of laws of Theorem~\ref{fm:thm:bessel} converging in law to $p$ would prove RH, by Theorem~\ref{fm:thm:closed}; by the proposition its kernel parameters $(a_n,\ell_n)$ could have no limit point in $(0,\infty)^2$, and whether such a sequence exists is not known.
+
+Spins with these laws can be coupled.
+
+\begin{corollary}\label{fm:cor:coupled}
+Let $q_1,\dots,q_N$ be laws of Theorem~\ref{fm:thm:bessel}, with parameters $a_i,\ell_i$, and let $J=(J_{ij})$ be symmetric with $J_{ij}\ge0$ and $J_{ii}=0$. Let $(X_1,\dots,X_N)$ have density proportional to $\exp\big(\sum_{i<j}J_{ij}t_it_j\big)\prod_iq_i(t_i)$ on $\R^N$. Then $M=\sum_ic_iX_i$ is ferromagnetic for all $c_1,\dots,c_N\ge0$, not all $0$.
+\end{corollary}
+
+\begin{proof}
+Each $q_i(t)$ is at most a constant times $\exp(-\frac{a_i}4e^{\ell_i|t|})$, so the density is integrable and symmetric under $t\mapsto-t$, and $\E e^{bM^2}<\infty$ for every $b$. By Theorem~\ref{fm:thm:bessel}(i) each $q_i$ has Gaussian moments of all orders and a moment generating function with only imaginary zeros, so by Newman's theorem \cite{Newman74,LiebSokal81}, in its form for fields $h_i$ with $\re h_i>0$ for every $i$, $Z(h)=\E\exp(\sum_ih_iX_i)$ has no zero with $\re h_i>0$ for every $i$. For $\varepsilon>0$ the function $z\mapsto Z(zc+\varepsilon\mathbf 1)$ therefore has no zero in $\re z>0$; letting $\varepsilon\downarrow0$, Hurwitz's theorem and $Z(0)=1$ show that $L_M(z)=Z(zc)$ has none there, and by symmetry none in $\re z<0$.
+\end{proof}
+
+For two spins with $J_{12}=J$ and $c_1=c_2=1$, expanding $e^{Jt_1t_2}$ gives the transform of $X_1+X_2$, up to a constant,
+\[
+Z_J(\theta)=\sum_{n\ge0}\frac{(-J)^n}{n!}\,\varphi_1^{(n)}(\theta)\,\varphi_2^{(n)}(\theta),
+\]
+with $\varphi_i$ the characteristic function of $q_i$. Whether such coupled laws can approach $p$ is not known; Proposition~\ref{fm:prop:fixedkernel} does not apply to them, since the law of $X_1+X_2$ is not a multiplier on one kernel.
+
+At $J=0$ the zero counts add: with every $\mu_i=0$, the transform $\prod_i\varphi_i(\theta)$ of $X_1+\dots+X_N$ has $\sum_i\frac\theta{\pi\ell_i}\log\frac{2\theta}{ea_i\ell_i}+O(1)$ zeros in $(0,\theta]$, by Remark~\ref{fm:rem:besselcount}, and this has the main terms of the Riemann von Mangoldt formula exactly when
+\[
+\sum_i\frac1{\ell_i}=\frac12,\qquad\sum_i\frac{\log(a_i\ell_i)}{\ell_i}=\frac12\log4\pi ;
+\]
+for $N=1$ this is P\'olya's kernel, and for $\ell_i=2N$ it asks $\prod_ia_i=(2\pi/N)^N$. Coupling moves the count by an unbounded amount. For two spins and $J>0$, Jensen's inequality under the product of the tilted laws proportional to $q_i(t)e^{-yt}$ gives $\log Z_J(iy)-\log Z_0(iy)\ge J\,m_1(y)m_2(y)+O(1)$, where $-m_i(y)$ is the tilted mean and $m_i(y)\sim\ell_i^{-1}\log y$ by Stirling's formula. Both laws are ferromagnetic with $b=0$ in \eqref{fm:eq:had} (Theorem~\ref{fm:thm:hadamard}), so $\log\big(Z(iy)/Z(0)\big)=\int_0^\infty\log(1+y^2/r^2)\,dN(r)$ for their counting functions, and an $N_J-N_0$ bounded above would make the difference at most $O(\log y)$. So $N_J(\theta)-N_0(\theta)$ is unbounded above. A saddle point computation suggests $N_J(\theta)-N_0(\theta)=\big(\sum_{i<j}J_{ij}/(\ell_i\ell_j)\big)\log\theta+O(1)$ for $X_1+\dots+X_N$ (heuristic).
+
+\begin{resultpar}\label{fm:res:besselmellin}For $N=2$ and $\ell_1=\ell_2=4$ the condition displayed above is $a_1a_2=\pi^2$, met by two copies of the law $q$ with $(a,\ell)=(\pi,4)$ and $m\equiv1$, for which $\varphi_q(\theta)=K_{i\theta/4}(\pi)/K_0(\pi)$. The Mellin transform $\mathcal D$ of the clock of this pair (Section~\ref{ch:fmmellin}), and that of a single copy, have no zero in the box $-0.95<\re w<-0.05$, $\frac12<\im w<11$, in which $\mathcal D_{\pi U+\pi U'}$ has the two zeros $\frac{\rho_1-1}2$ and $\frac{\rho_2-1}2$ (computed, \texttt{tlz\_bessel.py}; the argument principle on the boundaries of the boxes $\frac12<\im w<\frac{17}2$ and $\frac{17}2<\im w<11$, sampled, not a ball proof, with the uniform pair computed by the same quadrature as a control, which gives winding $1$ in each box). The zeros $\pm ic_k$ of this pair have the main term of the Riemann von Mangoldt formula, and those of the uniform pair the count $2\theta$ (Remark~\ref{fm:rem:besselcount}). This paragraph follows a note of Nicholas Polson merged into the book \cite{P26tus}.\end{resultpar}
+
+\begin{proposition}\label{fm:prop:levelrep}
+For two spins as above let $J\downarrow0$.
+\begin{enumerate}
+\item[(i)] If $\alpha$ is a simple zero of $\varphi_1$ and $\varphi_2(\alpha)\ne0$, then $Z_J$ has a zero $\alpha+J\varphi_2'(\alpha)/\varphi_2(\alpha)+O(J^2)$.
+\item[(ii)] If $\alpha$ is a simple zero of both $\varphi_1$ and $\varphi_2$, then $Z_J$ has the two real zeros
+\[
+\alpha\pm\sqrt J+\frac J4\Big(\frac{\varphi_1''}{\varphi_1'}+\frac{\varphi_2''}{\varphi_2'}\Big)(\alpha)+O(J^{3/2}),
+\]
+at distance $2\sqrt J+O(J^{3/2})$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+The expansion gives $Z_J=\varphi_1\varphi_2-J\varphi_1'\varphi_2'+O(J^2)$ locally uniformly, and (i) is the implicit function theorem at the simple zero $\alpha$ of $\varphi_1\varphi_2$. For (ii) put $\theta=\alpha+\sqrt J\,v$, $A=\varphi_1'(\alpha)\varphi_2'(\alpha)\ne0$ and $B=(\varphi_1'\varphi_2''+\varphi_1''\varphi_2')(\alpha)$; then $Z_J/(AJ)=v^2-1+\sqrt J\,\frac B{2A}(v^3-2v)+O(J)$, and the implicit function theorem at $v=\pm1$ gives $v=\pm1+\sqrt J\,\frac B{4A}+O(J)$. Both zeros are real because $X_1+X_2$ is ferromagnetic (Corollary~\ref{fm:cor:coupled}).
+\end{proof}
+
+Numerically (\texttt{bs\_coupled.py}), for the spins $(a,\ell)=(2\pi,1)$ and $(2\pi,1.3)$ with $m\equiv1$, the transform of $X_1+X_2$ has $39$, $39$ and $40$ zeros in $(0,45)$ for $J=0$, $\frac18$ and $\frac12$. At $J=\frac18$ Proposition~\ref{fm:prop:levelrep}(i) predicts the zeros to within $0.084$ for the $17$ zeros that lie at distance more than $\frac12$ from the zeros of the other spin, and to within $0.017$ for the $4$ beyond $1$; the prediction is poor near a near coincidence, at the zeros $43.66$ and $43.69$ of the two spins, which is the case of a shared zero split by (ii). For two spins $(2\pi,1)$ the double zeros of $Z_0$ split into $24$ pairs in $(0,45)$, and their separations lie between $0.458$ and $0.534$ (mean $0.486$) at $J=\frac3{40}$, against $2\sqrt J=\sqrt{3/10}=0.548$, and between $0.580$ and $0.919$ (mean $0.688$) at $J=\frac14$, against $2\sqrt J=1$. The separation is below $2\sqrt J$ and decreases with the height (computed).
+
+\begin{proposition}\label{fm:prop:nocomponent}
+For $n\ge1$ let $r_n(t)=e^{|t|/2}\exp(-\pi n^2e^{2|t|})$, and consider the laws with densities proportional to $r_n$ and to $\sum_{m\ge1}r_m$: the components of the theta series in Riemann's formula and their mixture (Remark~\ref{mi:rem:laws}). Each of these laws is symmetric, has Gaussian moments of all orders and a characteristic function positive on $\R$, and none of them is ferromagnetic: each characteristic function has infinitely many zeros, and none of them is real. Status: proved.
+\end{proposition}
+
+\begin{proof}
+Let $X$ have one of these laws and characteristic function $\varphi$. As $\sum_{m\ge1}e^{-\pi m^2x}\le e^{-\pi x}/(1-e^{-3\pi})$ for $x\ge1$, each density is at most a constant times $e^{|t|/2}\exp(-\pi e^{2|t|})$, which gives the moments, and $\varphi>0$ on $\R$ by Remark~\ref{mi:rem:laws}. The same bound gives $\E e^{b|X|}\le C\int_0^\infty e^{(b+\frac12)t}e^{-\pi e^{2t}}\,dt\le C\pi^{-b/2-1/4}\,\Gamma(\tfrac b2+\tfrac14)$ for $b\ge0$, so $\varphi$ is entire and, since $|\varphi(z)|\le\E e^{|\im z||X|}$, of order at most one by Stirling's formula. If $\varphi$ had finitely many zeros, Hadamard's theorem would give $\varphi(z)=P(z)e^{az}$ with a polynomial $P$, of degree $d$ say, and a constant $a$, so that $|\varphi(iy)|\le C'(1+|y|)^de^{|a||y|}$. But $\varphi(iy)=\E\cosh(yX)\ge\frac12e^{A|y|}\,\mathbb P(|X|>A)$ for every $A>0$, and $\mathbb P(|X|>A)>0$ because the density is positive; with $A>|a|$ this is a contradiction for large $|y|$. So $\varphi$ has infinitely many zeros, none of them real, and $X$ is not ferromagnetic (Definition~\ref{fm:def:ferro}).
+\end{proof}
+
+The components are laws of $\pm\tfrac12\log X$ with $X$ of gamma type truncated to $[1,\infty)$, whose densities have a corner at the origin; as the cusped tilts of $p$ in Theorem~\ref{xg:thm:cauchy} are not, by the same mechanism. The product of two Gumbel distribution functions in Remark~\ref{fm:rem:besselgumbel} gives instead the smooth kernel $e^{-a\cosh\ell t}$ and the ferromagnetic laws of Theorem~\ref{fm:thm:bessel}. Since $\varphi>0$ on $\R$, the real zeros of $\Xi$ are zeros of no component: by Remark~\ref{mi:rem:laws} they are the points $\theta$ where the positive function $(\theta^2+\frac14)W(\theta)$, with $W$ the function of Remark~\ref{mi:rem:laws}, equals $1$. For $n=1$ the characteristic function has $5$ zeros in the box $0\le\re\theta\le40$, $0\le\im\theta\le30$, the two of least modulus being $13.0885+10.8707i$ and $20.1987+15.0786i$ (computed; argument principle, \texttt{px\_cbox.py}). This proposition follows a note of Nicholas Polson merged into the book \cite{P26pole}.
 
 \subsection{Laws that keep the first zeros}\label{fm:sec:zerocompleted}
 
@@ -154,10 +307,10 @@ A simulation checks the identity numerically (computed by \texttt{fm\_maxwell.py
 \subsection{How close}\label{fm:sec:compare}
 
 \begin{proposition}\label{fm:prop:tvcert}
-With no hypothesis, the distance $\delta$ of Section~\ref{fm:sec:closure} is at most $\operatorname{TV}(f_{150},p)<1.932\times10^{-6}$, since $f_{150}$ is a ferromagnetic law by Theorem~\ref{fm:thm:zc}(ii) and the positivity proof of Section~\ref{fm:sec:zerocompleted}; without that computer assisted proof, $f_{16}$ gives $\delta<1.266\times10^{-4}$.
+With no hypothesis, the distance $\delta$ of Section~\ref{fm:sec:closure} is at most $\operatorname{TV}(f_{150},p)<1.932\times10^{-6}$, since $f_{150}$ is a ferromagnetic law by Theorem~\ref{fm:thm:zc}(ii) and the positivity proof of Section~\ref{fm:sec:zerocompleted}; without that computer assisted proof, $f_{16}$ gives $\delta<1.266\times10^{-4}$, and the second law of Table~\ref{fm:tab:bessel}, ferromagnetic by Theorem~\ref{fm:thm:bessel}, gives $\delta<6.024\times10^{-6}$.
 \end{proposition}
 
-Every density here is even, and $\operatorname{TV}(q,p)=\int_0^\infty|q-p|$ is enclosed in ball arithmetic. On $[0,3]$, cut into intervals $[c-r,c+r]$ with $r=2^{-12}$, the integral of $|d|$, $d=q-p$, differs from the exact integral of $|d(c)+d'(c)h|$ over $|h|\le r$ by at most $|d''(c)|r^3/3+M_3r^4/12$, where $M_3$ bounds $|d'''|$ by interval evaluation (for the laws $f_K$, by $\frac1\pi\int_0^\infty\theta^3|\varphi_K(\theta)|\,d\theta$); beyond $3$ each density is bounded by an explicit function of known logarithmic decay rate. The laws $f_K$ are built from the certified zeros and variance of Section~\ref{fm:sec:zerocompleted}, so the distances are those of the true laws (\texttt{fm\_tvcert.py}).
+Every density here is even, and $\operatorname{TV}(q,p)=\int_0^\infty|q-p|$ is enclosed in ball arithmetic. On $[0,3]$, cut into intervals $[c-r,c+r]$ with $r=2^{-12}$, the integral of $|d|$, $d=q-p$, differs from the exact integral of $|d(c)+d'(c)h|$ over $|h|\le r$ by at most $|d''(c)|r^3/3+M_3r^4/12$, where $M_3$ bounds $|d'''|$ by interval evaluation (for the laws $f_K$, by $\frac1\pi\int_0^\infty\theta^3|\varphi_K(\theta)|\,d\theta$); beyond $3$ each density is bounded by an explicit function of known logarithmic decay rate. The laws $f_K$ are built from the certified zeros and variance of Section~\ref{fm:sec:zerocompleted}, so the distances are those of the true laws (\texttt{fm\_tvcert.py}). For the laws of Table~\ref{fm:tab:bessel} the normalising constants are Arb's Bessel functions $K_v(a)$ at real order, by Theorem~\ref{fm:thm:bessel}(ii), or integrals enclosed by Arb's quadrature when $\mu>0$, and $M_3$ comes from interval evaluation of the closed form (\texttt{wf\_tvcert.py}).
 
 \subsection{A cusped weight never works}\label{sec:xg:cauchy}
 
@@ -193,4 +346,16 @@ $\mu$ & $z$ & $H^{(\mu)}(z)$ & $\mu\Phi_{\rm dBN}(0)/z^2$\\
 \bottomrule
 \end{tabular}
 \end{center}
+
+A weight that is smooth at the origin but decays only like $u^{-2}$ is the other natural candidate \cite{PolsonRXi26}. For $a>0$ let
+\[
+H^{[a]}(z)=\int_0^\infty\frac{\Phi_{\rm dBN}(u)}{1+a^2u^2}\cos(zu)\,du .
+\]
+\begin{proposition}\label{xg:prop:laplace}
+$H^{[a]}(z)=\E\,H_0(z+aL)$, with $L$ a standard Laplace variable of density $\frac12e^{-|y|}$; $H^{[a]}=\int_0^\infty e^{-v}H_{-va^2}\,dv$, an exponential mixture of backward heat flows; and $H_0=(1-a^2\frac{d^2}{dz^2})H^{[a]}$. Consequently, if $H^{[a]}$ has only real zeros for one $a>0$, then RH holds.
+\end{proposition}
+\begin{proof}
+$\E\cos(aLu)=(1+a^2u^2)^{-1}=\int_0^\infty e^{-v}e^{-va^2u^2}dv$ and $\E\sin(aLu)=0$, so Fubini gives the first two forms, with $H_t(z)=\int_0^\infty e^{tu^2}\Phi_{\rm dBN}(u)\cos(zu)\,du$ as in Section~\ref{ch:dbn}; the third follows from $-\frac{d^2}{dz^2}\cos(zu)=u^2\cos(zu)$. The function $H^{[a]}$ is even, real on $\R$ and entire of order one, since its kernel decays like $\Phi_{\rm dBN}$; if its zeros are real it is therefore in the Laguerre P\'olya class, and so is $(1-a\frac d{dz})(1+a\frac d{dz})H^{[a]}=H_0$, because $1\pm a\frac d{dz}$ preserve the class (Laguerre's theorem; see \cite{Levin64}). So $H_0$ has only real zeros.
+\end{proof}
+The weight $(1+a^2u^2)^{-1}$ has poles at $u=\pm i/a$, so it is not one of the entire multipliers of Proposition~\ref{fm:prop:bruijn} and not a universal factor in P\'olya's sense; RH is not known to imply that $H^{[a]}$ has real zeros, and whether it has them for some $a>0$ is open.
 

@@ -1,0 +1,176 @@
+\section{The level one measure}\label{lo:sec:level}
+
+Throughout, $\xi(s)=\tfrac12s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$, zeros are $\rho=\sigma_\rho+i\gamma_\rho$ counted with multiplicity, and $\theta_0=\sup\sigma_\rho\le1$. For every $\theta\ge\theta_0$, that is for every $\theta$ such that $\zeta$ has no zeros in $\Re s>\theta$ (in particular for every $\theta\ge1$, unconditionally), let
+\begin{equation}\label{lo:eq:Utheta}
+\mathfrak U_\theta=\sum_{\rho}\mathrm{Cauchy}(\gamma_\rho,\theta-\sigma_\rho),\qquad\mathrm{Cauchy}(\gamma,0)=\delta_\gamma,
+\end{equation}
+the sum over the zeros of both half planes, a positive measure on $\R$ in the variable $v$ with $\int\mathfrak U_\theta(dv)/(1+v^2)<\infty$. It is twice the symmetric measure $\widetilde U_\theta$ of Theorem~\ref{lv:thm:semigroup}, and the image of its restriction to $v>0$ under $v\mapsto v^2$ is the Thorin measure $U_\theta$, each conjugate pair of zeros contributing one term.
+
+\begin{theorem}[density of the Thorin measure; at $\theta=1$, $v\ne0$, Propositions~\ref{bp:prop:thorin} and~\ref{bp:prop:sin2}]\label{lo:thm:density}
+If $\theta>\sigma_\rho$ for every $\rho$ (for instance if $\theta>\theta_0$, and for every $\theta\ge1$ because $\zeta(1+it)\ne0$), the measure $\mathfrak U_\theta$ is absolutely continuous with real analytic density
+\begin{equation}\label{lo:eq:dens}
+u_\theta(v)=\frac1\pi\Re\frac{\xi'}{\xi}(\theta+iv)=\frac1\pi\,\partial_\sigma\log|\xi(\sigma+iv)|\Big|_{\sigma=\theta},
+\end{equation}
+and $\mathfrak U_\theta((0,V])=\frac1\pi\arg\xi(\theta+iV)$ for the branch with $\arg\xi(\theta)=0$. At $\theta=1$,
+\begin{equation}\label{lo:eq:u1}
+\begin{split}u_1(v)&=\frac1\pi\Bigl[\frac1{1+v^2}-\frac{\log\pi}2+\frac12\Re\frac{\Gamma'}{\Gamma}\Bigl(\frac{1+iv}2\Bigr)\\&\qquad-\lim_{X\to\infty}\Bigl(\sum_{n\le X}\frac{\Lambda(n)}{n}\cos(v\log n)-\frac{\sin(v\log X)}{v}\Bigr)\Bigr]\end{split}
+\end{equation}
+for every real $v$, where $\sin(v\log X)/v$ means $\log X$ at $v=0$. The limit exists, locally uniformly in $v$, and equals $\Re C(1+iv)$ with $C(s)=-\zeta'(s)/\zeta(s)-1/(s-1)$: it is $-\Re(\zeta'/\zeta)(1+iv)$ for $v\ne0$ and minus Euler's constant at $v=0$, while the cosine series itself has no limit for any real $v$ (compare Proposition~\ref{bp:prop:sin2}). For $\theta>1$,
+\[
+\begin{split}u_\theta(v)&=\frac1\pi\Bigl[\frac\theta{\theta^2+v^2}+\frac{\theta-1}{(\theta-1)^2+v^2}-\frac{\log\pi}2\\&\qquad+\frac12\Re\frac{\Gamma'}{\Gamma}\Bigl(\frac{\theta+iv}2\Bigr)-\sum_{n\ge2}\frac{\Lambda(n)}{n^\theta}\cos(v\log n)\Bigr],\end{split}
+\]
+the prime sum converging absolutely.
+\end{theorem}
+
+\begin{proof}
+Each term of \eqref{lo:eq:Utheta} is a probability measure, and for $0\le c\le\theta$
+\[
+\int\frac{P_c(v-\gamma)}{1+v^2}\,dv=\pi P_{1+c}(\gamma)=\frac{1+c}{(1+c)^2+\gamma^2}\le\frac{1+\theta}{1+\gamma^2};
+\]
+since $\sum_\rho(1+\gamma_\rho^2)^{-1}<\infty$, the sum converges to a positive measure with $\int\mathfrak U_\theta(dv)/(1+v^2)<\infty$. If every width $\theta-\sigma_\rho$ is positive, fix $R>0$. The finitely many zeros with $|\gamma_\rho|\le R+2\theta+2$ give Cauchy densities of positive width, which are real analytic; for the others the densities, continued to $|\Re z|\le R$, $|\Im z|\le\tfrac12$, are holomorphic and bounded by $2\theta/(\pi(|\gamma_\rho|-R)^2)$, so their sum is holomorphic there. Hence $\mathfrak U_\theta$ has a real analytic density.
+
+By the Hadamard product with conjugate pairing, $(\xi'/\xi)(s)=\sum_\rho1/(s-\rho)$, so
+\[
+\frac1\pi\Re\frac{\xi'}{\xi}(\theta+iv)=\frac1\pi\sum_\rho\frac{\theta-\sigma_\rho}{(\theta-\sigma_\rho)^2+(v-\gamma_\rho)^2},
+\]
+which is the density of \eqref{lo:eq:Utheta}. The second form in \eqref{lo:eq:dens} is the Cauchy Riemann equation for $\log\xi$, and integrating $\partial_v\arg\xi=\partial_\sigma\log|\xi|$ gives the mass formula. For \eqref{lo:eq:u1}, $\xi'/\xi=1/s+1/(s-1)-\tfrac12\log\pi+\tfrac12\Gamma'/\Gamma(s/2)+\zeta'/\zeta$, so $u_1=g_1-\pi^{-1}\Re C(1+iv)$, where $g_1$ collects the first three terms of \eqref{lo:eq:u1} and $C(s)=-\zeta'(s)/\zeta(s)-1/(s-1)$ is analytic on a neighbourhood of $\Re s\ge1$, because $\zeta(1+it)\ne0$ and the pole of $\zeta$ cancels; at $v=0$ this is the value of the continuous function $u_1$. Write $\sum_{n\le t}\Lambda(n)=t+R(t)$ with $R(t)=O(te^{-c\sqrt{\log t}})$. Partial summation gives, for $\Re s\ge1$,
+\[
+\sum_{n\le X}\frac{\Lambda(n)}{n^s}-\int_1^X\frac{dt}{t^s}=\frac{R(X)}{X^s}-R(1)+s\int_1^X\frac{R(t)}{t^{s+1}}\,dt ,
+\]
+and as $X\to\infty$ the right side converges, uniformly for $s$ in compact subsets of $\Re s\ge1$, because $\int^\infty e^{-c\sqrt{\log t}}\,dt/t<\infty$. For $\Re s>1$ the left side tends to $C(s)$, so by continuity the limit is $C(s)$ on $\Re s=1$ too. At $s=1+iv$ the real part of $\int_1^Xt^{-s}\,dt$ is $\sin(v\log X)/v$, and $\log X$ at $v=0$, which has no limit as $X\to\infty$; this gives the compensated limit in \eqref{lo:eq:u1} and the divergence of the cosine series. For $\theta>1$ the Dirichlet series converges absolutely, and $\Re1/(s-1)=(\theta-1)/((\theta-1)^2+v^2)$ at $s=\theta+iv$.
+\end{proof}
+
+At $v=0$ the compensated limit is $\lim(\sum_{n\le X}\Lambda(n)/n-\log X)=-\gamma_E$, and \eqref{lo:eq:u1} gives $u_1(0)=(1+\gamma_E/2-\log2-\tfrac12\log\pi)/\pi=(2+\gamma_E-\log4\pi)/(2\pi)=0.00735159249234$, the value of the continuous function $u_1$ at the origin (computed, to $30$ digits, \texttt{code/lo\_common.py}; the values $u_1(10^{-3})-u_1(0)=3.5\times10^{-11}$ and $u_1(0.05)-u_1(0)=8.8\times10^{-8}$ confirm it). It is also $(2\pi)^{-1}\sum_\rho1/(\rho(1-\rho))$.
+
+Formula \eqref{lo:eq:u1} is the answer to the first question of this chapter. The level one Thorin measure of the reciprocal xi function is an explicit function of the primes, with no reference to zeros, and Theorem~\ref{lv:thm:thorin} says it is a positive measure. Positivity of \eqref{lo:eq:u1} is itself a statement about primes: it says that the limit in \eqref{lo:eq:u1} is at most $1/(1+v^2)-\tfrac12\log\pi+\tfrac12\Re\Gamma'/\Gamma((1+iv)/2)$, the right side being $\tfrac12\log(v/2\pi)+O(1/v^2)$. This inequality follows from the Euler product (Proposition~\ref{bp:prop:thorin}). Numerically, the mass of $u_1$ on $[0,400]$ is $201.67$ and there are $202$ zeros below height $400$ (computed: Simpson on step $0.05$ gives $201.66682$, and the formula below over the ordinates of \texttt{data/zeros\_1700.txt} plus the smooth tail gives $201.66681$), the difference coming from the Cauchy smoothing of the zero count,
+\[
+\mathfrak U_1((0,V])=\frac1\pi\sum_{\gamma_\rho>0}\Bigl[\arctan\frac{V-\gamma_\rho}{1-\sigma_\rho}+\arctan\frac{V+\gamma_\rho}{1-\sigma_\rho}\Bigr].
+\]
+
+\section{The Fourier side: primes}\label{lo:sec:fourier}
+
+Write $\widehat\mu(\omega)=\int e^{-i\omega v}\mu(dv)$ for the Fourier transform of a tempered measure.
+
+\begin{proposition}[spectrum of the level one measure]\label{lo:prop:spectrum}
+For $\theta\ge1$ let $g_\theta(v)=\frac1\pi\bigl[\theta/(\theta^2+v^2)-\tfrac12\log\pi+\tfrac12\Re\frac{\Gamma'}{\Gamma}((\theta+iv)/2)\bigr]$. As tempered distributions,
+\begin{equation}\label{lo:eq:spectrum}
+\widehat{\mathfrak U_1}(\omega)=\widehat{g_1}(\omega)+1-\sum_{n\ge2}\frac{\Lambda(n)}{n}\bigl(\delta_{\log n}+\delta_{-\log n}\bigr)(\omega),
+\end{equation}
+the constant $1$ being the transform of the atom $\delta_0$ that the pole of $\zeta$ at $s=1$ contributes in the limit $\theta\downarrow1$; on the zero side $\widehat{\mathfrak U_1}(\omega)=\sum_\rho e^{-(1-\sigma_\rho)|\omega|}e^{-i\omega\gamma_\rho}$, the limit of the sums over $|\gamma_\rho|<T$. Equivalently, for every $\varphi\in\mathcal S(\R)$,
+\begin{equation}\label{lo:eq:weil}
+\sum_\rho\bigl(P_{1-\sigma_\rho}*\varphi\bigr)(\gamma_\rho)=\int g_1\varphi\,dv+\varphi(0)-\frac1{2\pi}\sum_{n\ge2}\frac{\Lambda(n)}{n}\bigl(\widehat\varphi(\log n)+\widehat\varphi(-\log n)\bigr),
+\end{equation}
+with $P_c$ the Cauchy kernel of width $c$. For $\theta\ge1$ the semigroup $\mathfrak U_\theta=P_{\theta-1}*\mathfrak U_1$ reads, since $g_\theta=P_{\theta-1}*g_1$, $\widehat{\mathfrak U_\theta}(\omega)=\widehat{P_{\theta-1}*\mathfrak U_1}(\omega)=e^{-(\theta-1)|\omega|}\widehat{\mathfrak U_1}(\omega)=\widehat{g_\theta}(\omega)+e^{-(\theta-1)|\omega|}-\sum_{n\ge2}\Lambda(n)n^{-\theta}(\delta_{\log n}+\delta_{-\log n})(\omega)$, which on the prime side is the replacement of $\Lambda(n)/n$ by $\Lambda(n)n^{-\theta}$.
+\end{proposition}
+
+\begin{proof}
+For $1<\theta\le2$ the formula of Theorem~\ref{lo:thm:density} reads
+\[
+u_\theta=g_\theta+P_{\theta-1}-\pi^{-1}\sum_n\Lambda(n)n^{-\theta}\cos(v\log n),
+\]
+absolutely convergent. Integrating against $\varphi\in\mathcal S(\R)$ and using
+\[
+\int\varphi(v)\cos(v\log n)\,dv=\tfrac12\bigl(\widehat\varphi(\log n)+\widehat\varphi(-\log n)\bigr),
+\]
+we get
+\[
+\begin{split}\sum_\rho(P_{\theta-\sigma_\rho}*\varphi)(\gamma_\rho)&=\int g_\theta\varphi\,dv+(P_{\theta-1}*\varphi)(0)\\&\quad-\frac1{2\pi}\sum_{n\ge2}\frac{\Lambda(n)}{n^\theta}\bigl(\widehat\varphi(\log n)+\widehat\varphi(-\log n)\bigr).\end{split}
+\]
+Let $\theta\downarrow1$. On the left, splitting the integral at $|v-\gamma|=|\gamma|/2$ gives $|(P_c*\varphi)(\gamma)|\le C_\varphi/(1+\gamma^2)$ uniformly for $0\le c\le2$; each term is continuous in $c$ and $\sum_\rho(1+\gamma_\rho^2)^{-1}<\infty$, so dominated convergence over the zeros applies. On the right, $g_\theta\to g_1$ pointwise with $|g_\theta(v)|\le C\log(2+|v|)$ for $1\le\theta\le2$, $(P_{\theta-1}*\varphi)(0)\to\varphi(0)$, and $\sum_n\Lambda(n)n^{-1}|\widehat\varphi(\pm\log n)|<\infty$ because $\widehat\varphi(\omega)=O((1+|\omega|)^{-3})$ and $\sum_{n\le x}\Lambda(n)/n=\log x+O(1)$. This proves \eqref{lo:eq:weil}. Its left side is $\int\varphi\,d\mathfrak U_1$, and $\int f\varphi\,dv=\frac1{2\pi}\int\widehat f(\omega)\widehat\varphi(-\omega)\,d\omega$, so \eqref{lo:eq:weil} for all $\varphi\in\mathcal S(\R)$ is \eqref{lo:eq:spectrum}. The zero side is the transform of \eqref{lo:eq:Utheta} term by term, $\widehat{\mathrm{Cauchy}(\gamma,c)}(\omega)=e^{-c|\omega|}e^{-i\omega\gamma}$, the sums over $|\gamma_\rho|<T$ converging in $\mathcal S'$ by the same bound. For $\theta>1$ the computation without the limit gives the last formula, and $\mathfrak U_\theta=P_{\theta-1}*\mathfrak U_1$ holds term by term because $P_{\theta-1}*P_c=P_{\theta-1+c}$.
+\end{proof}
+
+The identity \eqref{lo:eq:weil} is an explicit formula of Weil's type \cite{Weil52}. For a conjugate pair of zeros $\rho,\bar\rho$, with
+\[
+H_\varphi(z)=\frac1{2\pi}\int_0^\infty\bigl(\widehat\varphi(t)+\widehat\varphi(-t)\bigr)e^{(z-1)t}\,dt ,
+\]
+one has $(P_{1-\sigma}*\varphi)(\gamma)+(P_{1-\sigma}*\varphi)(-\gamma)=H_\varphi(\rho)+H_\varphi(\bar\rho)$, so the left side of \eqref{lo:eq:weil} is $\sum_\rho H_\varphi(\rho)$, summed over conjugate pairs: one test function evaluated at the zeros. Under RH it is the classical explicit formula tested against $P_{1/2}*\varphi$ (compare Theorem~\ref{dc:thm:weil}). With Theorem~\ref{dc:thm:weil}, it identifies the Thorin measure of this book with the object that the explicit formula has always been about. As a check, for $\varphi(v)=e^{-v^2/2}$ the two sides of \eqref{lo:eq:weil} agree to thirteen digits in the form $\int(u_1-g_1)\varphi\,dv=\varphi(0)-(2\pi)^{-1}\sum_n\Lambda(n)n^{-1}(\widehat\varphi(\log n)+\widehat\varphi(-\log n))$, both equal to $0.4267700651131$ (computed in the review of the source with $120$ point Gauss and Legendre quadrature and $20$ digit arithmetic, not by a script of the book).
+
+The spectral peaks of $u_1$ sit at $\log2,\log3,\log4,\log5,\log7,\dots$ with heights roughly proportional to $\Lambda(n)/n$. Table~\ref{lo:tab:spectrum} shows them recovered from a Hann windowed Fourier transform of $u_1$ sampled on $[-400,400]$ at spacing $0.05$ (by symmetry), padded to a frequency step of $3\times10^{-5}$ (\texttt{code/lo\_flow.py}, \texttt{data/lo\_flow.json}).
+
+\begin{table}[ht]
+\centering
+\small
+\begin{tabular}{ccccc}
+\toprule
+$n$ & peak $\omega$ & $e^{\omega}$ & relative height & $\Lambda(n)/n$ relative to $n=3$\\
+\midrule
+2 & 0.6931 & 2.000 & 0.950 & 0.946\\
+3 & 1.0986 & 3.000 & 1.000 & 1.000\\
+4 & 1.3863 & 4.000 & 0.449 & 0.473\\
+5 & 1.6095 & 5.000 & 0.872 & 0.879\\
+7 & 1.9459 & 7.000 & 0.747 & 0.759\\
+8 & 2.0794 & 8.000 & 0.202 & 0.237\\
+9 & 2.1972 & 9.000 & 0.303 & 0.333\\
+11 & 2.3979 & 11.000 & 0.576 & 0.595\\
+13 & 2.5650 & 13.000 & 0.517 & 0.539\\
+17 & 2.8332 & 17.000 & 0.430 & 0.455\\
+19 & 2.9444 & 19.000 & 0.397 & 0.423\\
+23 & 3.1355 & 23.000 & 0.343 & 0.372\\
+29 & 3.3673 & 29.000 & 0.286 & 0.317\\
+31 & 3.4340 & 31.001 & 0.271 & 0.302\\
+\bottomrule
+\end{tabular}
+\caption{Spectral peaks of the level one Thorin measure (computed). Every peak lies within $10^{-4}$ of the logarithm of a prime or prime power. The heights, relative to that of $n=3$, depend on the window and follow the relative value of $\Lambda(n)/n$ to within $0.04$.}\label{lo:tab:spectrum}
+\end{table}
+
+\section{The backward flow}\label{lo:sec:backward}
+
+Fix $\tfrac12\le\theta'<1$, put $a=1-\theta'$, and let $\Delta_\Omega(\omega)=(1-|\omega|/\Omega)_+$ be the Fej\'er window. Let $K_{\theta',\Omega}$ be the inverse Fourier transform of $\Delta_\Omega(\omega)e^{a|\omega|}$; this multiplier is even, continuous, compactly supported and has a derivative of bounded variation, so $K_{\theta',\Omega}$ is smooth and $|K_{\theta',\Omega}(v)|\le C_{\Omega,a}/(1+v^2)$. The band limited backward flow from level one to level $\theta'$ is
+\begin{equation}\label{lo:eq:backward}
+B_{\theta',\Omega}\mathfrak U_1=\mathfrak U_1*K_{\theta',\Omega},
+\end{equation}
+a smooth function of growth $O(\log(2+|v|))$, since $\mathfrak U_1([t,t+1])=O(\log(2+|t|))$; formally its transform is $\Delta_\Omega(\omega)e^{a|\omega|}\widehat{\mathfrak U_1}(\omega)$. Let $\Phi_\Omega(v)=(1-\cos\Omega v)/(\pi\Omega v^2)$ be the Fej\'er kernel, the inverse transform of $\Delta_\Omega$.
+
+\begin{theorem}[dichotomy for the backward flow]\label{lo:thm:dichotomy}
+Let $\tfrac12\le\theta'<1$ and $a=1-\theta'$.
+\begin{enumerate}
+\item[(i)] If $\zeta$ has no zeros in $\Re s>\theta'$, then $B_{\theta',\Omega}\mathfrak U_1=\mathfrak U_{\theta'}*\Phi_\Omega$, with $\mathfrak U_{\theta'}$ as in \eqref{lo:eq:Utheta}, which has atoms at the zeros with $\sigma_\rho=\theta'$. As $\Omega\to\infty$, $B_{\theta',\Omega}\mathfrak U_1\to\mathfrak U_{\theta'}$ vaguely, and $\int B_{\theta',\Omega}\mathfrak U_1(v)\,dv/(v^2+s)\to\int\mathfrak U_{\theta'}(dv)/(v^2+s)$ for every $s>0$. If $\theta'>\sigma_\rho$ for every $\rho$, the convergence is locally uniform as densities.
+\item[(ii)] If $\zeta$ has a zero $\rho$ with $\sigma_\rho>\theta'$, there is no signed measure $\mu$ with $\int|\mu|(dv)/(1+v^2)<\infty$ such that $\int B_{\theta',\Omega}\mathfrak U_1(v)\,dv/(v^2+s)\to\int\mu(dv)/(v^2+s)$ as $\Omega\to\infty$ for all sufficiently large $s$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Write $f_s(v)=1/(v^2+s)$, so that $f_s=(\pi/\sqrt s)P_{\sqrt s}$ and $\widehat{f_s}(\omega)=(\pi/\sqrt s)e^{-\sqrt s|\omega|}$. The measures below are positive or satisfy $\int|\mu|/(1+v^2)<\infty$, and the kernels are $O(1/(1+v^2))$, so every use of Fubini's theorem is absolute.
+
+(i) Every zero has $\sigma_\rho\le\theta'$, so $\mathfrak U_{\theta'}$ is defined and, term by term, $\mathfrak U_1=\mathfrak U_{\theta'}*P_a$, because $P_c*P_a=P_{c+a}$ for $c\ge0$ (Theorem~\ref{lv:thm:semigroup}). The integrable function $P_a*K_{\theta',\Omega}$ has transform $e^{-a|\omega|}\Delta_\Omega(\omega)e^{a|\omega|}=\Delta_\Omega(\omega)$, so $P_a*K_{\theta',\Omega}=\Phi_\Omega$ and $B_{\theta',\Omega}\mathfrak U_1=\mathfrak U_{\theta'}*P_a*K_{\theta',\Omega}=\mathfrak U_{\theta'}*\Phi_\Omega$. The kernel $\Phi_\Omega$ is nonnegative, has integral one and satisfies $\Phi_\Omega(u)\le2/(\pi\Omega u^2)$. For $f$ continuous with support in $[-R,R]$, $\Phi_\Omega*f\to f$ uniformly and $|\Phi_\Omega*f(v)|\le8\|f\|_1/(\pi\Omega v^2)$ for $|v|\ge2R$, so $|\Phi_\Omega*f-f|\le\eta_\Omega/(1+v^2)$ with $\eta_\Omega\to0$, and $\int f\,d(\mathfrak U_{\theta'}*\Phi_\Omega)=\int(\Phi_\Omega*f)\,d\mathfrak U_{\theta'}\to\int f\,d\mathfrak U_{\theta'}$. For $f=f_s$, $\Phi_\Omega*f_s\to f_s$ pointwise and $\Phi_\Omega*f_s\le C_s/(1+v^2)$ for $\Omega\ge1$, and dominated convergence gives the second statement. If $\theta'>\sigma_\rho$ for every $\rho$, $\mathfrak U_{\theta'}$ has a continuous density $u_{\theta'}$ (Theorem~\ref{lo:thm:density}). For $|v|\le R$ and $0<\delta\le1$, $|\Phi_\Omega*u_{\theta'}(v)-u_{\theta'}(v)|$ is at most the largest change of $u_{\theta'}$ over distances $\delta$ on $[-R-1,R+1]$, plus $(2/(\pi\Omega))\int_{|t|\ge\delta}u_{\theta'}(v-t)t^{-2}\,dt+(4/(\pi\Omega\delta))\max_{[-R,R]}u_{\theta'}$, and the last two terms are $O_{R,\delta}(1/\Omega)$.
+
+(ii) Let $s>a^2$ and $b=\sqrt s-a>0$. The integrable function $K_{\theta',\Omega}*f_s$ has transform $(\pi/\sqrt s)\Delta_\Omega(\omega)e^{-b|\omega|}$, so $K_{\theta',\Omega}*f_s=(\pi/\sqrt s)\Phi_\Omega*P_b=(b/\sqrt s)\Phi_\Omega*f_{b^2}$ and
+\[
+\begin{split}\int B_{\theta',\Omega}\mathfrak U_1(v)f_s(v)\,dv&=\int(K_{\theta',\Omega}*f_s)\,d\mathfrak U_1=\frac b{\sqrt s}\int(\Phi_\Omega*f_{b^2})\,d\mathfrak U_1\\&\longrightarrow\frac b{\sqrt s}\int\frac{\mathfrak U_1(dv)}{v^2+b^2}\end{split}
+\]
+as $\Omega\to\infty$, by the domination used in (i). Since $\int P_c(v-\gamma)f_{b^2}(v)\,dv=(\pi/b)P_{b+c}(\gamma)=b^{-1}\Re(b+c-i\gamma)^{-1}$, summing over the zeros with $c=1-\sigma_\rho$ gives
+\[
+\int\frac{\mathfrak U_1(dv)}{v^2+b^2}=\frac1b\sum_\rho\Re\frac1{1+b-\rho}=\frac1b\,\frac{\xi'}{\xi}(1+b),
+\]
+so the limit is $(\xi'/\xi)(\theta'+\sqrt s)/\sqrt s$. If a measure $\mu$ as in (ii) existed, then for all large $s>0$
+\[
+G(s):=\int\frac{\mu(dv)}{v^2+s}=\frac1{\sqrt s}\,\frac{\xi'}{\xi}(\theta'+\sqrt s).
+\]
+On a compact subset of $\cut$ one has $|v^2+s|\ge c(1+v^2)$, so $G$ is holomorphic on $\cut$. The right side, with the principal square root, is meromorphic on $\cut$, and the identity theorem on the connected set $\cut$ minus its poles makes $G$ equal to it there. Squaring maps $\Re w>0$ onto $\cut$, so $s_0=(\rho-\theta')^2\in\cut$ with $\sqrt{s_0}=\rho-\theta'$, and near $s_0$ the right side is $2m_\rho/(s-s_0)+O(1)$, where $m_\rho\ge1$ is the multiplicity of $\rho$, while $G$ is bounded near $s_0$. This contradiction proves (ii).
+\end{proof}
+
+The theorem is the Thorin criterion of Chapter~\ref{chap:lv} in dynamical form: RH is the statement that the backward flow from the explicit level one measure converges at every level $\theta'>\tfrac12$. Part (ii) is proved by the same pole argument as in Theorem~\ref{lv:thm:thorin}. The flow does not escape the equivalence; it relocates the difficulty into the multiplier $e^{(1-\theta')|\omega|}$, which amplifies whatever is not known about $\widehat{\mathfrak U_1}$ at high frequency. On the prime side, high frequency means large $n$: the content of $\widehat{\mathfrak U_1}$ on $|\omega|\le\Omega$ is $\sum_{n\le e^\Omega}\Lambda(n)/n$, and the backward flow to level $\theta'$ heuristically asks for $\sum_{n\le x}\Lambda(n)n^{-\theta'}$ to behave, which is the statement $\psi(x)-x=O(x^{\theta'+\varepsilon})$ for every $\varepsilon>0$ (the classical equivalence with the zero free half plane $\Re s>\theta'$).
+
+\subsection{Numerical backward flow}\label{lo:sec:numflow}
+
+The run is \texttt{code/lo\_flow.py} (\texttt{data/lo\_flow.json}). We sampled $u_1$ on $[0,400]$ at spacing $0.05$ from \eqref{lo:eq:dens} with $\theta=1$, evaluating $\zeta$ and $\zeta'$ on the line $\Re s=1$ only (python-flint, $128$ bits), with the analytic value $u_1(0)$ at $v=0$, extended by symmetry, applied a Hann window and the multiplier of \eqref{lo:eq:backward} with a sharp cutoff at $\Omega$, not the Fej\'er window of \eqref{lo:eq:backward}, inverted and divided by the window. A peak is a local maximum of the output in $100<v<300$ of height at least a quarter of the maximum, and the peaks are compared with the $109$ zeros of $\zeta$ in that range ($N(300)-N(100)=138-29$). The Fej\'er variant multiplies the sharp multiplier by $1-|\omega|/\Omega$.
+
+\begin{table}[ht]
+\centering
+\small
+\begin{tabular}{ccccccc}
+\toprule
+$\theta'$ & $\Omega$ & cutoff & peaks & zeros & max error & min value\\
+\midrule
+0.75 & 40 & sharp & 109 & 109 & 0.035 & $+0.075$\\
+0.50 & 40 & sharp & 109 & 109 & 0.027 & $-3.2$\\
+0.50 & 60 & sharp & 213 & 109 & 0.042 & $-16.5$\\
+0.50 & 60 & Fej\'er & 109 & 109 & 0.025 & $-0.020$\\
+\bottomrule
+\end{tabular}
+\caption{The Fourier backward flow from samples of $u_1$ on $\Re s=1$ (computed). The error is the largest distance between a zero in $100<v<300$ and the nearest peak. At $\Omega=60$ the sharp cutoff has $213$ peaks of height at least a quarter of the maximum, $109$ of them at the zeros, and the maximum is $+26.6$.}\label{lo:tab:flow}
+\end{table}
+
+\begin{resultpar}\label{lo:res:flow}At $\theta'=0.75$ the flow produces a positive function with $109$ peaks, each within $0.035$ of a zero, as Theorem~\ref{lo:thm:dichotomy}(i) predicts if $\zeta$ has no zeros in $\Re s>3/4$: the level $\tfrac34$ measure is then a smooth positive density whose peaks lie near the zeros. At $\theta'=0.5$ the peaks lie within $0.027$ of the zeros, but the function oscillates below zero between them. This comes from the sharp cutoff: its kernel $\sin(\Omega v)/(\pi v)$ has negative lobes, the first of depth about $0.22\,\Omega/\pi\approx2.8$ at $\Omega=40$, whereas under RH the Fej\'er approximant $\mathfrak U_{1/2}*\Phi_\Omega$ of Theorem~\ref{lo:thm:dichotomy}(i) is nonnegative, because $\Phi_\Omega\ge0$. Theorem~\ref{lo:thm:dichotomy} does not cover the sharp cutoff. The Fej\'er run at $\Omega=60$ is clean: $109$ peaks, error $0.025$ and minimum $-0.020$ (the small negative values come from the Hann window and its division); at $\Omega=40$ its minimum is $-0.011$.\end{resultpar}
+
+The cutoff is limited by the accuracy of the samples: at level $\tfrac12$ the multiplier at the cutoff is $e^{\Omega/2}$, about $10^{13}$ at $\Omega=60$, so an error of $10^{-7}$ in the single sample at $v=0$ already produces oscillations of order $10^2$ in $100<v<300$. This is what the source printed: its $\Omega=60$ row, with $1022$ peaks, error $1.9$ and minimum $-430$, has its minimum reproduced only if the sample at $v=0$, the pole of $\zeta$, is replaced by the sample at $v=0.05$ (an error of $8.8\times10^{-8}$; minimum $-430.2$, maximum $+430.9$; the peak count and the error are not reproduced, the source giving no peak rule), and the source read it as amplified rounding error. With the analytic $u_1(0)$ the output of the sharp cutoff at $\Omega=60$ is not noise but the ringing of the cutoff: each atom gives a sinc of height $\Omega/\pi\approx19$ and the sidelobes of $213$ peaks follow; double precision rounding alone would give oscillations of order $3\times10^{-4}$. The line $\Re s=1$ determines the zeros, and the $109$ zeros tested are read off it to $0.025$ to $0.035$ (two decimals, not the three decimals and the first two hundred zeros of the source), but at level $\tfrac12$ the precision required of the level one data grows like $e^{\Omega/2}$ with the cutoff.

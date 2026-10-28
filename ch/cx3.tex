@@ -1,0 +1,443 @@
+\section{Open problems worked}\label{cx:sec:worked}
+
+Notation of this section, as in the rest of the chapter: $\theta$ is the level and $v$ the height, $u_\theta(v)=\pi^{-1}\Re(\xi'/\xi)(\theta+iv)$, $P_a(x)=a/(\pi(a^2+x^2))$, and a zero is $\rho=\sigma_\rho+i\gamma_\rho$ with $\sigma_\rho$ and $\gamma_\rho$ real (so $\gamma_\rho$ is the height of the zero, which is the book's ordinate of $\rho$ only under the Riemann hypothesis). The symmetric Thorin measure $\mathfrak U_\theta$ in the variable $v$ has density $\sum_\rho P_{\theta-\sigma_\rho}(v-\gamma_\rho)$ with no factor $\tfrac12$, so it is twice the measure $\widetilde U_\theta$ of Theorem~\ref{lv:thm:semigroup}; it exists as a positive measure when $\zeta$ has no zeros in $\Re s>\theta$, and then $P_a*\mathfrak U_\theta=\mathfrak U_{\theta+a}$, in particular $P_{1-\theta}*\mathfrak U_\theta=u_1\,dv$ (Theorem~\ref{lv:thm:semigroup}). The zero free half plane $\Re s>\tfrac78$ is announced, formalised in Lean and not refereed \cite{OAI26a,OAI26b,Liu26a}, as described in Section~\ref{lv:sec:qrh}: every statement below that uses it is conditional on it.
+
+Three open problems were posed for this chapter: the rate of EM and accelerated EM at the boundary, the value of the latent Brownian times in the sampler, and a fast algorithm for $u_1$. The first is answered by experiment (observed, not proved), the second by a comparison inside the scheme together with an experiment, and the third at fixed accuracy. The global minimum problem of Section~\ref{cx:sec:limits} is solved there, by Theorems~\ref{cx:thm:globalmin} and~\ref{cx:thm:rhmin}; its extensions, to every level in $[\tfrac78,1]$ and then to every level under the matching hypothesis, follow, with the slope of the excess. The a posteriori bound for the backward flow is worked up from a duality in floating point to a certificate in ball arithmetic, with Gaussian weighted centroids as well as masses, at the levels $\tfrac12$ and $\tfrac34$. Two short subsections at the end say in what sense $\mathfrak U_{1/2}$ is and is not computed efficiently, and what a von Neumann representation of it would be.
+
+\subsection{The rate at the boundary}\label{cx:sec:rateworked}
+
+The question was whether the factor of about $15$ by which acceleration beat EM at $\theta'=\tfrac12$ is generic, and how the constants depend on the grid. What the runs show is a constant that does not depend on the grid, an EM exponent close to $1$ for the first few thousand steps that then rises, and an accelerated scheme whose restarts make the objective a sawtooth with no single exponent. All of this is observed, not proved. The runs are those of \texttt{code/cx\_em.py} (jobs gridind, expo and restart; data in \texttt{data/cx\_em\_gridind\_*.json}, \texttt{data/cx\_em\_expo\_*.json}, \texttt{data/cx\_em\_restart.json}), with the flat start $x_j=\sum_iy_i/\sum_{i,j}A_{ij}$, the residual $R=h\sum_i[y_i\log(y_i/(Ax)_i)-y_i+(Ax)_i]$ with the factor $h$, and steps counted as evaluations of the EM map.
+
+Grid independence. The full range problem of the acceleration section at $\theta'=\tfrac12$ was run for $3000$ steps at $h=0.04$, $0.02$ and $0.01$. With $R^*$ the smallest residual reached by either method, $k(R_k-R^*)$ for EM is $54.7$, $51.9$, $49.5$ and $48.1$ at $k=500$, $1000$, $2000$ and $3000$, the same on the three grids to four digits, and the number of EM steps divided by the number of accelerated steps needed to reach EM's residual at $3000$ steps is $23.1$ ($3000/130$) on all three. The iteration is read as a discretisation of the continuous Richardson and Lucy iteration for measures, whose iterates over thousands of steps stay resolved by the grid. The bound $D(x^*\|x^{(0)})$ of Theorem~\ref{cx:thm:emrate}, which grows like $\log(1/h)$ at an atomic target and is infinite in the continuum, is therefore not the active constraint on these grids, and the constant of order $50$ appears to be a property of the continuous problem.
+
+The exponent. A reference value $R^*$ taken from a finite run biases every exponent estimated from $R_k-R^*$, so we use the three point exponent
+\[
+p(k)=\log_2\frac{R_k-R_{2k}}{R_{2k}-R_{4k}},
+\]
+which equals $p$ exactly when $R_k-R^*=Ck^{-p}$ and involves no reference value. For EM it is $1.080$, $1.067$, $1.062$, $1.054$ at $k=500$, $1000$, $2000$, $4000$ at $h=0.08$, equal to about $10^{-3}$ on the grids $0.04$ and $0.02$; it decreases slowly and stays close to $1$. After about $4000$ steps it rises, to $1.10$ at $8000$, $1.22$ at $16{,}000$, $1.53$ at $32{,}000$ and $1.84$ at $50{,}000$ in a run of $200{,}000$ steps at $h=0.08$. The residual itself is $9.0\times10^{-4}$, $5.8\times10^{-4}$ and $5.0\times10^{-4}$ at $5\times10^4$, $10^5$ and $2\times10^5$ steps. A geometric rate $R_k-R^*\approx Ce^{-k/K}$ is not claimed: no estimator of $K$ is fixed, and the estimate from three equally spaced differences gives $K\approx32{,}000$ at $k=5\times10^4$ only. The reading consistent with the theory of EM on a cone is a sublinear phase, at the rate $1/k$ that multiplicative updates have at a boundary optimum, while the mass on cells away from the atoms is driven to zero, followed by the local linear convergence of Theorem~\ref{cx:thm:linear} on the identified support, at a rate set by the curvature at the atoms. We state this as an interpretation. What is observed is that the constant of order $50$ describes the first few thousand steps and that the upturn after $4000$ steps appears in the longest run; no exponent is claimed to be generic.
+
+Acceleration. For the logarithmic domain scheme with function restart the three point exponent reads $2.8$, $0.6$, $1.2$, $1.2$, $1.3$ at $k=500$, $1000$, $2000$, $4000$, $5000$, a sawtooth whose single values depend on the restart instants; its running value at $k=2000$, $3000$, $5000$ is $1.2$, $1.4$, $1.3$. The speedup over EM, the ratio of step counts to a common residual at $h=0.04$, is $13.5$, $18.9$, $29.6$, $41.7$ and $39.1$ at the residuals EM reaches after $1000$, $2000$, $5000$, $10{,}000$ and $20{,}000$ steps: it grows and saturates near $40$. Five restart rules were compared at $h=0.04$: function restart, no restart, a gradient restart (here the step against the momentum in the logarithmic variables, an adaptation of the rule of O'Donoghue and Cand\`es \cite{OC15}), a fixed restart every $500$ steps, and a momentum capped at $0.9$. They reach EM's residual at $20{,}000$ steps in $512$, $344$, $344$, $344$ and $1991$ steps, with final values $2.0$, $1.7$, $1.5$, $2.8$ and $18\times10^{-5}$ after $20{,}000$ steps. The capped momentum, a heavy ball iteration, is about four times slower than function restart. The exponent without restart is erratic in the rerun (between $0.2$ and $0.3$ at $k=4000$ and $5000$, not monotone earlier), so no exponent is claimed for it. So no restart rule is uniformly best in these runs: function restart is the safe one, since it never increases $f$, and here it costs about one and a half times the steps of the others. There is no generic speedup factor, and the accelerated scheme is the one to run.
+
+\subsection{The latent times do not help the sampler}\label{cx:sec:latent}
+
+The question was whether the three block sampler of the section on the Cauchy kernel as a scale mixture, which carries a Brownian time for every unit of observed mass (a pseudo count), mixes better than the two block sampler near $\theta'=\tfrac12$. In the comparison below it does not, and for this scan there is a general reason. The two block sampler is the three block sampler with the latent times integrated out analytically, since the Cauchy kernel is the time mixture of Gaussians. Let $Z$ be the allocations, $X$ the masses and $T$ the times, with $X$ and $T$ independent given $Z$. The allocation marginal of the three block scan is data augmentation through $(X,T)$, that of the collapsed scan is data augmentation through $X$, and for centred $g(Z)$ their reversible kernels satisfy, by conditional Jensen,
+\[
+\langle g,K_3g\rangle=\E\bigl[\E(g\mid X,T)^2\bigr]\ \ge\ \E\bigl[\E(g\mid X)^2\bigr]=\langle g,K_2g\rangle ,
+\]
+so the additional augmentation cannot improve the $L^2$ spectral contraction of the allocation marginal. This is the comparison of Liu, Wong and Kong for grouping and collapsing \cite{LiuWongKong94}, in the scope in which it is proved here: it orders neither wall clock efficiency nor every finite run autocorrelation estimate for other scans and observables.
+
+We ran both samplers on real data (the author's runs, not repeated in this book). The level one density on the window $100\le v\le120$, sampled at spacing $h=0.05$, was turned into Poisson pseudo counts with means
+\[
+200\,h\,u_1(v_i).
+\]
+The unknown was on $[98,122]$, the prior $\mathrm{Gamma}(1,0.01)$ per cell, the start the EM solution, and each run had $500$ burn in and $3000$ recorded sweeps. Integrated autocorrelation times were estimated by the initial positive sequence of Geyer \cite{Geyer92}, for the mass within $0.5$ of a zero, the mass in the trough between two zeros, and the log likelihood.
+
+\begin{center}
+\small
+\begin{tabular}{cccccc}
+\toprule
+$\theta'$ & sampler & near a zero & trough & log likelihood & seconds\\
+\midrule
+0.75 & two block & 4.3 & 7.1 & 1.8 & 22\\
+0.75 & three block & 4.9 & 9.2 & 2.9 & 65\\
+0.55 & two block & 5.4 & 7.8 & 2.5 & 23\\
+0.55 & three block & 6.4 & 10.4 & 2.5 & 59\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent The latent times lengthen the autocorrelation of the two masses by $14$ to $19$ per cent (near a zero) and $30$ to $33$ per cent (trough), and that of the log likelihood by $61$ per cent at $\theta'=0.75$ and not at all at $\theta'=0.55$; they multiply the cost per sweep by $2.6$ to $3$, at both levels, including the level near $\tfrac12$ where the conjecture expected them to help. The posterior means agree, $0.80$ for the mass near the zero in both samplers. The scale mixture of normals keeps its value as an interpretation, Brownian motion stopped at a first passage time, and as a source of proposals, but not as a device for speed.
+
+\subsection{The global minimum at every level between $7/8$ and $1$}\label{cx:sec:uniform}
+
+The second open problem asked for Theorem~\ref{cx:thm:globalmin}(ii) at every level $\theta\in[\tfrac78,1]$ rather than at $\tfrac78$ alone. The difficulty was the middle range, where a certificate uniform in $\theta$ seemed to require a two dimensional search. A monotonicity argument removes the second dimension. The theorem is conditional on the announced half plane.
+
+\begin{theorem}[global minimum, uniform in the level; conditional]\label{cx:thm:uniform}
+Suppose $\zeta$ has no zeros in $\Re s>\tfrac78$. Then for every $\theta\in[\tfrac78,1]$ and every real $v\ne0$ that is not the height of a zero on $\Re s=\theta$,
+\[
+u_\theta(v)\ >\ u_\theta(0)=\frac1\pi\frac{\xi'}{\xi}(\theta),
+\]
+and the singular part of $\mathfrak U_\theta$ consists of positive atoms, which occur only if $\theta=\tfrac78$ and a zero lies on $\Re s=\tfrac78$; so $\mathfrak U_\theta-u_\theta(0)\,dv$ is a positive measure. Unconditionally, $\theta\mapsto u_\theta(0)$ is increasing on $[\tfrac12,\infty)$.
+\end{theorem}
+
+\begin{proof}
+Write $g(\theta,v)=u_\theta(v)-u_\theta(0)$ and $a_\rho=\theta-\sigma_\rho\in[\theta-\tfrac78,\theta-\tfrac18]\subset[0,\tfrac78]$, which uses the hypothesis and the functional equation. Monotonicity of $u_\theta(0)$: $\xi(\tfrac12+x)$ is a positive multiple of $\int_0^\infty\Phi(y)\cosh(xy)\,dy$ with the positive density $\Phi$ of \eqref{eq:ch2:Phi}, and the logarithm of the Laplace transform of a positive measure is strictly convex (H\"older), so $(\xi'/\xi)(\tfrac12+x)$ is strictly increasing in $x$. In particular $u_\theta(0)\le u_1(0)=0.00736$ on the range.
+
+$|v|\le13.5$: every term $P_{a_\rho}(v-\gamma_\rho)$ with $a_\rho>0$ is convex, since $|v-\gamma_\rho|\ge0.63>\tfrac78/\sqrt3$; the sum is strictly convex and even, with its minimum at $0$. This is the argument of Theorem~\ref{cx:thm:globalmin}, valid for all $\theta\le1$ at once.
+
+$|v|\ge1418.9$: Lemma~\ref{cx:lem:pairing} and the zero count of \cite{HSW22} give at least seven ordinates in $(v-8,v+8]$ (the explicit bound is $8.76786$ at $v=1418.9$, so there are at least nine, and it increases with $v$, the derivative of its main term $(2\pi)^{-1}\log\frac{v+8}{v-8}\ge8/(\pi v)$ dominating the derivatives of the error terms, which are $O(1/v)$; this was checked numerically in the computation of Section~\ref{cx:sec:uniform}, \texttt{data/cx\_c2\_ords.json}). Seven suffice: $u_\theta(v)\ge\tfrac72P_{2\theta-1}(8)\ge\tfrac72P_{3/4}(8)=0.01294>u_1(0)\ge u_\theta(0)$, using that $P_c(8)$ increases in $c$ on $[\tfrac34,1]$.
+
+$13.5\le|v|\le1418.9$: by Theorem~\ref{cx:thm:certified} every zero with $|\gamma|<1419.9$ lies on the critical line and is one of the $1000$ certified ordinates (and their negatives), so its width is exactly $a=\theta-\tfrac12\le\tfrac12$, and the zeros with $|\gamma|\ge1419.9$ are at distance at least $1$ from $v$. Two cases.
+
+If some certified zero has $|v-\gamma|\le1.05$, then $u_\theta(v)\ge P_{\theta-1/2}(1.05)\ge P_{3/8}(1.05)=0.0960>u_\theta(0)$, since $P_c(1.05)$ increases in $c$ on $[\tfrac38,\tfrac12]$.
+
+If every certified zero has $|v-\gamma|\ge0.95$, differentiate in $\theta$:
+\[
+\partial_\theta u_\theta(v)=\frac1\pi\sum_\rho f\bigl(|v-\gamma_\rho|,a_\rho\bigr),\qquad f(d,a)=\frac{d^2-a^2}{(d^2+a^2)^2}.
+\]
+For the far zeros, $d\ge1>\tfrac78\ge a$, so their terms are positive. For the certified zeros, $a\le\tfrac12$, and $f$ is decreasing in $a$ for $d>a/\sqrt3$ and decreasing in $d$ for $d>\sqrt3\,a$, both satisfied when $d\ge0.95$ and $a\le\tfrac12$. Hence
+\[
+\partial_\theta u_\theta(v)\ \ge\ \frac1\pi\sum_{|\gamma|<1419.9}f\bigl(|v-\gamma|,\tfrac12\bigr)=:S(v),
+\]
+a function of the certified ordinates alone, independent of $\theta$. On the other side, $\partial_\theta u_\theta(0)=\pi^{-1}\sum_\rho(\gamma_\rho^2-a_\rho^2)/(a_\rho^2+\gamma_\rho^2)^2\le\pi^{-1}\sum_\rho\gamma_\rho^{-2}$. The sum over the certified ordinates, both signs, is at most $0.044804$, and the sum over $|\gamma|\ge1419.9$ is at most $0.001442$ (the computed value is $0.0014417$) by partial summation against the bound of \cite{HSW22} for $N(T)$, so $\partial_\theta u_\theta(0)\le c^*=0.0147225$ for every $\theta$. The ball arithmetic computation described below certifies $S(v)>c^*$ on every cell of the second case. Therefore $\partial_\theta g\ge0$ on $[\tfrac78,1]$, and $g(\theta,v)\ge g(\tfrac78,v)>0$ by Theorem~\ref{cx:thm:globalmin}(ii).
+
+Atoms: a zero contributes an atom to $\mathfrak U_\theta$ only if its width $a_\rho=0$, that is $\sigma_\rho=\theta$, and $\sigma_\rho\le\tfrac78\le\theta$ forces $\theta=\tfrac78$.
+\end{proof}
+
+The computation (\texttt{code/cx\_min.py}, part S; data \texttt{data/cx\_c2\_S.json}) partitions $[13.5,1418.9]$ into cells of radius $0.1$, bisected where neither case applies to the whole cell. The ordinates enter as the certified sign change enclosures. A cell is of the first kind if for one certified ordinate the largest distance between a point of the cell and a point of its enclosure is at most $1.05$, and of the second kind if the smallest distance between the cell and every enclosure is at least $0.95$; then $S$ is bounded below by evaluating each $f(\cdot,\tfrac12)$ at the largest such distance, since $f$ decreases in $d$. On the grid of the text ($7{,}245$ cells in all) $6{,}733$ cells are of the first kind and $512$ of the second, every cell is certified, and the least certified value of $S$ on a cell of the second kind is $0.066$ against $c^*=0.0147225$. The run takes seconds on a cluster node. The two dimensional search that the open problem anticipated was never needed: the level enters only through the two monotonicities, in $a$ for the near zeros and in sign for the far ones.
+
+\begin{corollary}\label{cx:cor:uniform}
+Given the zero free half plane $\Re s>\tfrac78$, for every $\theta\in[\tfrac78,1]$ the Thorin measure $\mathfrak U_\theta$ dominates the multiple $u_\theta(0)\,dv$ of Lebesgue measure, with $u_\theta(0)$ increasing from $0.0055147$ at $\theta=\tfrac78$ to $0.0073516$ at $\theta=1$.
+\end{corollary}
+
+\subsection{Below $7/8$: a level by level theorem}\label{cx:sec:lbl}
+
+The problem left open after Theorem~\ref{cx:thm:uniform} was its extension to levels below $\tfrac78$ under the corresponding hypothesis. Working it produced a cleaner statement than either of the theorems it extends, and a cleaner proof. The case $\theta=1$ is Proposition~\ref{bp:prop:v1min} and the case $\theta\downarrow\tfrac12$ is Theorem~\ref{thm:dbeta:minall}(vi), both already in the book.
+
+\begin{theorem}[level by level]\label{cx:thm:lbl}
+Let $\tfrac12<\theta\le1$. The following are equivalent.
+\begin{enumerate}
+\item[(i)] $\zeta$ has no zeros in $\Re s>\theta$.
+\item[(ii)] For every $\theta'\in[\theta,1]$ the function $u_{\theta'}$ attains its global minimum at the origin: $u_{\theta'}(v)\ge u_{\theta'}(0)$ for all real $v$ that are not heights of zeros on $\Re s=\theta'$.
+\end{enumerate}
+When they hold, $\mathfrak U_{\theta'}\ge u_{\theta'}(0)\,dv$ as measures for $\theta'\in[\theta,1]$, and for every $\theta'\in[\theta,1]$, with $c=2\theta'-1$ and the sum over all zeros,
+\begin{equation}\label{cx:eq:excess}
+u_{\theta'}(v)-u_{\theta'}(0)\ \ge\ \frac{c}{2\pi}\Bigl(\sum_\rho\frac1{c^2+(v-\gamma_\rho)^2}-\pi w^*\Bigr),
+\end{equation}
+with $w^*=0.0294450$, and the bracket is at least $\pi(0.06174-w^*)>0.1014$ for $13.5\le|v|\le1418.9$ and at least $7/65-\pi w^*>0.0151$ for $|v|\ge1418.9$.
+\end{theorem}
+
+\begin{proof}
+(ii) implies (i) exactly as in Theorem~\ref{cx:thm:rhmin}: a zero $\rho_0$ of multiplicity $m$ with $\sigma_0>\theta$ makes $u_{\theta'}(\gamma_0)=-m/\varepsilon+O(1)$ at the level $\theta'=\sigma_0-\varepsilon\in[\theta,1]$, which is negative, while $u_{\theta'}(0)=\pi^{-1}(\xi'/\xi)(\theta')>0$.
+
+(i) implies (ii). Fix $\theta'\in[\theta,1]$, write $c=2\theta'-1\in(0,1]$, and let $a_\rho=\theta'-\sigma_\rho\ge0$. Two bounds, one on each side.
+
+At the origin, grouping the zeros into orbits under $\rho\mapsto1-\bar\rho$, the widths in an orbit sum to $c$ (a pair) or equal $c/2$ (a zero on the line), so
+\[
+u_{\theta'}(0)=\frac1\pi\sum_\rho\frac{a_\rho}{a_\rho^2+\gamma_\rho^2}\ \le\ \frac1\pi\sum_{\text{orbits}}\frac{c}{\gamma^2}\ \le\ \frac c\pi\sum_\rho\frac1{\gamma_\rho^2}\ \le\ c\,c^*,
+\]
+with $c^*=0.0147225$, the certified value of Theorem~\ref{cx:thm:uniform}: the certified ordinates below $1419.9$ contribute at most $0.044804$ to $\sum_\rho\gamma_\rho^{-2}$ and the rest at most $0.001442$ by \cite{HSW22}. (An orbit contributes at most $\tfrac c2\sum\gamma^{-2}$ over its zeros, which would halve the bound; the weaker form is what the printed constants use.)
+
+Away from the origin, Lemma~\ref{cx:lem:pairing} gives $u_{\theta'}(v)\ge\tfrac12\sum_\rho P_c(v-\gamma_\rho)=\frac{c}{2\pi}\sum_\rho\frac1{c^2+(v-\gamma_\rho)^2}\ge\frac{c}{2\pi}\sum_\rho\frac1{1+(v-\gamma_\rho)^2}$, since $c\le1$. So \eqref{cx:eq:excess} holds with $w^*=2c^*$, and (ii) at $v$ follows from
+\begin{equation}\label{cx:eq:W}
+W(v)=\frac1\pi\sum_\rho\frac1{1+(v-\gamma_\rho)^2}\ \ge\ 2c^*=w^*,
+\end{equation}
+a condition on the ordinates alone, with no $\theta'$ in it. Dropping the zeros above height $1419.9$ and those of negative height only lowers $W$. Ball arithmetic certifies \eqref{cx:eq:W} on $[13.5,1418.9]$ with the $1000$ certified positive ordinates, $7027$ cells of radius $0.1$, each term evaluated at the farthest point of the cell; the smallest certified cell bound is $W\ge0.06174$, in the cell about $v=17.4$, between the first two zeros (\texttt{code/cx\_min.py}, part W; \texttt{data/cx\_c2\_W.json}), and the bracket is at least $\pi(0.06174-w^*)=0.10146$. With the negative ordinates included the same cells give $0.0653$. For $|v|\ge1418.9$ the seven ordinates within distance $8$ give $W\ge7/(65\pi)>0.03427>w^*$ and the bracket is at least $7/65-\pi w^*=0.01518$ (with the nine ordinates of the count of \cite{HSW22} it is $9/65-\pi w^*=0.0459$). For $|v|\le13.5$ every term $P_{a_\rho}(v-\gamma_\rho)$ is convex, because $a_\rho\le\theta'-(1-\theta)\le1$ and $|v-\gamma_\rho|\ge0.63>1/\sqrt3$, so $u_{\theta'}$ is strictly convex and even there and its minimum is at $0$. The excess \eqref{cx:eq:excess} is the difference of the two bounds. The positivity of the atoms gives the measure statement.
+\end{proof}
+
+Theorem~\ref{cx:thm:lbl} contains the earlier results as special cases. With $\theta=1$ it gives the weak form of Theorem~\ref{cx:thm:globalmin}(i), with $\theta=\tfrac78$ it is Theorem~\ref{cx:thm:uniform}, and letting $\theta\downarrow\tfrac12$ it is Theorem~\ref{cx:thm:rhmin}. Its proof is shorter than any of theirs because the comparison is made directly between the pairing lower bound and the orbit upper bound, both of which scale linearly in $c$, so that the level drops out and a single certified function of the ordinates, $W$, decides every level at once. The monotonicity in $\theta$ that Theorem~\ref{cx:thm:uniform} needed is not used.
+
+The quantitative content answers the question posed: as $\theta'\downarrow\tfrac12$ the excess of the Thorin density over its value at the origin has a lower bound linear in $c=2\theta'-1$, with an explicit slope, at least $0.1014/(2\pi)=0.0161$ per unit of $c$ on the certified range and $0.0151/(2\pi)=0.0024$ beyond it. The slope is not sharp; the pairing lemma halves the density, and $W$ was bounded with $c=1$ in place of $c$. The order is right: under the Riemann hypothesis, at the midpoint between two consecutive zeros with gap $G$, $u_{\theta'}(v)=\sum P_{c/2}(v-\gamma)\approx\frac{c}{2\pi}\cdot\frac{8}{G^2}$ for small $c$, and $u_{\theta'}(0)\approx c\,c^*/2$, so the excess is of order $c$ at fixed $v$ (it is of order $1/c$ at a zero). The slope itself is pinned down in the next subsection.
+
+\subsection{The slope of the excess}\label{cx:sec:slope}
+
+The losses in \eqref{cx:eq:excess} are avoidable for the zeros whose position is known. By Theorem~\ref{cx:thm:certified} every zero with $|\gamma|<1419.9$ lies on the critical line, so at level $\theta'$ its width is exactly $c/2$ and its contribution to $u_{\theta'}$ is exactly $P_{c/2}(v-\gamma)$, with no pairing. Only the zeros above height $1419.9$, whose real parts are unknown, need Lemma~\ref{cx:lem:pairing} and the orbit bound. Writing $V_c(v)=\sum_{|\gamma|<1419.9}\bigl(\tfrac{c^2}4+(v-\gamma)^2\bigr)^{-1}$, both signs of $\gamma$ included, the two sides become
+\begin{gather*}
+u_{\theta'}(v)\ \ge\ \frac c{2\pi}\Bigl(V_c(v)+\sum_{|\gamma|\ge1419.9}\frac1{c^2+(v-\gamma)^2}\Bigr),\\
+u_{\theta'}(0)\ \le\ \frac c{2\pi}\Bigl(V_c(0)+2\sum_{|\gamma|\ge1419.9}\frac1{\gamma^2}\Bigr),
+\end{gather*}
+and dropping the positive far sum on the left,
+\begin{equation}\label{cx:eq:excess2}
+u_{\theta'}(v)-u_{\theta'}(0)\ \ge\ \frac c{2\pi}\,B_c(v),\qquad B_c(v)=V_c(v)-V_c(0)-2\!\!\sum_{|\gamma|\ge1419.9}\!\!\frac1{\gamma^2},
+\end{equation}
+where the last sum is at most $0.001442$ by \cite{HSW22}, so that $B_c(v)\ge V_c(v)-V_c(0)-0.0029$ (the far sum in the display below is written with $c^2$ in place of $\tfrac{c^2}4$, which is the weaker bound). On $13.5\le|v|\le1418.9$ the function $B_c$ decreases in $c$ (its derivative in $c$ is $\tfrac c2\sum_\gamma\bigl[(\tfrac{c^2}4+\gamma^2)^{-2}-(\tfrac{c^2}4+(v-\gamma)^2)^{-2}\bigr]$, in which the first sum is below $\sum\gamma^{-4}<7.5\times10^{-5}$ while the nearest certified ordinate, within $3.45$ of $v$, alone gives more than $(\tfrac14+3.45^2)^{-2}>6.7\times10^{-3}$ to the second; single terms need not decrease), so its value at $c=0$, which involves only $\sum(v-\gamma)^{-2}$ over the certified ordinates, is a lower bound for the slope as $\theta'\downarrow\tfrac12$.
+
+\begin{proposition}[the slope]\label{cx:prop:slope}
+Under the hypothesis of Theorem~\ref{cx:thm:lbl}, for every $\theta'\in[\theta,1]$ and $c=2\theta'-1$,
+\[
+\inf_{13.5\le|v|\le1418.9}B_c(v)\ \ge\ \begin{cases}0.17575&c=1,\\0.17838&c=\tfrac12,\\0.17904&c=\tfrac14,\\0.17927&c\downarrow0,\end{cases}
+\]
+each infimum being approached at $v=17.49$ to $17.50$, between the first two zeros; and, for $|v|\ge1418.9$,
+\[
+B_c(v)+\sum_{|\gamma|\ge1419.9}\frac1{c^2+(v-\gamma)^2}\ \ge\ \frac7{c^2+64}-V_c(0)-0.0029\ \ge\ 0.0599,
+\]
+while $B_c(v)$ itself tends to $-V_c(0)-2\sum_{|\gamma|\ge1419.9}\gamma^{-2}<0$ as $|v|\to\infty$. Under the Riemann hypothesis the limiting bracket
+\[
+X(v)=\lim_{c\downarrow0}\frac{2\pi}c\bigl(u_{\theta'}(v)-u_{\theta'}(0)\bigr)=\sum_\rho\Bigl(\frac1{(v-\gamma_\rho)^2}-\frac1{\gamma_\rho^2}\Bigr)
+\]
+has, in the first gap between the zeros $14.1347$ and $21.0220$, a unique minimiser $v^*\in[17.4978,17.4980]$ (below the midpoint $17.5784$ of the gap), and
+\[
+0.1838985448\ \le\ X(v^*)\ \le\ 0.1838987563 ;
+\]
+on the rest of $13.5\le|v|\le1418.9$, $V_0(v)-V_0(0)\ge0.184074$ (the author's computation, not rerun).
+\end{proposition}
+
+\begin{proof}
+First clause, ball arithmetic as for \eqref{cx:eq:W}: the interval $[13.5,1418.9]$ is cut into cells of radius $0.1$, $V_c$ is bounded below on a cell by evaluating each term at the farthest point of the cell from the enclosure of $\gamma$, $V_c(0)$ is bounded above using the lower endpoints of the enclosures, and the cells whose lower bound falls below the best upper bound plus $0.005$ are bisected. The printed values are valid lower bounds; a rerun with bisection to radius $2^{-14}$ and the enclosures of width $0.02$ gives $0.175808$, $0.178430$, $0.179098$, $0.179322$ at $v=17.493$ to $17.498$ (\texttt{code/cx\_min.py}, part B; \texttt{data/cx\_c2\_B.json}). Far range: seven ordinates lie within distance $8$ of $v$; each contributes at least $(c^2+64)^{-1}$, through $V_c(v)$ if it is certified and through the far sum of the first display otherwise. The minimum over $c\in[0,1]$ of $7/(c^2+64)-V_c(0)-0.0029$ is $0.0600$ (at $c=1$, using $V_1(0)\le0.044785$), so $0.0599$ holds.
+
+The last statement. Under the Riemann hypothesis $X(v)=[V(v)-V(0)]+F(v)$ with $V=V_0$ over the certified ordinates and $F(v)=\sum_{\gamma\ge1419.9}f_v(\gamma)$, where
+\[
+f_v(\gamma)=\frac1{(\gamma-v)^2}+\frac1{(\gamma+v)^2}-\frac2{\gamma^2}=\frac{2v^2(3\gamma^2-v^2)}{\gamma^2(\gamma^2-v^2)^2}\ \ge\ 0\qquad(\gamma>v),
+\]
+so the uncertified zeros only raise $X$, and $X\ge V-V(0)$ on the whole range. Under the Riemann hypothesis $X''(v)=6\sum_\rho(v-\gamma_\rho)^{-4}>0$ between consecutive ordinates, so $X$ is strictly convex on $(14.1347,21.0220)$ and has a unique minimiser $v^*$ there; on $[13.5,14.1347)$ it is increasing, being even and convex on $(-\gamma_1,\gamma_1)$, and $X(13.5)>2$, the nearest ordinate alone contributing $2.48$ while $\sum_\rho\gamma_\rho^{-2}=0.0462$. For $0<v<\gamma$, $\partial_vf_v(\gamma)=4v(3\gamma^2+v^2)/(\gamma^2-v^2)^3>0$, so $F'\ge0$. With the $1000$ certified ordinates (python-flint, $160$ and $320$ bits, \texttt{code/cx\_slope\_X.py}, \texttt{data/cx\_slope\_X.json}) the derivative $Q'$ of $Q=V-V(0)$ is enclosed by $Q'(17.4978)\in[-1.0391209,-1.0367081]\times10^{-5}$ and $Q'(17.4980)\in[7.2326504,7.2567776]\times10^{-6}$, including a rigorous bound $0\le F'\le2.41\times10^{-8}$ for the tail (partial summation against \cite{HSW22}). So $X'$ changes sign exactly once in $[17.4978,17.4980]$. For the value, tangent lines of $Q$ at the two endpoints give the lower bound, and $Q(17.4979)$ plus the tail bound $2.11\times10^{-7}$ the upper. The statement for the rest of the range is the cell computation of the first clause for $V-V(0)$ with the enclosures of the author, not rerun: the rerun of the first clause gives $V-V(0)\ge B_0\ge0.17927$ only.
+\end{proof}
+
+The certified values for the four levels differ by two per cent, so the slope of the excess is essentially independent of the level: in the notation of \eqref{cx:eq:excess}, the bracket is at least $0.1757$ rather than $0.1014$ on the middle range and at least $0.0599$ rather than $0.0151$ beyond it, and the slope per unit $c$ is at least $0.1757/(2\pi)=0.0279$ against the earlier $0.0161$. The computation also answers the two questions of the open problem. By the author's computation (the last clause of Proposition~\ref{cx:prop:slope}, not rerun) the infimum over $13.5\le v\le1418.9$ is attained between the first two zeros, at $v^*=17.4979$, not at their midpoint $17.578$ but pushed below the midpoint by the zeros above; and its value as $\theta'\downarrow\tfrac12$ is $0.18390$ to five digits under the Riemann hypothesis, the uncertified zeros contributing less than $3\times10^{-7}$ because their paired terms $f_v(\gamma)$ are of order $v^2/\gamma^4$ rather than $1/\gamma^2$. The two neighbours alone give $8/G^2=0.1687$ with $G=6.887$ at the midpoint of the gap ($0.1689$ at $v^*$), the other $1998$ certified ordinates of both signs add $0.060$, and $V(0)$ takes away $0.0448$. The unconditional certificate \eqref{cx:eq:excess2} is weaker than this by the orbit bound at the origin, $2\sum_{\mathrm{far}}\gamma^{-2}\le0.0029$, which is the price of not assuming where the far zeros lie.
+
+\subsection{A posteriori bounds for the backward flow}\label{cx:sec:apost}
+
+The fourth open problem asked for a bound on the distance between the EM output and the Thorin measure in terms of the computed residual, so that quantities read from the output become certified. The bound is a duality.
+
+\begin{proposition}[a posteriori window bound]\label{cx:prop:apost}
+Let $\theta'\in[\tfrac12,1)$, $a=1-\theta'$, and suppose $\zeta$ has no zeros in $\Re s>\theta'$, so that $\mathfrak U_{\theta'}$ exists and $P_a*\mathfrak U_{\theta'}=u_1\,dv$. Let $\mu$ be a finite positive measure, for instance $\mu=\sum_jx_jh\,\delta_{w_j}$ built from an EM iterate, and let $r=P_a*\mu-u_1$ on $\R$. For a test function $\varphi$ with $\int e^{a|\omega|}|\widehat\varphi(\omega)|\,d\omega<\infty$ put $\psi=\mathcal F^{-1}[e^{a|\omega|}\widehat\varphi\,]$, and assume that $\psi\cdot(P_a*\mu+u_1)$ is integrable (this holds for the Gaussian windows below, by the tails of Lemma~\ref{cx:lem:psiclosed}). Then
+\[
+\Bigl|\int\varphi\,d\mu-\int\varphi\,d\mathfrak U_{\theta'}\Bigr|\ \le\ \int_\R|r(v)|\,|\psi(v)|\,dv .
+\]
+\end{proposition}
+
+\begin{proof}
+$\widehat{P_a}=e^{-a|\omega|}$, so $P_a*\psi=\varphi$. By Fubini, justified by the integrability hypothesis applied to the absolute integrand, $\int\varphi\,d\mu=\int\psi\,(P_a*\mu)\,dv$ and $\int\varphi\,d\mathfrak U_{\theta'}=\int\psi\,u_1\,dv$. Subtract.
+\end{proof}
+
+Three remarks fix how the bound is used. The residual is needed on all of $\R$: inside the data window it is the EM residual, between the data window and the edge of the grid carrying $\mu$ it is computable from $u_1$, and beyond that grid $r=P_a*\mu-u_1$ with $P_a*\mu(v)\le a\|\mu\|/(\pi(a^2+(|v|-W)^2))$ for $\operatorname{supp}\mu\subset[-W,W]$ and $|v|>W$, against the decay of $\psi$, which is $|\psi(v)|\sim a\sigma\sqrt{2\pi}/(\pi(v-c)^2)$ for the Gaussian window $\varphi=e^{-(v-c)^2/2\sigma^2}$, from the kink of $e^{a|\omega|}$ at the origin. The data must be known to certified accuracy on the computation grid: in the author's experience, interpolating $u_1$ from a coarser grid introduces errors of $10^{-3}$, larger than the EM residual, and the bound fails. And the tail must be measured from the window centre, not from the origin. Centroid certificates come from the odd test function $\varphi_1(v)=(v-c)\varphi(v)$: with certified mass $M\pm b_0$ and certified first moment $m_1\pm b_1$, the $\varphi$ weighted centroid of $\mathfrak U_{\theta'}$ lies within $(|m_1|+b_1)/(M-b_0)$ of $c$. This is a statement about a weighted centroid; at $\theta'=\tfrac12$, under the Riemann hypothesis, an interval for a single zero needs in addition a bound on the contribution of the other zeros, Corollary~\ref{cx:cor:zeroloc} below.
+
+In floating point, with exact data at spacing $0.02$ on $[-400,400]$, the unknown on $[-440,440]$ and $4000$ accelerated steps, the author found that the bound holds for every one of the $198$ windows centred at the zeros in $(5,395)$, for masses and for moments, at $\theta'=\tfrac12$ and $\theta'=\tfrac34$ and for $\sigma=0.5$ and $0.3$; the figures are superseded by the certified ones of the next subsection, which they agree with once the tails are separated. These computations were not repeated in this book.
+
+\subsection{The certificate}\label{cx:sec:apostcert}
+
+Two things stood between the last subsection and a certificate in the sense of Section~\ref{cx:sec:certify}: the dual function $\psi$ came out of a floating point transform, and the bound $\int|r||\psi|$ was a Riemann sum standing in for an integral. Both are removed by changing the test function slightly, from the Gaussian $\varphi$ to the function that the grid actually sees.
+
+\begin{lemma}[the dual function in closed form]\label{cx:lem:psiclosed}
+For $\varphi(v)=e^{-(v-c)^2/2\sigma^2}$ and $a>0$, with $q=a+i(v-c)$ and
+\[
+E(q)=e^{q^2/2\sigma^2}\operatorname{erfc}\Bigl(-\frac q{\sigma\sqrt2}\Bigr),
+\]
+the dual functions of $\varphi$ and of $\varphi_1(v)=(v-c)\varphi(v)$ are
+\[
+\psi(v)=\Re E(q),\qquad\psi_1(v)=\Im\bigl(q\,E(q)\bigr)=-\sigma^2\psi'(v).
+\]
+Both extend to entire functions of $v$: with $q_\pm=a\pm i(z-c)$, $\Psi(z)=\tfrac12[E(q_+)+E(q_-)]$ and $\Psi_1(z)=\frac1{2i}[q_+E(q_+)-q_-E(q_-)]$. For every $x=v-c\ne0$,
+\[
+|\psi(v)|\le\frac{\sigma\sqrt{2\pi}}\pi\Bigl(\frac a{x^2}+\frac{B_4}{x^4}\Bigr),\qquad
+|\psi_1(v)|\le\frac{\sigma^3\sqrt{2\pi}}\pi\Bigl(\frac{2a}{|x|^3}+\frac{B_5}{|x|^5}\Bigr),
+\]
+where, with $g(\omega)=e^{a\omega-\sigma^2\omega^2/2}$ and $G(\omega)=\omega g(\omega)$, $B_4=|a^3-3\sigma^2a|+\int_0^\infty|g^{(4)}|$ and $B_5=4|a^3-3\sigma^2a|+\int_0^\infty|G^{(5)}|$.
+\end{lemma}
+
+\begin{proof}
+By definition,
+\begin{gather*}
+\psi(v)=\frac1{2\pi}\int e^{a|\omega|}\widehat\varphi(\omega)e^{i\omega v}d\omega=\frac{\sigma\sqrt{2\pi}}\pi\int_0^\infty g(\omega)\cos(\omega x)\,d\omega,\\
+\int_0^\infty e^{-p\omega^2+q\omega}d\omega=\tfrac12\sqrt{\pi/p}\,e^{q^2/4p}\operatorname{erfc}\bigl(-q/2\sqrt p\bigr),
+\end{gather*}
+and the second, classical, integral with $p=\sigma^2/2$ and $q=a+ix$ gives the first formula; at $a=0$ it reduces to $\varphi$, since $\operatorname{erfc}$ of an imaginary argument has real part $1$. Since $\overline{E(q)}=E(\bar q)$, the real part is $\tfrac12[E(q_+)+E(q_-)]$ on the real axis, which is entire in $z$. Differentiating, $E'(q)=(q/\sigma^2)E(q)+\sqrt{2/\pi}/\sigma$, so $\psi'(v)=\Re(iE'(q))=-\sigma^{-2}\Im(qE(q))$; and $\widehat{\varphi_1}=-i\sigma^2\omega\widehat\varphi$ gives $\psi_1=-\sigma^2\psi'$. The tails come from integrating by parts:
+\begin{gather*}
+\int_0^\infty g\cos(\omega x)\,d\omega=-\frac{g'(0)}{x^2}+\frac{g'''(0)}{x^4}+\frac1{x^4}\int_0^\infty g^{(4)}\cos(\omega x)\,d\omega,\\
+\int_0^\infty G\sin(\omega x)\,d\omega=-\frac{G''(0)}{x^3}+\frac{G''''(0)}{x^5}+\frac1{x^5}\int_0^\infty G^{(5)}\cos(\omega x)\,d\omega,
+\end{gather*}
+with $g'(0)=a$, $g'''(0)=a^3-3\sigma^2a$, $G''(0)=2a$ and $G''''(0)=4(a^3-3\sigma^2a)$; the second integral is the one for $\psi_1=\frac{\sigma^3\sqrt{2\pi}}\pi\int_0^\infty G\sin(\omega x)\,d\omega$.
+\end{proof}
+
+The integrals $\int|g^{(4)}|$ and $\int|G^{(5)}|$ are enclosed by writing $g^{(k)}=H_kg$ with the polynomials $H_{k+1}=H_k'+(a-\sigma^2\omega)H_k$, replacing the coefficients of $H_k$ by their absolute values, and integrating in balls. The author reports $B_4=38.0$ and $B_5=550.6$ at $a=\tfrac12$, $\sigma=0.3$ (not rerun); the constants are generous, but they multiply $x^{-4}$ and $x^{-5}$ and matter only where the bound is used, at distances above $440$.
+
+Now fix the grid $v_i=ih$, $|v_i|\le880$, and let $\psi_h=\sum_i\psi(v_i)h\,\delta_{v_i}$ and $\varphi_h=P_a*\psi_h$. For any finite positive $\mu$ with $P_a*\mu$ finite at the grid points, and $U=\mathfrak U_{\theta'}$,
+\begin{equation}\label{cx:eq:exactid}
+\int\varphi_h\,d\mu-\int\varphi_h\,d\mathfrak U_{\theta'}=\sum_i\psi(v_i)\,h\,r_i,\qquad r_i=(P_a*\mu)(v_i)-u_1(v_i),
+\end{equation}
+exactly, by Fubini (the sum defining $\psi_h$ is finite, so the interchange is absolute) and $P_a*\mathfrak U_{\theta'}=u_1$. There is no integral left: the right side is a finite sum of balls once $r_i$ and $\psi(v_i)$ are balls. For $\mu=\sum_jx_jh\delta_{w_j}$ on the grid, with $x_j$ the cell densities, $(P_a*\mu)(v_i)=\sum_jx_jhP_a(v_i-w_j)$ is a polynomial product, which Arb \cite{Arb} multiplies with rigorous error bounds in a fraction of a second; the $x_j$ are the double precision EM output, taken as exact rationals. The identity does not depend on EM having converged, or on $\mu$ having been produced by EM. What remains is to compare $\varphi_h$ with $\varphi$:
+\[
+\int\varphi\,d\mu-\int\varphi\,d\mathfrak U_{\theta'}=\sum_i\psi(v_i)hr_i+\int(\varphi-\varphi_h)\,d\mu-\int(\varphi-\varphi_h)\,d\mathfrak U_{\theta'} .
+\]
+Write $\varphi_h^\infty$ for the same sum over the whole lattice $h\mathbb Z$. Then $\varphi-\varphi_h=(\varphi-\varphi_h^\infty)+\sum_{|v_i|>880}\psi(v_i)hP_a(\cdot-v_i)$, the first term the trapezoid error of an analytic integrand, the second a truncation controlled by the tails of Lemma~\ref{cx:lem:psiclosed}.
+
+\begin{lemma}[trapezoid error]\label{cx:lem:trap}
+Let $\Psi$ be the entire extension of $\psi$, $f_w(v)=\Psi(v)P_a(w-v)$, and assume $h\le\pi\sigma^2/(2a)$. For every real $w$,
+\[
+|\varphi(w)-\varphi_h^\infty(w)|\ \le\ \min\Bigl(\frac{4S_\Psi}{e^{\pi a/h}-1},\ \frac{E_{\mathrm{dec}}}{(w-c)^2}\Bigr),
+\]
+where $S_\Psi=2e^{9a^2/8\sigma^2}+1$ bounds $|\Psi|$ on the strip $|\Im v|\le a/2$, and
+\begin{gather*}
+E_{\mathrm{dec}}=\frac{\sigma\sqrt{2\pi}}{2\pi}\,(4a+J)\,\frac{2e^{-2\pi a/h}}{1-e^{-2\pi a/h}},\\
+J=\int_{\R}\bigl((2a+\sigma^2|\omega|)^2+\sigma^2\bigr)e^{2a|\omega|-\sigma^2\omega^2/2}\,d\omega ;
+\end{gather*}
+at $w=c$ the second term of the minimum is $+\infty$. The same holds for $\psi_1$ and $\varphi_1$ with $b=\tfrac{3a}2$, $S_1=\sigma^3\sqrt{2\pi}\,\pi^{-1}\int_0^\infty te^{bt-\sigma^2t^2/2}dt$ in place of $S_\Psi$ with numerator $4S_1$, $C_1=\sup_{t\ge0}te^{2at-\sigma^2t^2/2}$, $J_1=\int_{\R}\bigl[2(2a+\sigma^2|\omega|)+|\omega|\bigl((2a+\sigma^2|\omega|)^2+\sigma^2\bigr)\bigr]e^{2a|\omega|-\sigma^2\omega^2/2}d\omega$, and
+\[
+E_{\mathrm{dec},1}=\frac{\sigma^3\sqrt{2\pi}}{2\pi}\,(2aC_1+J_1)\,\frac{2e^{-2\pi a/h}}{1-e^{-2\pi a/h}} .
+\]
+\end{lemma}
+
+\begin{proof}
+The uniform bound is the theorem of Trefethen and Weideman \cite{TW14} for the trapezoid rule on $\R$: if $f$ is analytic in $|\Im v|<d$, tends to zero there, and $\int|f(v+ib)|dv\le M$ for $|b|<d$, then
+\[
+\Bigl|h\sum_kf(kh)-\int f\Bigr|\le\frac{2M}{e^{2\pi d/h}-1}.
+\]
+Take $d=a/2$, inside the poles of $P_a(w-\cdot)$ at $w\pm ia$. On the strip,
+\[
+|a^2+(t-ib)^2|=|t-i(b+a)|\,|t-i(b-a)|\ge t^2+\tfrac{a^2}4,
+\]
+so $\int|P_a(w-v-ib)|\,dv\le(a/\pi)(2\pi/a)=2$ and $M\le2\sup|\Psi|$. For
+\[
+\Psi(v+ib)=\tfrac12\bigl[E(a-b+i(v-c))+E(a+b-i(v-c))\bigr]
+\]
+write $E(q)=2e^{z^2}-w(iz)$ with $z=q/\sigma\sqrt2$ and $w$ the Faddeeva function, which satisfies $|w(\zeta)|\le1$ for $\Im\zeta\ge0$, that is for $\Re q>0$; and $|e^{z^2}|=e^{((\Re q)^2-(\Im q)^2)/2\sigma^2}\le e^{9a^2/8\sigma^2}$. Hence $S_\Psi$. The decaying bound is Poisson summation: $\varphi_h^\infty(w)-\varphi(w)=\sum_{k\ne0}\widehat{f_w}(2\pi k/h)$ and
+\begin{gather*}
+\widehat{f_w}(\omega_0)=\frac{e^{-i\omega_0w}}{2\pi}\int\widetilde G(\omega)e^{i\omega(w-c)}d\omega,\\
+\widetilde G(\omega)=\sigma\sqrt{2\pi}\,e^{a|\omega|-a|\omega-\omega_0|-\sigma^2\omega^2/2},
+\end{gather*}
+which is smooth except for kinks at $0$ and $\omega_0$. Two integrations by parts give $(w-c)^{-2}$ times the sum of the jumps of $\widetilde G'$, each at most $2a\sigma\sqrt{2\pi}e^{-a|\omega_0|}$ since $e^{2a|\omega_0|-\sigma^2\omega_0^2/2}\le1$ for $|\omega_0|\ge4a/\sigma^2$, which holds for every sampling frequency $|\omega_0|\ge2\pi/h$ exactly when $h\le\pi\sigma^2/(2a)$; plus $\int|\widetilde G''|\le\sigma\sqrt{2\pi}e^{-a|\omega_0|}J$, using $e^{a|\omega|-a|\omega-\omega_0|}\le e^{-a|\omega_0|+2a|\omega|}$. Summing the geometric series over $k$ gives $E_{\mathrm{dec}}$. For $\psi_1$ the transform carries the factor $-i\sigma^2\omega$, the strip bound is the Fourier integral of $\Psi_1$ on the strip, and the second derivative of $\omega\,\widetilde G$ is bounded in the same way, which gives the constants $S_1$, $C_1$, $J_1$ (derived in the review of the source, not rerun).
+\end{proof}
+
+With $h=0.02$ the condition $h\le\pi\sigma^2/(2a)$ holds for all four parameter pairs of the table, $e^{\pi a/h}$ is $e^{78.5}$ at $a=\tfrac12$ and $e^{39.3}$ at $a=\tfrac14$, and the constants are below $10^{-30}$ and $10^{-15}$ respectively; they are carried through the computation, and they are the reason the grid spacing was never allowed to grow. The last ingredient is a bound on the mass of $\mathfrak U_{\theta'}$, which is unknown but dominated through the forward equation: for $L>0$,
+\[
+\begin{gathered}\mathfrak U_{\theta'}([-W,W])\ \le\ \frac{2M_1(W+L)}{1-2P_a((L,\infty))},\\ M_1(T)=\int_0^Tu_1(v)\,dv=\pi^{-1}\Im\log\xi(1+iT),\end{gathered}
+\]
+since $P_a*\mathfrak U_{\theta'}\ge P_a*(\mathfrak U_{\theta'}|_{[-W,W]})$ and the latter integrates to at least $P_a([-L,L])\,\mathfrak U_{\theta'}([-W,W])$ over $[-W-L,W+L]$. The function $M_1$ is explicit up to $\arg\zeta(1+iT)$ (continuous branches of the logarithms, continued horizontally from $\sigma=+\infty$):
+\[
+\pi M_1(T)=\arctan T+\tfrac\pi2-\tfrac T2\log\pi+\Im\log\Gamma\bigl(\tfrac{1+iT}2\bigr)+\arg\zeta(1+iT),
+\]
+and $|\arg\zeta(1+iT)|\le24.303+\log\log T+0.498$ for $T\ge13$, by integrating the explicit bound $|\zeta'/\zeta(\sigma+it)|\le24.303\log t$ on $\sigma\ge1$ from $1$ to $1+1/\log T$, the bound $-\zeta'/\zeta(\sigma)\le1/(\sigma-1)$ from there to $2$, and $\log\zeta(2)=0.4977$ beyond. The explicit bound is Leong's \cite{Leong24}; the constant $24.303$ is the author's, and the corollary of that paper is reported (unchecked) to give $18.062\log t$ for $\sigma\ge1$, $t\ge5$, so $24.303$ is conservative. So $M_1$ is a ball, and the mass of $\mathfrak U_{\theta'}$ on $[-W,W]$ is bounded by an increasing explicit function $\overline U(W)$, with $\overline U(880)=1286.4$ at $a=\tfrac12$ (the author's value, not rerun).
+
+\begin{theorem}[certified windows; conditional, computed by the author]\label{cx:thm:apostcert}
+Let $\theta'\in\{\tfrac12,\tfrac34\}$, $a=1-\theta'$, $\sigma\in\{0.3,0.5\}$, suppose $\zeta$ has no zeros in $\Re s>\theta'$ (at $\theta'=\tfrac12$ this is the Riemann hypothesis; at $\theta'=\tfrac34$ it is Theorem~\ref{cx:thm:certified} up to height $1419.9$ and an assumption beyond), and let $\mu$ be the accelerated EM output after $4000$ steps on the grid of spacing $h=0.02$ on $[-440,440]$. For each of the $198$ windows $\varphi$ of width $\sigma$ centred at the grid point $c$ nearest a zero in $(5,395)$, with $\varphi_1=(v-c)\varphi$,
+\begin{gather*}
+\Bigl|\int\varphi\,d\mu-\int\varphi\,d\mathfrak U_{\theta'}\Bigr|\le B_0(c),\qquad\Bigl|\int\varphi_1\,d\mu-\int\varphi_1\,d\mathfrak U_{\theta'}\Bigr|\le B_1(c),\\
+B_0(c)=h\!\!\sum_{|v_i|\le880}\!\!|\psi(v_i)||r_i|+\|\mu\|\,\varepsilon_\mu+\overline U(880)\,\varepsilon_U+T(c),\\ T(c)=\int_{|w|>880}\!\!\!D(|w|-|c|)\,d\mathfrak U_{\theta'}(w),
+\end{gather*}
+and $B_1$ likewise with $\psi_1$, where $\varepsilon_\mu,\varepsilon_U$ are the uniform bounds on $|\varphi-\varphi_h|$ over the support of $\mu$ and over $[-880,880]$ given by Lemma~\ref{cx:lem:trap} and the tails of Lemma~\ref{cx:lem:psiclosed}, $D$ is the explicit decreasing majorant
+\[
+D(d)=\frac{E_{\mathrm{dec}}}{d^2}+\frac{K_{\mathrm{far}}\,a}{\pi(1-\lambda)^2d^2}+\Bigl(1+\frac h{\pi a}\Bigr)\bar k(\lambda d),\qquad\lambda=0.9,
+\]
+with $\bar k$ the tail bound of Lemma~\ref{cx:lem:psiclosed} and $K_{\mathrm{far}}$ a bound on $\sum_{|v_i|>880}|\psi(v_i)|h$, and the last integral is bounded by Abel summation against $\overline U$ over blocks $W_k=880\cdot1.005^k$ up to $10^7$ and by $\overline U(w)\le w\log w$ beyond. Every quantity is a ball. The $792$ pairs of bounds (mass and moment, for $198$ windows, two levels and two widths) were compared with floating point reference values and agree. The certified figures are in the table below.
+\end{theorem}
+
+The finite computations of this theorem are the author's and were not rerun in this book (the script of the source is \texttt{certify\_apost.py}); the proof of the bound given those computations is the identity \eqref{cx:eq:exactid}, Lemma~\ref{cx:lem:trap} and the mass bound. The majorant $D$ is valid after Lemma~\ref{cx:lem:trap}: split the omitted sample points into $|v_i-c|\le\lambda d$, where $P_a(w-v_i)\le a/[\pi(1-\lambda)^2d^2]$, and the complement, where $|\psi(v_i)|\le\bar k(\lambda d)$ and $h\sum_iP_a(w-v_i)\le1+h/(\pi a)$. The Abel summation is an upper sum: if $D$ is decreasing, integration by parts gives $\int_{|w|>V}D(|w|-|c|)\,d\mathfrak U\le\int_V^\infty[-D'(R-|c|)]\,\overline U(R)\,dR$, and on a block $[W_k,W_{k+1}]$ the integral is at most $\overline U(W_{k+1})[D(W_k-|c|)-D(W_{k+1}-|c|)]$.
+
+\begin{center}
+\small
+\setlength{\tabcolsep}{2.5pt}\footnotesize
+\begin{tabular}{llccccccc}
+\toprule
+$\theta'$ & $\sigma$ & \multicolumn{3}{c}{mass bound $B_0$} & \multicolumn{2}{c}{moment $B_1$} & \multicolumn{2}{c}{centroid bound}\\
+& & max & mean & far tail & max & mean & median & max\\
+\midrule
+$1/2$ & 0.5 & $2.2\times10^{-2}$ & $5.4\times10^{-3}$ & $1.7\times10^{-3}$ & $1.8\times10^{-3}$ & $1.1\times10^{-3}$ & $0.027$ & $0.20$\\
+$1/2$ & 0.3 & $1.4\times10^{-2}$ & $5.1\times10^{-3}$ & $1.1\times10^{-3}$ & $2.0\times10^{-3}$ & $1.2\times10^{-3}$ & $0.0072$ & $0.11$\\
+$3/4$ & 0.5 & $5.7\times10^{-3}$ & $1.7\times10^{-3}$ & $8.3\times10^{-4}$ & $2.2\times10^{-4}$ & $1.1\times10^{-4}$ & $0.042$ & $0.14$\\
+$3/4$ & 0.3 & $3.4\times10^{-3}$ & $1.0\times10^{-3}$ & $4.9\times10^{-4}$ & $3.6\times10^{-5}$ & $1.2\times10^{-5}$ & $0.0068$ & $0.071$\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent The far tail column is the mean of the last term of $B_0$, the price of not knowing $\mathfrak U_{\theta'}$ beyond $880$ except through its mass bound; it is a fifth to a half of the mean bound, and would shrink if the grid were extended, since $\overline U$ grows only logarithmically faster than the width. The main term, the finite sum in \eqref{cx:eq:exactid}, has mean $3.6\times10^{-3}$ at $\theta'=\tfrac12$, $\sigma=0.3$; the floating point bound of the previous subsection, with its own tail estimate, was $4.5\times10^{-3}$, and the two agree once the tails are separated. The certificate bounds Gaussian weighted masses and centroids, and nothing finer. At $\theta'=\tfrac12$ every window has certified mass at least $0.9929$, so, since an interval of length one below height $400$ holds at most $n(400)<9.34$ ordinates (the count of Theorem~\ref{cx:thm:fastu1}), each window has a zero within $0.73$ of its centre at $\sigma=0.3$ and within $1.22$ at $\sigma=0.5$: if no zero lay within $r$ of the centre, the Gaussian mass would be at most $2n\sum_{k\ge0}e^{-(r+k)^2/(2\sigma^2)}$, which is $0.967$ and $0.952$ at these radii, below $0.9929$ (the critical radii are $0.7267$ and $1.2115$). The certified centroid lies within $0.05$ of the window centre for $192$ of the $198$ windows at $\sigma=0.3$ (as reported by the author), the six exceptions being the close pairs, where a neighbouring atom at distance $d$ moves the centroid by an amount of the order of $d\,e^{-d^2/2\sigma^2}$. At $\theta'=\tfrac34$ the target is the Thorin density $\sum_\rho P_{3/4-\sigma_\rho}(v-\gamma_\rho)$, which is $\sum P_{1/4}(v-\gamma)$ when the zeros are on the line, the window mass is about $0.7$, the bounds are five times tighter because the multiplier $e^{|\omega|/4}$ is milder, and the certified quantities are masses and centroids of the Thorin measure at level $\tfrac34$ itself. The computation takes thirty seven minutes on two cores, almost all of it in the $176{,}002$ evaluations of $\operatorname{erfc}$ at complex arguments that build the tables of $\psi$ and $\psi_1$ along the grid; the convolutions, the window sums and the Abel summations are polynomial products and short loops. The serialisation of the EM vector and of the data balls must be lossless for the bound to be a certificate; this was not repeated here.
+
+\begin{corollary}[from centroids to zeros]\label{cx:cor:zeroloc}
+Assume the Riemann hypothesis, so that $\mathfrak U_{1/2}=\sum_\rho\delta_{\gamma_\rho}$. Let $\varphi(v)=e^{-(v-c)^2/(2\sigma^2)}$, let $\int\varphi\,d\mathfrak U_{1/2}\in[\widehat M-B_0,\widehat M+B_0]$ with $\widehat M>B_0$ and $\int(v-c)\varphi\,d\mathfrak U_{1/2}\in[\widehat m-B_1,\widehat m+B_1]$ be certified, let $\gamma_*$ be an ordinate with $|\gamma_*-c|\le R$, and let $\Theta\ge\sum_{\gamma\ne\gamma_*}(|\gamma-c|+R)\varphi(\gamma)$, the sum over the other ordinates with multiplicity. Then
+\[
+|\gamma_*-c|\ \le\ \frac{|\widehat m|+B_1+\Theta}{\widehat M-B_0}.
+\]
+\end{corollary}
+
+\begin{proof}
+With $M=\int\varphi\,d\mathfrak U_{1/2}$, $\int(v-c)\varphi\,d\mathfrak U_{1/2}=(\gamma_*-c)M+\sum_{\gamma\ne\gamma_*}(\gamma-\gamma_*)\varphi(\gamma)$ and $|\gamma-\gamma_*|\le|\gamma-c|+R$. Hence $|\gamma_*-c|\,M\le|\widehat m|+B_1+\Theta$, and $M\ge\widehat M-B_0>0$.
+\end{proof}
+
+Three remarks. First, the windows are centred at grid points, within $0.01$ of the zeros, so that $\psi(v_i-c)$ is a shift of one table; the centroid certificate is unaffected, since it reports the offset of the weighted centre from $c$. Below height $1419.9$ the ordinates are already certified (Theorem~\ref{cx:thm:certified}), so $\Theta$ is computable but Corollary~\ref{cx:cor:zeroloc} locates nothing new there: the content of the certificate is the window masses and centroids, and at $\theta'=\tfrac34$ the Thorin density itself. Second, the hypothesis that $\zeta$ has no zeros in $\Re s>\theta'$ is used only to know that $\mathfrak U_{\theta'}$ exists and satisfies $P_a*\mathfrak U_{\theta'}=u_1$; at $\theta'=\tfrac12$ the hypothesis is the Riemann hypothesis. Third, the bound is a statement about $\mathfrak U_{\theta'}$, not about zeros; at $\theta'=\tfrac12$, under the Riemann hypothesis, it becomes a statement about Gaussian weighted sums over the zeros, and about single zeros only through Corollary~\ref{cx:cor:zeroloc}.
+
+\subsection{An iteration adapted to the certificate}\label{cx:sec:weighted}
+
+The certificate's main term is $h\sum_i|\psi_c(v_i)||r_i|$, a weighted $\ell^1$ norm of the residual, and the question was whether an iteration aimed at it does better than EM, which minimises the Kullback and Leibler divergence. We compared, at $\theta'=\tfrac12$ on the grid of spacing $0.02$, with $\sigma=0.3$ and the weights $w_i=\sum_c|\psi_c(v_i)|$ summed over the $198$ windows: accelerated EM; FISTA with nonnegativity on the weighted least squares $\tfrac12\sum_iw_i(Ax-y)_i^2$, which bounds the sum over the windows of the weighted $\ell^1$ norms by Cauchy and Schwarz, $h\sum_iw_i|r_i|\le h(\sum_iw_i)^{1/2}(\sum_iw_ir_i^2)^{1/2}$ (an aggregate bound, not a bound for each window); FISTA on the plain least squares; and accelerated EM followed by a weighted FISTA polish. The figure of merit is the mean over the windows of the main term. The experiment is the author's and was not repeated in this book.
+
+\begin{center}
+\small
+\begin{tabular}{lcc}
+\toprule
+iteration (steps) & main term & KL\\
+\midrule
+accelerated EM (4000) & $5.32\times10^{-5}$ & $1.2\times10^{-4}$\\
+weighted FISTA (4000) & $7.38\times10^{-5}$ & $0.95$\\
+plain FISTA (4000) & $5.26\times10^{-5}$ & $1.4\times10^{-4}$\\
+EM (4000), weighted FISTA polish (1000) & $4.12\times10^{-5}$ & $4.3\times10^{-4}$\\
+accelerated EM (5000) & $4.73\times10^{-5}$ & $9.8\times10^{-5}$\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent The weighted objective from a cold start is worse on its own figure of merit, and much worse in divergence: the weights concentrate on the peaks of $u_1$, where the deconvolution is most ill conditioned, and the iteration spends its steps there. Plain least squares and EM are indistinguishable. The polish gains thirteen per cent over the same number of EM steps. The reading is that the main term is dominated by the residual within a unit of each zero, where every objective fits equally badly, the limit being the conditioning of the problem rather than the choice of loss. So in this experiment the certificate does not reward an iteration of its own, and the route to a tighter certificate is more steps of the accelerated scheme, or a finer grid near the zeros; one experiment does not show that no other objective helps.
+
+\subsection{A fast algorithm for $u_1$ at fixed accuracy}\label{cx:sec:fastu1}
+
+The third open problem asked for an algorithm for $u_1(v)$ polynomial in $\log v$. Taken literally, with the accuracy $\varepsilon$ also entering polynomially in $\log(1/\varepsilon)$, it would follow from such an algorithm for $\zeta$ and $\zeta'$ on $\Re s=1$, and is open. With the accuracy fixed it has a positive answer, which comes from the explicit formula: given that the zeros near the height $v$ lie on the critical line (verified below $3\times10^{12}$ \cite{PT21}; at every height conditionally on the announced half plane $\Re s>\tfrac78$, with a larger exponent), the primes below $X$ determine $u_1$ at that height to accuracy of order $X^{-1/2}\log v$, so the cost of one value is $O(X)$ whatever the height, and a nonuniform fast Fourier transform gives a whole grid of heights for the price of one.
+
+\begin{theorem}[smoothed prime sum]\label{cx:thm:fastu1}
+Let $v\ge2$, $X\ge2$, $s=1+iv$, $L=\zeta'/\zeta$, and
+\begin{multline*}
+u_1^X(v)=\frac1\pi\Bigl[\frac1{1+v^2}-\frac{\log\pi}2+\frac12\Re\psi\Bigl(\frac{1+iv}2\Bigr)\\-\sum_{n\ge2}\frac{\Lambda(n)}n\,e^{-n/X}\cos(v\log n)\Bigr].
+\end{multline*}
+Then, with $R_X(s)=(2\pi i)^{-1}\int_{\Re w=-3/2}(-L(s+w))\Gamma(w)X^w\,dw$,
+\[
+\begin{split}\pi\bigl(u_1(v)-u_1^X(v)\bigr)&=-\Re\sum_\rho\Gamma(\rho-s)X^{\rho-s}+\Re\,\Gamma(1-s)X^{1-s}\\&\quad+\Re\bigl[X^{-1}L(s-1)\bigr]+\Re R_X(s),\end{split}
+\]
+with $|R_X(s)|\le2.5X^{-3/2}\log(v+2)$, and if every zero with $|\gamma-v|\le Y$, $Y\ge1$, lies on the critical line,
+\[
+\begin{split}|u_1(v)-u_1^X(v)|&\le\frac1\pi\Bigl[c_\Gamma\,n(v)\,X^{-1/2}+2.6\,c_\Gamma'\,n(v+Y+1)\,e^{-\pi Y/2}\\&\qquad+\sqrt{\frac{\pi}{v\sinh\pi v}}+\frac{27\log v}X+\frac{2.5\log(v+2)}{X^{3/2}}\Bigr],\end{split}
+\]
+where $n(t)=0.39\log t+7$ bounds the number of ordinates in any interval of length one below height $t$, by \cite[(1.7), (2.7) and Corollary~1.4]{HSW22}; $c_\Gamma=\sup_{v\ge2}\sum_{j\in\mathbb Z}\sup_{j\le y<j+1}|\Gamma(-\tfrac12+iy)|\,\frac{n(v+|j|+1)}{n(v)}\le8.34$ (without the factor $n(v+|j|+1)/n(v)$ the sum is $8.14376$); and $c_\Gamma'=\sup\{|\Gamma(x+iy)|e^{\pi|y|/2}:-1<x<0,\ |y|\ge1\}\le2.51$.
+\end{theorem}
+
+\begin{proof}
+$\sum_n\Lambda(n)n^{-s}e^{-n/X}=(2\pi i)^{-1}\int_{(2)}(-L)(s+w)\Gamma(w)X^w\,dw$ by Mellin inversion of $e^{-y}$. Shift the contour to $\Re w=-\tfrac32$. This crosses the pole of $\Gamma$ at $w=0$, with residue $-L(s)$, the zeros $w=\rho-s$ (real part in $(-1,0)$), with residues $-\Gamma(\rho-s)X^{\rho-s}$ times the multiplicity, the pole $w=1-s$ of $L$, with residue $\Gamma(1-s)X^{1-s}$, and the pole $w=-1$ of $\Gamma$, with residue $X^{-1}L(s-1)$; it crosses none of the trivial zeros ($\Re w=-2k-1\le-3$) or of the later poles of $\Gamma$. The horizontal segments vanish along heights that avoid the zeros, by the exponential decay of $\Gamma$. Taking real parts and using $\pi u_1(v)=\Re[1/s-\tfrac12\log\pi+\tfrac12\psi(s/2)]+\Re L(s)$ gives the identity. On $\Re w=-\tfrac32$, $\Re(s+w)=-\tfrac12$; by the functional equation $L(z)=\chi'/\chi(z)-L(1-z)$ with $\Re(1-z)=\tfrac32$, where the Dirichlet series converges absolutely, so $|L(1-z)|\le-\zeta'/\zeta(\tfrac32)<1.5053$. Here $\chi'/\chi(z)=\log2\pi+\tfrac\pi2\cot\tfrac{\pi z}2-\psi(1-z)$ with $|\cot\tfrac{\pi z}2|=1$ on $\Re z=-\tfrac12$, and Binet's formula $\psi(a)=\log a-\tfrac1{2a}-2\int_0^\infty\frac{t\,dt}{(t^2+a^2)(e^{2\pi t}-1)}$, with $|t^2+a^2|\ge\tfrac94$ for $\Re a=\tfrac32$, gives $|\psi(\tfrac32+i\tau)|\le\log(|\tau|+2)+\tfrac\pi2+\tfrac13+\tfrac1{27}$. For $w=-\tfrac32+iy$, as $\log(|v+y|+2)\le\log(v+2)+\log(1+|y|)$, this gives $|L(s+w)|\le\log(v+2)+\log(1+|y|)+6.856$, and with $\int_{\mathbb R}|\Gamma(-\tfrac32+iy)|\,dy<2.527$ and $\int_{\mathbb R}|\Gamma(-\tfrac32+iy)|\log(1+|y|)\,dy<0.798$ (computed), $|R_X(s)|\le X^{-3/2}\bigl(0.41\log(v+2)+2.89\bigr)\le2.5X^{-3/2}\log(v+2)$, since $\log(v+2)\ge\log4$.
+
+For the bound: the pole term is $\Re\Gamma(-iv)X^{-iv}$, of modulus at most $|\Gamma(-iv)|=(\pi/(v\sinh\pi v))^{1/2}$ since $|X^{-iv}|=1$. For $v\ge5$, $|L(iv)|\le27\log v$ by the functional equation, $|\chi'/\chi(iv)|\le\log v$ and the explicit bound of \cite{Leong24} for $|L(1-iv)|$ on $\Re s=1$; for $2\le v\le5$ it is a direct evaluation (the maximum of $|L(iv)|/\log v$ on $[2,60]$ is $1.014$). For the zeros on the line, $|\Gamma(-\tfrac12+iy)|^2=\pi/(\cosh(\pi y)(\tfrac14+y^2))$ and $|X^{\rho-s}|=X^{-1/2}$; the zeros are counted in the unit intervals $\gamma-v\in[j,j+1)$, each holding at most $n(v+|j|+1)$ ordinates, and the resulting sum is $c_\Gamma n(v)X^{-1/2}$. A zero at distance more than $Y$ contributes at most $c_\Gamma'e^{-\pi|\gamma-v|/2}$ ($|X^{\rho-s}|\le1$ and $|\Gamma(\sigma_\rho-1+i(\gamma-v))|\le c_\Gamma'e^{-\pi|\gamma-v|/2}$), and $\sum_{k\ge0}2e^{-\pi k/2}n(v+Y+k+1)\le2.6\,n(v+Y+1)$. The constants $8.3388$, $8.14376$ and $2.509$ were recomputed in the reconciliation of the reviews, as was the count $n(t)$ against \cite{HSW22}.
+\end{proof}
+
+The pole term cannot be dropped. At $v=2$ every zero has $|\gamma-2|\ge12$ and lies on the critical line below $3\times10^{12}$; taking $Y=10^{12}$, the bound without the pole term tends to $0$ as $X\to\infty$. But $\Re\Gamma(-2i)X^{-2i}=|\Gamma(-2i)|\cos(\arg\Gamma(-2i)-2\log X)$ equals $|\Gamma(-2i)|=0.0766$ at $X_k=\exp((\arg\Gamma(-2i)+2\pi k)/2)$, and the other terms tend to $0$, so $\limsup_{X\to\infty}|u_1(2)-u_1^X(2)|\ge0.0766/\pi=0.0244$. The pole term is exponentially small at large heights, which is why the experiments below are not affected.
+
+The hypothesis on the zeros within $Y$ of $v$ is verified for $v+Y\le3\times10^{12}$ with $Y$ of a few dozen \cite{PT21}, and $e^{-\pi Y/2}$ is then negligible. Beyond, under the zero free region alone, $|X^{\rho-s}|\le X^{-c/\log v}$ and the first term decays only when $\log X\gg\log v$. Conditionally on the announced half plane $\Re s>\tfrac78$ \cite{OAI26a,OAI26b,Liu26a}, every zero has $\tfrac18\le\beta\le\tfrac78$, so $|X^{\rho-s}|\le X^{-1/8}$ and $\Re(\rho-s)$ stays in $[-\tfrac78,-\tfrac18]$, away from the poles of $\Gamma$; the same count gives $|u_1(v)-u_1^X(v)-\pi^{-1}\Re\Gamma(1-s)X^{1-s}|\le C\log(v+2)(X^{-1/8}+X^{-1})$ at every height, so that a fixed accuracy $\varepsilon$ costs $X$ of order $(\log v/\varepsilon)^8$. The number of terms is $O(X)$, since the sum can be cut at $n=30X$ with a dropped tail of about $e^{-30}\log X$ (for a tolerance $\delta$ one cuts at about $X\log(1/\delta)$), and the cost of one value is $O(X)$ after a sieve of $O(X\log\log X)$, independent of $v$ in the count of arithmetic operations; the bit cost adds the evaluation of the phases $v\log n$, which needs $\log n$ to about $\log(v/\varepsilon)$ bits. For accuracy $\varepsilon$ take $X=(c_\Gamma n(v)/\varepsilon)^2$: the cost is $O(\varepsilon^{-2}\log^2v)$ operations, polynomial in $\log v$ and in $1/\varepsilon$.
+
+On a grid $v_k=kh$ the sum is
+\[
+\Re\sum_na_ne^{ik(h\log n)},\qquad a_n=\frac{\Lambda(n)}n\,e^{-n/X},
+\]
+a type one nonuniform discrete Fourier transform with the frequencies $h\log n$, and a nonuniform FFT evaluates it at $K$ heights with $M$ retained prime powers in $O(K\log K+M\log(1/\delta))$ operations for a transform accuracy $\delta$ \cite{FINUFFT19}, to which the coefficients, the sieve and the smooth gamma factor part are to be added. The experiment is the author's (script \texttt{fast\_u1.py} of the source) and was not rerun in this book. With $X=10^6$ and $1.86$ million prime powers below $3\times10^7$, the error $|u_1-u_1^X|$ at the heights $10^3$, $10^4$, $10^5$, $10^6$ and $10^7$ is reported as $9\times10^{-4}$, $4\times10^{-4}$, $8\times10^{-4}$, $1.1\times10^{-3}$ and $1.4\times10^{-3}$, against Arb \cite{Arb}; averaged over fifty one heights near $10^6$ the error is $0.05\log v\,X^{-1/2}$ for $X=10^4$, $10^5$ and $10^6$, which is the law of the theorem with a constant about twenty times smaller than the leading coefficient of the proved bound ($c_\Gamma\cdot0.39/\pi=1.0$ per $\log v$), the zero sum being oscillatory. The nonuniform FFT (\texttt{finufft}) is reported to give $u_1^X$ at $1{,}048{,}576$ heights at spacing $0.02$, up to height $20{,}972$, in $0.4$ seconds for the prime sums alone (the smooth part is not in the timing and the thread count is not fixed), agreeing with the direct sums to $10^{-8}$; Arb needs about two milliseconds per height, two thousand seconds for the same grid, but gives twenty digits.
+
+So the practical picture of the first layer of cost, the data, is this. Twenty digits at one height cost of order $v^{1/2}$ by the formula of Riemann and Siegel \cite{Edwards,Siegel32} and of order $v^{1/3}$ by Hiary \cite{Hiary11}; three digits at a million heights cost a second by the primes; the deconvolution needs four or five digits on a grid, which by the observed law above the smoothed sum delivers with $X=10^8$ to $10^{10}$ (the proved bound asks for more), at the edge of a laptop, and Arb delivers in minutes up to the heights of this chapter. What stays open is the question in its sharp form, $\log(1/\varepsilon)$ rather than $1/\varepsilon$, which would follow from such an algorithm for $\zeta$ and $\zeta'$ on the line.
+
+\subsection{Is $\mathfrak U_{1/2}$ computed efficiently?}\label{cx:sec:halfeff}
+
+The Cauchy deconvolution at the bottom level is the equation
+\[
+P_{1/2}*\mathfrak U_{1/2}=u_1,\qquad\mathfrak U_{1/2}=\sum_\rho\delta_{\gamma_\rho}\ \text{under the Riemann hypothesis},
+\]
+that is, $u_1(v)=\sum_\rho P_{1/2}(v-\gamma_\rho)$: the level one density is the Poisson integral of the counting measure of the zeros at distance $\tfrac12$ from the line. To compute $\mathfrak U_{1/2}$ is to undo that Poisson integral. In Fourier variables the equation reads $e^{-|\omega|/2}\,\widehat{\mathfrak U_{1/2}}(\omega)=\widehat{u_1}(\omega)$, and by the prime sum of Theorem~\ref{cx:thm:fastu1} the spectrum $\widehat{u_1}$ consists of atoms of weight $-\Lambda(n)/n$ at $\omega=\pm\log n$ and a smooth part from the Gamma factor (the prime part of $u_1$ is $-\pi^{-1}\sum\Lambda(n)n^{-1}\cos(v\log n)$ and $\widehat{\cos}=\pi(\delta_{\log n}+\delta_{-\log n})$). So the deconvolution multiplies the atom at $\log n$ by $e^{(\log n)/2}=\sqrt n$:
+\[
+\widehat{\mathfrak U_{1/2}}:\quad-\frac{\Lambda(n)}n\ \longmapsto\ -\frac{\Lambda(n)}{\sqrt n}\qquad\text{at }\omega=\pm\log n,
+\]
+which is the Fourier side of Weil's explicit formula,
+\[
+\sum_\rho\widehat g(\gamma_\rho)=-\sum_n\frac{\Lambda(n)}{\sqrt n}\bigl(g(\log n)+g(-\log n)\bigr)+\cdots .
+\]
+The backward Cauchy flow from level $1$ to level $\tfrac12$ is the explicit formula, and the multiplier $e^{|\omega|/2}$ is the factor $\sqrt n$ that turns the series $\sum\Lambda(n)/n^{1+iv}$, convergent on $\Re s=1$ only in a smoothed sense, into the series $\sum\Lambda(n)/n^{1/2+iv}$, which has no meaning except in the sense of distributions.
+
+This is the heuristic answer to the question of efficiency. To resolve $\mathfrak U_{1/2}$ at scale $\delta$ one needs its spectrum to frequency $\Omega\approx\pi/\delta$, hence the primes to $e^{\Omega}$, exponentially many; equivalently, the data $u_1$ must be known to accuracy $e^{-\Omega/2}$, since that is the factor by which errors at frequency $\Omega$ are amplified. The problem is exponentially ill posed in the resolution, and no linear band limited inversion of $u_1$ escapes this; EM shows no sign of escaping it. This is a statement about worst case stability, not an operation count lower bound for every method: for a single unit atom with blur $y(v)=P_a(v-\gamma)$, $\gamma=a\,[1/y(-t)-1/y(t)]/(4\pi t)$ for any $t\ne0$, so extra structure changes the inverse problem. The backward flow with $4000$ accelerated steps on a grid of spacing $0.02$ certifies Gaussian weighted centroids with an uncertainty of about $10^{-3}$ (the moment bound $B_1$ of Theorem~\ref{cx:thm:apostcert}, divided by the mass), not the atoms (Corollary~\ref{cx:cor:zeroloc}), and further digits cost further steps, at the observed rates of Section~\ref{cx:sec:rateworked}, or a finer grid with data accurate to about $e^{-\pi/2h}$. In the complexity class sense the computation is cheap per step: an FFT step costs $O(T\log T)$ on a grid to height $T$, and the number of steps for a fixed resolution was observed to be grid independent; no bound on the number of steps uniform in $T$, the least gap or the accuracy is proved here, so the total $T^{1+\varepsilon}$ of the method of Odlyzko and Sch\"onhage \cite{OdlyzkoSchonhage88} for all zeros to height $T$ is not claimed for the deconvolution. In the sense that matters, it is not efficient: direct zero finding gives $\gamma$ to far higher accuracy than the backward flow in less time, because it uses the functional equation, which carries the information of the spectrum beyond any $\Omega$ in closed form, where the deconvolution has only the data below $\Omega$. The efficient algorithm for $\mathfrak U_{1/2}$ is Turing's \cite{Turing53}, not EM; what the deconvolution contributes is the certificate, a bound on the measure from the residual alone, and the levels above $\tfrac12$, where the Thorin measure is a density and no zero finder produces it.
+
+\subsection{A von Neumann representation of $\mathfrak U_{1/2}$}\label{cx:sec:vonneumann}
+
+Two things could be meant, and both have an answer. In the sense of the von Neumann and Ulam estimator of the earlier section, $\mathfrak U_{1/2}=(I-(I-A))^{-1}u_1$ with $A=P_{1/2}*$ has the Neumann series $\sum_{k\ge0}(I-A)^ku_1$, which converges at every frequency, since the symbol $1-e^{-|\omega|/2}$ lies in $[0,1)$, but to the unbounded operator with symbol $e^{|\omega|/2}$. Its partial sums are the Richardson iterates with unit step: the sum to $K$ terms applied to $u_1$ has symbol $[1-(1-e^{-|\omega|/2})^{K+1}]e^{|\omega|/2}$, so relative to the target the effective filter is $1-(1-e^{-|\omega|/2})^{K+1}$, which is near $1$ for $|\omega|\le2\log K$ and near $0$ beyond. The truncated Neumann series is therefore a soft band limited inverse with resolution of order $\pi/(2\log K)$, and the resolution $0.1$ costs $K=e^{16}$ terms. The random walk that samples this series has kernel $|I-A|=\delta+P_{1/2}$, of total mass $2$, and the estimator with random termination has infinite second moment (Proposition~\ref{cx:prop:vnvar} for the grid version below the threshold $h<0.52\pi(1-\theta')$); finitely truncated walks have finite second moments. That is the von Neumann representation in the Monte Carlo sense, and it is exact, convergent and useless, for the reason of the previous subsection.
+
+In the other sense, von Neumann's spectral theorem, the question is whether $\mathfrak U_{1/2}$ is the spectral measure of a natural self adjoint operator, and that is the conjecture of Hilbert and P\'olya. When $\mathfrak U_{1/2}$ is a positive measure, that is under the Riemann hypothesis, a self adjoint operator with spectral measure $\mathfrak U_{1/2}$ exists trivially (a diagonal one, with the heights $\gamma_\rho$ as eigenvalues), so existence alone is not the conjecture. What is unconditional is the shape of the answer at the levels above. If $H$ is self adjoint with spectral measure $\mu_H=\sum\delta_{\gamma}$, then for $a>0$ the resolvent is not trace class, since $N(T)\asymp T\log T$, but its imaginary part is, and
+\[
+\frac1\pi\operatorname{Tr}\,\Im(H-v-ia)^{-1}=\sum_\gamma\frac{a/\pi}{(\gamma-v)^2+a^2}=(P_a*\mu_H)(v),
+\]
+so the Thorin density at level $\theta=\tfrac12+a$ is the trace of the imaginary part of the resolvent of $H$ at height $a$ above the real axis, and the backward Cauchy flow $\theta\downarrow\tfrac12$ is the Stieltjes inversion formula, the boundary value of the resolvent that recovers the spectral measure. The chapter has computed, unconditionally, the function that would be that trace:
+\[
+u_\theta(v)=\frac1\pi\Re\frac{\xi'}\xi(\theta+iv)=\frac1\pi\sum_\rho\Re\frac1{\theta+iv-\rho}=\frac1\pi\sum_\rho\frac{a_\rho}{a_\rho^2+(v-\gamma_\rho)^2},
+\]
+with $a_\rho=\theta-\sigma_\rho$, which is the trace of the imaginary part of the resolvent of the operator $H$ with spectrum $\{\gamma_\rho\}$ at height $a$ exactly when all $a_\rho$ equal $a$, that is when all zeros are on the line. So the densities $u_\theta$, $\theta>\tfrac12$, are the traces $\pi^{-1}\operatorname{Tr}\Im(H-v-i(\theta-\tfrac12))^{-1}$ of the one operator $H$ with spectrum $\{\gamma_\rho\}$ if and only if the Riemann hypothesis holds. (If a zero has $\sigma_0>\tfrac12$, then at $v=\gamma_0$ the density $u_\theta$ is unbounded as $\theta\downarrow\sigma_0$, while the trace of $\Im$ of the resolvent is finite for every $\theta>\tfrac12$.) The conjecture of Hilbert and P\'olya asks for a natural $H$. What the Thorin measures at levels $\theta>\tfrac12$ provide is the resolvent trace without the operator: $\xi'/\xi$ plays the part of the trace of the resolvent at $z=v+i(\theta-\tfrac12)$, and the certificate of Theorem~\ref{cx:thm:apostcert} is a bound on the boundary measure obtained from the resolvent at height $\tfrac12$, which is the content of the Stieltjes inversion made quantitative. Nothing in this produces $H$; it says what $H$ would have to do.
+
+\section{Open problems}\label{cx:sec:open}
+
+\begin{problem}\label{cx:prob:twophase}
+Prove the two phase picture of Section~\ref{cx:sec:rateworked} for the continuous Cauchy deconvolution at an atomic target: a sublinear phase with $k(R_k-R^*)$ near a constant of order $50$ (observed: $54.7$, $51.9$, $49.5$, $48.1$ at $k=500$, $1000$, $2000$, $3000$), lasting of the order of $10^4$ steps on this data, followed by faster convergence on the support of the atoms with a grid independent rate; and compute that rate from the curvature of the divergence at the atoms. For the accelerated scheme with restart, explain the observed three point exponents, which oscillate between $0.6$ and $2.8$ with a running value near $1.3$.
+\end{problem}
+
+\begin{problem}\label{cx:prob:closedform}
+Proposition~\ref{cx:prop:slope} gives the limiting slope under the Riemann hypothesis to six digits, $0.183899$ at $v^*=17.4979$. Is there a closed form? By the Hadamard product, under the Riemann hypothesis, $\log|\xi(\tfrac12+iv)|=\log\xi(\tfrac12)+\sum_{\gamma>0}\log|1-v^2/\gamma^2|$, so with $\mathcal C(v)=\partial_v^2\log|\xi(\tfrac12+iv)|$ the bracket is $X(v)=\mathcal C(0)-\mathcal C(v)$: the slope of the excess is the drop of the second logarithmic derivative of $\xi$ along the critical line from the origin to $v$, and $v^*$ is the zero of $\mathcal C'$ between the first two zeros. Whether $\mathcal C(v^*)$ has an expression in known constants is not clear.
+\end{problem}
+
+\begin{problem}\label{cx:prob:polylog}
+Theorem~\ref{cx:thm:fastu1} evaluates $u_1$ to accuracy $\varepsilon$ in time polynomial in $\log v$ and in $1/\varepsilon$. Is there an algorithm polynomial in $\log v$ and $\log(1/\varepsilon)$? Such an algorithm for $\zeta$ and $\zeta'$ on $\Re s=1$ would give one; the converse is not known, and the question is open. The smoothed sum cannot be the route, since the zeros themselves contribute $X^{-1/2}$.
+\end{problem}
+
+\begin{problem}\label{cx:prob:bestresidual}
+The certificate's main term is set by the residual within a unit of each zero, which no objective reduces faster than the conditioning allows (as observed in Section~\ref{cx:sec:weighted}). Quantify this: for a single atom at $\gamma$ blurred by $P_a$ and observed exactly, what is the best achievable $h\sum_i|\psi_\gamma(v_i)||r_i|$ after $k$ steps of any first order method on the cone, as a function of $k$, $h$ and $a$? The answer would say how far Theorem~\ref{cx:thm:apostcert} can be pushed at a given cost.
+\end{problem}

@@ -1,0 +1,86 @@
+\section{The Mellin transform of a clock}\label{ch:fmmellin}
+
+Let $X$ be ferromagnetic with $b=0$ in \eqref{fm:eq:had} and infinitely many zeros, so that $L_X(s)=\prod_k(1+s^2/c_k^2)$, and let $T_X=\sum_ke_k/c_k^2$ be its clock (Theorem~\ref{fm:thm:dual}). For every $m$, $T_X$ is at least $c_m^{-2}$ times a sum of $m$ independent standard exponential variables, and $\E e^{tT_X}<\infty$ for $t<c_1^2$, so $T_X$ has moments of every real order and $\E T_X^{-w}$ is entire. Put
+\[
+\mathcal D_X(w)=\Gamma(w)\,\E T_X^{-w}=\int_0^\infty u^{w-1}\Big(\frac1{L_X(\sqrt u)}-1\Big)\,du,\qquad -1<\re w<0,
+\]
+the Mellin transform of the Laplace transform $1/L_X(\sqrt u)$ of $T_X$, a meromorphic function whose poles are among those of $\Gamma$. For the uniform pair $\pi U+\pi U'$, with $U'$ an independent copy of $U$, the moment generating function is $(\sinh\pi s/\pi s)^2$, the zeros are $c_k=k$, each counted twice, and the clock is $\sum_k(e_k+e_k')/k^2$, a GGC with Thorin measure $2\sum_k\delta_{k^2}$. The Gamma$(2)$ variables of Williams' structure (Section~\ref{sec:ch19:williams}) are the sums $e_k+e_k'$ over the two spins, and the clock is $\frac{\pi^2}2S_2$ in the notation of \eqref{bp:eq:bpy}. By \eqref{bp:eq:bpy} with $s=-2w$, and the functional equation,
+\begin{equation}\label{fm:eq:Dpair}
+\mathcal D_{\pi U+\pi U'}(w)=2\pi^{-w}\,\Gamma(w)\,\xi(1+2w).
+\end{equation}
+So the nonreal zeros of $\mathcal D_{\pi U+\pi U'}$ are the points $\frac{\rho-1}2$, and RH is the statement that they lie on the line $\re w=-\frac14$. We write $z=2w+1$, the variable in which they are the zeros of $\xi$.
+
+\begin{proposition}\label{fm:prop:residue}
+Let $X$ be as above, with simple zeros $\pm ic_k$, $0<c_1<c_2<\cdots$, and put
+\[
+A_k=-\frac2{c_k\varphi_X'(c_k)},\qquad B_k=\frac{2\big(c_k\varphi_X''(c_k)-\varphi_X'(c_k)\big)}{c_k^2\,\varphi_X'(c_k)^3}.
+\]
+\begin{enumerate}
+\item[(i)] Near $u=-c_k^2$, $1/L_X(\sqrt u)=A_k(1+u/c_k^2)^{-1}+O(1)$ and $1/L_X(\sqrt u)^2=A_k^2(1+u/c_k^2)^{-2}+B_k(1+u/c_k^2)^{-1}+O(1)$.
+\item[(ii)] If $1/L_X(\sqrt u)=1+\sum_kA_k\big((1+u/c_k^2)^{-1}-1\big)$ for $u\ge0$ and $\sum_k|A_k|c_k^{2\sigma}<\infty$ for some $\sigma\in(-1,0)$, then
+\[
+\mathcal D_X(w)=\frac\pi{\sin\pi w}\sum_kA_kc_k^{2w},\qquad -1<\re w\le\sigma .
+\]
+\item[(iii)] If $1/L_X(\sqrt u)^2=1+\sum_k\big[A_k^2\big((1+u/c_k^2)^{-2}-1\big)+B_k\big((1+u/c_k^2)^{-1}-1\big)\big]$ for $u\ge0$ and $\sum_k(A_k^2+|B_k|)c_k^{2\sigma}<\infty$ for some $\sigma\in(-1,0)$, then, with $X'$ an independent copy of $X$,
+\[
+\mathcal D_{X+X'}(w)=\frac\pi{\sin\pi w}\sum_k\big[(1-w)A_k^2+B_k\big]c_k^{2w},\qquad -1<\re w\le\sigma .
+\]
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(i) Put $\theta=\sqrt{-u}$, so that $1/L_X(\sqrt u)=1/\varphi_X(\theta)$ and $1+u/c_k^2=(c_k-\theta)(c_k+\theta)/c_k^2$, and expand $\varphi_X$ to second order at its simple zero $c_k$. (ii) and (iii). For $c>0$ and $-1<\re w<0$, the beta integral gives $\int_0^\infty u^{w-1}\big((1+u/c)^{-1}-1\big)\,du=c^w\pi/\sin\pi w$ and $\int_0^\infty u^{w-1}\big((1+u/c)^{-2}-1\big)\,du=c^w\Gamma(w)\Gamma(2-w)=c^w(1-w)\pi/\sin\pi w$. Since $|(1+u/c)^{-j}-1|\le\min(2u/c,1)$ for $u\ge0$ and $j=1,2$, and only finitely many $c_k$ are below $1$, the hypothesis makes the series of the integrals of the absolute values converge on every line $\re w=\sigma'\le\sigma$, so sum and integral can be exchanged.
+\end{proof}
+
+The expansion in (ii) has the form of the partial fraction expansion that defines Krein's class, recalled before Proposition~\ref{ht:prop:krein}, for the function $u\mapsto L_X(\sqrt u)$, whose zeros are the points $-c_k^2$, with the coefficients $A_kc_k^2$. For $X=\pi U$, $\varphi_X(\theta)=\sin\pi\theta/(\pi\theta)$, so $A_k=-2(-1)^k$ and $B_k=-6$ for every $k$, and the two expansions are the classical partial fractions
+\[
+\frac{\pi\sqrt u}{\sinh\pi\sqrt u}=1+2u\sum_{k\ge1}\frac{(-1)^k}{u+k^2},\qquad\Big(\frac{\pi\sqrt u}{\sinh\pi\sqrt u}\Big)^2=1+\sum_{k\ge1}\frac{2u(u-k^2)}{(u+k^2)^2},
+\]
+the second from $\pi^2/\sinh^2\pi x=\sum_{k\in\mathbb Z}(x-ik)^{-2}$. The conditions on the weights hold for every $\sigma<-\frac12$. So $\mathcal D_{\pi U}(w)=(2\pi/\sin\pi w)\,\eta(-2w)$, with $\eta(s)=\sum_k(-1)^{k-1}k^{-s}$, and the weights of the pair, $(1-w)A_k^2+B_k=-(4w+2)$, do not depend on $k$:
+\begin{equation}\label{fm:eq:Dres}
+\mathcal D_{\pi U+\pi U'}(w)=-\frac{2\pi(2w+1)}{\sin\pi w}\,\zeta(-2w),\qquad -1<\re w<-\tfrac12 .
+\end{equation}
+Status: proved. By the functional equation of $\zeta$ this is \eqref{fm:eq:Dpair}, and read the other way it proves the functional equation of $\zeta$: for $\re w>0$, $\mathcal D_{\pi U+\pi U'}(w)=2\int_0^\infty x^{2w-1}(\pi x/\sinh\pi x)^2\,dx$, and the expansion $\sinh^{-2}y=4\sum_{m\ge0}(m+1)e^{-(2m+2)y}$ gives $2(2\pi)^{-2w}\Gamma(2w+2)\zeta(2w+1)$, so the two expressions are one meromorphic function. This is the argument of Riemann's first proof of the functional equation \cite[Chapter~1]{Edwards}, a sum over residues: one integration by parts turns the integral into $4\pi(2w+1)\int_0^\infty x^{2w}/(e^{2\pi x}-1)\,dx$, and the poles $\pm ik$, $k\ge1$, of $(\pi x/\sinh\pi x)^2$, over which \eqref{fm:eq:Dres} sums, are the zeros of the moment generating function of the pair, its Lee and Yang zeros.
+
+The hypotheses of (ii) fail for smooth densities. If $X$ has a density $q$ for which $tq(t)$ is smooth with all derivatives integrable, then $\varphi_X'(\theta)=O(\theta^{-N})$ for every $N$, so $|A_k|$ grows faster than every power of $c_k$ and $\sum_kA_kc_k^{2w}$ diverges for every $w$. This covers the laws of Theorem~\ref{fm:thm:bessel}; for $m\equiv1$, $|A_k|$ grows like $e^{\pi c_k/2\ell}$ up to powers of $c_k$ and of $\log c_k$, by the asymptotic formula for $K_{i\nu}(a)$ as $\nu\to\infty$, as the residues of the P\'olya law grow like $\gamma^{-3/4}e^{\pi\gamma/4}/|\zeta'(\rho)|$ in the proof of Proposition~\ref{ht:prop:krein}. The zeros of $\mathcal D$ do not need the expansion. Let $W$ have a law of Theorem~\ref{fm:thm:bessel}, with an independent copy $W'$, and put $X_\delta=\pi U+\delta W$, a ferromagnetic law with a smooth density of this kind. Since $0\le1-1/L_W(\delta\sqrt u)^2\le\min(1,2\delta^2u\,\E T_W)$, dominated convergence gives $\mathcal D_{X_\delta+X_\delta'}\to\mathcal D_{\pi U+\pi U'}$ uniformly on compact subsets of $-1<\re w<0$ as $\delta\to0$, and by Hurwitz's theorem, for each $k$ with $\rho_k$ simple, $\mathcal D_{X_\delta+X_\delta'}$ has a zero near $\frac{\rho_k-1}2$ once $\delta$ is small enough (proved).
+
+\begin{proposition}\label{fm:prop:kspins}
+Let $X_k=\pi(U_1+\dots+U_k)$ with independent copies $U_i$ of $U$. For $\re w>0$,
+\[
+\mathcal D_{X_k}(w)=2(2\pi)^{-2w}\,\Gamma(2w+k)\sum_{m\ge0}\binom{m+k-1}{k-1}\Big(m+\frac k2\Big)^{-2w-k}.
+\]
+For $k=2r$ the series is $\sum_{i=0}^{r-1}a_{r,i}\,\zeta(2w+1+2i)$, where $a_{r,i}$ is the coefficient of $j^{2r-1-2i}$ in $j\prod_{l=1}^{r-1}(j^2-l^2)/(2r-1)!$, and for $k=2r+1$ it is $\sum_{i=0}^rb_{r,i}\,(2^{2w+1+2i}-1)\,\zeta(2w+1+2i)$, where $b_{r,i}$ is the coefficient of $h^{2r-2i}$ in $\prod_{l=1}^r\big(h^2-(l-\frac12)^2\big)/(2r)!$. The first and the last of these coefficients are not $0$, so for $k\ge3$ the series has at least two terms. In particular
+\begin{gather*}
+\mathcal D_{X_1}(w)=4\pi^{-2w}\big(1-2^{-2w-1}\big)\Gamma(2w+1)\,\zeta(2w+1),\\
+\mathcal D_{X_4}(w)=\tfrac13(2\pi)^{-2w}\,\Gamma(2w+4)\big[\zeta(2w+1)-\zeta(2w+3)\big],
+\end{gather*}
+and $\mathcal D_{X_6}(w)=\frac1{60}(2\pi)^{-2w}\,\Gamma(2w+6)\big[\zeta(2w+1)-5\zeta(2w+3)+4\zeta(2w+5)\big]$, while $\mathcal D_{X_2}$ is \eqref{fm:eq:Dpair}.
+\end{proposition}
+
+\begin{proof}
+For $\re w>0$,
+\[
+\mathcal D_{X_k}(w)=\int_0^\infty u^{w-1}L_{X_k}(\sqrt u)^{-1}\,du=2\int_0^\infty x^{2w-1}\Big(\frac{\pi x}{\sinh\pi x}\Big)^k\,dx.
+\]
+Expand $\sinh^{-k}y=2^k\sum_{m\ge0}\binom{m+k-1}{k-1}e^{-(2m+k)y}$ and integrate term by term. The binomial coefficient is $\prod_{l=1}^{k-1}(m+l)/(k-1)!$, which is the stated polynomial in $j=m+r$ for $k=2r$ and in $h=m+r+\frac12$ for $k=2r+1$. It vanishes at $j=1,\dots,r-1$ and at $h=\frac12,\dots,r-\frac12$, so the sums run over all positive integers $j$ and all positive half integers $h$, and $\sum_{m\ge0}(m+\frac12)^{-v}=(2^v-1)\zeta(v)$.
+\end{proof}
+
+\begin{resultpar}\label{fm:res:kzeros}For $k=1$ the nonreal zeros of $\mathcal D_{X_1}$ are those of $\zeta(z)$ and the points $z=2\pi im/\log2$, $m\ne0$, so they lie on the two lines $\re z=\frac12$ (under RH) and $\re z=0$; for $k=2$ they are the zeros of $\xi(z)$. For $k=4$ and $k=6$ they do not lie on one vertical line: $\zeta(z)-\zeta(z+2)$ vanishes at $z=1.76891972665+23.3078297413i$ and $z=0.650238826497+31.7124838244i$, and $\zeta(z)-5\zeta(z+2)+4\zeta(z+4)$ at $z=3.18634599215+31.979112615i$ and $z=1.51363208762+41.215007487i$ (computed in ball arithmetic, each zero alone in a square of half side $7.5\cdot10^{-9}$ by the argument principle, \texttt{tlz\_k.py}).\end{resultpar}
+
+Laws whose characteristic function is that of $\pi U$ divided by a polynomial behave in the same way. If $\varphi_X(\theta)=\varphi_{\pi U}(\theta)/Q(\theta^2)$ for a polynomial $Q$ with $Q(0)=1$, then $1/L_X(\sqrt u)^2=Q(-u)^2/L_{\pi U}(\sqrt u)^2$, and integrating term by term for $\re w>0$ gives $\mathcal D_{X+X'}(w)=\sum_jq_j\,\mathcal D_{\pi U+\pi U'}(w+j)$, where $Q(-u)^2=\sum_jq_ju^j$, an identity of meromorphic functions (proved).
+
+\begin{resultpar}\label{fm:res:onecos}For the density $(1+\cos t)/2\pi$ on $[-\pi,\pi]$, which is $C^1$ and not $C^2$ at $\pm\pi$, $Q(x)=1-x$, the zeros are $c_k=k+1$, $k\ge1$, the law is ferromagnetic, and
+\[
+\mathcal D_{X+X'}(w)=\mathcal D_{\pi U+\pi U'}(w)+2\,\mathcal D_{\pi U+\pi U'}(w+1)+\mathcal D_{\pi U+\pi U'}(w+2),
+\]
+a combination of $\zeta(-2w)$, $\zeta(-2w-2)$ and $\zeta(-2w-4)$ by \eqref{fm:eq:Dres}. Its weights $A_k=2(-1)^{k+1}(k^2+2k)$ grow like $k^2$, so (ii) and (iii) do not apply. In the box $-1<\re w<1$, $\frac12<\im w<30$, which holds the $13$ zeros $\frac{\rho_k-1}2$, $\gamma_k<60$, of $\mathcal D_{\pi U+\pi U'}$, it has no zero, and in $-3<\re w<-2$, $\frac12<\im w<30$ it has $6$, at $-2.443554+15.837821i$, $-2.976747+19.238797i$, $-2.479242+21.119434i$, $-2.273308+24.426843i$, $-2.862245+26.206760i$ and $-2.756588+28.553832i$, so not on one vertical line (computed in ball arithmetic, \texttt{tlz\_onecos.py}).\end{resultpar}
+
+The line is not stable inside the laws of Theorem~\ref{fm:thm:ushaped}, scaled by $\pi$. For $\varepsilon\ge0$ let $X_\varepsilon$ have the density $(1+\varepsilon t^2)/(2\pi+\frac23\pi^3\varepsilon)$ on $[-\pi,\pi]$, which is nondecreasing in $|t|$, so that $X_\varepsilon$ and the pair $X_\varepsilon+X_\varepsilon'$ are ferromagnetic. At $\varepsilon=0$ the zero $w_k(0)=\frac{\rho_k-1}2$ of $\mathcal D_{\pi U+\pi U'}$ is simple whenever $\rho_k$ is, as for $k=1,2$, and then by the implicit function theorem it moves with
+\[
+\frac{dw_k}{d\varepsilon}(0)=-\frac{\dot{\mathcal D}(w_k(0))}{\mathcal D_{\pi U+\pi U'}'(w_k(0))},\qquad \dot{\mathcal D}(w)=-2\int_0^\infty u^{w-1}\,\frac{\dot L(\sqrt u)}{L_{\pi U}(\sqrt u)^3}\,du,
+\]
+where $\dot L(s)=\frac1{2\pi}\int_{-\pi}^\pi\big(t^2-\frac{\pi^2}3\big)e^{st}\,dt$ is the derivative of $L_{X_\varepsilon}(s)$ at $\varepsilon=0$ and $\dot{\mathcal D}$ that of $\mathcal D_{X_\varepsilon+X_\varepsilon'}$.
+
+\begin{resultpar}\label{fm:res:deform}The computed values are $\frac{dw_1}{d\varepsilon}(0)=5.89145-13.09321i$ and $\frac{dw_2}{d\varepsilon}(0)=1.56442-16.25014i$, with real parts different from $0$ and from each other (computed by quadrature with three rules that agree, \texttt{tlz\_deform.py}). So for small $\varepsilon>0$ the first two zeros leave the line $\re w=-\frac14$ at different rates, and the nonreal zeros of $\mathcal D_{X_\varepsilon+X_\varepsilon'}$ do not lie on one vertical line although every $X_\varepsilon$ is ferromagnetic. By this computation no theorem whose hypotheses hold for all symmetric densities on an interval that are nondecreasing in $|t|$ can put the zeros of $\mathcal D$ of the pair on one line (computed).\end{resultpar}
+
+This section follows notes of Nicholas Polson merged into the book \cite{P26tus,P26lyzeta}.

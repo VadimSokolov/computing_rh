@@ -11,7 +11,11 @@ becomes, with $s=\tfrac12+it$ and $x=e^{2u}$,
 \Xi(t)&=\frac12-2\left(t^2+\tfrac14\right)\int_0^\infty\psi(e^{2u})e^{u/2}\cos(tu)\,du\nonumber\\
 &=\left(t^2+\tfrac14\right)\int_0^\infty k(u)\cos(tu)\,du,
 \end{align}
-where $k(u)=e^{-u/2}-2e^{u/2}\psi(e^{2u})$; the pole term $\tfrac12$ has been absorbed using $\int_0^\infty e^{-u/2}\cos(tu)\,du=\tfrac12/(t^2+\tfrac14)$. Since $k(u)=2\cosh(u/2)-e^{u/2}\Theta_3(e^{2u})$ and the theta functional equation makes $e^{u/2}\Theta_3(e^{2u})$ even, $k$ extends to an even real analytic function on $\R$. This folded kernel is the new ingredient; the classical kernel is the one of Equation~\eqref{eq:ch2:Phi}, $\Xi(t)=2\int_0^\infty\Phi(u)\cos(tu)\,du$ with $\Phi$ positive, even and analytic exactly in the strip $|\operatorname{Im}u|<\pi/4$ (Titchmarsh \cite[(2.16.1)]{Titchmarsh}). The two are related by
+where $k(u)=e^{-u/2}-2e^{u/2}\psi(e^{2u})$; the pole term $\tfrac12$ has been absorbed using
+\[
+\int_0^\infty e^{-u/2}\cos(tu)\,du=\frac{1/2}{t^2+\frac14}.
+\]
+Since $k(u)=2\cosh(u/2)-e^{u/2}\Theta_3(e^{2u})$ and the theta functional equation makes $e^{u/2}\Theta_3(e^{2u})$ even, $k$ extends to an even real analytic function on $\R$. This folded kernel is the new ingredient; the classical kernel is the one of Equation~\eqref{eq:ch2:Phi}, $\Xi(t)=2\int_0^\infty\Phi(u)\cos(tu)\,du$ with $\Phi$ positive, even and analytic exactly in the strip $|\operatorname{Im}u|<\pi/4$ (Titchmarsh \cite[(2.16.1)]{Titchmarsh}). The two are related by
 \[
 \Phi(u)=2\sum_{n\ge1}\big(2\pi^2n^4e^{9u/2}-3\pi n^2e^{5u/2}\big)e^{-\pi n^2e^{2u}}=\tfrac12\big(\tfrac14k(u)-k''(u)\big),\qquad u\ge0,
 \]
@@ -25,7 +29,7 @@ $\tfrac12+\psi(1)+4\psi'(1)=0$; equivalently $k'(0)=0$.
 Differentiate $\Theta_3(1/x)=\sqrt x\,\Theta_3(x)$ at $x=1$ to get $-\Theta_3'(1)=\tfrac12\Theta_3(1)+\Theta_3'(1)$, that is $\Theta_3(1)+4\Theta_3'(1)=0$, and insert $\Theta_3=1+2\psi$. Then $k'(0)=-\tfrac12-\psi(1)-4\psi'(1)=0$.
 \end{proof}
 
-The folded pole part $e^{-|u|/2}$ has a corner at the origin and the theta part has exactly the opposite corner. Their cancellation is the smoothness of $k$ at $0$, equivalent to the evenness of the analytic continuation of $\Phi$; it is a consequence of the functional equation, and Theorem~\ref{mi:thm:noproxy} shows that no reweighting of the theta series with $\sum_n|w_n|n^{-\sigma}<\infty$ for every $\sigma>0$ keeps it.
+The folded pole part $e^{-|u|/2}$ has a corner at the origin and the theta part has exactly the opposite corner. Their cancellation is the smoothness of $k$ at $0$, equivalent to the evenness of the analytic continuation of $\Phi$; it is a consequence of the functional equation, and Theorem~\ref{mi:thm:noproxy} shows that no reweighting of the theta series with $\sum_n|w_n|n^{-\sigma}<\infty$ for every $\sigma>0$ keeps it. In terms of the maximum $M$ of a standard Brownian excursion, $k(u)=e^{-u/2}\,\E\min\big(\sqrt{2/\pi}\,M,e^u\big)$ for real $u$, and Lemma~\ref{mi:lem:kink} says $\mathbb P(M>\sqrt{\pi/2})=\tfrac12-\psi(1)$ (Remark~\ref{ht:rem:chung}).
 
 \subsection{The friable approximant}\label{mi:sec:def}
 
@@ -65,6 +69,14 @@ For $0<\operatorname{Re}s<1$ both $\operatorname{Re}s>0$ and $\operatorname{Re}(
 \end{proof}
 
 The unregularised $F_P$ pays for its poles with spurious zeros near them. For $P=2$, near the poles $1+2\pi ik/\log2$, the computed zeros of $F_2$ include $1.5151+9.1951i$, $1.3184+18.0602i$, $1.2268+27.3286i$, $1.1815+45.4005i$, $0.7885+72.7840i$ (inside the critical strip, with its mirror at $0.2115$) and $1.1200+108.8198i$ (computed, residual below $10^{-26}$; this is a selection and not a list of all the zeros of $F_2$).
+
+\begin{proposition}\label{mi:prop:polezeros}
+Let $P\ge2$ and let $p\le P$ be prime. For infinitely many integers $k$, $F_P$ has a zero $s_k$ with $|s_k-1-\frac{2\pi ik}{\log p}|=O(|k|^{-1/2})$, and for $P=2$ every $k$ with $|k|$ large enough qualifies. So $\re s_k\to1$, and the zeros $1-\bar s_k$ have real parts tending to $0$. This follows a note of Nicholas Polson merged into the book \cite{P26gumbelop}.
+\end{proposition}
+
+\begin{proof}[Sketch]
+At $\sigma_k=1+\frac{2\pi ik}{\log p}$ the term $E_P(1-s)$ has a simple pole, with residue $R_k$, while $E_P(s)$ is analytic and nonzero, so by Rouch\'e's theorem $F_P$ has a zero within $2|R_k/E_P(\sigma_k)|$ of $\sigma_k-R_k/E_P(\sigma_k)$ once this ratio is small. The factors $s(s-1)$ in $R_k$ and in $E_P(\sigma_k)$ have equal moduli, Stirling's formula gives $|\Gamma_{\mathbb R}(1-\sigma_k)/\Gamma_{\mathbb R}(\sigma_k)|\asymp|k|^{-1/2}$, the Euler factors of $\zeta_P(\sigma_k)$ lie on $\re s=1$ and are bounded above and below, and the Euler factors $(1-q^{-(1-s)})^{-1}$ of the residue, $q\le P$, $q\ne p$, are bounded when every $q^{2\pi ik/\log p}$ stays away from $1$. As $1$ and the numbers $\log q/\log p$ are linearly independent over $\mathbb Q$, Kronecker's theorem gives infinitely many such $k$; for $P=2$ there is no such $q$. The regular part of $E_P(1-s)$ and the variation of $E_P(s)$ are $O(|k|^{-1/2}\log|k|\,|E_P(\sigma_k)|)$ on the disc, by the same estimates and $\Gamma'/\Gamma(s)=O(\log|s|)$. Then $|R_k/E_P(\sigma_k)|=O(|k|^{-1/2})$. The second statement is the symmetry $F_P(s)=F_P(1-s)=\overline{F_P(\bar s)}$.
+\end{proof}
 
 \section{Approximation, the kink constant and no finite proxy}\label{mi:sec:approx}
 
@@ -119,6 +131,8 @@ Let $k_w(u)=e^{-u/2}-2e^{u/2}\psi_w(e^{2u})$. The series $\psi_w(x)$ converges a
 
 The proof of Theorem~\ref{mi:thm:kink} never uses friability. For every nonempty set $E$ of omitted integers, the function built from the series over the integers outside $E$ has $c_E=\sum_{m\in E}(4\pi m^2-1)e^{-\pi m^2}>0$, so it tends to $c_E$ on $\R$ and has finitely many real zeros. Hardy's theorem \cite{Hardy14} that $\Xi$ has infinitely many real zeros therefore uses every integer in the theta series: the primes hide in the smoothness of the kernel at the origin. (Theorem~\ref{mi:thm:noproxy} is the statement for summable weights; the statement for omitted integers is the one just given, and the weights equal to $1$ except at one integer are outside its hypothesis, since $\sum n^{-\sigma}$ diverges for $\sigma\le1$.)
 
+\begin{resultpar}\label{mi:res:trunc}For $E=\{n>N\}$, that is for the weights $w_n=\mathbf 1_{n\le N}$ of Theorem~\ref{mi:thm:noproxy}, the constant is $c_E=1.71806\cdot10^{-4}$ for $N=1$ and $c_E=5.89126\cdot10^{-11}$ for $N=2$, where $\Xi_w$ and $c_E$ agree with $\Xi_2$ and $c_2$ to the digits shown, the integers $n\le2$ and the $2$ friable integers first differing at $n=4$. In $0<t\le60$ the function $\Xi_w$ has $2$ real zeros for $N=1$, at $14.1659$ and $19.5639$, and $6$ for $N=2$, at $14.1347$, $21.0220$, $25.0109$, $30.4243$, $32.9388$ and $37.4954$ (as for $\Xi_2$, $R_2=6$ in Section~\ref{mi:sec:humps}), against the $13$ zeros of $\Xi$ there. Its nonreal zeros with $0<\operatorname{Re}t\le60$ and $0<\operatorname{Im}t\le12$ are $22.915+4.666i$ and $27.930+9.028i$ for $N=1$, and $41.190+1.462i$, $45.418+4.421i$, $49.549+7.364i$ and $53.720+10.074i$ for $N=2$ (computed; argument principle, \texttt{px\_xiw.py}). These functions are not the folded approximations of Section~\ref{ev:sec:decomp}: by the identity $\Xi_P^{\mathrm M}=\Xi_P-c_P$ of Section~\ref{mi:sec:miyatake}, that is two integrations by parts with $k_w'(0)=-c_E$, the transform of the folded sum of the first $N$ terms of \eqref{eq:ch2:Phi} is $\Xi_w-c_E$, so that $8H^F_N(z)=\Xi_w(\tfrac z2)-c_E$ in the notation there, and its zeros are the solutions of $\Xi_w=c_E$. The computation follows a note of Nicholas Polson merged into the book \cite{P26fchap}.\end{resultpar}
+
 \section{The deficit: positivity and Lorentzian form}\label{mi:sec:deficit}
 
 For real $t$, the termwise form of the definition gives
@@ -134,6 +148,27 @@ $D_P(t)>0$ for all real $t$, and $D_P>D_{P'}$ when $P<P'$. Hence $\Xi_P>\Xi_{P'}
 \begin{proof}
 For $a\ge\tfrac32$, $f_a'=f_a(\frac14-ae^w)<0$ and $f_a''=f_a(x^2-\tfrac32x+\tfrac1{16})>0$ with $x=ae^w\ge a$, so $f_a$ is integrable, strictly convex and decreasing to $0$. With $K(w)=(1-\cos\lambda w)/\lambda$, $K'=\sin\lambda w$, two integrations by parts give P\'olya's formula $\int_0^\infty f_a(w)\cos(\lambda w)\,dw=\lambda^{-2}\int_0^\infty f_a''(w)(1-\cos\lambda w)\,dw$ for $\lambda>0$, which is strictly positive because $f_a''>0$ (and the case $\lambda=0$ is $\int f_a>0$). So $C_a>0$. Monotonicity in $P$ holds term by term, since $\mathcal F(P)\subset\mathcal F(P')$.
 \end{proof}
+
+\begin{remark}\label{mi:rem:laws}
+\begin{resultpar}\label{mi:res:laws}The proof of Theorem~\ref{mi:thm:positive} uses only $a\ge\tfrac32$, so $C_{\pi n^2}(t)>0$ for every $n\ge1$ and every real $t$, with $C_a$ as in \eqref{mi:eq:D}, extended to complex $t$ by the same integral. Put
+\[
+W(t)=4\int_0^\infty\psi(e^{2u})e^{u/2}\cos(tu)\,du=2\sum_{n\ge1}C_{\pi n^2}(t),
+\]
+so that $2\Xi(t)=1-(t^2+\tfrac14)W(t)$ for every complex $t$, by \eqref{mi:eq:riemannt}. Then $W>0$ on $\R$, the zeros of $\Xi$ in $\mathbb C$ are exactly the solutions of $(t^2+\tfrac14)W(t)=1$, and RH says that every solution is real. So the transform of no term of the theta series vanishes on the real line, and the zeros of $\Xi$ come from the cancellation between the pole term and the whole series. In terms of laws, $C_{\pi n^2}(t)/C_{\pi n^2}(0)$ is the characteristic function of the symmetric density proportional to $e^{|u|/2}\exp(-\pi n^2e^{2|u|})$, the law of $\pm\tfrac12\log X$ with an independent fair sign, where $X$ has the density proportional to $x^{-3/4}e^{-\pi n^2x}$ on $[1,\infty)$. Hence $W(t)/W(0)$ is the characteristic function of the mixture of these laws with the weights $2C_{\pi n^2}(0)/W(0)$, whose density is
+\begin{gather*}
+p_V(u)=\frac{2e^{|u|/2}\psi(e^{2|u|})}{W(0)}=\frac{e^{-|u|/2}-k(u)}{W(0)},\\
+W(0)=2\sum_{n\ge1}(\pi n^2)^{-1/4}\,\Gamma(\tfrac14,\pi n^2)=0.0230338
+\end{gather*}
+(computed, \texttt{px\_const.py}). None of these laws is ferromagnetic (Proposition~\ref{fm:prop:nocomponent}). Next, $k$ is bounded, $(\tfrac14-\tfrac{d^2}{du^2})e^{-|u|/2}=\delta_0$ in the sense of distributions, and $\Phi=\tfrac12(\tfrac14k-k'')$ holds on all of $\R$, both sides being even. So $k-2e^{-|\cdot|/2}\ast\Phi$ is bounded and annihilated by $\tfrac14-\tfrac{d^2}{du^2}$, whose null solutions $Ae^{u/2}+Be^{-u/2}$ are unbounded unless $A=B=0$, and
+\[
+k(u)=2\int_{\R}e^{-|u-w|/2}\,\Phi(w)\,dw .
+\]
+With the Laplace density $\varkappa(u)=\tfrac14e^{-|u|/2}$, and since $\Phi/\xi(\tfrac12)$ is the density of the P\'olya law of \eqref{eq:ch2:mgf}, this reads
+\[
+\varkappa=(1-\upsilon)\,\varkappa\ast\frac{\Phi}{\xi(\frac12)}+\upsilon\,p_V,\qquad\upsilon=\frac{W(0)}4=1-2\xi(\tfrac12)=0.00575844
+\]
+(computed, \texttt{px\_const.py}): the Laplace law is the mixture, with weights $1-\upsilon$ and $\upsilon$, of the P\'olya law plus an independent Laplace variable and of the law $p_V$. Status: proved. This remark follows notes of Nicholas Polson merged into the book \cite{P26pole,P26excursion}.\end{resultpar}
+\end{remark}
 
 \begin{lemma}\label{mi:lem:twoside}
 If $F(0)=F'(0)=0$ and $F,F',F''$ are integrable on $[0,\infty)$, then the cosine and sine transforms of $F$ at $\lambda>0$ are at most $\min(\|F\|_1,\|F''\|_1/\lambda^2)$ in absolute value, and the sine bound needs only $F(0)=0$. Hence $|\cdot|(\beta^2+\lambda^2)\le\beta^2\|F\|_1+\|F''\|_1$ for every $\beta>0$.

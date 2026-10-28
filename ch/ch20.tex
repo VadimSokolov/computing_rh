@@ -56,7 +56,7 @@ $n$ & $\lambda_n$ (P\'olya) & Keiper asymptotic\\
 
 \subsection{Li's criterion as positivity of the Thorin functional}\label{sec:ch20:thorin}
 
-Li's criterion is a statement about the Thorin functional $U$ of Section~\ref{ch:arith}, which has a unit atom at $-(\rho-\frac12)^2$ for each pair $\{\rho,1-\rho\}$ of zeros, on the line or off it. For a zero $\rho$ put $q=1-1/\rho$. Then $1-1/(1-\rho)=1/q$, so the pair contributes $2-q^n-q^{-n}$ to $\lambda_n$; and if $a=-(\rho-\frac12)^2$, with the square root chosen so that $\rho-\frac12=i\sqrt a$, then $q=(2\sqrt a+i)/(2\sqrt a-i)$. This proves the following.
+Li's criterion is a statement about the Thorin functional $U$ of Section~\ref{ch:arith}, which has a unit atom at $-(\rho-\frac12)^2$ for each pair $\{\rho,1-\rho\}$ of zeros, on the line or off it. For a zero $\rho$ put $r=1-1/\rho$. Then $1-1/(1-\rho)=1/r$, so the pair contributes $2-r^n-r^{-n}$ to $\lambda_n$; and if $a=-(\rho-\frac12)^2$, with the square root chosen so that $\rho-\frac12=i\sqrt a$, then $r=(2\sqrt a+i)/(2\sqrt a-i)$. This proves the following.
 
 \begin{proposition}\label{prop:ch20:thorin}
 Without any hypothesis on the zeros,
@@ -77,6 +77,47 @@ For $z>0$ the two fractions are conjugate numbers of modulus one. On the critica
 \lambda_n=\sum_{\gamma>0}2\big(1-\cos(n\phi_\gamma)\big)=\sum_{\gamma>0}4\sin^2\Big(n\arctan\frac1{2\gamma}\Big)\qquad\text{under RH}.
 \]
 Li's criterion thus says that RH holds if and only if $\langle U,\varphi_n\rangle\ge0$ for every $n$, that is, the Thorin functional is nonnegative on the cone spanned by the $\varphi_n$.
+
+The test functions are Laplace transforms, and this reads Li's coefficients off the heat trace $W$ of Section~\ref{ch:heat} and off the clock tilted at $u=\frac14$ (a note of Nicholas Polson merged into the book \cite{P26pg3}). Let $q(y)=y/(1-y)^2$ and define polynomials $\ell_n$ by
+\[
+\sum_{n\ge1}\ell_n(t)\,y^{n-1}=q'(y)\,e^{-tq(y)}=\frac{1+y}{(1-y)^3}\exp\Big(-\frac{ty}{(1-y)^2}\Big),
+\]
+so that $\ell_1=1$, $\ell_2=4-t$, $\ell_3=9-6t+\frac12t^2$, and $\ell_n$ has degree $n-1$ and leading coefficient $(-1)^{n-1}/(n-1)!$. Let $\widetilde T$ be the Esscher tilt of the clock $T$ at $u=\frac14$ (the variable $\widetilde T$ of Theorem~\ref{bp:thm:sub}), the law $e^{-x/4}P(T\in dx)/\E e^{-T/4}$, with Laplace transform $G(\frac14)/G(\frac14+u)$, and write $\kappa_j(\widetilde T)$ for its cumulants.
+
+\begin{proposition}\label{prop:ch20:heat}
+Without any hypothesis on the zeros:
+\begin{enumerate}
+\item[(i)] $\varphi_n(z)=\int_0^\infty e^{-(z+\frac14)t}\ell_n(t)\,dt$ for $\re z>-\frac14$, and hence
+\[
+\lambda_n=\int_0^\infty W(t)\,e^{-t/4}\,\ell_n(t)\,dt ;
+\]
+\item[(ii)] $\kappa_j(\widetilde T)=\int_0^\infty t^{j-1}e^{-t/4}W(t)\,dt=(j-1)!\sum_{\{\rho,1-\rho\}}\big(\rho(1-\rho)\big)^{-j}$ for $j\ge1$, and
+\[
+\lambda_n=\sum_{j=1}^n(-1)^{j+1}\frac n{j!}\binom{n+j-1}{2j-1}\,\kappa_j(\widetilde T),\qquad n\ge1 .
+\]
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(i) For $z>0$ put $r=(2\sqrt z+i)/(2\sqrt z-i)$, so that $\varphi_n(z)=2-r^n-r^{-n}$ and $r+r^{-1}=2-1/(z+\frac14)$. Then $(1-ry)(1-y/r)=(1-y)^2\big(z+\frac14+q(y)\big)/(z+\frac14)$, and for small $|y|$
+\[
+\begin{aligned}\sum_{n\ge1}\varphi_n(z)\,y^{n-1}&=\frac d{dy}\log\frac{(1-ry)(1-y/r)}{(1-y)^2}=\frac{q'(y)}{z+\frac14+q(y)}\\&=\int_0^\infty e^{-(z+\frac14)t}\,q'(y)e^{-tq(y)}\,dt .\end{aligned}
+\]
+Comparing coefficients gives the formula for $\varphi_n(z)$ when $z>0$, and both sides are analytic in $\re z>-\frac14$. By Proposition~\ref{prop:ch20:thorin}, $\lambda_n$ is the sum of $\varphi_n(a)$ over $a=-(\rho-\frac12)^2$, one for each pair $\{\rho,1-\rho\}$. For $\rho=\frac12+\delta+i\gamma$ with $|\delta|<\frac12$ one has $\re a+\frac14>\gamma^2$, and $\int_0^\infty e^{-ct}|\ell_n(t)|\,dt=O(1/c)$ as $c\to\infty$, so the sum of the integrals converges absolutely, and $W(t)=\sum e^{-at}$ gives the formula for $\lambda_n$.
+(ii) Since $1+w=1/(1-y)$ for $w=y/(1-y)$, and $[y^n]w^k=\binom{n-1}{n-k}$, \eqref{eq:ch20:li} says $\lambda_n=n[y^n]\log\xi\big(1/(1-y)\big)$. With $\sigma=1/(1-y)$ one has $\sigma(\sigma-1)=q(y)$, so $\sigma=\frac12+\big(\frac14+q(y)\big)^{1/2}$ and $\log\xi(\sigma)=\log\xi(\frac12)+\log G\big(\frac14+q(y)\big)$ near $y=0$. By Section~\ref{ch:heat},
+\[
+\log\frac{G(\frac14+v)}{G(\frac14)}=-\log\E e^{-v\widetilde T}=\int_0^\infty\big(1-e^{-vt}\big)e^{-t/4}W(t)\,\frac{dt}t=\sum_{j\ge1}(-1)^{j+1}\kappa_j(\widetilde T)\,\frac{v^j}{j!},
+\]
+which gives the first formula for $\kappa_j(\widetilde T)$; integrating $W(t)=\sum e^{-at}$ term by term, with $a+\frac14=\rho(1-\rho)$, gives the second. Finally $[y^n]q(y)^j=[y^{n-j}](1-y)^{-2j}=\binom{n+j-1}{2j-1}$.
+\end{proof}
+
+In terms of the sums $S_j=\sum\big(\rho(1-\rho)\big)^{-j}$, the relation (ii) is that of Voros \cite[Section 8.6.2]{Voros10}; the proposition adds that $(j-1)!\,S_j$ are the cumulants of a probability law, the clock tilted to the point $u=\frac14$, which $\sigma=\frac12+\sqrt u$ sends to $\sigma=1$. The relation is triangular with diagonal $(-1)^{n+1}/(n-1)!$, so the $\lambda_n$ and the cumulants of $\widetilde T$ determine each other; in particular $\E\widetilde T=\lambda_1$ and $\operatorname{Var}\widetilde T=4\lambda_1-\lambda_2=3.71006364\times10^{-5}$. From $100$ independently computed cumulants, (ii) reproduces all $20$ digits of Table~\ref{tab:ch20:li} (the rows $n=1,2,3,5,10,20,50,100$), and (i), with $W$ from \eqref{eq:ch2:Warith} for $t<0.004$ and from the zeros above, reproduces $\lambda_1,\dots,\lambda_4$ to $30$ digits (computed, \texttt{pg3\_li.py}).
+
+Under RH, $W(t)=\sum_{\gamma>0}e^{-\gamma^2t}$, and (i) returns the sum of the nonnegative terms $\varphi_n(\gamma^2)$ displayed above. The functional $f\mapsto\int_0^\infty f(t)e^{-t/4}\ell_n(t)\,dt$ is nonnegative on every completely monotone $f$ for which it converges absolutely, by Bernstein's theorem and $\varphi_n\ge0$ on $[0,\infty)$. It is not nonnegative on nonnegative $f$, since $\ell_2<0$ on $(4,\infty)$, nor, in general, on $k$ monotone $f$: $(1-t/20)_+^2$ is $3$ monotone, and
+\[
+\int_0^{20}e^{-t/4}\,\ell_3(t)\Big(1-\frac t{20}\Big)^2dt=\frac{4-2824e^{-5}}{25}<0 .
+\]
+So Li's criterion, read on $W$, asks for the complete monotonicity of Section~\ref{ch:heat}, which positivity of $W$ does not give.
 
 The test function $\varphi_n$ is about $n^2/z$ for $\sqrt z\gg n$ and oscillates between $0$ and $4$ for $\sqrt z\lesssim n/\pi$, so $\lambda_n$ weighs the zeros below height of order $n$ at full size and the higher zeros by about $n^2/\gamma^2$ (Figure~\ref{fig:ch20:test}). Every computed $\lambda_n$ is positive, as it must be: every zero below height $3\times10^{12}$ lies on the line \cite{PT21} and contributes a nonnegative term, while a zero at height $\gamma\gg n$ contributes only about $n^2/\gamma^2$ in absolute value, so the zeros above that height cannot change the sign of $\lambda_n$ for $n\le100$.
 

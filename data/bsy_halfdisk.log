@@ -1,0 +1,59 @@
+bsy_halfdisk.py full Ns [128, 256, 512, 1024, 2048, 4096, 8192, 16384, 32768] reps 200 procs 16
+---- case zeta|0.75
+harmonic measure: arc 0.590334470601749 diameter 0.409665529398278 total-1 2.66e-14
+argument principle: winding of h/prod(s-rho_j) on dH = -0.000000 (expected 0), max |arg increment| 0.000, min|q| on dH 3.983e-01
+zeta at theta = 3/4: no zero on the diameter (min |zeta| on it 3.983e-01)
+target RS = 0.028321841340864 (Green terms []); reference GL = 0.028321841340862 with 128 nodes per piece (last doubling changed it by 6.94e-18); reference - RS = -2.172e-15
+precision: RS (nf .45, M 36) - RS = -4.34e-16; reference (second evaluator) - reference = 2.91e-16
+evaluator against mpmath (30 digits) at 50 boundary points: max relative difference 2.48e-14
+---- case zeta|0.5
+harmonic measure: arc 0.590334470601749 diameter 0.409665529398278 total-1 2.66e-14
+argument principle: winding of h/prod(s-rho_j) on dH = -0.000000 (expected 0), max |arg increment| 0.000, min|q| on dH 5.452e-01
+zeta zero on the diameter: 0.499999999999998 + 84.735492980517051 i, table value 84.735492980517051, difference 0.00e+00
+target RS = 0.048773861588175 (Green terms []); reference GL = 0.048773861588171 with 128 nodes per piece (last doubling changed it by 6.66e-16); reference - RS = -4.094e-15
+precision: RS (nf .45, M 36) - RS = -3.89e-16; reference (second evaluator) - reference = 5.55e-16
+evaluator against mpmath (30 digits) at 50 boundary points: max relative difference 7.43e-13
+---- case dh|0.5
+harmonic measure: arc 0.590334470601749 diameter 0.409665529398278 total-1 2.66e-14
+argument principle: winding of h/prod(s-rho_j) on dH = 1.000000 (expected 1), max |arg increment| 0.000, min|q| on dH 3.566e-01
+DH diameter scan: 0 candidate minima, min |f| on the diameter 3.566e-01, zeros on the diameter found: 0
+DH zero in H: 0.8085171824566374 + 85.6993484853775982 i, inside: True
+target RS = -0.365253559726794 (Green terms ['1.1293985677']); reference GL = -0.365253559726791 with 128 nodes per piece (last doubling changed it by 2.44e-15); reference - RS = 2.554e-15
+precision: RS (nf .45, M 36) - RS = 2.22e-15; reference (second evaluator) - reference = 5.55e-16
+evaluator against mpmath (30 digits) at 50 boundary points: max relative difference 4.85e-14
+identity self test (polynomial with one zero on the diameter and one in H): LHS -0.516889499829054 RHS -0.516889499829052 difference -2.00e-15; 400 nodes minus 200 nodes -1.18e-14
+replications: 54.7 s
+==== zeta|0.75: RMSE at N = 32768  plain 1.220e-03 (slope -0.49 +- 0.02)  trap 3.402e-09 (-2.07 +- 0.02)  trap+Phi 2.712e-09 (-2.49 +- 0.04);  ratios plain/trap 3.59e+05, plain/Phi 4.5e+05
+   Lemma bias (leading term) / measured mean error of the sorted trapezoid: ['1.300', '1.290', '1.059', '1.024', '1.013', '1.007', '1.038', '1.009', '0.994']
+   N    128  mean error plain -5.548e-04 trap +1.609e-04 trap+Phi -1.145e-05   RMSE plain 2.123e-02 trap 4.751e-04 trap+Phi 2.263e-03
+   N    256  mean error plain -5.875e-04 trap +4.148e-05 trap+Phi -1.172e-04   RMSE plain 1.322e-02 trap 1.044e-04 trap+Phi 7.340e-04
+   N    512  mean error plain -2.408e-04 trap +1.278e-05 trap+Phi +5.342e-06   RMSE plain 9.960e-03 trap 2.068e-05 trap+Phi 7.397e-05
+   N   1024  mean error plain -6.632e-04 trap +3.323e-06 trap+Phi -9.636e-07   RMSE plain 6.415e-03 trap 4.369e-06 trap+Phi 1.490e-05
+   N   2048  mean error plain -1.619e-04 trap +8.419e-07 trap+Phi +4.077e-07   RMSE plain 4.702e-03 trap 9.898e-07 trap+Phi 2.516e-06
+   N   4096  mean error plain +1.802e-05 trap +2.121e-07 trap+Phi -4.361e-08   RMSE plain 3.483e-03 trap 2.292e-07 trap+Phi 5.848e-07
+   N   8192  mean error plain +1.393e-04 trap +5.150e-08 trap+Phi -5.721e-09   RMSE plain 2.530e-03 trap 5.413e-08 trap+Phi 8.880e-08
+   N  16384  mean error plain -7.102e-05 trap +1.325e-08 trap+Phi -1.311e-09   RMSE plain 1.618e-03 trap 1.357e-08 trap+Phi 1.506e-08
+   N  32768  mean error plain -2.809e-05 trap +3.362e-09 trap+Phi -2.283e-10   RMSE plain 1.220e-03 trap 3.402e-09 trap+Phi 2.712e-09
+==== zeta|0.5: RMSE at N = 32768  plain 2.737e-03 (slope -0.52 +- 0.02)  trap 1.868e-09 (-2.28 +- 0.03)  trap+Phi 5.143e-09 (-2.49 +- 0.03);  ratios plain/trap 1.47e+06, plain/Phi 5.32e+05
+   Lemma bias (leading term) / measured mean error of the sorted trapezoid: ['1.019', '1.077', '0.890', '1.378', '1.255', '0.995', '0.926', '1.033', '0.952']
+   N    128  mean error plain +1.494e-03 trap -9.888e-05 trap+Phi -2.184e-04   RMSE plain 3.981e-02 trap 7.732e-04 trap+Phi 3.647e-03
+   N    256  mean error plain -3.366e-03 trap -2.394e-05 trap+Phi -4.624e-05   RMSE plain 2.918e-02 trap 1.417e-04 trap+Phi 6.885e-04
+   N    512  mean error plain +2.592e-03 trap -7.328e-06 trap+Phi -4.983e-06   RMSE plain 2.178e-02 trap 2.608e-05 trap+Phi 1.585e-04
+   N   1024  mean error plain +1.636e-04 trap -1.190e-06 trap+Phi -2.245e-06   RMSE plain 1.535e-02 trap 4.787e-06 trap+Phi 3.043e-05
+   N   2048  mean error plain -6.672e-04 trap -3.277e-07 trap+Phi +6.609e-08   RMSE plain 1.199e-02 trap 1.028e-06 trap+Phi 4.370e-06
+   N   4096  mean error plain -8.122e-05 trap -1.034e-07 trap+Phi -1.498e-07   RMSE plain 8.007e-03 trap 1.803e-07 trap+Phi 9.518e-07
+   N   8192  mean error plain -4.295e-04 trap -2.780e-08 trap+Phi -6.037e-09   RMSE plain 5.591e-03 trap 3.846e-08 trap+Phi 1.648e-07
+   N  16384  mean error plain +3.513e-05 trap -6.232e-09 trap+Phi -8.158e-11   RMSE plain 3.540e-03 trap 8.125e-09 trap+Phi 2.764e-08
+   N  32768  mean error plain +4.133e-05 trap -1.691e-09 trap+Phi -2.232e-10   RMSE plain 2.737e-03 trap 1.868e-09 trap+Phi 5.143e-09
+==== dh|0.5: RMSE at N = 32768  plain 2.059e-03 (slope -0.50 +- 0.02)  trap 7.798e-09 (-2.16 +- 0.02)  trap+Phi 1.403e-08 (-2.51 +- 0.05);  ratios plain/trap 2.64e+05, plain/Phi 1.47e+05
+   Lemma bias (leading term) / measured mean error of the sorted trapezoid: ['1.572', '1.160', '0.748', '0.909', '0.969', '1.011', '0.958', '1.038', '1.013']
+   N    128  mean error plain -1.465e-03 trap -3.000e-04 trap+Phi -8.740e-04   RMSE plain 3.559e-02 trap 1.774e-03 trap+Phi 8.195e-03
+   N    256  mean error plain +8.720e-04 trap -1.040e-04 trap+Phi +2.948e-05   RMSE plain 2.631e-02 trap 3.933e-04 trap+Phi 2.272e-03
+   N    512  mean error plain -1.593e-03 trap -4.082e-05 trap+Phi -2.932e-05   RMSE plain 1.606e-02 trap 7.966e-05 trap+Phi 3.590e-04
+   N   1024  mean error plain +5.511e-04 trap -8.444e-06 trap+Phi +4.657e-06   RMSE plain 1.230e-02 trap 1.323e-05 trap+Phi 7.109e-05
+   N   2048  mean error plain +2.632e-05 trap -1.986e-06 trap+Phi +2.762e-06   RMSE plain 8.396e-03 trap 3.163e-06 trap+Phi 1.840e-05
+   N   4096  mean error plain -2.438e-04 trap -4.764e-07 trap+Phi -2.973e-07   RMSE plain 6.296e-03 trap 6.275e-07 trap+Phi 2.398e-06
+   N   8192  mean error plain +2.196e-04 trap -1.257e-07 trap+Phi -1.023e-09   RMSE plain 4.701e-03 trap 1.480e-07 trap+Phi 4.091e-07
+   N  16384  mean error plain +2.623e-04 trap -2.903e-08 trap+Phi +1.053e-08   RMSE plain 3.241e-03 trap 3.231e-08 trap+Phi 7.622e-08
+   N  32768  mean error plain -2.546e-04 trap -7.437e-09 trap+Phi -3.474e-10   RMSE plain 2.059e-03 trap 7.798e-09 trap+Phi 1.403e-08
+wrote bsy_halfdisk.json in 58.2 s

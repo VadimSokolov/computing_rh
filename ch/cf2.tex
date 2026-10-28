@@ -1,0 +1,186 @@
+\section{Concentration of the particle approximation}\label{cf:sec:conc}
+
+We now prove a non asymptotic concentration inequality for the particle approximation, in the style of Del Moral \cite{DelMoral04}. It applies to the particle system defined below: multinomial resampling, with potentials $G_k$ and mutation kernels $M_k$ fixed in advance. A tempering bridge is also a Feynman Kac flow, so the plain filter of Section~\ref{cf:sec:pf} with a fixed schedule and fixed kernels is covered, and so is the GBC initialised filter when in addition $\log\pi_0-\log q$ has finite oscillation $B$, since its potentials are powers of $\pi_0L/q$ (in Corollary~\ref{cf:cor:cauchyconc} replace $\Omega_\varsigma$ by $\Omega_\varsigma+B$). The samplers run in Sections~\ref{cf:sec:pf} and~\ref{cf:sec:gbc} resample systematically, choose their tempering increments and move scales from the particles, and move by random walk Metropolis kernels; the theorem does not cover them (Lemma~\ref{cf:lem:nominor}), and the $N^{-1/2}$ behaviour in Table~\ref{cf:tab:reps} is computed. The statement is not the posterior concentration of Theorem~\ref{es:thm:concentration}, which describes how the posterior contracts as the noise level tends to zero; here the posterior is fixed and the question is the Monte Carlo error of the sampler. Throughout, the posterior is that of the Gaussian tolerance likelihood of Section~\ref{cf:sec:pf}, in which $\varepsilon$ is a tolerance and not a noise level, and every statement about it refers to that likelihood. Theorem~\ref{cf:thm:conc}, Remark~\ref{cf:rem:tail}, Lemma~\ref{cf:lem:nominor}, the stability bound and Corollary~\ref{cf:cor:cauchyconc} are proved, and the two remarks that close the section are heuristic; the symbols $\epsilon$ (a minorisation constant) and $\varepsilon$ (the tolerance) are different.
+
+\subsection{Setting}
+
+Let $\eta_0$ be a probability measure on a measurable space $E$, let $G_0,\dots,G_{n-1}$ be positive bounded potentials with $\sup G_k/\inf G_k<\infty$, and let $M_1,\dots,M_n$ be Markov kernels. Write $\Psi_G(\mu)(dx)=G(x)\mu(dx)/\mu(G)$ and
+\[
+\eta_{k+1}=\Phi_{k+1}(\eta_k),\qquad \Phi_{k+1}(\mu)=\Psi_{G_k}(\mu)M_{k+1}.
+\]
+In the filter, $G_k$ is the incremental likelihood (or its tempered power) and $M_{k+1}$ the Metropolis kernel that leaves $\eta_{k+1}$ invariant. The particle system draws $X_0^1,\dots,X_0^N$ independently from $\eta_0$ and, given generation $k$, draws $X_{k+1}^1,\dots,X_{k+1}^N$ independently from $\Phi_{k+1}(\eta_k^N)$, where $\eta_k^N=N^{-1}\sum_i\delta_{X_k^i}$. This is multinomial resampling followed by mutation.
+
+Put $\mathcal Q_{k+1}(x,dy)=G_k(x)M_{k+1}(x,dy)$, $\mathcal Q_{k,n}=\mathcal Q_{k+1}\cdots\mathcal Q_n$ (the identity when $k=n$),
+\[
+G_{k,n}=\mathcal Q_{k,n}(1),\qquad \mathcal P_{k,n}(f)=\frac{\mathcal Q_{k,n}(f)}{\mathcal Q_{k,n}(1)},\qquad
+\Phi_{k,n}(\mu)(f)=\frac{\mu\mathcal Q_{k,n}(f)}{\mu\mathcal Q_{k,n}(1)},
+\]
+so that $\eta_n=\Phi_{k,n}(\eta_k)$. Define the oscillation ratio and the Dobrushin coefficient
+\[
+\begin{gathered}
+g_{k,n}=\sup_{x,y}\frac{G_{k,n}(x)}{G_{k,n}(y)},\qquad
+\varkappa_{k,n}=\sup_{x,y}\bigl\|\mathcal P_{k,n}(x,\cdot)-\mathcal P_{k,n}(y,\cdot)\bigr\|_{\mathrm{TV}},\\
+S_n=\sum_{k=0}^n g_{k,n}\,\varkappa_{k,n}.
+\end{gathered}
+\]
+
+\begin{theorem}[concentration]\label{cf:thm:conc}
+For every measurable $f$ with $\operatorname{osc}(f)\le1$, every $N$ and every $x>0$,
+\[
+\begin{gathered}
+\mathbb{P}\bigl(|\eta_n^N(f)-\eta_n(f)|\ge x\bigr)\;\le\;2(n+1)\exp\Bigl(-\frac{Nx^2}{2S_n^2}\Bigr),\\
+\mathbb E\bigl[(\eta_n^N(f)-\eta_n(f))^2\bigr]^{1/2}\le\frac{S_n}{\sqrt N}.
+\end{gathered}
+\]
+\end{theorem}
+
+\begin{proof}
+Since $\Phi_{k,n}\circ\Phi_k=\Phi_{k-1,n}$, with the convention $\Phi_0(\eta_{-1}^N)=\eta_0$ the error telescopes:
+\[
+\eta_n^N(f)-\eta_n(f)=\sum_{k=0}^n\Bigl[\Phi_{k,n}(\eta_k^N)(f)-\Phi_{k,n}\bigl(\Phi_k(\eta_{k-1}^N)\bigr)(f)\Bigr].
+\]
+For probability measures $\mu,\nu$, using $\nu\mathcal Q_{k,n}\bigl(f-\Phi_{k,n}(\nu)f\bigr)=0$,
+\[
+\Phi_{k,n}(\mu)(f)-\Phi_{k,n}(\nu)(f)=\frac{(\mu-\nu)\bigl(G_{k,n}\,h\bigr)}{\mu(G_{k,n})},\qquad
+h=\mathcal P_{k,n}f-\Phi_{k,n}(\nu)(f).
+\]
+Because $\Phi_{k,n}(\nu)(f)$ is a weighted average of the values of $\mathcal P_{k,n}f$, we have $|h|\le\operatorname{osc}(\mathcal P_{k,n}f)\le\varkappa_{k,n}$. Write $G_{k,n}h/\mu(G_{k,n})=\tilde h\cdot\|G_{k,n}\|_\infty/\mu(G_{k,n})$ with $\tilde h=G_{k,n}h/\|G_{k,n}\|_\infty$, so that $|\tilde h|\le\varkappa_{k,n}$ and $\|G_{k,n}\|_\infty/\mu(G_{k,n})\le g_{k,n}$. Take $\mu=\eta_k^N$ and $\nu=\Phi_k(\eta_{k-1}^N)$. Then $\tilde h=\tilde h_k$ is measurable with respect to generation $k-1$, and conditionally on that generation $\eta_k^N(\tilde h_k)$ is a mean of $N$ independent variables with values in an interval of length $2\varkappa_{k,n}$ and mean $\nu(\tilde h_k)$. Hoeffding's inequality gives
+\[
+\mathbb{P}\bigl(|Z_k|\ge u\bigr)\le2\exp\bigl(-Nu^2/(2\varkappa_{k,n}^2)\bigr),\qquad
+Z_k=(\eta_k^N-\nu)(\tilde h_k),
+\]
+and the $k$th term is at most $g_{k,n}|Z_k|$ in absolute value. Allocate $x$ in proportion to $g_{k,n}\varkappa_{k,n}$: if $\sum_kg_{k,n}|Z_k|\ge x$ then $|Z_k|\ge x\varkappa_{k,n}/S_n$ for some $k$, and the union bound gives the tail estimate. For the second moment, Minkowski's inequality and $\mathbb E[Z_k^2]\le\varkappa_{k,n}^2/N$ give $\|\sum_kg_{k,n}|Z_k|\|_2\le S_n/\sqrt N$.
+\end{proof}
+
+\begin{remark}[a tail bound without the factor $n+1$]\label{cf:rem:tail}
+Under the hypotheses of Theorem~\ref{cf:thm:conc}, for every $f$ with $\operatorname{osc}(f)\le1$, every $N$ and every $x>0$,
+\[
+\mathbb P\bigl(\lvert\eta_n^N(f)-\eta_n(f)\rvert\ge x\bigr)\le2\exp\Bigl(-\frac{Nx^2}{2S_n^2}\Bigr).
+\]
+\end{remark}
+
+\begin{proof}
+Terms with $\varkappa_{k,n}=0$ vanish; for the others put $w_k=g_{k,n}\varkappa_{k,n}/S_n$ and $V_k=\lvert Z_k\rvert/\varkappa_{k,n}$, with $Z_k$ as in the proof of Theorem~\ref{cf:thm:conc}. Conditionally on generation $k-1$ (on nothing for $k=0$), $Z_k/\varkappa_{k,n}$ is a mean of $N$ independent centred variables with values in intervals of length at most $2$, so Hoeffding's lemma gives $\mathbb E\bigl[e^{\pm\lambda Z_k/\varkappa_{k,n}}\mid\text{generation }k-1\bigr]\le e^{\lambda^2/(2N)}$, hence $\mathbb E\,e^{\lambda V_k}\le2e^{\lambda^2/(2N)}$ for $\lambda\ge0$. The proof of Theorem~\ref{cf:thm:conc} gives $\lvert\eta_n^N(f)-\eta_n(f)\rvert/S_n\le\sum_kw_kV_k$ with $\sum_kw_k=1$, so by convexity of the exponential
+\[
+\mathbb E\exp\Bigl(\lambda\,\frac{\lvert\eta_n^N(f)-\eta_n(f)\rvert}{S_n}\Bigr)\le\sum_kw_k\,\mathbb E\,e^{\lambda V_k}\le2e^{\lambda^2/(2N)} .
+\]
+Markov's inequality with $\lambda=Nx/S_n$ gives the bound.
+\end{proof}
+
+\subsection{Stability gives bounds uniform in the number of steps}
+
+$S_n$ can grow with $n$. It does not when the mutation kernels mix. Suppose, as in Del Moral \cite{DelMoral04}, that
+\[
+M_{k}(x,\cdot)\ge\epsilon\,M_{k}(y,\cdot)\ \text{for all }x,y,\qquad \sup G_k\le e^{c}\inf G_k\ \text{for all }k .
+\]
+Then $g_{k,n}\le e^{c}/\epsilon$, because $G_{k,n}=G_k\,M_{k+1}(G_{k+1,n})$ and the minorisation bounds the ratio of the second factor by $1/\epsilon$. The one step kernels of $\mathcal P_{k,n}$, namely
+\[
+R_j(x,dy)=\frac{M_j(x,dy)\,G_{j,n}(y)}{M_j(G_{j,n})(x)},
+\]
+satisfy $R_j(x,\cdot)\ge\epsilon^2R_j(y,\cdot)$ (the ratio of the densities of $R_j(x,\cdot)$ and $R_j(y,\cdot)$ is $\bigl[M_j(x,dz)/M_j(y,dz)\bigr]\cdot\bigl[M_j(G_{j,n})(y)/M_j(G_{j,n})(x)\bigr]$, and each factor is at least $\epsilon$), so $\varkappa_{k,n}\le(1-\epsilon^2)^{n-k}$, since $\mathcal P_{k,n}=R_{k+1}\cdots R_n$. Hence $S_n\le1+e^c(1-\epsilon^2)\epsilon^{-3}\le e^{c}\epsilon^{-3}$ for every $n$.
+
+The hypothesis is strong, and the kernels of the filter do not satisfy it.
+
+\begin{lemma}[Metropolis kernels are not ratio minorised]\label{cf:lem:nominor}
+Let $M$ be a Markov kernel on $E$, and suppose there are points $x,y$ and a measurable set $B$ with $M(y,B)>0=M(x,B)$. Then no $\epsilon>0$ satisfies $M(x',\cdot)\ge\epsilon M(y',\cdot)$ for all $x',y'$. This is the case for a random walk Metropolis kernel whose proposals have a density, at any $y$ with positive rejection probability ($B=\{y\}$, $x\ne y$), for its powers, and for componentwise Metropolis sweeps ($B=\{z:z_1=y_1\}$, $x_1\ne y_1$, when rejection of the first coordinate has positive probability at $y$).
+\end{lemma}
+
+\begin{proof}
+$M(x,B)=0<\epsilon M(y,B)$. From $x$ the chain reaches the point $y$, or the hyperplane $z_1=y_1$, only by accepting a proposal that lands there, an event of probability zero, in one step and in $m$ steps; from $y$ a rejection keeps it in $B$ with positive probability.
+\end{proof}
+
+If $M_k$ has a density $m_k(x,z)$ with respect to a common reference measure with $\alpha_kh_k(z)\le m_k(x,z)\le\alpha_k'h_k(z)$ for all $x,z$, then $M_k(x,\cdot)\ge(\alpha_k/\alpha_k')M_k(y,\cdot)$; exact Gibbs sweeps are an example when the target density is bounded above and below on $\Theta_\varsigma$ (defined below). With $S_n\le e^c\epsilon^{-3}$, Remark~\ref{cf:rem:tail} gives $\mathbb P(\lvert\eta_n^N(f)-\eta_n(f)\rvert\ge x)\le2\exp(-\frac12Nx^2\epsilon^6e^{-2c})$ for every $n$. The number of steps does not enter the bound.
+
+\subsection{The Cauchy flow}
+
+\begin{corollary}[concentration along the Cauchy flow]\label{cf:cor:cauchyconc}
+Fix $\varsigma>0$ and restrict the parameter space to $\Theta_\varsigma=\{z:\ |\theta_l-\sigma_j|\ge\varsigma\ \text{for all levels }\theta_l\text{ and zeros }j\}$, with ordinates in the window. Then the total log likelihood has finite oscillation
+\[
+\operatorname{osc}(\ell)\le\Omega_\varsigma=\frac{1}{2\varepsilon^2}\sum_{l,i}\Bigl(|y_l(v_i)|+\frac{K}{\pi\varsigma}\Bigr)^2,
+\]
+and a tempering schedule with $n=\max(1,\lceil\Omega_\varsigma/c\rceil)$ equal increments has potentials with $\sup G/\inf G\le e^{c}$. If the mutation kernels satisfy the ratio minorisation with constant $\epsilon$ (by Lemma~\ref{cf:lem:nominor} this needs kernels with densities, as in the condition above), then for every posterior functional with oscillation at most one, in particular for the posterior probability that $\max_j|\sigma_j-\frac12|$ exceeds any threshold,
+\[
+\mathbb P\bigl(\lvert\eta_n^N(f)-\eta_n(f)\rvert\ge x\bigr)\le2\exp\Bigl(-\tfrac12Nx^2\epsilon^6e^{-2c}\Bigr)\qquad\text{for every }N\text{ and }x>0 .
+\]
+Without the minorisation, Theorem~\ref{cf:thm:conc} holds with its finite $S_n$, which is not uniform in $n$.
+\end{corollary}
+
+\begin{proof}
+On $\Theta_\varsigma$ each term $|Q_{\theta_l-\sigma_j}(v)|$ is at most $1/(\pi\varsigma)$. The marginal likelihood after integrating out the background is $\exp(-\frac12r^\top\Sigma^{-1}r)$ with $\Sigma\succeq\varepsilon^2I$, so its logarithm lies between $-\|r\|^2/(2\varepsilon^2)$ and $0$, and $\|r\|^2$ is at most the sum in the display, since each entry of $r$ is at most $|y_l(v_i)|+K/(\pi\varsigma)$ in absolute value. A potential $L^{\Delta\lambda}$ then has $\sup/\inf\le e^{\Delta\lambda\,\Omega_\varsigma}\le e^c$ for $\Delta\lambda=1/n\le c/\Omega_\varsigma$. The rest is Theorem~\ref{cf:thm:conc}, Remark~\ref{cf:rem:tail} and the stability bounds.
+\end{proof}
+
+Two remarks keep this honest. The restriction to $\Theta_\varsigma$ is needed: when a candidate zero approaches a grid point $(\theta_l,v_i)$, that is, when $\sigma_j\to\theta_l$ with $\gamma_j\to v_i$, the term $Q_{\theta_l-\sigma_j}$ blows up, the likelihood tends to zero, and $\inf G=0$. This is the same singularity that makes the deconvolution informative, seen from the sampler's side. Under $\mathrm{QRH}(\theta)$ the truncation is automatic for levels above $\theta+\varsigma$, provided the prior is restricted to $1-\theta\le\sigma_j\le\theta$; the sampler's prior is uniform on $(0,1)$. Second, the constants are explicit but pessimistic: $\Omega_\varsigma$ is of order $10^6$ for the grids of the source note (not recomputed here), and the minorisation constant, when it exists, enters as $\epsilon^6$. The theorem guarantees the $N^{-1/2}$ rate and exponential tails with a computable constant for the system it covers; it does not predict the constant we observe.
+
+\subsection{The rate in practice}
+
+To see the $N^{-1/2}$ rate, the source note reran the GBC initialised filter for $\zeta$ twelve times at each of $N\in\{250,500,1000,2000\}$ and measured the spread across runs of three posterior functionals for the zero at $84.7355$: the posterior mean of $\sigma$, the posterior mean of $\gamma$, and the posterior probability that $|\sigma-\frac12|>2\times10^{-4}$, which has oscillation one. These runs were not repeated for this book (they need the code, data and seeds of the source); Table~\ref{cf:tab:reps} is computed by the source, and the sampler is the systematic and adaptive one that Theorem~\ref{cf:thm:conc} does not cover.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lcccc}
+\toprule
+$N$ & $250$ & $500$ & $1000$ & $2000$\\
+\midrule
+sd of posterior mean of $\sigma$ ($\times10^{-5}$) & $6.5$ & $5.5$ & $3.2$ & $2.8$\\
+sd of posterior mean of $\gamma$ ($\times10^{-5}$) & $6.9$ & $6.7$ & $2.5$ & $2.3$\\
+sd of posterior probability & $0.104$ & $0.062$ & $0.048$ & $0.038$\\
+\bottomrule
+\end{tabular}
+\caption{Monte Carlo spread over twelve runs, computed in the source note. Least squares log log slopes of the printed values are $-0.44$, $-0.62$ and $-0.47$, against $-1/2$ from Theorem~\ref{cf:thm:conc}; with twelve runs per cell each standard deviation has a relative error of about $20\%$, so the slopes carry about $\pm0.15$.}
+\label{cf:tab:reps}
+\end{table}
+
+For the probability functional, Theorem~\ref{cf:thm:conc} gives root mean square error at most $S_n/\sqrt N$. The observed $0.038$ at $N=2000$ corresponds to an effective $S_n\approx1.7$, far below what the worst case constants of Corollary~\ref{cf:cor:cauchyconc} allow. This is a lower estimate, since the theorem bounds the root mean square error, bias included, while the spread across runs measures less. That the adaptive rule, which keeps the effective sample size at $N/2$, is what controls the constant in practice is a heuristic, and it is the adaptive version that remains to be analysed.
+
+\subsection{Two open problems}
+
+\begin{remark}[the continuous level limit; heuristic, open]\label{cf:rem:levellimit}
+Let $\eta_\lambda\propto q^{1-\lambda}(\pi_0L)^\lambda$ be the tempered flow, with $V=\log(\pi_0L)-\log q$. Differentiating the density gives, exactly,
+\[
+\frac{d}{d\lambda}\eta_\lambda(f)=\mathrm{Cov}_{\eta_\lambda}(V,f),
+\]
+and Metropolis moves that leave $\eta_\lambda$ invariant do not change $\eta_\lambda(f)$. The particle version is a Moran system: each particle moves by the generator $\mathcal L_\lambda$ of the moves and, at rate $(V(X^j)-V(X^i))_+/N$, particle $i$ is replaced by a copy of particle $j$; its mean drift for the empirical measure is $\mathrm{Cov}_{\eta_\lambda^N}(V,f)$. As the level spacing tends to zero one expects convergence at rate $N^{-1/2}$ and a Gaussian limit for the fluctuations, by the martingale problem method (Ethier and Kurtz \cite{EK86}, as used by Del Moral and Miclo \cite{DM00}), with an asymptotic variance that in discrete time is $\sum_k\eta_k\bigl[(G_{k,n}/\eta_kG_{k,n})^2(\mathcal P_{k,n}f-\eta_nf)^2\bigr]$ (the formula of the source, quoted from the literature and unchecked here, see \cite{DelMoral04}). This is heuristic: no scaling of the likelihood increments, the tolerance $\varepsilon$, the mutation times and the resampling rates has been fixed, and giving every new level the same tolerance $\varepsilon$ multiplies in more and more information, so that the log likelihood of a mesh $h$ is of order $1/h$ and need not converge to a finite potential. On a finite state space with bounded potentials and mutation generators the limit is the corresponding ordinary differential equation and the Moran approximation has error $O(N^{-1/2})$; for the Cauchy flow $V$ is unbounded below near the levels, as in Corollary~\ref{cf:cor:cauchyconc}, and on $\Theta_\varsigma$ it is bounded. A continuous time limit theorem for the singular potentials, with a Lyapunov function that controls how often particles approach the singular set $\{\sigma_j=\theta_l\}$, and the corresponding result for the adaptive schedule (Beskos, Jasra, Kantas and Thiery \cite{BJKT16}), are open problems.
+\end{remark}
+
+\begin{remark}[concentration under adaptive tempering; heuristic, open]\label{cf:rem:adaptive}
+Theorem~\ref{cf:thm:conc} assumes a fixed schedule. The filter of Section~\ref{cf:sec:gbc} chooses each tempering increment so that the effective sample size of the incremental weights is $N/2$, which says that the empirical relative second moment $\eta_k^N(G_k^2)/\eta_k^N(G_k)^2$ equals $2$. The proof of Theorem~\ref{cf:thm:conc} uses the oscillation ratio $g_{k,n}$ only to bound $\|G_{k,n}\|_\infty/\eta_k^N(G_{k,n})$. A natural idea is to replace that sup norm bound by a second moment bound, so that by Cauchy Schwarz each term of the telescoping sum is controlled by $\eta_k(G_{k,n}^2)/\eta_k(G_{k,n})^2$, the quantity that the adaptive rule keeps near $2$ for one step. The non asymptotic variance theorem of C\'erou, Del Moral and Guyader \cite{CDG11} is reported to give the resulting bound for a fixed schedule with such relative moments, and Beskos, Jasra, Kantas and Thiery \cite{BJKT16} show that the adaptive schedule converges to its deterministic limit (both statements are the source's and the papers were not read for this book). Combining the two, with the singular potentials of the Cauchy flow kept away from the levels as in Corollary~\ref{cf:cor:cauchyconc}, would give a version of Theorem~\ref{cf:thm:conc} whose constant is set by the effective sample size threshold rather than by $\sup G/\inf G$. This sketch is heuristic: control of the one step relative second moment says nothing about $\eta_k(G_{k,n}^2)/\eta_k(G_{k,n})^2$ for $k<n-1$, because $G_{k,n}$ involves all later potentials, so a multistep moment bound does not follow. That version, the one that would match the constants observed, is open.
+\end{remark}
+
+\section{From $\mathfrak U_1$ to $\mathfrak U_{3/4}$}\label{cf:sec:u34}
+
+The level $\theta=\frac34$ sits halfway between the two ends of the deconvolution, and it is the level of $\mathrm{QRH}(3/4)$. There are two ways to obtain $\mathfrak U_{3/4}$.
+
+\paragraph{Directly.} $\mathfrak U_{3/4}\bigl((0,V]\bigr)=\int_0^Vu_{3/4}(v)\,dv$ with $u_{3/4}(v)=\pi^{-1}\Re\,\xi'/\xi(\tfrac34+iv)$, evaluated to high precision. This is a forward computation and needs no filter. On $[78,94]$, on a grid of spacing $0.02$, we find the following (computed, \texttt{code/cf\_xi.py}, \texttt{data/cf\_xi.json}).
+\begin{itemize}
+\item For $\zeta$, $u_{3/4}$ is positive on the grid, with minimum $0.0734$ at $v=90.68$ between the zeros $88.81$ and $92.49$, and $\mathfrak U_{3/4}\bigl((78,94]\bigr)=6.162$, close to the six zeros in the window spread by Cauchy kernels of scale $1/4$. Positivity for every $\theta>\frac12$ at these heights is Corollary~\ref{cor:dbeta:window}, not a consequence of the grid values.
+\item For Davenport and Heilbronn, $u_{3/4}$ has a negative spike of depth $-4.80$ at $v=85.70$, and the negative part of $\mathfrak U_{3/4}$ on the window has mass $0.578$. Its total increment is $8.763$. The spike comes from the zero $0.8085+85.699i$, whose real part exceeds $\frac34$: it contributes the negative Cauchy term $Q_{3/4-0.8085}$ of scale $0.0585$, partly cancelled by the positive terms (Theorem~\ref{cf:thm:negmass}).
+\end{itemize}
+
+\paragraph{By the backward flow.} The test of the method is to predict $u_{3/4}$ from a fit to the two levels $\theta\in\{1,0.9\}$: fit the filter to these levels and push each posterior particle forward to $\theta=\frac34$ through the Hadamard sum \eqref{es:eq:lorentz},
+\[
+u_{3/4}(v\mid z)=\sum_jQ_{3/4-\sigma_j}(v-\gamma_j)+b_{3/4}(v\mid z),
+\]
+with the background coefficients refitted given $z$ (to their conditional mean, so that the band below is the band of the conditional mean prediction and omits the uncertainty of those coefficients). This is the Cauchy deconvolution in action: the data are on lines to the right, and the prediction is to the left. Since $Q_{3/4-\sigma}$ changes sign when $\sigma$ crosses $\frac34$, the prediction is only as good as the posterior for each $\sigma_j$ relative to $\frac34$, which is the detectability problem of Proposition~\ref{cf:prop:detect} in another form.
+
+The results of the source note, with $N=1000$ particles and the GBC initialised filter of Section~\ref{cf:sec:gbc} (its initial draws come from the GBC screen, which uses the levels $1$, $0.85$, $0.7$ and $0.6$), were not repeated for this book (they need the code, data and seeds of the source; the figure of the source is not reproduced). They are computed, as follows.
+\begin{itemize}
+\item For $\zeta$, the filter needed $7$ tempering steps and $3.6\times10^4$ likelihood evaluations (one second). The predicted density of $\mathfrak U_{3/4}$ on $[80,92]$ has median absolute error $0.0012$ and maximum error $0.008$ against the direct computation, and the $95\%$ band covers the truth at every grid point.
+\item For Davenport and Heilbronn, again $7$ steps and two seconds. From the fit to the levels $1$ and $0.9$ the filter places the pair at $\gamma=85.699$ with real parts $\sigma=0.8082$ (interval $[0.8080,0.8084]$, which excludes the true value $0.80852$, so the posterior is overconfident, as in Section~\ref{cf:sec:gbc}) and $\sigma=0.1987$, against the true $0.8085$ and $0.1915$. It then predicts the negative spike of $\mathfrak U_{3/4}$: median absolute error $0.0019$ and maximum error $0.042$ against a spike of depth $4.8$, with the band covering $80\%$ of grid points. The misses are at the bottom of the spike, where a bias of $3\times10^{-4}$ in $\sigma$ is amplified by a factor of order $1/(\pi(\sigma-\frac34)^2)\approx90$.
+\end{itemize}
+So, within the window model of Section~\ref{cf:sec:pf} (the zeros in the window and a cubic background), the filter predicts $u_{3/4}$ on the window from the levels $1$ and $0.9$, to about two digits at the bottom of the spike and to three for the median error, including the failure of positivity caused by a zero off the line between the data and the target. The run was initialised from GBC draws computed from the levels $1$, $0.85$, $0.7$ and $0.6$, so it is not a computation from $\theta\ge0.9$ alone; a clean rerun with a screen trained on the levels $\{1,0.9\}$ only has not been done (a question for the authors). Exact data on a window determine $u_{3/4}$ only through analytic continuation (Proposition~\ref{cf:prop:determine}), which is unstable. Positivity of $\mathfrak U_\tau$ at all heights for every $\tau>\frac34$ is $\mathrm{QRH}(3/4)$ (Theorem~\ref{cx:thm:positivity}), and no finite computation gives that.
+
+\begin{proposition}[what one level determines]\label{cf:prop:determine}
+\begin{enumerate}
+\item[(a)] Let $F_1,F_2$ be real entire functions of order at most one with all zeros in $0<\Re s<1$, and let $u^{(j)}_\theta(v)=\pi^{-1}\Re(F_j'/F_j)(\theta+iv)$. If $u^{(1)}_1=u^{(2)}_1$ on an interval, then $F_1'/F_1=F_2'/F_2$; in particular $u^{(1)}_\theta=u^{(2)}_\theta$ for every $\theta$.
+\item[(b)] The order hypothesis cannot be dropped: $F=\xi e^{G}$ with $G(s)=-(10\pi)^{-1}\cos(10\pi(s-1))$ is real entire with the zeros of $\xi$, its densities at the levels $1$ and $0.9$ equal $u_1$ and $u_{0.9}$ on the whole line, and its density at $\frac34$ is $u_{3/4}(v)-\pi^{-1}\cosh(10\pi v)$.
+\item[(c)] If no zero has $\sigma_\rho\ge\frac34$ (in particular under RH), then $u_1=P_{1/4}*u_{3/4}$: recovering $u_{3/4}$ from $u_1$ inverts a Poisson smoothing, whose Fourier multiplier is $e^{-\lvert\omega\rvert/4}$, so an error at frequency $\omega$ grows by the factor $e^{\lvert\omega\rvert/4}$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(a) Neither $F_j$ vanishes on $\Re s=1$, so $v\mapsto u^{(j)}_1(v)$ is real analytic and the two densities agree on $\mathbb R$. By Hadamard's factorisation, $\pi u^{(j)}_\theta(v)=c_j+\sum_\rho(\theta-\sigma_\rho)/((\theta-\sigma_\rho)^2+(v-\gamma_\rho)^2)$, with a real constant $c_j$ and an absolutely convergent sum over the zeros $\rho=\sigma_\rho+i\gamma_\rho$ of $F_j$, because $\sum_\rho\lvert\rho\rvert^{-2}<\infty$. For $\theta>1$ every term of the sum is positive and $P_{\theta-1}*P_{1-\sigma_\rho}(\cdot-\gamma_\rho)=P_{\theta-\sigma_\rho}(\cdot-\gamma_\rho)$, so by Tonelli $u^{(j)}_\theta=P_{\theta-1}*u^{(j)}_1$. Hence $\Re(F_1'/F_1-F_2'/F_2)=0$ on $\Re s>1$, so $F_1'/F_1-F_2'/F_2$ is an imaginary constant there, which is $0$ because both functions are real on the real axis; by the identity theorem they agree on $\mathbb C$.
+
+(b) $G'(s)=g(s)=\sin(10\pi(s-1))$ and $F'/F=\xi'/\xi+g$. On $\Re s=1$, $g(1+iv)=i\sinh(10\pi v)$; on $\Re s=0.9$, $g(0.9+iv)=\sin(-\pi+10\pi iv)=-i\sinh(10\pi v)$; both are purely imaginary. On $\Re s=\frac34$, $g(\frac34+iv)=\sin(-\frac{5\pi}2+10\pi iv)=-\cosh(10\pi v)$.
+
+(c) By the Hadamard sum \eqref{es:eq:lorentz}, every zero then contributes $P_{3/4-\sigma_\rho}(\cdot-\gamma_\rho)$ to $u_{3/4}$, with $\frac34-\sigma_\rho>0$, and $P_{1/4}*P_{3/4-\sigma_\rho}=P_{1-\sigma_\rho}$; sum by Tonelli. Finally $\int e^{i\omega x}P_a(x)\,dx=e^{-a\lvert\omega\rvert}$.
+\end{proof}

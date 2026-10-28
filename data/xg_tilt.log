@@ -1,0 +1,44 @@
+[hopper_run] /scratch/vsokolov/rh_book_repro/agents/xg_tilt: sbatch --wait, 8 cores, 16G, 30 min
+[hopper_run] job 2688538 on hop051.orc.gmu.edu
+[   0.1s] zeros read from zeros_8000.txt: 8000 ordinates, gamma_1 = 14.13472514173469379, gamma_8000 = 8148.1884058
+[   0.8s] rules built: A has 288 nodes, B has 300 nodes
+[   1.2s] t = 0: a_1..a_4 = 199.790454832, 441.926150574, 625.542996894, 925.673087274
+[   1.2s] t = 0: E T = 0.023104993115418970789, Var T = 3.71725992852697e-5   (M_1/M_0 = 0.0462099862308379, M_2/M_0 = 0.00596001729093946)
+[   1.2s] t = 0: rule B differs from rule A by 9.06e-33 in a_j, 0.00e+00 in E T (relative), 0.00e+00 in Var T (relative)
+[   1.5s] t = 0.2: a_1..a_4 = 198.156471222, 438.763839921, 622.612556192, 919.904259853
+[   1.5s] t = 0.2: E T = 0.023200971132985737532, Var T = 3.7720277417584e-5   (M_1/M_0 = 0.0464019422659715, M_2/M_0 = 0.00600677740915264)
+[   1.5s] t = 0.2: rule B differs from rule A by 1.50e-32 in a_j, 1.55e-41 in E T (relative), 8.92e-40 in Var T (relative)
+[   1.5s] check at t = 0: z_j against 2 gamma_j from the file (digits of agreement): 39.4, 38.0, 36.4, 35.1
+[   1.5s] check at t = 0: E T against p_1 of Section sec:ch18:moments: 20.8 digits; Var T against p_2: 18.0 digits
+[   1.6s] check at t = 0: sum_{k<=8000} gamma_k^-2 + tail = 0.0231050041816644 against E T = 0.023104993115419 (absolute difference 1.11e-08, the size of 1/T^2 = 1.5e-08, T = gamma_8000, which is the error of the tail); sum_{k<=8000} gamma_k^-4 = 3.71725985498473e-5 (the tail is about 4e-14) against Var T = 3.71725992852697e-5
+[   1.7s] predicted rates da_j/dt at t = 0 (sum over 8000 zeros plus tail): -8.1929233, -15.871555, -14.652203, -29.068593
+[   1.7s]    the tail term alone: -0.0637474, -0.141006, -0.199593, -0.295356
+[   2.6s] central difference (Richardson, h = 0.01 and 0.005) of a_j at t = 0: -8.1929189, -15.871545, -14.65219, -29.068573
+[   2.6s]    difference from the predicted rate: 4.4e-06, 9.5e-06, 1.3e-05, 1.9e-05
+[   2.6s] difference quotient (a_j(0.2) - a_j(0))/0.2: -8.1699181, -15.811553, -14.652204, -28.844137
+[   2.6s] t = 0: dE T/dt from the integrals (M_2/M_0 - (M_1/M_0)^2)/8 = 0.000478081807936 ; (E T)^2 - 1.5 Var T = 0.000478081807936 ; relative difference 0.0e+00
+[   2.6s] t = 0.2: dE T/dt from the integrals (M_2/M_0 - (M_1/M_0)^2)/8 = 0.000481704645387 ; (E T)^2 - 1.5 Var T = 0.000481704645387 ; relative difference 1.2e-41
+[   2.6s] central difference of E T at t = 0 (Richardson): 0.000478081807936 against 0.000478081807936 (relative difference 1.9e-16)
+[   2.6s] difference quotient of E T over [0, 0.2]: 0.0004798900878 ; mean of the two end values: 0.0004798932267
+[   2.6s] s = 1: R_0.2(s)/R_0(s) - 1 = -9.570075342e-5 (rule B -9.570075342e-5); 8 H_0(2 i sqrt s)/xi(1/2 + sqrt s) = 1.0
+[   2.6s] s = 10: R_0.2(s)/R_0(s) - 1 = -0.0009330684715 (rule B -0.0009330684715); 8 H_0(2 i sqrt s)/xi(1/2 + sqrt s) = 1.0
+[   2.7s] s = 100: R_0.2(s)/R_0(s) - 1 = -0.00762206616 (rule B -0.00762206616); 8 H_0(2 i sqrt s)/xi(1/2 + sqrt s) = 1.0
+[   2.7s] E T_0.2 - E T_0 = 9.597801757e-5 (relative to E T_0: 0.00415399)
+[   4.0s] t = 0.3, sigma = 2 (s = 4): 8 H_t(-4 i) = 0.5473046809653967265813746 (rule B 0.5473046809653967265813746)
+[   4.0s]    Gauss Hermite  80 nodes: E xi(1/2 + 2 + sqrt(0.15) Z) = 0.5473046809653967265813746, agreement 40.0 digits
+[   4.0s]    Gauss Hermite 120 nodes: E xi(1/2 + 2 + sqrt(0.15) Z) = 0.5473046809653967265813746, agreement 40.4 digits
+[   4.0s] t = 0.3, sigma = 0: 8 H_t(0) = 0.4988520493744317468727177
+[   4.0s]    Gauss Hermite  80 nodes: E xi(1/2 + sqrt(0.15) Z) = 0.4988520493744317468727177, agreement 40.9 digits
+[   4.0s]    Gauss Hermite 120 nodes: E xi(1/2 + sqrt(0.15) Z) = 0.4988520493744317468727177, agreement 40.5 digits
+[   4.0s] 1/R_0.3(4) = H(2 i 2)/H(0) = 1.0971282600757586056 ; ratio of the two averages = 1.0971282600757586056 ; agreement 40.0 digits
+[   4.9s] t = 300: mode u_t = 0.960221355467, e^(4u) 2pi/(t u) = 1.015693323, Laplace s.d. 0.0239672, s.d. 0.02409408144 (rule 40: 0.02409408144), mean - u_t = -0.00155491
+[   4.9s]    window [0.38500827, 1.2358443]; z_1, z_2, z_3 of H_t: 1.638520887, 4.915529161, 8.192436973 ; u_t z_j: 1.573342747, 4.719996074, 7.866552935 ; against pi (j - 1/2): 0.001621, 0.001614, 0.001601
+[   4.9s]    rule 40 gives u_t z_1 = 1.573342747 ; R_t(1/u_t^2) cosh(2) = 1.001866924 ; min of g'/t on the grid below the mode = 0.00420169
+[   5.5s] t = 1000: mode u_t = 1.34181277749, e^(4u) 2pi/(t u) = 1.003357001, Laplace s.d. 0.0106779, s.d. 0.01068662767 (rule 40: 0.01068662767), mean - u_t = -0.000280288
+[   5.5s]    window [1.1602884, 1.4806255]; z_1, z_2, z_3 of H_t: 1.170896957, 3.512690564, 5.854483251 ; u_t z_j: 1.571124498, 4.713373083, 7.855620432 ; against pi (j - 1/2): 0.0002089, 0.0002088, 0.0002087
+[   5.5s]    rule 40 gives u_t z_1 = 1.571124498 ; R_t(1/u_t^2) cosh(2) = 1.000275952 ; min of g'/t on the grid below the mode = 0.00645777
+[   6.1s] t = 3000: mode u_t = 1.67065028318, e^(4u) 2pi/(t u) = 1.000898093, Laplace s.d. 0.00541279, s.d. 0.005413802618 (rule 40: 0.005413802618), mean - u_t = -6.89106e-5
+[   6.1s]    window [1.586752, 1.7464294]; z_1, z_2, z_3 of H_t: 0.9402692692, 2.820807799, 4.701346306 ; u_t z_j: 1.570861121, 4.712583349, 7.854305537 ; against pi (j - 1/2): 4.125e-5, 4.125e-5, 4.124e-5
+[   6.1s]    rule 40 gives u_t z_1 = 1.570861121 ; R_t(1/u_t^2) cosh(2) = 1.000058528 ; min of g'/t on the grid below the mode = 0.00824896
+[   6.1s] pi/2 = 1.57079632679
+[   6.1s] wrote xg_tilt.json in 6.1 s

@@ -1,0 +1,185 @@
+\section{Is there a path to RH?}\label{ev:sec:path}
+
+Corollary~\ref{ev:cor:rh} turns RH with simple zeros into the existence of a string. There are three ways one might try to produce it. In this section and the next the variable of the zeros is written $x=z/2$ when it is real and $w=z/2$ when it is complex, so that the zeros of $H^F_N(2x)$ are the ordinates tracked below; the time of the flow is $t$.
+
+\subsection{Route one: solve the inverse problem for \texorpdfstring{$\Xi$}{Xi} directly}
+Find the string whose hitting time has Laplace transform $\xi(\tfrac12)/\xi(\tfrac12+\sqrt s)$ and show its mass is positive. Krein's inverse problem needs the spectral measure, that is the eigenvalues and their weights, and the zeros alone do not determine the string (Proposition~\ref{ht:prop:kent} gives the string only up to the weights), so this route is circular unless one has independent access to the mass. A string defines a de Branges space, and de Branges proposed a positivity condition implying RH. Conrey and Li \cite{CL00} showed that this particular condition fails for $\zeta$. % UNCHECKED: CL00, the statement about de Branges's condition is taken from the source and the paper was not read.
+That does not close the route, but it shows that the obvious positivity statements about the string are false.
+
+\subsection{Route two: a convergent family of explicit strings}
+Real zeros are preserved under locally uniform limits (Hurwitz). Hence RH follows from any sequence $\widehat H_m\to H$ locally uniformly in which each $\widehat H_m$ has only real zeros, and, for even real entire functions of order less than two with $\widehat H_m(0)>0$, each then has a string if its zeros are simple (Proposition~\ref{ht:prop:red} and Corollary~\ref{cor:weak:closure} give the same reduction at the level of hitting times). The candidate families are listed in Section~\ref{ht:sec:families}; they stop short in different ways.
+\begin{itemize}
+\item P\'olya's kernels have explicit strings (Section~\ref{ev:sec:liouville}, Proposition~\ref{prop:biane:liouville}) but do not converge to $\Phi$.
+\item Hejhal's $m$ term kernels converge to $\Phi$, but only almost all their zeros are real \cite{Hejhal90}. % UNCHECKED: Hejhal90, the book marks its own statement of this result as unchecked (Section~\ref{mi:sec:miyatake}).
+\item The de Bruijn and Newman family $H_t(z)=\int_0^\infty e^{tu^2}\Phi(u)\cos(zu)\,du$ has only real zeros for $t\ge\Lambda$, and $\Lambda\ge0$ (Rodgers and Tao \cite{RodgersTao}), with $\Lambda\le0.22$ (Polymath \cite{Polymath}) and $\Lambda\le0.2$ (Platt and Trudgian \cite{PT21}). Thus the strings exist for $t>\Lambda$, where the zeros are also simple (Section~\ref{ht:sec:families}), and RH is the statement $\Lambda=0$: that the strings survive the limit $t\downarrow0$.
+\end{itemize}
+
+\subsection{Route three: the folded family at growing height}
+The extreme value approximations give a concrete reduction. Here $H^F_N$ is the transform of the folded kernel of the family with $N$ terms, the cosine transform of $\Phi^F_N=\sum_{n\le N}\phi_n$ on $u>0$ (Table~\ref{ev:tab:approx}), so that $\Phi-\Phi^F_N$ is the omitted set $\{n>N\}$ of Chapter~\ref{chap:miyatake} and the case $N=0$ is the empty sum, which carries no zeros. Proposition~\ref{mi:prop:incgamma}, with the integers $n\le N$ in place of $\mathcal F(P)$ and its constant $\tfrac12$ replaced by $\tfrac12-c_E$, where $c_E=\sum_{m>N}(4\pi m^2-1)e^{-\pi m^2}$ (Section~\ref{mi:sec:approx}), gives $8H^F_N(z)$ at $s=\tfrac12+\tfrac{iz}2$.
+
+\begin{proposition}\label{ev:prop:reduction}
+Suppose there is $c>0$ such that for every $N\ge1$ all zeros of $H^F_N$ in the disc $|z|<2c(N+1)^2$ are real. Then RH holds.
+\end{proposition}
+
+\begin{proof}
+$H^F_N\to H$ locally uniformly, since $\Phi-\Phi^F_N$ on $u>0$ is bounded by $\sum_{n>N}|\phi_n|$, which decays like $e^{-\pi(N+1)^2}$ uniformly with all exponential moments. Let $z_0$ be a zero of $H$ with $|z_0|<2c(N_0+1)^2$. For $N\ge N_0$ Hurwitz's theorem gives zeros $z_N$ of $H^F_N$ with $z_N\to z_0$, and these lie in the disc, so they are real. Hence $z_0$ is real.
+\end{proof}
+
+The hypothesis was checked for $N=1,2,3,4$ with $c=3.6$ (Section~\ref{ev:sec:work}, certified in ball arithmetic given the count of zeros of $\Xi$ below the height of each disc), and for $N=5$ in floating point (Section~\ref{ev:sec:round2}, computed). Each $H^F_N$ is a finite sum of incomplete gamma functions, which makes this the most explicit of the three routes, and it is close in spirit to the conjectures of Haglund on incomplete gamma approximants \cite{Haglund09}. % UNCHECKED: Haglund09, the comparison is the source's and the paper was not read for this book.
+In string language it asks for a family of strings that agree with the true string up to frequency $4(N+1)^2$. But the proposition is a reformulation, not a reduction in difficulty: for each $N$ the hypothesis implies RH up to height about $c(N+1)^2$, and nothing in the structure of $H^F_N$ is yet known to force it.
+
+\subsection{Verdict}
+There is no path to RH here in the sense of a proof. There is a precise target, the positivity of the string mass, three ways to approach it, and in each case a known place where the argument stops: the inverse problem needs data that are not available, the $\Lambda=0$ limit, or a height rule that is equivalent to RH at growing heights. What the extreme value and hitting time viewpoint adds is computational. The bottom of the spectrum is a tail rate that can be estimated by peaks over threshold to eighteen digits without computing zeros, Hankel positivity gives a finite order test from the kernel moments, which certifies no height (Problem~4), and the folded family turns the height rule into an explicit numerical hypothesis.
+
+\section{Work on the open problems}\label{ev:sec:work}
+
+The five problems of this section and the next are those that the source leaves open; each subsection says what was proved, what was computed and what remains. The numbers are those of the scripts \texttt{code/ev\_g1\_fold.py}, \texttt{code/ev\_g1\_string.py}, \texttt{code/ev\_dbn.py}, \texttt{code/ev\_rouche5.py} and \texttt{code/ev\_prony2.py}.
+
+\subsection{Problem 1: the height rule for fixed \texorpdfstring{$N$}{N}}
+
+Write $R_N=\Phi-\Phi^F_N=\sum_{n>N}\phi_n$ on $u\ge0$ and $E_N=H-H^F_N$, so that $E_N(z)=\int_0^\infty R_N(u)\cos(zu)\,du$. The cosine transform of $\phi_n$ at a complex $z$ is $\tfrac12(F_n(z)+F_n(-z))$ with $F_n$ the incomplete gamma sum, and equals $\operatorname{Re}F_n(z)$ only for real $z$.
+
+\begin{lemma}[Kink bound]\label{ev:lem:kink}
+For real $x\ne0$,
+\[
+E_N(x)=-\frac{R_N'(0)}{x^2}-\frac1{x^2}\int_0^\infty R_N''(u)\cos(xu)\,du,\qquad |E_N(x)|\le\frac{B_N}{x^2},
+\]
+with $B_N=|R_N'(0)|+\|R_N''\|_{L^1(0,\infty)}$.
+\end{lemma}
+
+\begin{proof}
+Integrate by parts twice; $R_N$ and $R_N'$ vanish at infinity and the boundary term $R_N(0)\sin(0)$ is zero.
+\end{proof}
+
+This is the integration by parts of Theorem~\ref{mi:thm:kink} for the cutoff $\{n>N\}$, with $\kappa_N=|R_N'(0)|$ the kink. Numerically $B_N=1.653\times10^{-7}$, $2.783\times10^{-16}$ and $5.739\times10^{-28}$ for $N=2,3,4$ (and $0.079$ for $N=1$). In every case $R_N''\ge0$ on $(0,\infty)$, with the sign decided in ball arithmetic on every cell of a subdivision, so that $\|R_N''\|_{L^1}=|R_N'(0)|$ and $B_N=2\kappa_N$ exactly (certified, with a rigorous bound for the tail of the series over $n$). The leading order expression $8\pi^3(N+1)^6e^{-\pi(N+1)^2}$ for $\kappa_N$ overstates it by $15\%$, $8\%$ and $5\%$ for $N=2,3,4$.
+
+\begin{proposition}[Rouch\'e certificate]\label{ev:prop:rouche}
+Let $T$ lie strictly between two consecutive ordinates, and suppose $\Xi$ has exactly $2\mathcal N(T)$ zeros in $|w|<T$, all real and simple. If $|E_N(2Te^{i\vartheta})|<|H(2Te^{i\vartheta})|$ for $\vartheta\in[0,\pi/2]$, and $H^F_N(2x)$ has $\mathcal N(T)$ sign changes on $(0,T)$, then every zero of $H^F_N(2x)$ with $|x|<T$ is real.
+\end{proposition}
+
+\begin{proof}
+Both functions are even and real on the real axis, so the inequality holds on the whole circle $|z|=2T$. By Rouch\'e, $H^F_N=H-E_N$ has $2\mathcal N(T)$ zeros in the disc, the same number as $H$. The sign changes supply $2\mathcal N(T)$ real ones, so there are no others.
+\end{proof}
+
+The inequality on the quarter circle was tested in two ways. In floating point it was sampled at $721$ points at $250$ and $450$ bits, computing $E_N$ directly as the sum of the omitted incomplete gamma terms (computed). It was also certified: on each of $3200$ to $19600$ cells in $\vartheta$ the bound $|E_N(z)|\le\int_0^\infty|R_N(u)|\cosh(u\operatorname{Im}z)\,du$ is evaluated in ball arithmetic (a closed form in incomplete gamma functions with a rigorous tail for $n>N+5$), $|H|$ is the box value of $\tfrac18\Xi(z/2)$, and the signs of $H^F_N(2x)$ are certified on a grid of step $0.05$ (certified). What stays outside ball arithmetic is the count of the zeros of $\Xi$ in the disc, taken from the list of zeros of the book and the verification of RH to this height, which is the hypothesis of the proposition. Table~\ref{ev:tab:rouche} gives the results.
+
+\begin{table}[h]\centering\small
+\begin{tabular}{ccccccc}
+\toprule
+$N$ & $T$ & $\mathcal N(T)$ & sampled $\min|H|/|E_N|$ & certified lower bound & $c=T/(N+1)^2$\\
+\midrule
+1 & 14.4 & 1 & 2.45 & 1.0018 & \\
+1 & 17.5 & 1 & 3.65 & 1.0195 & 4.38\\
+2 & 31.7 & 4 & 151 & 3.49 & \\
+2 & 35.3 & 5 & 36.3 & 2.70 & 3.92\\
+3 & 51.4 & 10 & $2.83\times10^5$ & 2555 & \\
+3 & 57.9 & 12 & 1965 & 64.9 & 3.62\\
+4 & 86.1 & 23 & $1.22\times10^6$ & 35921 & \\
+4 & 97.3 & 28 & 355 & 54.2 & 3.89\\
+\bottomrule
+\end{tabular}
+\caption{Rouch\'e tests for the folded kernels. The sampled minimum is over $721$ points of the quarter circle (computed); the lower bound is over the whole quarter circle (certified in ball arithmetic, and weaker than the sampled minimum because the bound is crude). Every row passes both.}\label{ev:tab:rouche}
+\end{table}
+
+In every row the sampled minimum of $|H|/|E_N|$ is attained at $\vartheta=0$, on the real axis, where Lemma~\ref{ev:lem:kink} applies. There the margins $|H(2T)|(2T)^2/B_N$ are $5.77$, $262$ and $51.4$ at the largest heights for $N=2,3,4$; for $N=1$ they are $0.41$ and $0.80$, below one, so that for $N=1$ the kink bound alone does not suffice and only the certificate on the whole circle does. With Proposition~\ref{ev:prop:rouche} the rows certify that every zero of $H^F_N(2x)$ with $|x|<T$ is real, for $N=1,2,3,4$, for $c=3.6$ (given the zero count). The case $N=0$ is excluded, since $H^F_0=0$.
+
+The certificates settle the hypothesis of Proposition~\ref{ev:prop:reduction} only for these four levels, and they also show why the general case is hard. The binding inequality is
+\[
+\tfrac18|\Xi(T)|>\frac{B_N}{4T^2}
+\]
+at a point $T$ between consecutive zeros. That is a lower bound for $|\Xi|$ at Gram type points up to height about $4(N+1)^2$, exactly the information Turing's method uses to verify RH to that height \cite{Turing53}. So the height rule for $N$ contains RH verification up to $c(N+1)^2$, and the folded route can run level with numerical verification of RH but not ahead of it (heuristic).
+
+\subsection{Problem 2: explicit strings for shifted Bessel kernels}
+
+P\'olya's kernels involve $\operatorname{Re}K_{\mu+i\nu}(a)$ with $\mu=9/4$ and $5/4$. For every $\mu\ge0$ and $a>0$, $\nu\mapsto\re K_{\mu+i\nu}(a)$ is a multiple of the characteristic function, at $\theta=\nu$, of the law of Theorem~\ref{fm:thm:bessel} with $\ell=1$, no tilt and one field $\lambda_1=\mu$, so its zeros are real. For integer shifts the boundary condition of the eigenvalue problem is explicit. The poles of its rational function are written $q_j$ here.
+
+\begin{theorem}\label{ev:thm:shift}
+Let $\mu\ge0$ be an integer and $a>0$. By the recurrence $K_{\nu+1}(x)=K_{\nu-1}(x)+(2\nu/x)K_\nu(x)$,
+\[
+\operatorname{Re}K_{\mu+i\nu}(a)=A_\mu(\nu^2)K_{i\nu}(a)+B_\mu(\nu^2)\,aK_{i\nu}'(a)
+\]
+with real polynomials $A_\mu,B_\mu$. Hence, at a point with $B_\mu(\nu^2)\ne0$, $\nu$ is a zero exactly when $g(\tau)=K_{i\nu}(ae^\tau)$ solves the Liouville problem $-g''+a^2e^{2\tau}g=\lambda g$, $\lambda=\nu^2$, with the spectral boundary condition
+\[
+g'(0)=\beta_\mu(\lambda)\,g(0),\qquad\beta_\mu=-A_\mu/B_\mu.
+\]
+The first cases are Dirichlet for $\mu=0$, Neumann ($\beta_1=0$) for $\mu=1$,
+\[
+\beta_2=\tfrac{a^2}2-\lambda,\qquad\beta_3=\frac{4(a^2-3\lambda)}{a^2+8-4\lambda}.
+\]
+\end{theorem}
+
+The theorem is proved (the recurrence; $\beta_2$, $\beta_3$ and every entry of Table~\ref{ev:tab:shift} were rederived independently). The Liouville problem is the one of Proposition~\ref{prop:biane:liouville}, and the shift lemma for P\'olya's kernels is in Section~\ref{pol:sec:papers}.
+
+\begin{proposition}[Extended boundary problem]\label{ev:prop:ext}
+Suppose $\beta_\mu(\lambda)=\alpha-m\lambda-\sum_{j=1}^J\sigma_j/(q_j-\lambda)$ with $m\ge0$, $\sigma_j>0$ and $q_j$ real. Then the eigenvalue problem of Theorem~\ref{ev:thm:shift}, away from the poles, is the eigenvalue problem of a self adjoint operator built from the Liouville operator on $(0,\infty)$ with a point mass $m$ at $0$ and $J$ extra coordinates $w_j$ coupled to $g(0)$, with stiffness $q_j$, unit mass and coupling $-\sqrt{\sigma_j}$. Its eigenvalues are real. If in addition the energy form is nonnegative, for example if every $q_j>0$ and $\alpha\ge\sum_j\sigma_j/q_j$, they are positive, so that the corresponding $\nu$ are real.
+\end{proposition}
+
+\begin{proof}
+The boundary condition enters the Rayleigh quotient as $\int_0^\infty(g'^2+a^2e^{2\tau}g^2)\,d\tau+\beta_\mu(\lambda)g(0)^2$. The term $-m\lambda g(0)^2$ moves to the mass side as a point mass. Each term $-\sigma_jg(0)^2/(q_j-\lambda)$ is the Schur complement of an extra coordinate $w_j$: eliminating $w_j=\sqrt{\sigma_j}\,g(0)/(q_j-\lambda)$ from the form $\sum_j[(q_j-\lambda)w_j^2-2\sqrt{\sigma_j}\,g(0)w_j]$ leaves $-\sum_j\sigma_jg(0)^2/(q_j-\lambda)$. The resulting energy and mass forms are symmetric and the mass form is positive, so the problem is self adjoint and its eigenvalues are real. The energy form is the sum of the nonnegative integral and of $\alpha g(0)^2+\sum_jq_jw_j^2-2\sum_j\sqrt{\sigma_j}\,g(0)w_j$, which is nonnegative under the stated condition.
+\end{proof}
+
+This does not make the extended system a string. A half line with $J$ extra coordinates coupled at $0$ does not carry a Dirichlet condition at $0$, no hitting time is constructed for it, and Kent's theorem is not available. The reading in which $m>0$ makes the diffusion sticky at $0$ and each pole is an extra state into which the process jumps from $0$ and from which it returns is heuristic. What does follow is this: if the zeros $\nu_k$ of $\operatorname{Re}K_{\mu+i\nu}(a)$ are real, positive and simple, then by Krein's converse (Proposition~\ref{ht:prop:kent}) there is a string whose hitting time has Laplace transform $\prod_k(1+s/\nu_k^2)^{-1}$, but this string is not identified with the extended system. Table~\ref{ev:tab:shift} records the sign condition. The zeros of $\operatorname{Re}K_{3+i\nu}(2)$ are $1.41977,\ 3.84551,\ 5.74106,\ 7.37072,\ 8.84981$; for $\mu=4$, $a=2\pi$ they are $2.72330,\ 7.25847,\ 10.37828,\ 12.82694,\ 14.96543$; for $\mu=6$, $a=2\pi$ they are $1.92369,\ 5.51737,\ 8.55690,\ 11.10450,\ 13.33385$ (computed; the source reports that a discretisation of the extended string with $7000$ nodes gives the same lowest five eigenvalues to the digits it prints, which was not rerun).
+
+\begin{table}[h]\centering\small
+\begin{tabular}{ccccc}
+\toprule
+$\mu$ & $m$ & poles $q_j$ at $a=2\pi$ & $\sigma_j$ at $a=2\pi$ & sign condition at $a=2\pi$ / $a=2$\\
+\midrule
+2 & 1 & none & none & yes / yes\\
+3 & 0 & 11.87 & $-3.87$ & no / yes\\
+4 & 1/6 & 7.58 & 1.98 & yes / yes\\
+5 & 0 & 5.02, 59.6 & $-0.165$, 270.6 & no / yes\\
+6 & 1/15 & 3.71, 35.0 & 0.054, 42.2 & yes / yes\\
+7 & 0 & 2.88, 26.0, 195.5 & 0.006, 13.9, 2877 & yes / yes\\
+8 & 1/28 & 2.34, 20.8, 89.1 & 0.005, 5.86, 380 & yes / yes\\
+\bottomrule
+\end{tabular}
+\caption{Partial fraction data for $\beta_\mu$ (computed in ball arithmetic, \texttt{code/ev\_g1\_\allowbreak string.py}). The sign condition of Proposition~\ref{ev:prop:ext} is that $m\ge0$ and all $\sigma_j>0$; it is a hypothesis of the proposition and does not by itself give a string.}\label{ev:tab:shift}
+\end{table}
+
+When the sign condition fails, as for $\mu=3$ and $5$ at $a=2\pi$, the zeros are still real by P\'olya's shift lemma (Section~\ref{pol:sec:papers}), and Krein's converse still supplies a positive string if they are simple; it is simply not this Liouville extension. For P\'olya's own orders the recurrence reduces $\mu=9/4$ and $5/4$ to the base order $1/4$, but $K_{1/4+i\nu}(a)$ is complex for real $\nu$, so the reduction lands on a fractional base string that is not identified here. The problem is therefore reduced to fractional $\mu\in(0,1)$, which is taken up in Section~\ref{ev:sec:round2}.
+
+\subsection{Problem 3: the de Bruijn and Newman strings}
+
+\begin{proposition}\label{ev:prop:dbn}
+For $H_t(z)=\int_0^\infty e^{tu^2}\Phi(u)\cos(zu)\,du$, the mean of the candidate hitting time is
+\[
+\mu_1(t)=\E T_t=2\E_t[U^2],\qquad\frac{d\mu_1}{dt}=2\operatorname{Var}_t(U^2)>0,
+\]
+where $U$ has density proportional to $e^{tu^2}\Phi(u)$ on $(0,\infty)$. Equivalently $\mu_1(t)=\sum_k\gamma_k(t)^{-2}$, with $\pm2\gamma_k(t)$ the zeros of $H_t$ counted with multiplicity.
+\end{proposition}
+
+\begin{proof}
+$\mu_1$ is the ratio of the first two Taylor coefficients of $H_t(2i\sqrt s)$, namely $4M_2/(2M_0)$ with $M_{2m}$ the moments of the tilted kernel; differentiate in $t$.
+\end{proof}
+
+The moments of the reweighted kernel along the flow are those of Section~\ref{sec:ch21:hankel}, and what is added is the monotonicity of the mean. Numerically $\mu_1=0.0232010$, $0.0231050$, $0.0226358$, $0.0190909$ at $t=0.2,0,-1,-10$, and $d\mu_1/dt=4.78\times10^{-4}$ at $t=0$ (computed). The mean hitting time increases strictly through $\Lambda$, so it does not see the transition. Nor do low order Hankel determinants: $D_n$ and $D_n'$ are positive for $n\le5$ on a grid of $13$ values of $t$ in $[-10,0.2]$ (computed), although $H_t$ has nonreal zeros for $t<0$ (Rodgers and Tao \cite{RodgersTao}). The zeros that leave the line first are high ones, at Lehmer pairs, and low order moments are dominated by $\gamma_1,\gamma_2,\ldots$. The transition at $\Lambda$ is a high order phenomenon in the string (heuristic).
+
+\subsection{Problem 4: detecting the first nonreal pair}
+
+For the two term folded kernel, the argument principle on the boundary of $[36,150]\times[-8,-0.05]$ in the $w$ plane gives exactly two zeros,
+\[
+w=43.13891-3.28097i,\qquad w=47.52276-6.25251i,
+\]
+a further $17$ in $[36,150]\times[-40,-8]$, and none with real part below $36$ and imaginary part above $-40$ (computed, floating point; the winding numbers are $2$, $17$ and $0$). Beyond the breakdown height the zeros of the source peel away into the half plane rather than pairing just off the line (the source's observation, not rerun). The moment Hankel test computed at 120 digits is positive to order $11$, and a 240 digit run gives the same signs (computed). If instead one keeps only the seven real atoms and the first pair, $D_6$ is already negative. The remaining off line atoms therefore mask the first pair at order $6$ (Table~\ref{ev:tab:mask}), while the determinants of the kernel moments are positive to order $11$. So a finite order sign is not a local detector. It certifies only that the truncated moment problem has a positive solution, and the order needed to see a given nonreal pair is not determined by the number of real atoms below it (heuristic).
+
+\subsection{Problem 5: higher eigenvalues by joint threshold fits}
+
+Replace two point deflation by Prony's method on $2K$ equally spaced values $x_0+jd$ of the Talbot tail at 80 digits, fitting $K$ exponentials at once; this is the extraction of Section~\ref{sec:ch18:reach} with the atoms fitted jointly. Table~\ref{ev:tab:prony} shows the errors, as reported by the source. The table was not rerun, and the spacing $d$ of the window is not stated there.
+
+\begin{table}[h]\centering\small
+\begin{tabular}{cccccccc}
+\toprule
+$K$ & $x_0$ & $\gamma_1$ & $\gamma_2$ & $\gamma_3$ & $\gamma_4$ & $\gamma_5$ & $\gamma_6$\\
+\midrule
+3 & 0.04 & $4\times10^{-14}$ & $2\times10^{-7}$ & $7\times10^{-4}$ & & & \\
+4 & 0.03 & $3\times10^{-16}$ & $1\times10^{-9}$ & $6\times10^{-6}$ & 0.084 & & \\
+5 & 0.02 & $8\times10^{-16}$ & $3\times10^{-10}$ & $7\times10^{-7}$ & 0.0075 & 0.16 & \\
+6 & 0.015 & $6\times10^{-17}$ & $1\times10^{-11}$ & $2\times10^{-8}$ & $4\times10^{-4}$ & 0.017 & 0.85\\
+6 & 0.01 & $2\times10^{-10}$ & $1\times10^{-6}$ & $3\times10^{-4}$ & 0.16 & 0.27 & 4.4\\
+\bottomrule
+\end{tabular}
+\caption{Absolute errors of $\gamma_k$ recovered by Prony fits of $K$ exponentials to the tail of the hitting time, window starting at threshold $x_0$ (source values, unchecked).}\label{ev:tab:prony}
+\end{table}
+
+The pattern is the threshold bias of peaks over threshold fits in exact form. The omitted atoms contribute roughly $e^{-(\gamma_{K+1}^2-\gamma_k^2)x_0}$ to the error in $\gamma_k$, up to conditioning factors (the rule of Section~\ref{sec:ch18:reach}), so raising $K$ allows a lower threshold (heuristic). But lowering the threshold too far, as in the last row, lets atoms beyond $K$ contaminate the fit and loses accuracy everywhere. The optimal pair $(K,x_0)$ trades these two biases against the working precision.

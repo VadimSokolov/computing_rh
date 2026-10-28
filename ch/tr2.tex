@@ -1,0 +1,244 @@
+\section{Hermite coefficients of $\Xi$}\label{tr:sec:hermite}
+
+The second half of the chapter is about the expansion of $\Xi$ in Hermite functions at a small scale. The source note \cite{P26hermite} refers to an earlier chapter of the author for its definitions, which are not in the book, so they are written out here. The kernel is the P\'olya kernel $\Phi$ of \eqref{eq:ch2:Phi}, even and positive with $\Xi(t)=\int_{\mathbb R}\Phi(u)e^{itu}du$; the source note does not define its $\Phi$, and with the kernel of \eqref{eq:ch2:Phi} the numbers of the note that were recomputed agree, except where this chapter says otherwise, whereas the de Bruijn form $\Phi_{\rm dBN}$ of Section~\ref{ch:dbn}, with the exponent $e^{4u}$, puts the zeros at $2\gamma$ and is not the one meant. The kernel satisfies $\int|\Phi(u)|(1+|u|)^Ne^{Bu^2+C|u|}du<\infty$ for all $N,B,C\ge0$ (it decays like $\exp(-\pi e^{2|u|})$), and this is all that is used.
+
+\subsection{Definitions}
+
+Let $H_n$ be the Hermite polynomial of Section~\ref{ht:sec:jensen} (physicists' normalisation, the one that gives $H_{2d}$ in the Hermite identity there), and
+\[
+h_n(x)=\pi^{-1/4}(2^nn!)^{-1/2}H_n(x)e^{-x^2/2},
+\]
+the orthonormal Hermite functions. They satisfy $h_n''+(2n+1-x^2)h_n=0$, $\int h_n(x)e^{i\xi x}dx=\sqrt{2\pi}\,i^nh_n(\xi)$, and $h_{2m}(0)=(-1)^m\pi^{-1/4}\sqrt{(2m)!}/(2^mm!)$. For a scale $a>0$ put
+\begin{gather*}
+c_n(a)=\sqrt a\int_{\mathbb R}\Phi(u)h_n(au)\,du,\qquad t_m=t_m(a)=a\sqrt{4m+1},\\
+b_m(a)=\sqrt{2\pi}\,(-1)^mc_{2m}(a)=\int_{\mathbb R}\Xi(t)\,\frac{h_{2m}(t/a)}{\sqrt a}\,dt.
+\end{gather*}
+The second form of $b_m$ follows from the Fourier relation with $t=ax$. Since $\Phi$ is even, $c_n(a)=0$ for odd $n$, and $b_m(a)$ is exactly the coefficient of the orthonormal function $h_{2m}(t/a)/\sqrt a$ in the expansion of $\Xi$, and the factor $\sqrt{2\pi}(-1)^m$ relates $b_m$ to $c_{2m}$. The number $t_m$ is the turning point of $h_{2m}(t/a)$: the Hermite equation $h_{2m}''+(4m+1-x^2)h_{2m}=0$ is oscillatory for $|x|<\sqrt{4m+1}$, that is for $|t|<t_m$. Section~\ref{ht:sec:jensen} uses the same polynomials $H_{2d}$ in another role: there the Jensen polynomial of degree $d$ is the expectation of a Hermite polynomial of the Brownian variable $V$, whereas here the Hermite functions are integrated against the kernel.
+
+The heat family enters as in Section~\ref{ch:dbn}. With $H_t$ the de Bruijn Newman function of that section one has $8H_t(2\tau)=\int_{\mathbb R}\Phi(v)e^{tv^2/4}\cos(\tau v)\,dv$, so the Gaussian smoothing
+\[
+\begin{aligned}G_a(\tau)&=\int_{\mathbb R}\Phi(u)e^{-a^2u^2/2}\cos(\tau u)\,du=8H_{-2a^2}(2\tau)\\&=\frac1{a\sqrt{2\pi}}\int_{\mathbb R}\Xi(s)e^{-(\tau-s)^2/(2a^2)}ds\end{aligned}
+\]
+is $\Xi$ smoothed by a Gaussian of variance $a^2$ (the last equality because $e^{-a^2u^2/2}$ is the characteristic function of $N(0,a^2)$), and it is the backward heat flow of the kernel for the time $t=-2a^2$.
+
+\begin{theorem}[Hermite coefficients and the heat flow]\label{tr:thm:heat}
+For every $a>0$,
+\[
+\sum_{m\ge0}b_m(a)\frac{z^{2m}}{\sqrt{(2m)!}}=\sqrt{2\pi}\,\pi^{-1/4}\sqrt a\;e^{z^2/2}\,G_a\big(\sqrt2\,a z\big),
+\]
+and with $\nu_k(a)=\int\Phi(u)e^{-a^2u^2/2}u^{2k}du>0$,
+\[
+b_m(a)=\sqrt{2\pi}\,\pi^{-1/4}\sqrt a\,\sqrt{(2m)!}\sum_{k=0}^m\frac{(-1)^k2^ka^{2k}\nu_k(a)}{(2k)!\,2^{m-k}(m-k)!}.
+\]
+\end{theorem}
+
+\begin{proof}
+The generating function
+\[
+\sum_nh_n(x)w^n/\sqrt{n!}=\pi^{-1/4}e^{-x^2/2+\sqrt2xw-w^2/2}
+\]
+integrated against $\sqrt a\,\Phi(u)$ at $x=au$ gives
+\[
+\sum_nc_n(a)w^n/\sqrt{n!}=\pi^{-1/4}\sqrt a\,e^{-w^2/2}\int\Phi(u)e^{-a^2u^2/2}e^{\sqrt2auw}du.
+\]
+On bounded sets of $w$ the integrand and its derivatives are bounded by a constant times $|\Phi(u)|e^{-a^2u^2/2+C|u|}$, which is integrable, so the coefficients may be extracted termwise. Put $w=\allowbreak iz$: the odd terms vanish by evenness, $(iz)^{2m}=\allowbreak (-1)^mz^{2m}$ supplies the sign in $b_m$, and $e^{i\sqrt2azu}$ integrates to $G_a(\sqrt2az)$ by evenness. The moment formula follows by multiplying the series
+\[
+G_a(\sqrt2az)=\sum_k(-1)^k2^ka^{2k}\nu_kz^{2k}/(2k)!
+\]
+by
+\[
+e^{z^2/2}=\sum_jz^{2j}/(2^jj!).
+\]
+Each $\nu_k>0$ because $\Phi>0$.
+\end{proof}
+
+The moment formula, evaluated in $60$ digit arithmetic, agrees with the quadrature value of $b_m$ for $m\le15$ at $a=3$ and $a=1.5$ with relative differences $6.7\times10^{-55}$ and $3.1\times10^{-59}$, and the two quadratures (steps $1/64$ and $1/128$) differ by $3.6\times10^{-57}$ and $1.5\times10^{-60}$ (computed, \texttt{code/tr\_hermite.py}). Also $b_3(1.5)=0.320600426659651$ from $\Phi$ and from the integral of $\Xi$ (computed).
+
+\begin{remark}\label{tr:rem:rt}
+By Rodgers and Tao \cite{RodgersTao}, $\Lambda\ge0$, so $H_t$ has nonreal zeros for every $t<0$, and therefore $G_a$ is not real rooted for any $a>0$, since $t=-2a^2<0$ (proved). The factor $e^{z^2/2}$ never vanishes, so $e^{z^2/2}G_a(\sqrt2az)$ has exactly the zeros of $G_a(\sqrt2az)$. The note says that the coefficients of this product nevertheless recover the real zeros of $\Xi$. That is not a statement about zeros of the product. What is true is that the signs of $b_m(a)$ follow those of $\Xi$ at the points $t_m$ away from the zeros as $a\to0$ (Theorem~\ref{tr:thm:herm}).
+\end{remark}
+
+\section{The turning point asymptotic}\label{tr:sec:saddle}
+
+The note proposes, as Proposition 1, that $b_m(a)=\sqrt{2a}\,m^{-1/4}\,\Xi(a\sqrt{4m+1})(1+O(a^2))$ as $a\to0$ with $t=a\sqrt{4m+1}$ fixed, and derives it by a saddle point argument on the circle $|z|=\sqrt{2m}$ in Theorem~\ref{tr:thm:heat}. The leading constant is right: the saddles are at $\theta=0,\pi$ with the exponent $m-2m\theta^2+O(m\theta^3)$, the Gaussian in $\theta$ has variance $1/(4m)$, the imaginary shift of the argument of $G_a$ has variance exactly $a^2$, and $\mathbb EG_a(t+iaY)=\Xi(t)$ for $Y\sim N(0,1)$ by Fubini, so the average of $G_a$ over the shifts undoes the smoothing; Stirling's formula and the Gaussian integral give $\sqrt{2a}\,m^{-1/4}$. But the error $O(a^2)$ is not derived (only the shift of the sampling point from $2a\sqrt m$ to $a\sqrt{4m+1}$ is), the real displacement $-a\sqrt m\,\theta^2$ and the cubic phase are not estimated, and the contribution off the saddles is not bounded. The statement as written is false at the zeros of $\Xi$ (Proposition~\ref{tr:prop:zeros}). The theorem below is proved from the Hermite differential equation and replaces it; it states an additive estimate, uniform in $m$, with the exact amplitude.
+
+Put
+\begin{gather*}
+A_m(a)=\sqrt{2\pi a}\,(-1)^mh_{2m}(0)=\sqrt2\,\pi^{1/4}\sqrt a\,\frac{\sqrt{(2m)!}}{2^mm!}>0 ,\\
+M_k(a_0)=\int_{\mathbb R}|\Phi(u)||u|^ke^{a_0^2u^2/2}du<\infty .
+\end{gather*}
+
+\begin{theorem}[Additive asymptotic]\label{tr:thm:herm}
+For every $a_0>0$, $0<a\le a_0$ and integer $m\ge0$,
+\begin{gather*}
+\Big|\frac{b_m(a)}{A_m(a)}-\Xi(t_m)\Big|\le\frac{M_4(a_0)}{12}\,a^4,\\
+\frac{b_m(a)}{A_m(a)}=\Xi(t_m)+a^4Q(t_m)+R_m(a),\qquad|R_m(a)|\le\frac{M_8(a_0)}{672}\,a^8,
+\end{gather*}
+with $t_m=a\sqrt{4m+1}$ and the even entire function
+\begin{gather*}
+Q(t)=\frac{\Xi'''(t)}{6t}-\frac{\Xi''(t)}{4t^2}+\frac{\Xi'(t)}{4t^3}\quad(t\ne0),\\
+Q(0)=\frac{\Xi^{(4)}(0)}{12}=\frac1{12}\int_{\mathbb R}\Phi(u)u^4du .
+\end{gather*}
+\end{theorem}
+
+\begin{proof}
+Put $y_m(u)=h_{2m}(au)/h_{2m}(0)$. Then $b_m/A_m=\int\Phi(u)y_m(u)du$, and the Hermite equation gives $y_m''+(t_m^2-a^4u^2)y_m=0$, $y_m(0)=1$, $y_m'(0)=0$. For real $t$ and complex $z$ let $y_{z,t}$ be the even solution of $y''+(t^2-zu^2)y=0$ with these initial values. For $u\ge0$, $y_{z,t}=\cos tu+z\,L_ty_{z,t}$ with $(L_tf)(u)=\int_0^u\frac{\sin t(u-v)}tv^2f(v)dv$ (the kernel is $u-v$ at $t=0$). Since $|\sin(t(u-v))/t|\le u-v$, the Volterra series is majorised by the solution of $w=1+|z|Kw$ with $(Kf)(u)=\int_0^u(u-v)v^2f(v)dv$. The function $v=e^{\sqrt{|z|}u^2/2}$ satisfies $v''=(\sqrt{|z|}+|z|u^2)v\ge|z|u^2v$, so $v\ge1+|z|Kv$, hence $w\le v$ and
+\[
+|y_{z,t}(u)|\le e^{\sqrt{|z|}u^2/2}\quad(u\in\mathbb R,\ t\in\mathbb R).
+\]
+Iterating the integral equation once and twice, and using $K1=u^4/12$ and $K^21=u^8/672$, gives $|y_{z,t}-\cos tu|\le\frac{|z|u^4}{12}e^{\sqrt{|z|}u^2/2}$ and $|y_{z,t}-\cos tu-zL_t\cos(t\,\cdot)|\le\frac{|z|^2u^8}{672}e^{\sqrt{|z|}u^2/2}$, with constants independent of $t$. Take $z=a^4$, $t=t_m$, $a\le a_0$ and integrate against $\Phi$: $\int\Phi\cos(t_mu)du=\Xi(t_m)$, and the first inequality follows. The function $f_t=(\frac{u^3}{6t}-\frac u{4t^3})\sin tu+\frac{u^2}{4t^2}\cos tu$ solves $f''+t^2f=u^2\cos tu$ with $f(0)=f'(0)=0$, so $f_t=L_t\cos(t\,\cdot)$, and differentiating the Fourier integral of $\Xi$ gives $\int\Phi f_t=Q(t)$. At $t=0$, $f_0=u^4/12$.
+\end{proof}
+
+For the amplitude, Stirling's expansion gives $A_m(a)=\sqrt{2a}\,m^{-1/4}\big(1-\frac1{16m}+\frac1{512m^2}+O(m^{-3})\big)$. Hence for $0<\varepsilon\le t=t_m\le T$ (so that $m\to\infty$ uniformly as $a\to0$)
+\begin{equation}\label{tr:eq:amp}
+\frac{b_m(a)}{\sqrt{2a}\,m^{-1/4}}=\Big(1-\frac1{16m}+O(m^{-2})\Big)\big(\Xi(t)+O(a^4)\big),
+\end{equation}
+an additive statement, uniform even if the interval contains zeros. At a fixed $t>0$ with $\Xi(t)\ne0$ one may divide, and then $b_m(a)=\sqrt{2a}\,m^{-1/4}\,\Xi(t)(1+O_t(a^2))$, which is the formula of the note; the leading correction is $-1/(16m)=-a^2/(4t^2)+O(a^4)$ and comes from the amplitude and not from the saddle. A uniform relative error holds on a compact set $K\subset(0,\infty)$ with $\inf_K|\Xi|>0$. With the sampling point as the variable, $n=m+\frac14=t^2/(4a^2)$, the amplitude is $A_m=\frac{2a}{\sqrt t}\big(1-\frac{a^4}{8t^4}+O(a^8)\big)$ and
+\[
+b_m(a)=\frac{2a}{\sqrt t}\Big\{\Xi(t)+a^4\Big[Q(t)-\frac{\Xi(t)}{8t^4}\Big]+O_{\varepsilon,T}(a^8)\Big\},
+\]
+with no term of order $a^2$ or $a^6$; this form is not uniform near $t=0$, where Theorem~\ref{tr:thm:herm} with the exact $A_m$ is the right one. At $m=0$ one has $t_0=a$ and $b_0(a)=A_0(a)\int\Phi(u)e^{-a^2u^2/2}du>0$, and the formula with $m^{-1/4}$ is undefined; at fixed $m\ge1$, $b_m/A_m\to\Xi(0)>0$ as $a\to0$. Even for $m\ge1$ the relative formula with the prefactor $\sqrt{2a}$ does not extend to $t=0$: for $m=1$, $b_1(a)/(\sqrt{2a}\,\Xi(a\sqrt5))\to\pi^{1/4}/\sqrt2=0.9414$ (proved, from $A_1=\pi^{1/4}\sqrt a$).
+
+\begin{proposition}\label{tr:prop:zeros}
+At every positive real zero $\gamma$ of $\Xi$, of any multiplicity, $b_m(a_m)\ne0$ for all large $m$, where $a_m=\gamma/\sqrt{4m+1}$. If $Q(\gamma)\ne0$ then $b_m(a_m)=\frac{2Q(\gamma)}{\sqrt\gamma}a_m^5+O(a_m^9)$. The relative formula of the note therefore fails at the zeros of $\Xi$, where it would give $b_m(a_m)=0$.
+\end{proposition}
+
+\begin{proof}
+For fixed real $t$ put $F_t(z)=\int\Phi(u)y_{z,t}(u)du$. By the bound of the proof of Theorem~\ref{tr:thm:herm} it is entire in $z$, and $F_t(0)=\Xi(t)$. For $t>0$ and $z=t^4$ the solution is $y=e^{-t^2u^2/2}$, so $F_t(t^4)=\int\Phi e^{-t^2u^2/2}du>0$. At $t=\gamma$, $F_\gamma(0)=0$ but $F_\gamma\not\equiv0$, so $F_\gamma(z)\ne0$ for small $z\ne0$; and $b_m(a_m)=A_m(a_m)F_\gamma(a_m^4)$. If $Q(\gamma)\ne0$ the Taylor expansion at $z=0$ gives the leading term, with $A_m(a_m)\sim2a_m/\sqrt\gamma$.
+\end{proof}
+
+\section{The first negative coefficient}\label{tr:sec:first}
+
+Let $m^*(a)=\min\{m\ge0:b_m(a)<0\}$, and let $\gamma_1=14.134725\ldots$ be the first positive zero of $\Xi$. It is simple (the first $1.5\times10^9$ zeros are simple and on the line \cite{LRW86}), so $\Xi>0$ on $[0,\gamma_1)$ and $\Xi<0$ just to the right of $\gamma_1$.
+
+\begin{corollary}\label{tr:cor:first}
+For every $0<\delta<\gamma_1$ and $a$ small, $b_m(a)>0$ for all $m$ with $t_m\le\gamma_1-\delta$, the index $m^*(a)$ exists, and $\lim_{a\to0}4a^2m^*(a)=\gamma_1^2$. If $\gamma_a$ is the unique zero near $\gamma_1$ of $t\mapsto\int\Phi(u)y_{a^4,t}(u)du$, then $\gamma_a=\gamma_1-a^4Q(\gamma_1)/\Xi'(\gamma_1)+O(a^8)$ and $m^*(a)=\big\lfloor(\gamma_a^2/a^2-1)/4\big\rfloor+1$ for small $a$.
+\end{corollary}
+
+\begin{proof}
+Let $c_\delta=\min_{[0,\gamma_1-\delta]}\Xi>0$. By Theorem~\ref{tr:thm:herm}, $b_m/A_m\ge c_\delta-Ca^4>0$ when $t_m\le\gamma_1-\delta$ and $a$ is small, so $m^*(a)$, where it exists, has $t_{m^*}>\gamma_1-\delta$ and $4a^2m^*=t_{m^*}^2-a^2>(\gamma_1-\delta)^2-a^2$, which gives $\liminf4a^2m^*\ge\gamma_1^2$. For the upper bound pick $s>\gamma_1$ with $\Xi(s)<0$ and $m(a)=\lfloor(s^2/a^2-1)/4\rfloor$; then $t_{m(a)}\to s$, the additive error tends to zero, so $b_{m(a)}<0$ and $\limsup4a^2m^*\le s^2$; let $s\downarrow\gamma_1$. For the exact formula, $F(z,t)=\int\Phi y_{z,t}$ is jointly analytic near $(0,\gamma_1)$ (the kernel bound $|\sin(tw)/t|\le we^{|\Im t|w}$ gives an integrable majorant), $\partial_zF(0,t)=Q(t)$ and $\partial_tF(0,t)=\Xi'(t)\ne0$, so the analytic implicit function theorem gives a zero $\rho(z)=\gamma_1-zQ(\gamma_1)/\Xi'(\gamma_1)+O(z^2)$ and $\gamma_a=\rho(a^4)$. For small $a$ the function $F(a^4,\cdot)$ is positive up to $\gamma_a$ and negative just after it, and the grid has spacing $O(a^2)$ there, so the first negative index is the first grid point strictly after $\gamma_a$.
+\end{proof}
+
+The hypothesis of the note, an error uniform on $[0,\gamma_1-\delta]$, gives only the lower bound: the limit needs negativity of $b_m$ just above $\gamma_1$, that is a uniform estimate on an interval that contains a point beyond $\gamma_1$.
+
+Numerically the note states the sharper law $m^*(a)=\lceil(\gamma_1^2/a^2-1)/4\rceil$ for $a\le1.5$. Table~\ref{tr:tab:first} (computed, second run at step $h/2$ the same) agrees with it at four scales. It cannot hold as a statement for every $a$. The threshold inside the rounding is $(\gamma_a^2/a^2-1)/4$, which differs from $(\gamma_1^2/a^2-1)/4$ by $-\gamma_1Q(\gamma_1)a^2/(2\Xi'(\gamma_1))+O(a^6)$, and $\gamma_a\ne\gamma_1$ for small $a$ (otherwise $F_{\gamma_1}$ would vanish identically, against $F_{\gamma_1}(\gamma_1^4)>0$), so $\gamma_a-\gamma_1=c\,a^{4p}+o(a^{4p})$ with $c\ne0$ and $p\ge1$. If $c>0$, at $a=\gamma_1/\sqrt{4m+1}$ the ceiling of the note gives $m$ and the first negative coefficient is $m+1$ for large $m$; if $c<0$ a slightly smaller $a$ gives the opposite. Such scales exist arbitrarily close to $0$, because the displacement of the root is much smaller than the spacing $O(a^2)$ of the grid. At $a=2$ the formula gives $12.24$ and the first negative index is $12$, so the ceiling formula, which would give $13$, fails there, although $a=2$ is not in the asymptotic regime; and the reading of $\gamma_1$ to about $10^{-2}$ from $m^*(1/2)$ is only to $0.035$ (the value $m^*(\frac12)=200$ places $\gamma_1$ in $(14.116,14.151]$).
+
+\begin{table}[h]\centering\small
+\begin{tabular}{lccccc}
+\toprule
+$a$ & $0.5$ & $0.75$ & $1$ & $1.5$ & $2$\\
+\midrule
+$(\gamma_1^2/a^2-1)/4$ & $199.54$ & $88.55$ & $49.70$ & $21.95$ & $12.24$\\
+first negative $m$ & $200$ & $89$ & $50$ & $22$ & $12$\\
+\bottomrule
+\end{tabular}
+\caption{The first negative Hermite coefficient of $\Xi$ (computed).}\label{tr:tab:first}
+\end{table}
+
+\section{Counting zeros from $\Phi$ alone}\label{tr:sec:count}
+
+\subsection{The ratio table}
+
+Table~\ref{tr:tab:ratio} gives the ratio $b_m(a)\big/\big(\sqrt{2a}\,m^{-1/4}\,\Xi(a\sqrt{4m+1})\big)$ at three scales (computed; the source note does not say which $m$, and the indices $m=9,36,81,144,182$ at $a=0.5$, $4,16,36,64,81$ at $a=0.75$ and $2,9,20,36,45$ at $a=1$ reproduce every printed digit; the sampling points are $t_m=3.04,6.02,9.01,12.01,13.50$, $3.09,6.05,9.03,12.02,13.52$ and $3.00,6.08,9.00,12.04,13.45$). The last column is the error at $t\approx9$ divided by $a^2$, which is $0.0033$, $0.0036$, $0.0041$ (the note printed $0.0032$ for the first). The table is explained by the amplitude: the printed values are close to $A_m/(\sqrt{2a}\,m^{-1/4})=1-\frac1{16m}+\cdots$ (for example $1-1/144=0.9931$ at $a=0.5$, $m=9$), and the term $a^4Q(t)/\Xi(t)$ of Theorem~\ref{tr:thm:herm} is the rest. The coefficients range over four orders of magnitude here. At larger $a$ and greater height the ratio is no longer near $1$; the note says it is between $1.5$ and $9$ at $a=4$ for $100<t<200$ and that no $H_\lambda$ with $\lambda\in[-8,3]$ fits better, which could not be reproduced (the ratio is not defined near the zeros of $\Xi$, and it varies in sign over the window).
+
+\begin{table}[h]\centering\small
+\begin{tabular}{ccccccc}
+\toprule
+$a$ & $t\approx3$ & $t\approx6$ & $t\approx9$ & $t\approx12$ & $t\approx13.5$ & error at $t\approx9$ over $a^2$\\
+\midrule
+$0.50$ & $0.9931$ & $0.9983$ & $0.9992$ & $0.9993$ & $0.9986$ & $0.0033$\\
+$0.75$ & $0.9847$ & $0.9961$ & $0.9980$ & $0.9976$ & $0.9937$ & $0.0036$\\
+$1.00$ & $0.9699$ & $0.9931$ & $0.9959$ & $0.9938$ & $0.9830$ & $0.0041$\\
+\bottomrule
+\end{tabular}
+\caption{The ratio of $b_m(a)$ to $\sqrt{2a}\,m^{-1/4}\,\Xi(a\sqrt{4m+1})$ (computed).}\label{tr:tab:ratio}
+\end{table}
+
+\subsection{Method and the count}
+
+The integrand $\Phi(u)h_{2m}(au)$ is not entire: it is analytic in $|\Im u|<\pi/4$ and the lines $\Im u=\pm\pi/4$ are a natural boundary (\eqref{eq:ch2:Phi} and the text after it), but it decays like $\exp(-\pi e^{2|u|})$ and the trapezoid rule converges geometrically. For a function analytic in a strip $|\Im u|\le d$ with $M_d=\int(|f(x+id)|+|f(x-id)|)dx<\infty$ the error of the infinite trapezoid rule of step $h$ is at most $M_d/(e^{2\pi d/h}-1)$ (proved, by shifting the Fourier integral to the edges of the strip and summing two geometric series), with $d<\pi/4$; the constants depend on $a$ and $m$, so the note's statement that the transform of the integrand is negligible beyond $2T$ and that $h=2\pi/(3T+100)$ suffices is not proved. The count was recomputed with this step (the note has about $655$ nodes at $T=500$), the Hermite functions by the three term recurrence for all orders at once, and a working precision of the order of $0.34\,T+40$ digits (the coefficients near height $T$ have size $e^{-\pi T/4}$), and the positions of the sign changes were compared with a run at half the step and more digits (computed, \texttt{code/tr\_hermite.py}; Hopper). The note's column of digits does not follow its own rule and is not printed.
+
+\begin{table}[h]\centering\small
+\fitwidth{\begin{tabular}{rrrl}
+\toprule
+$T$ & $N(T)$ & coefficients & sign changes of $b_m$ by scale $a$\\
+\midrule
+$100$ & $29$ & $625$ at $a=2$ & $a=2,3,4,5$: $29$, $29$, $29$, $29$\\
+$200$ & $79$ & $625$ at $a=4$ & $a=4,5$: $79$, $79$; $a=6,7$: $78$, $78$; $a=8$: $77$\\
+$500$ & $269$ & $1736$ at $a=6$ & $a=6$: $269$; $7$: $268$; $8$: $267$; $9$: $265$; $10$: $263$; $14$: $245$; $18$: $192$\\
+$1000$ & $649$ & $6945$ at $a=6$ & $a=5,6$: $648$, $648$ (edge lag)\\
+$1004$ & $652$ & $7000$ at $a=6$ & $a=6$: $651$\\
+\bottomrule
+\end{tabular}}
+\caption{Number of sign changes of $b_m(a)$ for $t_m(a)\le T$ against the zero count $N(T)$ (computed). The coefficient counts of the note ($627$, $1738$, $6947$, $7002$) were two too large.}\label{tr:tab:count}
+\end{table}
+
+\begin{remark}[Observation]\label{tr:obs:count}
+For $a$ up to about $5$ to $6$ the number of sign changes of $(b_m(a))_{t_m\le T}$ equals $N(T)$ at $T=100,200,500$, and at $T=1000$ it equals $N(T)$ except for the last zero within about one unit of the top of the computed range. In every run above the threshold the count was smaller than $N(T)$.
+\end{remark}
+
+This is an observation (computed, floating point; the positions agree in the second run at $T=100$, $T=200$ and $T=500$, $a=6$, and the other rows are single runs), and not a theorem: a universal one sided inequality and an association between sign changes of $b_m$ and zeros of zeta are not proved. The zero counts are those of zeta ($N(T)=29,79,269,649,652$, mpmath). The equality is a statement about counts and not about signs: at $T=200$, $a=4$ the sign of $b_m$ agrees with the sign of $\Xi(t_m)$ at $81.8$ percent of the indices ($c=1$; $81.9$ percent at $c=0$), and sampling at $a\sqrt{4m+c}$ for $c\in[0,3]$ moves this between $79.7$ and $81.9$ percent (computed). The sign changes are displaced by a few indices relative to the zeros.
+
+\subsection{The edge lag at $T=1000$}
+
+At $T=1000$ both $a=5$ and $a=6$ give $648$ sign changes against $N(1000)=649$. The last zero is $\gamma_{649}=999.79$, $0.3$ below the top of the range. Extending the computation at $a=6$ to $t\le1004$ the next sign changes occur between consecutive $t_m$ at $(1000.85,1000.92)$, $(1002.07,1002.14)$ and $(1003.36,1003.44)$, for the zeros $999.79$, $1001.35$ and $1002.40$ (computed), and $\gamma_{652}=1003.27$ again falls inside the lag at the new edge; the note gives the sign changes at $1000.89$, $1002.11$, $1003.40$, which are inside these intervals. So the sign changes trail the zeros by about one unit at this height, and the count has to be read on $[0,T-\delta]$ with a lag $\delta(a,T)$. The note adds that at low height the turning points sit slightly below the zeros and at $T=1000$ slightly above, so that $\delta$ changes sign with height; this is an observation that Theorem~\ref{tr:thm:herm} does not yet explain.
+
+\begin{proposition}[What a verified count proves]\label{tr:prop:verified}
+Let $\widetilde b_m/A_m$ be computed values of the normalised coefficients with rigorous errors $e_m$, and let $E_m$ be a rigorous bound for $|b_m/A_m-\Xi(t_m)|$ (for example $M_4(a_0)a^4/12$ from Theorem~\ref{tr:thm:herm}). If $|\widetilde b_m/A_m|>e_m+E_m$ then $\operatorname{sgn}\widetilde b_m=\operatorname{sgn}\Xi(t_m)$. Suppose there are $S$ sign changes at pairs of adjacent sampling points below $T$, all with this property. Then $\Xi$ has $S$ zeros in disjoint intervals, and if an independent rigorous method gives $N(T)\le S$, where $N(T)$ is the number of zeros $t$ of $\Xi$ with $0<\Re t<T$, counted with multiplicity (Turing's method, Section~\ref{sec:ch5:turing}), all those zeros are real and simple.
+\end{proposition}
+
+\begin{proof}
+The triangle inequality transfers the signs, the intermediate value theorem gives one zero of $\Xi$ in each of the $S$ disjoint intervals between adjacent sampling points, and the upper bound, counted with multiplicity, leaves no room for another zero or a multiple zero.
+\end{proof}
+
+A sign change of $b_m$ certifies nothing by itself, because $b_m$ is an integral of $\Xi$ and not a value. The chain of the note, a rigorous version of the asymptotic, a lower bound for $|\Xi|$ at the sampling points and Turing's method, is Proposition~\ref{tr:prop:verified} with Theorem~\ref{tr:thm:herm} supplying the first step with explicit constants; the sampling values that are zero or uncertain must be enclosed separately. High working precision and agreement after halving the step are diagnostics, not these inequalities, so the counts of Table~\ref{tr:tab:count} are computed and not verified.
+
+\section{The best scale and the run lengths}\label{tr:sec:scale}
+
+Two quantities compete. The grid $t_m(a)$ has spacing $dt_m/dm=2a^2/t_m$ (exactly $4a^2/(t_{m+1}+t_m)$ between neighbours), so a small $a$ resolves close zeros; the number of coefficients is $M=T^2/(4a^2)+1$, so a large $a$ is cheap. The note says that the binding constraint is not resolution, because at the largest successful scale the grid spacing is only $0.12$ to $0.17$ of the mean gap $2\pi/\log(T/2\pi)$. The recomputed ratios of $2a^2/T$ to the mean gap are $0.22$ ($T=100$, $a=5$), $0.14$ ($T=200$, $a=5$), $0.10$ ($T=500$, $a=6$) and $0.06$ ($T=1000$, $a=6$) (computed), so the note's range is not reproduced; and the inference does not follow in any case, since two zeros arbitrarily close together can fit between two sampling points whatever the mean gap (the function $(t-c)^2-\varepsilon^2$ is positive at both ends of a grid interval for small $\varepsilon$). The tables alone do not separate a missed grid crossing from a distortion of the asymptotic; what is observed is that the counts fall short above $a\approx5$ to $6$ and that the usable threshold rises slowly with $T$, from at least $5$ at $T=100$ to between $6$ and $7$ at $T=500$. With $a$ near the threshold there are about $6.5$ coefficients per zero at $T=500$ and $10.7$ at $T=1000$ ($1736/269$ and $6945/649$), each costing $O(T)$ nodes at $0.34\,T$ digits. As a verification method this is far slower than Odlyzko and Sch\"onhage \cite{OS88}; its value is structural, since every quantity is an explicit integral of the positive kernel $\Phi$.
+
+The note also reads the sign pattern through Good and Gaskins \cite{GoodGaskins80}: with $\Xi(t)=-\frac12(t^2+\frac14)\pi^{-1/4}|\Gamma(\frac14+\frac{it}2)|Z(t)$ for the Hardy function $Z$ and the Riemann Siegel phase $\vartheta'(t)=\frac12\log(t/2\pi)+O(t^{-2})$, the sign of $b_m$ would rotate by $\theta_m=\vartheta'(t_m)\,dt_m/dm=a^2\log(t_m/2\pi)/t_m$ per step in $m$, an effective complex ratio, with mean sign run $\pi/\theta_m=\pi t/(a^2\log(t/2\pi))$. The rotation law is not derived: the real function $Z$ is not determined by its phase derivative, no recurrence or complex ratio for $b_m$ has been derived, and Theorem~\ref{tr:thm:herm} is an asymptotic at bounded height as $a\to0$ and does not apply at fixed $a=4$ and increasing height (the attribution to Good and Gaskins is the note's and was not checked).
+% UNCHECKED: Good and Gaskins 1980, attribution of the effective complex ratio is the source's and was not checked.
+What can be said is an averaged statement.
+
+\begin{proposition}[Average run length]\label{tr:prop:run}
+Let $N(T)$ count the zeros $t$ of $\Xi$ with $0<\Re t<T$, with multiplicity. Assume the zeros $t$ of $\Xi$ with $T\le\Re t\le T+H$ are real and simple and that the sign changes of $(b_m(a))$ with $t_m\in[T,T+H]$ correspond one to one to them. Then the mean number of coefficient steps per sign change is the number $TH/(2a^2)+O(H^2/a^2+1)$ of grid points in the window divided by $N(T+H)-N(T)=\frac{H}{2\pi}\log\frac T{2\pi}+O(H^2/T+\log T)$, and for fixed $a$, $H\to\infty$ and $H=o(T)$ the ratio is asymptotic to $\pi T/(a^2\log(T/2\pi))$.
+\end{proposition}
+
+This is the conditional average that Table~\ref{tr:tab:run} tests. The predicted values $\pi t/(a^2\log(t/2\pi))$ at the window midpoints $60,100,140,180$ and $a=4$ are $5.22$, $7.10$, $8.86$, $10.53$ (computed, arithmetic). The note's observed values $5.29$, $7.19$, $8.89$, $10.50$ were not reproduced, because "mean run" is not defined in the note (edge blocks, which window); with the number of indices in the window divided by the number of sign blocks at $T=200$, $a=4$, the observed values are $5.00$, $6.94$, $8.33$, $10.23$ (computed). They are consistent with the average and do not support the rotation law.
+
+\begin{table}[h]\centering\small
+\fitwidth{\begin{tabular}{lcccc}
+\toprule
+window in $t$ ($a=4$) & $40$ to $80$ & $80$ to $120$ & $120$ to $160$ & $160$ to $200$\\
+\midrule
+predicted $\pi t/(a^2\log(t/2\pi))$ & $5.22$ & $7.10$ & $8.86$ & $10.53$\\
+observed mean run (indices over sign blocks) & $5.00$ & $6.94$ & $8.33$ & $10.23$\\
+\bottomrule
+\end{tabular}}
+\caption{Mean sign runs of $b_m(4)$ (computed).}\label{tr:tab:run}
+\end{table}
+
+\section{The Thorin shadow}\label{tr:sec:shadow}
+
+The note concludes that, by the turning point asymptotic, Hermite coefficients of a real even function sample the function at the points $a\sqrt{4m+1}$, so that sign definiteness of the coefficients is asymptotically equivalent to positivity of the function on the real line, and that a Thorin or GGC positivity statement for the reciprocal kernel has a Hermite form that is no stronger and no weaker. This does not follow, and the sentence is not true as stated. Let $f(t)=(\sin t/t)^2$, which is even, entire and nonnegative on the real axis, with $f(t)=\frac14\int_{-2}^2(2-|u|)e^{itu}du$ and a nonnegative compactly supported kernel. The proof of Theorem~\ref{tr:thm:herm} applies to it. At $t=\pi$ one has $f'(\pi)=0$, $f''(\pi)=2/\pi^2$, $f'''(\pi)=-12/\pi^3$, so $Q_f(\pi)=-5/(2\pi^4)<0$, and along $a=\pi/\sqrt{4m+1}$ the normalised coefficient is $a^4Q_f(\pi)+O(a^8)<0$ for all large $m$: a nonnegative function can have negative small scale Hermite coefficients at every large $m$ along that sequence (proved). The correct statements are two. For a kernel of the class above, if $\Xi$ (or any function of the class) is strictly positive on a compact interval, then every coefficient with $t_m$ in the interval is positive once $a$ is small (the positive minimum and the additive error, with $A_m>0$). Conversely, if all these coefficients are nonnegative for every small $a$, the function is nonnegative on the interval (choose grid points converging to any $t$ and pass to the limit in the normalised formula; at $t=0$ use $m=0$). Neither characterises the Thorin or GGC property of a reciprocal kernel. The Hermite coefficients add computability, and no result that says more is known here.
+
+\section{Notes and open problems}\label{tr:sec:trnotes}
+
+The two halves of this chapter develop two notes of Nick Polson \cite{P26trunc,P26hermite}; the definitions of the second were supplied by the book, the drift law of the first was restated with the matching hypothesis, and the saddle point statement of the second was replaced by Theorem~\ref{tr:thm:herm}, whose proof is the Volterra argument above. The scripts are \texttt{code/tr\_zeros.py} (the zeros of $L(s,\chi_4)$ below height $500$, the Gram offsets and the numbers $\delta_m$), \texttt{code/tr\_drift.py}, \texttt{code/tr\_counts.py}, \texttt{code/tr\_hermite.py}, and the logs in \texttt{data/tr\_*.json} and \texttt{data/tr\_*.log}; they are listed in \texttt{code/README.md}. Everything computed here is numerical, and nothing is certified in ball arithmetic. The Lehmer pair near $t=7005$ that the note mentions consists of the zeros $6709$ and $6710$ at $7005.062866$ and $7005.100565$, a gap of $0.0377$ (computed).
+
+\begin{problem}\label{tr:prob:explicit}
+Evaluate the constants of Theorem~\ref{tr:thm:herm} explicitly (the moments $M_4(a_0)$ and $M_8(a_0)$ and a bound for $Q$) and use Proposition~\ref{tr:prop:verified} with Turing's method to count the zeros of $\Xi$ up to a given height from the coefficients alone, including the edge lag $\delta(a,T)$.
+\end{problem}
+
+\begin{problem}\label{tr:prob:amp}
+Explain the distortion of the counts at large $a$, and find a modified coefficient sequence, perhaps with $e^{z^2/2}$ replaced by another multiplier in Theorem~\ref{tr:thm:heat}, that keeps the count exact at larger $a$ and so cuts the number $M=T^2/(4a^2)$ of coefficients.
+\end{problem}
+
+\begin{problem}\label{tr:prob:lehmer}
+Push the count to $T=2000$ and to the Lehmer pair near $t=7005$, where a sign change count is the natural place for a close pair to hide.
+\end{problem}
+
+\begin{problem}\label{tr:prob:shadow}
+Find a Hermite statement that is equivalent to a Thorin or GGC positivity property of the reciprocal kernel, or show that none exists, given that sign definiteness of the Hermite coefficients is not equivalent to positivity of the function (the example $(\sin t/t)^2$).
+\end{problem}

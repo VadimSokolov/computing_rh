@@ -44,7 +44,13 @@ For $\alpha>1$, $\re\frac{\zeta'}{\zeta}(\alpha+ir)-\frac{\zeta'}{\zeta}(\alpha)
 
 As $\alpha\downarrow1$ the deficit of the bracket comes from the pole term, $\re\frac{1}{\alpha-1+ir}-\frac{1}{\alpha-1}\sim-\frac1{\alpha-1}$ for fixed $r\ne0$, and the prime sum compensates it because $-\frac{\zeta'}{\zeta}(\alpha)\sim\frac1{\alpha-1}$. Grouping $\frac1{s-1}$ with $\frac{\zeta'}{\zeta}(s)$, which is holomorphic on $\re s\ge1$ by the prime number theorem, both pieces stay finite at $\alpha=1$. Below $1$ the Dirichlet series is gone and \eqref{pol:eq:primes} has no direct analogue; this is the wall that Proposition~\ref{bp:prop:valpha} meets at $\alpha=1$.
 
-
+\begin{remark}[The pole needs the gamma factor]\label{pol:rem:pole}
+The gamma terms of the archimedean bracket of \eqref{pol:eq:primes} cannot be dropped while its pole term is kept \cite{PolsonRXi26}. Let $f(s)=(s-1)\zeta(s)$, a real entire function with no zeros in $\re s\ge1$. For every $\alpha>1$ the compensated reciprocal $e^{w\frac{f'}f(\alpha)}f(\alpha)/f(\alpha+w)$ is not the Laplace transform in $u=w^2/2$ of a GGC. By Theorem~\ref{pol:thm:exactlemma}, whose hypotheses $f$ satisfies, and the uniqueness of the Stieltjes representation, it would be one only if
+\[
+D^f_\alpha(r)=\re\frac{f'}f(\alpha+ir)-\frac{f'}f(\alpha)=\sum_{n\ge2}\frac{\Lambda(n)}{n^\alpha}\,2\sin^2\Bigl(\frac{r\log n}2\Bigr)-q_{\alpha-1}(r)
+\]
+were nonnegative for every $r$. But the mean of $D^f_\alpha$ over $[0,R]$ tends to $\sum_n\Lambda(n)n^{-\alpha}-\frac1{\alpha-1}=-\frac{f'}f(\alpha)$ as $R\to\infty$, because the prime series converges absolutely, the mean of $\cos(r\log n)$ over $[0,R]$ is at most $1/(R\log2)$ in absolute value, and $q_{\alpha-1}(r)\to\frac1{\alpha-1}$; and $\frac{f'}f(\alpha)>0$. Indeed $\Gamma(\alpha)\zeta(\alpha)=\int_0^\infty x^{\alpha-1}(e^x-1)^{-1}dx$ gives $f(\alpha)=\E h(G_{\alpha-1})$, with $h(x)=x/(1-e^{-x})=x+x/(e^x-1)$ and $G_{\alpha-1}$ a Gamma variable of shape $\alpha-1$; since $h'\ge\frac12$ and $G_{\alpha-1+\varepsilon}$ is $G_{\alpha-1}$ plus an independent Gamma variable of mean $\varepsilon$, $f'(\alpha)\ge\frac12$. So $D^f_\alpha$ is negative somewhere. The primes are bounded on average while the pole term tends to $-\frac1{\alpha-1}$; in $\xi$ the gamma terms $\sum_{k\ge1}q_{\alpha+2k}(r)$, which grow like $\frac12\log r$, pay for it, and one prime at a time is harmless (Remark~\ref{ht:rem:blocks}).
+\end{remark}
 
 \begin{proposition}\label{pol:prop:comp}
 If $\re\frac{\xi'}{\xi}(\alpha+ir)\ge b_\alpha$ for all real $r$ and every $\alpha>\alpha_0\ge\frac12$, then no zero of $\zeta$ has real part greater than $\alpha_0$. For $\alpha_0=\frac12$ it implies RH.

@@ -1,0 +1,145 @@
+\ifdefined\conjecture\else\theoremstyle{sc}\newtheorem{conjecture}[theorem]{Conjecture}\theoremstyle{scr}\fi
+\section{Two arithmetic spin chains}\label{ch:fmchain}
+
+In this section $\beta=\sigma+it$ is a complex inverse temperature, $s(n)$ is Stern's diatomic sequence, given by $s(1)=1$, $s(2n)=s(n)$ and $s(2n+1)=s(n)+s(n+1)$ \cite{Stern1858}, and $\mu$ and $\varphi$ are the M\"obius and Euler functions ($\varphi$ is Euler's function here, not the characteristic function $\varphi_X$ of Definition~\ref{fm:def:ferro}). Knauf's number theoretical spin chain \cite{Knauf93,Knauf98} has, at length $N$, $2^N$ configurations, whose energies are the numbers $\log s(k)$, $2^N\le k<2^{N+1}$. Its partition function is therefore
+\begin{equation}\label{fm:eq:knauf}
+Z_N(\beta)=\sum_{k=2^N}^{2^{N+1}-1}s(k)^{-\beta}=\sum_{m\ge1}c_N(m)\,m^{-\beta},
+\end{equation}
+where $c_N(m)$ is the number of times $m$ occurs in the row $s(2^N),\dots,s(2^{N+1}-1)$. Knauf proved that the chain is ferromagnetic, in the sense that minus its energy, expanded in products of the spins, has nonnegative coefficients apart from the constant term, and that its interactions are many body \cite{Knauf93}; Contucci and Knauf proved that it has a phase transition at $\beta=2$ \cite{ContucciKnauf97}. Section~\ref{fm:sec:farey} turns to a second chain, of Kleban and \"Ozl\"uk, in a magnetic field. This section follows a note of Nicholas Polson merged into the book \cite{P26fchap}.
+
+\subsection{Knauf's chain and the Stern row}\label{fm:sec:stern}
+
+\begin{proposition}\label{fm:prop:stern}
+\begin{enumerate}
+\item[(i)] $c_N(1)=1$, and for $m\ge2$, $c_N(m)$ is the number of coprime pairs $(p,q)$ of positive integers with $p+q=m$ for which $p/q$ has depth at most $N-1$ in the Calkin Wilf tree. Hence $c_N(m)$ does not decrease with $N$, $c_N(m)=\varphi(m)$ for $m\le N+1$, $c_N(m)=0$ for $m>F_{N+2}$, where $F_n$ are the Fibonacci numbers, $F_1=F_2=1$, and $c_N(m)\to\varphi(m)$ as $N\to\infty$.
+\item[(ii)] $Z_N(\beta)\to\zeta(\beta-1)/\zeta(\beta)$ as $N\to\infty$ for $\re\beta>2$, increasingly for real $\beta>2$.
+\item[(iii)] $Z_N(-1)=\sum_mm\,c_N(m)=3^N$.
+\end{enumerate}
+\end{proposition}
+
+Part (ii) is due to Knauf \cite{Knauf93}. The proof below goes through the enumeration of the positive rationals by Calkin and Wilf \cite{CalkinWilf00}.
+
+\begin{proof}
+The Calkin Wilf tree has the root $1/1$, and the children of $p/q$ are $p/(p+q)$ and $(p+q)/q$. Read level by level it lists the fractions $s(k)/s(k+1)$, $k\ge1$, those at depth $j$ being those with $2^j\le k<2^{j+1}$, and every positive rational occurs in it exactly once, in lowest terms \cite{CalkinWilf00}. Since $s(2k)=s(k)$ and $s(2k+1)=s(k)+s(k+1)$, row $N+1$ consists of row $N$, at its even places, and of the sums $p+q$ over the fractions $p/q$ at depth $N$, at its odd places. Row $0$ is $\{1\}$, so by induction row $N$ consists of $1$ and of one entry $p+q$ for each fraction $p/q$ at depth at most $N-1$. The coprime pairs with $p+q=m\ge2$ are the pairs $(p,m-p)$ with $p$ prime to $m$; there are $\varphi(m)$ of them, each at one depth. Passing from $p/q$ to a child adds $p$ or $q$ to $p+q$, so a fraction at depth $j$ has $j+2\le p+q\le F_{j+3}$, the upper bound by induction together with $\max(p,q)\le F_{j+2}$. Hence every pair with $p+q=m\le N+1$ has depth at most $m-2\le N-1$, and no fraction at depth at most $N-1$ has $p+q>F_{N+2}$. This proves (i). Part (ii) follows from (i) by monotone convergence for real $\beta$ and by dominated convergence for complex $\beta$, since $\sum_m\varphi(m)m^{-\beta}=\zeta(\beta-1)/\zeta(\beta)$ converges absolutely for $\re\beta>2$. For (iii), let $S_N$ be the sum of row $N$. Then $S_{N+1}=S_N+\sum_{k=2^N}^{2^{N+1}-1}\big(s(k)+s(k+1)\big)=3S_N$, because $s(2^N)=s(2^{N+1})=1$, and $S_0=1$.
+\end{proof}
+
+The finite statements of (i) and (iii) were also checked with exact integers for every $N\le34$, and the depth count of (i) against Euclid's algorithm for $m\le800$ (computed; \texttt{fc\_stern.py}). The continuation of $\zeta(\beta-1)/\zeta(\beta)$ vanishes at the points $1+\rho$, for the nontrivial zeros $\rho$ of $\zeta$, at $\beta=1$ and at $\beta=1-2k$, $k\ge1$. The series $\sum_m\varphi(m)m^{-\beta}$ diverges on the strip $1<\re\beta<2$, which contains the points $1+\rho$, but the finite sums $Z_N$ have zeros close to them (Section~\ref{fm:sec:perron}). As in statistical mechanics, zeros of a partition function in the complex inverse temperature are called Fisher zeros.
+
+\subsection{The Perron identity}\label{fm:sec:perron}
+
+Let $w_N(x)=c_N(m)/\varphi(m)$ for $m\le x<m+1$, $m\ge1$, and $w_N(x)=1$ for $0<x<1$. By Proposition~\ref{fm:prop:stern}(i) this depth profile equals $1$ on $(0,N+2)$ and $0$ on $[F_{N+2}+1,\infty)$, so its Mellin transform $W_N(z)=\int_0^\infty w_N(x)x^{z-1}\,dx$, defined for $\re z>0$, is $1/z$ plus an entire function.
+
+\begin{proposition}\label{fm:prop:perron}
+For $\re\beta>1$, $\beta\ne2$,
+\[
+Z_N(\beta)=\frac{\zeta(\beta-1)}{\zeta(\beta)}+\frac{W_N(2-\beta)}{\zeta(2)}+R_N(\beta),\qquad R_N(\beta)=\sum_{d\ge1}\mu(d)d^{-\beta}r_d(\beta),
+\]
+where $r_d(\beta)=\sum_{n\ge1}n^{1-\beta}w_N(dn)-\zeta(\beta-1)-d^{\beta-2}W_N(2-\beta)$, and the series converges absolutely. $R_N$ extends analytically to $\beta=2$, and $C_N(\beta)=Z_N(\beta)-W_N(2-\beta)/\zeta(2)$ is meromorphic on the plane with a single pole, at $\beta=2$, which is simple with residue $1/\zeta(2)$.
+\end{proposition}
+
+\begin{proof}
+Since $\varphi(m)=\sum_{d\mid m}\mu(d)\,m/d$ and $c_N(m)=\varphi(m)w_N(m)$ vanishes for $m>F_{N+2}$,
+\[
+Z_N(\beta)=\sum_m\varphi(m)w_N(m)m^{-\beta}=\sum_{d\ge1}\mu(d)d^{-\beta}\sum_{n\ge1}n^{1-\beta}w_N(dn),
+\]
+a finite sum. For $\re\beta>1$ the series $\sum_d\mu(d)d^{-\beta}=1/\zeta(\beta)$ and $\sum_d\mu(d)d^{-2}=1/\zeta(2)$ converge absolutely, and $r_d(\beta)=-\zeta(\beta-1)-d^{\beta-2}W_N(2-\beta)$ for $d>F_{N+2}$, so the series for $R_N$ converges absolutely, and inserting the definition of $r_d$ gives the identity. $Z_N$ is entire, and $W_N(2-\beta)$ is analytic except for a simple pole at $\beta=2$ with residue $-1$, which gives the statement on $C_N$. The main term $\zeta(\beta-1)/\zeta(\beta)$ has a simple pole at $\beta=2$ with residue $1/\zeta(2)$, so the poles of the two main terms cancel and $R_N$ extends analytically to $\beta=2$.
+\end{proof}
+
+The proposition holds for every $N$, and its content is the form of $R_N$. For $1<\re\beta<2$, $d^{\beta-2}W_N(2-\beta)=\int_0^\infty w_N(dx)x^{1-\beta}\,dx$, so $r_d(\beta)$ is the error made in replacing the sum $\sum_nn^{1-\beta}w_N(dn)$ by the corresponding integral, less the value $\zeta(\beta-1)$ of the same difference for $w_N\equiv1$ (the limit of the truncated differences): an Euler Maclaurin remainder. Heuristically $R_N$ is small when the depth profile is regular on the scale of the integers. The two main terms are the residues that a smooth cutoff produces (Remark~\ref{fm:rem:neutral}(i)).
+
+On the line $\re\beta=\frac32$ the profile term $W_N(2-\beta)/\zeta(2)$ grows with $N$ at small heights and accounts there for almost all of $Z_N-\zeta(\beta-1)/\zeta(\beta)$ (Table~\ref{fm:tab:perron}): at the tabulated points with $t\le2$ the two moduli agree to within 3 percent. The profile term falls below $|\zeta(\beta-1)/\zeta(\beta)|$ at a height $t_N$ between $2.1$ and $2.5$ for $10\le N\le24$ (first crossing on a grid of step $0.02$). At the first twenty points $1+\rho_n$ the mean of $|R_N|$ is $0.081$ at $N=12$ and $0.010$ at $N=34$, with maxima $0.22$ and $0.026$. A power fit over $12\le N\le34$ gives the exponent $-1.82$, but the data fix no law: the exponent is $-1.69$ over $12\le N\le24$ and $-2.23$ over $24\le N\le34$. These values are computed in double precision from the exact counts $c_N(m)$ (\texttt{fc\_perron.py}); the double precision sums agree with ball arithmetic at 128 bits to $2\times10^{-11}$ (seven values of $N$ up to $26$).
+
+\begin{table}[t]
+\centering\small
+\begin{tabular}{rcccc}
+\toprule
+$t$ & $N=16$ & $N=24$ & $N=32$ & $|\zeta(\beta-1)/\zeta(\beta)|$\\
+\midrule
+$0.3$ & $15.0197\,/\,14.9781$ & $43.7060\,/\,43.7165$ & $126.5819\,/\,126.5812$ & $0.5617$\\
+$1$ & $4.7475\,/\,4.7440$ & $10.6377\,/\,10.6446$ & $23.8043\,/\,23.7874$ & $0.5873$\\
+$2$ & $1.0789\,/\,1.0509$ & $1.4826\,/\,1.5005$ & $2.0082\,/\,2.0524$ & $0.6557$\\
+$5$ & $0.0938\,/\,0.1117$ & $0.0446\,/\,0.0652$ & $0.0376\,/\,0.0503$ & $0.9003$\\
+$10$ & $0.0660\,/\,0.0812$ & $0.0762\,/\,0.0805$ & $0.0415\,/\,0.0462$ & $1.2084$\\
+\bottomrule
+\end{tabular}
+\caption{Knauf's chain on the line $\re\beta=\frac32$, at $\beta=\frac32+it$. Each entry is $|Z_N(\beta)-\zeta(\beta-1)/\zeta(\beta)|$ followed, after a slash, by the profile term $|W_N(2-\beta)|/\zeta(2)$; computed.}
+\label{fm:tab:perron}
+\end{table}
+
+\begin{resultpar}\label{fm:res:fisher}For every even $N$ from $10$ to $34$ and every $n\le20$, the disc of radius $0.3$ about $1+\rho_n$ contains exactly one zero of $Z_N$ and exactly one zero of the corrected sum $C_N$ of Proposition~\ref{fm:prop:perron}, found by Newton's method from $1+\rho_n$ (the winding number on the circle, sampled; computed, not a ball proof); the largest distance of any of these zeros from $1+\rho_n$ is $0.243$. Table~\ref{fm:tab:fisher} gives the mean distance of these zeros from $1+\rho_n$. Removing the profile term does not bring the zeros consistently closer: the mean distance is smaller for $C_N$ only at $N=14$ and at every computed $N$ from $24$ on, and larger at the other $N\le22$. At $N=34$ the correction brings $12$ of the twenty zeros closer, $14$ zeros of $C_N$ lie within $0.005$ of $1+\rho_n$ against $9$ of $Z_N$, and the largest distances are $0.011$ for $C_N$ and $0.021$ for $Z_N$. At the points $1+\rho_n$, where $\zeta(\beta-1)/\zeta(\beta)$ vanishes, the means of $|Z_N|$ and of the profile term at $N=34$ are $0.016$ and $0.021$, against the mean $0.010$ of $|R_N|$ given above: there the profile term and $R_N$ are of the same size and partly cancel, and removing the profile term lowers the mean error from $0.016$ to $0.010$. So the profile term is the systematic error of $Z_N$ at small heights, where it dominates, and at $N=34$ it is part of the error at the points $1+\rho_n$ too (computed, \texttt{fc\_fisher.py}; the means at $N=34$ and the windings for $N=30$ to $34$, \texttt{fc\_extra.py}).\end{resultpar}
+
+\begin{table}[t]
+\centering\small
+\begin{tabular}{lcccccccc}
+\toprule
+$N$ & $10$ & $14$ & $18$ & $22$ & $24$ & $26$ & $30$ & $34$\\
+\midrule
+$Z_N$ & $0.0676$ & $0.0304$ & $0.0148$ & $0.0107$ & $0.0114$ & $0.0094$ & $0.0076$ & $0.0081$\\
+$C_N$ & $0.0693$ & $0.0280$ & $0.0186$ & $0.0121$ & $0.0103$ & $0.0092$ & $0.0065$ & $0.0047$\\
+\bottomrule
+\end{tabular}
+\caption{Mean distance from $1+\rho_n$, over $n\le20$, of the zero of Knauf's partition function $Z_N$ and of the zero of the corrected sum $C_N$ in the disc of radius $0.3$ about $1+\rho_n$; computed.}
+\label{fm:tab:fisher}
+\end{table}
+
+\begin{conjecture}\label{fm:conj:R}
+There is an open strip $\sigma_1<\re\beta<\sigma_2$, with $1\le\sigma_1<\frac32<\sigma_2\le2$, on which $R_N\to0$ locally uniformly as $N\to\infty$.
+\end{conjecture}
+
+If the conjecture holds, then $C_N=\zeta(\beta-1)/\zeta(\beta)+R_N$ converges to $\zeta(\beta-1)/\zeta(\beta)$ locally uniformly on the strip, and by Hurwitz's theorem every point $1+\rho$ in the strip is the limit of exactly as many zeros of $C_N$, counted with multiplicity, as its multiplicity as a zero of $\zeta(\beta-1)$, and every limit point of zeros of $C_N$ in the strip is such a point (conditional). The computations support the conjecture only at the twenty points $1+\rho_n$ of the line $\re\beta=\frac32$; at $\beta=\frac32+2i$ the value of $|R_N|$ lies between $0.021$ and $0.051$ for every $N$ from $10$ to $34$, with no decrease (computed, \texttt{fc\_perron.py}).
+
+\begin{remark}\label{fm:rem:neutral}
+(i) For a smooth cutoff the analogue of Conjecture~\ref{fm:conj:R} is a theorem, and its main terms do not depend on the zeros of $\zeta$. Let $\Sigma_Y(\beta)=\sum_m\varphi(m)e^{-m^2/Y^2}m^{-\beta}$, whose cutoff $e^{-x^2}$ has the Mellin transform $W(z)=\frac12\Gamma(\frac z2)$. For every $\delta>0$, as $Y\to\infty$,
+\[
+\Sigma_Y(\beta)-\frac{Y^{2-\beta}W(2-\beta)}{\zeta(2)}=\frac{\zeta(\beta-1)}{\zeta(\beta)}+O\big(Y^{1+\delta-\re\beta}\big),
+\]
+uniformly on compact subsets of the strip $1+\delta<\re\beta<3$ without the point $2$. Indeed, $\Sigma_Y(\beta)=\frac1{2\pi i}\int_{(c)}\frac{\zeta(\beta+z-1)}{\zeta(\beta+z)}Y^zW(z)\,dz$ for $c>\max(0,2-\re\beta)$. Moving the line of integration to $\re(\beta+z)=1+\delta$ crosses the poles at $z=0$ and $z=2-\beta$, with residues $\zeta(\beta-1)/\zeta(\beta)$ and $Y^{2-\beta}W(2-\beta)/\zeta(2)$ (no other pole of $W$ is crossed for $\re\beta<3$); on the new line $|1/\zeta(\beta+z)|\le\zeta(1+\delta)$, $\zeta(\beta+z-1)$ grows at most polynomially in $|\mathrm{Im}\,z|$, and $W(z)$ decays exponentially.
+
+(ii) Hence the consequence of Conjecture~\ref{fm:conj:R} does not decide RH. If it holds, the zeros of $C_N$ in the strip converge to the points $1+\rho$ in it whether or not $\re\rho=\frac12$, and by (i) the two terms removed from $Z_N$ are those that a regular cutoff produces whatever the zeros. The conjecture is a statement about the regularity of the depth profile.
+
+(iii) A statement that would imply RH concerns the zeros of $\zeta(\beta)$, which are poles of $\zeta(\beta-1)/\zeta(\beta)$: if $C_N$ converges locally uniformly on the half plane $\re\beta>\frac12$ with the point $2$ removed, then RH holds. The limit is analytic there, by Weierstrass's theorem, and it equals $\zeta(\beta-1)/\zeta(\beta)$ on $\re\beta>2$, by Proposition~\ref{fm:prop:stern}(ii) and because $W_N(2-\beta)\to0$ there: for $\re z<0$, $W_N(z)=1/z+\int_1^\infty w_N(x)x^{z-1}\,dx\to1/z-1/z$ by dominated convergence, as $w_N\uparrow1$. So $\zeta(\beta-1)/\zeta(\beta)$ would continue analytically to the half plane without the point $2$, while a zero $\rho$ of $\zeta$ with $\re\rho>\frac12$ is a pole of it, because $\zeta(\rho-1)\ne0$, as $-\frac12<\re(\rho-1)<0$. The hypothesis of this implication, the convergence of $C_N$ on the half plane, is open. For the smooth cutoff of (i), whose term $Y^{2-\beta}W(2-\beta)$ has further poles at $\beta=4,6,\dots$, the corresponding convergence on the strip $\frac12<\re\beta<\frac52$ without the point $2$ holds if and only if RH holds: under RH the line in (i) can be moved to $\re(\beta+z)=\frac12+\delta$, where $1/\zeta(\beta+z)=O(|\mathrm{Im}\,z|^{\delta})$ \cite[Section~14.2]{Titchmarsh}. That version therefore restates RH, as the convergence of $\sum_n\mu(n)n^{-s}$ on $\re s>\frac12$ does \cite[Section~14.25]{Titchmarsh}.
+\end{remark}
+
+\subsection{The Farey chain in a field}\label{fm:sec:farey}
+
+Kleban and \"Ozl\"uk introduced a second chain \cite{KlebanOzluk99}. Its configurations are the words $\varpi_1\cdots\varpi_N$ in the letters $A=\begin{pmatrix}1&0\\1&1\end{pmatrix}$ and $B=A^{\mathsf T}$, and the energy of a word is $\log\operatorname{tr}(\varpi_1\cdots\varpi_N)$. Its free energy equals that of Knauf's chain \cite{FialaKO03}, so it has the same transition at $\beta=2$, and it is fully magnetised for $\beta>2$ \cite{ContucciKK99}. Conjugation by $\Pi=\begin{pmatrix}0&1\\1&0\end{pmatrix}$ exchanges $A$ and $B$, so the energy does not change when the two letters are exchanged, which is the flip of all spins; Knauf's chain has a single ground state, $s(k)=1$ only at $k=2^N$, and no such symmetry. In a field $x=e^h$ the partition function of the Farey chain is
+\[
+Z^{\rm F}_N(\beta,x)=\sum_{\varpi_1,\dots,\varpi_N\in\{A,B\}}\big(\operatorname{tr}\varpi_1\cdots\varpi_N\big)^{-\beta}x^{n_B},
+\]
+where $n_B$ is the number of letters $B$ in the word. It is a polynomial of degree $N$ in $x$ with positive coefficients, palindromic by the symmetry. Under the Gibbs law at zero field the centred magnetisation $n_B-\frac N2$ is bounded and symmetric, with moment generating function $e^{-Nz/2}Z^{\rm F}_N(\beta,e^z)/Z^{\rm F}_N(\beta,1)$, so it is ferromagnetic in the sense of Definition~\ref{fm:def:ferro} exactly when every zero of $x\mapsto Z^{\rm F}_N(\beta,x)$ lies on the unit circle. We then say that the chain has the Lee and Yang property at $(\beta,N)$.
+
+\begin{lemma}\label{fm:lem:circle}
+Let $P(x)=1+x^N+Q(x)$ with $Q(x)=\sum_{k=1}^{N-1}a_kx^k$ and $a_k=a_{N-k}\ge0$. If $Q(1)<2$, the zeros of $P$ are simple and lie on the unit circle.
+\end{lemma}
+
+\begin{proof}
+For real $\theta$, $g(\theta)=e^{-iN\theta/2}P(e^{i\theta})=2\cos\frac{N\theta}2+\sum_ka_k\cos\big((k-\tfrac N2)\theta\big)$ is real, and the sum has modulus at most $Q(1)<2$. So $g(2\pi j/N)$ has the sign of $(-1)^j$ for $j=0,1,\dots,N$, and $g$ has at least $N$ zeros in $(0,2\pi)$. They give $N$ distinct zeros $e^{i\theta}$ of $P$, which has degree $N$.
+\end{proof}
+
+For the Farey chain the words $A^N$ and $B^N$ have trace $2$. Every other word contains both letters, so it is a matrix with positive integer entries and determinant $1$, whose diagonal entries $a$ and $d$ satisfy $ad=1+bc\ge2$, and its trace is at least $3$. Hence $Z^{\rm F}_N(\beta,x)=2^{-\beta}\big(1+x^N+Q_{N,\beta}(x)\big)$, where $Q_{N,\beta}(1)=\sum(2/\operatorname{tr}\varpi_1\cdots\varpi_N)^\beta$ over the other words decreases strictly in $\beta$, and Lemma~\ref{fm:lem:circle} gives the Lee and Yang property at $(\beta,N)$ for every $\beta>\beta^*(N)$, where $\beta^*(N)$ is the root of $2^\beta Z^{\rm F}_N(\beta,1)=4$.
+
+\begin{resultpar}\label{fm:res:ly}The computation finds, for the even $N$ from $10$ to $36$, a threshold $\beta_{\rm LY}(N)$ such that the Lee and Yang property holds at every computed $\beta\ge\beta_{\rm LY}(N)$ and fails at every computed $\beta$ with $0<\beta<\beta_{\rm LY}(N)$ (grid of step $0.1$ on $0.2\le\beta\le4$, one transition at every $N$, then bisection; for $N\le32$ the bracket of width $3\times10^{-11}$ is certified by a Sturm count in ball arithmetic at 400 bits, for $N=34,36$ it is a double precision bisection; \texttt{fc\_ly.py}, and \texttt{fc\_extra.py} for $\beta^*(N)$); at $\beta=0$ it holds trivially, since $Z^{\rm F}_N(0,x)=(1+x)^N$. At the threshold four zeros meet on the circle as two double zeros $e^{\pm i\theta_N}$, and just below it they leave the circle as a quartet $e^{\pm u\pm i\theta}$. The threshold rises with $N$, from $1.2424$ at $N=10$ to $1.8329$ at $N=36$ (computed; \texttt{fc\_ly.py}), and stays below $\beta^*(N)$, which falls with $N$ (Table~\ref{fm:tab:ly}, which stops at $N=32$; computed).\end{resultpar}
+
+\begin{table}[t]
+\centering\small
+\begin{tabular}{lccccccc}
+\toprule
+$N$ & $10$ & $14$ & $18$ & $22$ & $26$ & $30$ & $32$\\
+\midrule
+$\beta_{\rm LY}(N)$ & $1.2424$ & $1.4885$ & $1.6201$ & $1.7005$ & $1.7543$ & $1.7926$ & $1.8079$\\
+$\theta_N$ & $0.9952$ & $0.6802$ & $0.5130$ & $0.4105$ & $0.3414$ & $0.2918$ & $0.2719$\\
+$N\theta_N$ & $9.952$ & $9.522$ & $9.235$ & $9.030$ & $8.876$ & $8.754$ & $8.702$\\
+$\beta^*(N)$ & $2.1056$ & $2.0924$ & $2.0809$ & $2.0719$ & $2.0648$ & $2.0592$ & $2.0567$\\
+\bottomrule
+\end{tabular}
+\caption{The Farey chain in a field: the computed Lee and Yang threshold $\beta_{\rm LY}(N)$, the angle $\theta_N$ of the double zeros at the threshold, and the root $\beta^*(N)$ of $2^\beta Z^{\rm F}_N(\beta,1)=4$, above which Lemma~\ref{fm:lem:circle} proves the property; computed.}
+\label{fm:tab:ly}
+\end{table}
+
+\begin{conjecture}\label{fm:conj:ly}
+For every $\beta>2$ the Farey chain has the Lee and Yang property at $(\beta,N)$ for all large $N$, and for every $\beta$ with $0<\beta<2$ it fails to have it for all large $N$.
+\end{conjecture}
+
+The value $2$ comes from the transition \cite{ContucciKnauf97,FialaKO03}, not from the data: free fits of $\beta_{\rm LY}(N)$ in powers of $1/N$ over $10\le N\le22$ extrapolate to $2.086$ (linear) and $2.046$ (quadratic), and over $20\le N\le36$ to $2.044$ and $2.017$ (computed), all above $2$. For every $N$ let $\beta_{\rm LY}(N)$ be the infimum of the $\beta_0>0$ such that the property holds at $(\beta,N)$ for all $\beta>\beta_0$; it is the computed threshold for the even $N$ above. By Lemma~\ref{fm:lem:circle}, $\beta_{\rm LY}(N)\le\beta^*(N)$, so a limit of $\beta_{\rm LY}(N)$ is at most $\liminf_N\beta^*(N)$.
+
+The theorems of Lee and Yang, of Newman and of Lieb and Sokal recalled in Section~\ref{fm:sec:def} concern pair interactions. The interactions of both chains are many body \cite{Knauf93,KlebanOzluk99}, so these theorems do not apply to them; for the Farey chain, Lemma~\ref{fm:lem:circle} gives the Lee and Yang property above $\beta^*(N)$, and the computation finds it down to $\beta_{\rm LY}(N)$, below the transition, and not for $0<\beta<\beta_{\rm LY}(N)$. The zeros of this section are of two kinds: the Fisher zeros of Section~\ref{fm:sec:perron} are zeros of Knauf's chain in the inverse temperature, and those of this subsection are zeros of the Farey chain in the field, at real $\beta$.

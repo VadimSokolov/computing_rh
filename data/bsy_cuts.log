@@ -1,0 +1,56 @@
+bsy_cuts.py full: DH, t0 = 85.7; 10 zeros with beta > 1/2 (data/bsy_defects.json), refined in mpmath at 30 digits
+  rho = 0.80851718245663738555 + 85.69934848537759217193 i, |f(rho)| = 2.1e-30; seed difference 1.4e-14
+  rho = 0.6508300806097370824 + 114.1633427307569809042 i, |f(rho)| = 4.1e-30; seed difference 1.9e-15
+  rho = 0.57435605045080599072 + 166.4793059131681558765 i, |f(rho)| = 7.5e-30; seed difference 2.9e-14
+  rho = 0.72425769462680978021 + 176.7024612428558250545 i, |f(rho)| = 3.9e-30; seed difference 2.2e-16
+  rho = 0.86953057964064307304 + 240.4046723514406937785 i, |f(rho)| = 5.9e-30; seed difference 2.2e-16
+  rho = 0.819549592098810835 + 320.8764896687748696029 i, |f(rho)| = 1.3e-29; seed difference 1.7e-15
+  rho = 0.76822312361572153154 + 331.0502594079496476513 i, |f(rho)| = 7.4e-30; seed difference 1.9e-15
+  rho = 0.62850810832586113616 + 366.6409075762024776983 i, |f(rho)| = 9.1e-30; seed difference 6.1e-15
+  rho = 0.81587367784572081325 + 411.7967375490128333294 i, |f(rho)| = 1.3e-29; seed difference 1.8e-15
+  rho = 0.70888222425128571857 + 440.4845107397475415833 i, |f(rho)| = 1.7e-29; seed difference 3.7e-15
+run 1: evaluator default, R 0.03, Chebyshev nodes 24, panel width 0.05, Gauss nodes 16, sigma0 45.0
+  zero 0.808517 + 85.699348 i: L(b + R + i gamma) = -3.286513270268-0.188997827100j, degree test (n vs n + 4) 3.1e-12
+  zero 0.650830 + 114.163343 i: L(b + R + i gamma) = -3.563337774242+0.315096051680j, degree test (n vs n + 4) 7.7e-13
+  zero 0.574356 + 166.479306 i: L(b + R + i gamma) = -3.829170482866-0.293489003578j, degree test (n vs n + 4) 1.5e-11
+  zero 0.724258 + 176.702461 i: L(b + R + i gamma) = -3.319141192077-0.245978565584j, degree test (n vs n + 4) 1.3e-11
+  zero 0.869531 + 240.404672 i: L(b + R + i gamma) = -3.084812298507+0.235650789107j, degree test (n vs n + 4) 1.1e-11
+  zero 0.819550 + 320.876490 i: L(b + R + i gamma) = -2.951118528661-0.264492846070j, degree test (n vs n + 4) 5.0e-12
+  zero 0.768223 + 331.050259 i: L(b + R + i gamma) = -3.163036449145-0.243664830399j, degree test (n vs n + 4) 4.2e-12
+  zero 0.628508 + 366.640908 i: L(b + R + i gamma) = -3.466104771186+0.047312364288j, degree test (n vs n + 4) 3.9e-11
+  zero 0.815874 + 411.796738 i: L(b + R + i gamma) = -3.041345264001-0.429963565914j, degree test (n vs n + 4) 1.8e-11
+  zero 0.708882 + 440.484511 i: L(b + R + i gamma) = -3.127967585775+0.511534592804j, degree test (n vs n + 4) 2.2e-11
+  z0 = L(1 + i t0) = -1.4946521275 -0.1621273168 i (bsy_cm.py arg_ray: -1.4946521275 -0.1621273168 i; difference 2.1e-15)
+  theta 0.5: 10 zeros with beta > theta (and conjugates)
+    D = E Z - z0: quadrature +1.44068322 -0.00160113 i, closed form +1.44068322 -0.00160113 i (difference 8.9e-16); Table cm +1.4407 -0.0016 i
+    E Z^2 - z0^2 = -6.03187552 -0.61248945 i
+    balance defect Var X - Var Y + 2i Cov = -3.80028144 -0.14551407 i; Table cm -3.8004 -0.1455 i (difference 1.4e-04)
+  theta 0.75: 5 zeros with beta > theta (and conjugates)
+    D = E Z - z0: quadrature +0.47698144 -0.00030211 i, closed form +0.47698144 -0.00030211 i (difference 1.9e-15); Table cm +0.4770 -0.0003 i
+    E Z^2 - z0^2 = -3.45425544 -0.18638548 i
+    balance defect Var X - Var Y + 2i Cov = -2.25582603 -0.03233693 i; Table cm -2.2558 -0.0323 i (difference 6.8e-06)
+  rectangle check (jump 2 pi i, argument principle): max |J - 2 pi i| = 4.4e-08; formula for L_- against the lower line continued to the cut: max difference 2.2e-10; minimum of |f| on all paths 1.08e-03; run time 7 s
+run 2: evaluator {'nf': 0.45, 'M': 36}, R 0.02, Chebyshev nodes 20, panel width 0.04, Gauss nodes 20, sigma0 50.0
+  zero 0.808517 + 85.699348 i: L(b + R + i gamma) = -3.689247521030-0.190513727236j, degree test (n vs n + 4) 4.0e-12
+  zero 0.650830 + 114.163343 i: L(b + R + i gamma) = -3.978584367876+0.317471712062j, degree test (n vs n + 4) 3.9e-12
+  zero 0.574356 + 166.479306 i: L(b + R + i gamma) = -4.268870026645-0.295451823088j, degree test (n vs n + 4) 5.2e-12
+  zero 0.724258 + 176.702461 i: L(b + R + i gamma) = -3.724153917654-0.248513418246j, degree test (n vs n + 4) 2.2e-11
+  zero 0.869531 + 240.404672 i: L(b + R + i gamma) = -3.482699364772+0.238485762891j, degree test (n vs n + 4) 1.6e-11
+  zero 0.819550 + 320.876490 i: L(b + R + i gamma) = -3.348904404339-0.266891491925j, degree test (n vs n + 4) 8.7e-12
+  zero 0.768223 + 331.050259 i: L(b + R + i gamma) = -3.563430127719-0.247093949475j, degree test (n vs n + 4) 6.3e-12
+  zero 0.628508 + 366.640908 i: L(b + R + i gamma) = -3.881296895624+0.048458097543j, degree test (n vs n + 4) 5.1e-11
+  zero 0.815874 + 411.796738 i: L(b + R + i gamma) = -3.439173663231-0.434949141481j, degree test (n vs n + 4) 2.4e-11
+  zero 0.708882 + 440.484511 i: L(b + R + i gamma) = -3.530891104564+0.516628357996j, degree test (n vs n + 4) 2.8e-11
+  z0 = L(1 + i t0) = -1.4946521275 -0.1621273168 i (bsy_cm.py arg_ray: -1.4946521275 -0.1621273168 i; difference 4.4e-15)
+  theta 0.5: 10 zeros with beta > theta (and conjugates)
+    D = E Z - z0: quadrature +1.44068322 -0.00160113 i, closed form +1.44068322 -0.00160113 i (difference 1.3e-15); Table cm +1.4407 -0.0016 i
+    E Z^2 - z0^2 = -6.03187552 -0.61248945 i
+    balance defect Var X - Var Y + 2i Cov = -3.80028144 -0.14551407 i; Table cm -3.8004 -0.1455 i (difference 1.4e-04)
+  theta 0.75: 5 zeros with beta > theta (and conjugates)
+    D = E Z - z0: quadrature +0.47698144 -0.00030211 i, closed form +0.47698144 -0.00030211 i (difference 1.9e-15); Table cm +0.4770 -0.0003 i
+    E Z^2 - z0^2 = -3.45425544 -0.18638548 i
+    balance defect Var X - Var Y + 2i Cov = -2.25582603 -0.03233693 i; Table cm -2.2558 -0.0323 i (difference 6.8e-06)
+  rectangle check (jump 2 pi i, argument principle): max |J - 2 pi i| = 4.7e-10; formula for L_- against the lower line continued to the cut: max difference 2.6e-10; minimum of |f| on all paths 8.41e-04; run time 11 s
+second parameter set against the first, theta 0.5: |dD| 4.4e-16, |d balance| 8.2e-12
+second parameter set against the first, theta 0.75: |dD| 6.0e-19, |d balance| 2.7e-12
+done in 19 s; wrote /Users/vsokolov/Dropbox/papers/computing_rh_book/code/../data/bsy_cuts.json

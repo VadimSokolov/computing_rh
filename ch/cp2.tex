@@ -71,3 +71,72 @@ If $\alpha\ge\sup\re\rho$, every factor is a GGC transform by Lemma~\ref{cp:lem:
 \begin{remark}\label{cp:rem:transfer}
 The proof uses nothing about $\xi_t$ beyond Lemma~\ref{cp:lem:structure}, so it applies to any even real entire function of order at most one with a genus zero product in $w^2$, positive on the real axis, in particular to the perturbation of Theorem~\ref{thm:ch13:perturb}, whose shifted clocks are therefore not GGC transforms at any basepoint below the real part of the displaced zeros. The Thorin density of $\varphi_{t,\alpha}$ in the chart $\theta$ is $\pi^{-1}\re(\xi_t'/\xi_t)(\alpha+i\theta)$ away from atoms, which is $\rho_{\alpha-1/2,t}(\theta)$ of Section~\ref{sec:ch21:flow}. The shifted time $t$ clock is a function of $u$ only: where the threshold condition fails the theorem claims no probability law behind it, and for $\alpha=\frac12$ and $0<t<0.2$ it is open, without RH, whether $R_t$ is the transform of a probability law at all (Problem~\ref{mw:prob:flow}); the basepoint family at $t=0$ and the flow at $\alpha=\frac12$ are the two one parameter families of laws compared in Section~\ref{mw:sec:weak}.
 \end{remark}
+
+\subsection{The minimum at the origin along the flow}\label{cp:sec:minflow}
+
+For $t\ge0$ and $\alpha>\frac12$ put $v_t(\alpha,\theta)=\re(\xi_t'/\xi_t)(\alpha+i\theta)$, $b_t(\alpha)=v_t(\alpha,0)$ and $V_t=(\log\xi_t)''(\frac12)$. For $\alpha\ge\sup\re\rho$, $v_t(\alpha,\cdot)/\pi$ is the Thorin density of the shifted clock $\varphi_{t,\alpha}$ in the chart $\theta$ (Remark~\ref{cp:rem:transfer}), and since $\int_0^\infty\log(1+u/\theta^2)\,d\theta=\pi\sqrt u$,
+\[
+\tilde\varphi_{t,\alpha}(u)=\varphi_{t,\alpha}(u)\,e^{b_t(\alpha)\sqrt u}=\exp\Big\{-\int_0^\infty\log\Big(1+\frac u{\theta^2}\Big)\frac{v_t(\alpha,\theta)-b_t(\alpha)}\pi\,d\theta\Big\}.
+\]
+So $\tilde\varphi_{t,\alpha}$, the shifted clock with the constant part of its Thorin density removed, is the Laplace transform of a GGC exactly when $v_t(\alpha,\theta)\ge b_t(\alpha)$ for every $\theta$, that is when the minimum of $v_t(\alpha,\cdot)$ is at the origin. At $t=0$ this is the question of Theorem~\ref{thm:dbeta:minall}. For $t\ge\Lambda$, unconditionally for $t\ge0.2$, the zeros of $\xi_t$ are $\frac12\pm i\theta_k(t)$ with $0<\theta_1(t)\le\theta_2(t)\le\cdots$, and $V_t=2\sum_k\theta_k(t)^{-2}=2\E T_t$ (Section~\ref{sec:xg:tilt}).
+
+\begin{proposition}[The minimum at the origin along the flow]\label{cp:prop:minflow}
+Let $t\ge\Lambda$, $\alpha>\frac12$, $a=\alpha-\frac12$, $\theta_k=\theta_k(t)$, $v=v_t(\alpha,\cdot)$ and $b=b_t(\alpha)$.
+\begin{enumerate}
+\item[(i)] $b\le aV_t$.
+\item[(ii)] If $a^2\le\frac35\theta_1^2$, then $v(\theta)\ge b$ for $|\theta|\le\theta_1$. If $a\le\frac12$ and $V_t<4$, then $v(\theta)>b$ at every $\theta$ within $D_t=(1/V_t-\frac14)^{1/2}$ of some $\theta_k$.
+\item[(iii)] Let $a\le\frac12$ and $V_t<4$. If every $\theta\in[\theta_1,T_*]$ is within $D_t$ of some $\theta_k$, and for every $\theta>T_*$ some $w>0$ has $\#\{k:|\theta_k-\theta|\le w\}>V_t(w^2+\frac14)$, then $v\ge b$.
+\item[(iv)] Let $\alpha'>\frac12$ and $a'=\alpha'-\frac12$ with $a'^2\le\frac35\theta_1^2$. If $v_t(\alpha',\theta)\ge a'V_t$ for every $\theta\ge\theta_1$, then $v_t(\alpha,\cdot)\ge b_t(\alpha)$ for every $\alpha\in(\frac12,\alpha']$.
+\item[(v)] As $\theta\to0$, $(v(\theta)-b)/\theta^2\to\sum_k2a(3\theta_k^2-a^2)/(a^2+\theta_k^2)^3=6a\operatorname{Var}T_t+O(a^3)$.
+\end{enumerate}
+Under the hypotheses of (iii), respectively (iv), $\tilde\varphi_{t,\alpha}$ is the Laplace transform of a GGC for every $\alpha\in[\frac12,1]$, respectively $[\frac12,\alpha']$, the case $\alpha=\frac12$ being Theorem~\ref{cp:thm:transfer}; there $b_t(\frac12)=\re(\xi_t'/\xi_t)(\frac12)=0$ by the symmetry $\xi_t(1-s)=\xi_t(s)$, so that $\tilde\varphi_{t,1/2}=\varphi_{t,1/2}$.
+\end{proposition}
+
+\begin{proof}
+By Lemma~\ref{cp:lem:structure}, with $q(u)=a/(a^2+u^2)$, $v(\theta)=\sum_k[q(\theta-\theta_k)+q(\theta+\theta_k)]$ and $b=\sum_k2q(\theta_k)$. (i) $2q(\theta_k)\le2a\theta_k^{-2}$. (ii) For $0\le\theta\le\theta_k$ put $p_k(\theta)=q(\theta_k-\theta)+q(\theta_k+\theta)$. Since $u\mapsto u/(a^2+u^2)^2$ decreases on $u\ge a/\sqrt3$, $p_k$ increases where $\theta_k-\theta\ge a/\sqrt3$, and elsewhere $p_k\ge q(a/\sqrt3)=\frac3{4a}\ge2q(\theta_k)$, because $\theta_k^2\ge\frac53a^2$. So $p_k(\theta)\ge p_k(0)$ for $|\theta|\le\theta_1$, and summing gives the first claim. If $|\theta-\theta_k|=d$, then $v(\theta)\ge q(d)>aV_t\ge b$ as soon as $a^2+d^2<1/V_t$, which holds for $d<D_t$ when $a\le\frac12$. (iii) Since $V_t\ge2\theta_1^{-2}$, $\frac35\theta_1^2>\frac14\ge a^2$, so (ii) gives $v\ge b$ on $[0,T_*]$; above $T_*$ the more than $V_t(w^2+\frac14)$ zeros of the window give $v(\theta)>aV_t(w^2+\frac14)/(a^2+w^2)\ge aV_t\ge b$. (iv) Each $q(u)/a=1/(a^2+u^2)$ decreases in $a$, so for $a\le a'$ and $|\theta|\ge\theta_1$, $v_t(\alpha,\theta)\ge\frac a{a'}v_t(\alpha',\theta)\ge aV_t\ge b_t(\alpha)$, as in Theorem~\ref{thm:dbeta:comp}; for $|\theta|\le\theta_1$ apply (ii), since $a^2\le a'^2\le\frac35\theta_1^2$. (v) $v(\theta)-b=\sum_k[p_k(\theta)-p_k(0)]$, $p_k''(0)=2q''(\theta_k)$ with $q''(u)=2a(3u^2-a^2)/(a^2+u^2)^3$, the series of second derivatives converges uniformly near $0$, and $\sum_k\theta_k^{-4}=\operatorname{Var}T_t$ (Section~\ref{sec:xg:tilt}). The last assertion is the identity displayed before the proposition.
+\end{proof}
+
+At $t=0.2$, with $\operatorname{Var}T_{0.2}=3.77203\times10^{-5}$ from the table of Section~\ref{sec:xg:tilt}, the coefficient in (v) is $2.2632\times10^{-4}a$ to first order in $a$, against $2.2304\times10^{-4}a$ at $t=0$ under RH: the flow raises the curvature of $v$ at its minimum slightly. From the same table, $V_{0.2}=0.0464019$, $D_{0.2}=4.6153$ and $\theta_1(0.2)=14.0768$.
+
+\begin{lemma}[The heat average as a shifted Gaussian average]\label{cp:lem:shift}
+Write $\xi(s)=g(s)\zeta(s)$ with $g(s)=\frac12s(s-1)\pi^{-s/2}\Gamma(\frac s2)$, and $\ell=g'/g$. For $t\ge0$ and $\im s>0$,
+\[
+\begin{gathered}\xi_t(s)=g(s)\,e^{t\ell(s)^2/4}\,\zeta_t(s),\qquad\zeta_t(s)=\E\,\Psi\Big(s,\frac t2\ell(s)+\sqrt{\tfrac t2}\,Z\Big),\\\Psi(s,h)=\frac{\xi(s+h)}{g(s)\,e^{h\ell(s)}},\end{gathered}
+\]
+with $Z$ standard normal. Moreover $\Psi(s,h)=\zeta(s+h)e^{r(s,h)}$ with $r(s,h)=h^2\int_0^1(1-u)\,\ell'(s+uh)\,du$, and if $Y=\min\big(\im s,\im s+\frac t2\im\ell(s)\big)>0$, then $|r(s,h)|\le|h|^2\big(\frac1{4Y}+\frac7{4Y^2}\big)$ for every $h\in\frac t2\ell(s)+\R$.
+\end{lemma}
+
+\begin{proof}
+By Proposition~\ref{xg:prop:gauss}, since $\xi_t(\frac12+i\theta)=8H_t(2\theta)$ and $Z$ is symmetric, $\xi_t(s)=\E\,\xi(s+\tau Z)$ with $\tau=\sqrt{t/2}$. With $\phi_{\mathrm N}$ the normal density, $u\mapsto\xi(s+\tau u)\phi_{\mathrm N}(u)$ is entire, and because $\xi$ has order one the Gaussian factor lets the line of integration move to $u=v+\tau\ell(s)$. Since $\phi_{\mathrm N}(v+\tau\ell)=\phi_{\mathrm N}(v)e^{-\tau\ell v-t\ell^2/4}$, this gives $\xi_t(s)=e^{-t\ell^2/4}\E[\xi(s+h)e^{-\tau\ell Z}]$ with $h=\frac t2\ell+\tau Z$, and $\xi(s+h)=g(s)e^{h\ell}\Psi(s,h)$ with $h\ell-\tau\ell Z=\frac t2\ell^2$ gives the identity. Off the real axis $g$ has no zeros or poles, so $\log g(s+h)-\log g(s)-h\ell(s)=r(s,h)$ along the segment from $s$ to $s+h$, by Taylor's formula. For $h\in\frac t2\ell(s)+\R$ the imaginary part of $s+uh$ is linear in $u$, hence at least $Y$ on the segment. Euler summation gives $\psi'(z)=\frac1z+\frac1{2z^2}-2\int_0^\infty(\{x\}-\frac12)(z+x)^{-3}\,dx$, whose last term is at most $2/(\im z)^2$ in absolute value; with $\ell'(v)=-(v-1)^{-2}+\frac14\psi'(\frac v2+1)$, which follows from $\psi'(z)=z^{-2}+\psi'(z+1)$, this gives $|\ell'(v)|\le\frac1{2y}+\frac7{2y^2}$ for $\im v=y>0$, and the bound on $r$ follows.
+\end{proof}
+
+\begin{proposition}[The zero count of $\xi_t$]\label{cp:prop:count}
+Let $t\ge0$ and let $N_t(T)$ be the number of zeros $\rho$ of $\xi_t$ with $0<\im\rho\le T$, counted with multiplicity whether or not they lie on the critical line. For $T>0$ not an ordinate let $\pi S_t(T)$ be the change of a continuous argument of $\zeta_t=\xi_t/(g\,e^{t\ell^2/4})$ along the segments from $2$ to $2+iT$ and from $2+iT$ to $\frac12+iT$, starting from $\arg\zeta_t(2)=0$, and at ordinates take right limits.
+\begin{enumerate}
+\item[(i)] $N_t(T)=1+\vartheta(T)/\pi+\frac t{4\pi}\im\ell(\frac12+iT)^2+S_t(T)$, and $S_0=S$.
+\item[(ii)] The main term is $\frac T{2\pi}\log\frac T{2\pi e}+\frac78+\frac t{16}\log\frac T{2\pi}+O\big((1+t\log T)/T\big)$; for $0<t\le\frac12$ a count of this form, with error terms, is \cite[Theorem 1.5]{Polymath}.
+\item[(iii)] Let $T>\frac52$. If $\re\zeta_t(2+iy)>0$ for $0\le y\le T$, and $M(\omega)\ge\max\big(|\zeta_t(2+iT+\frac52e^{i\omega})|,|\zeta_t(2+iT+\frac52e^{-i\omega})|\big)$ for $0\le\omega\le2\pi$, then
+\[
+|S_t(T)|\le\frac12+\frac1{\log\frac53}\Big(\frac1{2\pi}\int_0^{2\pi}\log M(\omega)\,d\omega-\log\re\zeta_t(2+iT)\Big).
+\]
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(i) By Lemma~\ref{cp:lem:structure}, $\xi_t$ is positive on the real axis and $\xi_t(1-s)=\xi_t(s)=\overline{\xi_t(\bar s)}$; by de Bruijn's strip theorem, as in the proof of Theorem~\ref{cp:thm:phase}, its zeros satisfy $(\re s-\frac12)^2\le\max(\frac14-\frac t2,0)$, so for $t>0$ they lie in $0<\re s<1$, as they do for $t=0$ because $\zeta$ has no zeros on $\re s=1$. The argument principle on the rectangle with corners $-1$, $2$, $2+iT$, $-1+iT$ and the two symmetries give $\pi N_t(T)$ as the change of $\arg\xi_t$ along the two segments. There $\xi_t=g\,e^{t\ell^2/4}\zeta_t$ with each factor continuous and nonzero, and $g(2)=1/\pi$ and $\ell(2)$ are real. The argument of $g$ changes by $\vartheta(T)+\pi$: $s(s-1)=(s-\frac12)^2-\frac14$ stays in the closed upper half plane and ends on the negative axis, and $\pi^{-s/2}\Gamma(\frac s2)$ has no zeros in $\re s>0$. The factor $e^{t\ell^2/4}$ contributes $\frac t4\im\ell(\frac12+iT)^2$. (ii) Stirling's series gives $\re\ell(\frac12+iT)=\frac12\log\frac T{2\pi}+O(T^{-2})$, $\im\ell(\frac12+iT)=\frac\pi4-\frac7{4T}+O(T^{-3})$ and $\vartheta(T)=\frac T2\log\frac T{2\pi e}-\frac\pi8+O(T^{-1})$. (iii) This is Backlund's argument \cite{Backlund}. Along the vertical segment $|\arg\zeta_t|<\frac\pi2$, and along the horizontal one the argument moves by at most $\pi$ between consecutive zeros of $\re\zeta_t(\sigma+iT)$, so $|S_t(T)|\le m+\frac12$ with $m$ the number of these zeros on $[\frac12,2]$. They are zeros of $f(z)=\frac12[\zeta_t(z+iT)+\overline{\zeta_t(\bar z+iT)}]$, which is analytic on $|z-2|\le\frac52$, has $f(2)=\re\zeta_t(2+iT)$ and $|f|\le M$ on the circle, and they lie in $|z-2|\le\frac32$; Jensen's formula on the circle of radius $\frac52$ gives $m\log\frac53\le\frac1{2\pi}\int_0^{2\pi}\log M(\omega)\,d\omega-\log f(2)$.
+\end{proof}
+
+The count includes zeros off the line, so (iii) applies below $\Lambda$ as well. Ki, Kim and Lee \cite[Theorem~1.4]{KKL09} give $S_t(T)=O_t(1)$ for $t>0$, and the Polymath project \cite[Theorem~1.5]{Polymath} gives $S_t(T)=O(\log T)$ uniformly in $0<t\le\frac12$, with constants that are not numerical; an explicit bound needs the two hypotheses of (iii) with an explicit $M$ (Problem~\ref{cp:prob:rvm}).
+
+\begin{corollary}[Conditional; the finite range computed]\label{cp:cor:minflow}
+Suppose that $v_{0.2}(10,\theta)\ge\frac{19}2V_{0.2}$ for every $\theta\ge\theta_1(0.2)$. Then $\tilde\varphi_{0.2,\alpha}$ is the Laplace transform of a GGC for every $\alpha\in[\frac12,10]$. For $\theta_1(0.2)\le\theta\le10^4$ the hypothesis is computed, not certified: on a grid of step $0.05$, with a Gauss Hermite quadrature whose error is not bounded, the least margin is $v_{0.2}(10,\theta)-\frac{19}2V_{0.2}=0.1163$, at $\theta=14.0768$ (\texttt{hx\_far.py}).
+\end{corollary}
+
+\begin{proof}
+$\Lambda\le0.2$ \cite{PT21}, and Proposition~\ref{cp:prop:minflow}(iv) applies with $\alpha'=10$, since $(\frac{19}2)^2\le\frac35\theta_1(0.2)^2$. This needs only $\theta_1(0.2)\ge(\operatorname{Var}T_{0.2})^{-1/4}=12.76$, which follows from $\operatorname{Var}T_{0.2}=\sum_k\theta_k(0.2)^{-4}\ge\theta_1(0.2)^{-4}$ and gives $\frac35\theta_1(0.2)^2\ge97.69\ge90.25$.
+\end{proof}
+
+\begin{remark}\label{cp:rem:minflow}
+At $t=0$ the hypothesis of the corollary, with $\xi$ in place of $\xi_{0.2}$, is a statement about the Gamma factor alone, up to an error below $10^{-3}$, since $|\re(\zeta'/\zeta)(10+i\theta)|\le\sum_n\Lambda(n)n^{-10}<10^{-3}$; but there the comparison in (iv) needs the zeros on the line. Along the flow the zeros are on the line and the Euler product is lost: by Lemma~\ref{cp:lem:shift}, $v_t(\alpha',\theta)=\re\big[\ell+\frac t2\ell\ell'+\zeta_t'/\zeta_t\big](\alpha'+i\theta)$, and what is missing is a bound for $\zeta_t'/\zeta_t$ on the line $\re s=10$ that is uniform in the height (Problem~\ref{cp:prob:rvm}(a)). The route of the note \cite{P26heat} is (iii): it needs the gaps between consecutive zeros of $\xi_{0.2}$ below a height $T_*$ to be below $2D_{0.2}=9.2306$, and an explicit count above $T_*$ (Problem~\ref{cp:prob:rvm}(b)). On our scan of $\xi_{0.2}(\frac12+i\theta)$ through Lemma~\ref{cp:lem:shift}, for $0\le\theta\le4200$, the largest gap between consecutive sign changes is $6.87$, at $\theta=14.0768$, and the number of sign changes below $T$ differs from the main term of Proposition~\ref{cp:prop:count} by less than $0.65$ at $T=500,1000,\dots,4000$ (computed, \texttt{hx\_scan.py}).
+\end{remark}
+

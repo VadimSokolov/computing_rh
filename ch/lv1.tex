@@ -1,0 +1,282 @@
+\section{The secant family and the identity}\label{lv:sec:identity}
+
+On the whole line no symmetric scale family can be complete, because odd statistics have mean zero, so the dilates are folded to $(0,\infty)$. The symmetric Meixner density of order $t>0$ is proportional to $|\Gamma(\frac t2+\frac{ix}2)|^2$ (Section~\ref{rz:sec:meixner}), and $t=1$ gives the hyperbolic secant density because $|\Gamma(\frac12+iy)|^2=\pi/\cosh(\pi y)$. Folded to $x>0$ it is $p_\lambda(x)=\frac{2\lambda}\pi\sech(\lambda x)$, and a family $\{p_\lambda:\lambda\in\Lambda\}$ is complete when $\E_\lambda g(X_\lambda)=0$ for all $\lambda\in\Lambda$ forces $g=0$ almost everywhere. The smallest natural parameter set is $\Lambda=\mathbb N$, so completeness says that the dilates $\sech(nx)$ separate functions; this is the integer case of the question of Lai and Vere-Jones \cite{LVJ} as recorded in Chapter~\ref{chap:rzeta}.
+
+\begin{lemma}\label{lv:lem:exp}
+For $y>0$, $\sech y=2\sum_{m\ge1}\chi_4(m)e^{-my}$, and $\sum_{n\ge1}\sech(ny)\le2/(e^y-1)$.
+\end{lemma}
+
+\begin{proof}
+The first identity is the geometric series of Proposition~\ref{rz:prop:lvj}. For the bound use $\sech(ny)\le2e^{-ny}$.
+\end{proof}
+
+\begin{lemma}\label{lv:lem:mellin}
+For $\Re s>0$ and $\lambda>0$, $\int_0^\infty x^{s-1}\sech(\lambda x)\,dx=2\lambda^{-s}\Gamma(s)\beta(s)$.
+\end{lemma}
+
+\begin{proof}
+For $\lambda=1$ integrate Lemma~\ref{lv:lem:exp} termwise for $\Re s>1$, where $\sum_m\int_0^\infty x^{\sigma-1}e^{-mx}dx=\Gamma(\sigma)\zeta(\sigma)<\infty$, and continue analytically; the integral is holomorphic for $\Re s>0$ and $\beta$ is entire. The substitution $y=\lambda x$ gives general $\lambda$.
+\end{proof}
+
+By Proposition~\ref{rz:prop:lvj}, $e^{-x}=\frac12\sum_{n\ge1}\mu(n)\chi_4(n)\sech(nx)$ with absolute convergence for $x>0$, and replacing $x$ by $kx$,
+\begin{equation}\label{lv:eq:LVJk}
+e^{-kx}=\frac12\sum_{n\ge1}\mu(n)\chi_4(n)\sech(nkx),\qquad k\in\mathbb N,
+\end{equation}
+and every function on the right is again one of the dilates. In Mellin language the identity is the factorisation $\Gamma(s)=\frac12\cdot2\Gamma(s)\beta(s)\cdot\beta(s)^{-1}$ with $\beta(s)^{-1}=\sum\mu(n)\chi_4(n)n^{-s}$.
+
+\begin{theorem}[Lerch]\label{lv:thm:lerch}
+Let $\int_0^\infty|h(x)|e^{-x}dx<\infty$. If $\int_0^\infty e^{-kx}h(x)\,dx=0$ for all $k\in\mathbb N$, then $h=0$ almost everywhere.
+\end{theorem}
+
+\begin{proof}
+With $u=e^{-x}$ and $q(u)=h(-\log u)$ we have $q\in L^1(0,1)$ and $\int_0^1u^jq(u)\,du=0$ for $j\ge0$. The measure $q\,du$ annihilates the polynomials, hence $C[0,1]$ by Weierstrass, hence $q=0$.
+\end{proof}
+
+\begin{theorem}[completeness in $L^1$]\label{lv:thm:L1}
+Let $g$ satisfy
+\begin{equation}\label{lv:eq:L1cond}
+\int_0^1\frac{|g(x)|}x\,dx+\int_1^\infty|g(x)|e^{-x}dx<\infty .
+\end{equation}
+If $\int_0^\infty g(x)\sech(nx)\,dx=0$ for all $n\in\mathbb N$, then $g=0$ almost everywhere. The same holds with $\mathbb N$ replaced by a set $\Lambda\subset(0,\infty)$ containing an interval, provided the integrals $\int g\sech(\lambda x)\,dx$, $\lambda\in\Lambda$, converge absolutely and vanish.
+\end{theorem}
+
+\begin{proof}
+By Lemma~\ref{lv:lem:exp}, $\sum_n|\sech(nkx)|\le2/(e^{kx}-1)$, which is $O(1/x)$ at the origin and $O(e^{-x})$ at infinity, so \eqref{lv:eq:L1cond} justifies integrating \eqref{lv:eq:LVJk} termwise against $g$. Every term vanishes, hence $\int ge^{-kx}dx=0$ for all $k$, and Theorem~\ref{lv:thm:lerch} applies. For the interval clause, let $I\subset\Lambda$ be an interval and $\lambda_0$ a point of its interior. Absolute convergence at $\lambda_0$ gives $\int_1^\infty|g|e^{-\lambda_0x}dx<\infty$, because $\sech(\lambda_0x)\ge e^{-\lambda_0x}$. The function $F(z)=\int_0^\infty g(x)\sech(zx)\,dx$ is then holomorphic on $\Re z>\lambda_0$ (on compact subsets the large $x$ part is dominated by $C|g(x)|e^{-(\lambda_0+\delta)x}$ and the small $x$ part by $C|g(x)|$), and it vanishes on a subinterval of $I$ to the right of $\lambda_0$, hence on the half plane. Take an integer $K>\max(1,\lambda_0)$. The integrals $\int g(x)\sech(nkx)\,dx$ vanish for all integers $n\ge1$ and $k\ge K$, so \eqref{lv:eq:LVJk} (again integrated termwise, the majorant being $|g|\,2/(e^{kx}-1)$ with $k\ge K$) gives $\int g(x)e^{-kx}dx=0$ for $k\ge K$. Apply Theorem~\ref{lv:thm:lerch} to $h(x)=g(x)e^{-(K-1)x}$, whose moments of orders $1,2,\dots$ are these integrals.
+\end{proof}
+
+The proof of the first part uses only $\sum_{d\mid N}\mu(d)=[N=1]$, the complete multiplicativity of $\chi_4$ and $|\mu|\le1$. The condition $\int_0^1|g|/x<\infty$ is the $L^1$ shadow of the half plane $\Re s>1$ in which the M\"obius series converges absolutely. The theorem is proved here in the form stated; it is not claimed to be the form in which the question was posed in \cite{LVJ}.
+
+\section{Weighted spaces and the Mellin line}\label{lv:sec:weights}
+
+Let $\mathcal W_c=L^2((0,\infty),x^{2c-1}dx)$. The change of variable $x=e^u$ and Plancherel give
+\begin{equation}\label{lv:eq:plancherel}
+\begin{gathered}\langle f,g\rangle_c=\int_0^\infty f\bar g\,x^{2c-1}dx=\frac1{2\pi}\int_{-\infty}^\infty F(c+it)\overline{G(c+it)}\,dt,\\ F(s)=\int_0^\infty f(x)x^{s-1}dx .
+\end{gathered}\end{equation}
+So $\mathcal W_c$ is the space of functions whose Mellin transform lives on the line $\Re s=c$. For $c>0$ both $e^{-x}$ and every $\sech(\lambda x)$ lie in $\mathcal W_c$, and dilation acts by $\|f(k\,\cdot)\|_c=k^{-c}\|f\|_c$.
+
+\begin{lemma}[reduction]\label{lv:lem:reduction}
+For $c>0$, or for $\mathcal W_a\cap\mathcal W_b$ with $0<a<b$ and norm $\|f\|_a+\|f\|_b$, the exponentials $\{e^{-kx}\}_{k\in\mathbb N}$ are complete. Hence a system whose linear span is invariant under the dilations $f\mapsto f(k\,\cdot)$, $k\in\mathbb N$, is complete as soon as its closed span contains $e^{-x}$.
+\end{lemma}
+
+\begin{proof}
+A functional on $\mathcal W_c$ is $f\mapsto\int fh\,dx$ with $h=\bar gx^{2c-1}$, $g\in\mathcal W_c$, and $\int|h|e^{-x}\le\|g\|_c\|e^{-x}\|_c$; apply Theorem~\ref{lv:thm:lerch}. On the intersection the dual is the sum of the two duals (Hahn Banach) and the same estimate applies to each piece. If $f_j\to e^{-x}$ with $f_j$ in the span, then $f_j(k\,\cdot)\to e^{-k\,\cdot}$ in the same space and $f_j(k\,\cdot)$ is again in the span.
+\end{proof}
+
+Write $S_N(x)=\frac12\sum_{n\le N}\mu(n)\chi_4(n)\sech(nx)$. By Lemma~\ref{lv:lem:mellin} and \eqref{lv:eq:plancherel},
+\begin{equation}\label{lv:eq:error}
+\|S_N-e^{-x}\|_c^2=\frac1{2\pi}\int_{-\infty}^\infty|\Gamma(c+it)|^2\,\bigl|\beta(c+it)\mathcal A_N(c+it)-1\bigr|^2\,dt,
+\end{equation}
+so convergence of the M\"obius secant series in $\mathcal W_c$ is the statement that $\mathcal A_N\to1/\beta$ on the line $\Re s=c$ in a norm weighted by $|\Gamma(c+it)|^2\asymp|t|^{2c-1}e^{-\pi|t|}$.
+
+\begin{theorem}[the classical range]\label{lv:thm:c1}
+For $c\ge1$, $S_N\to e^{-x}$ in $\mathcal W_c$.
+\end{theorem}
+
+\begin{proof}
+For $c>1$ use $|\mathcal A_N|\le\zeta(c)$, $|\beta|\le\zeta(c)$ and dominated convergence in \eqref{lv:eq:error}. For $c=1$ the prime number theorem for $\mu\chi_4$ in the form $M_\chi(x)\ll x\exp(-a\sqrt{\log x})$ and partial summation,
+\begin{equation}\label{lv:eq:ps}
+\mathcal A_N(s)=\frac{M_\chi(N)}{N^s}+s\int_1^N\frac{M_\chi(u)}{u^{s+1}}du,
+\end{equation}
+give $|\mathcal A_N(1+it)-1/\beta(1+it)|\le C(1+|t|)\varepsilon_N$ with $\varepsilon_N\to0$ (the integral converges on $\Re s=1$ by the same bound for $M_\chi$); with $|\beta(1+it)|\ll\log(2+|t|)$, \eqref{lv:eq:error} tends to zero.
+\end{proof}
+
+\section{Completeness in one weight is unconditional}\label{lv:sec:single}
+
+The M\"obius series is one particular approximation of $e^{-x}$. Completeness asks only that some approximation exists, and in a single weight this needs no arithmetic. The tool is Carleman's formula for a half plane (Titchmarsh \cite{Titchmarsh39}; Boas \cite{Boas54}): if $f$ is analytic in a neighbourhood of $\Re w\ge0$, $f\not\equiv0$, with zeros $r_ke^{i\theta_k}$, then for $R>1$
+\begin{multline}\label{lv:eq:carleman}
+\sum_{1<r_k<R}\Bigl(\frac1{r_k}-\frac{r_k}{R^2}\Bigr)\cos\theta_k=\frac1{\pi R}\int_{-\pi/2}^{\pi/2}\log|f(Re^{i\theta})|\cos\theta\,d\theta\\
++\frac1{2\pi}\int_1^R\Bigl(\frac1{y^2}-\frac1{R^2}\Bigr)\log|f(iy)f(-iy)|\,dy+O_f(1).
+\end{multline}
+The form of the formula was checked against the standard statement; the section numbers of the two books are not claimed.
+% UNCHECKED: Carleman formula section numbers (Titchmarsh 1939 Section 3.7, Boas 1954 Section 1.2) are the source's.
+
+\begin{lemma}[uniqueness on a divergent set]\label{lv:lem:uniq}
+Let $\Phi$ be analytic on $\Re w>0$ with $|\Phi(w)|\le C(|w|/\Re w)^B$ for some $B\ge0$. If $\Phi(\lambda)=0$ for every $\lambda$ in a set $\Lambda\subset[1,\infty)$ with $\sum_{\lambda\in\Lambda}1/\lambda=\infty$, then $\Phi\equiv0$.
+\end{lemma}
+
+\begin{proof}
+If $\Lambda$ has a finite accumulation point, $\Phi\equiv0$ by the identity theorem, so let the points of $\Lambda$ be isolated. Fix $\varepsilon\in(0,1)$ and apply \eqref{lv:eq:carleman} to $f(w)=\Phi(w+\varepsilon)$, which is analytic on $\Re w>-\varepsilon$, assuming $f\not\equiv0$. Its zeros include $\lambda-\varepsilon$, $\lambda\in\Lambda$, on the positive axis (the finitely many with $\lambda-\varepsilon\le1$ lie outside the range of the sum and cost $O(1)$). The other zeros of $f$ contribute nonnegative terms ($\cos\theta_k\ge0$, $r_k<R$). Since $\frac1r-\frac r{R^2}\ge\frac34\cdot\frac1r$ for $r<R/2$, the left side is at least $\frac34\sum_{\lambda<R/2}1/\lambda-O(1)\to\infty$. On the right, for $w=Re^{i\theta}$ we have $|w+\varepsilon|/\Re(w+\varepsilon)\le2/\cos\theta$, so $\log|f|\le C'+B\log(1/\cos\theta)$ and the first integral is at most $O(1/R)$, because $\int\log(1/\cos\theta)\cos\theta\,d\theta<\infty$. On the imaginary axis $|f(\pm iy)|\le C(1+|y|/\varepsilon)^B$, so the second integral is at most $C_\varepsilon\int_1^\infty\log(2+y)\,y^{-2}dy<\infty$, the weight $\frac1{y^2}-\frac1{R^2}$ being nonnegative. The right side is bounded above, a contradiction. Hence $f\equiv0$.
+\end{proof}
+
+\begin{theorem}[completeness in one weight]\label{lv:thm:single}
+Let $c>0$ and let $\Lambda\subset[1,\infty)$ satisfy $\sum_{\lambda\in\Lambda}1/\lambda=\infty$. Then $\{\sech(\lambda x)\}_{\lambda\in\Lambda}$ is complete in $\mathcal W_c$. In particular the integer dilates are complete in every $\mathcal W_c$, and so are the prime dilates $\{\sech(px)\}_{p\text{ prime}}$.
+\end{theorem}
+
+\begin{proof}
+Let $g\in\mathcal W_c$ be orthogonal to every $\sech(\lambda x)$, and let $G$ be its Mellin transform on $\Re s=c$. By Lemma~\ref{lv:lem:mellin} and \eqref{lv:eq:plancherel},
+\[
+\int_{-\infty}^\infty H(t)\lambda^{-it}dt=0\quad(\lambda\in\Lambda),\qquad H(t)=\Gamma(c+it)\beta(c+it)\overline{G(c+it)} .
+\]
+Stirling and the convexity bound give $|\Gamma(c+it)\beta(c+it)|\le C(1+|t|)^Ae^{-\pi|t|/2}$, and $G\in L^2$, so $H\in L^1$. For $w=|w|e^{i\varphi}$ with $|\varphi|<\pi/2$ define
+\[
+\Phi(w)=\int_{-\infty}^\infty H(t)\,w^{-it}\,dt,\qquad|w^{-it}|=e^{t\varphi}.
+\]
+By Cauchy Schwarz,
+\[
+|\Phi(w)|\le C\|G\|_2\Bigl(\int(1+|t|)^{2A}e^{-(\pi-2|\varphi|)|t|}dt\Bigr)^{1/2}\le C'\Bigl(\frac\pi2-|\varphi|\Bigr)^{-A-1/2},
+\]
+and since $\frac\pi2-|\varphi|\ge\cos\varphi=\Re w/|w|$, $\Phi$ satisfies the growth bound of Lemma~\ref{lv:lem:uniq} with $B=A+\frac12$. It is analytic and vanishes on $\Lambda$, so $\Phi\equiv0$. On the positive axis $\Phi(e^\xi)=\int H(t)e^{-i\xi t}dt$ is the Fourier transform of $H\in L^1$, so $H=0$ almost everywhere. The zeros of $\beta$ on the line $\Re s=c$ form a discrete set, hence $G=0$ almost everywhere and $g=0$.
+\end{proof}
+
+\begin{remark}[the threshold, heuristic]\label{lv:rem:threshold}
+If the Mellin transform of a kernel is bounded by $e^{-\alpha|t|}$ times a power, the function $\Phi$ above is analytic at least in the sector $|\arg w|<\alpha$. The map $w\mapsto w^{\pi/(2\alpha)}$ sends the sector to a half plane and $\lambda$ to $\lambda^{\pi/(2\alpha)}$, so the Carleman sum becomes $\sum\lambda^{-\pi/(2\alpha)}$; for $\Lambda=\mathbb N$ this diverges if and only if $\alpha\ge\pi/2$. The gamma factor of $\sech$ decays at precisely $\alpha=\pi/2$. This is the threshold of the method: failure of completeness for $\alpha<\pi/2$ is not shown, and the sharpness question is Open Problem~\ref{lv:prob:sharp}.
+\end{remark}
+
+\begin{remark}[M\"untz and Sz\'asz]
+For the kernel $e^{-x}$ itself ($\beta\equiv1$) the proof of Theorem~\ref{lv:thm:single} gives the sufficiency half of the M\"untz and Sz\'asz theorem: under $u=e^{-x}$, completeness of $\{e^{-\lambda x}\}$ in $\mathcal W_{1/2}$ is completeness of $\{u^{\lambda-1/2}\}$ in $L^2(0,1)$, and divergence of $\sum1/\lambda$ is the classical sufficient condition. Lerch's theorem is the case $\Lambda=\mathbb N$.
+\end{remark}
+
+Three consequences are worth stating plainly. First, taking $c=\frac12$, the integer dilates of $\sech$ are complete in $L^2(0,\infty)$, even though $\beta$ has infinitely many zeros on the very line $\Re s=\frac12$ on which the Mellin transform lives. Second, no property of $\mu$ is needed for completeness in one weight. Third, the same proof applies to any kernel whose Mellin transform on the line is $\Gamma(s)$ times a polynomially bounded function vanishing only on a null set of the line, in particular to the zeta kernel of Section~\ref{lv:sec:zeta}. Theorem~\ref{lv:thm:single} therefore settles the one weight form of the completeness question recorded in Chapter~\ref{chap:rzeta}, unconditionally; only the two weight form is equivalent to a zero free half plane (Theorem~\ref{lv:thm:two}).
+
+\section{The M\"obius route in the strip $\frac12<c<1$}\label{lv:sec:strip}
+
+Where arithmetic does enter is in the explicit approximation by the M\"obius series.
+
+\begin{lemma}[partial summation]\label{lv:lem:ps}
+Suppose $M_\chi(x)=O_\varepsilon(x^{\theta+\varepsilon})$ for every $\varepsilon>0$, with $\frac12\le\theta<1$. Then for $\sigma=\Re s>\theta$, $t=\Im s$ and $0<\varepsilon<\sigma-\theta$, with constants depending on $\sigma$ and $\varepsilon$,
+\[
+|\mathcal A_N(s)|\le C(1+|t|),\qquad|\mathcal A_N(s)-1/\beta(s)|\le C(1+|t|)N^{\theta+\varepsilon-\sigma}.
+\]
+\end{lemma}
+
+\begin{proof}
+In \eqref{lv:eq:ps} the integral converges absolutely for $\sigma>\theta$ to an analytic function equal to $1/(s\beta(s))$ for $\sigma>1$, hence throughout; the boundary term and the tail $|s|\int_N^\infty u^{\theta+\varepsilon-\sigma-1}du$ give the rate.
+\end{proof}
+
+\begin{theorem}[the strip]\label{lv:thm:strip}
+Under the hypothesis of Lemma~\ref{lv:lem:ps}, for every $c\in(\theta,1)$,
+\[
+\|S_N-e^{-x}\|_c=O_\varepsilon(N^{\theta-c+\varepsilon}).
+\]
+Under the generalised Riemann hypothesis for $\beta$ this holds for every $c>\frac12$.
+\end{theorem}
+
+\begin{proof}
+Insert Lemma~\ref{lv:lem:ps} in \eqref{lv:eq:error}. The integral $\int|\Gamma\beta|^2(1+|t|)^2dt$ on the line $\Re s=c$ is finite by Stirling and convexity.
+\end{proof}
+
+\begin{proposition}[classical equivalences]\label{lv:prop:classical}
+For $\frac12\le\theta<1$ the following are equivalent: (a) $M_\chi(x)=O(x^{\theta+\varepsilon})$ for all $\varepsilon>0$; (b) $\sum\mu(n)\chi_4(n)n^{-s}$ converges for $\Re s>\theta$; (c) $\beta(s)\ne0$ for $\Re s>\theta$.
+\end{proposition}
+
+\begin{proof}
+(a) implies (b) by partial summation. (b) implies (c): the sum is analytic on $\Re s>\theta$ and equals $1/\beta$ for $\Re s>1$, so $1/\beta$ continues analytically there and $\beta$ has no zeros. (c) implies (a) is Littlewood's theorem for $L(s,\chi_4)$: a zero free half plane gives $1/\beta(\sigma+it)\ll|t|^{\varepsilon}$ for $\sigma>\theta$ by the Borel and Carath\'eodory argument, and Perron's formula then bounds $M_\chi$; compare Titchmarsh \cite[Section 14.25]{Titchmarsh} for $\zeta$, whose proof carries over to the character.
+\end{proof}
+% UNCHECKED: the general theta case of (c) implies (a) is quoted from the zeta case (Titchmarsh Section 14.25, Montgomery and Vaughan Chapter 13); the sections were not read for this book.
+
+\section{Two weights: where the zeros are felt}\label{lv:sec:two}
+
+The one weight proof breaks down for an intersection of two weights for a structural reason. If $f\in\mathcal W_a\cap\mathcal W_b$ and $a<\sigma<b$, splitting at $x=1$ and using Cauchy Schwarz with weight $a$ on $(0,1)$ and weight $b$ on $(1,\infty)$ gives
+\begin{equation}\label{lv:eq:pointeval}
+\Bigl|\int_0^\infty f(x)x^{s-1}dx\Bigr|\le\frac{\|f\|_a}{\sqrt{2(\sigma-a)}}+\frac{\|f\|_b}{\sqrt{2(b-\sigma)}} .
+\end{equation}
+So evaluation of the Mellin transform at any point of the open strip is continuous, and zeros of $\beta$ in the strip are inherited by limits. In a single weight there is no strip and evaluation off the line is not continuous.
+
+\begin{proposition}[necessity]\label{lv:prop:nec}
+Let $0<a<b$. If $e^{-x}$ is a limit in $\mathcal W_a\cap\mathcal W_b$ of finite combinations of the $\sech(nx)$, then $\beta(s)\ne0$ for $a<\Re s<b$.
+\end{proposition}
+
+\begin{proof}
+Each approximant has Mellin transform $2\Gamma(s)\beta(s)D(s)$ with $D$ a Dirichlet polynomial. By \eqref{lv:eq:pointeval} these converge pointwise in the strip to $\Gamma(s)$, which is nonzero; a zero $\rho$ of $\beta$ in the strip would force $\Gamma(\rho)=0$.
+\end{proof}
+
+\begin{theorem}[two weight criterion]\label{lv:thm:two}
+For $\frac12\le\theta<1$ the following are equivalent:
+\begin{enumerate}
+\item[(i)] $L(s,\chi_4)\ne0$ for $\Re s>\theta$;
+\item[(ii)] $\{\sech(nx)\}_{n\in\mathbb N}$ is complete in $\mathcal W_a\cap\mathcal W_b$ for all $\theta<a<b<1$;
+\item[(iii)] $S_N\to e^{-x}$ in $\mathcal W_c$ for every $c\in(\theta,1)$.
+\end{enumerate}
+With $\theta=\frac12$, (i) is the generalised Riemann hypothesis for $L(s,\chi_4)$.
+\end{theorem}
+
+\begin{proof}
+(i) gives (a) of Proposition~\ref{lv:prop:classical}, then Theorem~\ref{lv:thm:strip} gives (iii). Convergence in each $\mathcal W_c$, $c\in[a,b]$, gives convergence in $\mathcal W_a\cap\mathcal W_b$, and Lemma~\ref{lv:lem:reduction} gives (ii). If (ii) holds and $\beta(\rho)=0$ with $\theta<\Re\rho<1$, choose $a<\Re\rho<b$ in $(\theta,1)$ and apply Proposition~\ref{lv:prop:nec}; there are no zeros with $\Re\rho\ge1$. Thus (ii) implies (i).
+\end{proof}
+
+The picture is now as follows. Completeness in one weight is free (Theorem~\ref{lv:thm:single}). Completeness in two weights straddling a strip forces that strip to be zero free (Proposition~\ref{lv:prop:nec}), and completeness for all pairs $\theta<a<b<1$ is equivalent to a zero free half plane (Theorem~\ref{lv:thm:two}); whether a zero free strip $a<\Re s<b$ alone gives completeness in $\mathcal W_a\cap\mathcal W_b$ is not shown. At a single endpoint $c<1$, convergence of $S_N$ in $\mathcal W_c$ does imply zero freeness strictly to the right of $c$, by combining it with the convergence at any $b>1$ and applying Proposition~\ref{lv:prop:nec} in $(c,b)$, but a bare zero free half plane $\Re s>c$ does not by this proof give convergence on the line $c$ itself. The properties of $\mu$ that matter form a ladder.
+\begin{enumerate}
+\item[(P0)] Nothing: completeness in one weight, every $c>0$.
+\item[(P1)] Inversion $\sum_{d\mid N}\mu(d)=[N=1]$: the pointwise identity of Proposition~\ref{rz:prop:lvj}.
+\item[(P2)] $|\mu|\le1$: the $L^1$ theorem and convergence in $\mathcal W_c$, $c>1$.
+\item[(P3)] The prime number theorem for $\mu\chi_4$: convergence at $c=1$.
+\item[(P4)] Power cancellation $M_\chi(x)=O(x^{\theta+\varepsilon})$: convergence and two weight completeness for $c\in(\theta,1)$, equivalent to a zero free half plane for $\beta$. Square root cancellation is GRH for $\beta$.
+\end{enumerate}
+The arithmetic function is the twisted $\mu\chi_4$, not $\mu$: the alternating signs of the secant produce $\beta$, not $\zeta$. The barrier $c=\frac12$ is genuine: $\beta$ vanishes at $\frac12+6.0209489\ldots i$ (computed, $6.0209489046976$, \texttt{data/lv\_sech\_tables.json}), so two weights straddling $\frac12$ can never work, and $M_\chi(x)\ne o(x^{1/2})$, since $M_\chi(x)=o(x^{1/2})$ would give $(\sigma-\frac12)/|\beta(\sigma+i\gamma)|\to0$ as $\sigma\downarrow\frac12$ at a zero, which is impossible.
+
+\section{The zeta version}\label{lv:sec:zeta}
+
+To involve $\mu$ itself, use the Bose kernel with its pole removed,
+\begin{equation}\label{lv:eq:phi}
+\varphi(x)=\frac1{e^x-1}-\frac1x,\qquad\int_0^\infty x^{s-1}\varphi(x)\,dx=\Gamma(s)\zeta(s)\quad(0<\Re s<1).
+\end{equation}
+Since $\varphi(x)\to-\frac12$ at the origin and $\varphi(x)\sim-1/x$ at infinity, $\varphi\in\mathcal W_c$ exactly for $0<c<1$. The cosecant $\operatorname{csch}x$, with transform $2\Gamma(s)(1-2^{-s})\zeta(s)$, is unsuitable because the pole of $\zeta$ removes it from $\mathcal W_c$ for $c\le1$. Write $T_N(x)=\sum_{n\le N}\mu(n)\varphi(nx)$.
+
+\begin{theorem}\label{lv:thm:zeta}
+(1) For every $c\in(0,1)$ the dilates $\{\varphi(nx)\}_{n\in\mathbb N}$ are complete in $\mathcal W_c$, unconditionally. (2) Let $\frac12\le\theta<1$ and suppose $M(x)=O_\varepsilon(x^{\theta+\varepsilon})$ for every $\varepsilon>0$. Then $T_N\to e^{-x}$ in $\mathcal W_c$ with $\|T_N-e^{-x}\|_c=O_\varepsilon(N^{\theta-c+\varepsilon})$ for $\theta<c<1$ and $0<\varepsilon<c-\theta$. (3) For $\frac12\le\theta<1$, completeness of $\{\varphi(nx)\}$ in $\mathcal W_a\cap\mathcal W_b$ for all $\theta<a<b<1$ is equivalent to $\zeta(s)\ne0$ for $\Re s>\theta$ (the pole at $1$ being allowed); with $\theta=\frac12$ it is equivalent to the Riemann hypothesis.
+\end{theorem}
+
+\begin{proof}
+The proofs of Theorems~\ref{lv:thm:single}, \ref{lv:thm:strip}, \ref{lv:thm:two} carry over with $(\beta,\mu\chi_4,\sech)$ replaced by $(\zeta,\mu,\varphi)$, with the following changes. The Mellin transform of $\varphi(n\,\cdot)$ is $n^{-s}\Gamma(s)\zeta(s)$ on $0<\Re s<1$, with no factor $2$, and $|\zeta(c+it)|\ll(1+|t|)^{1/2}$ there, so $|\Gamma\zeta|\le C(1+|t|)^Ae^{-\pi|t|/2}$ and the proof of part (1) is that of Theorem~\ref{lv:thm:single}; $\zeta$ has discrete zeros on the line. For part (2) the Mellin transform of $T_N-e^{-x}$ on the line $\Re s=c$ is $\Gamma(s)\bigl(\zeta(s)\mathcal A_N(s)-1\bigr)$ with $\mathcal A_N=\sum_{n\le N}\mu(n)n^{-s}$, and Lemma~\ref{lv:lem:ps} holds for $\mathcal A_N$ and $1/\zeta$ with $M$ in place of $M_\chi$ ($1/\zeta$ is analytic on $\Re s>\theta$ because $\zeta$ has no zeros there, and $\zeta$ is analytic on $0<\Re s<1$). For part (3) Proposition~\ref{lv:prop:nec} holds with $\zeta$ because the approximants have Mellin transform $\Gamma\zeta D$ and converge pointwise in the strip $a<\Re s<b\subset(0,1)$ to $\Gamma$; zeros with $\Re\rho\ge1$ do not exist; and the classical equivalence of Proposition~\ref{lv:prop:classical} for $\zeta$ is Littlewood's theorem.
+\end{proof}
+
+The contrast with the secant is that $\varphi$ has no unconditional M\"obius range at all: its Mellin line must lie inside $0<c<1$. Part (3) is a Nyman and Beurling type criterion on the half line, and part (1) explains why it needs two weights: in the classical Nyman and Beurling problem the depth comes from restricting to $(0,1)$, which makes Mellin transforms analytic in a half plane, while here the second weight plays that role.
+
+\section{What the quasi Riemann hypothesis gives}\label{lv:sec:qrh}
+
+In October 2026 OpenAI released a preprint \cite{OAI26a} (dated 30 September) announcing a zero free half plane $\Re s>\frac78$ for Dirichlet $L$ functions, with a formalisation in Lean, and a companion \cite{OAI26b} with the weaker half plane $\Re s>\frac{11}{12}$; Liu \cite{Liu26a} claims a small improvement of the exponent $\frac78$. A preprint attributed to Thorner, extending a zero free half plane $\Re s>\frac{31}{32}$ to the Dedekind zeta function of every number field, is cited here from the source as unchecked \cite{Thorner26}. None of these has been refereed, and none has been checked for this book. Every statement below that uses them is conditional on them, and those about $\beta$ on one further point: the $\frac78$ theorem is announced for Dirichlet $L$ functions, and that it covers $L(s,\chi_4)$ is assumed here and is a question for the authors. If these results stand, the functional equation puts the nontrivial zeros of $\zeta$ and of $\beta$ in $\frac18\le\Re\rho\le\frac78$.
+
+\begin{center}\footnotesize
+\begin{tabular}{p{0.32\textwidth}p{0.3\textwidth}p{0.28\textwidth}}
+\toprule
+input & secant, $\mu\chi_4$ & zeta kernel, $\mu$\\
+\midrule
+none & one weight, all $c>0$ & one weight, $0<c<1$\\
+PNT & M\"obius series, $c\ge1$ (rate subexponential in $\sqrt{\log N}$) & nothing new\\
+Dedekind QRH ($\frac{31}{32}$), unchecked & $c>\frac{31}{32}$ & $\frac{31}{32}<c<1$\\
+QRH for Dirichlet $L$ ($\frac78$), conditional & $\frac78<c$ & $\frac78<c<1$\\
+GRH & $c>\frac12$ & $\frac12<c<1$\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent For a zero free half plane $\Re s>\theta$ the entries mean: the M\"obius series converges in $\mathcal W_c$ at the rate $N^{\theta-c+\varepsilon}$ for every $c>\theta$ (secant) or $\theta<c<1$ (zeta kernel), and two weight completeness holds on that range. For the secant kernel and $c>1$ the elementary absolute convergence argument gives $O_c(N^{1-c})$, and at $c=1$ the prime number theorem gives $O((1+\sqrt{\log N})e^{-a\sqrt{\log N}})$; neither is a power law with $\theta=1$, so the PNT row is not an instance of the rate $N^{\theta-c+\varepsilon}$. The input $\frac78$ pushes the M\"obius route below $c=1$, from $c\ge1$ down to $c>\frac78$, for both kernels at once if the theorem covers $\beta$ as well as $\zeta$. The stated half plane does not supply convergence in the remaining range $\frac12<c\le\frac78$; GRH is sufficient there, whereas a weaker zero free bound already gives convergence above its own boundary. For the one weight question QRH is irrelevant, since that question was settled unconditionally.
+
+\section{Relation to the Thorin programme}\label{lv:sec:thorin}
+
+Three remarks connect this part to the rest of the book. The second and third are analogies (heuristic), not consequences of the theorems above.
+
+First, the secant is a Thorin object, in the form of Lemma~\ref{rz:lem:sech}: $\sech\sqrt{2s}=\prod_{k\ge1}(1+s/\lambda_k)^{-1}$ with $\lambda_k=(2k-1)^2\pi^2/8$ is the Laplace transform of the exit time of Brownian motion from $(-1,1)$, a generalised gamma convolution with discrete Thorin measure at the $\lambda_k$ (Table~\ref{tab:ch3:cat}). Dilation of $\sech$ corresponds to a time scaling of that law after the substitution $x=\sqrt{2s}$.
+
+Second, the book's Thorin type expansion of $1/\zeta(\frac12+\sqrt s)$ (Theorem~\ref{rz:thm:sech}) applies Proposition~\ref{rz:prop:lvj} pointwise at $x=\sqrt s\log n$ to the Dirichlet series of $1/\zeta$. Theorems~\ref{lv:thm:two} and~\ref{lv:thm:zeta} are statements in $L^2$ in the variable $x$ about approximating $e^{-x}$ in weighted spaces; they are not statements about that series in $s$, and the kernel $\varphi$ is not used in it. The parallel is this: the convergence of the construction needs the same zero free region as the M\"obius series, and no new zero free region comes out of it.
+
+Third, the dichotomy between one and two weights is a pattern for the programme. Statements made on a single Mellin line (completeness, $L^2$ approximation) are cheap, because point evaluations off the line are not controlled, while statements uniform on a strip carry analyticity into the strip and force zero freeness there (Proposition~\ref{lv:prop:nec}). A GGC Laplace transform is analytic and zero free in a half plane, so a Thorin representation of $1/\xi$ is of the second kind; Section~\ref{lv:sec:thorinform} makes this precise for $\xi(s,\chi_4)$.
+
+\section{Numerical check}\label{lv:sec:numcheck}
+
+The weighted errors $\|S_N-e^{-x}\|_c$ and $\|T_N-e^{-x}\|_c$ were computed by quadrature on logarithmic grids (\texttt{code/lv\_\allowbreak sech\_\allowbreak tables.py}, output \texttt{data/lv\_\allowbreak sech\_\allowbreak tables.json}); the secant table was computed on two grid steps and agrees to $10^{-15}$ relative, the zeta kernel table to $5\cdot10^{-8}$, the part of the zeta integrals beyond $x=60$ being added exactly ($T_N-e^{-x}=-m_N/x$ there, $m_N=\sum_{n\le N}\mu(n)/n$). The pointwise identity of Proposition~\ref{rz:prop:lvj} is proved, and the check of it at $x=0.05,0.3,1,3$ in the source is not reproduced here.
+
+\begin{table}[h]\centering\footnotesize
+\begin{tabular}{rcccc}
+\toprule
+& \multicolumn{4}{c}{secant, $\|S_N-e^{-x}\|_c$}\\
+$N$ & $c=0.60$ & $c=0.75$ & $c=1.00$ & $c=1.25$\\
+\midrule
+$10$ & $7.3\times10^{-3}$ & $5.1\times10^{-3}$ & $2.9\times10^{-3}$ & $1.7\times10^{-3}$\\
+$10^2$ & $3.9\times10^{-2}$ & $1.9\times10^{-2}$ & $6.3\times10^{-3}$ & $2.2\times10^{-3}$\\
+$10^3$ & $3.5\times10^{-2}$ & $1.2\times10^{-2}$ & $2.2\times10^{-3}$ & $4.2\times10^{-4}$\\
+$10^4$ & $5.3\times10^{-2}$ & $1.3\times10^{-2}$ & $1.2\times10^{-3}$ & $1.3\times10^{-4}$\\
+\midrule
+& \multicolumn{3}{c}{zeta kernel, $\|T_N-e^{-x}\|_c$}\\
+$N$ & $c=0.75$ & $c=0.875$ & $c=0.95$\\
+\midrule
+$10$ & $2.1\times10^{-1}$ & $2.3\times10^{-1}$ & $3.1\times10^{-1}$\\
+$10^2$ & $1.2\times10^{-1}$ & $1.0\times10^{-1}$ & $1.2\times10^{-1}$\\
+$10^3$ & $3.0\times10^{-2}$ & $1.9\times10^{-2}$ & $1.9\times10^{-2}$\\
+$10^4$ & $2.6\times10^{-2}$ & $1.2\times10^{-2}$ & $1.0\times10^{-2}$\\
+\bottomrule
+\end{tabular}
+\caption{Weighted errors of the M\"obius approximants (computed). The column $c=0.95$ of the source was $2.9\times10^{-1}$, $1.1\times10^{-1}$, $1.8\times10^{-2}$, $9.8\times10^{-3}$, a few percent low.}\label{lv:tab:secant}
+\end{table}
+
+For $c\ge1$ Theorem~\ref{lv:thm:c1} gives convergence but no rate, and at $c=1$ the computed errors rise from $N=10$ to $N=100$. Inside the strip the GRH rates $N^{1/2-c}$ are slow ($N^{-0.25}$ at $c=0.75$, $N^{-0.1}$ at $c=0.6$) and are masked at this range by the oscillation of $M_\chi(N)$, whose values at $N=10,10^2,10^3,10^4$ are $2,3,6,-24$; the error is concentrated at $x\lesssim1/N$, where $S_N(x)\approx\frac12M_\chi(N)$ (heuristic, a Taylor approximation). The finite computations cannot prove an asymptotic rate or a zero free half plane. The largest value of $|M_\chi(n)|/\sqrt n$ for $n\le10^4$ is $2/\sqrt3=1.1547$, attained at $n=3$, so it says nothing about large $n$. The zeta kernel series converges only conditionally pointwise, since $\varphi(nx)\approx-1/(nx)$ and $\sum\mu(n)/n=0$ is the prime number theorem; its weighted errors nevertheless decrease steadily.

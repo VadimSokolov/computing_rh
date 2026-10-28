@@ -17,12 +17,12 @@ authors:
 credit_names: ""                 # how a citation names the authors, e.g. "Polson and Sokolov"; empty: built from the family names
 year: 2026
 edition: "1"
-version: "1.4.0"                 # the release tag is v<version>
-date_released: "2026-10-23"      # YYYY-MM-DD, set at release
+version: "1.4.1"                 # the release tag is v<version>
+date_released: "2026-10-28"      # YYYY-MM-DD, set at release
 publisher: "Independently published"   # the imprint KDP shows for a free KDP ISBN
 # no isbn: a free KDP ISBN may be used only on KDP, so it goes on the ISBN line of kdp.md (private) and is printed
 # only in the print edition (kdp.py interior); this file is published (references/publishing.md)
-doi: "10.5281/zenodo.23595861" # this edition's DOI; zenodo.py reserve writes it before the final build
+doi: "10.5281/zenodo.23741450" # this edition's DOI; zenodo.py reserve writes it before the final build
 license_text: CC-BY-4.0          # text, figures and PDF
 license_code: MIT
 repository: https://github.com/VadimSokolov/computing_rh   # the public repository; its name is the slug
@@ -52,7 +52,7 @@ description: |
 
   New results: the reciprocal Xi function at x to the power p is hyperbolically completely monotone exactly when the absolute value of p is at most one minus twice the largest zero angle over pi; at the basepoint one the Thorin density is certified smallest at the origin, so the shifted clock is a stable variable plus a generalized gamma convolution; between the basepoints one half and one the shifted clocks are almost generalized gamma convolutions, unconditionally; the clock of Pólya's Bessel function is the hitting time of an explicit diffusion; adjacent real zeros of a polynomial cannot meet under the backward heat flow before an explicit time; and the Pólya law lies within 2 × 10^-6 in total variation of the ferromagnetic laws of Lee and Yang, a distance that is zero exactly under the hypothesis.
 
-  Later chapters read the programme through Pólya's papers on the zeros of entire functions (the Pólya Schur form of the hypothesis, Turán inequalities, a certificate that the two sided reciprocal Xi density is log concave and lies within 1.6 × 10^-10 of a Pólya frequency function of every order), Yoshida's Hermitian form of Weil's explicit formula and Zhu's compact windows (a damped Weil criterion, least eigenvalues and an uncertainty barrier), Dedekind zeta functions and the Linnik constant, friable approximants of Xi after Miyatake (truncations of Riemann's theta series to integers built from the first few primes, which agree with Xi to an exponentially small amount and yet leave the real line) with the cosh ladder, the zeros of entire functions in the work of Haseo Ki read through the Thorin programme, and hitting times of the reciprocal Xi law (Kent's formula, Jensen and extreme value hitting times, a universal three halves stable limit for prime side hitting times, and what the reciprocal Xi function proves). The October 2026 claims of a zero free half plane Re s > 7/8 for all L functions, and the later preprints that lower the constant slightly, are not refereed: the book states only conditional consequences (a principal signal for zeta, the sliver and Mertens estimate, the Thorin property at every basepoint above 7/8), credited to their authors.
+  Later chapters read the programme through Pólya's papers on the zeros of entire functions (the Pólya Schur form of the hypothesis, Turán inequalities, a certificate that the two sided reciprocal Xi density is log concave and lies within 1.6 × 10^-10 of a Pólya frequency function of every order), Yoshida's Hermitian form of Weil's explicit formula and Zhu's compact windows (a damped Weil criterion, least eigenvalues and an uncertainty barrier), Dedekind zeta functions and the Linnik constant, friable approximants of Xi after Miyatake (truncations of Riemann's theta series to integers built from the first few primes, which agree with Xi to an exponentially small amount and yet leave the real line) with the cosh ladder, the zeros of entire functions in the work of Haseo Ki read through the Thorin programme, hitting times of the reciprocal Xi law (Kent's formula, Jensen and extreme value hitting times, a universal three halves stable limit for prime side hitting times, and what the reciprocal Xi function proves), extreme value laws of Pólya's density with strings and Rouché tests that certify that folded kernels have only real zeros below a height, Weil positivity read as the Thorin condition with Gumbel and Fréchet readings of the explicit formula, the Comtet Majumdar family and the uniform law as a solved model of the Thorin question, truncations of the beta lattice with a drift law for their zeros and the Hermite coefficients of Xi, the completeness of the secant dilates in one weight, the Thorin measure at level one with the backward Cauchy flow (a closed form for the prime side, and a flow that locates the zeros from data on Re s = 1), the complexity and acceleration of that flow with certified positivity of the Thorin density at levels 3/4 and 7/8 up to height 1420, the explicit formula as a deconvolution (a matrix pencil that recovers zeros from the level one density, with 53 zeros certified on the critical line at height 1e13 + 100), Cauchy deconvolution as an ill posed problem, the deconvolution from level one to the critical line (particle filters, contour moments and zero free regions from positivity), and the Balazard, Saias and Yor criterion proved at every level and height and solved by Monte Carlo. The October 2026 claims of a zero free half plane Re s > 7/8 for all L functions, and the later preprints that lower the constant slightly, are not refereed: the book states only conditional consequences (a principal signal for zeta, the sliver and Mertens estimate, the Thorin property at every basepoint above 7/8), credited to their authors.
 
   The scripts and data files behind the tables and figures are in the book's repository https://github.com/VadimSokolov/computing_rh, listed in code/README.md.
 source:
@@ -65,7 +65,7 @@ source:
   meta: bookmeta.tex   # generated: \BookDOI, \BookVersion ... for the copyright page (\BookISBN only in the print build); \input it in the preamble
 macros: main.tex                 # the file that defines the book's macros
 code_dir: code                   # with the other folders that code/README.md names; code/LICENSE (MIT) covers them all
-environments: {resultpar: Result}                 # printed names that \newtheorem does not declare, e.g. {thm: Theorem}
+environments: {resultpar: Result, table: Table}                 # printed names that \newtheorem does not declare, e.g. {thm: Theorem}
 related_papers:                  # the authors' own papers that results come from; KEY is used in results.yaml origin
   - key: polson2017
     citation: "Polson (2017, version 24 of 2026), On Hilbert's 8th problem, arXiv:1708.02653"
@@ -146,6 +146,39 @@ chapters:                        # from bookrepo.py scan; stems are public file 
   - key: "24"
     title: "Hitting times and the reciprocal xi function"
     stem: 24_hitting_times_and_the_reciprocal_xi_function
+  - key: "25"
+    title: "Extreme values, hitting times and a path to RH"
+    stem: 25_extreme_values_hitting_times_and_a_path_to_rh
+  - key: "26"
+    title: "Weil positivity as the Thorin condition"
+    stem: 26_weil_positivity_as_the_thorin_condition
+  - key: "27"
+    title: "The Comtet Majumdar family and the uniform law"
+    stem: 27_the_comtet_majumdar_family_and_the_uniform_law
+  - key: "28"
+    title: "Truncations of the beta lattice and Hermite coefficients"
+    stem: 28_truncations_of_the_beta_lattice_and_hermite_coefficients
+  - key: "29"
+    title: "Completeness of the secant dilates and the Moebius problem"
+    stem: 29_completeness_of_the_secant_dilates_and_the_moebius_problem
+  - key: "30"
+    title: "The Thorin measure at level one and the backward Cauchy flow"
+    stem: 30_the_thorin_measure_at_level_one_and_the_backward_cauchy_flow
+  - key: "31"
+    title: "Complexity and acceleration of the backward flow"
+    stem: 31_complexity_and_acceleration_of_the_backward_flow
+  - key: "32"
+    title: "The explicit formula as a deconvolution"
+    stem: 32_the_explicit_formula_as_a_deconvolution
+  - key: "33"
+    title: "Cauchy deconvolution"
+    stem: 33_cauchy_deconvolution
+  - key: "34"
+    title: "Cauchy deconvolution from U_1 to U_1/2"
+    stem: 34_cauchy_deconvolution_from_u_1_to_u_1_2
+  - key: "35"
+    title: "Balazard, Saias and Yor meet Thorin"
+    stem: 35_balazard_saias_and_yor_meet_thorin
   - key: "A"
     title: "Code and reproducibility"
     stem: A_code_and_reproducibility
@@ -158,4 +191,4 @@ chapters:                        # from bookrepo.py scan; stems are public file 
 style:
   forbid: ["—", "–"]             # characters that may not appear in published text
   no_hyphenated_words: true
-  allow_hyphenated: ["Vere-Jones", "Barndorff-Nielsen", "Heath-Brown"]   # words that keep their hyphen, e.g. names
+  allow_hyphenated: ["Vere-Jones", "Barndorff-Nielsen", "Heath-Brown", "Sanchez-Ortiz", "Sánchez-Ortiz"]   # words that keep their hyphen, e.g. names

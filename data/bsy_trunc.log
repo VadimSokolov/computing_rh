@@ -1,0 +1,46 @@
+# bsy_trunc.log: the two cluster runs (theta 3/4 job 4 cores, theta 1/2 job 4 cores, Hopper, 10 shifts) followed by the merged table
+bsy_trunc: t_0 = 85.7, evaluator python-flint at 64 bits, second evaluator at 128, shifts 10, processes 4, zeros /scratch/vsokolov/rh_book_repro/agents/bsyF-t75b/zeros_1700.txt (1700 ordinates)
+shifts U_i (seed 20261025 + i): 0.160190 0.786930 0.987093 0.016032 0.425526 0.466037 0.354812 0.900930 0.776770 0.718470
+theta 0.75: reference log|h_theta(1 + i t_0)| = 0.13163006107769579 (30 digits minus 50 digits: -9.02e-31), h = 0.02, b = 0.25, T in [10, 40, 160, 640, 1280]
+theta 0.75: evaluated log|zeta| at 10 x 128000 nodes in 75.7 s; max ball radius of log|zeta| 5.86e-19
+theta 0.75: second evaluator on 1500 sample nodes: max |difference| 2.78e-17; mpmath 30 digits on 100 nodes: 0.00e+00
+theta 0.75 T 10 N 1000: mean error -9.4687e-04, spread 5.48e-08, T^2|err| 0.0947, spread/|err| 0.000
+theta 0.75 T 40 N 4000: mean error -3.3995e-05, spread 2.15e-08, T^2|err| 0.0544, spread/|err| 0.001
+theta 0.75 T 160 N 16000: mean error +4.3613e-06, spread 9.83e-09, T^2|err| 0.1116, spread/|err| 0.002
+theta 0.75 T 640 N 64000: mean error +6.4725e-08, spread 8.21e-10, T^2|err| 0.0265, spread/|err| 0.013
+theta 0.75 T 1280 N 128000: mean error -1.3615e-07, spread 1.83e-10, T^2|err| 0.2231, spread/|err| 0.001
+ordinates n = [1, 10, 100, 500, 742] against mpmath.zetazero (25 digits): max |difference| 0.0
+bsy_trunc: t_0 = 85.7, evaluator python-flint at 64 bits, second evaluator at 128, shifts 10, processes 4, zeros /scratch/vsokolov/rh_book_repro/agents/bsyF-t50b/zeros_1700.txt (1700 ordinates)
+shifts U_i (seed 20261025 + i): 0.160190 0.786930 0.987093 0.016032 0.425526 0.466037 0.354812 0.900930 0.776770 0.718470
+theta 0.5: reference log|h_theta(1 + i t_0)| = 0.1315790067374539 (30 digits minus 50 digits: -8.47e-31), h = 0.01, b = 0.5, T in [10, 40, 160, 640]
+theta 0.5: evaluated log|zeta| at 10 x 128000 nodes in 52.3 s; max ball radius of log|zeta| 6.50e-14
+theta 0.5: second evaluator on 1500 sample nodes: max |difference| 2.22e-16; mpmath 30 digits on 100 nodes: 0.00e+00
+theta 0.5 T 10: zeros with |gamma - t_0| <= T + 1 (gamma in [74.7, 96.7]): 10; mpmath.nzeros: N(96.7) - N(74.7) = 10
+theta 0.5 T 10: sum W_k 1.449383790249e-01, deflation tail sum 6.348866e-04 (quad 20 vs 30 digits: 2.8e-17, -1.1e-19); closure W + tails - u_k(1+it_0) max 9.4e-22; quads 2.3 s
+theta 0.5 T 10 N 2000: mean error -2.0896e-03, spread 8.07e-07, T^2|err| 0.2090, spread/|err| 0.000, zeros 10; whole line add-back: mean -1.4547e-03, spread 8.07e-07, T^2|err| 0.1455
+theta 0.5 T 40: zeros with |gamma - t_0| <= T + 1 (gamma in [44.7, 126.7]): 33; mpmath.nzeros: N(126.7) - N(44.7) = 33
+theta 0.5 T 40: sum W_k 1.915314375305e-01, deflation tail sum 2.120102e-04 (quad 20 vs 30 digits: 2.8e-17, 2.7e-20); closure W + tails - u_k(1+it_0) max 1.3e-21; quads 5.5 s
+theta 0.5 T 40 N 8000: mean error -5.3685e-05, spread 1.30e-08, T^2|err| 0.0859, spread/|err| 0.000, zeros 33; whole line add-back: mean +1.5833e-04, spread 1.30e-08, T^2|err| 0.2533
+theta 0.5 T 160: zeros with |gamma - t_0| <= T + 1 (gamma in [-75.3, 246.7]): 123; mpmath.nzeros: N(246.7) - N(-75.3) = 123
+theta 0.5 T 160: sum W_k 2.051185299287e-01, deflation tail sum 2.034411e-05 (quad 20 vs 30 digits: 8.3e-17, -3.4e-21); closure W + tails - u_k(1+it_0) max 1.6e-21; quads 20.8 s
+theta 0.5 T 160 N 32000: mean error +1.0466e-05, spread 9.39e-09, T^2|err| 0.2679, spread/|err| 0.001, zeros 123; whole line add-back: mean +3.0810e-05, spread 9.39e-09, T^2|err| 0.7887
+theta 0.5 T 640: zeros with |gamma - t_0| <= T + 1 (gamma in [-555.3, 726.7]): 742; mpmath.nzeros: N(726.7) - N(-555.3) = 742
+theta 0.5 T 640: sum W_k 2.106806391549e-01, deflation tail sum 2.943935e-06 (quad 20 vs 30 digits: 1.7e-16, 4.2e-22); closure W + tails - u_k(1+it_0) max 1.6e-21; quads 127.6 s
+theta 0.5 T 640 N 128000: mean error +7.8400e-08, spread 5.47e-10, T^2|err| 0.0321, spread/|err| 0.007, zeros 742; whole line add-back: mean +3.0223e-06, spread 5.47e-10, T^2|err| 1.2379
+ordinates n = [1, 10, 100, 500, 742] against mpmath.zetazero (25 digits): max |difference| 0.0
+
+merged table (t_0 = 85.7, 10 shifts, seeds 20261025..)
+theta 0.75 h 0.02 T    10 N    1000: err -9.469e-04 spread 5.48e-08 T2|err| 0.0947 spread/|err| 0.000 t -54646.11
+theta 0.75 h 0.02 T    40 N    4000: err -3.400e-05 spread 2.15e-08 T2|err| 0.0544 spread/|err| 0.001 t -5011.12
+theta 0.75 h 0.02 T   160 N   16000: err +4.361e-06 spread 9.83e-09 T2|err| 0.1116 spread/|err| 0.002 t 1402.96
+theta 0.75 h 0.02 T   640 N   64000: err +6.472e-08 spread 8.21e-10 T2|err| 0.0265 spread/|err| 0.013 t 249.28
+theta 0.75 h 0.02 T  1280 N  128000: err -1.361e-07 spread 1.83e-10 T2|err| 0.2231 spread/|err| 0.001 t -2346.30
+theta 0.50 h 0.01 T    10 N    2000: err -2.090e-03 spread 8.07e-07 T2|err| 0.2090 spread/|err| 0.000 t -8192.69 zeros 10 tail 6.349e-04 | whole: err -1.455e-03 spread 8.07e-07 T2|err| 0.1455
+theta 0.50 h 0.01 T    40 N    8000: err -5.368e-05 spread 1.30e-08 T2|err| 0.0859 spread/|err| 0.000 t -13024.90 zeros 33 tail 2.120e-04 | whole: err +1.583e-04 spread 1.30e-08 T2|err| 0.2533
+theta 0.50 h 0.01 T   160 N   32000: err +1.047e-05 spread 9.39e-09 T2|err| 0.2679 spread/|err| 0.001 t 3523.00 zeros 123 tail 2.034e-05 | whole: err +3.081e-05 spread 9.39e-09 T2|err| 0.7887
+theta 0.50 h 0.01 T   640 N  128000: err +7.840e-08 spread 5.47e-10 T2|err| 0.0321 spread/|err| 0.007 t 453.55 zeros 742 tail 2.944e-06 | whole: err +3.022e-06 spread 5.47e-10 T2|err| 1.2379
+check eval_0.5 {'max_radius': 6.502353271688595e-14, 'second_eval_maxdiff': 2.220446049250313e-16, 'mpmath30_maxdiff': 0.0, 'nodes': 1280000}
+check eval_0.75 {'max_radius': 5.862386480519183e-19, 'second_eval_maxdiff': 2.7755575615628914e-17, 'mpmath30_maxdiff': 0.0, 'nodes': 1280000}
+check ref_0.5 {'value': '0.13157900673745389586', 'diff30_50': '-8.47e-31'}
+check ref_0.75 {'value': '0.131630061077695787', 'diff30_50': '-9.02e-31'}
+check zetazero_maxdiff 0.0

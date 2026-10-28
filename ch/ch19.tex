@@ -84,3 +84,24 @@ First, the tilt. Write $y$ for the variable of the P\'olya kernel, so that the v
 Second, a benchmark. Since $\pi^2S_2/2=\sum_n\Gamma_n/n^2$, the Thorin measure of $\pi^2S_2/2$ is $2\sum_n\delta_{n^2}$, and in the square root variable its Cauchy flow $P_\varepsilon*2\sum_n\delta_n$ is explicit \cite[Section 16.4]{P26}. On this measure the distances of Section~\ref{ch:distances} separate the effects of the method from those of the arithmetic, and they need no separate computation: $\pi^2S_2/2$ is the sum of two independent copies of the sinh clock of Section~\ref{sec:ch3:bench}, so its distances follow from the closed forms of that section (Section~\ref{sec:open:calib}).
 
 Third, the limits. Williams' atoms are the Dirichlet eigenvalues $\pi^2n^2/2$ of an interval, and they live on the Laplace side of the kernel. The zeros of $\xi$ live on the Mellin side of the same variable, and they reappear as unit atoms only on the Laplace side of the reciprocal. The Gamma(2) structure therefore gives positivity and an exact sampler \cite{Devroye86} on the kernel side, but it transfers no positivity to the Thorin measure of the clock. In particular it does not give a positive Gamma(2) scale mixture representation of the P\'olya density, a route that \cite[Section 12.6]{P26} excludes.
+
+Fourth, Ma\'slanka's series. Ma\'slanka \cite{Maslanka01} expanded $(\sigma-1)\zeta(\sigma)=\sum_{k\ge0}A_k\,(1-\frac\sigma2)_k/k!$, with $A_k=\sum_{j=0}^k(-1)^j\binom kj(2j+1)\zeta(2j+2)$, and B\'aez-Duarte \cite{BaezDuarte10} gave a rigorous proof of this representation. The coefficients are Laguerre moments of Williams' variable \cite{PolsonRXi26}.
+
+\begin{proposition}\label{prop:ch19:maslanka}
+Let $W=\pi^2S_2/2=\sum_{n\ge1}\Gamma_n/n^2$, so that $\E e^{-\lambda W}=(\pi\sqrt\lambda/\sinh\pi\sqrt\lambda)^2$, and let $L^{(1)}_k$ be the generalised Laguerre polynomials.
+\begin{enumerate}
+\item[(i)] $A_k=\E[W L^{(1)}_k(W)]/(2(k+1))$.
+\item[(ii)] $\sum_{k\ge0}A_ky^k=\bigl(1-\E e^{-Wy/(1-y)}\bigr)/(2y)$ for $0<|y|<1$.
+\item[(iii)] For $0<\re\sigma<2$,
+\[
+(\sigma-1)\zeta(\sigma)=\frac{\sin(\pi\sigma/2)}{2\pi}\int_0^\infty r^{-\sigma/2-1}\bigl(1-\E e^{-rW}\bigr)\,dr .
+\]
+For real $0<\sigma<2$ this equals $\E\bigl[(1-\E[e^{-WR}\mid \mathcal B])/(2(1-\mathcal B))\bigr]$, with $\mathcal B$ a beta variable of parameters $\frac\sigma2$ and $1-\frac\sigma2$, independent of $W$, and $R=(1-\mathcal B)/\mathcal B$; since $\E(1-\mathcal B)^k=(1-\frac\sigma2)_k/k!$, expanding (ii) at $y=1-\mathcal B$ gives Ma\'slanka's series.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+At $s=2j+2$ the identity $2\xi(s)=\E[(W/\pi)^{s/2}]$ reads $(2j+1)\zeta(2j+2)=\E W^{j+1}/(2(j+1)!)$, and $\binom kj/(j+1)!=\binom{k+1}{k-j}/((k+1)\,j!)$ turns $\sum_j(-1)^j\binom kjW^{j+1}/(j+1)!$ into $W L^{(1)}_k(W)/(k+1)$, which is (i). For (ii), $\sum_kL^{(1)}_k(w)\,y^{k+1}/(k+1)=\int_0^y(1-t)^{-2}e^{-wt/(1-t)}dt=(1-e^{-wy/(1-y)})/w$, and the bound $|L^{(1)}_k(w)|\le(k+1)e^{w/2}$ for $w\ge0$, with $\E\,We^{W/2}<\infty$ because $\E e^{tW}=\prod_n(1-t/n^2)^{-2}$ is finite for $t<1$, allows the exchange of sum and expectation for $|y|<1$. For (iii) put $z=\sigma/2$. Fubini and $\int_0^\infty r^{-z-1}(1-e^{-rw})\,dr=w^z\Gamma(1-z)/z$ for $0<\re z<1$, with $\E W^z=2\pi^z\xi(2z)$ and $\Gamma(z)\Gamma(1-z)=\pi/\sin\pi z$, give $\pi^z\xi(2z)/\Gamma(z+1)=(2z-1)\zeta(2z)$. The change of variables $r=(1-b)/b$ carries the beta density times $db/(2(1-b))$ to $\frac{\sin\pi z}{2\pi}r^{-z-1}dr$, and the expansion in powers of $1-\mathcal B$ is Ma\'slanka's series, proved rigorously in \cite{BaezDuarte10}.
+\end{proof}
+
+So Ma\'slanka's coefficients determine the law of $W$ and give $\xi$ with no zeros and no primes, but $\xi$ enters through the Mellin transform of $W$, and they transfer no positivity to the Thorin measure of the clock, for the reason given in the third point.

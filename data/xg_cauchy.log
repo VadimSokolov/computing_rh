@@ -1,0 +1,28 @@
+[hopper_run] /scratch/vsokolov/rh_book_repro/agents/xg_cauchy: sbatch --wait, 8 cores, 16G, 30 min
+[hopper_run] job 2688977 on hop051.orc.gmu.edu
+Phi_dBN(0) = 0.446696900467123 ; Phi_dBN''(0) = -33.4610015494065 (series and numerical derivative agree) ; 3|Phi''(0)|/Phi(0) = 224.722859154 ; Phi_pol(0) = 2 Phi_dBN(0) = 0.893393800934
+rule: 3840 nodes on [0, 1.6] (0.3 s)
+H_0(z) from the rule against Xi(z/2)/8 from zeta at z = 0, 10, 28.5, 50, 80: largest difference 6.46e-42
+ordinates gamma_j with 2 gamma_j <= 80: 6 (14.13473, 21.02204, 25.01086, 30.42488, 32.93506, 37.58618) ; the next one: 2 gamma = 81.83744
+largest |H_0(2 gamma_j)| over these ordinates: 1.05e-42
+rows of the table (mu, z, H^(mu)(z), mu Phi(0)/z^2), as the book would print them, and the next term of the expansion:
+  1 & 80 & $7.237\times10^{-5}$ & $6.980\times10^{-5}$\\   ratio - 1 = 0.036811 against the next term 0.034957 (quotient 1.053) ; chapter: ('7.237\\times10^{-5}', '6.980\\times10^{-5}') AGREES
+  1 & 400 & $2.796\times10^{-6}$ & $2.792\times10^{-6}$\\   ratio - 1 = 0.0014011 against the next term 0.0013983 (quotient 1.002) ; chapter: ('2.796\\times10^{-6}', '2.792\\times10^{-6}') AGREES
+  3 & 400 & $8.387\times10^{-6}$ & $8.376\times10^{-6}$\\   ratio - 1 = 0.0013509 against the next term 0.0013483 (quotient 1.0019) ; chapter: ('8.387\\times10^{-6}', '8.376\\times10^{-6}') AGREES
+  0.01 & 400 & $2.796\times10^{-8}$ & $2.792\times10^{-8}$\\   ratio - 1 = 0.0014074 against the next term 0.0014045 (quotient 1.002) ; chapter: ('2.796\\times10^{-8}', '2.792\\times10^{-8}') AGREES
+mu = 1, z = 33.5: H = 0.00045770223, H' = -3.3360121e-5, H'' = 8.7256972e-6, (H')^2 - H H'' = -2.8808734e-9 (reviewer: -2.9e-9) ; -2 a^2/z^6 with a = Phi(0): -2.8235e-10
+mu = 1 on [0, 80], step 0.05: sign changes of H^(1): [] ; min H = 7.2366e-05 at z = 80 ; Laguerre quantity negative on 1034 grid points, first at z = 24, in runs [[24.0, 38.15], [42.55, 80.0]]
+mu = 0 (H_0) on [0, 80]: 6 sign changes at [28.27, 42.044, 50.022, 60.85, 65.87, 75.173] ; 2 gamma_j: ['28.2695', '42.0441', '50.0217', '60.8498', '65.8701', '75.1724']
+CHAPTER CLAIM (no sign change of H^(1) on [0, 80], where H_0 has six): HOLDS
+mu = 0.01 on [0, 400], step 0.05: 2 sign changes, the last at z = 40.421 (all at [28.38, 40.42]) ; H(40) = -1.32032e-6 (mp) ; H > 0 on every grid point z >= 80: True (min 2.7958e-08)
+CHAPTER CLAIM (H^(0.01) negative at 40 and positive from 80 on, up to 400 on the grid): HOLDS
+real zeros of H^(0.01) in [0, 400], refined at 40 digits: ['28.37889583', '40.42123965'] (residuals ['5.2e-42', '1.3e-42'])
+weight e^{+u} (mu = -1) on [0, 80]: sign changes of H [23.18307480873382], Laguerre quantity negative on 927 grid points, first at z = 33.7
+  redone at 40 digits at z = 33.7: (H')^2 - H H'' = -1.8791049e-11
+double precision against 40 digits (H at 9 points, H', H'' at 5): largest relative differences 4.17e-11 and 1.99e-13
+int H_0(y) dy = 1.403339700889 against pi Phi_dBN(0) = 1.403339700889
+E H_0(z + mu C) at (mu, z) = (1, 80): 7.2365631879e-05 against the direct integral 7.2365631879e-05 (relative difference 1.1e-14)
+E H_0(z + mu C) at (mu, z) = (1, 400): 2.7957672566e-06 against the direct integral 2.7957672566e-06 (relative difference 0.0e+00)
+E H_0(z + mu C) at (mu, z) = (3, 400): 8.3868810491e-06 against the direct integral 8.3868810491e-06 (relative difference 0.0e+00)
+E H_0(z + mu C) at (mu, z) = (0.01, 400): 2.7957847859e-08 against the direct integral 2.7957847859e-08 (relative difference 0.0e+00)
+done in 4.4 s

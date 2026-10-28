@@ -1,0 +1,24 @@
+[hopper_run] /scratch/vsokolov/rh_book_repro/agents/xg_local: sbatch --wait, 1 cores, 16G, 30 min
+[hopper_run] job 2688527 on hop050.orc.gmu.edu
+Local model of Proposition xg:prop:local against Table tab:ch13:first; D = larger gap from g to the zeros next to the moved pair
+row  zeros        g          delta   Dm      Dp      D      r=D/delta  omega*   omega_bis  omega_closed   t_loc    t*cert   diff t   k_loc      k*cert    diff k   k_3        diff k_3  diff k_3/k*
+1    71,  72   185.2366  0.25  3.0295  1.9923  3.0295   12.118  1.801983  1.802076  1.802076  1.18961  1.18413  +0.4624%      40818      40018  +2.0002%      40018  +2.0002%  +0.0000%
+     three zero model: first failing order 40018 at t = 1.18413, u - g = -1.4019 (below g); S there -6.688e-05; certified order 40018 at t* = 1.18413
+2   186, 187   376.0750  0.25  2.2101  2.3617  2.3617    9.447  1.840998  1.841195  1.841195  1.55906  1.54072  +1.1903%     220502     219169  +0.6080%     219169  +0.6080%  +0.0000%
+     three zero model: first failing order 219169 at t = 1.54072, u - g = +1.0862 (above g); S there -1.190e-05; certified order 219169 at t* = 1.54072
+3   363, 364   630.6398  0.25  2.3140  1.5853  2.3140    9.256  1.844364  1.844574  1.844574  1.59411  1.57664  +1.1084%     633989     624921  +1.4510%     624920  +1.4511%  -0.0002%
+     three zero model: first failing order 624920 at t = 1.57663, u - g = -1.0656 (below g); S there -7.140e-07; certified order 624921 at t* = 1.576635
+4   453, 454   750.8112  0.25  2.5684  2.0765  2.5684   10.274  1.827417  1.827571  1.827571  1.42299  1.41073  +0.8697%     802167     792746  +1.1884%     792547  +1.2138%  -0.0251%
+     three zero model: first failing order 792547 at t = 1.41037, u - g = -1.1836 (below g); S there -3.360e-06; certified order 792746 at t* = 1.410725
+5   922, 923  1329.1243  0.25  1.4890  1.3057  1.4890    5.956  1.921915  1.922697  1.922697  2.58151  2.51212  +2.7621%    4560414    4433220  +2.8691%    4433220  +2.8691%  +0.0000%
+     three zero model: first failing order 4433220 at t = 2.51212, u - g = -0.6917 (below g); S there -3.755e-07; certified order 4433220 at t* = 2.5121193
+6  1496,1497  1977.2227  0.25  2.1421  1.5788  2.1421    8.568  1.857308  1.857572  1.857572  1.73411  1.71134  +1.3307%    6779355    6683655  +1.4319%    6683455  +1.4349%  -0.0030%
+     three zero model: first failing order 6683455 at t = 1.71129, u - g = -0.9861 (below g); S there -4.544e-07; certified order 6683655 at t* = 1.7113393
+7  1496,1497  1977.2227  0.10  2.1421  1.5788  2.1421   21.421  1.728177  1.728193  1.728193  4.03387  4.02573  +0.2022%   15770035   15722219  +0.3041%   15722219  +0.3041%  +0.0000%
+     three zero model: first failing order 15722219 at t = 4.02573, u - g = -1.0047 (below g); S there -2.272e-07; certified order 15722219 at t* = 4.0257254
+t_loc against the certified t*: relative differences in per cent ['+0.46', '+1.19', '+1.11', '+0.87', '+2.76', '+1.33', '+0.20']; smallest 0.20, largest 2.76, all positive: True
+k_loc = t_loc g^2 against the certified k*: per cent ['+2.00', '+0.61', '+1.45', '+1.19', '+2.87', '+1.43', '+0.30']; largest modulus 2.87
+three zero model against the certified k*: per cent ['+0.0000', '+0.0000', '-0.0002', '-0.0251', '+0.0000', '-0.0030', '+0.0000']; largest modulus 0.0251
+omega* against the exact threshold of the model function: largest difference 7.82e-04
+with the factor exp(-2 t delta^2) kept, omega = omega_c r^2/(1+r^2): t against the certified t*, per cent ['-0.21', '+0.08', '-0.05', '-0.07', '-0.01', '-0.02', '-0.01']; largest modulus 0.21
+wrote xg_local.json in 2.1 s

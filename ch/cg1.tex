@@ -1,0 +1,161 @@
+\section{The identity decoded}\label{cg:sec:decode}
+
+Throughout, $s=1/\mu$ and
+\[
+g(x)=\frac{1}{e^x-1}-\frac1x,\qquad x>0 .
+\]
+Note $g(0^+)=-\tfrac12$, $g(x)\sim-1/x$ as $x\to\infty$, and $g<0$ on $(0,\infty)$.
+
+\begin{proposition}[Mellin form]\label{cg:prop:mellin}
+For $0<\operatorname{Re}s<1$,
+\begin{equation}\label{cg:eq:mellin}
+I(s):=\frac1\pi\int_0^\infty x^{-s}g(x)\,dx=\frac{\Gamma(1-s)\zeta(1-s)}{\pi}=\frac{\zeta(s)}{(2\pi)^s\sin(\pi s/2)} .
+\end{equation}
+With $s=1/\mu$ this is the identity of Comtet and Majumdar \cite{ComtetMajumdar05},
+\begin{equation}\label{cg:eq:B1}
+\frac1\pi\int_0^\infty\frac{dk}{k^2}\ln\Bigl[\frac{1-e^{-k^\mu}}{k^\mu}\Bigr]=\frac{\zeta(1/\mu)}{(2\pi)^{1/\mu}\sin(\pi/(2\mu))},\qquad 1<\mu\le2 .
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+The first equality is the classical formula $\Gamma(z)\zeta(z)=\int_0^\infty x^{z-1}g(x)\,dx$ for $0<\operatorname{Re}z<1$ \cite[Equation 2.7.1]{Titchmarsh} with $z=1-s$. The second is the functional equation $\zeta(s)=2^s\pi^{s-1}\sin(\pi s/2)\Gamma(1-s)\zeta(1-s)$. For \eqref{cg:eq:B1}, substitute $x=k^\mu$ in the left side and integrate by parts once; the boundary terms vanish because $\mu>1$.
+\end{proof}
+
+Comtet and Majumdar state \eqref{cg:eq:B1} for real $\mu\in(1,2]$, that is $s\in[\frac12,1)$. The proposition holds for complex $s$ in the whole strip, in particular on the critical line $s=\frac12+it$, which is what makes it relevant to the zeros; for complex $\mu$ only the Mellin form \eqref{cg:eq:mellin} is the statement proved, the integral in $k$ being formal. The equation numbers of the paper were not checked.
+
+\begin{proposition}[Stable walk reading]\label{cg:prop:spitzer}
+Let $S_n$ be a random walk with symmetric stable steps, $\E e^{ikX}=e^{-|k|^\mu}$, $1<\mu\le2$, and $M_n=\max_{0\le j\le n}S_j$. With $s=1/\mu$,
+\[
+\E M_n=\frac{\Gamma(1-s)}{\pi s}\,n^{s}+\frac{\Gamma(1-s)\zeta(1-s)}{\pi}+O(n^{s-1}).
+\]
+Hence the constant of Comtet and Majumdar is
+\[
+C_\mu=I(s)=\frac{\zeta(s)}{(2\pi)^s\sin(\pi s/2)}.
+\]
+\end{proposition}
+
+\begin{proof}
+Spitzer's identity \cite{Spitzer56} gives $\E M_n=\sum_{k=1}^n\E S_k^+/k$. By stability $S_k\overset{d}{=}k^{s}S_1$ and $\E S_1^+=\frac12\E|S_1|=\Gamma(1-s)/\pi$. Hence $\E M_n=\pi^{-1}\Gamma(1-s)\sum_{k\le n}k^{s-1}$, and Euler Maclaurin gives $\sum_{k\le n}k^{s-1}=n^s/s+\zeta(1-s)+\tfrac12n^{s-1}+O(n^{s-2})$.
+\end{proof}
+
+So the identity is Spitzer plus Euler Maclaurin plus the functional equation. The map $s\mapsto1-s$ is $\mu\mapsto\mu/(\mu-1)$, the H\"older conjugate index, and the critical line $\operatorname{Re}s=\frac12$ is through the self dual point $\mu=2$, the Gaussian walk. In the normalisation of Proposition~\ref{cg:prop:spitzer}, where the Gaussian steps have variance $2$, the constant there is $C_2=\zeta(\frac12)/\sqrt\pi=-0.82392$ (computed); for steps of unit variance it is $\zeta(\frac12)/\sqrt{2\pi}=-0.58260$ (computed), which is the constant in the paper (their equation 32, not checked). The source printed the second value in the first normalisation. Real indices give real $s\in[\frac12,1)$, where $\zeta<0$, and this is the content of the paper's Appendix A, which is the statement that there are no zeros on the real segment $[\frac12,1)$. The zeros on the critical line are not zeros of a probabilistic offset constant, since a walk with index $\mu=2/(1+2it)$ is not defined; the factor relating $\Xi$ to $C_\mu$ is nonzero and the continuation in $s$ is analytic.
+
+\subsection{The uniform law and its logarithm}
+
+The integrand of \eqref{cg:eq:B1} is the logarithm of $\varphi_U(x)=(1-e^{-x})/x=\E e^{-xV}$, $V\sim\mathrm{Uniform}(0,1)$, at $x=k^\mu$.
+
+\begin{proposition}\label{cg:prop:signed}
+For $x>0$,
+\begin{equation}\label{cg:eq:signed}
+\ln\frac{1-e^{-x}}{x}=-\lim_{R\to\infty}\Bigl\{\int_0^R(1-e^{-xt})\frac{dt}{t}-\sum_{1\le n\le R}\frac{1-e^{-xn}}{n}\Bigr\},
+\end{equation}
+that is, with the signed $k$ measure $dt-d\lfloor t\rfloor=d\{t\}$ ($\{t\}$ the fractional part), $\ln\varphi_U(x)=-\int_0^\infty(1-e^{-xt})\,t^{-1}(dt-d\lfloor t\rfloor)$ as an improper integral with a common upper cutoff. For $0<\operatorname{Re}z<1$,
+\begin{equation}\label{cg:eq:zetamellin}
+\lim_{R\to\infty}\int_0^Rt^{-z}\bigl(d\lfloor t\rfloor-dt\bigr)=-z\int_0^\infty\{t\}\,t^{-z-1}\,dt=\zeta(z).
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+The first integral in the braces is $\int_0^{xR}(1-e^{-v})\,dv/v=\log(xR)+\gamma_E+E_1(xR)$, and the sum is $H_{\lfloor R\rfloor}-\sum_{n\le R}e^{-xn}/n$. Since $H_{\lfloor R\rfloor}-\log R\to\gamma_E$, $E_1(xR)\to0$ and $\sum_{n\ge1}e^{-xn}/n=-\log(1-e^{-x})$, the braces tend to $\log x-\log(1-e^{-x})$, which is \eqref{cg:eq:signed}. For \eqref{cg:eq:zetamellin}, Stieltjes integration by parts gives, at a finite cutoff $R$, $\int_0^Rt^{-z}(d\lfloor t\rfloor-dt)=-\{R\}R^{-z}-z\int_0^R\{t\}t^{-z-1}\,dt$. The boundary term tends to $0$, and the last integral converges absolutely because $\{t\}=t$ below $1$ and $\{t\}\le1$ above. The identification with $\zeta(z)$ is Titchmarsh's formula \cite[Equation 2.1.5]{Titchmarsh}.
+\end{proof}
+
+The common cutoff matters. Neither the continuous part nor the atomic part is integrable against $t^{-1}$ at infinity, the two parts are mutually singular, and $\int_1^\infty|dt-d\lfloor t\rfloor|/t=\infty$. The difference is therefore not a signed L\'evy measure in the sense of Lebesgue integration, and the representation \eqref{cg:eq:signed} is a regularised one. After a positive tilt $e^{-\delta t}$ the integrability is restored, and that is what Section~\ref{cg:sec:uniform} uses. The uniform law is not infinitely divisible, and the proposition shows how: the measure that would be its L\'evy measure is Lebesgue minus counting. In this language \eqref{cg:eq:mellin} reads $\pi I(s)=\Gamma(1-s)\int t^{s-1}(d\lfloor t\rfloor-dt)$, a signed Thorin type integral.
+
+\section{GGC reciprocals and the Laguerre P\'olya class}\label{cg:sec:lp}
+
+The Laguerre P\'olya class $\CGLP$ is the class of entire functions that are locally uniform limits of real polynomials with only real zeros. The lemma below is known (Proposition~\ref{rz:prop:lpthorin} and Proposition~\ref{prop:rigid} give it in the form needed there); it is stated and proved here because everything in the chapter is a use of it.
+
+\begin{lemma}\label{cg:lem:lpggc}
+Let $E$ be even, real on $\R$, entire of order less than two, with $E(0)>0$. Then $w\mapsto E(0)/E(i\sqrt w)$ is the Laplace transform of a GGC if and only if all zeros of $E$ are real, that is $E\in\CGLP$. In that case the Thorin measure is $\sum_k\delta_{\tau_k^2}$, where $\pm\tau_k$ are the zeros of $E$.
+\end{lemma}
+
+\begin{proof}
+An even function of order less than two has the Hadamard product $E(t)=E(0)\prod_k(1-t^2/\tau_k^2)$ with $\sum_k|\tau_k|^{-2}<\infty$ (order less than two excludes a Gaussian factor $e^{-at^2}$), and $E(i\sqrt w)/E(0)=\prod_k(1+w/\tau_k^2)$ is entire in $w$. If every $\tau_k$ is real, the reciprocal is the Laplace transform of $\sum_ke_k/\tau_k^2$, which converges almost surely, a GGC with the stated Thorin measure. Conversely, a GGC transform $\exp\{-bw-\int\ln(1+w/x)U(dx)\}$ is analytic and zero free on $\C\setminus(-\infty,0]$, so its reciprocal has no zeros there, and the zeros $w=-\tau_k^2$ of the product must lie in $(-\infty,0)$.
+\end{proof}
+
+\begin{corollary}\label{cg:cor:closure}
+Let $\Xi_\delta$ satisfy the hypotheses of Lemma~\ref{cg:lem:lpggc}, let $\Xi_\delta\to\Xi$ locally uniformly as $\delta\to0$, and let each $\Xi_\delta(0)/\Xi_\delta(i\sqrt w)$ be a GGC transform. Then RH holds. Conversely, under RH the constant family $\Xi_\delta=\Xi$ qualifies.
+\end{corollary}
+
+\begin{proof}
+$\CGLP$ is closed under locally uniform limits (Hurwitz), so $\Xi\in\CGLP$. Equivalently the transforms converge pointwise on $(0,\infty)$ and the GGC class is closed under weak limits \cite{Bondesson}.
+\end{proof}
+
+So the question asked of any approximating family is equivalent to RH, and the only realistic aim is a family in which the real zero property is visible for structural reasons. The rest of the chapter tests the families that the identity suggests.
+
+\section{The shifted Comtet Majumdar family}\label{cg:sec:cmfamily}
+
+Comtet and Majumdar replace $1/(e^x-1)$ by $1/(e^x-1+\epsilon)$ and $1/x$ by $1/(x+\epsilon)$ (their equations B5 to B10, not checked against the paper). With $1-\epsilon=e^{-\delta}$ one has $1/(e^x-1+\epsilon)=e^{\delta}/(e^{x+\delta}-1)$. The family studied in this chapter is the shift $g(x)\mapsto g(x+\delta)$, a variant of their cutoff with the same limit as $\epsilon\to0$, which differs from it already at the order $\epsilon^{1-s}$ (Remark~\ref{cg:rem:literal}); every result below is a statement about the shifted family and is not to be attributed to the literal cutoff.
+
+\begin{definition}
+For $\delta>0$ set $I_\delta(s)=\frac1\pi\int_0^\infty x^{-s}g(x+\delta)\,dx$ for $0<\operatorname{Re}s<1$ and $\zeta_\delta(s)=(2\pi)^s\sin(\pi s/2)\,I_\delta(s)$, so that $\zeta_0=\zeta$ by \eqref{cg:eq:mellin}, and $\xi_\delta(s)=\frac12s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta_\delta(s)$, continued meromorphically.
+\end{definition}
+
+\begin{theorem}[Exact expansion]\label{cg:thm:expansion}
+For $0<\delta<2\pi$,
+\begin{equation}\label{cg:eq:Fdelta}
+\pi I_\delta(s)=\Gamma(1-s)F_\delta(s),\qquad F_\delta(s)=\CGLi_{1-s}(e^{-\delta})-\Gamma(s)\delta^{-s}=\sum_{k\ge0}\zeta(1-s-k)\frac{(-\delta)^k}{k!},
+\end{equation}
+and
+\begin{equation}\label{cg:eq:zetadelta}
+\begin{split}\zeta_\delta(s)&=\sum_{k\ge0}\Bigl(\frac{\delta}{2\pi}\Bigr)^k\frac{(s)_k}{k!}\,\frac{\sin(\pi s/2)}{\sin(\pi(s+k)/2)}\,\zeta(s+k)\\
+&=\zeta(s)+\frac{\delta}{2\pi}\,s\tan\frac{\pi s}{2}\,\zeta(s+1)\\
+&\quad-\frac{\delta^2}{8\pi^2}\,s(s+1)\zeta(s+2)-\cdots
+\end{split}\end{equation}
+The ratio of sines equals $(-1)^j$ for $k=2j$ and $(-1)^j\tan(\pi s/2)$ for $k=2j+1$.
+\end{theorem}
+
+\begin{proof}
+Expanding $1/(e^{x+\delta}-1)=\sum_ne^{-n\delta}e^{-nx}$ gives $\int_0^\infty x^{-s}(e^{x+\delta}-1)^{-1}dx=\Gamma(1-s)\CGLi_{1-s}(e^{-\delta})$, and $\int_0^\infty x^{-s}(x+\delta)^{-1}dx=\delta^{-s}\Gamma(s)\Gamma(1-s)$, both absolutely convergent for $0<\operatorname{Re}s<1$. The series for $F_\delta$ is Lindel\"of's expansion $\CGLi_\sigma(e^{m})=\Gamma(1-\sigma)(-m)^{\sigma-1}+\sum_k\zeta(\sigma-k)m^k/k!$, valid for $|m|<2\pi$, with $\sigma=1-s$, $m=-\delta$ (the attribution of the expansion was not checked). For \eqref{cg:eq:zetadelta} write $A(s)=(2\pi)^s\sin(\pi s/2)/\pi$, so $\zeta(s)=A(s)\Gamma(1-s)\zeta(1-s)$, and substitute $\zeta(1-s-k)=\zeta(s+k)/\{A(s+k)\Gamma(1-s-k)\}$ into each term. Then $\Gamma(1-s)/\Gamma(1-s-k)=(-1)^k(s)_k$ and $A(s)/A(s+k)=(2\pi)^{-k}\sin(\pi s/2)/\sin(\pi(s+k)/2)$.
+\end{proof}
+
+The formula \eqref{cg:eq:zetadelta} agrees with direct quadrature of $I_\delta$ at $s=0.6$ for $\delta=0.1$ and $1$ (relative difference $0$ and $1.0\times10^{-21}$) and at $s=0.5+5i$ for the same $\delta$ (relative differences $1.8\times10^{-17}$ and $3.4\times10^{-17}$, limited by the $20$ digit quadrature), and the form $F_\delta$ agrees with the Lindel\"of sum to $10^{-21}$ (computed, \texttt{code/cg\_checks.py}, sections \texttt{quad} and \texttt{poles}).
+
+\begin{proposition}[Obstructions]\label{cg:prop:obstructions}
+Let $0<\delta<2\pi$.
+\begin{enumerate}
+\item[(a)] $\xi_\delta(s)=\frac12s(s-1)\pi^{(s-1)/2}\Gamma\bigl(\tfrac{1-s}2\bigr)F_\delta(s)$ is meromorphic and not entire. It has a pole at $s=3$ for every $\delta\in(0,2\pi)$ and poles at $s=-1,-2,-3,\dots$ It has a pole at $s=2m+1$, $m\ge2$, exactly when $F_\delta(2m+1)\ne0$, and $F_\delta(5)=0$ at $\delta=4.7215$ and $F_\delta(7)=0$ at $\delta=3.0416$ (computed), so there is no pole at $s=5$ and $s=7$ for those $\delta$.
+\item[(b)] Each simple zero $\rho=\frac12+i\gamma$ of $\zeta$ moves to
+\begin{equation}\label{cg:eq:drift}
+\rho_\delta=\rho-\frac{\delta}{2\pi}\,\frac{\rho\tan(\pi\rho/2)\,\zeta(\rho+1)}{\zeta'(\rho)}+O(\delta^2),
+\end{equation}
+and $\xi_\delta(s)\ne\xi_\delta(1-s)$.
+\item[(c)] If $\xi_\delta(\frac12)\neq0$, the function $w\mapsto\xi_\delta(\frac12)/\xi_\delta(\frac12+\sqrt w)$ is not the Laplace transform of a GGC, nor of any positive measure.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(a) From the functional equation, $\pi^{-s/2}\Gamma(s/2)A(s)\Gamma(1-s)=\pi^{(s-1)/2}\Gamma((1-s)/2)$, which gives the formula. $\Gamma((1-s)/2)$ has poles at $s=1,3,5,\dots$, and the factor $s-1$ removes $s=1$. At $s=2m+1$ a pole remains exactly when $F_\delta(2m+1)\ne0$. Poisson summation for $1/(e^\delta-1)$ gives, for $n\ge1$,
+\[
+F_\delta(n+1)=n!\sum_{k\ne0}(\delta-2\pi ik)^{-n-1}.
+\]
+For $n=2$ this is $F_\delta(3)=4\sum_{k\ge1}\operatorname{Re}(\delta-2\pi ik)^{-3}$, and $\operatorname{Re}(\delta-2\pi ik)^{-3}=|\delta-2\pi ik|^{-3}\cos3\theta_k$ with $\theta_k=\arctan(2\pi k/\delta)\in(\pi/4,\pi/2)$ because $\delta<2\pi$, so $3\theta_k\in(3\pi/4,3\pi/2)$ and every term is negative. Hence $F_\delta(3)<0$ and the pole at $s=3$ is present. For larger $m$ the term $k=1$ dominates and its real part changes sign near $\delta=2\pi\tan(\pi/(2m+1))$, so no interval $(0,\delta_0)$ avoids the zeros of $F_\delta(2m+1)$; the values $4.7215$ and $3.0416$ are zeros of $F_\delta(5)$ and $F_\delta(7)$ (computed at forty digits). The source's argument $F_\delta(2m+1)=-\delta\zeta(-2m-1)+O(\delta^3)$ is not uniform in $m$. At $s=-m$, $m\ge1$, the factor $\Gamma(s)\delta^{-s}$ has a pole and the other factors are finite and nonzero.
+
+(b) Implicit differentiation of $\zeta_\delta(\rho_\delta)=0$ using the $k=1$ term of \eqref{cg:eq:zetadelta}. The failure of the functional equation is immediate from (a): a function invariant under $s\mapsto1-s$ cannot have a pole at $-1$ and be regular at $2$.
+
+(c) The pole of $\xi_\delta$ at $s=3$ makes the reciprocal vanish at $w=(5/2)^2=25/4$ (the value $\frac12+\sqrt w=3$), whereas the Laplace transform of a nonzero positive measure is strictly positive on $(0,\infty)$. A second reason, for $\delta$ small enough that (b) applies: a zero $\rho_\delta$ with $\operatorname{Re}\rho_\delta>\frac12$ makes the reciprocal have a pole at $w=(\rho_\delta-\frac12)^2\notin(-\infty,0]$, which a GGC transform cannot have. The source's first reason, that the zero set is not symmetric and so the function is not a function of $w$, is not an argument: with the principal root $w\mapsto\xi_\delta(\frac12+\sqrt w)$ is a function on $\C\setminus(-\infty,0]$, which is all that a GGC transform requires.
+\end{proof}
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{lccc}
+\toprule
+ & $\gamma_1=14.1347$ & $\gamma_2=21.0220$ & $\gamma_3=25.0109$\\
+\midrule
+slope, real part of \eqref{cg:eq:drift} & $1.53709$ & $1.95365$ & $2.14062$\\
+$\delta=0.01$ & $0.015371$ & $0.019537$ & $0.021406$\\
+$\delta=0.05$ & $0.076858$ & $0.097694$ & $0.107022$\\
+$\delta=0.10$ & $0.153723$ & $0.195408$ & $0.214026$\\
+$\delta=0.30$ & $0.461231$ & $0.586400$ & $0.641850$\\
+$\delta=1.00$ & $1.537267$ & $1.953476$ & $2.137214$\\
+\bottomrule
+\end{tabular}
+\caption{Displacement $\operatorname{Re}\rho_\delta-\frac12$ of the first three zeros of the shifted family, by Newton's method from \eqref{cg:eq:zetadelta} at $30$ and $45$ digits (difference below $5\times10^{-25}$; computed). The first row is the real part of the complex slope of \eqref{cg:eq:drift}, whose imaginary parts $-0.1565$, $+0.0703$, $-0.2961$ show that $\operatorname{Im}\rho_\delta$ moves too. The displacement is linear in $\delta$ only to the digits of the slope for small $\delta$ (at $\delta=1$ the first entry is $1.53727$ against $1.53709$).}
+\label{cg:tab:drift}
+\end{table}
+
+The lesson is that damping applied on the $\zeta(1-s)$ side is carried by the functional equation into the operator series \eqref{cg:eq:zetadelta}, which mixes $\zeta(s)$ with $\zeta(s+1),\zeta(s+2),\dots$ through the factor $\tan(\pi s/2)$; this is not symmetric and generates poles.
+
+\begin{remark}[The shift is not the literal cutoff]\label{cg:rem:literal}
+Write $\epsilon=1-e^{-\delta}$. The literal cutoff of Comtet and Majumdar has the integrand $\tilde g_\epsilon(x)=1/(e^x-1+\epsilon)-1/(x+\epsilon)=e^\delta/(e^{x+\delta}-1)-1/(x+\epsilon)$, whereas the shifted family has $g(x+\delta)=1/(e^{x+\delta}-1)-1/(x+\delta)$; both the multiplicative factor $e^\delta$ and the second shift differ. In particular $\tilde g_\epsilon(0)=\tilde g_\epsilon'(0)=0$ while $g(\delta)<0$. For $0<\operatorname{Re}s<1$ one finds $\pi\tilde I_\epsilon(s)=\Gamma(1-s)\bigl[e^\delta\CGLi_{1-s}(e^{-\delta})-\Gamma(s)\epsilon^{-s}\bigr]$, and with $\delta=\epsilon+\epsilon^2/2+O(\epsilon^3)$ the two families differ at the order $\epsilon^{1-s}$: $\tilde I_\epsilon(s)=I(s)+\Gamma(1-s)\Gamma(s)(1-s/2)\epsilon^{1-s}/\pi+O(\epsilon)$, while the shifted family's correction is analytic and linear in $\delta$. A sign test shows the difference also after continuation. For $x>0$ one has $e^x-1>x$, so $\tilde g_\epsilon(x)<0$, and $\tilde g_\epsilon(x)=-x^2/(2\epsilon^2)+O(x^3)$ at $0$, so the literal integral converges for $0<\operatorname{Re}s<3$, and $\tilde\zeta_\epsilon(s)=(2\pi)^s\sin(\pi s/2)\tilde I_\epsilon(s)<0$ for real $1<s<2$, whereas Theorem~\ref{cg:thm:mellinthorin} below gives $\zeta_\delta(s)>0$ there. The pole expansions, the zero drift and the Thorin Mellin identity of this chapter are proved for the shifted family and cannot be attributed unchanged to the finite $\epsilon$ cutoff. (This corrects the source, which called the cutoff exactly the shift; the sign test and the expansion follow from the formulas above and were not run by a script.)
+\end{remark}

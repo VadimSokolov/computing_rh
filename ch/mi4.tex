@@ -118,3 +118,69 @@ For $b=\frac92$ this matches all $31$ zeros of $g_{9/2}$ with real part below $1
 \end{figure}
 
 For $b<2$ the root mean square de Bruijn radius of the P\'olya Gamma clock, $(\E\,4b^2\varpi)^{1/2}=b$, equals the strip width that de Bruijn's theorem needs for the shift identity. The strip nevertheless fails: below height $250$ the largest imaginary parts of zeros of $g_b$ are $0.367$, $1.258$, $2.153$ for $b=0.5$, $1$, $1.5$. Concentrating the clock does not help. Let $\varpi_h=\mathrm{PG}(h,0)/h$, so that $\E e^{-s\varpi_h}=\cosh(\sqrt{s/2h})^{-h}$ with mean $\frac14$; the corresponding weight at radius $b$ is $\sech(bu/\sqrt h)^h$, and $h\to\infty$ is the deterministic flow $\mathcal H_{-b^2/2}$. At radius $1$ the clocks $\mathrm{PG}(1)$, $\mathrm{PG}(4)$, $\mathrm{PG}(16)$ and the deterministic flow $\mathcal H_{-1/2}$ give $28$ nonreal pairs in $[0,250]\times[-3,3]$ for each (only $27$ of the pairs of $\mathrm{PG}(4)$ have imaginary part above $0.125$) and largest imaginary parts $1.258$, $1.331$, $1.322$, $1.325$. The obstruction is the backward direction of the flow, for which de Bruijn's radius has no counterpart.
+
+\section{The P\'olya mixture of \texorpdfstring{$\psi_{\mathrm M}$}{psi\_M}}\label{mi:sec:mixture}
+
+This section follows a note of Nicholas Polson merged into the book \cite{P26pg8}. Write $c=\cosh t$. The map $t\mapsto\cosh t$ takes the strip $|\im t|<\frac\pi2$, modulo $t\mapsto-t$, one to one onto the half plane $\re c>0$, and $\psi_{\mathrm M}(t)=\Phi(t/2)/(8\pi^2\cosh(9t/4))$ is even, so $\psi_{\mathrm M}$ is a function of $c$ there. Without their factors $1-R_{\mathrm M}$ the terms of \eqref{mi:eq:psiM} are $n^4e^{-2\pi n^2c}$, Laplace transforms in $c$ of atoms at $a=2\pi n^2$, and by \eqref{mi:eq:psidef} they contribute to $\Xi$ the function $\xi^{(P)}$ of Section~\ref{mi:sec:miyatake} with every $n$ admitted, which we write $\xi^{(\infty)}$. Each of its terms $8\pi^2n^4\re K_{\frac94+\frac{it}2}(2\pi n^2)$, the transform of $8\pi^2n^4\cosh(9u/2)e^{-2\pi n^2\cosh2u}$, has only real zeros: $\cosh(9u/2)$ is a universal factor \cite{Polya27}, and $K_{\frac{it}2}(2\pi n^2)$, the transform of $e^{-2\pi n^2\cosh2u}$, has only real zeros \cite{Polya}; for $n=1$ this is $\Xi^*$ of Proposition~\ref{pol:prop:bessel}.
+
+\begin{proposition}[The polar part]\label{mi:prop:polar}
+As a function of $c=\cosh t$, $\psi_{\mathrm M}$ is analytic on $\re c>0$ except for a simple pole at $c_0=\cos\frac{2\pi}9$, with residue
+\[
+r_0=\frac{\sin\frac{2\pi}9}{18\pi^2}\,\Phi\Big(\frac{i\pi}9\Big)=\frac{\sin\frac{2\pi}9}{8\pi^3}\,C_{9/2}>0 .
+\]
+Hence, with $\psi_{\mathrm E}(t)=r_0\,e^{-2\pi(\cosh t-c_0)}/(\cosh t-c_0)=r_0\int_{2\pi}^\infty e^{c_0a}e^{-a\cosh t}\,da$,
+\begin{equation}\label{mi:eq:psiE}
+\psi_{\mathrm M}(t)=\sum_{n\ge1}n^4e^{-2\pi n^2\cosh t}+\psi_{\mathrm E}(t)+\psi_{\mathrm A}(t),
+\end{equation}
+where $\psi_{\mathrm A}$ is analytic in $c$ on all of $\re c>0$.
+\end{proposition}
+
+\begin{proof}
+$\Phi(t/2)$ is analytic for $|\im t|<\frac\pi2$ (Section~\ref{mi:sec:prob}), and an even analytic function of $t$ is an analytic function of $c$ near $c=1$, the only critical value of $\cosh$ in the strip. In the strip the zeros of $\cosh(9t/4)$ are $t=\pm2\pi i/9$; they are simple, both map to $c_0$, and $dc/dt=\sinh t=i\sin\frac{2\pi}9\ne0$ at $t=2\pi i/9$. The residue in $c$ is therefore $\Phi(i\pi/9)\,i\sin\frac{2\pi}9/(8\pi^2\cdot\frac94i)$, which is the formula, and $C_{9/2}=\frac{4\pi}9\Phi(i\pi/9)>0$ by Section~\ref{mi:sec:btwo}. The atoms are entire in $c$, and $\psi_{\mathrm E}$ has the same simple pole with the same residue and no other singularity, so $\psi_{\mathrm A}$ is analytic on $\re c>0$. The integral form is $\int_{2\pi}^\infty e^{-a(c-c_0)}\,da=e^{-2\pi(c-c_0)}/(c-c_0)$ for $\re c>c_0$.
+\end{proof}
+
+So $r_0=0.009206406367$, computed in interval arithmetic, all digits shown certified (the script is \texttt{code/pg8\_constants.py}), and the exponent $c_0$ of the exponential part depends only on the factor $\cosh(9t/4)$ of \eqref{mi:eq:psidef} and on the map $c=\cosh t$; $\Phi$ enters only through $r_0$. The lower limit $2\pi$, the position of the first atom, is a choice: any $a_0>0$ gives the same pole.
+
+\begin{proposition}[The exponent is forced]\label{mi:prop:rigid}
+Let $0<\theta<\frac\pi2$, $a_0>0$, and
+\begin{align*}
+\mathcal E_\theta(z)&=\int_\R\frac{\cosh(9u/2)\,e^{-a_0(\cosh2u-\cos\theta)}}{\cosh2u-\cos\theta}\,e^{izu}\,du\\
+&=\int_{a_0}^\infty e^{a\cos\theta}\,\tfrac12\Big\{K_{\frac94+\frac{iz}2}(a)+K_{\frac94-\frac{iz}2}(a)\Big\}\,da ,
+\end{align*}
+the exponential mixture with exponent $\cos\theta$ of the P\'olya functions $\frac12\{K_{\frac94+\frac{iz}2}(a)+K_{\frac94-\frac{iz}2}(a)\}$ of Proposition~\ref{pol:prop:bessel}. For $\theta/2<\tau<\frac\pi4$ and $Y>0$, uniformly for $\re z\ge0$ and $|\im z|\le Y$,
+\[
+\mathcal E_\theta(z)=\frac{\pi\cos(9\theta/4)}{\sin\theta}\,e^{-\theta z/2}+O(e^{-\tau\re z}).
+\]
+If $\theta\ne\frac{2\pi}9$, then $\mathcal E_\theta$ has finitely many real zeros and infinitely many nonreal zeros, and it is not in the Laguerre P\'olya class.
+\end{proposition}
+
+\begin{proof}
+Shift the contour from $\R$ to $\im u=\tau$ as in the proof of Theorem~\ref{mi:thm:tail}: on $\im u=\sigma$, $0\le\sigma\le\tau<\frac\pi4$, the factor $e^{-a_0\cosh2u}$ decays doubly exponentially, and the only pole between the two lines is $u_0=i\theta/2$, where $\cosh2u_0=\cos\theta$; the next poles, $\pm i\theta/2+i\pi\mathbb Z$, lie above $\frac\pi4$. $2\pi i$ times the residue at $u_0$ is $2\pi i\cos(9\theta/4)e^{-\theta z/2}/(2i\sin\theta)$. For $0<\theta<\frac\pi2$, $\cos(9\theta/4)=0$ only at $\theta=\frac{2\pi}9$. The kernel is positive, so $\mathcal E_\theta$ is even, real, of order at most one, positive at $0$ and tends to $0$ on $\R$, and the proof of Corollary~\ref{mi:cor:notLP} gives the rest. The Bessel form follows from $e^{-a_0(c-\cos\theta)}/(c-\cos\theta)=\int_{a_0}^\infty e^{-a(c-\cos\theta)}\,da$ for $c\ge1$ and $\int_\R\cosh(9u/2)e^{-a\cosh2u}e^{izu}\,du=\frac12\{K_{\frac94+\frac{iz}2}(a)+K_{\frac94-\frac{iz}2}(a)\}$, which is $\int_\R e^{\nu v-a\cosh v}\,dv=2K_\nu(a)$ after $v=2u$.
+\end{proof}
+
+So among the exponential mixtures with exponent in $(0,1)$ only $c_0=\cos\frac{2\pi}9$ can have only real zeros, and by Proposition~\ref{mi:prop:polar} this is the exponent of the polar part of $\psi_{\mathrm M}$: with $a_0=2\pi$, $\Xi^{\mathrm E}=8\pi^2r_0\,\mathcal E_{2\pi/9}$ is the transform of $8\pi^2\cosh(9u/2)\psi_{\mathrm E}(2u)$, whose apparent pole at $u=i\pi/9$ is cancelled by the zero of $\cosh(9u/2)$, and by \eqref{mi:eq:psidef} and \eqref{mi:eq:psiE}, $\Xi=\xi^{(\infty)}+\Xi^{\mathrm E}+\Xi^{\mathrm A}$ with $\Xi^{\mathrm A}$ the transform of $8\pi^2\cosh(9u/2)\psi_{\mathrm A}(2u)$.
+
+\begin{proposition}[A Meixner convolution of a P\'olya type function]\label{mi:prop:meixner}
+Let $c_1=\cos\frac\pi9$, so that $c_0=2c_1^2-1$, and
+\begin{equation}\label{mi:eq:nine}
+\mathcal U(u)=\frac{\cosh(9u/2)}{2(\cosh u-c_1)}=\cosh\tfrac{7u}2+2c_1\cosh\tfrac{5u}2+(1+2c_0)\cosh\tfrac{3u}2+(1+2c_1)\cosh\tfrac u2 ,
+\end{equation}
+so that $\cosh(9u/2)/(\cosh2u-c_0)=\mathcal U(u)/(\cosh u+c_1)$.
+\begin{enumerate}
+\item[(i)] $\mathcal U$ is a universal factor, and $\Xi^{\mathcal U}(z)=\int_\R\mathcal U(u)e^{-2\pi\cosh2u}e^{izu}\,du=\sum_jm_j\cos(\frac{b_j}2\partial)P$, with $(b_j,m_j)=(7,1),(5,2c_1),(3,1+2c_0),(1,1+2c_1)$ and $P$ of \eqref{eq:biane:P}, is in the Laguerre P\'olya class.
+\item[(ii)] For $0\le\varphi<\pi$ the function $q_\varphi(x)=\frac{(1+\cos\varphi)\sinh(\varphi x)}{\sin\varphi\,\sinh(\pi x)}$, with $q_0(x)=2x/\sinh(\pi x)$, is a probability density with $\int_\R q_\varphi(x)e^{iux}\,dx=\frac{1+\cos\varphi}{\cosh u+\cos\varphi}$ and variance $1/(1+\cos\varphi)$, and it is a P\'olya frequency function. Moreover $\frac{1+\cos\varphi}{\cosh u+\cos\varphi}=\E e^{-\varsigma_\varphi u^2}$ with
+\[
+\varsigma_\varphi=\sum_{k\ge0}\Big(\frac{e_k}{((2k+1)\pi-\varphi)^2}+\frac{e_k'}{((2k+1)\pi+\varphi)^2}\Big),\qquad\E\varsigma_\varphi=\frac1{2(1+\cos\varphi)},
+\]
+$e_k,e_k'$ independent standard exponential variables, so the transform of $k(u)(1+\cos\varphi)/(\cosh u+\cos\varphi)$ is $q_\varphi*\hat k$ for every kernel $k$ for which these integrals converge; for $k=\Phi$ it is $\E\,\mathcal H_{-\varsigma_\varphi}$, a de Bruijn Newman flow at a random negative time, and $\varphi=\frac\pi2$ is $g_b$ of Theorem~\ref{mi:thm:levyarea} with $b=1$.
+\item[(iii)] $\Xi^{\mathrm E}=\dfrac{8\pi^2r_0e^{2\pi c_0}}{1+c_1}\;q_{\pi/9}*\Xi^{\mathcal U}$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+The identity: $\cosh2u-c_0=2(\cosh u-c_1)(\cosh u+c_1)$, and multiplying the four term sum by $2(\cosh u-c_1)$ with $2\cosh u\cosh\frac{bu}2=\cosh\frac{(b+2)u}2+\cosh\frac{(b-2)u}2$ leaves $\cosh\frac{9u}2$, the other coefficients vanishing by $2+2c_0=4c_1^2$ and $4c_1c_0=1+2c_1$, the latter being $4c_1^3-3c_1=\cos\frac\pi3=\frac12$. (i) $\mathcal U(iw)=\cos\frac{9w}2/(2(\cos w-c_1))$, and the zeros $\pm\frac\pi9+2\pi\mathbb Z$ of $\cos w-c_1$ are simple zeros of $\cos\frac{9w}2$, so $\mathcal U(iw)$ is an even real entire function of exponential type whose zeros, the remaining zeros of $\cos\frac{9w}2$, are real; it is in the Laguerre P\'olya class, and $\mathcal U$ is a universal factor by P\'olya's theorem \cite{Polya27}. $P$ has only real zeros \cite{Polya}, hence so has $\Xi^{\mathcal U}$, which is even of order one, so it is in the class. The shift form is $\int_\R k(u)\cosh(bu)e^{izu}\,du=\frac12\{\hat k(z+ib)+\hat k(z-ib)\}$, as in \eqref{mi:eq:Fb}, for $k(u)=e^{-2\pi\cosh2u}$, whose transform is $P$, and $b=\frac{b_j}2$. (ii) For $0<\varphi<\pi$ the residue theorem on the rectangle of height $2\pi$, with poles at $i(\pi\mp\varphi)$, gives $\int_\R e^{ivx}\,dx/(\cosh x+\cos\varphi)=2\pi\sinh(\varphi v)/(\sin\varphi\sinh(\pi v))$; Fourier inversion gives the pair, $\varphi\to0$ gives $q_0$, the value $1$ at $u=0$ the mass, and the coefficient of $u^2$ the variance. The bilateral Laplace transform $\int q_\varphi(x)e^{sx}\,dx=(1+\cos\varphi)/(\cos s+\cos\varphi)$, $|\re s|<\pi-\varphi$, is the reciprocal of an even function of order one with the real zeros $\pm((2k+1)\pi\mp\varphi)$, so $q_\varphi$ is a P\'olya frequency function by Schoenberg's theorem \cite{Schoenberg51} (Theorem~\ref{ev:thm:schoenberg}). The same zeros give $(\cosh u+\cos\varphi)/(1+\cos\varphi)=\prod_{k\ge0}(1+u^2/((2k+1)\pi-\varphi)^2)(1+u^2/((2k+1)\pi+\varphi)^2)$, and inverting each factor as in the proof of Theorem~\ref{mi:thm:levyarea} gives $\E e^{-\varsigma_\varphi u^2}$, with the mean read off the coefficient of $u^2$. The convolution form is Fubini's theorem. (iii) Multiply kernels, using \eqref{mi:eq:nine} and $1/(\cosh u+c_1)=(1+c_1)^{-1}\int q_{\pi/9}(x)e^{iux}\,dx$.
+\end{proof}
+
+For $0<\varphi<\pi$, $q_\varphi$ is the law of $(\log V-\log V')/(2\pi)$, where $V$ and $V'$ are independent with the inverted beta density $v^{a-1}/(B(a,1-a)(1+v))$ on $(0,\infty)$ and $a=\frac12+\frac\varphi{2\pi}$: by Euler's beta integral and the reflection formula, $\E e^{iu\log V/(2\pi)}=\cos\frac\varphi2/\cos\frac{\varphi+iu}2$, and the product of this with its complex conjugate is $(1+\cos\varphi)/(\cosh u+\cos\varphi)$. Each $\log V/(2\pi)$ is a Meixner variable \cite{Grigelionis99}, the logarithm of the local variance in the shrinkage priors of Polson and Scott \cite{PolsonScott12}; for $\varphi=\frac\pi9$, $a=\frac59$.
+
+Three computations bear on $\Xi^{\mathrm E}$ and the pieces of \eqref{mi:eq:psiE} (computed, \texttt{code/pg8\_E.py}, \texttt{code/pg8\_meixner.py}, \texttt{code/pg8\_main.py}). First, $\Xi^{\mathrm E}$ has $452$ zeros in $[0.25,750]\times[-3,3]$, all real, with least gap $1.314$ at height about $749$, against $442.9$ for $\frac T{2\pi}\log\frac T{2\pi e}$ evaluated between $50$ and $750$, where $\Xi^{\mathrm E}$ has $443$ zeros. Second, the same convolution does not keep the zeros of $\Xi$ real: in $(0,250]$, $q_\varphi*\Xi$ has $80$ real zeros for $\varphi=\frac\pi9$, $80$ for $\varphi=0$ and $72$ for $\varphi=\frac\pi4$, against $108$ for $\Xi$ and $51$ for $g_b$ with $b=1$, the case $\varphi=\frac\pi2$ (Section~\ref{mi:sec:prob}); for $\varphi=\frac\pi9$ the zeros in $[0.5,250]\times[-3,3]$ are real below height $95.5$, and the first nonreal one is $95.520+0.2361\,i$. For $0\le\varphi\le\frac\pi2$, $(\cosh u+\cos\varphi)/(1+\cos\varphi)=\E\cosh(uX)$ with $\Pr(X=0)=\cos\varphi/(1+\cos\varphi)$ and $\Pr(X=\pm1)=1/(2(1+\cos\varphi))$, so these are instances of Problem~\ref{mi:prob:cardon}, answered in the expected direction below height $250$. Third, $\xi^{(\infty)}+\Xi^{\mathrm E}$ has $229$ real zeros in $(50,500]$ and $261$ zeros in $[50,500]\times[-3,3]$, that is $16$ conjugate pairs of nonreal zeros, the first at $188.502+0.228\,i$, while every term of $\xi^{(\infty)}$ has only real zeros: real zeros of the pieces of \eqref{mi:eq:psiE} do not pass to their sum. The function $\xi^{(\infty)}$ alone has the same two counts, so $\Xi^{\mathrm E}$ moves the zeros slightly and changes neither count. The counts come from the argument principle at $160$ bits with two quadratures agreeing to $10^{-36}$, and interval Newton encloses the two first nonreal zeros named above, $95.5202007665+0.2361064242\,i$ and $188.5020229515+0.2278349245\,i$, each as a simple zero up to the quadrature allowance. Heuristically the random negative time of Proposition~\ref{mi:prop:meixner}(ii) pulls the close pairs of zeros of $\Xi$ off the line, as for $g_b$, while the zeros of $\Xi^{\mathcal U}$, like those of P\'olya's $\Xi^*$, are close to evenly spaced.

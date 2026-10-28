@@ -1,0 +1,432 @@
+\section{Negative mass and converse results}\label{cf:sec:negmass}
+
+Throughout this section $u_\theta(v)=\pi^{-1}\Re(\xi'/\xi)(\theta+iv)$ is the density of $\mathfrak U_\theta$, real parts of zeros are $\sigma_\rho$ and levels are $\theta$, as in Section~\ref{cf:sec:recap}. By the Hadamard sum \eqref{es:eq:lorentz} taken at level $\theta$,
+\[
+u_\theta(v)=\sum_\rho P_{\theta-\sigma_\rho}(v-\gamma_\rho),\qquad P_a(x)=\frac a{\pi(a^2+x^2)}\ \ (a\in\R),
+\]
+the sum over the zeros of both half planes, paired as $\rho,\bar\rho$ so that it converges absolutely, with $P_0=\delta_0$. For $\theta\ge\sup\sigma_\rho$ every term is nonnegative, and this is the measure of \eqref{lo:eq:Utheta}. For smaller $\theta$ the terms with $\sigma_\rho>\theta$ are negative, and the question of this section is how much they can cost. The results are of three kinds. Zero density bounds the negative mass (Theorem~\ref{cf:thm:negmass}, proved), and a computed example for the Davenport and Heilbronn function shows the bound at work (Table~\ref{cf:tab:negmass}, computed). A converse, in which negative mass forces zeros, is proved for separated zeros and in a weighted form for all zeros (Proposition~\ref{cf:prop:converse}, Corollary~\ref{cf:cor:twosided}, Theorem~\ref{cf:thm:converse}). Under $\mathrm{QRH}(\theta_0)$ the density has a margin (Proposition~\ref{cf:prop:margin}, conditional on $\mathrm{QRH}(\theta_0)$).
+
+\subsection{How negative the density can be}
+
+\begin{problem}\label{cf:op:negdepth}
+How negative can $\mathfrak U_\theta$ be, for $\frac12<\theta<1$, without assuming RH?
+\end{problem}
+
+Write $N(\theta,T)$ for the number of zeros with $\sigma_\rho>\theta$ and $0<\gamma_\rho\le T$, counted with multiplicity, and $u_\theta^-=\max(-u_\theta,0)$.
+
+\begin{theorem}[zero density controls the negative Thorin mass]\label{cf:thm:negmass}
+Let $\frac12<\theta<1$ and $T\ge2$.
+\begin{enumerate}
+\item[(a)] $\displaystyle\int_0^Tu_\theta^-(v)\,dv\le N\bigl(\theta,T+\tfrac12\bigr)$.
+\item[(b)] If $T$ is not an ordinate and no zero with $0<\gamma_\rho<T$ has real part $\theta$, then
+\[
+\mathfrak U_\theta\bigl((0,T]\bigr)=\int_0^Tu_\theta(v)\,dv=\frac T{2\pi}\log\frac T{2\pi e}-2N(\theta,T)+O(\log T).
+\]
+\item[(c)] Consequently, for $T$ as in (b), Selberg's density theorem $N(\theta,T)\ll T^{1-(\theta-\frac12)/4}\log T$ \cite{Selberg46} shows that the negative part of $\mathfrak U_\theta$ on $(0,T]$ is a fraction $O\bigl(N(\theta,T+\frac12)/(T\log T)\bigr)=O\bigl(T^{-(\theta-\frac12)/4}\bigr)$ of its mass.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(a) Group the zeros in the Hadamard sum into orbits of $\rho\mapsto1-\bar\rho$, which preserves ordinates. A zero on the critical line contributes $P_{\theta-1/2}(v-\gamma_\rho)>0$, and an orbit with $\frac12<\sigma_\rho\le\theta$ contributes $Q_{\theta+\sigma_\rho-1}(v-\gamma_\rho)+Q_{\theta-\sigma_\rho}(v-\gamma_\rho)\ge0$, with $Q_0=0$ off the ordinate. An orbit with $\sigma_\rho>\theta$ contributes $P_a(v-\gamma_\rho)-P_b(v-\gamma_\rho)$ with $a=\theta+\sigma_\rho-1>b=\sigma_\rho-\theta>0$, and
+\[
+\pi\bigl(P_a(x)-P_b(x)\bigr)=\frac{(a-b)(x^2-ab)}{(a^2+x^2)(b^2+x^2)},
+\]
+so its negative part is at most $P_b(x)$ for $x^2<ab$ and vanishes for $x^2\ge ab$, where $ab<\bigl(\frac{a+b}2\bigr)^2=(\sigma_\rho-\frac12)^2<\frac14$ (as in the proof of Proposition~\ref{prop:signature}(ii)). Since the negative part of a sum is at most the sum of the negative parts, $u_\theta^-(v)\le\sum_{\sigma_\rho>\theta}P_{\sigma_\rho-\theta}(v-\gamma_\rho)\,\mathbf 1\{\lvert v-\gamma_\rho\rvert<\frac12\}$, the sum over zeros of both signs of $\gamma_\rho$. On $[0,T]$ only zeros with $-\frac12<\gamma_\rho<T+\frac12$ contribute, each at most $\int P_b=1$, and no zero has $\lvert\gamma_\rho\rvert<\frac12$; this gives (a).
+
+(b) Apply the argument principle to $\xi$ on the rectangle with vertices $\theta$, $2$, $2+iT$, $\theta+iT$, positively oriented. It contains the $N(\theta,T)$ zeros with $\sigma_\rho>\theta$ and $0<\gamma_\rho<T$, and $\xi$ is real and positive on $[\theta,2]$. Writing $\Delta_I$ for the continuous change of $\arg\xi$ along a segment $I$,
+\[
+\Delta_{[\theta,\theta+iT]}=\Delta_{[2,2+iT]}+\Delta_{[2+iT,\theta+iT]}-2\pi N(\theta,T).
+\]
+The left side is $\pi\int_0^Tu_\theta$ (Theorem~\ref{lo:thm:density}). As in the proof of the Riemann von Mangoldt formula, $\Delta_{[2,2+iT]}+\Delta_{[2+iT,\frac12+iT]}=\pi N(T)$, and the change along the horizontal segment from $\frac12+iT$ to $\theta+iT$ is $O(\log T)$, by Stirling's formula for the Gamma factor and, for $\zeta$, by the bound that gives $S(T)=O(\log T)$. With $N(T)=\frac T{2\pi}\log\frac T{2\pi e}+O(\log T)$ this is (b); it is Proposition~\ref{cx:prop:deficit} in the present notation.
+
+(c) By (b) and $N(\theta,T)=o(T\log T)$, $\mathfrak U_\theta((0,T])=\frac T{2\pi}\log T\,(1+o(1))$; divide (a) by it and apply Selberg's bound to $N(\theta,T+\frac12)$.
+\end{proof}
+
+The display in (b) without the term $-2N(\theta,T)$ holds under RH and is equivalent to $N(\theta,T)=O(\log T)$, which is open. Theorem~\ref{ag:thm:almost} gives better exponents for statements of this kind (Ingham below $\frac7{10}$, Guth and Maynard above), so (c) is a consequence of it; what (a) adds is the constant, with no tail term. Ingham's bound $N(\theta,T)\ll T^{3(1-\theta)/(2-\theta)}\log^5T$ is better than Selberg's near $\theta=1$, the density hypothesis $N(\theta,T)\ll T^{2(1-\theta)+\epsilon}$ would make the fraction $O(T^{1-2\theta+\epsilon})$, and RH makes it zero. Define the Thorin defect exponent, with the convention $\log0=-\infty$,
+\[
+\mathrm{def}(\theta)=\limsup_{T\to\infty}\frac{\log\int_0^Tu_\theta^-(v)\,dv}{\log T}.
+\]
+By Theorem~\ref{cf:thm:negmass}(a), $\mathrm{def}(\theta)$ is at most the density exponent $\limsup\log N(\theta,T)/\allowbreak\log T$ (proved). It equals $-\infty$ under RH.
+
+For the Davenport and Heilbronn function $f$ (Section~\ref{cf:sec:test}) the bound can be seen at work. Its density $u_\theta$ is the same expression with $\Lambda_{\mathrm{DH}}$ of Proposition~\ref{cf:prop:barrier} in place of $\xi$, and the pairing argument of (a) applies to its zeros with $\frac12<\sigma_\rho<1$. Table~\ref{cf:tab:negmass} gives the negative mass of $u_\theta$ on intervals of length $3$ centred at the two lowest zeros off the line, $0.8085\ldots+85.6993\ldots i$ and $0.6508\ldots+114.1633\ldots i$ (certified, Section~\ref{cf:sec:test}). Within each interval only the zero at its centre can make $u_\theta$ negative, by the pairing, and it contributes at most one when $\sigma_\rho>\theta$ and nothing when $\sigma_\rho\le\theta$. The mass is largest just below $\sigma_\rho$ and decays as the level moves further left, because the negative Cauchy term spreads out and is absorbed by the positive background of the other zeros.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lcccc}
+\toprule
+level $\theta$ & $0.9$ & $0.79$ & $0.7$ & $0.6$\\
+\midrule
+negative mass near $85.70$ ($\sigma_\rho=0.8085$) & $0$ & $0.763$ & $0.424$ & $0.195$\\
+bound for this interval & $0$ & $1$ & $1$ & $1$\\
+negative mass near $114.16$ ($\sigma_\rho=0.6508$) & $0$ & $0$ & $0$ & $0.454$\\
+bound for this interval & $0$ & $0$ & $0$ & $1$\\
+\bottomrule
+\end{tabular}
+\caption{Negative mass of $u_\theta$ for the Davenport and Heilbronn function on intervals of length $3$ centred at its two lowest zeros off the line (computed, \texttt{code/cf\_xi.py}, \texttt{data/cf\_xi.json}). The bound is the number of zeros with $\sigma_\rho>\theta$ at the centre.}
+\label{cf:tab:negmass}
+\end{table}
+
+\begin{problem}[converse]\label{cf:op:converse}
+Does $\mathrm{def}(\theta)\le A(1-\theta)$ for all $\theta$ imply $N(\theta,T)\ll T^{A(1-\theta)+\epsilon}$? A zero with $\sigma_\rho>\theta$ forces negative mass at levels just below $\sigma_\rho$ (Theorem~\ref{cx:thm:positivity}), but nearby zeros with $\sigma_\rho$ just below the level contribute large positive terms, and the cancellation is not controlled. A converse would make the negative Thorin mass a proxy for zero density. This is open in general; the next subsection settles the case of separated zeros, and bounds the general case from below.
+\end{problem}
+
+\subsection{A partial converse}
+
+For a zero $\rho$, of multiplicity $k(\rho)$, let $d(\rho)$ be the distance from $\rho$ to the nearest other zero, and
+\[
+\mathrm{cr}(\rho)=\sum_{\rho'\ne\rho,\ \lvert\gamma_{\rho'}-\gamma_\rho\rvert\le2}\frac{k(\rho')}{\lvert\rho'-\rho\rvert},
+\]
+the sum over distinct zeros, the reflected zero $1-\bar\rho$ included. Multiplicity enters as a weight, and $d(\rho)$ is the distance to a distinct zero location.
+
+\begin{proposition}[a separated zero forces negative Thorin mass]\label{cf:prop:converse}
+Let $\rho_0=\sigma_0+i\gamma_0$ be a zero of multiplicity $k$ with $\sigma_0>\frac12$ and $\gamma_0\ge3$. There is an absolute constant $C_1\ge1$ such that if
+\[
+r\le\min\Bigl(1,\ \sigma_0-\tfrac12,\ \tfrac12d(\rho_0),\ \frac k{\pi\,\bigl(\mathrm{cr}(\rho_0)+C_1\log\gamma_0\bigr)}\Bigr),
+\]
+then
+\[
+\int_{\sigma_0-r}^{\sigma_0}\int_{\gamma_0-r}^{\gamma_0+r}u_\theta^-(v)\,dv\,d\theta\ \ge\ \frac{k\,r}{\pi}.
+\]
+\end{proposition}
+
+\begin{proof}
+Let $D^-$ be the half disc $\{\lvert s-\rho_0\rvert<r,\ \Re s<\sigma_0\}$, which lies in $\{\Re s>\frac12\}$ and in the rectangle of the claim. Since $u^-_\theta\ge-u_\theta$, the integral is at least $-\iint_{D^-}u\,dA$, with $u(\theta+iv)=u_\theta(v)$. Split $u$ by the Hadamard sum. In polar coordinates $s-\rho_0=ue^{i\phi}$ with $\phi\in(\frac\pi2,\frac{3\pi}2)$ the own term is
+\[
+\frac k\pi\iint_{D^-}\Re\frac1{s-\rho_0}\,dA=\frac k\pi\int_0^r\!\!\int_{\pi/2}^{3\pi/2}\cos\phi\,d\phi\,du=-\frac{2kr}\pi.
+\]
+A zero $\rho'$ with $\lvert\gamma_{\rho'}-\gamma_0\rvert\le2$ is at distance at least $2r$ from $\rho_0$, so $\lvert s-\rho'\rvert\ge\lvert\rho'-\rho_0\rvert/2$ on $D^-$ and its term is at most $\pi^{-1}k(\rho')\bigl(\frac{\pi r^2}2\bigr)\bigl(\frac2{\lvert\rho'-\rho_0\rvert}\bigr)$ in absolute value; these sum to at most $r^2\mathrm{cr}(\rho_0)$. For $\lvert\gamma_{\rho'}-\gamma_0\rvert>2$ we have $\lvert\theta-\sigma_{\rho'}\rvert\le1$ and $\lvert v-\gamma_{\rho'}\rvert\ge\lvert\gamma_{\rho'}-\gamma_0\rvert/2$, so $\lvert\Re(s-\rho')^{-1}\rvert\le4/(\gamma_{\rho'}-\gamma_0)^2$, and $\sum_{\lvert\gamma'-\gamma_0\rvert>2}(\gamma'-\gamma_0)^{-2}\ll\log\gamma_0$; these contribute at most $\frac12C_1r^2\log\gamma_0$. Hence
+\[
+-\iint_{D^-}u\,dA\ \ge\ \frac{2kr}\pi-r^2\bigl(\mathrm{cr}(\rho_0)+\tfrac12C_1\log\gamma_0\bigr)\ \ge\ \frac{kr}\pi
+\]
+by the choice of $r$.
+\end{proof}
+
+\begin{corollary}[two sided control for separated zeros]\label{cf:cor:twosided}
+Let $\frac12<\theta_0<1$, $T\ge3$ and $E(\theta_0,T)=\int_{\theta_0}^1\int_0^{T+1}u_\theta^-(v)\,dv\,d\theta$. Let $N_{\mathrm{sep}}(\theta_0,T;c,\delta)$ count the zeros with $\sigma_\rho>\theta_0$, $3\le\gamma_\rho\le T$, $\mathrm{cr}(\rho)\le c$ and distance at least $2\delta$ from every other zero. With $r=\min\bigl(\delta,\ 1/(\pi(c+C_1\log T))\bigr)$,
+\[
+\begin{split}
+\frac r\pi\,N_{\mathrm{sep}}(\theta_0+r,T;c,\delta)\ &\le\ E(\theta_0,T)\ \le\ \int_{\theta_0}^1N\bigl(\theta,T+\tfrac32\bigr)\,d\theta\\
+&=\sum_{\sigma_\rho>\theta_0,\ 0<\gamma_\rho\le T+\frac32}(\sigma_\rho-\theta_0).
+\end{split}
+\]
+\end{corollary}
+
+\begin{proof}
+The half discs of distinct separated zeros are disjoint, and for $\sigma_\rho>\theta_0+r$ they lie in $\{\theta_0<\theta<1,\ 0<v<T+1\}$, so the lower bound adds Proposition~\ref{cf:prop:converse} over them (with $r\le\sigma_\rho-\frac12$ because $\theta_0>\frac12$, and $r<1$). The upper bound integrates Theorem~\ref{cf:thm:negmass}(a), applied with $T+1$ in place of $T$, over $\theta$.
+\end{proof}
+
+The lower bound counts only separated zeros and the upper bound counts every zero, weighted by its distance to the level $\theta_0$, so the two bounds meet only when the zeros to the right of $\theta_0$ are separated at scale $\delta\gg1/\log T$ with crowding $c=O(\log T)$; then $r$ is of order $1/\log T$ and the two sides agree up to powers of $\log T$. Clusters are the open case: if many zeros off the line crowd together, their positive and negative Cauchy terms can cancel, and the negative mass can undercount them. Theorem~\ref{cf:thm:converse} quantifies this instead of excluding it.
+
+\begin{theorem}[every zero off the line forces negative Thorin mass]\label{cf:thm:converse}
+Let $\theta_0>\frac12$ and, for a zero $\rho$ with $\sigma_\rho>\theta_0$,
+\[
+r(\rho)=\min\Bigl(1,\ \sigma_\rho-\theta_0,\ \tfrac12d(\rho),\ \frac{k(\rho)}{\pi\,\bigl(\mathrm{cr}(\rho)+C_1\log\gamma_\rho\bigr)}\Bigr),
+\]
+with $C_1$ the constant of Proposition~\ref{cf:prop:converse}. Then for $T\ge3$, with $E$ as in Corollary~\ref{cf:cor:twosided},
+\[
+E(\theta_0,T)\ \ge\ \frac1\pi\sum_{\sigma_\rho>\theta_0,\ 3\le\gamma_\rho\le T}k(\rho)\,r(\rho),
+\]
+the sum running over distinct zeros. Moreover, for an absolute $c>0$,
+\[
+r(\rho)\ge c\min\bigl(\sigma_\rho-\theta_0,\ \min(d(\rho),1)/\log\gamma_\rho\bigr),
+\]
+and so
+\[
+E(\theta_0,T)\ \gg\ \frac1{\log T}\sum_{\sigma_\rho>\theta_0,\ 3\le\gamma_\rho\le T}\min\bigl((\sigma_\rho-\theta_0)\log T,\ d(\rho),\ 1\bigr).
+\]
+\end{theorem}
+
+\begin{proof}
+The proof of Proposition~\ref{cf:prop:converse} applies to each zero with its own radius $r(\rho)$, and the half discs $D^-(\rho)$ are pairwise disjoint because $r(\rho)\le d(\rho)/2$. They lie in $\{\theta_0<\theta<1,\ 0<v<T+1\}$, so their contributions add. For the second statement, at most $C_2\log\gamma_\rho$ zeros, counted with multiplicity, satisfy $\lvert\gamma'-\gamma_\rho\rvert\le2$, each at distance at least $d(\rho)$, so $\mathrm{cr}(\rho)\le C_2\log\gamma_\rho/d(\rho)$. Replacing $d(\rho)$ by $\min(d(\rho),1)$ in this bound gives $k/(\pi(\mathrm{cr}+C_1\log\gamma_\rho))\ge\min(d(\rho),1)/(\pi(C_2+C_1)\log\gamma_\rho)$, and, enlarging $C_1$ and $C_2$ if necessary, $\frac12d(\rho)$ is larger than this for $\gamma_\rho\ge3$. The last display follows from $k(\rho)\ge1$ and $\log\gamma_\rho\le\log T$.
+\end{proof}
+
+So every zero off the line pays, in negative Thorin mass integrated over levels and heights, at least its isolation distance divided by $\log T$, or its distance from the level $\theta_0$ if that is smaller; a cluster of $M$ zeros at mutual distances at least $d\le1$, each at least $d/\log T$ to the right of $\theta_0$, pays at least about $Md/\log T$. Suppose, as a hypothesis (conditional, and heuristic since no zero off the line is known), that every zero with $\sigma_\rho>\theta_0$ has $d(\rho)\ge c'/\log\gamma_\rho$, which is the typical isolation for zeros with the sine kernel statistics of the zeros of $\zeta$. Then Theorem~\ref{cf:thm:converse} and Corollary~\ref{cf:cor:twosided} give, for every $\epsilon>0$,
+\[
+\frac{N(\theta_0+\epsilon,T)}{(\log T)^2}\ \ll_{\epsilon}\ E(\theta_0,T)\ \ll\ \int_{\theta_0}^1N\bigl(\theta,T+\tfrac32\bigr)\,d\theta,
+\]
+a two sided equivalence between negative Thorin mass and zero density up to powers of $\log T$ (conditional on that hypothesis). The step from isolation of a typical zero to every zero is not proved.
+
+\subsection{A check on the Davenport and Heilbronn function}
+
+Table~\ref{cf:tab:halfdisc} illustrates the mechanism of Proposition~\ref{cf:prop:converse} on the Davenport and Heilbronn function, by integrating $u_\theta^-$ numerically over the left half disc of radius $r$ around each zero off the line. In every row the negative mass lies between $r/\pi$ and the own term $2r/\pi$; the gap measures the cancellation from the other zeros. The table illustrates the mechanism and does not check the proposition: the lower bound $r/\pi$ is proved only for $r$ below the explicit but unspecified threshold of the proposition, with the constant $C_1$ not given.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lcccc}
+\toprule
+zero & $r$ & negative mass on $D^-$ & $r/\pi$ & $2r/\pi$\\
+\midrule
+$0.8085+85.6993\,i$ & $0.05$ & $0.0296$ & $0.0159$ & $0.0318$\\
+$0.8085+85.6993\,i$ & $0.10$ & $0.0545$ & $0.0318$ & $0.0637$\\
+$0.8085+85.6993\,i$ & $0.14$ & $0.0710$ & $0.0446$ & $0.0891$\\
+$0.6508+114.1633\,i$ & $0.05$ & $0.0275$ & $0.0159$ & $0.0318$\\
+$0.6508+114.1633\,i$ & $0.10$ & $0.0457$ & $0.0318$ & $0.0637$\\
+$0.6508+114.1633\,i$ & $0.14$ & $0.0530$ & $0.0446$ & $0.0891$\\
+\bottomrule
+\end{tabular}
+\caption{Negative mass of $u_\theta$ on the left half disc around the zeros of the Davenport and Heilbronn function off the line, on a $40\times81$ grid, as reported in the source note and not recomputed here. In every row it lies between $r/\pi$ and $2r/\pi$.}
+\label{cf:tab:halfdisc}
+\end{table}
+
+\subsection{Positivity at 7/8 and what it gives}
+
+\begin{problem}\label{cf:op:qrh78}
+What does $\mathrm{QRH}(\theta_0)$, the absence of zeros with $\sigma_\rho>\theta_0$, give in this framework, for instance at $\theta_0=\frac78$?
+\end{problem}
+
+A zero free half plane $\Re s>\frac78$ is announced for Dirichlet $L$ functions in a preprint of OpenAI with a Lean formalisation, with a small improvement claimed by Liu and a related preprint attributed to Thorner (unchecked), none of them refereed (Section~\ref{lv:sec:qrh}); every statement below that uses $\mathrm{QRH}(\frac78)$ is conditional on those announcements. By Theorem~\ref{cx:thm:positivity}, $\mathrm{QRH}(\theta_0)$ is equivalent to positivity of $\mathfrak U_\tau$ for every $\tau>\theta_0$, while positivity at the single level $\theta_0$ is necessary and not known to be sufficient (Remark~\ref{rem:ch2:oneline}). The Balazard, Saias and Yor criterion for $\mathrm{QRH}(\theta_0)$ as a vanishing defect of Cauchy averages of $\log\lvert\zeta\rvert$, with its computations at $\theta_0=\frac78$, is in Theorem~\ref{bsy:thm:bsy} (Chapter~\ref{chap:bsy}). Here is the margin.
+
+\begin{proposition}[positivity margin, conditional on $\mathrm{QRH}(\theta_0)$]\label{cf:prop:margin}
+Assume $\mathrm{QRH}(\theta_0)$ with $\frac12\le\theta_0<1$. There are constants $c>0$ and $v_0$ such that $u_\theta(v)\ge c\,(\theta-\theta_0)\log v$ for $\theta_0<\theta\le1$ and $v\ge v_0$.
+\end{proposition}
+
+\begin{proof}
+Every zero has $1-\theta_0\le\sigma_\rho\le\theta_0$, so every term $P_{\theta-\sigma_\rho}(v-\gamma_\rho)$ of the Hadamard sum has width $\theta-\sigma_\rho\in[\theta-\theta_0,1)$ and is positive. For $\lvert v-\gamma_\rho\rvert\le1$ it is at least $(\theta-\theta_0)/(2\pi)$, because $a^2+x^2\le2$. By the Riemann von Mangoldt formula, the number of zeros with $\lvert\gamma_\rho-v\rvert\le1$ is $\pi^{-1}\log(v/2\pi)+O(1)+S(v+1)-S(v-1)$, and the explicit bound $\lvert S(T)\rvert\le0.1095\log T+0.2042\log\log T+3.0305$ of Hasanalizade, Shen and Wong \cite{HSW22} (as used in Proposition~\ref{bp:prop:v1min}) leaves at least $\bigl(\pi^{-1}-0.219-o(1)\bigr)\log v\ge0.09\log v$ of them for large $v$, since $\pi^{-1}=0.3183\ldots$. Summing gives the claim with $c=0.09/(2\pi)$.
+\end{proof}
+
+The particle filter can start at the level $\theta=\frac78$ without any hypothesis, since the levels at or above $0.9$ carry only $1.6\%$ of $\sum a_l^{-3}$ and $0.1\%$ of $\sum a_l^{-5}$ in the schedule of Section~\ref{cf:sec:pf} (computed). Conditionally on $\mathrm{QRH}(\frac78)$ the prior can also be truncated to real parts in $[\frac18,\frac78]$. Together this helps only a little, because neither touches the informative levels between $\frac12$ and $\frac78$.
+
+\subsection{Certificates}
+
+\begin{problem}\label{cf:op:certificate}
+Turn the screen of Section~\ref{cf:sec:gbc} into a proof in each window.
+\end{problem}
+
+The posterior of the screen is calibrated on simulations, so it is evidence and not proof. A certificate in a window needs the contour moment $M_0$ of Proposition~\ref{cf:prop:moments} computed in interval arithmetic and shown to be less than $\frac12$; this is the argument principle, as in Section~\ref{cx:sec:limits} (Theorem~\ref{cx:thm:certified} and Section~\ref{cx:sec:decide} treat certified counts). A certificate is valid whatever its cost; the screen would move the verified height $3\times10^{12}$ \cite{PT21} only if it were cheaper per zero than the existing methods, which we do not expect. The role of the screen is to choose where to spend the expensive rigorous integrations, and how close to the line the rectangle can be placed.
+
+\section{Zero free regions from positivity}\label{cf:sec:arith}
+
+Section~\ref{cf:sec:negmass} used the Hadamard sum, in which every zero contributes a Cauchy term. Here the Euler product enters, as an upper bound on a positive combination of values of $u_\theta$ at several heights and, in the multilevel form, at several levels. We characterise the admissible combinations, optimise the zero free constant they give, and prove that no member of the class gives more than a region of width $c/\log\gamma$ with $c<1$ (Proposition~\ref{cf:prop:barrier2}, proved). The linear programming values, the Stechkin constant and the optimised constants are computed. Where the book already proves a statement (the de la Vall\'ee Poussin region is Proposition~\ref{tx3:prop:dvp}) it is cited, and what is new is the general form of the inequality.
+
+\subsection{The Euler product as an inequality between Cauchy data}
+
+From $\xi(s)=\frac12s(s-1)\pi^{-s/2}\Gamma(\frac s2)\zeta(s)$, for $s=\theta+iv$,
+\begin{equation}\label{cf:eq:euler}
+\begin{split}
+\pi u_\theta(v)&=g_\theta(v)-\Pi_\theta(v),\\
+g_\theta(v)&=\Re\Bigl[\frac1s+\frac1{s-1}-\frac12\log\pi+\frac12\psi\bigl(\tfrac s2\bigr)\Bigr],\\
+\Pi_\theta(v)&=-\Re\frac{\zeta'}\zeta(\theta+iv).
+\end{split}
+\end{equation}
+The gamma part $g_\theta$ is explicit and carries no arithmetic. The arithmetic is in $\Pi_\theta(v)=\sum_{n\ge2}\Lambda(n)n^{-\theta}\cos(v\log n)$, which for $\theta>1$ is a cosine series with nonnegative coefficients ($\Lambda$ is the von Mangoldt function). That is the whole content of the Euler product used below.
+
+\begin{theorem}[de la Vall\'ee Poussin in Thorin form, general version; the first display is Proposition~\ref{tx3:prop:dvp}(i) in the present notation]\label{cf:thm:dvp}
+For $\theta>1$ and every real $v$,
+\[
+3u_\theta(0)+4u_\theta(v)+u_\theta(2v)\ \le\ \frac1\pi\bigl[3g_\theta(0)+4g_\theta(v)+g_\theta(2v)\bigr].
+\]
+More generally, for every cosine polynomial $p(\omega)=\sum_{k=0}^Ka_k\cos k\omega$ with $p\ge0$ and $a_k\ge0$, $\sum_ka_ku_\theta(kv)\le\pi^{-1}\sum_ka_kg_\theta(kv)$.
+\end{theorem}
+
+\begin{proof}
+$\sum_ka_k\Pi_\theta(kv)=\sum_n\Lambda(n)n^{-\theta}p(v\log n)\ge0$, and $\Pi_\theta=g_\theta-\pi u_\theta$ by \eqref{cf:eq:euler}. The first display is $p=3+4\cos\omega+\cos2\omega=2(1+\cos\omega)^2$.
+\end{proof}
+
+\begin{corollary}[zero free region]\label{cf:cor:zfr}
+Let $c_\ast=(14-8\sqrt3)/5=0.028719\ldots$ For every $c<c_\ast$ there is $\gamma_c$ such that every zero with $\gamma_\rho\ge\gamma_c$ has $1-\sigma_\rho\ge c/\log\gamma_\rho$.
+\end{corollary}
+
+\begin{proof}
+Take $v=\gamma_0$ and $\theta=1+a/\log\gamma_0$. For $\theta>1$ every term of the Hadamard sum is positive, so $\pi u_\theta(\gamma_0)\ge1/(\theta-\sigma_0)$, and $u_\theta(0),u_\theta(2\gamma_0)\ge0$. Since $g_\theta(0)=1/(\theta-1)+O(1)$ and $g_\theta(v)=\frac12\log v+O(1)$, Theorem~\ref{cf:thm:dvp} gives $4/(\theta-\sigma_0)\le(3/a+\frac52+o(1))\log\gamma_0$. Rearranging, $(1-\sigma_0)\log\gamma_0\ge4a/(3+\frac52a)-a-o(1)$. The maximum over $a>0$ is attained at $a=(4\sqrt3-6)/5=0.18564\ldots$, where $3+\frac52a=2\sqrt3$, and equals $a(2/\sqrt3-1)=c_\ast$. The $o(1)$ is why only $c<c_\ast$ follows.
+\end{proof}
+
+The choice $a=\frac14$ gives the constant $\frac3{116}$ of Proposition~\ref{tx3:prop:dvp}. The constant $c_\ast$ is the crude one: sharper cosine polynomials and smoothing give $1/5.69693$ (Kadiri \cite{Kadiri05}), $1/5.573412$ (Mossinghoff and Trudgian \cite{MT15}) and $1/5.558691$ (Mossinghoff, Trudgian and Yang \cite{MTY}, for $\lvert t\rvert\ge2$), constants as quoted in those papers and not checked here, and exponential sum estimates give the Vinogradov and Korobov shape \cite{Vinogradov58}. None of this reaches a fixed $\theta<1$.
+
+With the region of de la Vall\'ee Poussin ($\eta(T)$ a constant over $\log T$, Proposition~\ref{tx3:prop:dvp}) or of Vinogradov and Korobov ($\eta(T)=c(\log T)^{-2/3}(\log\log T)^{-1/3}$), taken as $\frac12$ at small heights, Corollary~\ref{cf:cor:localpos} is positivity of $u_\theta$ at height $v$ for $\theta$ within that width of the line $\Re s=1$, the width taken at height $\lvert v\rvert+\frac12$. It is local in $v$, as it must be: the width shrinks with height. Positivity of $\mathfrak U_\tau$ for every $\tau>\theta$ is $\mathrm{QRH}(\theta)$ (Theorem~\ref{cx:thm:positivity}), while positivity at the single level $\theta$ is necessary and not known to be sufficient (Remark~\ref{rem:ch2:oneline}).
+
+\subsection{The Davenport and Heilbronn barrier}
+
+The Euler product is missing for the function $f$ of Davenport and Heilbronn (Section~\ref{cf:sec:test}), and the inequality of Theorem~\ref{cf:thm:dvp} is what fails. Everything else of the framework survives.
+
+\begin{proposition}[the Davenport and Heilbronn barrier]\label{cf:prop:barrier}
+{\emergencystretch=8em Let $\Lambda_{\mathrm{DH}}(s)=(5/\pi)^{s/2}\Gamma(\frac{s+1}2)f(s)$, which is entire of order one, real on the real axis and satisfies $\Lambda_{\mathrm{DH}}(s)=\Lambda_{\mathrm{DH}}(1-s)$. The Hadamard sum, the identity \eqref{cf:eq:transport}, Theorem~\ref{cx:thm:positivity} and Proposition~\ref{cf:prop:detect} hold for $\Lambda_{\mathrm{DH}}$ with the same proofs; so does Theorem~\ref{bsy:thm:bsy} with $h=f$ and the sum over all zeros of $f$ to the right of $\theta$; and so does Theorem~\ref{tf:thm:deconv} with the line $\Re s=1$ replaced by $\Re s=2$, to the right of all zeros since $\lvert f(s)-1\rvert\le\zeta(2)-1<1$ there. The function $f$ has infinitely many zeros with $\sigma_\rho>1$ \cite{DH36}, so $\Lambda_{\mathrm{DH}}$ violates $\mathrm{QRH}(\theta)$ for every $\theta<1$; its lowest zeros off the line, $0.8085\ldots+85.6993\ldots i$ and $0.6508\ldots+114.1633\ldots i$ \cite{Spira94}, already violate $\mathrm{QRH}(\frac34)$ and $\mathrm{QRH}(\frac58)$.\par}
+\end{proposition}
+
+The step from (ii) to (i) in Theorem~\ref{tf:thm:deconv} uses that $\xi'/\xi$ is analytic in $\Re s>1$, which fails for $\Lambda_{\mathrm{DH}}$; positivity on the line $\Re s=1$ (Theorem~\ref{lo:thm:density}) and the constant of Proposition~\ref{cf:prop:margin} are specific to $\zeta$. So these properties do not prove $\mathrm{QRH}(\theta)$ for any $\theta<1$: some further property is needed, the Euler product being the natural one. Where it enters is \eqref{cf:eq:euler}: for $\theta>1$ the prime sum has nonnegative cosine coefficients, so a nonnegative cosine polynomial applied to it bounds a combination of values of $u_\theta$ at the heights $0,v,2v$ from above by explicit gamma terms. A zero close to $1+iv$ would make $u_\theta(v)$ too large, so the bound pushes zeros away from the line $\Re s=1$. For $f$ the corresponding combination has no sign: the source note reports that $3A_\theta(0)+4A_\theta(v)+A_\theta(2v)$, with $A_\theta=-\Re f'/f$, is positive for $\zeta$ on $1\le v\le200$ (minima $142.2$, $23.3$ and $5.0$ at $\theta=1.02$, $1.1$ and $1.3$) and negative for $f$ on more than half of that interval at every level, with its minimum near $v=85.72$, the height of the zero at $0.8085$ (values $-17.5$, $-12.2$, $-6.3$); the same note reports that the optimised curvature kernel of Table~\ref{cf:tab:arith} (level $x=0.382$, degree $4$ polynomial), on $700$ heights in $[10,200]$, is positive for $\zeta$ (minimum $10.84$) and negative for $f$ on $55\%$ of the heights (minimum $-5.97$ at $v=85.84$). These values are the source's, not recomputed here, and the source's figure is not reproduced.
+
+\subsection{Multilevel inequalities}
+
+Fix $v\ge2$, write $L=\log v$, and parametrise levels to the right of the line $\Re s=1$ by $\theta=1+x/L$ with $x>0$. A level kernel is a finite signed measure $w$ with compact support in $(0,\infty)$; it acts on the density by $w[u](y)=\int u_{1+x/L}(y)\,w(dx)$, and similarly on $g$ and $\Pi$. Its Laplace transform is $\phi_w(\lambda)=\int e^{-x\lambda}\,w(dx)$.
+
+\begin{theorem}[multilevel inequality]\label{cf:thm:multilevel}
+Let $p(\omega)=\sum_{k=0}^Ka_k\cos k\omega\ge0$ with $a_k\ge0$, and let $w$ be a level kernel with $\phi_w(\lambda)\ge0$ for $\lambda>0$. Then for every $v\ge2$,
+\[
+\sum_{k=0}^Ka_k\,w[u](kv)\ \le\ \frac1\pi\sum_{k=0}^Ka_k\,w[g](kv).
+\]
+\end{theorem}
+
+\begin{proof}
+By \eqref{cf:eq:euler}, $\pi\,w[u]-w[g]=-w[\Pi]$, and, the support of $w$ being compact in $(0,\infty)$ so that the series and the integral may be interchanged,
+\[
+\sum_ka_k\,w[\Pi](kv)=\sum_{n\ge2}\Lambda(n)\,n^{-1}\,p(v\log n)\,\phi_w(\log n/L)\ \ge0 .\qedhere
+\]
+\end{proof}
+
+The single level case $w=\delta_x$ is Theorem~\ref{cf:thm:dvp}, since then $\phi_w(\lambda)=e^{-x\lambda}$ (and $w$ is a point mass, a measure with compact support). The second ingredient controls the zeros.
+
+\begin{lemma}[admissible kernels]\label{cf:lem:admissible}
+Let $w$ be a level kernel supported in $[x_0,x_1]\subset(0,\infty)$, and let $F_w(z)=\int w(dx)/(z+x)$. The following are equivalent.
+\begin{enumerate}
+\item[(i)] $\int w(dx)\,P_{x+y}(\tau)\ge0$ for all $y\ge0$ and all real $\tau$; that is, every zero with $\sigma_\rho\le1$, seen through the kernel, contributes a nonnegative amount (widths and distances in units of $1/L$).
+\item[(ii)] $\Re F_w(i\tau)=\int w(dx)\,x/(x^2+\tau^2)\ge0$ for all real $\tau$.
+\item[(iii)] $\int_0^\infty\cos(\tau\lambda)\,\phi_w(\lambda)\,d\lambda\ge0$ for all $\tau$; that is, the even extension of $\phi_w$ is positive definite.
+\end{enumerate}
+When they hold, $\lvert\phi_w(\lambda)\rvert\le\phi_w(0)$ for all $\lambda$.
+\end{lemma}
+
+\begin{proof}
+$\pi\int w(dx)P_{x+y}(\tau)=\Re F_w(y+i\tau)$ is harmonic in $\Re z>-x_0$, tends to $0$ at infinity, and equals the left side of (ii) on the imaginary axis; the minimum principle on the right half plane gives (ii)$\Rightarrow$(i), and (i)$\Rightarrow$(ii) is the case $y=0$. Since $F_w(z)=\int_0^\infty e^{-z\lambda}\phi_w(\lambda)\,d\lambda$, (ii) and (iii) are the same statement. The last claim is Bochner's theorem.
+\end{proof}
+
+Call $(p,w)$ admissible if $p$ is as in Theorem~\ref{cf:thm:multilevel} and $w$ satisfies $\phi_w\ge0$ and the conditions of Lemma~\ref{cf:lem:admissible}. For two levels, $w=\delta_{x_1}-\kappa\,\delta_{x_2}$ with $x_1<x_2$, admissibility is exactly $\kappa\le x_1/x_2$ (the cosine transform of $w$ is $x_1/(x_1^2+\tau^2)-\kappa x_2/(x_2^2+\tau^2)$, which is nonnegative for all $\tau$ exactly then). Stechkin's device, which pairs each zero with its reflection, uses a two level kernel with $\kappa$ above this bound, so it lies outside the class (Proposition~\ref{cf:prop:stechkin}).
+
+\begin{corollary}[zero free constant of an admissible pair]\label{cf:cor:ystar}
+Let $(p,w)$ be admissible, with $w$ of compact support in $(0,\infty)$ and $\phi_w(0)>0$; put $I=\int_0^\infty\phi_w$, $J(y)=\int_0^\infty e^{-y\lambda}\phi_w(\lambda)\,d\lambda$ and $A=a_1+\dots+a_K$. If $(a_1-a_0)I>\frac A2\phi_w(0)$, the equation $a_1J(y)=a_0I+\frac A2\phi_w(0)$ has a unique root $y^\ast(p,w)>0$, and every zero with $\gamma_\rho$ large has $(1-\sigma_\rho)\log\gamma_\rho\ge y^\ast(p,w)-o(1)$. Otherwise put $y^\ast(p,w)=0$: the scheme gives no positive constant.
+\end{corollary}
+
+\begin{proof}
+$J$ is continuous and strictly decreasing on $[0,\infty)$, since $\phi_w\ge0$ is positive near $0$, with $J(0)=I$ and $J(y)\to0$; the hypothesis puts the right side strictly between $a_1J(0)$ and $0$, which gives a unique root. Apply Theorem~\ref{cf:thm:multilevel} at $v=\gamma_0$. By Lemma~\ref{cf:lem:admissible} every zero contributes a nonnegative amount to the left side, so it is at least $a_1$ times the contribution of $\rho_0$ at height $\gamma_0$, which is $(L/\pi)J(y)$ with $L=\log\gamma_0$ and $y=(1-\sigma_0)L$. On the right, $g_{1+x/L}(0)=L/x+O(1)$ and $g_{1+x/L}(k\gamma_0)=\frac12L+O(1)$ for $k\ge1$, uniformly on the support of $w$, and $\int w(dx)/x=I$. Dividing by $L/\pi$ gives $a_1J(y)\le a_0I+\frac A2\phi_w(0)+o(1)$. For $\epsilon>0$, $a_1J(y^\ast-\epsilon)$ exceeds the right side by a fixed amount, so $y<y^\ast-\epsilon$ fails for $\gamma_0$ large.
+\end{proof}
+
+\subsection{Optimising the constant}
+
+We computed $y^\ast$ numerically (\texttt{code/cf\_arith.py}, \texttt{data/cf\_arith.json}), over cosine polynomials $p=\lvert\sum_jb_je^{ij\omega}\rvert^2$ with $b_j\ge0$, which makes every $a_k\ge0$, and three families of kernels. The first is a single level, for which $y^\ast=2(\sqrt{a_1}-\sqrt{a_0})^2/A$ at the best level. The second is two levels with $\kappa=x_1/x_2$, where the optimum pushes $x_2\to x_1$. In that limit the kernel becomes
+\[
+w[u]\ \longrightarrow\ u_\theta-(\theta-1)\,\partial_\theta u_\theta=u_\theta+\frac{\theta-1}\pi\,\partial_v^2\log\lvert\xi(\theta+iv)\rvert,
+\]
+the density corrected by the curvature of $\log\lvert\xi\rvert$ in $v$, using harmonicity, after division by $1-x_1/x_2$ (the derivative kernels are limits of finite measure kernels and not covered by Theorem~\ref{cf:thm:multilevel} itself). Its Laplace transform is $\phi(\lambda)=e^{-x\lambda}(1+x\lambda)$. The third family is a single level with derivatives, $\phi(\lambda)=e^{-x\lambda}q(\lambda)$ with $q$ a polynomial, constrained by $q\ge0$ and by $\sum_jq_j\,j!\,\Re(x+i\tau)^{-j-1}\ge0$, both imposed on finite grids.
+
+\begin{table}[h]
+\centering
+\small\setlength{\tabcolsep}{4pt}\begin{tabular}{p{1.55in}ccc}
+\toprule
+kernel & cosine polynomial & $c=y^\ast$ & $1/c$\\
+\midrule
+single level & $3+4\cos\omega+\cos2\omega$ & $0.0287$ & $34.8$\\
+single level & best of degree $2$ & $0.0376$ & $26.6$\\
+single level & best of degree $3$ & $0.0542$ & $18.5$\\
+single level & best of degree $4$ to $8$ & $0.0573$ & $17.4$\\
+two levels, curvature limit & $3+4\cos\omega+\cos2\omega$ & $0.0377$ & $26.5$\\
+two levels, curvature limit & best of degree $3$ & $0.0704$ & $14.2$\\
+two levels, curvature limit & best of degree $4$ & $0.0742$ & $13.5$\\
+level with derivatives, $\deg q=2$ & best of degree $4$ & $0.0800$ & $12.5$\\
+level with derivatives, $\deg q=3$ & best of degree $4$ & $0.0826$ & $12.1$\\
+level with derivatives, $\deg q=4$ & best of degree $4$ & $0.0841$ & $11.9$\\
+level with derivatives, $\deg q=5$ & best of degree $4$ & $0.0849$ & $11.8$\\
+\midrule
+cap of Proposition~\ref{cf:prop:barrier2} & best of degree $4$ & $\le0.1051$ & $\ge9.5$\\
+\midrule
+one far level paired (Proposition~\ref{cf:prop:stechkin}), outside the class & best of degree $4$ & $0.10367$ & $9.646$\\
+\bottomrule
+\end{tabular}
+\caption{Zero free constants $1-\sigma_\rho\ge c/\log\gamma_\rho$ from admissible pairs, in the scheme of Corollary~\ref{cf:cor:ystar} (computed). The optimal polynomial of degree $4$ has $a\approx(1,1.705,1.044,0.425,0.089)$, and the single level rows to degree $8$ are over squares with $b_j\ge0$ (with only $p\ge0$ and $a_k\ge0$ the value grows by about $1\%$ at degree $8$); the best level for the derivative family at degree $4$ is $x=0.89$. The rows with derivatives run to $\deg q=5$ and are optima on discrete constraint grids (computed); at $\deg q=4$ and $5$ the kernels are not certified admissible (at $\deg q=5$ a dense audit of positive definiteness gives $-1.6\times10^{-6}$). The cap of the source note, $0.432$ for the degree $4$ polynomial, is replaced by the sharper cap of Proposition~\ref{cf:prop:barrier2}. The last row is outside the class of Lemma~\ref{cf:lem:admissible}.}
+\label{cf:tab:arith}
+\end{table}
+
+The curvature correction (two levels) improves every polynomial by about $30\%$. Adding derivatives of the level kernel gives a further $13\%$ at degree $4$ and a little more at degree $5$. All of this sits below the cap of the next proposition, which is not sharp, and the computation of the last subsection puts the best of these kernels within about $5\%$ of the linear programming values (computed).
+
+\subsection{The $1/\log\gamma$ barrier}
+
+\begin{proposition}[no admissible pair beats $1/\log\gamma$]\label{cf:prop:barrier2}
+Let $(p,w)$ be admissible with $a_1>a_0$, normalised by $\phi_w(0)=1$, and let $y>0$ satisfy $a_1\int_0^\infty e^{-y\lambda}\phi_w(\lambda)\,d\lambda\ge a_0\int_0^\infty\phi_w(\lambda)\,d\lambda+\frac A2$. Then
+\[
+y\ \le\ \frac2A\Bigl(a_1-a_0-a_0\log\frac{a_1}{a_0}\Bigr)\ <\ \frac{2(a_1-a_0)}A\ \le\ 1 .
+\]
+In particular $y^\ast(p,w)$ of Corollary~\ref{cf:cor:ystar} obeys these bounds; the first is $0.0548$ for $3+4\cos\omega+\cos2\omega$ and $0.1051$ for the degree $4$ polynomial of Table~\ref{cf:tab:arith}.
+\end{proposition}
+
+\begin{proof}
+A nonzero nonnegative cosine polynomial has $a_0>0$. By Lemma~\ref{cf:lem:admissible}, $0\le\phi_w\le\phi_w(0)=1$. The function $h(\lambda)=a_1e^{-y\lambda}-a_0$ is positive exactly for $\lambda<\lambda_\ast=y^{-1}\log(a_1/a_0)$, so
+\[
+\frac A2\le\int_0^\infty h\,\phi_w\le\int_0^{\lambda_\ast}h=\frac{a_1-a_0-a_0\log(a_1/a_0)}y,
+\]
+which is the first inequality. The second holds because $\log(a_1/a_0)>0$. Finally $a_1\le A$, and $a_1=\pi^{-1}\int_0^{2\pi}p(\omega)\cos\omega\,d\omega\le\pi^{-1}\int_0^{2\pi}p=2a_0$, so $2(a_1-a_0)/A\le2(1-a_0/a_1)\le1$.
+\end{proof}
+
+Within this class the scheme of Corollary~\ref{cf:cor:ystar} gives zero free regions $1-\sigma_\rho\ge c/\log\gamma_\rho$ with $c<1$, never a region of fixed width. The proof uses $\phi_w\le\phi_w(0)$, which kernels that pair each zero with its reflection violate (Proposition~\ref{cf:prop:stechkin}), so it says nothing about them. The mechanism is that the term $\frac A2\phi_w(0)\log v$ is the Cauchy smoothing of the Riemann von Mangoldt density of the zeros, entering through the gamma factor $g$, while positive definiteness forces the weight of the kernel on the zero itself to be at most $\phi_w(0)/y$, so that the zero cannot outweigh the density once $y$ is of order one.
+
+\begin{remark}[what goes beyond; heuristic]
+The Vinogradov and Korobov region beats $1/\log v$ by replacing the gamma bound $g_\theta(v)\approx\frac12\log v$ with an upper bound for $\log\lvert\zeta\rvert$ near $\theta=1$ from exponential sums. Through Jensen's formula this replaces the density term $\frac12\log v$ by a quantity of order $(\log v)^{2/3}(\log\log v)^{1/3}$ in a disc of radius about $(\log v)^{-2/3}$ around $1+iv$; in the Thorin language that is a local upper bound on the mass of $\mathfrak U_\theta$ near height $v$, sharper than the density. A fixed zero free strip would need a uniform bound of the type $\log\lvert\zeta(\theta+iv)\rvert=o(\log v)$ for $\theta$ in a fixed neighbourhood of $1$, together with an inequality that converts it into exclusion of zeros. Even the Lindel\"of hypothesis is not known to suffice. The suggestion that the method alone yields only regions of width $(\log v)^{-2/3}$ up to logarithms is a heuristic and unchecked.
+\end{remark}
+
+\subsection{The computed ceiling, and Stechkin's pairing}
+
+The kernels of Table~\ref{cf:tab:arith} reach $0.085$ while Proposition~\ref{cf:prop:barrier2} caps them at $0.105$. To see where the truth lies we computed the best constant attainable in the scheme of Corollary~\ref{cf:cor:ystar} by any smoothing in a larger formal class: every $\phi$ with $0\le\phi\le1$ and $\phi(0)=1$ whose even extension is positive definite, not only Laplace transforms of level kernels. This is the class in which the proof of Proposition~\ref{cf:prop:barrier2} still runs; whether each such $\phi$ comes from a level kernel is not claimed. For a fixed cosine polynomial and a fixed $y$, whether some $\phi$ certifies $y$ is a linear program:
+\begin{gather*}
+\max_\phi\ \Bigl\{a_1\int_0^{\lambda_{\max}}e^{-y\lambda}\phi-a_0\int_0^{\lambda_{\max}}\phi\Bigr\}\quad\text{subject to}\\
+0\le\phi\le1,\qquad\phi(0)=1,\qquad\int_0^{\lambda_{\max}}\cos(\tau\lambda)\phi(\lambda)\,d\lambda\ge0\ \text{for all }\tau,
+\end{gather*}
+and $y$ is certified exactly when the maximum is at least $A/2$. For a fixed $\phi$, optimising the polynomial (with $p\ge0$ imposed on a grid of angles and $a_k\ge0$) is again a linear program. We alternate the two and bisect on $y$; the joint problem is not linear, so this is a search and not a global optimisation. We discretise with $\lambda_{\max}=12$ and $300$ points in $\lambda$ and impose positive definiteness at finitely many frequencies $\tau$.
+
+\begin{table}[h]
+\centering
+\small\setlength{\tabcolsep}{4pt}\begin{tabular}{p{3.1in}cc}
+\toprule
+problem & ceiling $c$ & $1/c$\\
+\midrule
+$p=3+4\cos\omega+\cos2\omega$, smoothing optimised; $\lambda_{\max}=12$, $300$ points, $460$ uniform frequencies to $400$ & $0.0460$ & $21.7$\\
+same, $699$ frequencies concentrated below $25$ & $0.0450$ & $22.2$\\
+same, $\lambda_{\max}=20$, $600$ points, frequencies concentrated below $25$ & $0.0451$ & $22.2$\\
+degree $4$ polynomial of Table~\ref{cf:tab:arith}, smoothing optimised & $0.0874$ & $11.4$\\
+polynomial of degree $\le4$ and smoothing both optimised & $0.0874$ & $11.4$\\
+polynomial of degree $\le8$ and smoothing both optimised & $0.0881$ & $11.35$\\
+\midrule
+best level kernel (Table~\ref{cf:tab:arith}) & $0.0849$ & $11.8$\\
+cap of Proposition~\ref{cf:prop:barrier2}, degree $4$ & $0.1051$ & $9.5$\\
+\midrule
+one far level paired (Proposition~\ref{cf:prop:stechkin}), degree $4$, outside the class & $0.10367$ & $9.646$\\
+\bottomrule
+\end{tabular}
+\caption{Ceiling of the scheme of Corollary~\ref{cf:cor:ystar} over nonnegative positive definite smoothings, by discretised linear programming (computed, \texttt{code/cf\_lp.py}, \texttt{data/cf\_lp.json}; not certified). Refining the frequency grid near the origin moves the value for $3+4\cos\omega+\cos2\omega$ from $0.0460$ to $0.0450$; on the stated uniform grid, changing the number of points or $\lambda_{\max}$ moves the third digit. The rows with the optimised polynomial are lower estimates, since the alternating searches end at local optima (the degree $4$ gain over the fixed polynomial is below $10^{-4}$).}
+\label{cf:tab:lp}
+\end{table}
+
+Table~\ref{cf:tab:lp} reports what the discretised linear program finds in the scheme of Corollary~\ref{cf:cor:ystar}, in which every zero contributes nonnegatively (Lemma~\ref{cf:lem:admissible}(i)): about $1/(11.3\log\gamma)$ for polynomials of degree at most $8$. The values are computed, not certified: positive definiteness is imposed at finitely many frequencies, the support is truncated at $\lambda_{\max}$, and the polynomial and the smoothing are optimised alternately. For $3+4\cos\omega+\cos2\omega$, with $\lambda_{\max}=12$ and $300$ points, $460$ equally spaced frequencies on $[0,400]$ give $0.0460$ and a grid concentrated at low frequencies gives $0.0450$, while Proposition~\ref{cf:prop:barrier2} proves the bound $0.0548$. On grids that resolve the origin the best level kernel, $0.0849$, is about $4\%$ below the computed value $0.0881$ for the whole class at degree at most $8$; raising the degree of the polynomial beyond $4$ adds about $1\%$.
+
+Pairing each zero with its reflection $1-\bar\rho$ leaves the class. The kernel of the pairing, $\delta_x-\kappa\delta_{x_1}$ with $x_1=(\theta_1-1)L$ of order $L$, has the cosine transform $x/(x^2+\tau^2)-\kappa x_1/(x_1^2+\tau^2)$, which is negative for large $\tau$ because $x<\kappa x_1$, so it is not admissible and there is no contradiction with the linear program. The following lemma is the pair inequality behind Stechkin's device \cite{Stechkin70}, proved here by direct algebra.
+
+\begin{lemma}[Stechkin's pair inequality]\label{cf:lem:stechkin}
+Let $\theta>1$, $\theta_1=\frac12\bigl(1+\sqrt{1+4\theta^2}\bigr)$ and $\kappa=(2\theta-1)/(2\theta_1-1)$. For $0\le b\le1$ and real $\tau$ put
+\[
+F_\theta(b,\tau)=\Re\Bigl[\frac1{\theta-b+i\tau}+\frac1{\theta-1+b+i\tau}\Bigr].
+\]
+Then $F_\theta(b,\tau)\ge\kappa\,F_{\theta_1}(b,\tau)$.
+\end{lemma}
+
+\begin{proof}
+Put $c=\theta-\frac12$, $c_1=\theta_1-\frac12$, $e=(b-\frac12)^2\le\frac14$, $q=\tau^2$ and $K=4eq$. With $p=\theta-b$ and $p'=\theta-1+b$, both positive,
+\[
+F_\theta=\frac p{p^2+q}+\frac{p'}{p'^2+q}=\frac{(p+p')(pp'+q)}{(p^2+q)(p'^2+q)}=\frac{2cX}{X^2+K},\qquad X=c^2-e+q,
+\]
+because $p+p'=2c$, $pp'=c^2-e$ and $(p^2+q)(p'^2+q)=(c^2-e+q)^2+4eq$. In the same way $F_{\theta_1}=2c_1X_1/(X_1^2+K)$ with $X_1=X+D$ and $D=c_1^2-c^2=\theta>0$. Since $\kappa=c/c_1$,
+\[
+F_\theta-\kappa F_{\theta_1}=2c\Bigl[\frac X{X^2+K}-\frac{X+D}{(X+D)^2+K}\Bigr]=\frac{2cD\,\bigl(X(X+D)-K\bigr)}{(X^2+K)\bigl((X+D)^2+K\bigr)},
+\]
+and
+\[
+X(X+D)-K=q^2+(c^2+c_1^2-6e)\,q+(c^2-e)(c_1^2-e).
+\]
+Here $c^2\ge\frac14\ge e$, $c_1^2>c^2$ and $c^2+c_1^2=2\theta^2-\theta+\frac12\ge\frac32\ge6e$, so every coefficient is nonnegative.
+\end{proof}
+
+\begin{proposition}[one far level and no smoothing]\label{cf:prop:stechkin}
+Let $p(\omega)=\sum_{k=0}^Ka_k\cos k\omega\ge0$ with $a_k\ge0$ and $a_1>a_0$, let $A=a_1+\dots+a_K$ and $\kappa_\ast=1/\sqrt5$. Every zero $\rho_0=\sigma_0+i\gamma_0$ with $\gamma_0$ large has
+\[
+(1-\sigma_0)\log\gamma_0\ \ge\ \frac{2(\sqrt{a_1}-\sqrt{a_0})^2}{(1-\kappa_\ast)A}-o(1).
+\]
+For $p=3+4\cos\omega+\cos2\omega$ the constant is $0.05195$; for the degree $4$ polynomial of Table~\ref{cf:tab:arith}, $a\approx(1,1.705,1.044,0.425,0.089)$, it is $0.10367=1/9.646$ (computed values; the proposition is proved).
+\end{proposition}
+
+\begin{proof}
+Let $L=\log\gamma_0$, $\theta=1+x/L$ with $x>0$, and $\theta_1$, $\kappa$ as in Lemma~\ref{cf:lem:stechkin}, so that $\kappa=\kappa_\ast+O(1/L)$. For $\theta'>1$ write $\pi u_{\theta'}=g_{\theta'}-\Pi_{\theta'}$ as in \eqref{cf:eq:euler}. Since $n^{-\theta}-\kappa n^{-\theta_1}>0$ for $n\ge2$,
+\[
+\sum_ka_k\bigl[\Pi_\theta(k\gamma_0)-\kappa\Pi_{\theta_1}(k\gamma_0)\bigr]=\sum_{n\ge2}\Lambda(n)\bigl(n^{-\theta}-\kappa n^{-\theta_1}\bigr)p(\gamma_0\log n)\ge0,
+\]
+so $\sum_ka_k[u_\theta-\kappa u_{\theta_1}](k\gamma_0)\le\pi^{-1}\sum_ka_k[g_\theta-\kappa g_{\theta_1}](k\gamma_0)$. By the Hadamard sum, grouping the zeros into orbits of $\rho\mapsto1-\bar\rho$, which preserves ordinates, $\pi[u_\theta-\kappa u_{\theta_1}](y)$ is a sum over orbits of $F_\theta(\sigma_\rho,y-\gamma_\rho)-\kappa F_{\theta_1}(\sigma_\rho,y-\gamma_\rho)$ (half of it for a zero on the critical line), each nonnegative by Lemma~\ref{cf:lem:stechkin}. Keep only the orbit of $\rho_0$ in the term $k=1$; at $y=\gamma_0$ it contributes at least $1/(\theta-\sigma_0)-O(1)$. On the right, $g_\theta(0)-\kappa g_{\theta_1}(0)=L/x+O(1)$, from the pole of $\zeta$, and $g_\theta(k\gamma_0)-\kappa g_{\theta_1}(k\gamma_0)=(1-\kappa)\frac L2+O(1)$ for $k\ge1$, by Stirling's formula. With $y=(1-\sigma_0)L$, so that $\theta-\sigma_0=(x+y)/L$, division by $L/\pi$ gives
+\[
+\frac{a_1}{x+y}\le\frac{a_0}x+\frac{(1-\kappa_\ast)A}2+o(1),
+\]
+and the choice $x=2(\sqrt{a_0a_1}-a_0)/((1-\kappa_\ast)A)$ gives the bound.
+\end{proof}
+
+The Stechkin constant over polynomials is the single level optimum divided by $1-1/\sqrt5$: the best polynomials of degree $2$, $3$ and $4$ give $0.06809=1/14.687$, $0.09800=1/10.204$ and $0.10367=1/9.646$ (computed). The last is the constant $9.646$ of Rosser and Schoenfeld \cite{RS75}, an attribution recalled from the literature and not verified here. The constants $1/(5.573412\log\gamma)$ \cite{MT15} and $1/(5.558691\log\gamma)$ \cite{MTY} combine the pairing with smoothing and a finer accounting. Changing bounded error terms cannot change an asymptotic constant, and the gap between the computed ceiling of the class and the constants that use pairing is open.

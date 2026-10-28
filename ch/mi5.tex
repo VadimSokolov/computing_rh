@@ -72,6 +72,42 @@ Integrating $\theta_\alpha'$ over $[-T,T]$, a zero $\rho$ with $|\gamma|\le T$ c
 
 With Ingham's estimate \cite{Ingham40}, $N^\pm_{>\alpha}(T)=O(T^{3(1-\alpha)/(2-\alpha)}\log^5T)=o(T)$ for every $\alpha=\frac12+b>\frac12$, since $3(1-\alpha)/(2-\alpha)<1$. So, unconditionally, $\re\xi(\alpha+it)$ has at least $N^\pm(T)-o(T)$ real zeros in $[-T,T]$, against $N^\pm(T)\sim\frac T\pi\log\frac T{2\pi}$ (this is the lower bound of the theorem). If the rung $F_b$ satisfies the Riemann von Mangoldt formula with error $O(\log T)$, which is open (Problem~\ref{mi:prob:rvm}), almost all zeros of $\frac12(\xi(s+b)+\xi(s-b))$ lie on the critical line, and as a count the number of conjugate pairs of nonreal zeros up to height $T$ is at most $N^\pm_{>\alpha}(T)+O(\log T)$. For the Davenport Heilbronn function, whose zeros off the line below height $200$ have $\beta=0.8085$, $0.6508$, $0.5744$, $0.7243$ (computed in $0.52\le\re s\le1.5$, $0.1\le\im s\le200$, at heights $85.70$, $114.16$, $166.48$, $176.70$), the real part of $\Lambda(\alpha+it)$ has $130$, $130$, $126$, $124$ real zeros on $(0.5,200)$ at $\alpha=0.95$, $0.85$, $0.7$, $0.6$, where $0$, $0$, $2$, $3$ of those zeros lie to the right of $\alpha$: the deficits $4$ and $6$ are two real zeros per zero to the right, as the count predicts. A direct count of the nonreal zeros of $F_b$ was not run, so that the statement that each such zero costs one conjugate pair is established at the level of these counts only. For $\zeta$ itself, the error $\theta_\alpha(T)-\theta_\alpha(-T)-\pi N^\pm(T)$ at $T=20,40,60,80,100$ stays below $1.6$ for $\alpha=0.6$, $0.75$, $1$ (computed).
 
+\subsection{Interlacing across rungs}\label{mi:sec:interlace}
+
+This subsection follows a note of Nicholas Polson merged into the book \cite{P26pg10}. Theorem~\ref{mi:thm:paired} interlaces $A_\alpha$ with $B_\alpha$ on one rung; for $\alpha>1$ the Euler product compares different rungs. Normalise $\theta_\alpha(0)=0$, write $M(\sigma)=-\zeta'(\sigma)/\zeta(\sigma)=\sum_n\Lambda(n)n^{-\sigma}$ for $\sigma>1$, so that $|(\zeta'/\zeta)(\sigma+it)|\le M(\sigma)$, and take $\arg\zeta(\sigma+it)=\im\log\zeta(\sigma+it)$ with $\log\zeta(s)=\sum_n\Lambda(n)n^{-s}/\log n$.
+
+\begin{proposition}\label{mi:prop:pairs}
+Let $1<\alpha<\alpha'$, $h=\alpha'-\alpha$, $D=\theta_{\alpha'}-\theta_\alpha$,
+\[
+\mathcal I=\int_\alpha^{\alpha'}M(\sigma)\,d\sigma=\log\frac{\zeta(\alpha)}{\zeta(\alpha')},\qquad J=\sum_p\big(\arctan p^{-\alpha}-\arctan p^{-\alpha'}\big)\le\mathcal I .
+\]
+Then $D(t)=\frac{h\pi}4+\arg\zeta(\alpha'+it)-\arg\zeta(\alpha+it)+O(1/t)$, so $|D(t)-\frac{h\pi}4|\le\mathcal I+O(1/t)$.
+\begin{enumerate}
+\item[(i)] If $[\frac{h\pi}4-\mathcal I,\frac{h\pi}4+\mathcal I]\subset(k\pi,(k+1)\pi)$ for an integer $k$, the zeros of $A_\alpha$ and $A_{\alpha'}$ alternate for large $t$, and so do those of $B_\alpha$ and $B_{\alpha'}$.
+\item[(ii)] If $[\frac{h\pi}4-\mathcal I,\frac{h\pi}4+\mathcal I]\subset(k\pi-\frac\pi2,k\pi+\frac\pi2)$ for an integer $k$, the zeros of $A_\alpha$ and $B_{\alpha'}$ alternate for large $t$, and so do those of $B_\alpha$ and $A_{\alpha'}$.
+\item[(iii)] If a multiple of $\pi$ lies in $(\frac{h\pi}4-J,\frac{h\pi}4+J)$, the zeros of $A_\alpha$ and $A_{\alpha'}$ fail to alternate at arbitrarily large $t$; if an odd multiple of $\frac\pi2$ does, so do those of $A_\alpha$ and $B_{\alpha'}$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+For $\alpha>1$, $\xi(\alpha+it)\ne0$ and $\theta_\alpha'>0$ by the display before Theorem~\ref{mi:thm:density}, so $A_\alpha=|\xi|\cos\theta_\alpha$ and $B_\alpha=|\xi|\sin\theta_\alpha$ vanish exactly where $\theta_\alpha$ crosses $\frac\pi2+\pi\mathbb Z$ and $\pi\mathbb Z$. $D(t)$ is the integral of $\im(\xi'/\xi)(\sigma+it)$ over $\alpha\le\sigma\le\alpha'$; by Stirling's formula the factor $\frac12s(s-1)\pi^{-s/2}\Gamma(\frac s2)$ contributes $\frac{h\pi}4+O(1/t)$, and $|\int_\alpha^{\alpha'}\im(\zeta'/\zeta)(\sigma+it)\,d\sigma|\le\mathcal I$. Also $J\le\mathcal I$ termwise: $\arctan x-\arctan y\le\log\frac{1-y}{1-x}$ for $0\le y\le x<1$, since $\frac1{1+u^2}\le\frac1{1-u}$, and with $x=p^{-\alpha}$, $y=p^{-\alpha'}$ the right sides sum to $\mathcal I$. Let $n_1$ and $n_2$ count the zeros in $(0,t]$ of the two functions compared, with phases $\phi_1=\theta_\alpha$ and $\phi_2=\theta_{\alpha'}$ in (i), $\phi_2=\theta_{\alpha'}-\frac\pi2$ in (ii). Under (i) or (ii), $\phi_2-\phi_1$ stays in one interval $(k'\pi,(k'+1)\pi)$ for $t\ge t_0$, so $n_2-n_1$ takes only two adjacent values there, which is alternation. For (iii), $\arg\zeta(\alpha'+it)-\arg\zeta(\alpha+it)=\sum_p\{\arg(1-p^{-\alpha}w_p)-\arg(1-p^{-\alpha'}w_p)\}$ with $w_p=p^{-it}$, a sum that converges absolutely and uniformly. By Kronecker's theorem \cite[Chapter 23]{boHardyWright} for the numbers $\log p$ it comes within any $\varepsilon>0$ of its value $J$ at $w_p=-i$ for all $p$, and of its value $-J$ at $w_p=i$, at arbitrarily large $t$, and $D$ is uniformly continuous, since $|D'|\le M(\alpha)+M(\alpha')+o(1)$. So at arbitrarily large $t$ there are intervals of a fixed length on which $\phi_2-\phi_1$ lies below the critical multiple of $\pi$ by $\varepsilon$, followed by intervals on which it lies above it by $\varepsilon$. Since $\phi_1$ advances by about $\frac12\log\frac t{2\pi}$ per unit of $t$, $n_2-n_1$ takes some value $m-1$ on the first and $m+1$ on the second; between the last visit to $m-1$ and the first visit to $m+1$ come two zeros of one function with no zero of the other between them. The pairs $(B_\alpha,B_{\alpha'})$ and $(B_\alpha,A_{\alpha'})$ are treated in the same way, with the phases $\theta_\alpha-\frac\pi2$ and $\theta_{\alpha'}-\frac\pi2$ or $\theta_{\alpha'}$.
+\end{proof}
+
+For $\alpha=5$, $\alpha'=11$, $\frac{h\pi}4=\frac{3\pi}2$ and $\mathcal I=0.035768<\frac\pi2$, so $A_5$ and $A_{11}$ alternate for large $t$ by (i), while $A_5$ and $B_{11}$ fail to alternate at arbitrarily large $t$ by (iii), which applies because $\frac{h\pi}4=\frac{3\pi}2$ is itself an odd multiple of $\frac\pi2$ and $J>0$; no failure occurs below $t=1000$ (computed). For $\alpha=2$, $\alpha'=3.9$, $\frac{h\pi}4=\frac\pi2-\frac\pi{40}$ and $J\ge\arctan\frac14-\arctan2^{-3.9}=0.17809>\frac\pi{40}$, so $A_2$ and $B_{3.9}$ fail to alternate at arbitrarily large $t$; in $(0,100]$ they have $29$ and $29$ zeros, which alternate up to height $71.518$, and the first failure is the zero $74.163$ of $B_{3.9}$, the second of two consecutive zeros of $B_{3.9}$ with no zero of $A_2$ between them (computed on a grid, not certified; \texttt{code/pg10\_pairs.py}). For $\alpha=2$, (i) applies for $0<h<3.4004$ with $k=0$ and for $4.6198<h<7.3682$ with $k=1$, and (ii) for $0<h<1.5161$ with $k=0$ and for $2.5695<h<5.3744$ with $k=1$ (certified, \texttt{code/pg10\_window.py}). The lower condition of (i) with $k=0$, $\mathcal I<\frac{h\pi}4$, holds for every $h$ once $\alpha\ge\sigma_1=1.80732$, where $M(\sigma_1)=\frac\pi4$.
+
+\begin{proposition}\label{mi:prop:noninter}
+\begin{enumerate}
+\item[(i)] For $\alpha>1$, $A_\alpha$ has $N(T)-S(T)+O_\alpha(1)$ zeros in $(0,T]$, where $N(T)=\frac{\vartheta(T)}\pi+1+S(T)$ counts the zeros of $\Xi$ with $0<\gamma\le T$. Hence the zeros of $A_\alpha$ do not alternate with the real zeros of $\Xi$ for large $t$.
+\item[(ii)] For $a>0$, $\re K_{\frac94+\frac{it}2}(a)$ has $\frac T{2\pi}(\log\frac Ta-1)+O_a(1)$ zeros in $(0,T]$. Hence two of these functions with different $a$ do not alternate for large $t$, and none alternates with the real zeros of $\Xi$ for large $t$ if $a\le2\pi$, or, under the Riemann hypothesis, if $a>2\pi$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Zero sets that alternate for $t\ge t_0$ have counting functions that differ by $O(1)$. (i) By the proof of Proposition~\ref{mi:prop:pairs}, $\theta_\alpha(t)=\vartheta(t)+\pi+(\alpha-\frac12)\frac\pi4+\arg\zeta(\alpha+it)+O(1/t)$ is increasing, $|\arg\zeta(\alpha+it)|\le\log\zeta(\alpha)$, and $A_\alpha$ vanishes where $\theta_\alpha$ crosses $\frac\pi2+\pi\mathbb Z$; this gives the count. Alternation with the real zeros of $\Xi$, at most $N(T)$ in number, would give $S(T)\ge-O(1)$, but $S$ is unbounded in both directions \cite{Selberg46}. (ii) For $\nu=\frac94+\frac{it}2$, $K_\nu(a)=\frac\pi2(I_{-\nu}(a)-I_\nu(a))/\sin\nu\pi=\frac12\Gamma(\nu)(\frac a2)^{-\nu}(1+O_a(1/t))$, so, as in the proof of Proposition~\ref{pol:prop:gram}, the zeros for large $t$ are the crossings of $\frac\pi2+\pi\mathbb Z$ by an increasing function $\arg\Gamma(\nu)-\frac t2\log\frac a2+O_a(1/t)=\frac t2\log\frac ta-\frac t2+\frac{7\pi}8+O_a(1/t)$. The counts of two members differ by $\frac T{2\pi}\log\frac{a'}a+O(1)$. Against $\Xi$: for $a<2\pi$ the count exceeds $N(T)$ by $\frac T{2\pi}\log\frac{2\pi}a+O(\log T)$; for $a=2\pi$ it is $N(T)-S(T)+O(1)$ and the argument of (i) applies; for $a>2\pi$ it falls short of $N(T)$ by $\frac T{2\pi}\log\frac a{2\pi}+O(\log T)$, which excludes alternation when all zeros of $\Xi$ are real.
+\end{proof}
+
+For $a=2\pi$ the function is $\Xi^*/(8\pi^2)$ of Proposition~\ref{pol:prop:bessel}, whose zeros follow the half Gram points of Proposition~\ref{pol:prop:gram}.
+
 \subsection{Universal factors as vertical averages}\label{mi:sec:vertical}
 
 Every universal factor acts as a vertical average, $\int_\R\Phi(u)\E\cosh(uX)e^{izu}\,du=\E\,\Xi(z+iX)$: the ladder is $X=\pm b$ and the de Bruijn Newman flow is $X=\sqrt{2\lambda}\,\mathcal N$ with $\mathcal N$ standard normal. Since $|\Xi(x+iu)|$ grows like $(x/2\pi)^{|u|/2}$, the average is dominated near the Esscher tilt location
@@ -100,6 +136,52 @@ $0.7243+176.702i$ & 0.2243 & 3.337 & 0.2190 & 0.977 & 0.0237 & 0.941\\
 
 For $\zeta$, where an off line zero would lie above $3\times10^{12}$ \cite{PT21} ($L\approx27$), the heat flow would absorb a zero at $\lambda\approx\eta/L$, far below the local value $\eta^2/2$ once $\eta>2/L$ (with $L=26.89$, $2/L=0.074$), while the ladder needs $b\approx\eta$. In this local model the cosh ladder, unlike the de Bruijn Newman constant, admits no Polymath style improvement short of a quasi Riemann hypothesis.
 
+\begin{remark}[Mixtures of rungs]\label{mi:rem:mixtures}
+For symmetric $X$, the vertical average $\E\,\Xi(z+iX)=\E F_{|X|}(z)$ is a positive mixture of rungs, and when $\E\cosh(uX)=\prod_k\cosh(\lambda_ku)$, so that $\E X^2=\sum_k\lambda_k^2$, Proposition~\ref{fm:prop:bruijn}, de Bruijn's theorem, puts its zeros in $|\im z|\le(\max(\frac14-\E X^2,0))^{1/2}$. Following \cite{P26pg10}, each of the following therefore has only real zeros, unconditionally: $\frac12(\Xi+F_b)$ for $b\ge2^{-1/2}$, from $X=\frac b2(\varepsilon_1+\varepsilon_2)$ with independent signs $\varepsilon_k$; $\frac34F_b+\frac14F_{3b}$ for $b\ge\frac1{2\sqrt3}$, from $X=b(\varepsilon_1+\varepsilon_2+\varepsilon_3)$; $\frac12(F_{b_1}+F_{b_2})$ for $b_1^2+b_2^2\ge\frac12$, from $\frac12(\cosh b_1u+\cosh b_2u)=\cosh\frac{(b_1+b_2)u}2\cosh\frac{(b_2-b_1)u}2$; and $\frac1{b_2-b_1}\int_{b_1}^{b_2}F_b\,db$ for $b_1^2+b_1b_2+b_2^2\ge\frac34$, from $\frac{\sinh x}x=\prod_{k\ge1}\cosh(2^{-k}x)$. Conversely $\Xi$ is no mixture $\int F_b\,\mu(db)$ with $\mu\ge0$ other than $\mu=\delta_0$: on the kernel side $\int\cosh(bu)\,\mu(db)\equiv1$ forces $\mu=\delta_0$. It is instead the hyperbolic secant smoothing of every rung, $\Xi=p_b*F_b$ with $p_b(x)=\frac1{2b}\sech\frac{\pi x}{2b}$, whose characteristic function is $\sech(bu)$; the same smoothing takes $\Xi$ to $g_b$ (Theorem~\ref{mi:thm:levyarea}). Beyond products of $\cosh$ the variance does not decide. For $\Pr(X=0)=\frac14$ and $\Pr(X=\pm2/\sqrt3)=\frac38$, $\E X^2=1$ and $\E\cosh(uX)=\frac14+\frac34\cosh\frac{2u}{\sqrt3}$ is a universal factor, by P\'olya's theorem on universal factors \cite[p.~197]{deBruijn}, since $\frac14+\frac34\cos\frac{2w}{\sqrt3}$ has only real zeros; yet for $p(z)=(z^2+1)^3$, with zeros at height $1$,
+\[
+\E\,p(z+iX)=z^6-12z^4+5z^2+\tfrac29
+\]
+has two zeros on the imaginary axis, while the two laws of variance one in the local model above give $\cos(\partial)p=z^4(z^2-12)$ and $e^{-\partial^2/2}p=z^6-12z^4+30z^2-8$, both with only real zeros.
+\end{remark}
+
+The local model above predicts the collision of a pair at $\pm i\eta$ from the variance alone. To the next order the shape of the law enters; the note \cite{P26pg10} tests the model numerically, and the following statement makes the test precise.
+
+\begin{proposition}[One pair]\label{mi:prop:collision}
+Let $G$ be a real entire function of order less than two, $a\in\R$ with $G(a)\ne0$, $\tau_j=G^{(j)}(a)/G(a)$ and $F_\eta(z)=((z-a)^2+\eta^2)G(z)$. Let $\ell$ be symmetric, bounded or standard normal, with $\E\ell^2=1$ and $m_4=\E\ell^4$, and put $d_c=\tau_1^2-\frac{m_4-1}2\tau_2$. For every $K>|d_c|$ there are $r>0$ and $\eta_0>0$ such that for $0<\eta<\eta_0$ and $|s^2-\eta^2|\le K\eta^4$ the function $\E F_\eta(z+is\ell)$ has exactly two zeros in $|z-a|<r$, and there is $s_c$ with
+\[
+s_c^2=\eta^2-d_c\,\eta^4+O(\eta^6)
+\]
+such that the two zeros are a nonreal conjugate pair for $s<s_c$, a double real zero at $a+\tau_1\eta^2+O(\eta^4)$ for $s=s_c$, and real and distinct for $s>s_c$.
+\end{proposition}
+
+\begin{proof}
+Put $z=a+\eta^2x$ and $s^2=\eta^2-\eta^4d$. Since $\ell$ is symmetric, $\E F_\eta(z+is\ell)$ is an analytic function of $z$ and $s^2$, and expanding $G(z+is\ell)=G(a)\sum_j\tau_j(z-a+is\ell)^j/j!$ with $\E\ell^2=1$ and $\E\ell^4=m_4$ gives
+\[
+\frac{\E F_\eta(z+is\ell)}{G(a)\,\eta^4}=(x-\tau_1)^2+d-d_c+\eta^2R(x,d,\eta),
+\]
+with $R$ analytic and bounded for bounded $x$, $d$ and small $\eta$; the expectation converges because $G$ has order less than two. As $\eta\to0$ the function tends to $(z-a)^2G(z)$ uniformly near $a$, so by Hurwitz's theorem it has exactly two zeros in a fixed disc about $a$, and they lie at bounded $x$, by Rouch\'e's theorem against $(x-\tau_1)^2$ on $|x-\tau_1|=C$. At $\eta=0$ the system $P=\partial_xP=0$ for the right side has the nondegenerate solution $x=\tau_1$, $d=d_c$, which the implicit function theorem continues to small $\eta$. The function is real on $\R$, so the two zeros are real or conjugate according to the sign of the discriminant; $(x_+-x_-)^2=4(d_c-d)+O(\eta^2)$ is analytic in $d$ with $d$-derivative $-4+O(\eta^2)$, so its only zero is $d_c(\eta)=d_c+O(\eta^2)$ (this is where $K>|d_c|$ is used), and its sign is that of $d_c(\eta)-d$.
+\end{proof}
+
+With $\ell=(\varepsilon_1+\dots+\varepsilon_n)/\sqrt n$, the ladder of $n$ independent $\cosh$ steps, $m_4=3-\frac2n$, that is $1$, $2$ and $\frac73$ for one, two and three steps, and $m_4=3$ for the Gaussian, the de Bruijn Newman flow. So the variance decides the collision to first order, as in the local model, and the law enters at order $\eta^4$ through its kurtosis. Table~\ref{mi:tab:collide} tests the expansion on $\Xi$ itself, with its first zero moved to $\gamma_1\pm i\eta$ and its mirror to $-\gamma_1\pm i\eta$, so that $a=\gamma_1$ and $G(z)=\Xi(z)((z+\gamma_1)^2+\eta^2)/(z^2-\gamma_1^2)$, which is $\Xi(z)(z+\gamma_1)/(z-\gamma_1)$ times $1+O(\eta^2)$ near $\gamma_1$; this factor changes the expansion in the proof of Proposition~\ref{mi:prop:collision} only at order $\eta^6$, so the proposition holds with the $\tau_j$ of $\Xi(z)(z+\gamma_1)/(z-\gamma_1)$, $\tau_1=-0.54426$ and $\tau_2=0.22728$ (computed, \texttt{code/pg10\_collision.py}).
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{lccccc}
+\toprule
+law of $\ell$ & $m_4$ & $d_c$ & $\eta=0.3$ & $\eta=0.15$ & $\eta=0.075$\\
+\midrule
+one $\cosh$ step & $1$ & 0.2962 & 0.2827 & 0.2927 & 0.2953\\
+two $\cosh$ steps & $2$ & 0.1826 & 0.1777 & 0.1813 & 0.1823\\
+three $\cosh$ steps & $\frac73$ & 0.1447 & 0.1417 & 0.1439 & 0.1445\\
+Gaussian & $3$ & 0.0689 & 0.0684 & 0.0688 & 0.0689\\
+\bottomrule
+\end{tabular}
+\caption{The collision of the moved pair $\gamma_1\pm i\eta$ of $\Xi$: $(\eta^2-s_c^2)/\eta^4$ at three heights $\eta$, against its limit $d_c=\tau_1^2-\frac{m_4-1}2\tau_2$ of Proposition~\ref{mi:prop:collision} (computed; the three cosh cells at $\eta=0.3$ are certified by a Krawczyk step).}
+\label{mi:tab:collide}
+\end{table}
+
+At height $T$ the coefficients $\tau_1$ and $\tau_2$ are typically of size $L$ and $L^2$, $L=\log\frac T{2\pi}$, so the expansion describes pairs with $\eta L$ small, the regime $\eta<2/L$ of the paragraph after Table~\ref{mi:tab:thr}, and it says nothing uniform in the height (heuristic).
+
 \section{Open problems}\label{mi:sec:open}
 
 The computations of this chapter leave the following questions, from the friable approximants of Section~\ref{mi:sec:miyatake} to the ladder of Section~\ref{mi:sec:quasi}. The scripts that produce the numbers of the chapter are listed in \texttt{code/README.md} of the repository of the book.
@@ -124,12 +206,12 @@ Find a computable Thorin criterion that detects the departed zeros, for instance
 Prove that all zeros of $g^{(2)}$ lie in $|\im w|<2$, and deduce from de Bruijn's theorem that every zero of Miyatake's $\xi^{(2)}$ is real.
 \end{problem}
 
-\begin{problem}
+\begin{problem}\label{mi:prob:cardon}
 Prove that no factorisation $\Phi=U\chi$ with $U=\E\cosh(tX)$ a nontrivial universal factor has $\hat\chi$ in the Laguerre P\'olya class, which would extend the theorem of Rodgers and Tao from Gaussian factors to Cardon's factors.
 \end{problem}
 
 \begin{problem}\label{mi:prob:quasi}
-Make the local mechanism of Section~\ref{mi:sec:quasi} rigorous at all large heights, proving $B_{\cosh}\ge\sigma_{\max}^\infty-\frac12$ in Conjecture~\ref{mi:conj:quasi}; Theorem~\ref{mi:thm:paired} already settles the paired version.
+Make the local mechanism of Section~\ref{mi:sec:quasi} rigorous at all large heights, proving $B_{\cosh}\ge\sigma_{\max}^\infty-\frac12$ in Conjecture~\ref{mi:conj:quasi}; Theorem~\ref{mi:thm:paired} already settles the paired version. Proposition~\ref{mi:prop:collision} proves the mechanism for one pair as $\eta\to0$ with the other zeros fixed; what is missing is uniformity in the height and in the other zeros.
 \end{problem}
 
 \begin{problem}\label{mi:prob:rvm}
@@ -148,4 +230,8 @@ Make the escape law \eqref{mi:eq:escape} rigorous for $b>2$, $C_b\ne0$.
 Certify, by interval arithmetic, that $C_b$ has exactly one zero $b_0$ on $(2,\infty)$: an interval Newton enclosure of $b_0=2.4588641657$, the sign of $\Phi(i\pi/(2b))$ on $(2,20]$ by subdivision with a rigorous tail for the series over $n$, Theorem~\ref{mi:thm:cusp} with an explicit error near $b=2$, and a proof that $\Phi(iy)>0$ for $0<y\le\pi/40$ to cover $b>20$.
 \end{problem}
 
-\paragraph{Notes.} The identity \eqref{mi:eq:miyid} and the function $\xi^{(P)}$ with its Theorem I are Miyatake's \cite{Miyatake51b}, and the symmetrised kernel with a secant pole term is that of his paper A \cite{Miyatake51a}; Hejhal \cite{Hejhal90} treats truncated symmetrised kernels. The ladder is that of de Bruijn and Lagarias, the shift identity and the Brownian and Mellin readings of Section~\ref{mi:sec:prob} use the Biane Pitman Yor identity \cite{BPY01} and the P\'olya Gamma mixture of Polson, Scott and Windle \cite{PSW13}, the paired form uses Chebotarev's theorem \cite{Chebotarev28}, and the counting in Section~\ref{mi:sec:density} uses Ingham's density estimate \cite{Ingham40}. The statements about Miyatake's two papers rest on their description by the authors of the chapter and have not been checked against the papers.
+\begin{problem}\label{mi:prob:E}
+Decide whether $\mathcal E_{2\pi/9}$ of Proposition~\ref{mi:prop:rigid}, equivalently $q_{\pi/9}*\Xi^{\mathcal U}$ of Proposition~\ref{mi:prop:meixner}, is in the Laguerre P\'olya class, for $a_0=2\pi$ or for every $a_0>0$. That $q_{\pi/9}$ is a P\'olya frequency function does not suffice: convolution with a symmetric probability density of variance $v$ sends $z^2-r^2$ to $z^2-r^2+v$, which has nonreal zeros for $r^2<v$, and the same convolution gives nonreal zeros for $\Xi$ (Section~\ref{mi:sec:mixture}). A proof has to use more of $\Xi^{\mathcal U}$, for instance the spacing of its zeros.
+\end{problem}
+
+\paragraph{Notes.} The identity \eqref{mi:eq:miyid} and the function $\xi^{(P)}$ with its Theorem I are Miyatake's \cite{Miyatake51b}, and the symmetrised kernel with a secant pole term is that of his paper A \cite{Miyatake51a}; Hejhal \cite{Hejhal90} treats truncated symmetrised kernels. The ladder is that of de Bruijn and Lagarias, the shift identity and the Brownian and Mellin readings of Section~\ref{mi:sec:prob} use the Biane Pitman Yor identity \cite{BPY01} and the P\'olya Gamma mixture of Polson, Scott and Windle \cite{PSW13}, the paired form uses Chebotarev's theorem \cite{Chebotarev28}, and the counting in Section~\ref{mi:sec:density} uses Ingham's density estimate \cite{Ingham40}. The statements about Miyatake's two papers rest on their description by the authors of the chapter and have not been checked against the papers. Section~\ref{mi:sec:mixture} follows a note of Polson \cite{P26pg8}; there the universal factor theorem is P\'olya's \cite{Polya27}, the reality of the zeros of $K_{iz}(a)$ is P\'olya's \cite{Polya}, the P\'olya frequency criterion is Schoenberg's \cite{Schoenberg51}, and the Meixner reading of $q_\varphi$ uses \cite{Grigelionis99,PolsonScott12}. Section~\ref{mi:sec:interlace}, Remark~\ref{mi:rem:mixtures} and the experiment behind Table~\ref{mi:tab:collide} follow a note of Polson \cite{P26pg10}; the strip bound for products of $\cosh$ is de Bruijn's \cite{deBruijn}, and the unboundedness of $S(T)$ in both directions is Selberg's \cite{Selberg46}.

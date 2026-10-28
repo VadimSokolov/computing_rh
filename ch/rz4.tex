@@ -125,7 +125,7 @@ The first $1.5\times10^9$ zeros, $\rho_{213}$ among them, lie on the critical li
 The constants in Proposition~\ref{rz:prop:firstorder} depend on $\rho$, and the first order regime requires $n$ large compared with $|\kappa(\rho)|$. For the zero $\rho_{213}$ of Corollary~\ref{rz:cor:Tfalse}, $|\kappa(\rho_{213})|=2311$, so the phenomenon begins at $n$ of order $10^3$ or beyond, larger than every $n$ computed in this section.
 \end{remark}
 
-The failure is intrinsic to the method, not to the particular lattice. Any truncation whose first order error is a multiple of $F(w-1)$ produces the displacement $\kappa(\rho)/n$, and the phase of $\kappa(\rho)$ is governed by $S(\gamma)$. By Selberg's central limit theorem \cite{Selberg46} $S$ takes values beyond $\pm\frac12$ for a positive proportion of heights, so one expects a positive proportion of zeros to be approached from the right. One sided Hurwitz arguments therefore cannot succeed for truncations of this kind; what is needed is a scheme in which symmetry keeps the zeros on the line.
+The failure is intrinsic to the method, not to the particular lattice. Any truncation whose first order error is a multiple of $F(w-1)$ produces the displacement $\kappa(\rho)/n$, and the phase of $\kappa(\rho)$ is governed by $S(\gamma)$. By Selberg's central limit theorem \cite{Selberg46} $S$ takes values beyond $\pm\frac12$ for a positive proportion of heights, so one expects a positive proportion of zeros to be approached from the right. One sided Hurwitz arguments therefore cannot succeed for truncations of this kind; what is needed is a scheme in which symmetry keeps the zeros on the line. The Dyck chain of Section~\ref{ev:sec:decomp} is an analogue in the variable $s=2w$: its first order error is a multiple of $s\,\xi(s-1)$ where the lattice has $\xi(s-2)$, with a displacement of order $n^{-1/2}$, and the first zero approached from the right is $\rho_{64}$ (the index computed in ball arithmetic; Propositions~\ref{ev:prop:lbias} and~\ref{ev:prop:lbphase}; conditional on Conjecture~\ref{ev:conj:lbias}).
 
 \subsubsection{Symmetrised truncations and Conjecture S}
 
@@ -186,6 +186,24 @@ Table~\ref{rz:tab:symwin} counts the zeros of $K_n$ in windows of height. For $n
 The window $195<\Im w<215$ matters because it contains $\gamma_{213}/2=207.73$, where the unsymmetrised truncations are forced off the line. There the count for $K_8$ exceeds that for $\xi$ by one: the zeros of $\xi$ with $390<\gamma<430$ are $\gamma_{196}$ to $\gamma_{221}$, twenty six of them, the nearest excluded ordinates being $\gamma_{195}=388.85$ and $\gamma_{222}=430.33$. The difference is not a contradiction: at this height and $n=8$ the first order displacement along the line, $\Im\kappa(\rho)/n$, is of order $300$ for $\rho_{213}$, so $K_8$ is far from its limit and its zeros need not correspond one to one with those of $\xi$. What matters for Conjecture S is that every zero found in the window lies on the line.
 
 The symmetrised truncations are the lattice analogue of the approximations $\zeta_N(s)=\sum_{m\le N}m^{-s}+\chi(s)\sum_{m\le N}m^{s-1}$ derived from the approximate functional equation, with $\chi$ the factor in $\zeta(s)=\chi(s)\zeta(1-s)$. Spira \cite[Section 6]{Spira67} and Gonek and Montgomery \cite{GonekMontgomery13} studied their zeros, and Gonek and Montgomery proved that for $N\le T^{o(1)}$ almost all zeros of $\zeta_N$ with ordinates in $[0,T]$ lie on the critical line and are simple. A proof of Conjecture S for infinitely many $n$ would require controlling the zeros of $Z_n$ uniformly in height, including the range of heights comparable with $n$, where $K_n$ is neither close to $4\xi(2w)$ nor dominated by a single exponential term; this is the same difficulty as for $\zeta_N$.
+
+\begin{proposition}\label{rz:prop:zetaN}
+Write $s=\sigma+i\tau$.
+\begin{enumerate}
+\item[(i)] All but finitely many zeros of $\zeta_2$ in $0<\sigma<1$ lie on the critical line, and the number with $0<\tau\le T$ is $\vartheta(T)/\pi+O(1)$.
+\item[(ii)] Let $\sigma^*$ be the root of $2^{-\sigma}+3^{-\sigma}=1$. For every $\sigma_0\in(\frac12,\sigma^*)$ there are zeros $\sigma_k+i\tau_k$ of $\zeta_3$ with $\tau_k\to\infty$ and $\sigma_k\to\sigma_0$. In particular $\zeta_3$ has zeros off the critical line at arbitrarily large heights.
+\end{enumerate}
+This follows a note of Nicholas Polson merged into the book \cite{P26gumbelop}; compare \cite{Spira67,GonekMontgomery13}.
+\end{proposition}
+
+\begin{proof}[Sketch]
+(i) With $G(s)=\Gamma_{\mathbb R}(s)(1+2^{-s})$ we have $\Gamma_{\mathbb R}(s)\zeta_2(s)=G(s)+G(1-s)$, which is $2\re G$ on the critical line. A zero needs $L(\sigma,\tau)=\log|G(\sigma+i\tau)|-\log|G(1-\sigma-i\tau)|=0$, and by Stirling's formula
+\[
+L(\sigma,\tau)=(\sigma-\tfrac12)\log\frac{|\tau|}{2\pi}+\log|1+2^{-s}|-\log|1+2^{s-1}|+O(|\tau|^{-1}).
+\]
+For $0<\sigma\le\frac12$ the last two terms are at most $\log2-\log(1-2^{-1/2})$, so $L<0$ unless $\frac12-\sigma=O(1/\log|\tau|)$; on $[\frac14,\frac12)$ they have bounded $\sigma$ derivative while that of the first term is $\log(|\tau|/2\pi)$, and $L(\frac12,\tau)=0$, so $L<0$ there too once $|\tau|$ is large. The symmetry $s\mapsto1-\bar s$ covers $\sigma>\frac12$. On the line $G(\frac12+i\tau)=|G|e^{i\Theta(\tau)}$ with $\Theta(\tau)=\vartheta(\tau)+\arg(1+2^{-\frac12-i\tau})$; the second term has modulus at most $\frac\pi4$ and a bounded derivative, so $\Theta$ is eventually increasing and the count is $\Theta(T)/\pi+O(1)$.
+(ii) For $\sigma>\frac12$, $|\chi(s)|\asymp(|\tau|/2\pi)^{\frac12-\sigma}\to0$, so near $\sigma_0+i\tau$ the function $\zeta_3$ is $1+2^{-s}+3^{-s}+o(1)$. Since $2^{-\sigma_0}+3^{-\sigma_0}>1>|2^{-\sigma_0}-3^{-\sigma_0}|$ there are unit numbers $u,v$ with $1+2^{-\sigma_0}u+3^{-\sigma_0}v=0$, and $\sigma_0$ is a simple zero of $w\mapsto1+2^{-w}u+3^{-w}v$, because a double zero would force $2^{-\sigma_0}u=\log3/(\log2-\log3)$, of modulus larger than $1$. As $\log2$ and $\log3$ are linearly independent over $\mathbb Q$, Kronecker's theorem gives $\tau_k\to\infty$ with $(2^{-i\tau_k},3^{-i\tau_k})\to(u,v)$, and Rouch\'e's theorem, applied first to $1+2^{-s}+3^{-s}$ near $\sigma_0+i\tau_k$ and then to $\zeta_3$, gives the zeros.
+\end{proof}
 
 \subsubsection{A single term bound for small \texorpdfstring{$n$}{n}}
 

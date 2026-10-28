@@ -1,0 +1,395 @@
+\section{The deconvolution problem, precisely}\label{cx:sec:problem}
+
+\subsection{Why the Thorin measure is a deconvolution}
+
+Fix $\tfrac12\le\theta'<\theta$ and write $P_a(x)=(a/\pi)/(a^2+x^2)$ for the density of the Cauchy law of scale $a$. Theorem~\ref{lv:thm:semigroup} says that if $\zeta$ has no zeros in $\Re s>\theta'$ then
+\begin{equation}\label{cx:eq:conv}
+\mathfrak U_\theta=P_{\theta-\theta'}*\mathfrak U_{\theta'} .
+\end{equation}
+The left side is known at $\theta=1$ without any information about zeros: its density is $u_1(v)=\pi^{-1}\Re(\xi'/\xi)(1+iv)$ (Theorem~\ref{lo:thm:density}). The right side contains the unknown $\mathfrak U_{\theta'}$. So the Thorin measure at level $\theta'$ is, by the semigroup property, the solution $\mu$ of the convolution equation
+\begin{equation}\label{cx:eq:deconv}
+P_{1-\theta'}*\mu=\mathfrak U_1,\qquad\mu\ge0,
+\end{equation}
+and finding it is a deconvolution. Three facts fix the nature of the problem.
+
+Uniqueness. The Fourier transform of $P_a$ is $e^{-a|\omega|}$, which never vanishes, so $\mu\mapsto P_a*\mu$ is injective on signed measures $\mu$ with $\int(1+v^2)^{-1}d|\mu|<\infty$ (Theorem~\ref{tf:thm:deconv}): \eqref{cx:eq:deconv} has at most one solution.
+
+Existence. A positive solution of \eqref{cx:eq:deconv} exists if and only if $\zeta$ has no zeros in $\Re s>\theta'$, and it is then $\mathfrak U_{\theta'}$ (Theorem~\ref{tf:thm:deconv}). The deconvolution is therefore not an estimation problem but an existence problem: existence at $\theta'$ is the half plane $\Re s>\theta'$, and at all $\theta'>\tfrac12$ together it is the Riemann hypothesis.
+
+Ill posedness. The inverse of $\mu\mapsto P_a*\mu$ has Fourier symbol $e^{a|\omega|}$: the problem is ill posed in Hadamard's sense, with exponential rather than polynomial growth of the inverse. A perturbation of $\mathfrak U_1$ of size $\delta$ at frequency $\omega$ becomes $\delta e^{(1-\theta')|\omega|}$ in $\mu$.
+
+Two inversions should be distinguished. The Thorin measure of $F_\theta(s)=\xi(\theta)/\xi(\theta+\sqrt s)$ at its own level is obtained from $F_\theta$ by Stieltjes inversion, $u_\theta(v)=\pi^{-1}\Re(\xi'/\xi)(\theta+iv)$, which is the boundary value of $-(\log F_\theta)'$ on the cut and is immediate once $\xi'/\xi$ is available at level $\theta$. The passage between levels is \eqref{cx:eq:deconv}, and its difficulty is the difficulty of continuing $\xi'/\xi$ from the line $\Re s=1$ to the line $\Re s=\theta'$: the Cauchy kernel is the Poisson kernel of the half plane $\Re s>\theta'$, so \eqref{cx:eq:conv} is the Poisson integral formula for the harmonic function $\partial_\sigma\log|\xi|$, and deconvolution is harmonic continuation backward, into the region where the function may fail to be harmonic because of a zero.
+
+\subsection{The matrix $A$}
+
+Discretise \eqref{cx:eq:deconv} with a common spacing $h$. The data grid is $v_i=ih$, $|i|\le M$, covering $[-V,V]$ with $V=Mh$, and the unknown grid is $w_j=jh$, $|j|\le N$, covering $[-W,W]$ with $W=Nh>V$. The unknown is the vector of cell densities $x_j=h^{-1}\mu([w_j-\tfrac h2,w_j+\tfrac h2))$, so that $\mu\approx\sum_jx_jh\,\delta_{w_j}$, and the data vector is $y_i=u_1(v_i)$. Then
+\begin{equation}\label{cx:eq:Amatrix}
+A_{ij}=h\,P_{1-\theta'}(v_i-w_j)=\frac{h(1-\theta')/\pi}{(1-\theta')^2+(i-j)^2h^2},
+\end{equation}
+so $A\in\R^{(2M+1)\times(2N+1)}$, and $(Ax)_i=\sum_jx_jhP_{1-\theta'}(v_i-w_j)$ is the midpoint rule for the density of $P_{1-\theta'}*\mu$ at $v_i$. (Chapter~\ref{chap:lo} writes the same products with the cell masses $hx_j$ as unknowns and the matrix $P_{1-\theta'}(v_i-w_j)$; masses together with the factor $h$ in $A$ would count it twice. The residuals of both chapters include the factor $h$.) The properties of $A$ that the chapter uses are the following.
+
+\begin{enumerate}
+\item[(a)] Every entry is positive, so $A$ maps the orthant into the orthant and $y=Ax$ is a positive linear inverse problem in the sense of Vardi and Lee \cite{VardiLee93}.
+\item[(b)] $A_{ij}$ depends only on $i-j$: $A$ is the restriction to $|i|\le M$, $|j|\le N$ of the symmetric Toeplitz operator with kernel $k_m=hP_{1-\theta'}(mh)$, $m\in\mathbb Z$. Hence $Ax$ and $A^{\mathsf T}r$ are both convolutions with $k$, restricted to the appropriate index range, and can be computed by the fast Fourier transform after circulant embedding in length $L\ge2(2N+1)$. The dense form has $(2M+1)(2N+1)$ entries, $4001\times4801$ for the window runs below; the FFT form costs $O(L\log L)$ per product, which is what makes the full range feasible.
+\item[(c)] The column sums $c_j=\sum_{|i|\le M}A_{ij}=h\sum_{|i|\le M}P_{1-\theta'}((i-j)h)$ equal $1$ up to the discretisation error and the Cauchy tail outside the data window: for $|w_j|<V$,
+\[
+\begin{split}c_j&=1+O\bigl(e^{-2\pi(1-\theta')/h}\bigr)-\frac{1-\theta'}{\pi}\Bigl(\frac1{V-w_j}+\frac1{V+w_j}\Bigr)\\&\quad+O\bigl(h(V-|w_j|)^{-2}+(V-|w_j|)^{-3}\bigr),\end{split}
+\]
+because $h\sum_{m\in\mathbb Z}P_a(mh)=\coth(\pi a/h)$ and each tail is $\pi^{-1}\arctan\bigl(a/(V\mp w_j+\tfrac h2)\bigr)$ up to the midpoint error. They are what EM divides by, and the division is exactly what accounts for mass that leaves the data window. This is also why $W>V$: zeros just outside $[-V,V]$ contribute Cauchy tails to the data inside, and the unknown grid must have room for them.
+\item[(d)] The symbol of the bi infinite Toeplitz operator is, by Poisson summation,
+\[
+\begin{split}\phi(\xi)&=\sum_{m\in\mathbb Z}k_me^{im\xi}=\sum_{\ell\in\mathbb Z}e^{-(1-\theta')|\xi+2\pi\ell|/h}\\&=\frac{\cosh\bigl(r(\pi-|\xi|)\bigr)}{\sinh(\pi r)},\qquad|\xi|\le\pi,\quad r=\frac{1-\theta'}h,\end{split}
+\]
+so the nonzero singular values of $A$ lie between $1/\sinh(\pi r)$ and $\coth(\pi r)$, and the condition number of the bi infinite operator is $\cosh(\pi r)$, of order $e^{(1-\theta')\pi/h}$, which is $e^{78}$ for $h=0.02$ and $\theta'=1/2$. The frequency $\omega=\xi/h$ is the one of the multiplier $e^{(1-\theta')|\omega|}$ of Chapter~\ref{chap:lo} (equation~\eqref{lo:eq:backward}), and the singular value at frequency $\omega$ is $e^{-(1-\theta')|\omega|}$, the Fourier symbol of the Cauchy kernel.
+\item[(e)] If $N\le M$, $A$ is injective. If $N>M$, $A$ has rank $2M+1$ and a kernel of dimension exactly $2(N-M)$, for every $h$. Every entry of $A$ is positive, so the kernel contains no nonzero $x\ge0$: its vectors are signed, and when $2(N-M)\le M+1$, that is when the unknown window exceeds the data window by at most about half its length, none of them vanishes on the data window. EM updates every coordinate. The minimisers of $\operatorname{KL}(y\|Ax)$ over $x\ge0$ share one image $z^*=Ax$ and form the polytope $\{x\ge0:Ax=z^*\}$; the EM limit is a point of it that may depend on the start. For fixed windows the continuous operator $\mu\mapsto(P_{1-\theta'}*\mu)|_{[-V,V]}$ on measures carried by $[-W,W]$ is injective, because $P_{1-\theta'}*\mu$ is real analytic, but its inverse is unbounded. So the uniqueness clause of Theorem~\ref{cx:thm:emrate} and the hypothesis of Theorem~\ref{cx:thm:linear} fail in the runs below, where $N>M$, while the bound on $f$ in Theorem~\ref{cx:thm:emrate} holds.
+\end{enumerate}
+
+\begin{proof}[Proof of (c) to (e)]
+For (c) and (d), Poisson summation gives $\sum_m hP_a(mh)e^{im\xi}=\sum_\ell e^{-a|\xi+2\pi\ell|/h}$, which sums to the displayed hyperbolic quotient, and at $\xi=0$ to $\coth(\pi r)$. For (e), with $r=(1-\theta')/h$ every finite section $B$ of the Toeplitz operator satisfies $z^{\mathsf T}Bz=\frac1{2\pi}\int_{-\pi}^{\pi}\phi(\xi)\bigl|\sum_jz_je^{ij\xi}\bigr|^2d\xi\ge\phi(\pi)|z|^2$, and $\phi(\pi)=1/\sinh(\pi r)>0$. If $N\le M$ the rows $|i|\le N$ of $A$ form such a section; if $N>M$ the central $(2M+1)$ block is one, so $A$ has full row rank and nullity $(2N+1)-(2M+1)$. When $2(N-M)\le M+1$, a kernel vector carried by $|j|>M$ gives $\sum_jz_j(a^2+(v-w_j)^2)^{-1}=0$ at the $2M+1$ points $v_i$; this rational function has distinct poles $w_j\pm ia$ and a numerator of degree at most $4(N-M)-2<2M+1$, so all $z_j=0$. The function $\operatorname{KL}(y\|z)$ is strictly convex in $z$ for $y>0$. For $\mu$ carried by $[-W,W]$, $P_a*\mu$ extends holomorphically to $|\Im v|<a$, so vanishing on $[-V,V]$ forces $P_a*\mu=0$ and $\mu=0$.
+\end{proof}
+
+\subsection{Three inverses of the same matrix}
+
+The three computations of Chapter~\ref{chap:lo} are three inverses of \eqref{cx:eq:Amatrix}.
+
+The Fourier backward flow is the truncated singular value inverse. For the bi infinite operator the singular vectors are the Fourier modes and the singular values are $e^{-(1-\theta')|\omega|}$, so the pseudo inverse with all singular values below $e^{-(1-\theta')\Omega}$ discarded is the multiplier $e^{(1-\theta')|\omega|}\mathbf 1_{|\omega|\le\Omega}$, which is $B_{\theta',\Omega}$ of equation~\eqref{lo:eq:backward} with a sharp window. It is linear, ignores positivity, and rings.
+
+EM is the maximum likelihood inverse under the Poisson model: the minimiser of $\operatorname{KL}(y\|Ax)$ over $x\ge0$. It uses every singular value, enforces positivity, and in the consistent case converges to a minimiser, unique when $A$ is injective, at the rate of Theorem~\ref{cx:thm:emrate}.
+
+The Bayesian inverse is the posterior over $x\ge0$ under the Poisson likelihood and a gamma prior, sampled by data augmentation or by the random walk of Theorem~\ref{cx:thm:logconcave}; its mode is the EM solution when the prior is flat.
+
+\section{Three layers of cost}\label{cx:sec:cost}
+
+Fix a height $T$, a level $\theta'\in[\tfrac12,1)$, a grid spacing $h$, and an accuracy $\varepsilon$.
+
+\subsection{The data}
+
+The level one density $u_1(v)=\pi^{-1}\Re(\xi'/\xi)(1+iv)$ requires $\zeta(1+iv)$ and $\zeta'(1+iv)$. The Riemann Siegel formula costs $v^{1/2+\varepsilon}$ per evaluation; Hiary's algorithms cost $v^{1/3+\varepsilon}$ \cite{Hiary11} and $v^{4/13+\varepsilon}$ (the exponents are the source's, unchecked); the Odlyzko and Sch\"onhage method \cite{OS88} evaluates $\zeta$ at all heights up to $T$ on a grid of spacing $T^{-1/2}$ in time $T^{1+\varepsilon}$, which is $T^{\varepsilon}$ per point. All of these are polynomial in $T$ and exponential in the bit length of $T$. No algorithm polynomial in $\log T$ is known for $\zeta$ at a single point of a vertical line. So the data layer costs $T^{1+\varepsilon}$ for the measure up to height $T$, independently of everything that follows.
+
+\subsection{The inversion}
+
+The discretised problem of Chapter~\ref{chap:lo} is $y=Ax$ with $A_{ij}=hP_{1-\theta'}(v_i-w_j)$, $n$ unknowns $x_j\ge0$, and the Poisson log likelihood
+\begin{equation}\label{cx:eq:loglik}
+\ell(x)=\sum_i\bigl(y_i\log(Ax)_i-(Ax)_i\bigr).
+\end{equation}
+
+\begin{theorem}[log concavity]\label{cx:thm:logconcave}
+The function $\ell$ is concave on the open orthant $x>0$. With independent gamma priors $x_j\sim\mathrm{Gamma}(\alpha_j,\beta_j)$, $\alpha_j\ge1$, the posterior density $\pi(x)\propto e^{\ell(x)}\prod_jx_j^{\alpha_j-1}e^{-\beta_jx_j}$ is log concave on the orthant. Consequently, for every $\varepsilon>0$, a sample from a distribution within total variation $\varepsilon$ of $\pi$ can be drawn by a random walk in time polynomial in $n$, $\log(1/\varepsilon)$ and the ratio of the radii of a ball containing most of the mass of $\pi$ and a ball on which $\pi$ is bounded below, given an oracle for $\ell$.
+\end{theorem}
+
+\begin{proof}
+Each $(Ax)_i$ is a positive linear form, $\log$ is concave and increasing, and $y_i\ge0$, so $y_i\log(Ax)_i$ is concave; $-(Ax)_i$ is linear. The log prior $(\alpha_j-1)\log x_j-\beta_jx_j$ is concave for $\alpha_j\ge1$. The orthant is convex. The sampling statement is the random polynomial time theorem for log concave distributions of Applegate, Kannan and Polson \cite{AKP90} and Applegate and Kannan \cite{AK91}, in the form given by Lov\'asz and Vempala \cite{LV07}; the condition on radii is their roundness condition, and it is not verified here.
+\end{proof}
+
+So sampling the posterior to total variation $\varepsilon$ takes time polynomial in $n$, $\log(1/\varepsilon)$ and the ratio of radii, given an oracle for $\ell$; that ratio is not bounded here. The EM limit minimises a convex function and is computed to accuracy $\varepsilon$ in function value in deterministic polynomial time. We expect that the ill posedness of the deconvolution does not appear in the running time; it appears in the precision of the data that the computation must be given.
+
+\begin{proposition}[precision]\label{cx:prop:precision}
+Let $\Omega$ be the largest frequency to be resolved in the level $\theta'$ measure. Then, for the linear inverse, the level one data must be supplied to absolute precision, on the scale of $u_1$, $e^{-(1-\theta')\Omega}$, that is, to $(1-\theta')\Omega/\log2$ binary digits, and this is sharp for the linear inverse: an error of size $\delta$ at frequency $\omega$ in $\widehat{u_1}$ produces an error of size $\delta e^{(1-\theta')|\omega|}$ in the inverted measure.
+\end{proposition}
+
+\begin{proof}
+The backward multiplier is $e^{(1-\theta')|\omega|}$ (equation~\eqref{lo:eq:backward}).
+\end{proof}
+
+The number of bits grows linearly in $\Omega$, so resolving $\Omega$ is polynomial in $\Omega$ in bit complexity. Resolving the zeros near height $T$ needs $\Omega$ of order $\log T$, their mean spacing being $2\pi/\log T$ (close pairs need more), so the precision needed to read the zeros off the line $\Re s=1$ at level $\theta'$ is $(1-\theta')\log_2T$ bits plus a constant, which is polynomial in $\log T$. The precision layer is cheap. It is the evaluation of $\zeta$ to that precision at height $T$ which is not.
+
+\subsection{Verification}
+
+Certifying that no zero lies to the right of $\theta'$ below height $T$ is Turing's method \cite{Turing53}, an application of the argument principle to $\xi$ on a rectangle, and costs $T^{1+\varepsilon}$. The EM residual of Proposition~\ref{cx:prop:what}(b) is a diagnostic for the same statement; heuristically, a residual computed to precision $\varepsilon$ on a window resolved to frequency $\Omega$ detects a zero to the right of $\theta'$ only beyond a distance set by $\varepsilon$ and $\Omega$ (no bound is proved here), and obtaining that precision costs the data layer.
+
+\begin{remark}
+Deciding the Riemann hypothesis is not known to lie in any complexity class, and the three layers above do not place it in one. What they give is conditional: given $\zeta$ on the line $\Re s=1$ to the required precision, the EM limit at a level above the zero free abscissa is a convex minimisation, and the posterior over it can be sampled in the time of Theorem~\ref{cx:thm:logconcave}, whose ratio of radii is not bounded here.
+\end{remark}
+
+\section{EM as majorise minimise}\label{cx:sec:em}
+
+Write $f(x)=-\ell(x)=\sum_i\bigl((Ax)_i-y_i\log(Ax)_i\bigr)$, convex on the orthant, and $c_j=\sum_iA_{ij}$. The EM iteration of Chapter~\ref{chap:lo} is
+\begin{equation}\label{cx:eq:em}
+x_j^{+}=x_j\,\frac{1}{c_j}\sum_iA_{ij}\frac{y_i}{(Ax)_i}=x_j\Bigl(1-\frac{\partial_jf(x)}{c_j}\Bigr).
+\end{equation}
+The bound of Theorem~\ref{cx:thm:emrate} below and the Jacobian of Theorem~\ref{cx:thm:linear} are classical for EM with a Poisson likelihood \cite{VardiLee93,CT84}; the proofs are given to fix the constants and the hypotheses. Three readings of \eqref{cx:eq:em} are useful.
+
+It is an MM algorithm. Jensen's inequality for $-\log(Ax)_i$, with weights proportional to $A_{ij}x_j^{(k)}$, majorises $f$ at $x^{(k)}$ by a separable surrogate, and \eqref{cx:eq:em} is the exact minimiser of the surrogate. Hence $f(x^{(k+1)})\le f(x^{(k)})$, with equality only at a fixed point, and every fixed point with $x>0$ is a minimiser of the convex $f$.
+
+It is related to mirror descent. With the entropy mirror map, the mirror descent step of size $\eta$ is
+\[
+x_j^{+}=x_j\exp(-\eta\,\partial_jf(x));
+\]
+\eqref{cx:eq:em} is the first order expansion of this with $\eta=1/c_j$. In the language of relative smoothness \cite{BBT17}, $f$ is $\|y\|_1$ smooth relative to the Burg entropy $-\sum_j\log x_j$ on the orthant (as the source states it, with the constant unchecked), which places EM near the Bregman proximal methods with their sublinear guarantees; EM is not literally the Bregman step for the Burg entropy. A direct argument gives the rate with an explicit constant.
+
+\begin{theorem}[rate of EM in the consistent case]\label{cx:thm:emrate}
+Normalise the columns so that $c_j=1$, and suppose the problem is consistent: $y=Ax^*$ for some $x^*\ge0$. Then for every $x^{(0)}>0$ and $k\ge1$ the EM iterates satisfy
+\[
+f(x^{(k)})-f(x^*)\le\frac{D(x^*\,\|\,x^{(0)})}{k},\quad D(x^*\|x)=\sum_j\Bigl(x_j^*\log\frac{x_j^*}{x_j}-x_j^*+x_j\Bigr).
+\]
+If moreover $y>0$ and $A$ is injective, the minimiser is unique and $x^{(k)}\to x^*$.
+\end{theorem}
+
+\begin{proof}
+For every $x>0$, $\sum_i(Ax)_i=\sum_jx_j$ because $c_j=1$, and $Ax^*=y$ gives $f(x^*)=\sum_iy_i-\sum_iy_i\log y_i$, so
+\[
+\begin{split}f(x)-f(x^*)&=\sum_i\Bigl(y_i\log\frac{y_i}{(Ax)_i}-y_i+(Ax)_i\Bigr)\\&=\sum_iy_i\log\frac{y_i}{(Ax)_i}+\sum_jx_j-\sum_iy_i\ \ge0 .\end{split}
+\]
+Summing \eqref{cx:eq:em} over $j$ with $c_j=1$ gives $\sum_jx_j^+=\sum_iy_i$. Now
+\begin{align*}
+D(x^*\|x^+)-D(x^*\|x)&=\sum_jx_j^*\log\frac{x_j}{x_j^+}+\sum_jx_j^+-\sum_jx_j\\
+&\le-\sum_jx_j^*\sum_iA_{ij}\log\frac{y_i}{(Ax)_i}+\sum_iy_i-\sum_jx_j
+\end{align*}
+by Jensen's inequality with the weights $A_{ij}$, $\sum_iA_{ij}=1$, applied to $x_j^+/x_j=\sum_iA_{ij}y_i/(Ax)_i$. The first term on the right is $-\sum_i(Ax^*)_i\log(y_i/(Ax)_i)=-\sum_iy_i\log(y_i/(Ax)_i)$, so the right side is $-(f(x)-f(x^*))$. Thus $D(x^*\|x^{(j+1)})\le D(x^*\|x^{(j)})-(f(x^{(j)})-f(x^*))$ for every $j\ge0$. Summing over $j<k$ and using that $f(x^{(j)})$ is nonincreasing, $k\,(f(x^{(k)})-f(x^*))\le\sum_{j<k}(f(x^{(j)})-f(x^*))\le D(x^*\|x^{(0)})$. If $y>0$ and $A$ is injective, $f$ is strictly convex, since $t\mapsto-y_i\log t$ is strictly convex and $x\mapsto Ax$ is one to one, so the minimiser is unique; the iterates are bounded by the mass identity, and since $f(x^{(k)})\to f(x^*)$ every limit point is a minimiser, hence equals $x^*$.
+\end{proof}
+
+The constant explains the slow convergence at the boundary. When the target is atomic, $x^*$ puts mass about one on a few cells of width $h$ around each zero, and $D(x^*\|x^{(0)})$ for a flat start is of the order $N\log(1/(hd))$ with $N$ the number of zeros and $d$ their density (a heuristic estimate): the bound degrades like the entropy of the target relative to the start. In the interior, where $x^*$ is a smooth positive density, the convergence is linear, and the rate can be computed.
+
+\begin{theorem}[local linear convergence in the interior]\label{cx:thm:linear}
+In the setting of Theorem~\ref{cx:thm:emrate}, with $c_j=1$, suppose $x^*>0$ componentwise and $A$ injective. Let $B=\mathrm{diag}(y)^{-1/2}A\,\mathrm{diag}(x^*)^{1/2}$ and $S=B^{\mathsf T}B$. Then the eigenvalues of $S$ lie in $(0,1]$, with $1$ attained, and the Jacobian of the EM map at $x^*$ is similar to $I-S$, so its spectrum lies in $[0,1)$ and
+\[
+\|x^{(k)}-x^*\|=O\bigl((1-\lambda_{\min}(S))^{k}\bigr)
+\]
+for $x^{(0)}$ near $x^*$. The rate $1-\lambda_{\min}(S)$ is that of the linearised iteration along the eigenvector $\mathrm{diag}(x^*)^{1/2}s$ of the Jacobian, $s$ an eigenvector of $S$ for $\lambda_{\min}$, and $\lambda_{\min}(S)\ge\min_jx_j^*\cdot\sigma_{\min}(A)^2/\max_iy_i$.
+\end{theorem}
+
+\begin{proof}
+Write $M(x)_j=x_j\sum_iA_{ij}y_i/(Ax)_i$ for the EM map. Differentiating,
+\[
+\frac{\partial M_j}{\partial x_k}=\delta_{jk}\sum_iA_{ij}\frac{y_i}{(Ax)_i}-x_j\sum_iA_{ij}A_{ik}\frac{y_i}{(Ax)_i^2}.
+\]
+At $x^*$ the first sum is $c_j=1$ because $Ax^*=y$, and the second is $(\mathrm{diag}(x^*)A^{\mathsf T}\mathrm{diag}(y)^{-1}A)_{jk}$. So $J=I-\mathrm{diag}(x^*)A^{\mathsf T}\mathrm{diag}(y)^{-1}A=I-\mathrm{diag}(x^*)^{1/2}\,S\,\mathrm{diag}(x^*)^{-1/2}$, which is similar to $I-S$. $S$ is symmetric positive semidefinite and positive definite when $A$ is injective and $x^*>0$. For the upper bound on its spectrum, $BB^{\mathsf T}=\mathrm{diag}(y)^{-1/2}\,A\,\mathrm{diag}(x^*)A^{\mathsf T}\,\mathrm{diag}(y)^{-1/2}$ has the same nonzero eigenvalues as $S$, and $P=A\,\mathrm{diag}(x^*)A^{\mathsf T}$ is a positive matrix with row sums $(P\mathbf 1)_i=\sum_jA_{ij}x_j^*c_j=y_i$. Hence $\mathrm{diag}(y)^{-1}P$ is a positive stochastic matrix, with Perron root $1$ and all eigenvalues of modulus at most $1$, and $BB^{\mathsf T}$ is similar to it. So the spectrum of $S$ lies in $(0,1]$, that of $J$ in $[0,1)$, and the local linear rate follows from the contraction of the linearisation. The lower bound on $\lambda_{\min}(S)$ is $\min_jx_j^*\,\sigma_{\min}(A)^2/\max_iy_i$ from the definition of $B$.
+\end{proof}
+
+Two consequences, for the linearised iteration. First, the spectrum of $J$ is nonnegative, so each linearised error mode decays monotonically and EM does not oscillate near $x^*$. Second, the rate is bounded through $\sigma_{\min}(A)^2$, which by the symbol computation of Section~\ref{cx:sec:problem} (d) is at least $1/\sinh^2(\pi r)$, of order $e^{-2(1-\theta')\pi/h}$, for the frequencies the grid can represent: the linear regime is real but its rate constant can be exponentially close to one for the highest modes, which is the ill posedness again. At the boundary level $\theta'=1/2$ the hypothesis $x^*>0$ fails between the zeros, and there the inactive components converge sublinearly, at the rate of Theorem~\ref{cx:thm:emrate} (an observation); the full range runs, where $A$ has a kernel and the theorem does not apply, behave in the same way.
+
+\begin{remark}[a limit on acceleration]
+Dragomir, Taylor, d'Aspremont and Bolte \cite{DTAB22} showed that for problems that are merely smooth relative to a Bregman distance, no Bregman first order method can improve the $O(1/k)$ rate in general. Any acceleration of EM for the backward flow therefore exploits the particular structure of the problem rather than a general theorem, and we give none; the $O(1/k^2)$ behaviour reported below is observed, not proved.
+\end{remark}
+
+It is an information projection. The minimisers of $f$ are the minimisers of $\operatorname{KL}(y\,\|\,Ax)$, so the EM limit is the reverse $I$ projection of the data onto the convex cone $\{Ax:x\ge0\}$, and the iteration is the alternating minimisation of Csisz\'ar and Tusn\'ady \cite{CT84} between that cone and the data, the information geometric form of von Neumann's alternating projections.
+
+\begin{proposition}[what EM computes]\label{cx:prop:what}
+Let $\tfrac12\le\theta'<1$ and $a=1-\theta'$. For a grid of spacing $h$ with data window $[-V,V]$ and unknown window $[-W,W]$, $W>V$, let
+\[
+R_h(x)=h\sum_{|i|\le M}\Bigl(y_i\log\frac{y_i}{(Ax)_i}-y_i+(Ax)_i\Bigr),\qquad R_h^*=\min_{x\ge0}R_h(x),
+\]
+the residual quoted in the tables below (it is not divided by the length of the data window), let $x_h$ be any minimiser, for instance the limit of EM from a positive start, and let $\mu_h=\sum_jx_{h,j}h\,\delta_{w_j}$. Consider a sequence of grids with $h\to0$ and $V\to\infty$.
+\begin{enumerate}
+\item[(a)] If $\zeta$ has no zeros in $\Re s>\theta'$ and
+\[
+\frac{(\log W)^2}{W-V}\to0,\qquad\frac{(W-V)^2\log V}{V^2}\to0,\qquad h^2V\log^2V\to0,
+\]
+then $R_h^*\to0$ and $\mu_h\to\mathfrak U_{\theta'}$ vaguely.
+\item[(b)] If $\zeta$ has a zero with real part greater than $\theta'$, then $\liminf R_h^*>0$, whatever the choice of $W>V$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Constants $C$ depend on $\theta'$ only. For $y,z>0$,
+\begin{equation}\label{cx:eq:klsandwich}
+(\sqrt y-\sqrt z)^2\ \le\ y\log\frac yz-y+z\ \le\ \frac{(y-z)^2}z ,
+\end{equation}
+which with $t=y/z$ reduces to $s\log s-s+1\ge0$, $s=\sqrt t$, on the left and to $t-1-\log t\ge0$ on the right. Since $|P_a'(x)|=\frac{2|x|}{a^2+x^2}P_a(x)\le P_a(x)/a$, every positive measure $\nu$ with $g=P_a*\nu$ finite satisfies
+\begin{equation}\label{cx:eq:loglip}
+g(v)\le e^{|v-u|/a}g(u)\qquad(u,v\in\R),
+\end{equation}
+and so does $P_a$ itself. We use $u_1(0)\le u_1(v)\le C\log(|v|+3)$ (Proposition~\ref{bp:prop:v1min} and $\zeta'/\zeta(1+iv)=O(\log|v|)$), and that a measure $\sum_\rho P_{a_\rho}(\cdot-\gamma_\rho)$ with $0\le a_\rho\le\frac12$ gives mass at most $C\log(|t|+3)$ to $[t,t+1]$, by the zero count.
+
+\emph{Step 1 (comparison point; for (a) only).} Put $x_j^*=h^{-1}\mathfrak U_{\theta'}([w_j-\tfrac h2,w_j+\tfrac h2))$ and $z^*=Ax^*$. Since $y_i=\int P_a(v_i-w)\,d\mathfrak U_{\theta'}(w)$ and $|P_a(x+s)-P_a(x)|\le\frac{|s|}ae^{|s|/a}P_a(x)$ by \eqref{cx:eq:loglip}, for $h\le a$
+\[
+|z_i^*-y_i+\tau_i|\le\frac hay_i,\qquad\tau_i=\int_{|w|\ge W+h/2}P_a(v_i-w)\,d\mathfrak U_{\theta'}(w)\le\frac{C\log W}{W-|v_i|} .
+\]
+So $z_i^*\ge u_1(0)/2$ for all $i$ once $h$ is small and $W-V$ is large, and by the right side of \eqref{cx:eq:klsandwich}
+\[
+R_h^*\le R_h(x^*)\le\frac4{u_1(0)}\,h\sum_i\Bigl(\frac{h^2y_i^2}{a^2}+\tau_i^2\Bigr)\le C\Bigl(h^2V\log^2V+\frac{(\log W)^2}{W-V}\Bigr)\to0 .
+\]
+
+\emph{Step 2 (local bounds; needs only $R_h^*\to0$).} Write $z=Ax_h$ and $g_h=P_a*\mu_h$, so that $z_i=g_h(v_i)$ exactly. By the left side of \eqref{cx:eq:klsandwich}, $h\sum_i(\sqrt{y_i}-\sqrt{z_i})^2\le R_h^*$; with $z_i\le2y_i+2(\sqrt{z_i}-\sqrt{y_i})^2$ and Cauchy and Schwarz, for every interval $J\subset[-\varrho,\varrho]$, $\varrho\le V$,
+\[
+\begin{gathered}h\sum_{v_i\in J}z_i\le C(|J|+h)\log(\varrho+3)+2R_h^*,\\ h\sum_{|v_i|\le\varrho}|z_i-y_i|\le(R_h^*)^{1/2}\Bigl(h\sum_{|v_i|\le\varrho}(\sqrt{z_i}+\sqrt{y_i})^2\Bigr)^{1/2}\to0 .\end{gathered}
+\]
+By \eqref{cx:eq:loglip}, $\int_Jg_h\le e^{h/(2a)}h\sum_{v_i\in J+[-h,h]}z_i$, and with the smoothness of $u_1$ this gives $g_h\to u_1$ in $L^1_{\rm loc}(\R)$. If $K+[-2,2]\subset[-V,V]$, then $\mu_h(K)\,P_a([-1,1])\le\int_{K+[-1,1]}g_h$ with $P_a([-1,1])=\frac2\pi\arctan\frac1a>\frac7{10}$, so
+\[
+\mu_h([t,t+1])\le C\log(|t|+3)+3R_h^*\qquad(|t|\le V-3).
+\]
+Hence $\{\mu_h\}$ is vaguely precompact, every vague limit $\mu$ satisfies $\mu([t,t+1])\le C\log(|t|+3)$, so $\int(1+w^2)^{-1}d\mu<\infty$, and $g_h(0)\le e^{1/a}\,\frac12\int_{-1}^1g_h\le C$.
+
+\emph{Step 3 (the limit equation).} Let $\mu_h\to\mu$ vaguely along a subsequence, fix $\varrho_0$ and take $R\ge2\varrho_0$ with $\mu(\{\pm R\})=0$. For $|v|\le\varrho_0$ split $g_h(v)$ over $|w|\le R$, $R<|w|\le V-3$ and $V-3<|w|\le W$. The first part tends to $\int_{|w|\le R}P_a(v-w)\,d\mu(w)$ uniformly in $|v|\le\varrho_0$. By Step 2 the second is at most $\sum_{k\ge0}\mu_h(2^kR<|w|\le2^{k+1}R)\,\frac{4a}{\pi(2^kR)^2}\le C\frac{\log R}R$, uniformly in $h$. In the third, $\bigl|\frac{a^2+w^2}{a^2+(v-w)^2}-1\bigr|\le C\varrho_0/V$, so it equals $\kappa_h(1+O(\varrho_0/V))$ with $\kappa_h=\int_{V-3<|w|\le W}P_a(w)\,d\mu_h(w)\le g_h(0)\le C$. Along a further subsequence $\kappa_h\to\kappa\ge0$; letting $h\to0$ and then $R\to\infty$, $g_h\to P_a*\mu+\kappa$ uniformly on compact sets, and with Step 2
+\begin{equation}\label{cx:eq:limiteq}
+P_a*\mu+\kappa=u_1\ \text{ on }\R,\qquad\mu\ge0,\quad\kappa\ge0 .
+\end{equation}
+
+\emph{Step 4 (no constant; for (a) only).} For $v\in[V-5,V-4]$ and $V-3<w\le W$, $P_a(v-w)\ge\frac{a/\pi}{a^2+(W-V+5)^2}$; integrating over $v\in[V-5,V-4]$ and using Step 2, $\mu_h((V-3,W])\le C(W-V+5)^2\log V$, and likewise on the negative side. Hence
+\[
+\kappa_h\le\frac{a/\pi}{(V-3)^2}\,\mu_h(V-3<|w|\le W)\le C\,\frac{(W-V+5)^2\log V}{V^2}\to0,
+\]
+and $\kappa=0$.
+
+\emph{Proof of (a).} By Step 1, $R_h^*\to0$, so Steps 2 to 4 apply, and every subsequential vague limit satisfies $P_a*\mu=u_1=P_a*\mathfrak U_{\theta'}$. For the signed measure $\nu=\mu-\mathfrak U_{\theta'}$, which has $\int(1+w^2)^{-1}d|\nu|<\infty$, the Poisson extension $F(t,v)=(P_t*\nu)(v)$ is harmonic in $t>0$ and vanishes at $t=a$, hence for $t\ge a$ because $P_t=P_{t-a}*P_a$, hence for all $t>0$ by real analyticity; so $\nu=\lim_{t\downarrow0}F(t,\cdot)=0$. Every subsequence of $(\mu_h)$ thus has a further subsequence converging to $\mathfrak U_{\theta'}$, and $\mu_h\to\mathfrak U_{\theta'}$ vaguely.
+
+\emph{Proof of (b).} Suppose $R_h^*\to0$ along a subsequence. Steps 2 and 3 use neither the hypothesis nor the growth conditions of (a), so \eqref{cx:eq:limiteq} holds for some $\mu\ge0$ and $\kappa\ge0$. For $\sigma>\theta'$ put $H(\sigma+iv)=\pi\bigl((P_{\sigma-\theta'}*\mu)(v)+\kappa\bigr)$, a harmonic function on $\Re s>\theta'$. For $\sigma\ge1$, $P_{\sigma-\theta'}*\mu=P_{\sigma-1}*(u_1-\kappa)$ and $\pi P_{\sigma-1}*u_1(v)=\Re(\xi'/\xi)(\sigma+iv)$ (Theorem~\ref{lv:thm:semigroup} at levels at least $1$), so $H=\Re\,\xi'/\xi$ on $\Re s\ge1$. Both are harmonic on the connected open set $\{\Re s>\theta'\}$ minus the zeros of $\xi$, so they agree there. Near a zero $\rho_0$ of multiplicity $m$ with $\Re\rho_0>\theta'$, $\Re(\xi'/\xi)(s)=\Re\frac m{s-\rho_0}+O(1)$ is unbounded while $H$ is continuous at $\rho_0$, a contradiction. Hence $\liminf R_h^*>0$.
+\end{proof}
+
+\begin{remark}
+(1) Part (b) is qualitative: it gives no lower bound for $\liminf R_h^*$ in terms of the distance of the zero from the line $\Re s=\theta'$, which is why the residual is a diagnostic and not a certificate. (2) The residual must not be divided by the length $2V$ of the data window: a defect confined to bounded heights costs a bounded total residual, which the division sends to $0$. For instance, with $0<b<a$, $0<\epsilon<\pi b$ and data $y=1-\epsilon P_b>0$, the measure $dv$ has bounded total residual, so the normalised residual tends to $0$, yet no $\mu\ge0$, $\kappa\ge0$ satisfy $P_a*\mu+\kappa=y$: away from $\omega=0$ the Fourier transform of $\mu$ would be $-\epsilon e^{(a-b)|\omega|}$, which is not tempered. (3) Without the second growth condition in (a), the argument does not exclude a constant $\kappa>0$ in \eqref{cx:eq:limiteq}, left by mass beyond the data window; then $\mu=\mathfrak U_{\theta'}-\kappa\,dv$, a positive measure whenever $\kappa\le\inf u_{\theta'}$, so uniqueness of the continuous equation alone does not identify the limit.
+\end{remark}
+
+The second case is worth a sentence. Where the exact backward flow fails to be a measure, EM does not diverge; it returns a positive measure whose residual stays bounded away from zero as the grid is refined, Proposition~\ref{cx:prop:what}(b). This is the behaviour one wants from a diagnostic.
+
+\section{Acceleration}\label{cx:sec:accel}
+
+EM is slow when the solution lies on the boundary of the cone, which is exactly the case at $\theta'=1/2$ where the target is atomic: $3000$ steps gave a residual of $4\times10^{-3}$ in Chapter~\ref{chap:lo}. Two accelerations were tested. Everything in this section was recomputed for this book by the script \texttt{code/cx\_em.py} (Cauchy products as FFT convolutions, data $u_1$ from $\xi'/\xi$ in ball arithmetic of python-flint at 128 bits), with outputs \texttt{data/cx\_em\_*.json}; the author's runs were not available, and where the recomputation differs from the source the recomputed value is printed. The conventions that the numbers depend on are these. The KL residual is $R=h\sum_i\bigl(y_i\log(y_i/(Ax)_i)-y_i+(Ax)_i\bigr)$, the integral over the data grid, as in Proposition~\ref{cx:prop:what}. The start is flat, $x_j=\sum_iy_i/\sum_{i,j}A_{ij}$. A peak is a local maximum of $x$ of prominence at least $0.05$, found by \texttt{scipy.signal.find\_peaks}, and its position is the grid point unless the text says that it was refined by a parabola. The basin mass of a zero is $h\sum x_j$ between the midpoints of consecutive zeros (the first basin starts at $v=0$, the last ends at $v=400$). Steps are EM evaluations. Timings are of the order of magnitude only, since the hardware and the evaluator differ from the source's.
+
+\subsection{Nesterov momentum in the logarithmic domain}
+
+Momentum in the variable $x$ would leave the orthant. In the mirror geometry the natural momentum is geometric: with $z=\log x$,
+\begin{equation}\label{cx:eq:nesterov}
+z^{(k)}_{\mathrm{ext}}=z^{(k)}+\beta_k\bigl(z^{(k)}-z^{(k-1)}\bigr),\qquad x^{(k+1)}=\mathrm{EM}\bigl(\exp z^{(k)}_{\mathrm{ext}}\bigr),
+\end{equation}
+with $\beta_k=(t_k-1)/t_{k+1}$, $t_{k+1}=(1+\sqrt{1+4t_k^2})/2$, the Nesterov sequence \cite{Nesterov83}, and adaptive restart \cite{OC15}: if $f$ increases, take a plain EM step and reset $t$ to $1$. Positivity is automatic. This is related to accelerated mirror descent in the sense of Krichene, Bayen and Bartlett \cite{KBB15}, with the EM surrogate as the proximal step.
+
+\subsection{SQUAREM}
+
+The SQUAREM of Varadhan and Roland \cite{VR08} takes two EM steps, forms the differences $r=x_1-x_0$ and $q=(x_2-x_1)-r$, and extrapolates $x_0-2\alpha r+\alpha^2q$ with $\alpha=-\|r\|/\|q\|$, followed by one more EM step. It is a quasi Newton extrapolation of the EM map and costs three EM evaluations per iteration. It needs two safeguards, and the step counts depend on them: here the extrapolated point is clipped below at $10^{-30}$ to keep positivity, and the iteration falls back to $x_2$ if $f$ at the stabilised point is not smaller than at $x_2$.
+
+\subsection{Results on a window}
+
+Steps are counted in EM evaluations; levels are values of the KL residual; data on $[100,300]$ at spacing $0.05$, unknown on $[80,320]$, dense matrix.
+
+\begin{center}
+\small
+\begin{tabular}{llcccc}
+\toprule
+$\theta'$ & method & steps to $10^{-2}$ & to $4\cdot10^{-3}$ & to $10^{-3}$ & to $3\cdot10^{-4}$\\
+\midrule
+0.75 & EM & 25 & 36 & 64 & 104\\
+0.75 & Nesterov & 11 & 14 & 20 & 28\\
+0.75 & SQUAREM & 9 & 15 & 21 & 27\\
+\midrule
+0.50 & EM & 1305 & never & never & never\\
+0.50 & Nesterov & 85 & 131 & 250 & 775\\
+0.50 & SQUAREM & 114 & 249 & 993 & never\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent (``Never'' means within $3000$ steps.) After $3000$ EM evaluations at $\theta'=1/2$ the residuals are $4.05\times10^{-3}$ for EM, $5.7\times10^{-5}$ for Nesterov and $8.2\times10^{-4}$ for SQUAREM. All three recover the $109$ zeros in $(100,300)$ to $0.03$ at worst (maximum distance $0.022$, $0.010$ and $0.014$ at $\theta'=1/2$ with peaks refined by a parabola, $0.017$, $0.027$ and $0.020$ at $\theta'=3/4$; at $\theta'=1/2$ Nesterov and SQUAREM also show $115$ and $113$ peaks, the extra ones small) and keep every $x_j$ positive, the smallest being of order $10^{-52}$.
+
+\subsection{Results on the full range by FFT}
+
+The matrix $A$ is Toeplitz, so $Ax$ and $A^{\mathsf T}r$ are convolutions with the Cauchy kernel and cost $O(n\log n)$ by the fast Fourier transform. This allows the whole range. We took the data $u_1$ on $[-400,400]$ by symmetry at spacing $0.02$, the unknown on $[-440,440]$ ($44{,}001$ cells), a flat start, and compared the $202$ zeros below height $400$ with the peaks of the result. The basin mass is the mass of $x$ between the midpoints of consecutive zeros, which should be one.
+
+\begin{center}
+\footnotesize
+\begin{tabular}{llccccc}
+\toprule
+$\theta'$ & method & steps & KL & peaks & err (max/mean) & mass\\
+\midrule
+0.75 & EM & 400 & $4.4\cdot10^{-5}$ & 202 & 0.045 / 0.0067 & $0.999\pm0.043$\\
+0.75 & Nest. & 400 & $6.9\cdot10^{-8}$ & 202 & 0.045 / 0.0063 & $0.999\pm0.042$\\
+0.50 & EM & 3000 & $1.6\cdot10^{-2}$ & 201 & $2.07^{\dagger}$ / 0.013 & $1.001\pm0.038$\\
+0.50 & Nest. & 3000 & $1.8\cdot10^{-4}$ & 205 & 0.010 / 0.0055 & $1.001\pm0.031$\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent The source printed $6.5\cdot10^{-5}$ and $2.6\cdot10^{-5}$ at $\theta'=3/4$ and $1.5\cdot10^{-2}$ and $1.2\cdot10^{-4}$ at $\theta'=1/2$; the Nesterov value at $3/4$ differs by a factor of $400$ and is the least stable entry (it depends on the restart details). Errors are for grid point peaks, except $\dagger$ (peaks refined by a parabola, one zero without a peak: with $202$ grid point peaks the maximum is $0.029$ and the value depends on the peak rule); the $205$ peaks of the last row include three small spurious ones; the mass spreads are dominated by the two edge basins (first $1.054$, last $0.517$ at $\theta'=3/4$) and are $0.026$ in the interior at $3/4$ and $0.006$ for accelerated EM at $1/2$. A run takes of the order of a minute on one cluster core ($57$ s for EM and $82$ s for Nesterov at $h=0.02$). At $\theta'=1/2$ plain EM has not separated one close pair after $3000$ steps, which accounts for the large maximum error; accelerated EM separates every pair, places all $202$ zeros to $0.010$ at worst and $0.0055$ on average, and assigns each a basin mass of one with standard deviation $3.1$ per cent, the largest deviations being the first zero, whose basin starts at $v=0$, and the last, whose basin ends at the edge. So the first two hundred zeros of $\zeta$, with their multiplicity one (Theorem~\ref{cx:thm:certified}), are read off the line $\Re s=1$ by a positivity preserving iteration in a minute.
+
+The rates can be checked against Theorem~\ref{cx:thm:emrate}. At $\theta'=1/2$, with $R^*$ the least residual observed, the product $k\,(R(x^{(k)})-R^*)$ for plain EM is $54.7$, $51.9$, $49.5$ and $48.1$ at $k=500$, $1000$, $2000$, $3000$ (the source printed $52.9$, $49.4$, $46.1$, $44.0$): bounded and slowly decreasing, the $O(1/k)$ regime of the theorem; on a grid of spacing $0.04$, $0.02$ and $0.01$ the first three values agree to four digits, so the constant does not depend on the grid. For accelerated EM the product $k^2(R(x^{(k)})-R^*)$ is $518$, $355$ and $416$ at $k=500$, $1000$, $2000$ (the source: $411$, $295$, $313$): bounded, the empirical $O(1/k^2)$, with a sawtooth caused by the restarts. At $\theta'=0.75$ the product $k\,(R(x^{(k)})-R^*)$ for EM falls from $0.32$ at $k=50$ to $0.018$ at $k=400$, faster than $1/k$: the interior linear regime.
+
+\subsection{The first thousand zeros}\label{cx:sec:thousand}
+
+The same code run to height $1450$, with $h=0.025$, the unknown on $[-1490,1490]$ ($119{,}201$ cells) and $4000$ accelerated steps, gives the following (reproduced by the recomputation). Below height $1415$ there are $995$ zeros; the inversion finds $994$ peaks. The one failure is the closest pair in the range, $1329.0435$ and $1329.2050$, gap $0.16$, which the iteration has not yet separated and reports as a single peak at $1329.125$ carrying mass two ($2.0012$); the next closest pair, gap $0.22$ at $1054.78$ and $1055.00$, is resolved. Over the $995$ zeros the distance from each zero to the nearest grid point peak has mean $0.0065$, median $0.0063$, $99$th percentile $0.015$ (with the peaks refined by a parabola, $0.0015$, $0.0011$ and $0.0095$), and exceeds $0.03$ only for the two members of the merged pair. The basin masses are $1.0007\pm0.0053$, every zero simple. The residual after $4000$ steps is $3.8\times10^{-4}$; more steps are expected to separate the last pair, as the window runs at $\theta'=1/2$ showed for gaps of this size.
+
+The timing is the point of Section~\ref{cx:sec:cost} made concrete, but only in order of magnitude. The source reports $1375$ seconds for $u_1$ on $[0,1450]$ at spacing $0.025$ ($58{,}000$ points) against $151$ seconds for the inversion. With the evaluator of this book (python-flint, $128$ bits, eight processes) the data took about ten seconds and the inversion a few hundred seconds, so which layer dominates at height $1450$ depends on the evaluator; what does not depend on it is that the cost of the data layer grows with $T$ like $T^{1+\varepsilon}$ and the inversion only like $n\log n$.
+
+\subsection{What the accelerated iteration computes}
+
+Restart falls back to EM, so accepted steps never increase $f$; if the accelerated iterates converge to a positive limit, the limit is an EM fixed point with positive coordinates, hence a minimiser of $f$, and in every run the accelerated iteration reached the same object as EM, the reverse $I$ projection of Proposition~\ref{cx:prop:what}, hence $\mathfrak U_{\theta'}$ when it exists. Convergence and the observed rate are not proved here. What changes is the path. Su, Boyd and Cand\`es \cite{SBC16} showed that Nesterov's sequence is a discretisation of the damped second order equation $\ddot z+(3/t)\dot z+\nabla f=0$, a Euclidean analogue of the accelerated flow here. With noisy data, where the EM iteration count acts as a regularisation parameter in the manner of Landweber iteration, acceleration reaches the overfitting regime correspondingly sooner, and the restart rule becomes the stopping rule.
+
+\section{Von Neumann's Monte Carlo inversion}\label{cx:sec:vnmc}
+
+Before Markov chain Monte Carlo there was von Neumann's Monte Carlo, invented with Ulam at Los Alamos to invert matrices by random walks and written up by Forsythe and Leibler \cite{FL50}. It applies to the backward flow directly, and seeing why it fails there and why the Bayesian inversion succeeds is instructive.
+
+\subsection{The von Neumann and Ulam estimator}
+
+To solve $x=Hx+b$ when the Neumann series $x=\sum_{k\ge0}H^kb$ converges, choose a transition matrix $p_{jk}>0$ wherever $H_{jk}\ne0$ and a stopping probability $q_j>0$. Start a walk at $j_0=j$, move $j_0\to j_1\to\cdots$ according to $p$, stop after each step with probability $q$ (the walk is at state $j_\tau$ when it stops), and accumulate the weights $w_k=\prod_{l<k}H_{j_lj_{l+1}}/(p_{j_lj_{l+1}}(1-q_{j_l}))$. The estimator
+\[
+\widehat x_j=w_\tau\,\frac{b_{j_\tau}}{q_{j_\tau}}
+\]
+has expectation $\sum_{k\ge0}(H^kb)_j$ term by term, because the probability of a path of length $k$ that stops at its end is $\prod_{l<k}(1-q_{j_l})p_{j_lj_{l+1}}\cdot q_{j_k}$; this is a statement about an absolutely convergent series, which needs $\rho(|H|)<1$. Its second moment from the state $j$ is $\sum_{m\ge0}(Q^mg)_j$ with $Q_{jk}=H_{jk}^2/((1-q_j)p_{jk})$ and $g_j=b_j^2/q_j$, so it is finite when $\rho(Q)<1$; and by the Cauchy and Schwarz step in the proof of Proposition~\ref{cx:prop:vnvar} it is infinite for every admissible $p,q$ when $b>0$ and $\rho(|H|)>1$. That $\rho(|H|)<1$ is also sufficient for suitable $p,q$ is a standard fact; for row sums of $|H|$ below one it is shown at the end of the proof of Proposition~\ref{cx:prop:vnvar}.
+
+\subsection{Applied to the backward flow}
+
+The deconvolution $y=Ax$ is the fixed point equation $x=(I-A)x+y$ with $A$ square ($M=N$), so $H=I-A$, $b=y$, and the Neumann series is the Richardson iteration $x^{(k+1)}=x^{(k)}+(y-Ax^{(k)})$ with unit step, the linear cousin of EM. Since $A$ is the Cauchy convolution, a step of the walk under $p\propto|H|$ is a Cauchy jump, and the walk is a Cauchy random walk with alternating signs in the weights: the von Neumann and Ulam estimator for the backward flow is a signed Cauchy random walk started at $v$ and evaluating $y$ at its positions. Its variance is not finite.
+
+\begin{proposition}[infinite variance]\label{cx:prop:vnvar}
+Let $M=N$, so that $A$ is the square section of order $2N+1$ of the Toeplitz matrix \eqref{cx:eq:Amatrix} and $x=(I-A)x+y$ is defined, and put $t=h/(\pi(1-\theta'))$. If $t<t_0=0.52219\ldots$, the root in $(0,1)$ of $\coth(1/t)=2t$, in particular if $h<\pi(1-\theta')/2$, then the bi infinite operator $|I-A|$ has spectral radius $1-2t+\coth(1/t)>1$, and so do its sections for all $N\ge N_0(h,\theta')$. For such a section consider the von Neumann and Ulam estimator of $\sum_{k\ge0}(I-A)^ky$ which, at state $j$, stops with probability $q_j\in(0,1)$ and otherwise moves to $k$ with probability $(1-q_j)p_{jk}$, $p_{jk}>0$ wherever $(I-A)_{jk}\ne0$, and returns the product of the weights $(I-A)_{jk}/((1-q_j)p_{jk})$ along the path times $y_j/q_j$ at the stopping state $j$. Its second moment is infinite from every starting state. If $t_0<t\le1$, the spectral radius of $|I-A|$ is below one for the bi infinite operator and all its sections, and the conclusion fails.
+\end{proposition}
+
+\begin{proof}
+For $t\le1$ the diagonal entry is $A_{jj}=t$, so $|I-A|=(1-2t)I+A$ entrywise, with symbol $1-2t+\phi(\xi)$ and $\phi(\xi)=\cosh((\pi-|\xi|)/(\pi t))/\sinh(1/t)$, the symbol of \eqref{cx:eq:Amatrix}. For a Laurent operator with nonnegative summable entries the spectral radius on $\ell^2(\mathbb Z)$ is the maximum of the symbol, here its value $1-2t+\coth(1/t)$ at $\xi=0$, which is also the row sum. The function $\coth(1/t)-2t$ decreases on $(0,1]$, its derivative being $(x/\sinh x)^2-2<0$ with $x=1/t$; it is positive near $0$ and equals $\coth1-2<0$ at $t=1$, so the spectral radius exceeds one exactly when $t<t_0$. For a section, a symmetric nonnegative matrix, the spectral radius is the largest Rayleigh quotient; the normalised constant vector has quotient tending to the row sum as $N\to\infty$, which gives $N_0$. If $t_0<t\le1$, every row sum of every section is at most $1-2t+\coth(1/t)<1$. With $r_j=\sum_k|H_{jk}|$ the row sums of $H=I-A$, the choice $q_j=1-r_j$ and $p_{jk}=|H_{jk}|/r_j$ gives $(1-q_j)p_{jk}=|H_{jk}|$ and $Q_{jk}=|H_{jk}|$, so $\rho(Q)\le\max_jr_j<1$ and the second moment $\sum_m(Q^mg)_j$ is finite: for this $p,q$ the conclusion fails.
+
+Let $H=I-A$ be a section with $\lambda=\rho(|H|)>1$ and Perron vector $w>0$ (all entries of $|H|$ are positive). With $Q_{jk}=H_{jk}^2/((1-q_j)p_{jk})$, summing over the paths gives the second moment $\sum_{m\ge0}(Q^mg)_{j_0}$ from the state $j_0$, where $g_j=y_j^2/q_j>0$ since $y=u_1>0$. By Cauchy and Schwarz,
+\[
+\begin{split}\lambda w_j&=\sum_k|H_{jk}|w_k\le\Bigl(\sum_kQ_{jk}w_k^2\Bigr)^{1/2}\Bigl(\sum_k(1-q_j)p_{jk}\Bigr)^{1/2}\\&\le\bigl(Qw^{(2)}\bigr)_j^{1/2},\qquad w^{(2)}=(w_k^2)_k,\end{split}
+\]
+so $Qw^{(2)}\ge\lambda^2w^{(2)}$ and $Q^mw^{(2)}\ge\lambda^{2m}w^{(2)}$. As $g\ge c\,w^{(2)}$ for some $c>0$, the series diverges. (The same argument without squares shows that the estimator is not even integrable: $E|\widehat x_j|=\sum_k(|H|^ky)_j=\infty$.)
+\end{proof}
+
+All the grids of the runs of this chapter are in the first case ($t=0.0127$ for $h=0.02$ and $\theta'=\tfrac12$). So the oldest Monte Carlo inversion exists for the backward flow on paper and is useless in practice, and the reason is sign: the matrix $I-A$ has entries of both signs, the walk carries alternating weights, and their cancellation is what the Neumann series relies on and what a sample cannot reproduce. This is the usual fate of von Neumann and Ulam on ill conditioned systems, and the Cauchy deconvolution, with condition number of order $e^{(1-\theta')\pi/h}$, is as ill conditioned as they come.
+
+\subsection{The positive walk}
+
+The Bayesian inversion is also a Monte Carlo of a random walk, but a positive one. Under the current $x$, read $A$ as a Markov kernel from sources $w_j$ to detectors $v_i$: a unit of mass at $w_j$ lands at $v_i$ with probability $A_{ij}/c_j$, a Cauchy jump. Bayes' rule reverses it: a unit of mass observed at $v_i$ came from $w_j$ with probability
+\[
+\pi_{ij}(x)=\frac{A_{ij}x_j}{(Ax)_i},
+\]
+a reverse Cauchy jump weighted by the current estimate of the sources. The EM step is the expectation of this reverse walk,
+\[
+x_j^+=\frac1{c_j}\sum_iy_i\,\pi_{ij}(x):
+\]
+send every unit of observed mass one step backward in expectation. The data augmentation sampler of Chapter~\ref{chap:lo} replaces the expectation by a sample: draw the source of each unit of observed mass from $\pi_{ij}(x)$ (the $y_i$ are real densities, not integer counts, so the units are pseudo counts and the sampler is a computational device and not an exact likelihood), then draw $x$ from its gamma conditional given the counts. The weights $\pi_{ij}$ are probabilities, so the sampled reverse step has the variance of a multinomial and no more. This is a Monte Carlo inversion of a different kind: not the Neumann series sampled by a signed walk, which diverges, but the EM fixed point sampled by a positive reverse walk, which is a Gibbs sampler. The nonlinearity of the EM map, $x$ appearing in $\pi_{ij}(x)$, is exactly what removes the signs; it is positivity paying for itself once more.
+
+\begin{remark}
+Two other ideas of von Neumann meet in the backward flow: his alternating projection theorem is, through Csisz\'ar and Tusn\'ady, the structure of the EM iteration itself (a reading, not used as a theorem), and the signed random walk shows what goes wrong without positivity.
+\end{remark}
+
+\section[Cauchy as a scale mixture]{The Cauchy kernel as a scale mixture of normals}\label{cx:sec:mixture}
+
+The Cauchy law is a scale mixture of normals, a fact used for robust regression since Andrews and Mallows \cite{AndrewsMallows74} and in Bayesian computation since Carlin and Polson \cite{CP91}. Here the mixture has a probabilistic meaning that ties the chapter to the hitting time chapters.
+
+\begin{proposition}[subordination]\label{cx:prop:subord}
+Let $B$ be a standard Brownian motion and $T_a$ the first passage time of an independent Brownian motion to level $a>0$, with density $\ell_a(t)=a(2\pi)^{-1/2}t^{-3/2}e^{-a^2/(2t)}$. Then $\gamma+B(T_a)$ has the Cauchy law of centre $\gamma$ and scale $a$, that is
+\begin{equation}\label{cx:eq:mixture}
+\frac{a/\pi}{a^2+(v-\gamma)^2}=\int_0^\infty\frac{e^{-(v-\gamma)^2/(2t)}}{\sqrt{2\pi t}}\,\ell_a(t)\,dt,
+\end{equation}
+and on the Fourier side $e^{-a|\omega|}=\int_0^\infty e^{-t\omega^2/2}\ell_a(t)\,dt$. Consequently, if $\zeta$ has no zeros in $\Re s>\theta_0$ and $\theta>\theta_0$,
+\begin{equation}\label{cx:eq:heattrace}
+\mathfrak U_\theta=\sum_\rho\int_0^\infty\bigl(e^{t\Delta/2}\delta_{\gamma_\rho}\bigr)\,\ell_{\theta-\sigma_\rho}(t)\,dt,
+\end{equation}
+the Thorin measure at level $\theta$ is the sum over the zeros of the heat flow of $\delta_{\gamma_\rho}$ run to the random time $T_{\theta-\sigma_\rho}$, and under RH it is the heat flow of $\sum_\rho\delta_{\gamma_\rho}$ to the single random time $T_{\theta-1/2}$.
+\end{proposition}
+
+\begin{proof}
+The Fourier identity is the Laplace transform of the first passage law, $Ee^{-\lambda T_a}=e^{-a\sqrt{2\lambda}}$ at $\lambda=\omega^2/2$; the density identity is its inverse transform; \eqref{cx:eq:heattrace} is equation~\eqref{lo:eq:Utheta} (the sum of Cauchy terms $P_{\theta-\sigma_\rho}(\cdot-\gamma_\rho)$, a sum of positive measures) with each Cauchy term written as the mixture.
+\end{proof}
+
+Formula \eqref{cx:eq:heattrace} connects the Thorin measure to the heat trace of the zeros, the sum of $e^{-t\gamma^2/2}$ over the zeros (compare Section~\ref{bp:sec:planar}): under RH the Fourier transform of $\mathfrak U_\theta$ is
+\[
+\int_0^\infty\Bigl(\sum_\gamma e^{-i\omega\gamma}\Bigr)e^{-t\omega^2/2}\,\ell_{\theta-1/2}(t)\,dt,
+\]
+the Fourier transform of the zero measure multiplied by the subordinated Gaussian. It also explains, in one line, why the backward Cauchy flow is less ill posed than a backward heat flow: the forward multiplier $e^{-(1-\theta')|\omega|}=\int_0^\infty e^{-t\omega^2/2}\ell_{1-\theta'}(t)\,dt$ is an average of heat multipliers, and for large $|\omega|$ the average is carried by small $t$, where $\ell_a(t)$ behaves like $e^{-a^2/(2t)}$, so the Gaussian decay averages to the exponential $e^{-a\sqrt{2\lambda}}$ at $\lambda=\omega^2/2$. The backward multiplier $e^{(1-\theta')|\omega|}$ is the reciprocal of this average, not the average of the reciprocals $e^{t\omega^2/2}$, whose integral against $\ell_a$ diverges for every $\omega\ne0$ because $\ell_a(t)\sim a(2\pi)^{-1/2}t^{-3/2}$ as $t\to\infty$; it therefore grows exponentially and not like a Gaussian.
+
+\subsection{Data augmentation with latent times}
+
+The mixture gives the Bayesian inversion a conditionally Gaussian structure. Augment the complete data of Chapter~\ref{chap:lo}: each unit of mass observed at $v_i$ (a pseudo count, as above) carries one latent time $t_i$ with prior $\ell_a$, $a=1-\theta'$, and given $t_i$ and its source $w_j$ its displacement is $N(0,t_i)$. Then
+\begin{align*}
+p(t_i\mid v_i,w_j)&\propto t_i^{-1/2}e^{-(v_i-w_j)^2/(2t_i)}\,t_i^{-3/2}e^{-a^2/(2t_i)}\\
+&=t_i^{-2}\exp\Bigl(-\frac{a^2+(v_i-w_j)^2}{2t_i}\Bigr),
+\end{align*}
+an inverse gamma law with shape $1$ and scale $\tfrac12(a^2+(v_i-w_j)^2)$, explicit and cheap to sample. Given the times, the allocation of the observed mass at $v_i$ to the sources is multinomial with Gaussian weights
+\[
+x_j\,\exp\bigl(-(v_i-w_j)^2/(2t_i)\bigr),
+\]
+normalised over $j$, and given the allocations the $x_j$ are gamma as before. The three block Gibbs sampler alternates these steps; the allocation step is dense, since each observation is allocated among all the sources, so a sweep costs of the order of $(2M+1)(2N+1)$ operations. This is the Carlin and Polson augmentation \cite{CP91} applied to the forward map rather than to an error law, and it is the Monte Carlo inversion of Chapter~\ref{chap:lo} with one extra block.
+
+\subsection{Does the mixture help?}
+
+For the complexity classification, no. The marginal posterior in $x$ is the log concave law of Theorem~\ref{cx:thm:logconcave} with or without the latent times, and the augmented posterior in $(x,t)$ is not jointly log concave, the inverse gamma factors being log convex in $t$ on part of their range; the random walk guarantee applies to the marginal, which is what one samples. For the data layer, no: the latent times do not touch the evaluation of $\zeta$. For the sampler, yes in the usual way: the conditionally Gaussian blocks mix well, and each conditional is a standard law. For understanding, yes: \eqref{cx:eq:heattrace} says that the Thorin semigroup is Brownian motion run to a first passage time, that the levels $\theta$ index the level of the barrier, and that RH is the statement that one barrier, at distance $\theta-\tfrac12$, serves every zero. The backward flow is the un stopping of that Brownian motion, and its ill posedness is the usual one for the backward heat equation, tamed by the first passage mixture to an exponential rather than Gaussian amplification.
