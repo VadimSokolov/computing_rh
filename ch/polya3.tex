@@ -20,12 +20,12 @@ The ladder (iv) is the coefficient counterpart of the monotonicity ladder $T_k=(
 \paragraph{Numerics.} Computing the $c_k$ from \eqref{pol:eq:F} by quadrature on the kernel reproduces $\Xi(0)=\xi(1/2)=0.497120778188314$ to fifteen digits and gives $a_1=0.0231049931$ and the values $a_2,a_3,a_4$ of Table~\ref{fm:tab:newton}. The Tur\'an ratios $g_k^2/(g_{k-1}g_{k+1})$ decrease slowly from $1.0748$ at $k=1$ and stay above $1.0109$ for all $k\le40$. The Jensen polynomials $J_d$ of every degree $2\le d\le30$, computed with 120 digits, have only real negative zeros.
 
 \begin{remark}
-The ladder (iv) at fixed degree $d$ is a finite set of polynomial inequalities in $a_1,\dots,a_d$, and so is checkable to any degree; but for each fixed $d$ it is implied by information about finitely many zeros, which is why it cannot prove RH by itself.
+At fixed degree $d$ the ladder (iv) is a finite set of polynomial inequalities in $a_1,\dots,a_d$, checkable to any degree; but for each fixed $d$ it is implied by information about finitely many zeros, so it cannot prove RH by itself.
 \end{remark}
 
 \section{P\'olya frequency functions: the two sided criterion}\label{pol:sec:pf}
 
-Schoenberg (1951) \cite{Schoenberg51} proved that an integrable function $f$ on $\mathbb R$ is a P\'olya frequency function of every order (PF$_\infty$) if and only if its bilateral Laplace transform is $1/\Psi(s)$ on a strip around the origin, with $\Psi$ a function of the form \eqref{pol:eq:LP} with $m=0$ and $\Psi(0)>0$ that is not of the form $Ce^{\kappa s}$. The name honours P\'olya, and the theorem is the two sided counterpart of the Thorin theory.
+Schoenberg (1951) \cite{Schoenberg51} proved that an integrable function $f$ on $\mathbb R$ is a P\'olya frequency function of every order (PF$_\infty$) if and only if its bilateral Laplace transform is $1/\Psi(s)$ on a strip around the origin, with $\Psi$ a function of the form \eqref{pol:eq:LP} with $m=0$ and $\Psi(0)>0$ that is not of the form $Ce^{\kappa s}$. The theorem is the two sided counterpart of the Thorin theory.
 
 \begin{proposition}\label{pol:prop:pf}
 Let $Y\sim\mu$ be the reciprocal Xi law and $Z$ a standard normal variable independent of $Y$. Unconditionally, $X=Z\sqrt{2Y}$ has a smooth symmetric density $f_X$ with characteristic function and bilateral Laplace transform
@@ -41,7 +41,7 @@ This is the equivalence of Section~\ref{ch:clock}, between RH and the law of $Z\
 $\mathbb Ee^{itX}=\mathbb Ee^{-t^2Y}=\varphi(t^2)=\xi(1/2)/\xi(1/2+t)$, which is integrable in $t$ since $\xi(1/2+t)$ grows like $\exp(\frac t2\log t)$, so $f_X$ exists and is smooth. For real $z$, $\mathbb Ee^{zX}=\mathbb Ee^{z^2Y}=\varphi(-z^2)$, and $\varphi(-z^2)=\xi(1/2)/\xi(1/2+iz)=\Xi(0)/\Xi(z)$ by evenness; the Laplace transform of the positive measure $\mu$ converges up to its first singularity on the negative real axis (Landau's theorem), which is at $-\gamma_1^2$, because a zero off the line gives a nonreal $s_\rho$ and the zero of lowest ordinate is on the line. Under RH, $\Xi(z)/\Xi(0)=\prod_\gamma(1-z^2/\gamma^2)=\prod_\gamma(1-z/\gamma)e^{z/\gamma}(1+z/\gamma)e^{-z/\gamma}$ is of Schoenberg's form, so $f_X$ is PF$_\infty$. Conversely if $f_X$ is PF$_\infty$ then $\Xi(z)/\Xi(0)$ agrees on a strip with an entire function having only real zeros, hence everywhere, and RH follows.
 \end{proof}
 
-The Thorin atoms $\gamma^2$ become Schoenberg's $\pm1/\gamma$. Under RH, $X\stackrel{d}{=}\sum_\gamma L_\gamma/\gamma$ with independent standard Laplace variables $L_\gamma$, because a Laplace variable is $Z\sqrt{2E}$. The PF ladder PF$_2\supset$ PF$_3\supset\cdots\supset$ PF$_\infty$ is a third ladder, after $T_k$ and the Jensen degrees. PF$_2$ is log concavity of $f_X$.
+The Thorin atoms $\gamma^2$ become Schoenberg's $\pm1/\gamma$. Under RH, $X\stackrel{d}{=}\sum_\gamma L_\gamma/\gamma$ with independent standard Laplace variables $L_\gamma$, because a Laplace variable is $Z\sqrt{2E}$. The PF ladder PF$_2\supset$ PF$_3\supset\cdots\supset$ PF$_\infty$ is a third ladder, after $T_k$ and the Jensen degrees; PF$_2$ is log concavity of $f_X$.
 
 \paragraph{Numerics.} Fourier inversion of \eqref{pol:eq:X} gives $f_X$. On $[0,1.6]$ with step $0.02$ every second difference of $\log f_X$ is negative (the largest is $-2.6\times10^{-5}$), so PF$_2$ holds on the grid; all $3000$ random pairs of ordered triples $x_1<x_2<x_3$, $y_1<y_2<y_3$ in $[-0.8,0.8]$ have a positive normalised determinant $\det[f_X(x_i-y_j)]_{i,j\le3}/\prod_if_X(x_i-y_i)$, the smallest being $6.7\times10^{-9}$.
 

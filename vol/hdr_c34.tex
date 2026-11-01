@@ -1,0 +1,44 @@
+% Opening of the old chapter c34, its \chapter command removed; generated
+\label{chap:cf}
+
+Under the Riemann hypothesis the level one density of Chapters~\ref{chap:lo} to~\ref{chap:cd} is the Cauchy smoothing of the zero counting measure, $u_1=P_{1/2}*\mathfrak U_{1/2}$ (equation~\eqref{es:eq:forward}), and $\mathfrak U_\theta$ at every level $\theta\in(\frac12,1)$ is the same smoothing at scale $\theta-\frac12$. Can the deconvolution from $\mathfrak U_1$, which the Euler product makes accessible, to $\mathfrak U_{1/2}$, the object of the Riemann hypothesis, be carried out, and can the particle filters of \cite{PSH626}, accelerated by generative Bayesian computation (GBC) \cite{PS23}, make progress on it? We recall the identities that relate the two measures (Section~\ref{cf:sec:recap}), build a particle filter whose time is the level, running the Cauchy flow backwards from $\theta=1$ towards $\theta=\frac12$ in a window of heights, with a GBC screen that replaces most of its work by one pass of a network, and record the gap between local computation and a statement for all heights (Section~\ref{cf:sec:gap}).
+
+This chapter is based on \cite{P26cf}. The zeros and counts of the Davenport and Heilbronn function, the contour moments, the values of the density and the negative masses, the information numbers, the linear programs and polynomial tables and the nested sampling scores were recomputed for this book; where they differ from the note the recomputed value is printed. The runs of the particle filter, the GBC networks, the concentration experiments and the nested sampler are the note's and were not rerun; they are marked computed by the author. Statements at the level $\frac78$ are conditional on $\mathrm{QRH}(\frac78)$, announced by OpenAI \cite{OAI26a} and formalised in Lean but not refereed (Section~\ref{lv:sec:qrh}).
+
+\section{What the book already proves}\label{cf:sec:recap}
+
+The notation is that of Section~\ref{lo:sec:level}: zeros $\rho=\sigma_\rho+i\gamma_\rho$ with multiplicity, levels $\theta$, and $u_\theta(v)=\pi^{-1}\Re(\xi'/\xi)(\theta+iv)=\pi^{-1}\partial_\sigma\log\lvert\xi(\sigma+iv)\rvert|_{\sigma=\theta}$ the density of Theorem~\ref{lo:thm:density}. The measure $\mathfrak U_\theta$ of equation~\eqref{lo:eq:Utheta} lives on the line in the variable $v$, with $\mathfrak U_\theta=2\widetilde U_\theta$ (Theorem~\ref{lv:thm:semigroup}); the symbol $U_\theta$ is kept for the Thorin measure in $x=v^2$ (Section~\ref{lv:sec:thorinform}). With $P_a(x)=(a/\pi)/(a^2+x^2)$ for $a>0$ we write $Q_a(x)=(a/\pi)/(a^2+x^2)$ for every real $a\ne0$, so $Q_a=-P_{\lvert a\rvert}$ when $a<0$, and $Q_0(x)=0$ for $x\ne0$. For $\theta$ not the real part of a zero at the height in question the Hadamard sum (equation~\eqref{es:eq:lorentz}, and the proof of Theorem~\ref{cx:thm:positivity}) reads
+\begin{equation}\label{cf:eq:mg}
+u_\theta(v)=\sum_\rho Q_{\theta-\sigma_\rho}(v-\gamma_\rho),
+\end{equation}
+absolutely convergent because $\sum_\rho\lvert\gamma_\rho\rvert^{-2}<\infty$. Positivity of $u_\theta$ at every level $\theta>\sigma_0$ is the monotone increase of $\lvert\xi(\sigma+iv)\rvert$ in $\sigma>\sigma_0$ studied in \cite{SD10,MSZ14}.
+
+\begin{remark}[a level through a zero]\label{cf:rem:limit}
+At a level $\theta=\sigma_\rho$ the term $Q_{\theta-\sigma_\rho}(v-\gamma_\rho)$ of~\eqref{cf:eq:mg} has no meaning at $v=\gamma_\rho$. For every $\theta>\frac12$ we take $\mathfrak U_\theta$ to be the vague limit of $u_{\theta'}(v)\,dv$ as $\theta'\downarrow\theta$. Each term converges vaguely, and the far terms are dominated by $\lvert\gamma_\rho\rvert^{-2}$ uniformly for $\theta'$ in a compact set, so the limit exists; it is the measure of equation~\eqref{lo:eq:Utheta} with an atom at the ordinate of every zero with $\sigma_\rho=\theta$ and a negative Cauchy term $Q_{\theta-\sigma_\rho}$ for every zero with $\sigma_\rho>\theta$. At $\theta=\frac12$ it is $\mathfrak U_{1/2}=\sum_{\sigma_\rho=1/2}\delta_{\gamma_\rho}$ plus the contribution of the zeros off the line, which vanishes (Proposition~\ref{cf:prop:ends}).
+\end{remark}
+
+\begin{proposition}[Cauchy transport]\label{cf:prop:transport}
+For $\theta>\frac12$ and $\theta+iv$ not a zero,
+\begin{equation}\label{cf:eq:transport}
+u_\theta=P_{\theta-1/2}*\mathfrak U_{1/2}+R_\theta,\qquad R_\theta(v)=\sum_{\sigma_\rho>1/2}\bigl[Q_{\theta-\sigma_\rho}+Q_{\theta-1+\sigma_\rho}\bigr](v-\gamma_\rho),
+\end{equation}
+the sum over the zeros off the critical line, each taken together with its reflection $1-\bar\rho$, which has the same ordinate. In particular $u_1=P_{1/2}*\mathfrak U_{1/2}+R_1$: the density at level one is the Cauchy smoothing of $\mathfrak U_{1/2}$ at scale $\frac12$ plus one Cauchy pair $P_{1-\sigma_\rho}+P_{\sigma_\rho}$ for each such zero. The pair is positive at $\theta=1$ and is a signed term only for $\theta<\sigma_\rho$.
+\end{proposition}
+
+\begin{proof}
+Split the sum~\eqref{cf:eq:mg} into the zeros on the line, each contributing $P_{\theta-1/2}*\delta_{\gamma_\rho}$, and the pairs $\rho$, $1-\bar\rho$ off it.
+\end{proof}
+
+This is Theorem~\ref{lv:thm:semigroup} above the abscissa of the last zero, and equation~\eqref{es:eq:forward} under RH, where $R_\theta=0$. In Fourier terms a zero on the line contributes $e^{-(\theta-1/2)\lvert\omega\rvert}e^{i\gamma\omega}$ and a pair at distance $\delta=\sigma_\rho-\frac12$ contributes $2\cosh(\delta\omega)\,e^{-(\theta-1/2)\lvert\omega\rvert}e^{i\gamma\omega}$ for $\theta>\sigma_\rho$; deconvolving by $P_{1/2}$ from $\theta=1$ leaves $2\cosh(\delta\omega)$, which is not the Fourier transform of a tempered distribution (Chapter~\ref{chap:cd}). We use without proof the deconvolution criterion (Theorem~\ref{tf:thm:deconv}(b), Proposition~\ref{cd:prop:critical}), Thorin positivity as a zero free half plane (Theorem~\ref{cx:thm:positivity}, after Lagarias \cite{Lagarias} and Sondow and Dumitrescu \cite{SD10}; positivity at a single level is necessary and not known to be sufficient, Remark~\ref{rem:ch2:oneline}), unconditional positivity for $\theta\ge1$ (Theorem~\ref{lo:thm:density}, Corollary~\ref{lv:cor:uncond}), and the pairing of Proposition~\ref{prop:signature}(ii) (Corollary~\ref{cor:dbeta:window}(1), Lemma~\ref{cx:lem:pairing}). The pairing also gives a local statement for zero free regions that narrow with the height, to which Theorem~\ref{cx:thm:positivity} does not apply.
+
+\begin{corollary}[local positivity from a zero free region]\label{cf:cor:localpos}
+Let $\eta:[0,\infty)\to(0,\frac12]$ be nonincreasing and suppose that every zero satisfies $\sigma_\rho\le1-\eta(\lvert\gamma_\rho\rvert)$. Then $u_\theta(v)>0$ whenever $\theta>\frac12$, $\theta\ge1-\eta(\lvert v\rvert+\frac12)$ and $\xi(\theta+iv)\ne0$.
+\end{corollary}
+
+\begin{proof}
+Group the zeros in~\eqref{es:eq:lorentz} into orbits of $\rho\mapsto1-\bar\rho$. As in the proof of Corollary~\ref{cor:dbeta:window}(1), a zero on the critical line contributes $P_{\theta-1/2}(v-\gamma_\rho)>0$, an orbit with $\sigma_\rho\le\theta$ a nonnegative amount, and an orbit with $\sigma_\rho>\theta$ is negative only where $\lvert v-\gamma_\rho\rvert<\sqrt{(\sigma_\rho-\theta)(\sigma_\rho+\theta-1)}<\frac12$. Such a zero would have $\lvert\gamma_\rho\rvert<\lvert v\rvert+\frac12$, hence $\sigma_\rho\le1-\eta(\lvert\gamma_\rho\rvert)\le1-\eta(\lvert v\rvert+\frac12)\le\theta$, a contradiction. So every orbit contributes a nonnegative amount, and the zero $\frac12+i\gamma_1$ a positive one.
+\end{proof}
+
+With the region of de la Vall\'ee Poussin ($\eta(T)$ a constant over $\log T$, Proposition~\ref{tx3:prop:dvp}) or of Vinogradov and Korobov ($\eta(T)=c(\log T)^{-2/3}(\log\log T)^{-1/3}$ \cite{Vinogradov58}), taken as $\frac12$ at small heights, this is positivity of $u_\theta$ at height $v$ for $\theta$ within that width of $\Re s=1$, the width taken at height $\lvert v\rvert+\frac12$. It is local in $v$, as it must be.
+
+The logarithmic form of the transport is the formula of Balazard, Saias and Yor \cite{BSY99}, proved at every level in Theorem~\ref{bsy:thm:bsy}; here it enters only through Proposition~\ref{cf:prop:barrier}. Since $\mathrm{Cauchy}(\gamma,a)$ is the harmonic measure of a half plane (Sections~\ref{lo:sec:gbc} and~\ref{bp:sec:planar}), the forward flow is a Markov semigroup; the backward flow has no positive kernel, and the natural particle method for it is a Bayesian filter, not a forward simulation.

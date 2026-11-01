@@ -1,0 +1,237 @@
+% Chapter nc_zdist: z distributions, Meixner duality and the reciprocal Xi function as an EGGC.
+% Intended place: Volume I, Part I, after the chapter on the reciprocal Xi function (Chapter vol1:ch5).
+% Every number printed below comes from code/nc_zdist_checks.py (mpmath, 30 digits, floating point).
+
+This chapter reads $u\mapsto\xi(\frac12)/\xi(\frac12+u)$, the reciprocal of $\Xi$ on the imaginary axis, as the characteristic function of a normal scale mixture and asks what the $z$ distributions of Barndorff-Nielsen, Kent and S{\o}rensen \cite{BNKS82} add to that reading. Section~\ref{sm:sec:cf} proved that this function is, with no hypothesis, the characteristic function of $Y=Z\sqrt{2T}$, where $Z$ is standard normal and $T$ is the clock, and Theorem~\ref{sm:thm:thorin} that $Y$ is an extended generalised gamma convolution (EGGC) exactly when RH holds. We do not repeat those results. We add four things: the $z$ laws as the explicit model of the same structure, with their mixing laws and their Fourier duality with the Meixner laws; the archimedean factor of $\xi$ written through one $z$ law; the de Bruijn Newman flow as a one parameter family of laws, EGGC exactly for $t\ge\Lambda$, that starts, after scaling, at a $z$ law and ends at $Y$; and the impossibility, short of RH, of an unconditional EGGC family converging to the law of $Y$, together with the best unconditional substitute.
+
+The main results are these. The symmetric $z$ law $z(c,c)$ is the EGGC $\sum_kL_k/(c+k)$, and its density and that of the Meixner law of order $c$ are, up to constants, each the characteristic function of the other (Proposition~\ref{zdist:prop:dual}, proved). The pair formed by the characteristic function of $z(c,c)$ and the reciprocal of its moment generating function is a van Dantzig pair exactly when $c\ge\frac12$; the gamma factor of $\zeta$ sits at $c=\frac14$, where it is not (Proposition~\ref{zdist:prop:vd}, proved). On the critical line the archimedean factor of $\Xi^2$ is the characteristic function of $X/2$ with $X\sim z(\frac14,\frac14)$, and after it is removed the arithmetic remainder of $Y+Y'$ has negative mean, so it is not a law on $[0,\infty)$ (Proposition~\ref{zdist:prop:arch}, proved and computed). The mixing law that makes $Y$ an EGGC is the GGC with Thorin measure $\sum_{\gamma>0}\delta_{\gamma^2}$, and its existence is RH (Theorem~\ref{sm:thm:thorin} and Proposition~\ref{prop:rigid}). Along the heat flow, $Y_t$ is an EGGC exactly when $t\ge\Lambda$, so unconditionally for $t\ge0.2$, and $Y_t/u_t$ tends to a scaled $z(\frac12,\frac12)$ law as $t\to\infty$ (Theorem~\ref{zdist:thm:flow}, proved). Finally the truncated families over verified zeros are EGGC laws with no hypothesis and approximate $Y$ to within $v^4\times2.3\times10^{-37}$ in the logarithm of the characteristic function for $|v|\le2\times10^{12}$ (Proposition~\ref{zdist:prop:trunc}, proved).
+
+Against the path of Section~\ref{ov1:sec:path} the chapter is a change of coordinates and not a new route. The $z$ laws make the archimedean half of the problem completely explicit, and they show that the arithmetic half enters as a deconvolution, the same obstruction that Theorem~\ref{rz:thm:floor} meets. The heat flow gives EGGC laws arbitrarily close in time to $Y$ only down to $t=\Lambda$, and Rodgers and Tao put $\Lambda\ge0$ \cite{RodgersTao}, so the last step is the closed condition $\Lambda\le0$, which is RH.
+
+\section{The \texorpdfstring{$z$}{z} distributions as normal variance mean mixtures}\label{zdist:sec:z}
+
+For $a,b>0$ the $z$ distribution $z(a,b)$ has density
+\begin{equation}\label{zdist:eq:density}
+f_{a,b}(x)=\frac{e^{ax}}{B(a,b)\,(1+e^x)^{a+b}},\qquad x\in\R .
+\end{equation}
+It is the law of $\log(G_a/G_b)$ for independent gamma variables of shapes $a$ and $b$; Fisher's $z$, $\frac12\log F$, is a scaled and shifted case. We have read only the title and the bibliographic record of \cite{BNKS82} (International Statistical Review 50, 1982, 145 to 159), and not its text. Its title says that the $z$ laws are normal variance mean mixtures; the mixing law below is derived here, and we make no claim that it is written in this form there. % UNCHECKED: the content of BNKS82 beyond its title was not read.
+
+\begin{proposition}\label{zdist:prop:mix}
+Let $X\sim z(a,b)$.
+\begin{enumerate}
+\item[(i)] For $-a<\re s<b$, $\E e^{sX}=B(a+s,b-s)/B(a,b)=\Gamma(a+s)\Gamma(b-s)/(\Gamma(a)\Gamma(b))$.
+\item[(ii)] For the same $s$,
+\[
+\E e^{sX}=\prod_{k\ge0}\frac{(a+k)(b+k)}{(a+k+s)(b+k-s)} .
+\]
+\item[(iii)] $X\stackrel d=\mu W+\sqrt W\,Z$ with $\mu=\frac{a-b}2$, $Z$ standard normal and $W$ independent of $Z$ with
+\[
+W=\sum_{k\ge0}\frac{2E_k}{(a+k)(b+k)},
+\]
+the $E_k$ independent standard exponential variables. So $W$ is a GGC with unit Thorin atoms at the points $\frac12(a+k)(b+k)$, and $X$ is a normal variance mean mixture.
+\item[(iv)] In the symmetric case $a=b=c$, $X\stackrel d=\sum_{k\ge0}L_k/(c+k)$ with independent standard Laplace variables $L_k$, and $X$ is a symmetric EGGC with Thorin measure $\sum_{k\ge0}\delta_{c+k}$ in the chart $\theta$; its characteristic function is $|\Gamma(c+iv)|^2/\Gamma(c)^2$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(i) The substitution $y=e^x/(1+e^x)$ turns $\int e^{sx}f_{a,b}(x)\,dx$ into $B(a,b)^{-1}\int_0^1y^{a+s-1}(1-y)^{b-s-1}\,dy$. (ii) By the Weierstrass product $1/\Gamma(z)=ze^{\gamma_Ez}\prod_{n\ge1}(1+z/n)e^{-z/n}$, the exponential factors of $\Gamma(a+s)/\Gamma(a)$ and $\Gamma(b-s)/\Gamma(b)$ are $e^{\mp\gamma_Es}\prod_n e^{\pm s/n}$ and cancel in the product, and what remains is the displayed product, which converges absolutely because its factors are $1+O(k^{-2})$. (iii) Expanding, $(a+k+s)(b+k-s)=(a+k)(b+k)-2\mu s-s^2$, so each factor of (ii) is $(1-\lambda_k)^{-1}$ with $\lambda_k=2(\mu s+s^2/2)/((a+k)(b+k))$, the moment generating function of $2E_k/((a+k)(b+k))$ at $\mu s+\frac12s^2$. Hence $\E e^{sX}=\E e^{W(\mu s+s^2/2)}=\E e^{s(\mu W+\sqrt WZ)}$ for real $s$ near $0$, and two laws whose moment generating functions agree on an interval are equal. (iv) With $\mu=0$, $\E e^{ivX}=\E e^{-v^2W/2}=\prod_k(1+v^2/(c+k)^2)^{-1}$, the characteristic function of $\sum_kL_k/(c+k)$, and it equals $\Gamma(c+iv)\Gamma(c-iv)/\Gamma(c)^2$ by (i) at $s=iv$. The EGGC statement is the case $H=W/2$ of the criterion of Section~\ref{sec:ch3:hierarchy}.
+\end{proof}
+
+A computation checks (i), (ii) and (iii) at $a=0.7$, $b=1.9$, $s=0.4$: quadrature of the density, the product and the mixture all give $0.675340919623505$, with relative differences below $10^{-31}$ (computed, 30 digits).
+
+The symmetric $z$ law is thus the arithmetic progression case of a structure the book meets repeatedly: a sum $\sum_kL_k/c_k$ of scaled Laplace variables, whose characteristic function $\prod_k(1+v^2/c_k^2)^{-1}$ is the reciprocal of an even entire function of genus zero in $v^2$ with only imaginary zeros $\pm ic_k$. The classical pairs of Section~\ref{ch:clock} are the cases $c_k=(k-\frac12)\pi$ and $c_k=k\pi$, and under RH the law of $Y$ is the case $c_k=\gamma_k$ (Theorem~\ref{sm:thm:thorin}). What distinguishes the $z$ case is that the product closes in gamma functions, so everything can be computed and nothing is conditional.
+
+\section{Meixner duality and van Dantzig pairs}\label{zdist:sec:dual}
+
+The Meixner law of order $c>0$, which Section~\ref{rz:sec:meixner} uses at $c=\frac14$, has the density
+\[
+m_c(x)=\frac{2^{2c}\,|\Gamma(c+ix)|^2}{2\pi\,\Gamma(2c)},\qquad x\in\R,
+\]
+and characteristic function $\cosh(u/2)^{-2c}$, by the Fourier integral quoted before \eqref{rz:eq:meixner}. In the normalisation of \eqref{rz:eq:meixner}, $p(\tau)=\frac12m_{1/4}(\tau/2)$ and $\int p(\tau)e^{iv\tau}d\tau=\cosh(v)^{-1/2}$.
+
+\begin{proposition}[Meixner duality]\label{zdist:prop:dual}
+For $c>0$, the density of $z(c,c)$ is $f_{c,c}(x)=(2\cosh\frac x2)^{-2c}/B(c,c)$, a constant multiple of the characteristic function of the Meixner law of order $c$, and the characteristic function of $z(c,c)$ is $|\Gamma(c+iv)|^2/\Gamma(c)^2$, a constant multiple of the Meixner density $m_c(v)$. Both laws are symmetric EGGC laws: $z(c,c)$ with Thorin measure $\sum_{k\ge0}\delta_{c+k}$ and the Meixner law with Thorin measure $2c\sum_{k\ge0}\delta_{(2k+1)\pi}$, both in the chart $\theta$. For $c=\frac12$ the two coincide up to scale with the hyperbolic secant law.
+\end{proposition}
+
+\begin{proof}
+$e^{cx}/(1+e^x)^{2c}=(e^{-x/2}+e^{x/2})^{-2c}$ gives the density. The characteristic function is Proposition~\ref{zdist:prop:mix}(iv). For the Meixner law, $\cosh(u/2)=\prod_{k\ge0}(1+u^2/((2k+1)\pi)^2)$, so $\cosh(u/2)^{-2c}$ is $\exp\{-\int\log(1+u^2/\theta^2)\,m(d\theta)\}$ with $m=2c\sum_k\delta_{(2k+1)\pi}$, a positive measure, which makes the law a symmetric EGGC (Section~\ref{sm:sec:strip}); at $c=\frac14$ this is Proposition~\ref{rz:prop:dict}(i) in the variable $v=u/2$. At $c=\frac12$, $f_{1/2,1/2}(x)=(2\pi\cosh\frac x2)^{-1}$ and $m_{1/2}(x)=\sech(\pi x)$.
+\end{proof}
+
+A computation checks that $m_{0.7}$ has mass one and that its characteristic function at $u=1.1$ is $0.817206548790001$, equal to $\cosh(0.55)^{-1.4}$ and to the product over $(2k+1)\pi$; and that the characteristic function of $z(\frac14,\frac14)$ at $v=0.8$ is $0.044640877021$, equal to $|\Gamma(\frac14+0.8i)|^2/\Gamma(\frac14)^2$ and to $2^{3/2}\pi^{3/2}p(1.6)/\Gamma(\frac14)^2$ (computed; the agreement is to $3\times10^{-16}$, the accuracy of the oscillatory quadrature).
+
+The duality explains a remark of Section~\ref{rz:sec:meixner}. There the Meixner density $p$ is the archimedean part of $\Xi^2$ on the critical line. By Proposition~\ref{zdist:prop:dual} the same function of $v$ is the characteristic function of a $z$ law, so the archimedean part of $\Xi^2$ is at once a density and a characteristic function, and the two readings are exchanged by the Fourier transform.
+
+The van Dantzig pairs of Section~\ref{ch:clock} pair a characteristic function $\varphi_1$ with $\varphi_2(\theta)=1/\varphi_1(i\theta)$. The $z$ laws give a family in which one can see when such a pair exists.
+
+\begin{proposition}\label{zdist:prop:vd}
+Let $c>0$ and $\varphi_2(v)=|\Gamma(c+iv)|^2/\Gamma(c)^2$, the characteristic function of $z(c,c)$. There is a characteristic function $\varphi_1$ with $\varphi_2(\theta)=1/\varphi_1(i\theta)$ for all real $\theta$ if and only if $c\ge\frac12$. Then $\varphi_1(v)=\Gamma(c)^2/(\Gamma(c+v)\Gamma(c-v))$; for $c>\frac12$ it is the characteristic function of $2\Theta$, where $\Theta$ has density proportional to $\cos^{2c-2}\theta$ on $(-\frac\pi2,\frac\pi2)$, and for $c=\frac12$ it is $\cos(\pi v)$, the characteristic function of a symmetric sign times $\pi$.
+\end{proposition}
+
+\begin{proof}
+If $\varphi_1$ exists, then $\varphi_1(i\theta)=\Gamma(c)^2/(\Gamma(c+i\theta)\Gamma(c-i\theta))$ is finite for every real $\theta$, so the law of $\varphi_1$ has all exponential moments and $\varphi_1$ is entire; the right side is entire in $i\theta$ as well, so $\varphi_1(w)=\Gamma(c)^2/(\Gamma(c+w)\Gamma(c-w))$ for every complex $w$. For real $v>c$, the reflection formula $\Gamma(c-v)\Gamma(1-c+v)=\pi/\sin(\pi(c-v))$ gives
+\[
+\varphi_1(v)=\frac{\Gamma(c)^2}\pi\,\frac{\Gamma(v+1-c)}{\Gamma(v+c)}\,\sin\big(\pi(c-v)\big),
+\]
+and $\Gamma(v+1-c)/\Gamma(v+c)\sim v^{1-2c}$. For $c<\frac12$ this is unbounded along $v=c+n+\frac12$, so $\varphi_1$ is not a characteristic function. For $c>\frac12$, Cauchy's beta integral $\int_{-\pi/2}^{\pi/2}\cos^{\mu}\theta\,e^{i\nu\theta}d\theta=\pi\Gamma(\mu+1)/(2^\mu\Gamma(1+\frac{\mu+\nu}2)\Gamma(1+\frac{\mu-\nu}2))$, valid for $\mu>-1$ \cite[Section 5.12]{DLMF}, at $\mu=2c-2$ and $\nu=2v$ and divided by its value at $\nu=0$, gives $\E e^{2iv\Theta}=\varphi_1(v)$. For $c=\frac12$, $\varphi_1(v)=\pi/(\Gamma(\frac12+v)\Gamma(\frac12-v))=\cos\pi v$.
+\end{proof}
+
+At $c=0.8$, $v=0.7$ the quadrature of $\E e^{2iv\Theta}$ and the gamma ratio agree to $10^{-18}$; at $c=\frac14$ the candidate $\varphi_1$ takes the values $9.358$, $-9.589$, $29.59$, $-29.66$ at $v=10$, $10.5$, $100$, $100.5$, growing like $v^{1/2}$ as the proof says (computed).
+
+\begin{remark}\label{zdist:rem:threshold}
+The threshold $c=\frac12$ is the hyperbolic secant law, the case $(\cos\theta,1/\cosh\theta)$ of Section~\ref{ch:clock} up to scale. The gamma factor $\Gamma(\frac14+\frac s2)$ of $\xi$ corresponds to $c=\frac14$, below the threshold: its $z$ law is an EGGC and the second member of no pair, in the same direction as Proposition~\ref{rz:prop:meixstruct}(iii), which says that the dual Meixner density at the same parameter is not a P\'olya frequency function (we do not derive either statement from the other). The $\Xi$ pair, $(\Xi(v)/\Xi(0),\ \xi(\frac12)/\xi(\frac12+v))$, exists with no hypothesis (Theorem~\ref{thm:ch12:idsd}). So the van Dantzig property of the full $\Xi$ pair is not inherited from its archimedean factor; it is produced by the zeta factor and the polynomial factor together.
+\end{remark}
+
+\section{The archimedean factor of \texorpdfstring{$\xi$}{xi} through a \texorpdfstring{$z$}{z} law}\label{zdist:sec:arch}
+
+Let $X\sim z(\frac14,\frac14)$, so that by Proposition~\ref{zdist:prop:mix}, $X/2=\sum_{k\ge0}L_k/c_k$ with $c_k=2k+\frac12$, the constants of Theorem~\ref{rz:thm:gamma}, and $\operatorname{Var}(X/2)=2\sum_kc_k^{-2}=\frac12\psi'(\frac14)=8.59866457725$ (computed). Put $H_\infty=\sum_kE_k/c_k^2$, a GGC with unit Thorin atoms at $c_k^2$ and mean $\frac14\psi'(\frac14)=4.299332289$, so that $X/2\stackrel d=Z\sqrt{2H_\infty}$. Let $Y'$ be an independent copy of $Y=Z\sqrt{2T}$, and $\tilde T$ the corresponding copy of $T$.
+
+\begin{proposition}\label{zdist:prop:arch}
+\begin{enumerate}
+\item[(i)] For real $|s|<\frac12$,
+\[
+\frac{\xi(\frac12+s)^2}{\xi(\frac12)^2}=(1-4s^2)^2\,\E e^{sX/2}\,\frac{\zeta(\frac12+s)\zeta(\frac12-s)}{\zeta(\frac12)^2},
+\]
+and on the critical line, for real $v$,
+\[
+\frac{\Xi(v)^2}{\Xi(0)^2}=(1+4v^2)^2\,\E e^{ivX/2}\,\frac{|\zeta(\frac12+iv)|^2}{\zeta(\frac12)^2}.
+\]
+\item[(ii)] Let $D_0=T+\tilde T-H_\infty$, with $T$, $\tilde T$ and $H_\infty$ independent. For $0\le w<\frac14$,
+\[
+\E e^{-wD_0}=\frac{\zeta(\frac12)^2}{(1-4w)^2\,\zeta(\frac12+\sqrt w)\,\zeta(\frac12-\sqrt w)} .
+\]
+\item[(iii)] $\E D_0=2\E T-\frac14\psi'(\frac14)=-8+(\log\zeta)''(\frac12)=-4.2531223024$. Consequently there is no law $Q$ on $[0,\infty)$, independent of $H_\infty$, with $T+\tilde T\stackrel d=H_\infty+Q$, and no random variable $R$ independent of $X$ with $Y+Y'\stackrel d=X/2+R$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(i) By definition $\xi(\frac12+s)=\frac12(s^2-\frac14)\pi^{-1/4-s/2}\Gamma(\frac14+\frac s2)\zeta(\frac12+s)$. Multiply by the same expression at $-s$, which is $\xi(\frac12-s)=\xi(\frac12+s)$, divide by the value at $s=0$, and use $\Gamma(\frac14+\frac s2)\Gamma(\frac14-\frac s2)/\Gamma(\frac14)^2=\E e^{sX/2}$, which is Proposition~\ref{zdist:prop:mix}(i) at $a=b=\frac14$ and argument $s/2$. The second display is the first at $s=iv$, both sides being analytic in the strip $|\re s|<\frac12$, and $\Xi(v)=\xi(\frac12+iv)$, $\overline{\zeta(\frac12+iv)}=\zeta(\frac12-iv)$. (ii) $\E e^{-w(T+\tilde T)}=\xi(\frac12)^2/\xi(\frac12+\sqrt w)^2$ and $\E e^{wH_\infty}=\prod_k(1-w/c_k^2)^{-1}=\E e^{\sqrt wX/2}$ for $w<c_0^2=\frac14$; insert (i) at $s=\sqrt w$. (iii) The first expression for the mean is $\E T+\E\tilde T-\E H_\infty$. For the second, the logarithm of the right side of (ii) is a constant minus $2\log(1-4w)$ minus $g(\sqrt w)$, with $g(x)=\log\zeta(\frac12+x)+\log\zeta(\frac12-x)$ even and $g''(0)=2(\log\zeta)''(\frac12)$, so its derivative at $w=0$ is $8-(\log\zeta)''(\frac12)$, and the mean is minus this. If $T+\tilde T\stackrel d=H_\infty+Q$, then $\E Q=\E D_0<0$, which is impossible for $Q\ge0$. If $Y+Y'\stackrel d=X/2+R$, then $R\in L^2$, because $X/2+R\in L^2$ with $X/2$ independent of $R$, and $\operatorname{Var}R=4\E T-\frac12\psi'(\frac14)<0$, since $4\E T=0.0924$.
+\end{proof}
+
+A computation checks (i) at $s=0.3$ (both sides $1.00416725669921$) and at $v=5$ (both sides $0.255983368484996$, in the form $|\zeta(\frac12+5i)/\zeta(\frac12)|^2$), (ii) at $w=0.1$ (both sides $1.70964296601762$), and the two expressions for the mean in (iii), each to better than $10^{-30}$ (computed).
+
+So the archimedean factor of $\xi^2$ on the real axis is the moment generating function of a $z$ law, and at $w=s^2$ it is $\E e^{wH_\infty}$, with $H_\infty$ the GGC with Thorin atoms $c_k^2$. The factor $(1-4s^2)^2$ is the polar part, and the rest is arithmetic. Part (iii) is the $z$ law form of the obstruction met by Theorem~\ref{rz:thm:floor} and Proposition~\ref{rz:prop:twostage}: the archimedean law is far wider than $Y$, with variance $8.6$ against $0.046$, so the zeta factor does not add an independent component to the archimedean one but removes most of it. The EGGC question for $Y$ is therefore not a question about a product of two EGGC laws, and no factorisation through the $z$ law can make it one. Only the polar and zeta factors together carry the information, and the GGC property of their combination is RH.
+
+\section{Which mixing law, and why it is RH}\label{zdist:sec:which}
+
+For real $u$, $\xi(\frac12)/\xi(\frac12+u)=\E e^{-u^2T}$ with no hypothesis (Proposition~\ref{sm:prop:cf}). A symmetric law is an EGGC exactly when it is $Z\sqrt{2H}$ with $H$ a GGC (Section~\ref{sec:ch3:hierarchy}), and the mixing law is determined by the characteristic function, since $v\mapsto\E e^{-v^2H}$ is the Laplace transform of $H$ on $[0,\infty)$. So the only candidate mixing law is the clock itself: $Y$ is an EGGC if and only if $T$ is a GGC, and by Proposition~\ref{prop:rigid} that holds if and only if RH holds, the Thorin measure being then $\sum_{\gamma>0}\delta_{\gamma^2}$ and $Y\stackrel d=\sum_{\gamma>0}L_\gamma/\gamma$ (Theorem~\ref{sm:thm:thorin}).
+
+In the language of Section~\ref{zdist:sec:z}, RH says that $Y$ is a generalised symmetric $z$ law, $\sum_kL_k/c_k$ with $c_k=\gamma_k$ in place of $c+k$. The comparison shows what changes. For $z(c,c)$ the points $c+k$ are given and the product $\prod_k(1+v^2/(c+k)^2)$ is recognised as $\Gamma(c)^2/|\Gamma(c+iv)|^2$; for $Y$ the function $\xi(\frac12+v)/\xi(\frac12)$ is given and the positivity of the points $a_k=-(\rho_k-\frac12)^2$ is the question. The $z$ law provides no mechanism for the second direction.
+
+\begin{remark}\label{zdist:rem:mixing}
+Three weaker mixing statements hold with no hypothesis, and none implies RH. $T$ is infinitely divisible and self decomposable (Theorem~\ref{thm:ch12:idsd}), so $Y$ is a self decomposable normal scale mixture (Result~\ref{tx3:res:sdz}). $T$ lies in Urbanik's class $L_2$ and not in $L_3$ (Theorem~\ref{pk:thm:ladder}). And the floor $e^{-c\sqrt u}/G(u)$ adds to $T$ a positive $\frac12$ stable component, with Thorin density $c/(2\pi\sqrt t)$, which together with the archimedean factor gives the Thorin density of Theorem~\ref{rz:thm:gammaggc} (Theorem~\ref{rz:thm:floor}); in the variable $v=\sqrt u$ this multiplies the characteristic function of $Y$ by the Cauchy factor $e^{-c|v|}$.
+\end{remark}
+
+\section{The 2 sin squared lemma on the \texorpdfstring{$z$}{z} laws}\label{zdist:sec:sin2}
+
+The lemma \eqref{eq:sin2} converts a L\'evy representation in $|u|$ into a Thorin representation in $u^2$, as in the derivation of \eqref{sm:eq:thorin}. For the $z$ laws and the gamma function it works with positive input.
+
+\begin{proposition}\label{zdist:prop:sin2}
+\begin{enumerate}
+\item[(i)] The law $z(c,c)$ has L\'evy density $k_c(|x|)/|x|$ with $k_c(r)=e^{-cr}/(1-e^{-r})=\sum_{n\ge0}e^{-(c+n)r}$, completely monotone, and the sine squared image of $k_c$, $\frac1\pi\int_0^\infty2\sin^2(x\theta/2)\,k_c(x)\,dx$, is $\frac1\pi\sum_n\theta^2/((c+n)((c+n)^2+\theta^2))$.
+\item[(ii)] For $a>0$ and real $u$,
+\[
+e^{\psi(a)|u|}\,\frac{\Gamma(a)}{\Gamma(a+|u|)}=\exp\Big\{-\frac1\pi\int_0^\infty\log\Big(1+\frac{u^2}{\theta^2}\Big)\big(\re\psi(a+i\theta)-\psi(a)\big)\,d\theta\Big\},
+\]
+and $\re\psi(a+i\theta)-\psi(a)>0$ for $\theta\ne0$. So the left side is the characteristic function of a symmetric EGGC, and $\Gamma(a)/\Gamma(a+|u|)$ is the product of $e^{-\psi(a)|u|}$, a Cauchy factor when $\psi(a)>0$ (that is $a>1.4616$), and that EGGC.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(i) Malmsten's formula $\log\Gamma(c+s)-\log\Gamma(c)-s\psi(c)=\int_0^\infty(e^{-sx}-1+sx)\frac{e^{-cx}}{x(1-e^{-x})}dx$ for $\re s>-c$ \cite[Section 5.9]{DLMF}, applied to both gamma factors of Proposition~\ref{zdist:prop:mix}(i) with $a=b=c$, puts $\log\E e^{ivX}$ in L\'evy Khintchine form with L\'evy density $k_c(|x|)/|x|$, the linear terms cancelling. The image is computed termwise from $\int_0^\infty(1-\cos x\theta)e^{-\kappa x}dx=\theta^2/(\kappa(\kappa^2+\theta^2))$. (ii) Malmsten's formula is a L\'evy representation of $\log\Gamma(a+s)/\Gamma(a)$ with drift $\psi(a)$ and canonical measure $xL(dx)=e^{-ax}(1-e^{-x})^{-1}dx\ge0$. Integrating \eqref{eq:sin2} against $L$ and using $\int_0^\infty(1-\cos x\theta)\frac{e^{-ax}}{1-e^{-x}}dx=\re\psi(a+i\theta)-\psi(a)$, from $\psi(z)-\psi(a)=\int_0^\infty\frac{e^{-ax}-e^{-zx}}{1-e^{-x}}dx$, gives the display at $s=|u|$ in the chart $\theta$, with the exchange of integrals justified by positivity (Tonelli). The integrand of the last formula is positive for $\theta\ne0$. The EGGC statement is the criterion of Section~\ref{sm:sec:strip}.
+\end{proof}
+
+The integral representation of $\log\Gamma$ used in the proof was checked at $c=0.3$, $s=1.7$: both sides are $4.85849318292215$, to $3\times10^{-51}$ at 50 digits (computed).
+
+At $u=2$ the two sides of (ii) agree to $10^{-17}$ at $a=\frac14$ (value $6.81130761057\times10^{-4}$) and at $a=3$ (value $0.527641617963$) (computed, adaptive quadrature at 30 digits). At $a=\frac14$ and with $|u|/2$ in place of $|u|$, (ii) is Theorem~\ref{rz:thm:gammaggc} on the real axis.
+
+For the gamma factor the lemma therefore converts a positive L\'evy measure into a positive Thorin density, with no hypothesis. For the full $\xi$ at the centre the input is the signed primal measure \eqref{rz:eq:primalxi}, whose sine squared image is positive exactly under RH (Proposition~\ref{rz:prop:twostage}). Proposition~\ref{zdist:prop:arch}(iii) is the same fact on the side of laws: the positive archimedean input is overwhelmed by the negative polar input $-2\cosh(x/2)\,dx$, and the primes have to restore positivity.
+
+\section{The heat flow as the natural EGGC family}\label{zdist:sec:flow}
+
+Let $H_t$, $\xi_t(s)=8H_t(-2i(s-\frac12))$ and $R_t(u)=H_t(0)/H_t(2i\sqrt u)$ be as in Section~\ref{ch:dbn}, so that $\xi_0=\xi$ and $R_0=1/G$. Since $\xi_t(\frac12+v)=8H_t(-2iv)=8H_t(2iv)$, for real $v$
+\begin{equation}\label{zdist:eq:Rt}
+R_t(v^2)=\frac{\xi_t(\frac12)}{\xi_t(\frac12+v)}=\frac{\E\,\xi(\frac12+\sqrt{t/2}\,Z)}{\E\,\xi(\frac12+v+\sqrt{t/2}\,Z)}\qquad(t>0),
+\end{equation}
+the second form by Proposition~\ref{xg:prop:gauss}.
+
+\begin{theorem}\label{zdist:thm:flow}
+\begin{enumerate}
+\item[(i)] For every real $t$, $H_t(iy)>0$ for real $y$. If $R_t$ is the Laplace transform of a law $T_t$ on $[0,\infty)$, then $v\mapsto R_t(v^2)$ is the characteristic function of the symmetric law $Y_t=Z\sqrt{2T_t}$.
+\item[(ii)] For $t\ge\Lambda$ the law $T_t$ exists, and $v\mapsto R_t(v^2)$ is the characteristic function of a symmetric EGGC if and only if $t\ge\Lambda$, and then $Y_t\stackrel d=\sum_kL_k/\theta_k(t)$ over the positive zeros $\frac12\pm i\theta_k(t)$ of $\xi_t$. In particular $Y_t$ is an EGGC for every $t\ge0.2$, with no hypothesis, and $Y_0=Y$ is an EGGC if and only if RH holds.
+\item[(iii)] With $u_t$ the mode of Proposition~\ref{xg:prop:large}, $Y_t/u_t\Rightarrow\frac2\pi X_{1/2}$ as $t\to\infty$, where $X_{1/2}\sim z(\frac12,\frac12)$; the limit has characteristic function $1/\cosh(2v)$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(i) $H_t(iy)=\int_0^\infty e^{tw^2}\Phi_{\rm dBN}(w)\cosh(yw)\,dw>0$ because $\Phi_{\rm dBN}>0$ (Section~\ref{ch:dbn}), and $\E e^{ivZ\sqrt{2T_t}}=\E e^{-v^2T_t}=R_t(v^2)$. (ii) For $t\ge\Lambda$, Theorem~\ref{rz:thm:dbn} gives $R_t(u)=\prod_k(1+u/\theta_k(t)^2)^{-1}$, a GGC transform, so $T_t=\sum_kE_k/\theta_k(t)^2$ and $Y_t=Z\sqrt{2T_t}$ is the EGGC $\sum_kL_k/\theta_k(t)$. Conversely, if $R_t(v^2)$ is the characteristic function of an EGGC $Z\sqrt{2H}$ with $H$ a GGC, then $\E e^{-v^2H}=R_t(v^2)$, so $R_t$ is a GGC transform; it is then holomorphic and nonvanishing on $\cut$, so $H_t(2i\sqrt u)$ has no zero there, and every zero $z$ of $H_t$, being a zero of $H_t(2i\sqrt u)$ at $u=-z^2/4$, has $-z^2/4\in(-\infty,0]$, that is $z$ real; so $t\ge\Lambda$ by the definition of $\Lambda$. The bound $\Lambda\le0.2$ is \cite{PT21}. At $t=0$ the statement is Theorem~\ref{sm:thm:thorin}. (iii) By Proposition~\ref{xg:prop:large}, $T_t/u_t^2\Rightarrow2C$ with $\E e^{-\lambda\,2C}=1/\cosh(2\sqrt\lambda)$, so $\E e^{ivY_t/u_t}=\E e^{-v^2T_t/u_t^2}\to1/\cosh(2v)$. By Proposition~\ref{zdist:prop:dual}, $X_{1/2}$ has characteristic function $|\Gamma(\frac12+iv)|^2/\pi=1/\cosh(\pi v)$, so $\frac2\pi X_{1/2}$ has $1/\cosh(2v)$, and L\'evy's continuity theorem applies.
+\end{proof}
+
+The heat flow is therefore a path of laws that runs, after scaling, from a $z$ law at $t=\infty$ to the law of $Y$ at $t=0$, and stays inside the EGGC class exactly on $t\ge\Lambda$. It is natural in three senses. It is the only one of the three families of Chapter~\ref{chap:tf} that changes the zeros and not only the basepoint or a tilt; by \eqref{zdist:eq:Rt} it acts on the mixing law through a Gaussian smoothing of $\xi$ on the real axis, which keeps the reciprocal a GGC transform whenever it is one (Theorem~\ref{xg:thm:smooth}); and its Thorin atoms are the zeros of an entire function of the same type as $\xi$, so that every member is again a symmetric generalised $z$ law $\sum_kL_k/\theta_k(t)$. It is close to $Y$ where it is known to be an EGGC: from \eqref{zdist:eq:Rt}, $R_{0.2}(1)/R_0(1)-1=-9.57\times10^{-5}$ (computed by adaptive quadrature of the normal averages at 30 digits, in agreement with the value $-9.6\times10^{-5}$ of Section~\ref{sec:xg:tilt}).
+
+\paragraph{What the 2 sin squared lemma contributes} For each $t\ge\Lambda$ the Thorin measure of $T_t$ in the chart $\theta$ is $\sum_k\delta_{\theta_k(t)}$, and by the computation of Proposition~\ref{rz:prop:twostage}(ii) it is the sine squared image of the formal primal measure $-2\sum_k\cos(\theta_k(t)x)\,dx$ of $\log\xi_t(\frac12+s)$. The lemma preserves positivity, so a positive primal measure would give the EGGC property at once. At $t=0$ the primal measure has the explicit form \eqref{rz:eq:primalxi}, with a negative polar part, and it is not positive. For $t\ne0$ no prime side is known (Section~\ref{ch:rz4}, after Theorem~\ref{rz:thm:dbn}), because no Euler product for $H_t$ is known; so for $t>0$ the lemma gives no independent route to positivity, and the EGGC property along the flow rests on the reality of the zeros of $H_t$, proved by de Bruijn's theorem and its refinements \cite{deBruijn,PT21}. What the lemma does contribute is the identification at every level: the Thorin density of each member is the sine squared image of a L\'evy density, and for the $z$ laws and the gamma factor that L\'evy density is positive (Proposition~\ref{zdist:prop:sin2}).
+
+\paragraph{Modulated normal laws} The laws $Y_t$ are normal laws whose variance is modulated by an independent random factor $2T_t$. Romanowski's modulated normal laws of geodesy are, according to the abstracts of McLane \cite{NCMcLane67} and of Platt and Paprzycki \cite{NCPlattPaprzycki95}, a family that tends to the normal law as its modulating parameter grows and that can be approximated by mixtures of normal laws; we have not read Romanowski's papers and use the phrase only in the generic sense of a normal scale mixture. In that sense the flow modulates the normal law by the clock, and the modulation is a GGC exactly when $t\ge\Lambda$.
+% UNCHECKED: Romanowski's definition of the modulated normal law was not read.
+
+\section{An unconditional approximating family}\label{zdist:sec:uncond}
+
+The task of finding an unconditional family of EGGC laws that converges to the law of $Y$ is, as stated, equivalent to RH.
+
+\begin{proposition}\label{zdist:prop:closure}
+If there are symmetric EGGC laws $Y_n$ with $Y_n\Rightarrow Y$, then RH holds. Conversely, under RH the constant family $Y_n=Y$ is such a family.
+\end{proposition}
+
+\begin{proof}
+Write $Y_n\stackrel d=Z\sqrt{2H_n}$ with $H_n$ a GGC. Then $\E e^{-v^2H_n}\to\E e^{-v^2T}$ for every real $v$, so the Laplace transforms of $H_n$ converge on $[0,\infty)$ to that of $T$, which tends to one at the origin, and $H_n\Rightarrow T$ by the continuity theorem for Laplace transforms. The GGC class is closed under convergence in law (Section~\ref{sec:weak:limits}), so $T$ is a GGC, and Proposition~\ref{prop:rigid} gives RH; this is Corollary~\ref{cor:weak:closure} in the variable $v=\sqrt u$. The converse is Theorem~\ref{sm:thm:thorin}.
+\end{proof}
+
+Every unconditional family must therefore stop short of $Y$. The heat flow stops at $t=0.2$; the basepoint family $Y_\alpha$ of Theorem~\ref{sm:thm:strip} stops at $\alpha=1$, or at $\alpha=\frac78$ if the announced and unrefereed zero free half plane $\re s>\frac78$ is confirmed \cite{OAI26a,OAI26b,Liu26a} (conditional); and the truncations over verified zeros stop at the verification height. The last family is the closest of the three in the topology of characteristic functions (Proposition~\ref{zdist:prop:trunc}).
+
+\begin{proposition}\label{zdist:prop:trunc}
+Let $T_0=3\times10^{12}$, the height below which every zero lies on the critical line \cite{PT21}, and for $2\le T'\le T_0$ put
+\[
+m(T')=\sum_{k:\ \gamma_k>T'}\frac1{a_k},\qquad Y^{(T')}=\sqrt{2m(T')}\,Z_0+\sum_{0<\gamma\le T'}\frac{L_\gamma}{\gamma},
+\]
+with $a_k=-(\rho_k-\frac12)^2$ summed over the zeros with $\gamma_k>T'$, $Z_0$ standard normal and the $L_\gamma$ standard Laplace, all independent. Then $m(T')>0$, $Y^{(T')}$ is a symmetric EGGC with no hypothesis, $\operatorname{Var}Y^{(T')}=\operatorname{Var}Y=2\E T$, and for real $v$ with $v^2\le T'^2/2$,
+\[
+\Big|\log\E e^{ivY}-\log\E e^{ivY^{(T')}}\Big|\le v^4\,\epsilon(T'),\qquad \epsilon(T')=\frac2\pi\Big(\frac{\log T'}{3T'^3}+\frac1{9T'^3}\Big).
+\]
+\end{proposition}
+
+\begin{proof}
+The zeros with $\gamma_k>T'$ come in groups $\rho,1-\bar\rho$ whose values $a_k$ are complex conjugates, so $m(T')$ is real; and $\re(1/a_k)=(\gamma^2-\delta^2)/(\gamma^2+\delta^2)^2>0$ for $a_k=(\gamma-i\delta)^2$ with $|\delta|<\frac12<\gamma$, so $m(T')>0$; the series converges absolutely since $|a_k|\ge\gamma_k^2$. Below $T_0$ every $a_k$ equals $\gamma_k^2>0$. So $H=m(T')+\sum_{0<\gamma\le T'}E_\gamma/\gamma^2$ is a GGC with drift $m(T')$ and finitely many atoms, and $Y^{(T')}=Z\sqrt{2H}$ in law, an EGGC by the criterion of Section~\ref{sec:ch3:hierarchy}. Its variance is $2\E H=2\sum_ka_k^{-1}=2\E T$. For the bound, $-\log\E e^{ivY}=\log G(v^2)=\sum_k\log(1+v^2/a_k)$, and $-\log\E e^{ivY^{(T')}}=\sum_{\gamma_k\le T'}\log(1+v^2/\gamma_k^2)+v^2m(T')$, so the difference is $\sum_{\gamma_k>T'}\big(\log(1+x_k)-x_k\big)$ with $x_k=v^2/a_k$. Since $|a_k|\ge\gamma_k^2>T'^2$ and $v^2\le T'^2/2$, $|x_k|\le\frac12$, and then $|\log(1+x)-x|\le\sum_{n\ge2}|x|^n/n\le|x|^2$. So the difference is at most $v^4\sum_{\gamma>T'}\gamma^{-4}$ in absolute value, summing over the zeros with $\gamma>T'$ counted once each. By partial summation this sum is at most $4\int_{T'}^\infty N(t)t^{-5}dt$, and $N(t)\le\frac t{2\pi}\log t$ for $t\ge2$ (proof of Theorem~\ref{sm:thm:strip}), so it is at most $\frac2\pi\int_{T'}^\infty t^{-4}\log t\,dt=\epsilon(T')$.
+\end{proof}
+
+At $T'=T_0$, $\epsilon(T_0)=2.28\times10^{-37}$: with no hypothesis, the law of $Y$ is within $v^4\times2.3\times10^{-37}$ of an EGGC in the logarithm of its characteristic function for $|v|\le2\times10^{12}$. A test at a height where the zeros are at hand: with the first $300$ ordinates, $T'=\gamma_{300}=541.8474371$ and $m(T')=\E T-\sum_{\gamma\le T'}\gamma^{-2}=0.0015995195$, the observed error is $4.96\times10^{-7}$ at $v=5$ and $1.27\times10^{-4}$ at $v=20$, against the bounds $5.53\times10^{-6}$ and $1.42\times10^{-3}$ (computed; $\E T=\xi''(\frac12)/(2\xi(\frac12))=0.0231049931154$, as in Section~\ref{ch:clock}). The same ordinates, with the omitted zeros replaced by their exact first moment $m(T')$ and a Weyl estimate of their second, reproduce $\Xi(0)/\Xi(5)=1.80410373065$ to $3\times10^{-8}$ (computed; the value $2\E T=0.046210$ is not an independent check, since $m(T')$ is defined from $\E T$).
+
+The Gaussian component $\sqrt{2m(T')}Z_0$ is the second moment of the missing factors and is what Section~\ref{sec:ch18:kent} calls the Weyl tail at first order. Every member is a generalised $z$ law plus a normal law. As $T'$ increases beyond $T_0$ the construction gives EGGC laws exactly as long as $a_k=\gamma_k^2$ for the zeros below $T'$, that is as long as they stay on the line, and the family converges to $Y$; Proposition~\ref{zdist:prop:closure} says that this convergence through EGGC laws is RH, and Proposition~\ref{zdist:prop:trunc} says how small the unproved part is in the topology of characteristic functions. It is not small in the sense that matters: by Section~\ref{ch:finite} and Theorem~\ref{thm:ch13:perturb}, functions with zeros off the line above $T_0$ give laws just as close.
+
+\paragraph{A tilted family} The shifted zeros give a second check of the same structure, conditional on RH: for $|\beta|<\gamma_1$ and $u\ge0$, under RH,
+\[
+\frac{\Xi(\beta)}{\Xi(\sqrt{\beta^2-u})}=\prod_{\gamma>0}\Big(1+\frac u{\gamma^2-\beta^2}\Big)^{-1},
+\]
+the Laplace transform at $u$ of the clock tilted by $e^{\beta^2T}$, whose atoms are $\gamma^2-\beta^2$. With $\beta=5$, $u=3$ and $300$ ordinates, the tail treated in the same way, both sides are $0.93034098634$ to $3.4\times10^{-10}$ (computed). This is the Esscher tilt of Chapter~\ref{chap:tf}; it moves every atom by the same amount and is uninformative for the same reason (Section~\ref{tf:sec:tilt}).
+
+\section{Open problems}\label{zdist:sec:open}
+
+\begin{problem}\label{zdist:prob:bnks}
+Read \cite{BNKS82} and determine whether its mixing law for $z(a,b)$ is the GGC of Proposition~\ref{zdist:prop:mix}(iii), and whether its results on the asymmetric laws, $\mu\ne0$, have an analogue for the tilted P\'olya variables $V_\alpha$ of Section~\ref{ch:clock}, whose characteristic functions $\xi(\alpha+i\theta)/\xi(\alpha)$ are never infinitely divisible (Section~\ref{ch:strip}).
+\end{problem}
+
+\begin{problem}\label{zdist:prob:vd}
+Proposition~\ref{zdist:prop:vd} decides the van Dantzig property for the arithmetic progressions $c_k=c+k$. Characterise the positive sequences $(c_k)$ with $\sum c_k^{-2}<\infty$ for which $\sum_kL_k/c_k$ is the second member of a van Dantzig pair. Under RH the ordinates $\gamma_k$ are such a sequence, with first member $\Xi(v)/\Xi(0)$; the condition is that $\prod_k(1-v^2/c_k^2)$ be a characteristic function, so it is a condition on the regularity of the sequence and not on its density alone.
+\end{problem}
+
+\begin{problem}\label{zdist:prob:interp}
+Is there a one parameter family of symmetric laws, each an EGGC with no hypothesis, joining $\frac2\pi X_{1/2}$ to $Y$ other than by the heat flow, along which the EGGC property can be followed by a computation that does not reduce to the reality of the zeros of $H_t$? Proposition~\ref{zdist:prop:closure} implies that such a family cannot reach $Y$ unconditionally, so the question is which property of the family degenerates at the endpoint.
+\end{problem}
+
+\begin{problem}\label{zdist:prob:flow}
+Is the L\'evy density $K_t(|y|)/|y|$ of $Y_t$, with $K_t(y)=\sum_ke^{-\theta_k(t)y}$ for $t\ge\Lambda$, monotone in $t$ for each fixed $y$? Problem~\ref{prob:ch21:order} asks the same question for the stochastic order of $T_t$; for $Y_t$ it would say that the flow moves L\'evy mass monotonically between scales.
+\end{problem}
+
+\begin{problem}\label{zdist:prob:remainder}
+The variable $D_0$ of Proposition~\ref{zdist:prop:arch}(ii) has negative mean, so $T+\tilde T$ does not contain $H_\infty$ as an independent summand. For $0\le\lambda\le1$ let $H^{(\lambda)}$ be the GGC with Thorin atoms of mass $\lambda$ at the points $c_k^2$. For which $\lambda$ is $\E e^{-w(T+\tilde T)}/\E e^{-wH^{(\lambda)}}$ the Laplace transform of a law on $[0,\infty)$? The mean gives the necessary condition $\lambda\le2\E T/\E H_\infty=0.01075$, and at $\lambda=0$ the answer is yes (Theorem~\ref{thm:ch12:idsd}). Is the set of such $\lambda$ an interval $[0,\lambda^*]$ with $\lambda^*>0$, and what is $\lambda^*$?
+\end{problem}
+
+\paragraph{Does the topic give a path to RH?} No, not by itself. The $z$ laws give an explicit and unconditional model of the EGGC structure, and they make the archimedean factor of $\xi$ a $z$ law, but the arithmetic factor enters as a deconvolution of that law (Proposition~\ref{zdist:prop:arch}(iii)), so positivity has to come from the primes and the pole together, which is the step that Section~\ref{ov1:sec:path} identifies as a zero free half plane. The heat flow is the natural EGGC family, with a $z$ law at one end and $Y$ at the other, but it is known to stay in the EGGC class only for $t\ge0.2$, and closing the gap to $t=0$ is $\Lambda\le0$, which is RH. Any unconditional family of EGGC laws converging to the law of $Y$ would prove RH (Proposition~\ref{zdist:prop:closure}), and the best unconditional families stop at the verification height, at a distance that no finite computation can make zero.

@@ -7,13 +7,14 @@
 # Usage: python3 gl_pole_lock.py [--N 6000000] [--out ../data/gl_pole_lock.json]. About 1 s on one core. Heuristic, not a theorem.
 import argparse
 import json
+import os
 from math import erf, exp, log, pi, sqrt
 
 import numpy as np
 
 ap = argparse.ArgumentParser()
 ap.add_argument("--N", type=int, default=6_000_000)
-ap.add_argument("--out", default="../data/gl_pole_lock.json")
+ap.add_argument("--out", default=os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "data", "gl_pole_lock.json"))
 a = ap.parse_args()
 N = a.N
 s = np.ones(N + 1, bool)

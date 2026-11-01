@@ -2,13 +2,13 @@
 
 \label{bs:sec:intro}The observation that closes Section~\ref{ch:boschA} becomes a theorem through an elasticity criterion (Theorem~\ref{bs:thm:crit}). Applied to $\varphi(s)=\xi(\frac12)/\xi(\frac12+\sqrt s)$ it gives a Bosch type theorem for $\varphi(x^{1/\beta})$ (Theorem~\ref{bs:thm:power}), and the same elasticity identifies the Thorin measure of $\varphi(s^p)$ (Theorem~\ref{bs:thm:ggc}); the positivity of its density is where the Riemann problem now sits.
 
-The notation is that of Section~\ref{ch:boschA}: the clock $\varphi$ is a function of $s$, and $W$ is the Mellin variable with $\E W^z=\Xi(0)/\Xi(z)$, not the heat trace $W(t)$ of Section~\ref{ch:heat}. The numerical checks are made by \texttt{code\_bosch/\allowbreak verify\_bosch\_xi\_v7.py} in the repository and documented in \texttt{code/\allowbreak README.md}; the checks confirm formulas and constants and prove nothing.
+The notation is that of Section~\ref{ch:boschA}; in particular $W$ is the Mellin variable with $\E W^z=\Xi(0)/\Xi(z)$, not the heat trace. The numerical checks confirm formulas and constants and prove nothing.
 
 \subsection{The elasticity criterion}\label{bs:sec:crit}
 
-\label{bs:sec:facts}We use HCM as defined in Section~\ref{bh:sec:bosch}, with the facts (F1) to (F7) listed there, above all Bondesson's representation~\eqref{bs:eq:bond} \cite[(5.2.3) and Theorem 5.3.1]{Bondesson}. Throughout, $\Om=\C\setminus(-\infty,0]$, $\C^+=\{\Im x>0\}$, and a Pick function is an analytic map $\C^+\to\overline{\C^+}$. For a GGC with Laplace transform $h$, drift $b\ge0$ and Thorin measure $U$, in the sense of~\eqref{eq:ch3:ggc}, $-h'/h=b+\int U(dt)/(x+t)$ is a Stieltjes function. We also need two facts about complete Bernstein functions \cite[Theorem 6.2]{boSSV}: a function $f$ on $(0,\infty)$ is complete Bernstein if and only if $f\ge0$ on $(0,\infty)$ and $f$ continues to a Pick function analytic on $\Om$, and then $f(x)/x$ is a Stieltjes function.
+\label{bs:sec:facts}We use HCM as defined in Section~\ref{bh:sec:bosch}, with the facts (F1) to (F7) listed there, above all Bondesson's representation~\eqref{bs:eq:bond}. Throughout, $\Om=\C\setminus(-\infty,0]$, $\C^+=\{\Im x>0\}$, and a Pick function is an analytic map $\C^+\to\overline{\C^+}$. For a GGC with Laplace transform $h$, drift $b\ge0$ and Thorin measure $U$, in the sense of~\eqref{eq:ch3:ggc}, $-h'/h=b+\int U(dt)/(x+t)$ is a Stieltjes function. We also need two facts about complete Bernstein functions \cite[Theorem 6.2]{boSSV}: a function $f$ on $(0,\infty)$ is complete Bernstein if and only if $f\ge0$ on $(0,\infty)$ and $f$ continues to a Pick function analytic on $\Om$, and then $f(x)/x$ is a Stieltjes function.
 
-The elasticity criterion below restates~\eqref{bs:eq:bond} as a Pick function condition, of the kind through which Bosch verifies HCM \cite[Section 2.2]{boBosch}.
+The elasticity criterion restates~\eqref{bs:eq:bond} as a Pick function condition, of the kind through which Bosch verifies HCM \cite[Section 2.2]{boBosch}.
 
 \begin{definition}
 For $h$ analytic and zero free on $\Om$ and positive on $(0,\infty)$, let $\log h$ be the branch that is real on $(0,\infty)$ and define the elasticity $\varepsilon_h(x)=-xh'(x)/h(x)$. In logarithmic coordinates $x=e^z$ one has $\varepsilon_h(e^z)=-\frac{d}{dz}\log h(e^z)$.
@@ -40,11 +40,11 @@ F'(w)=b+\int_{(-\infty,2]}\frac{\sigma(dt)}{(w-t)^2}=b+\int_{(-\infty,2]}\int_0^
 which is completely monotone. A function whose derivative is completely monotone is a Bernstein function up to an additive constant, and $e^{-F}$ is then completely monotone. So every pair function is completely monotone and $h$ is HCM.
 \end{proof}
 
-The two conditions play different roles. Analyticity without zeros is global and rigid: a single zero or pole of $h$ anywhere off the negative axis destroys HCM, however small its effect on the real line. The Pick condition is local and quantitative: it can fail along a ray without any singularity.
+The two conditions play different roles. Analyticity without zeros is global and rigid: one zero or pole of $h$ off the negative axis destroys HCM, however small its effect on the real line. The Pick condition is local and quantitative, and can fail along a ray without any singularity.
 
 \subsection{Bosch's theorem from the criterion}\label{bs:sec:bosch}
 
-Bosch's variable $T_\alpha=(Z_\alpha/\tilde Z_\alpha)^\alpha$, $0<\alpha<1$, of Section~\ref{bh:sec:bosch} has the density $\sin(\pi\alpha)/(\pi\alpha(t^2+2t\cos\pi\alpha+1))$ of a half Cauchy law with drift. Let $c=\cos\pi\alpha$ and $q=1/|\beta|$, half the $q$ of~\eqref{bh:eq:pair}. Since $T_\alpha\stackrel{d}{=}1/T_\alpha$ we may take $\beta>0$. The density of $T_\alpha^\beta$ is proportional to
+Let $T_\alpha$, $0<\alpha<1$, be Bosch's variable of Section~\ref{bh:sec:bosch}. Let $c=\cos\pi\alpha$ and $q=1/|\beta|$, half the $q$ of~\eqref{bh:eq:pair}. Since $T_\alpha\stackrel{d}{=}1/T_\alpha$ we may take $\beta>0$. The density of $T_\alpha^\beta$ is proportional to
 \[
 h(x)=\frac{x^{q-1}}{D(x)},\qquad D(x)=x^{2q}+2cx^q+1=(x^q+e^{i\pi\alpha})(x^q+e^{-i\pi\alpha}).
 \]
@@ -72,7 +72,7 @@ As in Section~\ref{bh:sec:dict}, $\gamma$ runs over the zeros of $\Xi(z)=\xi(1/2
 \varphi(s)=\frac{\xi(1/2)}{\xi(1/2+\sqrt s)}=\prod_\gamma\Bigl(1+\frac s{\gamma^2}\Bigr)^{-1},\qquad
 \varepsilon_\varphi(s)=\frac{\sqrt s}{2}\,\frac{\xi'}{\xi}\Bigl(\frac12+\sqrt s\Bigr)=\sum_\gamma\frac{s}{s+\gamma^2},
 \]
-both absolutely convergent since $\sum|\gamma|^{-2}<\infty$. Write $\gamma=\varrho e^{i\delta}$. Since the zeros of $\xi$ lie in the open critical strip, $|\delta|<\arctan(1/(2\Re\gamma))$, and since every zero has $\Re\gamma>14$, also $|\delta|<\pi/4$. Define
+both absolutely convergent since $\sum|\gamma|^{-2}<\infty$. Write $\gamma=\varrho e^{i\delta}$. Since the zeros of $\xi$ lie in the open critical strip, $|\delta|<\arctan(1/(2\Re\gamma))$, and since $\Re\gamma>14$, $|\delta|<\pi/4$. Define
 \[
 \delta_*=\max_\gamma|\arg\gamma|,\qquad \alpha_\xi=\frac{2\delta_*}{\pi},\qquad p_*=1-\alpha_\xi.
 \]
@@ -111,7 +111,7 @@ The following are equivalent: (i) RH; (ii) $\varphi$ is HCM; (iii) $\varphi(x^p)
 \end{corollary}
 
 \begin{proof}
-By Theorem~\ref{bs:thm:power}, each of (i), (ii) and (iii) says that $p_*=1$; the equivalence of (i) and (ii) is also Corollary~\ref{cor:hcm}(ii), restated as Theorem~\ref{bh:thm:main}, so only (iii) to (v) are new. (iv) is the elasticity form of (ii) through Theorem~\ref{bs:thm:crit}. (v) is (iv) with $s=z^2$, which maps the open first quadrant onto $\C^+$.
+By Theorem~\ref{bs:thm:power}, each of (i), (ii) and (iii) says that $p_*=1$; (i) if and only if (ii) is also Theorem~\ref{bh:thm:main}. (iv) is the elasticity form of (ii) through Theorem~\ref{bs:thm:crit}. (v) is (iv) with $s=z^2$, which maps the open first quadrant onto $\C^+$.
 \end{proof}
 
 Criterion (v) is an angular companion to Lagarias's criterion $\Re(\xi'/\xi)(\frac12+z)>0$ for $\Re z>0$ \cite{Lagarias}.
@@ -181,25 +181,23 @@ because $4b^2<1$ and $2b^2-x>0$. Hence $D_\gamma\subset\mathcal E_{T_0}$, and (i
 
 Both bounds that define $\mathcal E_{T_0}$ are sharp for zeros with $a>T_0$ and $0<b<\frac12$. The rightmost point $2b^2-(a-b)^2$ of $D_\gamma$ tends to $-T_0^2+T_0+\frac14$ as $b\uparrow\frac12$ and $a\downarrow T_0$. For $x<\frac34-T_0^2$ the supremum of $y^2$ over the points $x+iy$ of the discs is $\frac12-x$: the bound $8b^4-4b^2x$ of the proof is attained, at $e=2b^2$, by the disc with $a^2=3b^2-x$, which has $a>T_0$ once $b$ is close to $\frac12$, and it tends to $\frac12-x$ as $b\uparrow\frac12$. At the tip $x_0=-T_0^2+T_0+\frac14$ the height of $\mathcal E_{T_0}$ is exactly $T_0-\frac12$, since $\frac12-x_0=(T_0-\frac12)^2$, so the ray from the origin to the corner $x_0+i(T_0-\frac12)$ makes the angle $\theta_0=\arctan\frac{T_0-1/2}{T_0^2-T_0-1/4}=3.33333\times10^{-13}$ with the negative axis, which exceeds $1/T_0$ by the factor $1+1.7\times10^{-13}$. Further out the angle decreases like $|x|^{-1/2}$.
 
-Corollary~\ref{bs:cor:uncond} gives the sign of the elasticity $s\psi(s)$ outside a sector of opening $1/T_0$ beside the cut, through Lemma~\ref{bs:lem:pair}; Theorem~\ref{bs:thm:local} gives the sign of $\psi$ itself outside a parabola, through the exact region of Lemma~\ref{bs:lem:disc}, and the parabola is much thinner. The theorem does not make $\psi$ a Stieltjes function off $\mathcal E_{T_0}$, since being a Stieltjes function is a global property; it says that if the Stieltjes form fails, it fails through poles of $\psi$ in $\mathcal E_{T_0}$, which come from zeros above the verification height. Like the corollary, it brings no new information about the zeros, and nothing in it limits the number of poles in $\mathcal E_{T_0}$ (Section~\ref{ag:sec:exactly}).
+Corollary~\ref{bs:cor:uncond} gives the sign of the elasticity $s\psi(s)$ outside a sector of opening $1/T_0$ beside the cut; Theorem~\ref{bs:thm:local} gives the sign of $\psi$ itself outside a much thinner parabola (Figure~\ref{bs:fig:disc}), through the exact region of Lemma~\ref{bs:lem:disc}. It does not make $\psi$ a Stieltjes function off $\mathcal E_{T_0}$, a global property; it says that if the Stieltjes form fails, it fails through poles of $\psi$ in $\mathcal E_{T_0}$, from zeros above the verification height. Like the corollary, it brings no new information about the zeros, and nothing in it limits the number of poles in $\mathcal E_{T_0}$ (Section~\ref{ag:sec:exactly}).
 
 \begin{remark}[the right end]\label{bs:rem:rightend}
-The right end of $\mathcal E_{T_0}$ cannot be moved to $-(T_0-\frac12)^2$, the value the argument would give if the rightmost point of $D_\gamma$ were $-(a-b)^2$: it is $2b^2-(a-b)^2$, and the extra $2b^2$ reaches into the strip $-(T_0-\frac12)^2\le x<-(T_0-\frac12)^2+\frac12$. Whether $\Im\psi$ itself is positive at such points depends on zeros that nobody knows; the termwise argument cannot exclude them.
+The right end of $\mathcal E_{T_0}$ cannot be moved to $-(T_0-\frac12)^2$, the value the argument would give if the rightmost point of $D_\gamma$ were $-(a-b)^2$: it is $2b^2-(a-b)^2$, and the extra $2b^2$ reaches into the strip $-(T_0-\frac12)^2\le x<-(T_0-\frac12)^2+\frac12$. Whether $\Im\psi$ is positive at such points depends on unknown zeros, which the termwise argument cannot exclude.
 \end{remark}
-
-Figure~\ref{bs:fig:disc} shows the sliver and the discs.
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{fig/pakes_disc.pdf}
-\caption{Left: the sliver $\mathcal E_{T_0}$ of Theorem~\ref{bs:thm:local} for $T_0=2$ (dashed) and the discs $D_\gamma$ of six hypothetical zeros $a+ib$ with $a>2$ and $0<b<\frac12$, with the poles $-\gamma^2$ and $-\bar\gamma^2$ (dots) at the ends of their vertical diameters; the dot at $0$ marks the origin. Right: for the toy reciprocal Xi function with the first $200$ zeros of $\zeta$ and the pair $60\pm0.3i$, the set where $\Im\psi>0$ (shaded) on a grid of $481\times300$ points, which lies inside the upper half of $D_\gamma$ (solid); the cross is the pole $-\bar\gamma^2=-3599.91+36i$. Drawn by \texttt{pakes\_disc.py}.}
+\caption{Left: the sliver $\mathcal E_{T_0}$ of Theorem~\ref{bs:thm:local} for $T_0=2$ (dashed) and the discs $D_\gamma$ of six hypothetical zeros $a+ib$ with $a>2$ and $0<b<\frac12$, with the poles $-\gamma^2$ and $-\bar\gamma^2$ (dots) at the ends of their vertical diameters; the dot at $0$ marks the origin. Right: for the toy reciprocal Xi function with the first $200$ zeros of $\zeta$ and the pair $60\pm0.3i$, the set where $\Im\psi>0$ (shaded) on a grid of $481\times300$ points, which lies inside the upper half of $D_\gamma$ (solid); the cross is the pole $-\bar\gamma^2=-3599.91+36i$.}
 \label{bs:fig:disc}
 \end{figure}
 
-The threshold $p_*$ of Theorem~\ref{bs:thm:power} can be followed along the de Bruijn Newman flow. With $H_t$ and $\varphi_t(s)=H_t(0)/H_t(2i\sqrt s)$ as in Section~\ref{bh:sec:main}, so that $\varphi_0=\varphi$, let $\delta_*(t)$ be the largest angle $|\arg z|$ over the zeros $z$ of $H_t$ with $\Re z>0$, and $p_*(t)=1-2\delta_*(t)/\pi$. The proof of Theorem~\ref{bs:thm:power} uses only the product over the zeros, positivity on $(0,\infty)$ and the bound $|\arg z|<\pi/4$ required by Lemma~\ref{bs:lem:pair}, so whenever the zeros of $H_t$ satisfy that bound, $\varphi_t(x^p)$ is HCM if and only if $|p|\le p_*(t)$. By de Bruijn \cite{deBruijn} and Newman \cite{Newman1976} (Corollary~\ref{bh:cor:dbn}), $p_*(t)=1$ exactly for $t\ge\Lambda$; by Rodgers and Tao \cite{RodgersTao}, $p_*(t)<1$ for every $t<0$.
+The threshold $p_*$ of Theorem~\ref{bs:thm:power} can be followed along the de Bruijn Newman flow. With $H_t$ and $\varphi_t(s)=H_t(0)/H_t(2i\sqrt s)$ as in Section~\ref{bh:sec:main}, so that $\varphi_0=\varphi$, let $\delta_*(t)$ be the largest angle $|\arg z|$ over the zeros $z$ of $H_t$ with $\Re z>0$, and $p_*(t)=1-2\delta_*(t)/\pi$. The proof of Theorem~\ref{bs:thm:power} uses only the product over the zeros, positivity on $(0,\infty)$ and the bound $|\arg z|<\pi/4$ required by Lemma~\ref{bs:lem:pair}, so whenever the zeros of $H_t$ satisfy that bound, $\varphi_t(x^p)$ is HCM if and only if $|p|\le p_*(t)$. By de Bruijn \cite{deBruijn} and Newman \cite{Newman1976}, $p_*(t)=1$ exactly for $t\ge\Lambda$, and by Rodgers and Tao \cite{RodgersTao} $p_*(t)<1$ for every $t<0$.
 
 \begin{question}\label{bs:q:four}
-Describe $p_*(t)=1-\frac2\pi\delta_*(t)$ for $t<0$. By Rodgers and Tao $p_*(t)<1$ for every $t<0$. Assume RH; how fast does $1-p_*(t)\to0$ as $t\uparrow0$?
+Describe $p_*(t)=1-\frac2\pi\delta_*(t)$ for $t<0$. Assume RH; how fast does $1-p_*(t)\to0$ as $t\uparrow0$?
 \end{question}
 
 Heuristically, the off line zeros of $H_t$ for small $|t|$ come from nearly coincident pairs of real zeros: by the isolated pair estimate of Section~\ref{ch:dbn}, a pair at distance $D_0$ collides near $t=-D_0^2/8$ and then has imaginary parts of order $\sqrt{|t|}$, at heights where the gap is of order $\sqrt{|t|}$. Since $1-p_*(t)$ is governed by $\max\Im z/\Re z$, the answer depends on the lowest height at which such a pair has collided, and so on the small gap statistics of the zeros. Both ingredients of an estimate are missing: de Bruijn's bound on the imaginary parts of the zeros runs only forward in time, from $H_0$ to $H_t$ with $t>0$, and no lower bound is known for the heights of the pairs that have collided by time $t$.
@@ -237,7 +235,7 @@ and $X_p\stackrel{d}{=}S_p\,X^{1/p}$, where $X=\sum_\gamma e_\gamma/\gamma^2$ is
 For real $\gamma$ the term of~\eqref{bs:eq:upzeros} equals $\frac{p}{\pi}\,\frac{\gamma^2\tau^{p-1}\sin p\pi}{\tau^{2p}+2\gamma^2\tau^p\cos p\pi+\gamma^4}$; substituting $\tau=\gamma^{2/p}t$ turns it into $p$ times Lamperti's density in $t$. The subordination identity is $\E e^{-sS_pY}=\E e^{-s^pY^p}$ with $Y=X^{1/p}$.
 \end{proof}
 
-Bosch's variable is therefore the kernel of the Thorin measure of $\varphi(s^p)$. Formula~\eqref{bs:eq:up} makes sense whatever the zeros are, and RH is the statement that it stays nonnegative as $p$ increases to $1$ (Question~\ref{bs:q:one} and the argument after it).
+Bosch's variable is therefore the kernel of the Thorin measure of $\varphi(s^p)$. Formula~\eqref{bs:eq:up} makes sense whatever the zeros, and RH is the statement that it stays nonnegative as $p$ increases to $1$ (Question~\ref{bs:q:one} and the argument after it).
 
 \begin{corollary}\label{bs:cor:rhX}
 RH holds if and only if $X_p$ exists, that is $\varphi(s^p)$ is a GGC transform, for every $p\in(0,1)$. Unconditionally $X_p$ exists for $0<p\le1-1/(\pi T_0)$, in particular for $0<p\le1-1.1\times10^{-13}$, with the Thorin density~\eqref{bs:eq:up}.
@@ -253,13 +251,13 @@ Construct $X_{1/2}$ from Brownian motion, Bessel processes or the Biane, Pitman 
 
 \subsection{Positivity of the Thorin density from the primes}\label{bs:sec:open}
 
-\label{bs:sec:limits}The method reads the threshold off the zeros: the elasticity has nonnegative imaginary part termwise on the sector $0<\arg s<\pi-2\delta_*$, and no information about $\delta_*$ is produced. A proof of RH along these lines must show $u_p\ge0$ for every $p<1$ directly from~\eqref{bs:eq:up}, for instance from the P\'olya kernel, from the prime sum of Remark~\ref{bs:rem:primes} or from a probabilistic model; this is the Thorin measure form of the reciprocal Xi programme of \cite{P17}. It cannot be done factor by factor: only the combination $(s-\frac14)\zeta(\frac12+\sqrt s)$ can enter an HCM or Pick argument (Section~\ref{bh:sec:use}).
+\label{bs:sec:limits}The method reads the threshold off the zeros: the elasticity has nonnegative imaginary part termwise on the sector $0<\arg s<\pi-2\delta_*$, and nothing is learnt about $\delta_*$. A proof of RH along these lines must show $u_p\ge0$ for every $p<1$ directly from~\eqref{bs:eq:up}, for instance from the P\'olya kernel, from the prime sum of Remark~\ref{bs:rem:primes} or from a probabilistic model; this is the Thorin measure form of the reciprocal Xi programme of \cite{P17}. It cannot be done factor by factor: only the combination $(s-\frac14)\zeta(\frac12+\sqrt s)$ can enter an HCM or Pick argument (Section~\ref{bh:sec:use}).
 
 \begin{question}\label{bs:q:one}
 Prove $u_p\ge0$ for every $p\in(0,1)$ directly from~\eqref{bs:eq:up}, without locating the zeros.
 \end{question}
 
-The statement for all $p\in(0,1)$ is equivalent to RH. Under RH it holds by Theorem~\ref{bs:thm:ggc}. Conversely, suppose RH fails, let $\gamma=\varrho e^{i\delta_*}$ be a zero of maximal angle, and let $p\in(p_*,1)$; formula~\eqref{bs:eq:up} still defines $u_p$, except at isolated poles, although it is no longer a Thorin density. At $\tau=\varrho^{2/p}$ the term of $\bar\gamma$ in~\eqref{bs:eq:upzeros} equals $-\frac{p}{2\pi\tau}\cot\frac{\pi(p-p_*)}2$, which tends to $-\infty$ as $p\downarrow p_*$. The sum of the other terms stays bounded, because the other points $-\gamma'^2$ keep a positive distance from $-\bar\gamma^2$ and the tail of the sum is $O(\sum|\gamma'|^{-2})$. So $u_p$ takes negative values for $p$ slightly above $p_*$.
+For all $p\in(0,1)$ this is equivalent to RH. Under RH it holds by Theorem~\ref{bs:thm:ggc}. Conversely, suppose RH fails, let $\gamma=\varrho e^{i\delta_*}$ be a zero of maximal angle, and let $p\in(p_*,1)$; formula~\eqref{bs:eq:up} still defines $u_p$, except at isolated poles, although it is no longer a Thorin density. At $\tau=\varrho^{2/p}$ the term of $\bar\gamma$ in~\eqref{bs:eq:upzeros} equals $-\frac{p}{2\pi\tau}\cot\frac{\pi(p-p_*)}2$, which tends to $-\infty$ as $p\downarrow p_*$. The sum of the other terms stays bounded, because the other points $-\gamma'^2$ keep a positive distance from $-\bar\gamma^2$ and the tail of the sum is $O(\sum|\gamma'|^{-2})$. So $u_p$ takes negative values for $p$ slightly above $p_*$.
 
 Along the ray write $\vartheta=p\pi/2\in(0,\pi/2)$, $t=\tau^{p/2}$, $z=te^{i\vartheta}$ and $w=\frac12+z$, so that $u_p(\tau)=\frac{p}{2\pi\tau}\Im[z\,\frac{\xi'}{\xi}(w)]$ by~\eqref{bs:eq:up}, and split $\xi'/\xi=\Gamma_\xi+\zeta'/\zeta$, where
 \[
@@ -287,9 +285,9 @@ Every term of $m_p$ is explicit, no zero of $\zeta$ enters, and $m_p(t)=\frac t2
 Binet's formula \cite[(5.9.13)]{DLMF} gives, for $\Re x>0$, $\psi(x)=\log x-\frac1{2x}-\int_0^\infty b(u)e^{-xu}du$ with $b(u)=\frac1{e^u-1}-\frac1u+\frac12\in[0,u/12]$. Hence $\psi(x)=\log x-\frac1{2x}-R$ with $|R|\le\frac1{12(\Re x)^2}$. With $x=w/2$ this turns $\Gamma_\xi(w)$ into $\frac1{2w}+\frac1{w-1}+\frac12\log\frac w{2\pi}-\frac R2$ with $|R|\le\frac1{3\sigma^2}$, so $\Im[z\Gamma_\xi(w)]$ is at least the first term of $m_p$ minus $t/(6\sigma^2)$. For the prime part, $\Im[z\,\zeta'/\zeta(w)]=-\sum\Lambda(n)\Im(zn^{-w})\ge-t\sum\Lambda(n)n^{-\sigma}$. The asymptotic follows from $\Im[z\log z]=t(\sin\vartheta\log t+\vartheta\cos\vartheta)$ and $-\zeta'/\zeta(\sigma)\to0$ as $\sigma\to\infty$.
 \end{proof}
 
-Table~\ref{bs:tab:prime} gives the point beyond which $m_p>0$, computed on a logarithmic grid of 50 points per decade, with $-\zeta'/\zeta(\sigma)$ evaluated directly. The entry $t_1$ is the last grid point at which $m_p\le0$, so the sign change lies within one grid step, a factor $10^{1/50}$, above it. These values are computed, not proved: nothing controls $m_p$ between grid points or beyond the last one.
+Table~\ref{bs:tab:prime} gives the point beyond which $m_p>0$, on a logarithmic grid of 50 points per decade with $-\zeta'/\zeta(\sigma)$ evaluated directly: $t_1$ is the last grid point at which $m_p\le0$, so the sign change lies within a factor $10^{1/50}$ above it. These values are computed, not proved: nothing controls $m_p$ between grid points or beyond the last one.
 
-The prime term of $m_p$ can be made elementary, because $-\zeta'/\zeta(\sigma)<1/(\sigma-1)$ for every $\sigma>1$. Delange \cite[Th\'eor\`eme]{Delange87} proves the sharper bound $-\zeta'/\zeta(\sigma)<1/(\sigma-1)-1/(2\sigma^2)$. Since $-\zeta'/\zeta(\sigma)$ enters $m_p$ with the factor $-t<0$, replacing it by $1/(\sigma-1)$ lowers $m_p$, and \eqref{bs:eq:primebound} still holds.
+The prime term of $m_p$ can be made elementary, because $-\zeta'/\zeta(\sigma)<1/(\sigma-1)$ for every $\sigma>1$. Delange \cite[Th\'eor\`eme]{Delange87} proves the sharper bound $-\zeta'/\zeta(\sigma)<1/(\sigma-1)-1/(2\sigma^2)$. Since $-\zeta'/\zeta(\sigma)$ enters $m_p$ with the factor $-t$, replacing it by $1/(\sigma-1)$ lowers $m_p$, and \eqref{bs:eq:primebound} still holds.
 
 \begin{table}[h]
 \centering
@@ -312,11 +310,11 @@ $0.9999$ & $3183$ & $4818$ & $1.51$ & $2.33\times10^7$\\
 The ratio $t_1/t_e$ tends to $1$. Near $\vartheta=\pi/2$ write $\sigma=1+x$, so $t=t_e(1+2x)$. The dominant terms of $m_p/t$ are $\frac12\log\frac t{2\pi}$ and $-\frac1x$, so positivity begins at $x\approx2/\log(t_e/2\pi)$, that is $t_1(p)=t_e(p)\bigl(1+\frac{4+o(1)}{\log(t_e/2\pi)}\bigr)$.
 \end{remark}
 
-So Question~\ref{bs:q:one} reduces, for each $p$, to the segment $|z|\le t_1(p)$ of the ray, which is asymptotically the part inside the critical strip. That part has length $t_e=1/(2\cos(p\pi/2))\approx1/(\pi(1-p))$, so heights and exponents correspond through $1-p\approx1/(\pi T)$, as in Corollary~\ref{bs:cor:uncond}.
+So Question~\ref{bs:q:one} reduces, for each $p$, to the segment $|z|\le t_1(p)$ of the ray, asymptotically its part inside the critical strip, of length $t_e=1/(2\cos(p\pi/2))\approx1/(\pi(1-p))$, so heights and exponents correspond through $1-p\approx1/(\pi T)$, as in Corollary~\ref{bs:cor:uncond}.
 
 \subsection{The density level and natural boundaries}
 
-A variable with an HCM density is a GGC and so has an HCM Laplace transform ((F5) and (F6) of Section~\ref{bh:sec:bosch}). Under RH the clock variable $X=\sum_\gamma e_\gamma/\gamma^2$ is the GGC with transform $\varphi$. Its Cauchy counterpart is $X_C=\sum_ke_k/(2k-1)^2$, with transform $\sech(\pi\sqrt s/2)$.
+A variable with an HCM density is a GGC and so has an HCM Laplace transform, by (F5) and (F6). Under RH the clock variable $X=\sum_\gamma e_\gamma/\gamma^2$ is the GGC with transform $\varphi$. Its Cauchy counterpart is $X_C=\sum_ke_k/(2k-1)^2$, with transform $\sech(\pi\sqrt s/2)$.
 
 \begin{theorem}\label{bs:thm:eta}
 The density of $X_C$ is
@@ -371,11 +369,11 @@ For small $p$ the density of $X_p$ escapes this obstruction. The transform $\var
 Determine $\{p:\ X_p\ \text{is HCM}\}$, and the same set for the Cauchy family $X_{C,p}$ with transform $\sech(\pi s^{p/2}/2)$.
 \end{question}
 
-Two facts constrain the answer. Under RH, $X_p\stackrel{d}{=}S_pX^{1/p}$, and positive $p$ stable variables are HCM exactly for $p\le1/2$, a conjecture of Bondesson \cite[Sections 5.7, 5.8 and 7.2]{Bondesson} proved by Bosch and Simon \cite[p.~32]{BoschSimon16}. Since HCM is preserved under products of independent variables and under powers of modulus at least one ((F1) and (F2) of Section~\ref{bh:sec:bosch}), HCM of $X$ would give HCM of $X_p$ for $p\le1/2$; but Theorem~\ref{bs:thm:nb} shows that $X$ is not HCM under (G) and (D), so this route is closed unless those hypotheses fail. The elasticity criterion reduces Question~\ref{bs:q:three} to the absence of zeros of the density $f$ of $X_p$ in $\Om$ and the Pick property of $-tf'(t)/f(t)$; by the continuation argument before Question~\ref{bs:q:three}, $f$ is at least analytic on $\Om$ for small $p$. A numerical scan of this elasticity for $X_{C,1/2}$ would be the first test.
+Two facts constrain the answer. Under RH, $X_p\stackrel{d}{=}S_pX^{1/p}$, and positive $p$ stable variables are HCM exactly for $p\le1/2$, a conjecture of Bondesson \cite[Sections 5.7, 5.8 and 7.2]{Bondesson} proved by Bosch and Simon \cite[p.~32]{BoschSimon16}. By (F1) and (F2), HCM of $X$ would give HCM of $X_p$ for $p\le1/2$; but Theorem~\ref{bs:thm:nb} shows that $X$ is not HCM under (G) and (D), so this route is closed unless those hypotheses fail. The elasticity criterion reduces Question~\ref{bs:q:three} to the absence of zeros of the density $f$ of $X_p$ in $\Om$ and the Pick property of $-tf'(t)/f(t)$; by the continuation argument before Question~\ref{bs:q:three}, $f$ is at least analytic on $\Om$ for small $p$. A numerical scan of this elasticity for $X_{C,1/2}$ would be the first test.
 
 \subsection{The Mellin variable $W$ and the first gap}
 
-Question~\ref{bh:q:beta} asks for which $\beta$ the density of $W^\beta$ is HCM; on the Cauchy side the answer is $|\beta|\ge2$. Let $\chi(t)=\xi(\frac12)/\xi(\frac12+t)=\prod_\gamma(1+t^2/\gamma^2)^{-1}$ and let $g(y)=\frac1\pi\int_0^\infty\chi(t)\cos(ty)\,dt$ be the function $g$ of Section~\ref{bh:sec:dict}, which is entire because $\chi(t)=\exp(-\frac12|t|\log|t|(1+o(1)))$. By the van Dantzig pair of Section~\ref{ch:clock}, recalled in Section~\ref{bh:sec:dict}, $\chi$ is a characteristic function without RH: the clock variable $T$ exists unconditionally \cite[Theorem A]{P26}, and if $Z$ is a standard normal variable independent of $T$ then $\E e^{itZ\sqrt{2T}}=\E e^{-t^2T}=\chi(t)$. So $g$ is the density of the normal scale mixture $Z\sqrt{2T}$, and $W=\exp(Z\sqrt{2T})$ exists without any hypothesis. By the elasticity criterion, HCM of $W^\beta$ becomes a sign condition on $-g'/g$ in a strip (Proposition~\ref{bs:prop:Wcrit}), and since $g$ is entire no natural boundary stands in the way.
+Question~\ref{bh:q:beta} asks for which $\beta$ the density of $W^\beta$ is HCM; on the Cauchy side the answer is $|\beta|\ge2$. Let $\chi(t)=\xi(\frac12)/\xi(\frac12+t)=\prod_\gamma(1+t^2/\gamma^2)^{-1}$ and let $g(y)=\frac1\pi\int_0^\infty\chi(t)\cos(ty)\,dt$ be the function $g$ of Section~\ref{bh:sec:dict}, which is entire because $\chi(t)=\exp(-\frac12|t|\log|t|(1+o(1)))$. By the van Dantzig pair of Section~\ref{ch:clock}, $\chi$ is a characteristic function without RH: the clock variable $T$ exists unconditionally \cite[Theorem A]{P26}, and for $Z$ standard normal independent of $T$, $\E e^{itZ\sqrt{2T}}=\E e^{-t^2T}=\chi(t)$. So $g$ is the density of $Z\sqrt{2T}$, and $W=\exp(Z\sqrt{2T})$ exists without any hypothesis. By the elasticity criterion, HCM of $W^\beta$ becomes a sign condition on $-g'/g$ in a strip (Proposition~\ref{bs:prop:Wcrit}), and since $g$ is entire no natural boundary stands in the way.
 
 \subsubsection{A lower bound for $g$}
 
@@ -416,7 +414,7 @@ Moreover $M(|k_\gamma|)=M(k_\gamma)+2M(k_\gamma^-)$ and $M(k_\gamma)\le\exp(3\ga
 Limit. For real $t$ each pair factor lies in $(0,1]$, and $\chi_R$ is integrable because it contains the factor $(1+t^2/\gamma_1^2)^{-1}$. By dominated convergence in the Fourier inversion integral, $g_m\to g$ uniformly on $\R$, so $g\ge0.9998\,g_R$. The comparison also gives $g_m(y)\le g_R(y)\int e^{\gamma_1|x|}|\nu_m(x)|dx\le2P\,g_R(y)$, since $e^{\gamma_1|x|}\le2\cosh(\gamma_1x)$ and $|\nu_m|\le|k_1|*\cdots*|k_m|$, so $g\le2P\,g_R$. Hence $g$ is integrable, its Fourier transform is $\chi$, and $\chi(0)=1$ makes $g$ a probability density. Finally $\int e^{cy}g_R(y)dy=\prod_{\gamma\ \mathrm{real}}(1-c^2/\gamma^2)^{-1}<\infty$ for $|c|<\gamma_1$, so $\int e^{c|y|}g(y)dy<\infty$ there, $\E W^z=\int e^{zy}g(y)dy$ is analytic on $|\Re z|<\gamma_1$, and it equals $\Xi(0)/\Xi(z)$ there because the two agree on the imaginary axis.
 \end{proof}
 
-The proof uses only that the zeros with $0<\Re\gamma\le T_0$ are real. The pair kernel formula and the constants of the proof were also checked numerically (\texttt{code/\allowbreak README.md}).
+The proof uses only that the zeros with $0<\Re\gamma\le T_0$ are real; the pair kernel formula and its constants were also checked numerically.
 
 \subsubsection{Which powers of $W$ are HCM}
 
@@ -450,11 +448,11 @@ Is $W^\beta$ HCM exactly when $|\beta|\ge\gamma_2-\gamma_1$? On the Cauchy side 
 
 With $b_n$ computed from $\Xi'(\gamma_n)$ ($b_1=359.52$, $b_2=-28007$, $b_3=392918$) and $g$ computed by quadrature near the origin, a scan of $4840$ points with $0\le x\le6$ and $0<v<0.99\,v_*$, where $v_*=\pi/\Delta=0.45614$, found no value of $\Im(-g'/g)$ below $-1.3\times10^{-15}$, which is rounding; in 40 digit arithmetic the minimum over $1.1\le x\le9.1$ at $v=0.999\,v_*$ is $+1.0\times10^{-27}$. Just above the threshold the sign flips: the minimum is $-6.5\times10^{-8}$ at $v=1.001\,v_*$, so numerically the threshold is sharp to $0.1$ per cent.
 
-Proving sufficiency requires the Pick property of $-g'/g$ in the full strip $0<\Im u<\pi/\Delta$, which near the origin is a statement about the P\'olya type kernel $g$ that does not reduce to the zeros.
+Sufficiency requires the Pick property of $-g'/g$ in the full strip $0<\Im u<\pi/\Delta$, which near the origin is a statement about the P\'olya type kernel $g$ that does not reduce to the zeros.
 
 \subsubsection{Solvable models}
 
-To see whether the first gap rule is a coincidence of the half Cauchy case, we test it on a family in which everything is explicit. The logistic variable $\log W$ has characteristic function $\pi t/\sinh(\pi t)=\prod_{k\ge1}(1+t^2/k^2)^{-1}$. Removing a finite set $R$ of frequencies multiplies the characteristic function by $\prod_{k\in R}(1+t^2/k^2)$, which gives $g=\prod_{k\in R}(1-D^2/k^2)L$ with $D=d/dy$ and $L(y)=\frac14\sech^2(y/2)$. For each model we locate numerically the largest strip on which $\Im(-g'/g)\ge0$; by Theorem~\ref{bs:thm:crit}, as in Proposition~\ref{bs:prop:Wcrit}, its width $h_*$ gives the HCM threshold $\beta_*=\pi/h_*$. Table~\ref{bs:tab:gaps} lists the results.
+To see whether the first gap rule is a coincidence of the half Cauchy case, we test it on an explicit family. The logistic variable $\log W$ has characteristic function $\pi t/\sinh(\pi t)=\prod_{k\ge1}(1+t^2/k^2)^{-1}$. Removing a finite set $R$ of frequencies multiplies the characteristic function by $\prod_{k\in R}(1+t^2/k^2)$, which gives $g=\prod_{k\in R}(1-D^2/k^2)L$ with $D=d/dy$ and $L(y)=\frac14\sech^2(y/2)$. For each model we locate numerically the largest strip on which $\Im(-g'/g)\ge0$; as in Proposition~\ref{bs:prop:Wcrit}, its width $h_*$ gives the HCM threshold $\beta_*=\pi/h_*$ (Table~\ref{bs:tab:gaps}).
 
 \begin{table}[h]
 \centering
@@ -480,7 +478,7 @@ $1,2,5,6,\ldots$ & $1,3,1,\ldots$ & 1 & 3 & $1.483$\\
 \label{bs:tab:gaps}
 \end{table}
 
-Whenever the first gap is at least as large as every later gap, the computed threshold equals the first gap, to the resolution of the computation. When some later gap exceeds the first, the threshold lies strictly between the first gap and the largest gap, and depends on where the large gap sits. The asymptotic argument of Theorem~\ref{bs:thm:gap} explains the lower bound in all cases. For the Riemann zeros the first gap $\gamma_2-\gamma_1=6.8873$ exceeds every later gap among the first $1000$ zeros (the next largest is $\gamma_4-\gamma_3=5.414$). The explicit form of the Riemann von Mangoldt formula of Hasanalizade, Shen and Wong, $|N(T)-\frac T{2\pi}\log\frac T{2\pi e}-\frac78|\le2.5167+\frac1{50T}$ for $e\le T\le X_0=30\,610\,046\,000$ and $\le0.1095\log T+0.2042\log\log T+3.0305+\frac1{50T}$ for $T>X_0$ \cite[(1.7), (2.7) and Corollary~1.4]{HSW22}, shows that every interval $(T,T+6.887]$ with $T\ge1000$ contains an ordinate: the lower bound it gives for the number of ordinates there exceeds $0.52$ at $T=1000$, increases with $T$ while $T+6.887\le X_0$, and exceeds $11$ beyond. So every gap that starts above height $1000$ is at most $6.887$, less than the first, and every gap that starts below it is a gap between two of the first $650$ zeros, since $N(1000)=649$. The first gap therefore exceeds every later gap. This refines Question~\ref{bs:q:gap}.
+When the first gap is at least every later gap, the computed threshold equals the first gap to the resolution of the computation; otherwise it lies strictly between the first and the largest gap, and depends on where the large gap sits. The asymptotic argument of Theorem~\ref{bs:thm:gap} explains the lower bound in all cases. For the Riemann zeros the first gap $\gamma_2-\gamma_1=6.8873$ exceeds every later gap among the first $1000$ zeros (the next largest is $\gamma_4-\gamma_3=5.414$). The explicit form of the Riemann von Mangoldt formula of Hasanalizade, Shen and Wong, $|N(T)-\frac T{2\pi}\log\frac T{2\pi e}-\frac78|\le2.5167+\frac1{50T}$ for $e\le T\le X_0=30\,610\,046\,000$ and $\le0.1095\log T+0.2042\log\log T+3.0305+\frac1{50T}$ for $T>X_0$ \cite[(1.7), (2.7) and Corollary~1.4]{HSW22}, shows that every interval $(T,T+6.887]$ with $T\ge1000$ contains an ordinate: the lower bound it gives for the number of ordinates there exceeds $0.52$ at $T=1000$, increases with $T$ while $T+6.887\le X_0$, and exceeds $11$ beyond. So every gap that starts above height $1000$ is at most $6.887$, and every gap that starts below it is between two of the first $650$ zeros, since $N(1000)=649$: the first gap exceeds every later gap. This refines Question~\ref{bs:q:gap}.
 
 \begin{question}[first gap conjecture, refined]\label{bs:q:gaprefined}
 Let $Y=\sum_nL_n/\lambda_n$ with independent standard Laplace variables $L_n$ and $0<\lambda_1<\lambda_2<\cdots$, and let $W=e^Y$. If the characteristic function of $Y$ decays faster than every exponential, or if the first gap $\lambda_2-\lambda_1$ is at least every later gap, is the HCM threshold of $W^\beta$ exactly $\lambda_2-\lambda_1$? In particular, is it $\gamma_2-\gamma_1$ for the Riemann variable?
@@ -488,12 +486,12 @@ Let $Y=\sum_nL_n/\lambda_n$ with independent standard Laplace variables $L_n$ an
 
 \subsection{Where the difficulty lies}\label{bs:sec:discussion}
 
-Bosch's theorem cannot be the input to a proof that the reciprocal Xi function is HCM, because for a product over the zeros HCM is equivalent to the reality of the zeros (Proposition~\ref{bh:prop:closure}), and Section~\ref{ch:sato} finds that every GGC criterion in the books of Sato and Bondesson is, at the centre, equivalent to RH. Bosch's method does transfer: at each of three levels it isolates one concrete object on which the question turns.
+Bosch's theorem cannot be the input to a proof that the reciprocal Xi function is HCM, because for a product over the zeros HCM is equivalent to the reality of the zeros (Proposition~\ref{bh:prop:closure}), and every GGC criterion in the books of Sato and Bondesson is, at the centre, equivalent to RH (Section~\ref{ch:sato}). Bosch's method does transfer: at each of three levels it isolates one concrete object on which the question turns.
 
-At the level of transforms the object is the Thorin density $u_p$ of~\eqref{bs:eq:up}. Its positivity for every $p<1$ is equivalent to RH; the primes prove it on each ray beyond some point, that point is asymptotically where the ray leaves the critical strip, and what remains is a segment of length about $1/(\pi(1-p))$. The first direction is to prove positivity on that segment from the explicit formula for $\xi'/\xi$ rather than from the zeros; computation alone extends the unconditional range $p\le1-1/(\pi T_0)$ only as fast as the verification height $T_0$ grows.
+At the level of transforms the object is the Thorin density $u_p$ of~\eqref{bs:eq:up}. Its positivity for every $p<1$ is equivalent to RH; the primes prove it on each ray beyond a point that is asymptotically where the ray leaves the critical strip, leaving a segment of length about $1/(\pi(1-p))$. The first direction is to prove positivity on that segment from the explicit formula for $\xi'/\xi$ rather than from the zeros; computation alone extends the unconditional range $p\le1-1/(\pi T_0)$ only as fast as the verification height $T_0$ grows.
 
 At the level of the Mellin variable the object is the sign of $\Im(-g'/g)$ in the strip $0<\Im u<\pi/(\gamma_2-\gamma_1)$. The second direction is to prove the first gap conjecture, first in the logistic models of Table~\ref{bs:tab:gaps}, where every quantity is elementary, and then for $W$, whose threshold the scan after Question~\ref{bs:q:gap} already locates to $0.1$ per cent. Question~\ref{bh:q:single} remains open.
 
 At the level of densities the object is the natural boundary. The third direction is to establish it for the clock variable without the hypotheses (G) and (D) of Theorem~\ref{bs:thm:nb}, which would show what replaces, on the Riemann side, the modularity that produces the natural boundary on the Cauchy side.
 
-Section~\ref{ch:heat} approaches the Thorin functional $\sum_\gamma\delta_{\gamma^2}$ of the clock, its Thorin measure under RH, from the other end of Bondesson's hierarchy, through its Laplace transform, the heat trace $W(t)=\sum_\gamma e^{-\gamma^2t}$.
+Section~\ref{ch:heat} approaches the Thorin functional of the clock from the other end of Bondesson's hierarchy, through its Laplace transform, the heat trace $W(t)$.

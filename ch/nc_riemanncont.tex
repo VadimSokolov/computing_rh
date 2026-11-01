@@ -1,0 +1,206 @@
+This chapter asks how close Riemann's own analytic continuation of 1859 \cite{NCRiemann1859} comes to proving that $u\mapsto\xi(\frac12)/\xi(\frac12+\sqrt u)=1/G(u)$ is the Laplace transform of a generalised gamma convolution, the Thorin condition of Section~\ref{ch:intro}. Riemann's continuation writes $\xi$ as the Mellin transform of a combination of the theta function and its derivatives. Read probabilistically, it is a signed mixture of Gamma(2) and exponential densities over the rates $\pi n^2$. It is also the density of Williams' variable, which is a convolution of Gamma(2) laws and so a GGC (Section~\ref{sec:ch19:williams}). The question is whether the closure properties of the class GGC carry this structure through to the clock. We take the two facts that suggest it and test each against what has been proved. We then treat three further devices: the normal scale mixture of the logistic law due to Stefanski and to Andrews and Mallows, and the extreme value law behind it; the recovery of the Thorin measure from the heat trace through the sine squared lemma \eqref{eq:sin2}; and the de Bruijn tilt $e^{\lambda u^2}$ of the kernel and its counterpart $e^{-|u|}$.
+
+Main results. (1) Riemann's kernel, as the density of $V=\frac\pi2S_2$, is $\sum_n[4g_2-6g_1](\cdot\,;\pi n^2)$, where $g_k(\cdot\,;\lambda)$ is the Gamma$(k)$ density of rate $\lambda$ (Proposition~\ref{riemanncont:prop:riemann}; proved and computed). (2) Neither starting fact holds as it is usually stated. A scale mixture of Gamma(2) laws is infinitely divisible but need not be a GGC. Harmonic means do not preserve the class: the natural candidate statement is false (Proposition~\ref{rz:prop:hmfalse}), and we found no harmonic mean closure in the sources we read. Neither link from $V$ or the P\'olya variable $X$ to $1/G$ is one of the closure operations that are theorems, and $X^2$ and $|X|$ are not GGC (Proposition~\ref{riemanncont:prop:entire}; proved). (3) The Gumbel and logistic laws are EGGCs whose Thorin measures are the integers. For $\xi$ the same shape is the normal scale mixture $Z\sqrt{2T}$, which exists with no hypothesis; it is an EGGC exactly under RH (Section~\ref{riemanncont:sec:logistic}). (4) The chain from the heat trace $W$ through the sine squared lemma gives a Thorin density $m$ that is positive with no hypothesis (Theorem~\ref{riemanncont:thm:half}; proved). It is the Thorin density of the positive half of the reciprocal law, not of the clock. RH is equivalent to $w\mapsto\pi m(\sqrt w)/w$ being a Stieltjes function, and then its representing measure is $z^{-1/2}U_{\RH}(dz)$. So positivity cannot be read off $m$: the RH content is in the analytic continuation. (5) The de Bruijn tilt is a normal mixture of Esscher tilts, that is a Gaussian average of basepoint moves. The tilt $e^{-|u|}$ is a positive mixture of Gaussian dampings, the direction that Proposition~\ref{ki:prop:obstruction} excludes. Its Fourier transform has only finitely many real zeros (Proposition~\ref{riemanncont:prop:tilts}; proved), and a floating point scan with an interpolation bound finds none on $[0,80]$ (computed, not certified).
+
+Against the path of Section~\ref{ov1:sec:path}, every step of Riemann's continuation is unconditional except one. That step passes from a Mellin transform, or an arithmetic mean of transforms, to the reciprocal of a Laplace transform: a harmonic mean, which no closure theorem covers. Making it a GGC is RH (Proposition~\ref{prop:rigid}). The chapter therefore gives no new route. It locates the gap exactly in the second constraint of Section~\ref{ov1:sec:path}: nothing in Riemann's continuation uses the Euler product beyond the Dirichlet series of $\omega$, and Section~\ref{riemanncont:sec:path} explains why the harmonic mean step is where the Davenport and Heilbronn obstruction bites.
+
+\section{Riemann's continuation as a Gamma(2) structure}\label{riemanncont:sec:riemann}
+
+Riemann's second proof of the functional equation \cite{NCRiemann1859}, \cite[Section 1.7]{Edwards} starts from $\pi^{-s/2}\Gamma(\frac s2)\zeta(s)=\int_0^\infty\omega(x)x^{s/2-1}dx$, with $\omega(x)=\sum_{n\ge1}e^{-\pi n^2x}$, for $\re s>1$. It uses the theta transformation $1+2\omega(1/x)=\sqrt x(1+2\omega(x))$ to continue. Remark~\ref{rem:maxexp:shapes} gives the form we need: with $D=-x\,d/dx$, the function $[2D(D-\frac12)\omega](x)$ decays faster than any power at both ends, and
+\begin{equation}\label{riemanncont:eq:riemann}
+\begin{gathered}\xi(s)=\int_0^\infty\big[2D(D-\tfrac12)\omega\big](x)\,x^{s/2-1}dx\quad(s\in\C),\\ \Phi(u)=2e^{u/2}\big[2D(D-\tfrac12)\omega\big](e^{2u}).\end{gathered}
+\end{equation}
+Since $D(D-\frac12)e^{-\lambda x}=(\lambda^2x^2-\frac32\lambda x)e^{-\lambda x}$, the bracket is $\sum_n(2\pi^2n^4x^2-3\pi n^2x)e^{-\pi n^2x}$. We write $g_k(x;\lambda)=\lambda^kx^{k-1}e^{-\lambda x}/\Gamma(k)$ for the Gamma$(k)$ density of rate $\lambda$, and $V=\frac\pi2S_2$ for Williams' variable in the normalisation of Section~\ref{ch:clock}, so that $2\xi(s)=\E V^{s/2}$.
+
+\begin{proposition}\label{riemanncont:prop:riemann}
+\begin{enumerate}
+\item[(i)] (Williams; Biane, Pitman and Yor.) $V=\sum_{n\ge1}\Gamma_n/(\pi n^2)$ with independent Gamma(2) variables $\Gamma_n$. Hence $V$ is a GGC with Thorin measure $2\sum_n\delta_{\pi n^2}$.
+\item[(ii)] The density of $V$ is
+\begin{equation}\label{riemanncont:eq:fV}
+f_V(x)=\frac2x\big[2D(D-\tfrac12)\omega\big](x)=\sum_{n\ge1}\Big[4\,g_2(x;\pi n^2)-6\,g_1(x;\pi n^2)\Big],\qquad x>0 .
+\end{equation}
+This is a signed mixture of Gamma(2) and exponential densities over the rates $\pi n^2$. Each term has mass $-2$, and the masses sum to $1$ under zeta regularisation, since $-2\zeta(0)=1$.
+\item[(iii)] For $\re s>1$ the Mellin transform can be taken term by term:
+\[
+\E V^{s/2}=\sum_{n\ge1}(\pi n^2)^{-s/2}\Big(4\Gamma(2+\tfrac s2)-6\Gamma(1+\tfrac s2)\Big)=s(s-1)\pi^{-s/2}\Gamma(\tfrac s2)\zeta(s)=2\xi(s).
+\]
+\item[(iv)] $V$ is not a scale mixture of Gamma$(a)$ laws for any $a>0$ (Theorem~\ref{thm:wigfree:nomix}). Its density is positive, and the negative terms of \eqref{riemanncont:eq:fV} cannot be absorbed into a positive mixture.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(i) is \cite{Williams90,BPY01}, as recalled in Section~\ref{sec:ch19:williams} and Table~\ref{tab:ch3:cat}: the Laplace transform of $V$ is $\prod_n(1+u/(\pi n^2))^{-2}$. (ii) The density of $S_2$ is the theta series given in Section~\ref{sec:ch19:williams}, and $f_V(x)=2\sum_n(2\pi^2n^4x-3\pi n^2)e^{-\pi n^2x}$ (Section~\ref{sec:maxexp:gamma}). Moreover $4g_2(x;\lambda)-6g_1(x;\lambda)=(4\lambda^2x-6\lambda)e^{-\lambda x}$, and $\int(4g_2-6g_1)=-2$. The regularised sum is a formal identity, since $\sum_n1$ diverges. (iii) For $\re s>1$ the series of absolute values converges, $\int_0^\infty x^{s/2}g_k(x;\lambda)dx=\lambda^{-s/2}\Gamma(k+\frac s2)/\Gamma(k)$, and $4\Gamma(2+\frac s2)-6\Gamma(1+\frac s2)=(2s-2)\Gamma(1+\frac s2)=s(s-1)\Gamma(\frac s2)$. (iv) is Theorem~\ref{thm:wigfree:nomix}.
+\end{proof}
+
+The identities were checked at $40$ and $60$ digits (computed). The series in (iii) agrees with $2\xi(s)$ to twenty digits at $s=3$, $4+2i$ and $6$. Quadrature of $x^{s/2}f_V(x)$ with $120$ terms of \eqref{riemanncont:eq:fV} reproduces $2\xi(s)$ to eighteen digits at $s=0$, $1$ and $\frac12+3i$, beyond the range where (iii) holds term by term. The minimum of $f_V$ on the grid $0.03\le x\le5$, of step $0.01$, is $2.8\times10^{-39}>0$ (supported by the $60$ digit run only, since at $40$ digits this value is below the cancellation noise), at the left end where $f_V$ vanishes to infinite order.
+
+On the logarithmic scale $y=\frac12\log x$, a scale change of $x$ is a translation of $y$. So \eqref{riemanncont:eq:fV} is a signed \emph{location} mixture, over the lattice $-\frac12\log(\pi n^2)$, of log gamma densities of shapes two and one. Size biasing by $x^{1/4}$, which passes from $V$ to the P\'olya variable $X=\frac12\log V$ tilted by $e^{X/2}$ (Section~\ref{ch:clock}), raises the shapes to $\frac94$ and $\frac54$. This is the Gumbel decomposition of Theorem~\ref{ev:thm:decomp}, in the normalisation of Rodgers and Tao. This is the sense in which Riemann's kernel is a signed location scale mixture of Gamma(2) and Gamma(1) laws. Two Gamma(2) structures coexist. Williams' convolution (i) is positive and a GGC, and it carries the functional equation. Riemann's mixture (ii) is signed, and it carries the Dirichlet series. Remark~\ref{rem:maxexp:shapes} shows that the signs come from the operator $2D(D-\frac12)$ that removes the poles of $\zeta$.
+
+\section{The two starting facts, checked}\label{riemanncont:sec:closure}
+
+\subsection{Scale mixtures of Gamma(2) laws}
+
+Steutel conjectured, and Kristiansen proved \cite{Kristiansen94}, that every scale mixture $\Gamma_2Y$, with $\Gamma_2$ of the Gamma(2) law and $Y\ge0$ independent of it, is infinitely divisible. It need not be a GGC. If $Y$ takes two distinct positive values, the Laplace transform of $\Gamma_2Y$ vanishes at non real points, and a GGC transform has no zeros off $(-\infty,0]$ (Example~\ref{xg:ex:g2}; Section~\ref{sec:maxexp:gamma} gives the general discrete case). The correct sufficient conditions that we could verify are the following.
+\begin{enumerate}
+\item If $Y$ is a GGC, then $\Gamma_2Y$ is a GGC, because products of independent GGC variables are GGC (Bondesson \cite{Bond2015}; Section~\ref{sec:xg:kernel}).
+\item If $Y$ has an HCM density, then $\Gamma_2Y$ and $\Gamma_2/Y$ are GGC. More generally, the independent product or quotient of a GGC by an HCM variable is a GGC (Bondesson \cite[Theorem 6.2.1]{Bondesson}, as quoted by Jedidi and Simon \cite{NCJedidiSimon13}).
+\item If $Y$ is hyperbolically monotone of order two, then $\Gamma_2Y$ and $\Gamma_2/Y$ are GGC, according to the abstract of \cite{NCSjodin19}, which we did not read further.
+\end{enumerate}
+% UNCHECKED: Bondesson 1992, Theorem 6.2.1, read only as quoted in arXiv:1312.2809; the book itself was not consulted in this session.
+% UNCHECKED: Sjodin, arXiv:1806.03926, only the abstract was read.
+These conditions are sufficient, not necessary: for $U$ uniform on $(0,1)$, $\Gamma_2U$ is exponential, a GGC, while $U$ is neither a GGC nor HCM.
+
+\subsection{Harmonic means}
+
+The second starting fact would be closure under harmonic means. In the form
+\[
+\text{(H)}\qquad V_1,V_2\ \text{independent GGC}\ \Longrightarrow\ 2V_1V_2/(V_1+V_2)\ \text{GGC}
+\]
+it is false: $2E_1E_2/(E_1+E_2)$ with independent standard exponentials is not a GGC (Proposition~\ref{rz:prop:hmfalse}). On the transform side, which is the side the clock needs, the harmonic mean of the GGC transforms $(1+s)^{-2}$ and $(1+2s)^{-2}$ is not even a Laplace transform of a positive measure (Example~\ref{xg:ex:harm}). For HCM variables $V_1,V_2$ the reciprocals $1/V_i$ are HCM \cite{NCJedidiSimon13}, so $1/V_1+1/V_2$ is a GGC, but passing back to its reciprocal would need a closure of GGC under $x\mapsto1/x$, which we found in none of the sources. We found no harmonic mean closure in \cite{NCJedidiSimon13,NCSjodin19,NCSjodin26,Bond2015}.
+% UNCHECKED: whether Bondesson's book (1992) states a closure property under harmonic means of HCM variables; we could not consult it.
+
+The operations that are theorems are: independent sums, positive scaling and weak limits (Section~\ref{ch:ggc}); independent products of GGC variables \cite{Bond2015}; independent products and quotients with HCM variables \cite{Bondesson,NCJedidiSimon13}. Bondesson conjectured closure under $q$th powers for $q>1$ \cite{Bondesson,NCWangYin26}. Two 2026 preprints announce a proof \cite{NCSjodin26,NCWangYin26}; according to their abstracts the second calls itself a candidate proof. We read neither proof, and we use neither result.
+
+\subsection{What the operations can and cannot reach}
+
+The clock is linked to $V$ and to $X$ in two ways, both unconditional. First, $G(s^2)=\xi(\frac12+s)/\xi(\frac12)=\E e^{sX}$ with $X=\frac12\log V$ tilted by $e^{X/2}$ \eqref{eq:ch2:mgf}: a Mellin transform of $V$. Second, $1/G(u)=1/\E\cosh(\sqrt u\,X)=1/\E[1/\sech(\sqrt uX)]$ (Proposition~\ref{xg:prop:harm}). This is the harmonic mean over the P\'olya density of the GGC transforms $\sech(\sqrt u\,x)$, whose Thorin atoms are at $\pi^2(k-\frac12)^2/x^2$. Neither link is a closure operation. The first is not one because a Mellin transform does not act on Laplace exponents. The second fails because of the counterexamples above. The arithmetic mean $\E\sech(\sqrt uX)$, which bounds $1/G(u)$ from above by Jensen's inequality, is the Laplace transform of $\frac12X^2C$, with $C$ the exit time of Brownian motion from $(-1,1)$. One might hope to make it a GGC by Bondesson's product theorem. The next proposition shows that the factorisation $\frac12X^2\cdot C$ does not meet its hypotheses.
+
+\begin{proposition}\label{riemanncont:prop:entire}
+A GGC whose Laplace transform extends to an entire function is a constant. In particular neither $X^2$ nor $|X|$ is a GGC, for the P\'olya variable $X$. So Bondesson's product theorem does not apply to the factorisation $\frac12X^2\cdot C$ of the law whose Laplace transform is the arithmetic mean $\E\sech(\sqrt uX)$.
+\end{proposition}
+
+\begin{proof}
+Let $\varphi(u)=\exp\{-du-\int\log(1+u/z)U(dz)\}$ be entire. Then $f=-\varphi'/\varphi=d+\int U(dz)/(u+z)$ on $\cut$ extends to a meromorphic function on $\C$. Its poles are the zeros of $\varphi$, with residue $-m$ at a zero of order $m$. By Stieltjes inversion \eqref{eq:ch3:inversion}, $U((a,b])$ is the limit of $\frac1\pi\int_a^b\im f(-x-i\eta)\,dx$. For a meromorphic $f$, real on $(0,\infty)$, this limit picks up only the poles of $f$ on $(-\infty,0)$, so $U$ is a sum of atoms. An atom of mass $c>0$ at $z_0$ gives $f$ the residue $+c$ at $-z_0$, against the residue $-m<0$ that a zero of $\varphi$ gives. Hence $U=0$ and $\varphi(u)=e^{-du}$. For $X$, the bound $\Phi(v)\le Ce^{9v/2}\exp(-\pi e^{2v})$ for $v\ge0$ (the proof of Theorem~\ref{thm:wigfree:nomix}) makes $\E e^{tX^2}$ and $\E e^{t|X|}$ finite for every real $t$. So the Laplace transforms of $X^2$ and $|X|$ are entire, and these variables are not constant.
+\end{proof}
+
+Whether $\E\sech(\sqrt uX)$ is a GGC transform by some other argument is open (Problem~\ref{riemanncont:prob:arith}). If it were, this would not bear on RH, since the clock is the harmonic and not the arithmetic mean. The clock itself is not $\Gamma_aY$ for any $a>0$ and independent $Y\ge0$ (Theorem~\ref{xg:thm:nogamma}). So neither starting fact can be applied with the clock as the outer variable.
+
+\section{Stefanski's logistic mixture and the extreme value law}\label{riemanncont:sec:logistic}
+
+Andrews and Mallows \cite{AndrewsMallows74} and Stefanski \cite{Stefanski91} represent the logistic law, with characteristic function $\pi t/\sinh\pi t$, as a normal scale mixture. In the language of Section~\ref{sec:ch3:hierarchy} the mixing variable is the sinh clock $H_0$, with $\E e^{-uH_0}=\pi\sqrt u/\sinh\pi\sqrt u$, a GGC with Thorin measure $\sum_k\delta_{k^2}$ and the law of $2K^2$ for the Kolmogorov variable $K$ (Table~\ref{tab:ch3:cat}). So the logistic law is $Z\sqrt{2H_0}=2KZ$, and it is an EGGC \cite[Theorem 7.3.1]{Bondesson}. The extreme value law enters twice. The logistic law is the difference of two independent Gumbel variables, because $\Gamma(1-it)\Gamma(1+it)=\pi t/\sinh\pi t$. And the Gumbel variable $\mathcal G=-\log E$, $E$ standard exponential, satisfies
+\begin{equation}\label{riemanncont:eq:gumbel}
+\E e^{-s(\mathcal G-\gamma_E)}=e^{\gamma_Es}\Gamma(1+s)=\prod_{k\ge1}\frac{e^{s/k}}{1+s/k},\qquad \mathcal G-\gamma_E\overset d=\sum_{k\ge1}\frac{E_k-1}k,
+\end{equation}
+with $\gamma_E$ Euler's constant and $E_k$ independent standard exponentials, by the Weierstrass product of $1/\Gamma$. This is a compensated GGC with Thorin measure $\sum_k\delta_k$ on the positive half line, an EGGC carried by one side. In Section~\ref{ev:sec:bspline} it is the Gumbel law less Euler's constant. Both identities were checked to eighteen digits (computed): the three expressions for the logistic characteristic function at $t=0.7$, $2$ and $5$, and \eqref{riemanncont:eq:gumbel} at $s=\frac12$ and $3$.
+
+The template for $\xi$ replaces the integers by the ordinates, and Section~\ref{ch:strip} carries it out. With no hypothesis, $\xi(\frac12)/\xi(\frac12+|t|)$ is the characteristic function of the normal scale mixture $Y_{1/2}=Z\sqrt{2T}$, which is infinitely divisible and self decomposable (Proposition~\ref{sm:prop:cf}). It is an EGGC if and only if RH holds (Theorem~\ref{sm:thm:thorin}). Under RH, $Y_{1/2}=A-A'$ with $A\overset d=\sum_k(E_k-1)/\gamma_k$, the analogue of \eqref{riemanncont:eq:gumbel} (Proposition~\ref{sm:prop:half}). Stefanski's representation therefore gives the right shape and no positivity. The normal scale mixture exists for $\xi$ unconditionally, as it does for the logistic law, and the EGGC property of its mixing variable is exactly the Thorin condition. The logistic case is solved because the zeros of $\sinh$ are known by inspection, and the points $k^2$ they give are positive. The extreme value structure of the P\'olya kernel itself (Theorem~\ref{ev:thm:decomp}) is a sum of Gumbel pieces over $n$, each with an explicit Thorin form. A sum of laws is not a product of transforms, and Section~\ref{ev:sec:bspline} records that this is where that route stops.
+
+\section{From the heat trace to a Thorin measure by the sine squared lemma}\label{riemanncont:sec:sin2}
+
+The Thorin measure $U$ of the clock, if it exists, is the measure that represents $W$ by Bernstein's theorem, $W(t)=\int e^{-zt}U(dz)$ (Section~\ref{sec:ch3:readings}). The sine squared lemma \eqref{eq:sin2} does something different. It turns a L\'evy representation in the variable $s$ into a Thorin representation in $s^2$, and for $\xi$ at basepoints $\alpha>1$ it produces $v_\alpha$ from the primes (Section~\ref{ch:clock}). At the centre $\alpha=\frac12$ the function $\log\xi(\frac12+s)/\xi(\frac12)$ has no L\'evy form in $s$, because it is even in $s$. The lemma applies instead to one half of it. Write $a_k=-(\rho_k-\frac12)^2$ as in Section~\ref{ch:intro}, let $c_k=\sqrt{a_k}$ with the principal root, and let
+\[
+K(x)=\sum_ke^{-c_kx},\qquad P(s)=\prod_k\Big(1+\frac s{c_k}\Big)e^{-s/c_k}.
+\]
+If $\rho_k=\frac12+\delta+i\gamma$, then $c_k=\gamma-i\delta$, so $\re c_k=\gamma>0$ whether or not RH holds. The subordination identity of Section~\ref{sec:ch3:hierarchy} gives $K(r)=\int_0^\infty e^{-1/4v}(4\pi v)^{-1/2}W(r^2v)\,dv/v$, so $K>0$ with no hypothesis, because $W>0$ (Theorem~\ref{thm:ch12:idsd}; also Proposition~\ref{bsy:prop:kpos}). The function $K$ is the trace $K_{1/2}$ of Section~\ref{sec:biane:cm}.
+
+\begin{theorem}\label{riemanncont:thm:half}
+With no hypothesis on the zeros, let
+\[
+m(\theta)=\frac1\pi\int_0^\infty\big(1-\cos x\theta\big)K(x)\,dx=\frac1\pi\sum_k\frac{\theta^2}{c_k(c_k^2+\theta^2)},\qquad\theta>0,
+\]
+with the sum taken over conjugate pairs $c_k,\bar c_k$ together.
+\begin{enumerate}
+\item[(i)] $m(\theta)>0$ for every $\theta>0$, and $u\mapsto P(\sqrt u)$ is the Laplace transform of a GGC whose Thorin measure has density $m$ in the chart $\theta=\sqrt z$:
+\[
+-\log P(s)=\int_0^\infty\log\Big(1+\frac{s^2}{\theta^2}\Big)m(\theta)\,d\theta,\qquad s\ge0 .
+\]
+Moreover $P(s)P(-s)=\xi(\frac12+is)/\xi(\frac12)$, and $1/P(s)=\E e^{-sA}$ for the law $A$ of Proposition~\ref{sm:prop:half}.
+\item[(ii)] The function $M(w)=\pi m(\sqrt w)/w=\sum_k\big(c_k(w+a_k)\big)^{-1}$ extends to a meromorphic function on $\C$, with simple poles at the points $-a_k$ of simple zeros and residues $1/c_k$ there.
+\item[(iii)] RH holds if and only if $M$ is a Stieltjes function, that is $M(w)=\int\nu(dz)/(w+z)$ for $w>0$ with a positive measure $\nu$. In that case $\nu=\sum_{\gamma>0}\gamma^{-1}\delta_{\gamma^2}$, which is $z^{-1/2}U_{\RH}(dz)$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(i) Since $\re c_k>0$, $\frac1\pi\int_0^\infty(1-\cos x\theta)e^{-c_kx}dx=\frac1\pi\big(\frac1{c_k}-\frac{c_k}{c_k^2+\theta^2}\big)$, which gives the series. The sum over $k$ of absolute values converges, because each term is $O(\theta^2\gamma_k^{-3})$ for $\gamma_k\ge2\theta$ and $O(\gamma_k^{-1})$ otherwise. Positivity is immediate from the integral, since $K>0$ and $1-\cos x\theta\ge0$ is not identically zero. In the chart $\theta$, \eqref{eq:sin2} reads $e^{-sx}+sx-1=\frac{2x}\pi\int_0^\infty\log(1+s^2/\theta^2)\sin^2(x\theta/2)\,d\theta$. Integrating against $K(x)\,dx/x$, using Tonelli (everything is positive) and $2\sin^2(x\theta/2)=1-\cos x\theta$, gives
+\[
+\int_0^\infty\big(e^{-sx}+sx-1\big)\frac{K(x)}x\,dx=\int_0^\infty\log\Big(1+\frac{s^2}{\theta^2}\Big)m(\theta)\,d\theta .
+\]
+By Frullani's integral the left side is $\sum_k[s/c_k-\log(1+s/c_k)]=-\log P(s)$ for $s\ge0$. The exchange of sum and integral is justified because each term is $O(s^2/|c_k|^2)$ and $\sum|c_k|^{-2}<\infty$. The same identity, with $K(x)\,dx/x$ as L\'evy measure, is the Laplace exponent of $A$ in Proposition~\ref{sm:prop:half}. The function $m$ is $O(\theta^2)$ at $0$, and it grows at most like $(\log\theta)^2$ at infinity, by the zero count. So the Thorin measure $m(\sqrt z)\,dz/(2\sqrt z)$ satisfies the integrability condition of \eqref{eq:ch3:ggc}, and the representation is that of a GGC in $u=s^2$. Finally $(1+s/c)(1-s/c)=1+(-s^2)/a$, and $\prod_k(1+(-s^2)/a_k)=G(-s^2)=\xi(\frac12+is)/\xi(\frac12)$ by \eqref{eq:ch2:hadamard}. The exponential factors cancel in pairs.
+(ii) This follows from $c_k^2=a_k$ and the absolute convergence of $\sum_k|c_k|^{-1}|w+a_k|^{-1}$ on compact sets avoiding the points $-a_k$; the terms are $O(\gamma_k^{-3})$.
+(iii) Under RH, $a_k=\gamma_k^2>0$ and $c_k=\gamma_k$, so $M(w)=\sum\gamma^{-1}(w+\gamma^2)^{-1}$, which is the Stieltjes transform of $\sum\gamma^{-1}\delta_{\gamma^2}$. Conversely, a Stieltjes function is holomorphic on $\cut$, so every pole $-a_k$ of $M$ lies on $(-\infty,0]$. Since $M$ is a convergent sum of simple fractions with distinct poles, no pole cancels. Hence every $a_k$ is real and positive, which is RH by Section~\ref{ch:clock}.
+\end{proof}
+
+So the heat trace yields, through subordination and the sine squared lemma, a positive Thorin density with no hypothesis. It is the Thorin density of the positive half of the reciprocal law, in the square root variable, and it smooths every zero by the kernel $\theta^2/(\pi c(c^2+\theta^2))$. It is not the Thorin measure of the clock. The positivity of $m$ carries no information about RH, because it holds whatever the zeros do. The information sits where Proposition~\ref{prop:rigid} puts it: in the analytic continuation of $m(\sqrt w)/w$ across the negative axis, which must have its poles on that axis. To recover $U$ from $W$ one must perform this continuation (Stieltjes inversion of $M$, then $U(dz)=\sqrt z\,\nu(dz)$), and, heuristically, it is exactly as hard as locating the zeros. The off line part of $m$ is also invisible numerically. For a hypothetical off line pair with $\gamma=1000$, $\delta=0.4$, or $\gamma=100$, $\delta=0.45$, its contribution to $m$ is positive on the grid $0<\theta<3000$ of step $0.1$, with minimum $6.4\times10^{-12}$ and $6.4\times10^{-9}$ respectively. Its pole in $M$ sits at $-a=-999999.84+800i$ and $-9999.80+90i$ (computed). With the first $400$ zeros, the integral and the series for $m$ agree to fifteen digits at $\theta=5$, $\gamma_1$ and $30$. With one zero, $\int_0^\infty\log(1+s^2/\theta^2)m(\theta)\,d\theta$ and $-\log P(s)$ agree to nineteen digits at $s=1$ and $10$ (computed, $30$ digits).
+
+\begin{remark}\label{riemanncont:rem:sin2basepoint}
+At basepoints $\alpha>1$ the lemma acts on the L\'evy form of $\log\xi(\alpha+s)/\xi(\alpha)$, whose canonical measure carries the primes. It gives $v_\alpha$ directly, as the Thorin density of the clock $T_\alpha$ (Theorem~\ref{thm:poisson}, \cite[Theorem 8.2]{P17}). For $\frac12<\alpha<1$ the L\'evy form exists in a compensated form only when no zero lies to the right of $\alpha$ (Theorem~\ref{sm:thm:thorin}). The theorem above is the unconditional counterpart at $\alpha=\frac12$. It buys unconditional positivity by splitting $G(-s^2)=P(s)P(-s)$, and the splitting is what removes the RH content.
+\end{remark}
+
+\section{The de Bruijn tilt and the tilt by \texorpdfstring{$e^{-|u|}$}{exp(-|u|)}}\label{riemanncont:sec:tilt}
+
+P\'olya's universal factors multiply the kernel. Every factor of the form $\E\cosh(uB)$, with $B$ symmetric, acts as a vertical average $\int_\R\Phi(u)\E\cosh(uB)e^{izu}\,du=\E\,\Xi(z+iB)$ (Section~\ref{mi:sec:vertical}). The de Bruijn factor is of this kind, with $B$ normal; the damping $e^{-bu^2}$ and the factor $e^{-|u|}$ are mixtures of cosines instead. Let $N$ be standard normal and $\tau$ standard exponential.
+
+\begin{proposition}\label{riemanncont:prop:tilts}
+\begin{enumerate}
+\item[(i)] For $\lambda>0$, $e^{\lambda u^2}=\E\cosh(\sqrt{2\lambda}\,Nu)$, and for every $s,z\in\C$
+\[
+\begin{gathered}\int_\R\Phi(u)e^{\lambda u^2}\cosh(su)\,du=\E\,\xi\big(\tfrac12+s+\sqrt{2\lambda}N\big),\\\int_\R\Phi(u)e^{\lambda u^2}e^{izu}\,du=\E\,\Xi\big(z+i\sqrt{2\lambda}N\big).\end{gathered}
+\]
+So the de Bruijn tilt is a normal scale mixture of Esscher tilts. On the Laplace side it is a Gaussian average of the basepoint moves $\alpha=\frac12+\sqrt{2\lambda}N$.
+\item[(ii)] For $b>0$, $e^{-bu^2}=\E\cos(\sqrt{2b}\,Nu)$, and $\int_\R\Phi(u)e^{-bu^2}e^{izu}\,du=\E\,\Xi(z+\sqrt{2b}N)$, a horizontal Gaussian smoothing of $\Xi$.
+\item[(iii)] $e^{-|u|}=\E\big[(\pi\tau)^{-1/2}e^{-u^2/(4\tau)}\big]$. So $e^{-|u|}\Phi$ is a positive mixture, over $b=1/(4\tau)$, of the damped kernels of (ii), and
+\[
+F(z)=\int_\R\Phi(u)e^{-|u|}e^{izu}\,du=\frac1\pi\int_\R\frac{\Xi(z-y)}{1+y^2}\,dy .
+\]
+\item[(iv)] $F(x)=2\Phi(0)/x^2+O(x^{-4})$ as $x\to\infty$ along the real axis. So $F$ has only finitely many real zeros.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(i) $\E e^{cN}=e^{c^2/2}$ gives $\E\cosh(\sqrt{2\lambda}Nu)=e^{\lambda u^2}$. By \eqref{eq:ch2:mgf}, $\int\Phi(u)e^{wu}du=\xi(\frac12+w)$ for every $w\in\C$. Fubini applies because $\Phi$ decays doubly exponentially, so $\int\Phi(u)\E e^{|\sqrt{2\lambda}Nu|+|su|}du<\infty$. This gives $\E\frac12[\xi(\frac12+s+\sqrt{2\lambda}N)+\xi(\frac12-s+\sqrt{2\lambda}N)]$, and the symmetry of $N$ and the evenness of $\xi(\frac12+w)$ identify the two halves. The second identity is the first at $s=iz$. (ii) is the same computation with $\E e^{icN}=e^{-c^2/2}$. (iii) The integral $\int_0^\infty(\pi t)^{-1/2}e^{-t-u^2/4t}dt=e^{-|u|}$ is classical, and the convolution theorem with $\int_\R e^{-|u|}e^{iyu}du=2/(1+y^2)$ gives $F$. (iv) The kernel $k(u)=e^{-|u|}\Phi(u)$ is even and smooth on $[0,\infty)$, with all derivatives decaying doubly exponentially, and $k'(0+)=-\Phi(0)$ since $\Phi'(0)=0$. So $F(x)=2\int_0^\infty k(u)\cos(xu)\,du$. Two integrations by parts give $-2k'(0+)/x^2$, and two more give a remainder $2k'''(0+)/x^4+o(x^{-4})$. Since $\Phi(0)>0$, $F(x)>0$ for all large real $x$, and $F$ is entire, so its real zeros in any bounded interval are finite in number.
+\end{proof}
+
+The identities were checked (computed). At $\lambda=0.05$ and $z=10$ the kernel side and the Gaussian vertical average agree to fifteen digits, both equal to $0.037505051645606$. The mixture in (iii) agrees with $e^{-|u|}$ to eighteen digits at $u=0.3$ and $2$. With $\Phi(0)=0.893393800934246888$, a scan of $F$ at step $\frac14$ on $[0,80]$ finds no sign change. Since $|F''(x)|\le2\int_0^\infty u^2e^{-u}\Phi(u)\,du=0.0166$, the linear interpolant between grid points is within $1.30\times10^{-4}$ of $F$, below the minimum $2.816\times10^{-4}$ of $F$ on the grid, attained at $x=80$; so $F$ has no zero on $[0,80]$ (computed in floating point, not certified). There $\Xi$ has $21$ zeros, the last near $79.34$. The ratio $F(x)x^2/(2\Phi(0))$ is $1.0363$ at $x=40$ and $1.0087$ at $x=80$, consistent with a correction of order $x^{-2}$ in the ratio.
+
+The two tilts therefore behave in opposite ways. The de Bruijn tilt is a positive normal mixture of $\cosh$ factors, and $\cosh(bu)$ is a universal factor (Section~\ref{pol:sec:cosh}). The theorem that keeps real zeros forward in time is de Bruijn's, which uses the product structure of the factor and not the mixture. The GGC property of the reciprocal $R_t$ of the tilted function holds exactly for $\lambda$ at or above one quarter of the de Bruijn Newman constant in the normalisation of Section~\ref{sec:ch21:flow}, unconditionally for $\lambda\ge0.05$ (Theorem~\ref{rz:thm:dbn}, \cite{PT21}). It holds at $\lambda=0$ exactly under RH, with $\Lambda\ge0$ by Rodgers and Tao \cite{RodgersTao}. On the Laplace side, (i) writes the tilted function as an arithmetic mean of shifted $\xi$, so the tilted clock is again a harmonic mean, of the basepoint transforms. It meets the obstruction of Section~\ref{riemanncont:sec:closure}, so no closure theorem proves the property at any $\lambda$ from this representation. Mixing over basepoints gives no positivity of its own.
+
+The tilt by $e^{-|u|}$ is a positive mixture of the Gaussian dampings in (ii), which run the de Bruijn Newman flow backwards. A class of kernels stable under them cannot contain $\Phi$ if all its members have only real zeros (Proposition~\ref{ki:prop:obstruction}). The tilt $e^{-|u|}$ does more. Its corner at the origin produces the $x^{-2}$ tail of (iv), which removes all but finitely many real zeros; on $[0,80]$ the scan sees none. On the Laplace side, $e^{-|u|}$ is not of the form $\E\cosh(uB)$ for any symmetric $B$, since such a factor is at least one; it corresponds to no basepoint move and no clock. So tilting by $e^{-|u|}$ does not behave like the de Bruijn tilt. It is a scale mixture of normal densities, not of normal moment generating functions, and it destroys the structure that the Thorin condition needs.
+
+\section{Where each step needs RH}\label{riemanncont:sec:path}
+
+Table~\ref{riemanncont:tab:steps} collects the steps of the chapter with their status.
+
+\begin{table}[htbp]
+\centering\small
+\begin{tabular}{p{0.52\textwidth}p{0.16\textwidth}p{0.22\textwidth}}
+\toprule
+step & status & where\\
+\midrule
+$f_V$ is Riemann's signed Gamma(2) and exponential mixture; $\E V^{s/2}=2\xi(s)$ & \raggedright proved, computed & Proposition~\ref{riemanncont:prop:riemann}\tabularnewline
+$V$ is a GGC (Williams' Gamma(2) convolution) & proved & \cite{Williams90,BPY01}\tabularnewline
+$V$, $|X|$, $X^2$ are not Gamma$(a)$ scale mixtures; $|X|$, $X^2$ not GGC & proved & \raggedright Theorem~\ref{thm:wigfree:nomix}, Proposition~\ref{riemanncont:prop:entire}\tabularnewline
+$1/G$ is the harmonic mean of $\sech(\sqrt u\,x)$ over the P\'olya density & proved & Proposition~\ref{xg:prop:harm}\tabularnewline
+harmonic means preserve GGC & false in general & Proposition~\ref{rz:prop:hmfalse}\tabularnewline
+$1/G$ is a GGC transform & equivalent to RH & Proposition~\ref{prop:rigid}\tabularnewline
+$Z\sqrt{2T}$ is a normal scale mixture; an EGGC & \raggedright proved; equivalent to RH & Section~\ref{ch:strip}\tabularnewline
+$m>0$; $P(\sqrt u)$ is a GGC transform & proved & Theorem~\ref{riemanncont:thm:half}\tabularnewline
+$\pi m(\sqrt w)/w$ is a Stieltjes function & equivalent to RH & Theorem~\ref{riemanncont:thm:half}\tabularnewline
+de Bruijn tilt keeps the GGC property & \raggedright proved for $\lambda\ge0.05$; at $\lambda=0$ equivalent to RH & Theorem~\ref{rz:thm:dbn}\tabularnewline
+$e^{-|u|}$ tilt has finitely many real zeros & proved, computed & Proposition~\ref{riemanncont:prop:tilts}\tabularnewline
+\bottomrule
+\end{tabular}
+\caption{Riemann's continuation and the GGC question: the status of each step.}
+\label{riemanncont:tab:steps}
+\end{table}
+
+Read against Section~\ref{ov1:sec:path}, the analysis stops at the same place by every route. Riemann's continuation uses the theta transformation and the Dirichlet series of $\omega$. It uses no multiplicative structure. The harmonic mean step, the one that would need a closure theorem, has the same form for any Dirichlet series with a functional equation of this shape. Section~\ref{ht:sec:yor} shows that it holds in this form for the Davenport and Heilbronn function. There the harmonic mean has the complex pole coming from the off line zero near $0.8085+85.6993\,i$ and is not a GGC. So any closure theorem strong enough to make the harmonic mean a GGC for $\xi$ would prove a false statement for that function, unless it used the Euler product: the second constraint of Section~\ref{ov1:sec:path}. The third constraint excludes properties stable under the dampings of Proposition~\ref{riemanncont:prop:tilts}(ii) and (iii).
+
+\section{Open problems}\label{riemanncont:sec:open}
+
+\begin{problem}\label{riemanncont:prob:arith}
+Is $u\mapsto\E\sech(\sqrt u\,X)$, the Laplace transform of $\frac12X^2C$, a GGC transform? By Proposition~\ref{riemanncont:prop:entire}, Bondesson's product theorem does not apply to the factorisation $\frac12X^2\cdot C$. An answer would not bear on RH directly, but it would show whether the arithmetic mean side of Jensen's inequality keeps the Thorin property.
+\end{problem}
+
+\begin{problem}\label{riemanncont:prob:hm}
+Find a class $\mathcal C$ of mixing laws for which the harmonic mean $1/\E[1/\varphi_X(u)]$ of GGC transforms $\varphi_x$ is again a GGC transform, and which is not already explained by P\'olya's theorems on real zeros. Any such class containing the P\'olya density must use the Euler product. Otherwise the Davenport and Heilbronn function refutes it (Section~\ref{riemanncont:sec:path}).
+\end{problem}
+
+\begin{problem}\label{riemanncont:prob:half}
+The density $m$ of Theorem~\ref{riemanncont:thm:half} is positive with no hypothesis. Its continuation $M(w)$ has the poles $-a_k$. Is there a quantitative statement, in the spirit of Theorem~\ref{sm:thm:strip}(3), that bounds $\im M(-x-i\eta)$ from below on $x>0$, for some $\eta>0$, in terms of computable data and a zero free region? Such a bound is a positivity statement at a level below one, so by statement 1 of Section~\ref{ov1:sec:path} it would be at least as strong as a zero free half plane.
+\end{problem}
+
+\begin{problem}\label{riemanncont:prob:tilt}
+For which even weights $w$ with $w(0)=1$, other than $\E\cosh(uB)$, does $w\Phi$ have a Fourier transform with only real zeros under RH? Proposition~\ref{riemanncont:prop:tilts}(iv) shows that the weight $e^{-|u|}$ fails, and the same argument covers every weight that is smooth on $[0,\infty)$ with $w'(0+)\ne0$. Is smoothness at the origin together with $\log w$ convex sufficient?
+\end{problem}
+
+\paragraph{Does the topic give a path to RH?} No. Riemann's continuation supplies a positive Gamma(2) convolution, Williams' variable, and a signed Gamma(2) mixture, Riemann's kernel. Every closure operation that is a theorem preserves the first, and none is known to reach the clock. The connecting step is a harmonic mean of GGC transforms, and making it a GGC is equivalent to RH. Stefanski's mixture gives the shape that RH predicts, not a proof of it. The sine squared route from the heat trace gives a positive Thorin density with no hypothesis, but for the positive half of the reciprocal law, and RH reappears as the location of the poles of its continuation. The de Bruijn tilt is a normal mixture of basepoint moves, and the tilt by $e^{-|u|}$ is a mixture of the dampings that cannot carry a proof. What the chapter shows is where the single nonclosure step sits. It is the same step that the descent in level of Section~\ref{ov1:sec:path} faces, and it needs the Euler product.

@@ -174,6 +174,12 @@ task('lb_zero2', [PY, '-u', 'lb_zero.py', 'zeros_1700.txt', '--ns', '100000000,3
 for s in ['tlz_k', 'tlz_onecos', 'tlz_deform', 'tlz_bessel']:
     task(s, [PY, '-u', f'{s}.py', '--out', f'{s}.json'], cwd=FERRO)
 task('tlz_phase', [PY, '-u', 'tlz_phase.py', f'{RUN}/zeros_1700.txt', f'{RUN}/lb_c.json', '--out', 'tlz_phase.json'], ['zeros', 'lb_c'], cwd=FERRO)
+# Chapters nc_* and Chapter 22 (code/nc_*.py, mi_levy.py, mi_reweight.py, bc_*.py; the nc_cauchy and nc_route scripts write their json into the run folder; floating point laptop scripts except bc_cert (Hopper, 8 cores, 35 s) and bc_margin (Hopper, 1 core); not run here, listed in code/README.md: the work packages wl_*.py, wp2_*.py, wp3_*.py, wp4_hankel.py, wp5_*.py (Hopper array jobs and report scripts, see misc/reviews/nick-runs/checks-*.md) and nc_cauchy_two_pairs_fig.py, nc_route_toeplitz_fig.py (figures from json of other scripts))
+for s in ['mi_levy', 'mi_reweight', 'nc_barrier_check', 'nc_qrh_numbers', 'nc_zdist_checks', 'nc_riemanncont_checks', 'nc_riemanncont_half', 'nc_riemanncont_scan', 'nc_route_genus2', 'nc_route_hankel_order', 'nc_route_hankel_order_hi', 'nc_cauchy_twospin', 'bc_margin']:
+    task(s, [PY, '-u', f'{s}.py'])
+task('bc_cert', [PY, '-u', 'bc_cert.py', '--workers', '8', '--out', 'bc_cert.json'])
+for s in ['curves', 'cw_planted', 'exact_criterion', 'field_zero', 'gap_theory', 'multifield', 'multiplicity', 'phase', 'planted_pos', 'planted', 'strip_ly', 'strip_search', 'survey', 'thorin_compare', 'tilt_zeros', 'track', 'two_pairs_close', 'two_pairs', 'uniform']:
+    task(f'nc_cauchy_{s}', [PY, '-u', f'nc_cauchy_{s}.py'])
 status = {}
 def run(name):
     t = T[name]

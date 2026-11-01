@@ -1,0 +1,222 @@
+% Chapter nc_qrh: the October 2026 announcements of a zero free half plane and the Thorin programme.
+% Written fresh from the preprints and the book; no earlier note is reproduced.
+% Numbers: code/nc_qrh_numbers.py (exact rationals and mpmath at 40 digits, computed, not certified), unless a source is named.
+
+This chapter describes the zero free half planes announced in October 2026, what is claimed, by whom and with what status, how far we could follow the arguments, and what such a half plane would do for the Thorin programme of the two volumes. Nothing in it presents the half plane as established. Every statement that uses it is conditional and says so, and the hypothesis is named as $(\mathrm Q_\theta)$: no Dirichlet $L$ function, $\zeta$ included, has a zero with $\re s>\theta$. The claims are $\theta=\frac78$ \cite{OAI26a}, $\theta=\frac{11}{12}$ \cite{OAI26b} and $\theta=0.874957\ldots$ \cite{Liu26a}.
+
+The main results are these. Section~\ref{qrh:sec:claims} records the claims and their status: announced, formalised in Lean for $\frac78$ by the authors of \cite{OAI26a}, and not refereed. Section~\ref{qrh:sec:argument} sets out the structure of the argument as far as we read it: a continuation criterion that turns a power saving for smoothed M\"obius sums into a half plane (Proposition~\ref{qrh:prop:cont}, whose short proof we check), Poisson summation in a sextic twist, Kubota's cubic theta function, and a recursion of large sieve type; the steps we did not read are marked. We record the exponent bookkeeping of Step~2 of the outline of \cite{OAI26b} (Proposition~\ref{qrh:prop:balance}). Section~\ref{qrh:sec:thorin} states what $(\mathrm Q_\theta)$ gives in the programme: positivity of the Thorin measure and the minimum at the origin at every level above $\theta$ (Corollary~\ref{qrh:cor:thorin}, conditional, assembled from Theorems~\ref{cx:thm:positivity}, \ref{cx:thm:lbl} and~\ref{thm:dbeta:minall}). Section~\ref{qrh:sec:sin2} argues, as a reading of the manuscripts and not as a theorem, that the $2\sin^2$ lemma \eqref{eq:sin2} adds no step to the argument (Proposition~\ref{qrh:prop:signed}, proved, gives the sign of the canonical measure): it translates the output of a half plane into the Thorin language, and nothing flows the other way. Section~\ref{qrh:sec:descent} describes the step from $\theta$ to $\frac12$ in the language of the descent in level.
+
+Against the path to RH of Section~\ref{ov1:sec:path} the picture is simple. That path stops at its first step below level one, because positivity at a level $\theta<1$ is the half plane $\re s>\theta$. If the announcement stands, the path starts at $\frac78$ instead of $1$, and the open step is the descent from $\frac78$ to $\frac12$, a problem of the same kind as before (Section~\ref{lv:sec:qrh} and the overture). The argument of \cite{OAI26a} does not pass through the Thorin picture, and none of its mechanisms, as far as we can read them, reaches the critical line.
+
+\section{The claims and their status}\label{qrh:sec:claims}
+
+\subsection{What is claimed and by whom}
+
+The repository \url{https://github.com/openai/math} contains, as family 003 of a catalogue of 721 manuscripts in 373 families produced with an unnamed internal model, three manuscripts on zero free regions \cite{OAI26a,OAI26b,NCOAI26c}. We read the README, the manuscript map and the description of the Lean formalisation of family 003 in the repository, and the PDF files of the first two manuscripts (accessed 28 October 2026).
+% verified: raw files README.md, CONTENTS.md, lean/docs/003.md, lean/formalization.yaml, lean/ComparatorChallenges/QuasiRiemannHypothesis.{json,lean}, DirichletSevenEighths.lean, and the two PDFs, downloaded 28 October 2026.
+\begin{enumerate}
+\item \cite{OAI26a}, dated 30 September 2026, 199 pages: every finite order Hecke $L$ function over $\mathbb Q(\sqrt{-3})$ and every Dirichlet $L$ function is zero free in $\re s>\frac78$, the principal pole at $s=1$ allowed (Theorem~1.1 there). The proof has two parts: Part~I proves the half plane $\re s>\frac{11}{12}$ (Theorem~3.1 there), and Part~II starts from it and reaches $\frac78$.
+\item \cite{OAI26b}, dated 5 October 2026, 49 pages: a separate proof of the half plane $\re s>\frac{11}{12}$ for the same families (Theorem~1.1 there). The README states that this write up was edited by people for readability.
+\item \cite{NCOAI26c}, dated 1 October 2026: there is an absolute constant $c>0$ with $(1-\beta)\log q\ge c$ for every real zero $\beta$ of every primitive nonprincipal real Dirichlet $L$ function of conductor $q\ge3$. This uniform exclusion of Landau Siegel zeros also follows from either half plane.
+\end{enumerate}
+Baiying Liu \cite{Liu26a} (arXiv:2610.12234, submitted 8 October 2026, second version 12 October) keeps the construction of \cite{OAI26a} and varies three of its parameters. According to the abstract and to the summary of the paper that we obtained, he gets successively the rational bound $B_r=\frac{34999}{40000}=0.874975$, the algebraic bound $B_{\mathrm{alg}}=(1507-2\sqrt{921})/1653=0.874957069799\ldots$, and the limiting bound
+\begin{equation}\label{qrh:eq:Bnew}
+\begin{gathered}B_{\mathrm{new}}=\frac{18\xi_{\mathrm{new}}+7}{18\xi_{\mathrm{new}}+9}=0.874957019420098946\ldots,\\ 1188\xi^3-2160\xi^2+171\xi+190=0,\end{gathered}
+\end{equation}
+with $\xi_{\mathrm{new}}=0.388583354266035\ldots$ the root in $(0.38858,0.38859)$, and he proves that $B_{\mathrm{new}}$ is optimal within the system of exponent comparisons he specifies. We checked only the arithmetic: the cubic changes sign on that interval, its root agrees with the trigonometric closed form given by Liu to fifteen digits, \eqref{qrh:eq:Bnew} gives the printed value, and $B_{\mathrm{alg}}-B_{\mathrm{new}}=5.04\times10^{-8}$ (computed). Later preprints lower the constant further: Xu and Sang \cite{XuSang26}, assuming the analytic inputs of \cite{OAI26a}, give $0.8748867$, and Liu \cite{Liu26b} claims $0.87489$ for finite order Hecke $L$ functions over every number field; Section~\ref{tx3:sec:signal} lists them. None of these constants differs from $\frac78$ in any way that matters to the Thorin programme, and we write $\frac78$ for all of them.
+% UNCHECKED: the body of arXiv:2610.12234 was read only through a summarising fetch (the arXiv host was not reachable directly from this session). The constants and the formula (qrh:eq:Bnew) are as reported there and were checked arithmetically by code/nc_qrh_numbers.py; the proofs were not read.
+
+\subsection{Status}
+
+\begin{center}\footnotesize
+\begin{tabular}{p{0.2\textwidth}p{0.13\textwidth}p{0.27\textwidth}p{0.3\textwidth}}
+\toprule
+source & half plane & formalised & status\\
+\midrule
+\cite{OAI26a} & $\frac78$ & Lean, by the authors: $\zeta$, all Dirichlet $L$, Hecke $L$ over $\mathbb Q(\sqrt{-3})$ & announced 6 October 2026, not refereed\\
+\cite{OAI26b} & $\frac{11}{12}$ & not listed in the Lean catalogue & announced, human edited, not refereed\\
+\cite{Liu26a} & $0.874957\ldots$ & Lean files in the author's repository (known to us only from a summary, not built by us) & arXiv preprint, not refereed\\
+\cite{XuSang26}, \cite{Liu26b} & $0.8748867$, $0.87489$ & not checked & arXiv preprints, not refereed\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent The Lean statement for $\zeta$ in the repository's comparator challenge is
+\begin{center}
+\texttt{riemannZeta\_ne\_zero\_of\_seven\_eighths\_lt\_re}:\quad for $s\in\C$ with $\frac78<\re s$, $\zeta(s)\ne0$,
+\end{center}
+with the permitted axioms \texttt{propext}, \texttt{Quot.sound} and \texttt{Classical.choice}; the Dirichlet statement has the same form with the pole at $s=1$ of the principal character excluded. The formalisation, according to the repository's description, covers the half plane and the Landau Siegel statement and not the later applications of the paper. Section~\ref{sec:ch25:open} reports that the formal proof was rebuilt for this book and accepted by the Lean kernel, and that the comparator confirms that the theorems proved are the published challenge statements. It is not a check of the 199 page manuscript, and it is not refereeing.
+
+A report in Quanta Magazine of 19 October 2026 \cite{NCQuanta26} says that specialists concentrated on the $\frac{11}{12}$ manuscript, judged the $\frac78$ manuscript hard to audit, quotes Radziwi\l\l\ as finding the argument a surprising synthesis of known ideas and Sarnak as declining to regard it as settled until it has been checked in detail, and records the general expectation that the methods do not reach the critical line. We use this only as a record of the reception, not as evidence for or against the claims.
+
+For the book the status is fixed by the conventions of Section~\ref{ov1:sec:conventions}: the half plane is a hypothesis, named each time.
+
+\section{The structure of the argument}\label{qrh:sec:argument}
+
+We read Sections~1 to~3 of \cite{OAI26b} in full, Sections~1, 2 and~7.1 of \cite{OAI26a}, the statement of Proposition~5.1 there, and the parts of Section~10 of \cite{OAI26a} that locate the principal residue. The rest of both manuscripts, about 150 pages of \cite{OAI26a} and 35 of \cite{OAI26b}, we did not read, and nothing below depends on its correctness except where we say so.
+
+\subsection{From M\"obius sums to a half plane}
+
+The last step of both manuscripts is classical in kind, a smoothed form of Littlewood's equivalence between bounds for the Mertens function and zero free half planes. In \cite[Section~2]{OAI26a} it is stated for a variable boundary. Let $F=\mathbb Q(\sqrt{-3})$, let $\beta_*$ be the supremum of $\frac12$ and the real parts of the zeros of all primitive finite order Hecke $L$ functions over $F$ in $\frac12\le\re s\le1$, and for a finite set $S$ of primes let $L_F^S$ be $L_F$ with the Euler factors at $S$ removed.
+
+\begin{proposition}[continuation from a common signal, {\cite[Proposition~2.1]{OAI26a}}]\label{qrh:prop:cont}
+Fix $\sigma_0\in(\frac12,1)$, suppose $\Delta_0=\beta_*-\sigma_0>0$, let $C(s)=s+c$ with $c$ real, and let $0<\omega<\Delta_0$ and $\sigma>0$ be independent of the character. Suppose that for every primitive $\eta$ there are a finite set $S$, a function $H_\eta$ holomorphic on $\re s>\sigma_0$ with $\sup_{\re s>\sigma_0}|H_\eta-1|\le\frac12$, and a function $J_\eta$ with
+\[
+\begin{gathered}|J_\eta(Z)|\ll_\eta Z^{C(\sigma_0)+\omega},\\|J_\eta(Z)-f_\eta(Z)|\ll_\eta Z^{C(\beta_*)-\sigma},\\ f_\eta(Z)=\frac1{2\pi i}\int_{(2)}Z^{C(s)}e^{(s-5/6)^2}\frac{H_\eta(s)}{L_F^S(s,\eta)}\,ds .\end{gathered}
+\]
+Then these assumptions contradict $\beta_*>\sigma_0$.
+\end{proposition}
+
+We read the proof in \cite{OAI26a} and it is complete as written: the two bounds give $|f_\eta(Z)|\ll Z^{C(\beta_*)-\epsilon_*}$ with $\epsilon_*=\min(\Delta_0-\omega,\sigma)$, moving the contour to the right gives rapid decay as $Z\downarrow0$, so the Mellin transform of $f_\eta$ against $Z^{-C(s)}$ is holomorphic on $\re s>\beta_*-\epsilon_*$, Fourier inversion on $\re s=2$ identifies it with $e^{(s-5/6)^2}H_\eta(s)/L_F^S(s,\eta)$, and since $|H_\eta|\ge\frac12$ this continues $1/L_F^S$ across a zero with real part in $(\beta_*-\epsilon_*,\beta_*]$, which exists by the definition of $\beta_*$. The uniformity of $\epsilon_*$ in $\eta$ is what makes the supremum $\beta_*$ usable; the Gaussian $e^{(s-5/6)^2}$ is the device of Section~\ref{tx3:sec:signal}, where its zeta case $M_{\mathrm g}$ is computed. The two parts of \cite{OAI26a} apply the proposition with
+\[
+\sigma_0=\tfrac{11}{12},\ C(s)=s-\tfrac23,\ C(\sigma_0)=\tfrac14,\qquad\text{and}\qquad\sigma_0=\tfrac78,\ C(s)=s-\tfrac{11}{16},\ C(\sigma_0)=\tfrac3{16}
+\]
+(exact arithmetic). The passage from Hecke $L$ functions over $F$ to Dirichlet $L$ functions is quadratic base change: away from finitely many Euler factors, $L_F(s,\chi\circ N_{F/\mathbb Q})=L(s,\chi)L(s,\chi\chi_{-3})$, and the possible cancellation at $s=1$ is excluded by $L(1,\chi_{-3})\ne0$ \cite[Section~3]{OAI26b}. This step we checked.
+
+\subsection{The outline of the $\frac{11}{12}$ proof}
+
+The outline of \cite[Section~2]{OAI26b} has five steps; we follow it with the notation there.
+
+Step~1. For a finite order Hecke character $\nu$ of $F$ and a smooth cutoff $W$, put $A_1(D)=\sum_{\mathfrak n}\mu(\mathfrak n)\nu(\mathfrak n)W(N\mathfrak n/D)$. A bound $A_1(D)\ll D^{\theta+\varepsilon}$ for every $W$ excludes zeros of $L_F(s,\nu)$ in $\re s>\theta$: choose $W(y)=y^{-\varrho}\phi(y)$ with $\phi\ge0$ supported in $(1,2)$, so that the Mellin transform of $A_1$ equals $\widehat W(s)/L_F^S(s,\nu)$ and is holomorphic on $\re s>\theta$, while $\widehat W(\varrho)=\int\phi(y)\,dy/y>0$, which contradicts $L_F(\varrho,\nu)=0$ \cite[Section~3]{OAI26b}. This step we checked.
+
+{\emergencystretch=4em Step~2. The sum is embedded in the family $A_u(D)=\sum\mu(n)\nu(n)\allowbreak\chi_n(u)W(N n/D)$, $u\in\mathbb Z[\omega]$, with $\chi_n(u)=(u/n)_6$ the sextic residue symbol, and the key estimate is the mean square\par}
+\begin{equation}\label{qrh:eq:ms}
+\sum_{0<N u\le H}|A_u(D)|^2\ll D^{1+\varepsilon}H,\qquad H=D^{1+\vartheta},\ 0<\vartheta\le\tfrac1{10},
+\end{equation}
+square root cancellation on average over $u$ \cite[(2.3) and Proposition~3.1]{OAI26b}. Since $\chi_n(p^6)=1$ when $p\nmid n$, the rows $u=p^6$ with $N p\approx Y=H^{1/6}$ all equal $A_1(D)$ up to $O(D/Y)$, and there are about $Y/\log Y$ of them. This gives the bound \eqref{qrh:eq:balance} below and the exponent $\frac{11}{12}$.
+
+Step~3, Poisson summation. The square in \eqref{qrh:eq:ms} is expanded and Poisson summation is applied in the row variable $u$. The Fourier transforms of the sextic characters are sextic Gauss sums, and an identity going back to Hasse and Heath-Brown, $\mu(n)\gamma_{-1}(n)=\chi_n(-1)G(n)^{-1}\alpha(n)\gamma_2(n)$ with $\alpha(n)=n/|n|$ and $G(n)$ a fixed ray class factor, absorbs the M\"obius function into normalised cubic Gauss sums $\gamma_2(n)$. The dual problem is a mean square over a new row variable $h$ of sums $B_h(X)=\sum\alpha(n)\gamma_2(n)\xi(n)\chi_n(h)U(Nn/X)$, required to be $\ll D^{2+\varepsilon}$.
+
+Step~4, the cubic theta function. Patterson's formula identifies $\gamma_2(n)$, up to explicit factors, with the Fourier coefficients of Kubota's cubic theta function on hyperbolic three space \cite{NCKubota69,NCPatterson77}, in the normalisation of Dunn and Radziwi\l\l\ \cite{NCDunnRadziwill24}. Completing the sum by the indices $nb^3$ makes the transformation law of the theta function applicable. The transformed sums are twisted by $\chi_h^3$, which is quadratic, and the quadratic large sieve over number fields of Goldmakher and Louvel \cite{NCGoldmakherLouvel13} then bounds their mean square by $(HX)^\varepsilon(H+H^2/X)$, without the extra term $(ML)^{2/3}$ of the general large sieve for characters of higher order. That the twist becomes quadratic is the point at which the argument gains.
+
+Step~5, removing the cube factors. The completed sum is undone by M\"obius inversion in $b$. Small cube divisors are handled by Cauchy and Schwarz; large ones by two further Poisson summations, which produce a mean square of the same type with both scales divided by $Nb^3$ and their ratio unchanged. The resulting recursion contracts the row range by a fixed power of $D$ at each step and terminates after $O_\vartheta(1)$ steps.
+
+The archimedean side of Step~4 is a Mellin Barnes integral, although neither manuscript uses the word: the transformed weight is
+\[
+V_*^\sharp(x)=\frac1{2\pi i}\int_{(0)}\widehat V_*(-t)\,\frac{\Gamma(\frac76+t)\Gamma(\frac56+t)}{\Gamma(\frac76-t)\Gamma(\frac56-t)}\Bigl(\frac{(2\pi)^4x}{27}\Bigr)^{-t}dt
+\]
+\cite[(6.6)]{OAI26b}, a quotient of gamma factors coming from the Mellin transform of the Bessel function $K_{1/3}$ in the cusp expansions of the theta function; \cite[Proposition~5.1]{OAI26a} has the same kernel $\prod_\pm\Gamma(1+t\pm\frac16)/\Gamma(1-t\pm\frac16)$. In Liu's account \cite{Liu26a}, as we have it, the chain is the same: the continuation criterion, the cubic theta average with its two representations (the theta functional equation giving a direct bound, Poisson summation giving a triple contour integral in $(s,w,z)$ whose residue at $w=1$, $z=\frac16$ carries $1/L_F^S(s,\eta)$), a zero detector, and moment estimates.
+% UNCHECKED: Steps 3 to 5 are stated as in the outline of OAI26b, Section 2; their proofs (Sections 4 to 7 and Appendices A, B there) were not read. The account of Liu's chain is from a summarising fetch of arXiv:2610.12234.
+
+\subsection{The passage to $\frac78$}
+
+Part~II of \cite{OAI26a} keeps the completed cubic theta sum and modifies it by subtracting selected prime factors, which cancel an unwanted Euler factor, with unequal averaging scales. The principal signal then has $C(s)=s-\frac{11}{16}$. A zero detector produces, for each surviving row, a large inverse polynomial $\sum\mu(\mathfrak a)\psi(\mathfrak a)W(N\mathfrak a/D)$ and a large plain polynomial with the same character and height, and two separate inductions, a second moment for inverse polynomials with prime factors and a mean square for products of plain polynomials, bound the number of such rows \cite[overview, pp.~5 to~7]{OAI26a}. In Liu's parametrisation, with $b=l_y-l_x$ the difference of the two length exponents and $\ell$ the total exponent of the selected primes, $l_x=\frac12(1-b-\ell)$, $l_y=\frac12(1+b-\ell)$, and matching the direct and principal exponents gives, as reported in a summary of \cite{Liu26a} that we have not checked against the paper, the boundary
+\begin{equation}\label{qrh:eq:Bl}
+B(\ell)=\frac{11}{12}-\frac\ell4,
+\end{equation}
+so that $\ell=\frac16$ gives $\frac78$; the moment estimates limit how large $\ell$ may be, and the moment parameter $\kappa$ must satisfy $B\le\frac12(1+\kappa)$.
+% UNCHECKED: Sections 5, 6 and 8 to 20 of OAI26a were not read; (qrh:eq:Bl) and the constraints on b, ell, kappa are as reported from arXiv:2610.12234 by the summarising fetch. The identity C(7/8) = 3/16 and B(1/6) = 7/8 were checked in exact arithmetic.
+
+\subsection{What the bookkeeping allows}
+
+The exponent of Step~2 is a balance of two terms.
+
+\begin{proposition}[the balance of Step~2]\label{qrh:prop:balance}
+Suppose that for some $h>0$ the mean square \eqref{qrh:eq:ms} holds with $H=D^h$, and let $Y=H^{1/6}$. Then
+\begin{equation}\label{qrh:eq:balance}
+|A_1(D)|^2\ll D^{1+\varepsilon}\frac HY+\frac{D^2}{Y^2},\qquad A_1(D)\ll D^{e(h)+\varepsilon},\quad e(h)=\max\Bigl(\frac12+\frac{5h}{12},\,1-\frac h6\Bigr).
+\end{equation}
+For every $h>0$, $e(h)\ge\frac67$, with equality only at $h=\frac67$; $e(1)=\frac{11}{12}$ and $e(\frac{11}{10})=\frac{23}{24}$. So, with the trivial bound $O(D/Y)$ for $A_1(D)-A_{p^6}(D)$, no mean square bound of the form \eqref{qrh:eq:ms}, fed into this step with rows of the form $p^6$, gives a half plane to the left of $\re s=\frac67$.
+\end{proposition}
+
+\begin{proof}
+For the $J\asymp Y/\log Y$ primes with $Y/2<Np\le Y$ outside $S$, $|A_1(D)-A_{p^6}(D)|\ll D/Y$, so $|A_1(D)|^2\le\frac2J\sum_p|A_{p^6}(D)|^2+O(D^2/Y^2)$, and the rows $p^6$ are distinct and of norm at most $H$; the mean square gives the first term with an extra $\log Y\ll D^\varepsilon$. With $H=D^h$ the two terms are $D^{1+5h/6+\varepsilon}$ and $D^{2-h/3}$, whose square roots have the exponents in $e(h)$. The first exponent increases and the second decreases in $h$; they are equal when $\frac{7h}{12}=\frac12$, that is $h=\frac67$, where both equal $\frac67$. The values at $h=1$ and $h=\frac{11}{10}$ are exact arithmetic.
+\end{proof}
+
+The argument of \cite{OAI26b} needs $h=1+\vartheta>1$, which is where the large sieve and the recursion are proved, and lets $\vartheta\downarrow0$; this is the exponent $\frac{11}{12}$. Bounding the difference of the rows by the same recursion instead removes this floor for every $h>0$; the constraint that remains is the range $h>1$ in which \eqref{qrh:eq:ms} is proved. The sixth powers come from the sextic twist, and a twist of order $k$ with rows $p^k$ would give $e(h)=\max(\frac12+\frac{(k-1)h}{2k},1-\frac hk)$, equal to $\frac{2k-1}{2k}$ at $h=1$ (proved the same way). Liu's formula \eqref{qrh:eq:Bl} says the same of Part~II in another form: since $l_x=\frac12(1-b-\ell)\ge0$ and $l_y=\frac12(1+b-\ell)\ge0$ force $\ell\le1$, it gives $B(\ell)\ge\frac23$ on its face, and $B=\frac12$ would need $\ell=\frac53$. This is arithmetic on the formula as reported, not a theorem about the method; Liu's own optimality result, which we have not read, is the precise statement for his system. Neither observation says anything about the correctness of the manuscripts. Both say that the exponents these mechanisms produce are fixed numbers bounded away from $\frac12$, which is the reason the specialists quoted in \cite{NCQuanta26} expect the method to stop short of the line.
+
+\section{What a half plane gives in the Thorin programme}\label{qrh:sec:thorin}
+
+Write $u_\theta(v)=\pi^{-1}\re(\xi'/\xi)(\theta+iv)$ for the density at level $\theta$ and $b_\theta=(\xi'/\xi)(\theta)=\pi u_\theta(0)$, as in Section~\ref{ov1:sec:conventions}. The two theorems that make the descent in level a single monotone question are Theorem~\ref{cx:thm:positivity} (positivity is a zero free half plane) and Theorem~\ref{thm:dbeta:minall}, whose part~(vi) puts the minimum at the origin at every level as the Thorin form of RH; Theorem~\ref{cx:thm:lbl} proves the same equivalence level by level. Assembled, they give the following.
+
+\begin{corollary}[conditional on $(\mathrm Q_\theta)$]\label{qrh:cor:thorin}
+Let $\frac12\le\theta<1$ and assume that $\zeta$ has no zero with $\re s>\theta$. Then for every level $\theta'>\theta$:
+\begin{enumerate}
+\item[(i)] $u\mapsto\xi(\theta')/\xi(\theta'+\sqrt u)$ is the Laplace transform of a GGC $T_{\theta'}$ with Thorin density $u_{\theta'}$ in the chart $v=\sqrt z$, and $u_{\theta'}>0$; it is a sum of Cauchy densities of widths in $[\theta'-\theta,\theta'-1+\theta]$;
+\item[(ii)] $u_{\theta'}(v)>u_{\theta'}(0)$ for every real $v\ne0$, so $T_{\theta'}=S_{\theta'}+T^\circ_{\theta'}$ with $S_{\theta'}$ positive stable of index $\frac12$, $\E e^{-uS_{\theta'}}=e^{-b_{\theta'}\sqrt u}$, and $T^\circ_{\theta'}$ an independent GGC with no drift;
+\item[(iii)] the mass deficit of Proposition~\ref{cx:prop:deficit} vanishes at every height: $M_{\theta'}(T)=M_1(T)+\pi^{-1}\Delta_{\mathrm{top}}(\theta',T)$, and the level mass function of Corollary~\ref{cx:cor:levelmass} is continuous on $(\theta,1]$;
+\item[(iv)] the compensated L\'evy form of $\log\xi(\theta'+s)/\xi(\theta')$ converges, with error $O(X^{\theta-\theta'+\delta})$ at prime cutoff $X$, and the $2\sin^2$ lemma converts it into $u_{\theta'}$ (Proposition~\ref{bp:prop:below}).
+\end{enumerate}
+At the level $\theta$ itself, (i) holds with an atom at the ordinate of each zero on the line $\re s=\theta$, if there is one (Theorem~\ref{rz:thm:threshold}). Conversely, (i) for every $\theta'>\theta$, or (ii) for every $\theta'\in(\theta,1)$, implies $(\mathrm Q_\theta)$.
+\end{corollary}
+
+\begin{proof}
+(i) is Theorem~\ref{thm:poisson} with Theorem~\ref{cx:thm:positivity}; the widths are $\theta'-\beta$ with $1-\theta\le\beta\le\theta$ by the functional equation (Proposition~\ref{prop:struct}). (ii) for $\theta'\le1$ is the implication (i)$\Rightarrow$(ii) of Theorem~\ref{cx:thm:lbl} applied with any level in $(\theta,\theta')$, which gives $\ge$, and Theorem~\ref{pol:thm:qrhpair} with $\alpha_0=\theta$, which gives the strict inequality; for $\theta'\ge1$ it is Proposition~\ref{bp:prop:valpha}, with no hypothesis. The splitting is proved as in Proposition~\ref{bp:prop:valpha}, using $\frac1\pi\int_0^\infty\log(1+u/v^2)\,dv=\sqrt u$. (iii) is Corollary~\ref{cx:cor:levelmass} with $N(\theta',T)=0$. (iv) is Proposition~\ref{bp:prop:below} with $\Theta\le\theta$. The converse is Theorem~\ref{cx:thm:positivity}, (i)$\Rightarrow$(ii), and Theorem~\ref{cx:thm:lbl}, (ii)$\Rightarrow$(i), with (ii) at $\theta'=1$ supplied by Proposition~\ref{bp:prop:valpha}.
+\end{proof}
+
+With $\theta=\frac78$ the corollary is Theorem~\ref{pol:thm:qrh}(i) and~(ii), Theorem~\ref{cx:thm:uniform} and Corollary~\ref{pol:cor:qrhggc}, which state it with the constants of the book; its content is that one hypothesis moves every positivity statement of the programme from level one down to $\theta$, and nothing below $\theta$. For the claimed constants the computed values at the boundary are
+\begin{center}\scriptsize\setlength{\tabcolsep}{2pt}
+\begin{tabular}{lccccc}
+\toprule
+$\theta$ & $1$ & $\frac{11}{12}$ & $\frac78$ & $B_{\mathrm{alg}}$ & $B_{\mathrm{new}}$\\
+\midrule
+$b_\theta=(\xi'/\xi)(\theta)$ & $0.02309570897$ & $0.01924878657$ & $0.01732482643$ & $0.01732284397$ & $0.01732284164$\\
+$u_\theta(0)=b_\theta/\pi$ & $0.007351592492$ & $0.006127079062$ & $0.005514663528$ & $0.005514032492$ & $0.005514031751$\\
+$b_\theta/(\theta-\frac12)$ & $0.046191418$ & $0.046197088$ & $0.046199537$ & $0.04619954$ & $0.04619954$\\
+$2(\theta-\frac12)^2$ & $0.5$ & $0.34722222$ & $0.28125$ & $0.28118561$ & $0.28118553$\\
+\bottomrule
+\end{tabular}
+\end{center}
+(computed with mpmath at forty digits; the value at $\frac78$ agrees with Theorem~\ref{cx:thm:globalmin}(ii) and at $1$ with the closed form $1+\frac{\gamma_E}2-\frac12\log4\pi$). The ratio $b_\theta/(\theta-\frac12)$ increases to $V_\xi=0.04620998623$ as $\theta\downarrow\frac12$ (Theorem~\ref{thm:dbeta:minall}(i)); the last row is, under $(\mathrm Q_\theta)$ for $\theta<1$, the bound $\Lambda\le2(\theta-\frac12)^2$ for the de Bruijn Newman constant from de Bruijn's theorem, weaker than $\Lambda\le0.2$ \cite{PT21} for every claimed $\theta$.
+
+For the Dirichlet characters $\chi_4$ and $\chi_{12}$, which are within the scope of \cite{OAI26a} as stated (every Dirichlet $L$ function), $(\mathrm Q_{7/8})$ gives the analogue of part~(i) through Proposition~\ref{prop:dbeta:thorin} and its $\chi_{12}$ counterpart. Part~(ii) for them is proved unconditionally only for $\alpha\ge1$ (Theorem~\ref{thm:dbeta:minall}(v)), and the proofs of Theorems~\ref{cx:thm:lbl} and~\ref{pol:thm:qrhpair} use certified ordinates of $\zeta$; between $\frac78$ and $1$ it is Problem~\ref{qrh:prob:chi4} below.
+
+\section{Does the $2\sin^2$ lemma add anything?}\label{qrh:sec:sin2}
+
+The lemma \eqref{eq:sin2} is an identity: integrated against any real measure $L$ with $\int\min(x,x^2)|L|(dx)<\infty$, it turns a L\'evy representation into a Thorin representation whose density is $(2\pi\sqrt z)^{-1}[c+\int2\sin^2(x\sqrt z/2)\,xL(dx)]$. Positivity of the Thorin density follows when $xL$ is positive. For $\xi$ at a basepoint $\alpha$ the canonical measure is never positive.
+
+\begin{proposition}[the canonical measure is signed]\label{qrh:prop:signed}
+For every $\alpha>\frac12$, the continuous part of the canonical measure $x\Pi_\alpha(dx)$ of Section~\ref{ch:basepoint},
+\[
+\Bigl(\frac{e^{-(\alpha+2)x}}{1-e^{-2x}}-e^{-(\alpha-1)x}\Bigr)dx=e^{-(\alpha-1)x}\Bigl(\frac{e^{-3x}}{1-e^{-2x}}-1\Bigr)dx,
+\]
+is positive on $(0,x_0)$ and negative on $(x_0,\infty)$, where $x_0=0.281199574323\ldots$ is the root of $e^{-3x}+e^{-2x}=1$. Since $x_0<\log2$ and the atoms of $x\Pi_\alpha$ sit at $\log n$, $n\ge2$, the measure $x\Pi_\alpha$ is negative on $(x_0,\log2)$ for every $\alpha$, and the sufficient condition $xL\ge0$ of the $2\sin^2$ lemma holds at no basepoint.
+\end{proposition}
+
+\begin{proof}
+The factor $g(x)=e^{-3x}/(1-e^{-2x})$ decreases strictly from $+\infty$ to $0$ on $(0,\infty)$, since its numerator decreases and its denominator increases, so $g-1$ has exactly one zero $x_0$, where $e^{-3x_0}=1-e^{-2x_0}$. At $x=\log2$, $g=\frac18/\frac34=\frac16<1$, so $x_0<\log2$; the numerical value is computed and gives $g(\log2)-1=-0.8333$. On $(x_0,\log2)$ there are no prime powers, so the measure there is its continuous part, which is negative.
+\end{proof}
+
+So positivity is always a domination question: the pole piece against the archimedean and prime pieces, as in \eqref{bp:eq:excess}, where for $\alpha>1$ the negative contribution is the single term $-q_{\alpha-1}(\theta)$. This is why the book proves the minimum at the origin above level one with the primes or the zeros (Propositions~\ref{bp:prop:v1min} and~\ref{bp:prop:valpha}), never with the lemma alone. Below level one the prime piece and the pole piece each diverge and only their compensated difference has a meaning, and its convergence at $\alpha$ is the bound $\psi(y)-y=O(y^{\Theta+\delta})$ with $\Theta<\alpha$ (Proposition~\ref{bp:prop:below}), which is the half plane itself.
+
+Now compare the argument of \cite{OAI26a,OAI26b}. Its arithmetic input is the M\"obius function twisted by Hecke characters of $\mathbb Q(\sqrt{-3})$ and sextic residue symbols; its analytic output is the continuation of $1/L_F$ (Proposition~\ref{qrh:prop:cont}). The lemma acts on $\log L$, through the von Mangoldt function, and on the shifted reciprocal $\xi(\alpha)/\xi(\alpha+\sqrt u)$ only through its logarithm. The two meet at one point: a half plane for $1/L$ is the same as a half plane for $\log L$, and through it the bound of Step~1 becomes the convergence statement of Corollary~\ref{qrh:cor:thorin}(iv). We conclude, as a matter of fact about the arguments as we read them and not as a theorem, that the lemma adds nothing to the proof: it supplies the Thorin reading of what the proof gives, and no step of Steps~1 to~5 has a counterpart in the lemma. In the other direction a statement of the form ``the compensated density is positive on every line to the right of $\theta$'' is equivalent to $(\mathrm Q_\theta)$ (Corollary~\ref{pol:cor:equiv}), so a proof of positivity through the lemma would be a proof of a half plane, and would have to contain an estimate of the strength of \eqref{qrh:eq:ms} in some form. Whether the smoothed M\"obius signal $f_\eta$ has a Thorin reading of its own is Problem~\ref{qrh:prob:signal}.
+
+There is one place where the lemma does interact with the half plane, without adding to its proof. Under $(\mathrm Q_\theta)$ the hybrid formula of Section~\ref{ch:basepoint} for the error of the compensated sum at $\alpha>\theta$ has no growing term, so the compensated $2\sin^2$ density computed from primes up to $X$ converges to $u_\alpha$ at the rate $X^{\theta-\alpha+\delta}$: a computational consequence, conditional, which is Corollary~\ref{qrh:cor:thorin}(iv).
+
+\section{From $\theta$ to $\frac12$: the descent in level}\label{qrh:sec:descent}
+
+In the language of Section~\ref{ov1:sec:path} the descent is the monotone family $\theta'\mapsto u_{\theta'}$, $\theta'\in(\frac12,1]$, and RH is the persistence of positivity, equivalently of the minimum at the origin, from $\theta'=1$ down to $\frac12$. Corollary~\ref{qrh:cor:thorin} says that $(\mathrm Q_\theta)$ is exactly this persistence on $(\theta,1]$. The remaining step has four readings, each a restatement and not a reduction.
+
+\paragraph{As a half plane} The step from $\theta$ to any $\theta_1<\theta$ is $(\mathrm Q_{\theta_1})$. A family of half planes descending to $\frac12$ is RH; there is no intermediate statement of positivity type between two levels, because positivity on a single line is weaker than the half plane and is not known to imply it (Remark~\ref{rem:ch2:oneline}).
+
+\paragraph{As a deconvolution} Under $(\mathrm Q_\theta)$ the densities at levels above $\theta$ form a Cauchy semigroup of positive measures, $u_{\theta'+a}=P_a*u_{\theta'}$ (Theorem~\ref{tf:thm:poisson}(a)), and by Theorem~\ref{tf:thm:deconv} RH is the statement that $u_{\theta_0}$, for any $\theta_0>\theta$, is the Cauchy smoothing at width $\theta_0-\frac12$ of a positive measure. The hypothesis shortens the width to be undone from $\frac12$ to $\theta-\frac12$, and the condition number of the discretised inverse, of order $e^{\pi w/h}$ for width $w$ at grid step $h$ (Section~\ref{cx:sec:problem}), from $e^{31.4}$ to $e^{23.6}$ at $h=0.05$ for $\theta=\frac78$ (computed); it is still exponential in $1/h$, and the residual of the backward flow at levels below $\theta$ remains a diagnostic, not a certificate (Section~\ref{cx:sec:level78}). The deconvolution from level one to $\frac78$ that the hypothesis makes a Thorin measure has condition number $e^{7.85}$ at the same step (computed), in agreement with Section~\ref{cx:sec:level78}.
+
+\paragraph{As a monotone ratio} Theorem~\ref{thm:dbeta:comp} gives $v_\alpha(\theta)/(\alpha-\frac12)\ge v_{\alpha'}(\theta)/(\alpha'-\frac12)$ whenever the zeros near height $\theta$ that lie further than $(\alpha-\frac12)/\sqrt2$ from the line are well separated from $\theta$. Under $(\mathrm Q_\theta)$ every zero has $\delta=\beta-\frac12\le\theta-\frac12$, so by Lemma~\ref{lem:dbeta:comp}(b) the hypothesis holds at every height for $\alpha\ge\frac12+\sqrt2(\theta-\frac12)$: for $\theta=\frac78$ this is $\alpha\ge1.0303$ (computed), above level one, where the comparison is already unconditional. So the hypothesis does not extend the comparison into the strip; the ratio argument, like the others, needs $\delta$ small relative to the level, which is RH in the limit.
+
+\paragraph{As a condition on ordinates} Theorem~\ref{cx:thm:lbl} reduces the minimum at the origin at every level in $[\theta,1]$, given $(\mathrm Q_\theta)$, to one inequality $W(v)\ge w^*$ on the ordinates alone, with no level in it, certified on $[13.5,1418.9]$. The level drops out because the pairing bound and the orbit bound both scale linearly in $2\theta'-1$. What is left, the hypothesis $(\mathrm Q_\theta)$, is not touched.
+
+In each reading the step from $\theta$ to $\frac12$ is a zero free half plane for every $\theta_1>\frac12$, uniform in the height. The descent in level is therefore the right frame for the announcement, since the announcement is literally its first step, and the wrong frame for hoping that the announcement makes the rest easier: nothing in the programme turns a half plane at $\theta$ into one at a smaller $\theta_1$. The exponents of Section~\ref{qrh:sec:argument} say the same from the other side.
+
+\section{Open problems}\label{qrh:sec:open}
+
+\begin{problem}[the minimum at the origin for $\chi_4$ and $\chi_{12}$ under the half plane]\label{qrh:prob:chi4}
+Assume $(\mathrm Q_{7/8})$ for $L(s,\chi_4)$ and $L(s,\chi_{12})$. Prove $v_\alpha(\theta)>b_\alpha$ for every $\alpha\in(\frac78,1)$ and every $\theta\ne0$, in the notation of Theorem~\ref{thm:dbeta:minall}. The window argument of part~(v) there, with the counting formula of \cite{BMOR21}, should apply above the verified heights; below them the zeros are on the line \cite{Platt16} and the convexity argument of part~(ii) needs a margin like that of Table~\ref{tab:dbeta:minall} at $\alpha<1$.
+\end{problem}
+
+\begin{problem}[a Thorin reading of the signal]\label{qrh:prob:signal}
+The signal of Proposition~\ref{qrh:prop:cont} is the inverse Mellin transform of $e^{(s-5/6)^2}H_\eta(s)/L_F^S(s,\eta)$, and its zeta analogue $M_{\mathrm g}$ is computed in Section~\ref{tx3:sec:signal}. Is there a choice of the weight for which the signal is the density of a law whose infinite divisibility, or GGC property, is equivalent to the absence of zeros to the right of a given line, as Theorem~\ref{thm:poisson} is for the shifted clock? Such a reading would place the direct and the principal estimates of the proof inside the programme.
+\end{problem}
+
+\begin{problem}[the exponent of the cubic theta method]\label{qrh:prob:exponent}
+Proposition~\ref{qrh:prop:balance} shows that the step from the mean square to the M\"obius bound with the trivial bound for the difference of the rows, cannot pass $\frac67$. Is there a corresponding lower bound for the full method of \cite{OAI26a}, independent of the parametrisation of \cite{Liu26a}, and is it above $\frac34$? In particular, can any argument that bounds the M\"obius function through a mean square over a family of twists of fixed order $k$ give an exponent below $\frac{2k-1}{2k}$?
+\end{problem}
+
+\begin{problem}[a certificate of the half plane to a height]\label{qrh:prob:cert}
+Theorem~\ref{cx:thm:certified} certifies positivity of $u_{7/8}$ up to height $1420$ with no hypothesis; part~(iii) there, $N(\frac34,T^*)=0$, excludes zeros with $\re s>\frac34$ up to $T^*=1419.9$. Combine the mass deficit of Proposition~\ref{cx:prop:deficit} with the zero detector of \cite{OAI26a} to give an independent certified check of the absence of zeros with $\re s>\frac78$ up to a height beyond the verification of RH \cite{PT21}. This would test the manuscripts, not prove them.
+\end{problem}
+
+\begin{problem}[positivity on one line]\label{qrh:prob:oneline}
+Does positivity of $u_\theta$ on the single line $\re s=\theta$, for one $\theta\in(\frac12,1)$, imply $(\mathrm Q_\theta)$ for $\zeta$? Remark~\ref{rem:ch2:oneline} shows that it does not for general entire functions of the shape of $\xi$. A positive answer for $\zeta$ would make the descent a question about one line at a time.
+\end{problem}
+
+\paragraph{Does this give a path to RH?} No. If the announced half plane stands, the Thorin programme gains a starting level of $\frac78$ in place of $1$, with every positivity statement of the book moved down accordingly (Corollary~\ref{qrh:cor:thorin}), and nothing below $\frac78$. The argument of \cite{OAI26a} works with smoothed M\"obius sums, sextic twists and the cubic theta function, not with Thorin measures; the $2\sin^2$ lemma only translates its conclusion. The step from $\frac78$ to $\frac12$ is, in every form the programme gives it, a family of zero free half planes uniform in the height, and the exponents produced by the cubic theta mechanism, as far as we can read them, are fixed numbers bounded away from $\frac12$.

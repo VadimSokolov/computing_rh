@@ -11,7 +11,7 @@ A_a(\alpha)\sim\frac{2e^{2(1-\alpha)a}}{1-\alpha}\quad(\tfrac12\le\alpha<1),\qqu
 A_a(\alpha)\ \text{increases to}\ -2\frac{\zeta'}{\zeta}(\alpha)\quad(\alpha>1).
 \end{gathered}
 \end{equation}
-Table~\ref{zh:tab:comb} lists the values, computed by \texttt{zh\_comb.py} (\texttt{code/\allowbreak README.md}).
+Table~\ref{zh:tab:comb} lists the values, computed.
 
 \begin{table}[htbp]
 \centering\small
@@ -34,8 +34,6 @@ $a$ & $A_a(\alpha)$ & $\log_{10}T_1$ & $A_a(\alpha)$ & $\log_{10}T_1$ & $A_a(\al
 \label{zh:tab:comb}
 \end{table}
 
-
-
 \begin{corollary}\label{zh:prop:fullsymbol}
 Let $\alpha\ge1$, $a>0$ and $f\in C(a)$, and write $F=\widehat f$ and $b_\alpha=\xi'(\alpha)/\xi(\alpha)$. With no hypothesis on the zeros,
 \[
@@ -45,7 +43,7 @@ and the constant $2b_\alpha$ does not depend on $a$.
 \end{corollary}
 
 \begin{proof}[First proof, $\alpha\ge1$]
-Let $\sigma_{\max}=\sup_\rho\re\rho$ be the largest real part of a zero (Section~\ref{yo:sec:mult}). Then $\sigma_{\max}\le1\le\alpha$ and no zero has real part $\alpha$, so Proposition~\ref{yo:prop:mult} gives the identity, and Theorem~\ref{yo:thm:coercive}(i) gives the inequality with $m_\alpha=\inf_t\re\frac{\xi'}\xi(\alpha+it)$. By part (ii) of that theorem, which for $\alpha\ge1$ needs no hypothesis (Propositions~\ref{bp:prop:v1min} and~\ref{bp:prop:valpha}), $m_\alpha=b_\alpha$, and $b_\alpha>0$ because the density $v_\alpha=\re\frac{\xi'}\xi(\alpha+i\cdot)$ is positive (Theorem~\ref{thm:poisson}).
+With $\sigma_{\max}=\sup_\rho\re\rho$ (Section~\ref{yo:sec:mult}), $\sigma_{\max}\le1\le\alpha$ and no zero has real part $\alpha$, so Proposition~\ref{yo:prop:mult} gives the identity, and Theorem~\ref{yo:thm:coercive}(i) gives the inequality with $m_\alpha=\inf_t\re\frac{\xi'}\xi(\alpha+it)$. By part (ii) of that theorem, which for $\alpha\ge1$ needs no hypothesis (Propositions~\ref{bp:prop:v1min} and~\ref{bp:prop:valpha}), $m_\alpha=b_\alpha$, and $b_\alpha>0$ because the density $v_\alpha=\re\frac{\xi'}\xi(\alpha+i\cdot)$ is positive (Theorem~\ref{thm:poisson}).
 \end{proof}
 
 \begin{proof}[Second proof, $\alpha>1$]
@@ -86,13 +84,11 @@ because $\|f_\lambda\|=\|f\|$ and $\int P_\varepsilon=1$.
 
 At $a=0.8$ the first bound is certified: Corollary 6.3 of \cite{Zhu26} gives $\lambda_{\min}(\frac12,0.8)\ge8.9\times10^{-18}$ for complex test functions, so by (i) $\langle f,f\rangle_\alpha\ge8.9\times10^{-18}\|f\|^2$ for every $\alpha\ge\frac12$ and every $f\in C(0.8)$, with no hypothesis. The second bound is not a multiple of $4p_1(\alpha-\frac12)$ but only comparable to it: $2b_\alpha$ lies between $4p_1(\alpha-\frac12)-4p_2(\alpha-\frac12)^3$ and $4p_1(\alpha-\frac12)$, so under RH a bound $\lambda_{\min}(\alpha,a)\ge4p_1(\alpha-\frac12)$ would fail for large $a$, where $\lambda_{\min}(\alpha,a)\to2b_\alpha$ (Theorem~\ref{yo:thm:coercive}(i) and (ii)). Unconditionally the second bound is available for $\alpha\ge1$ only (Corollary~\ref{zh:prop:fullsymbol}); at a single $\alpha<1$ with no zero on the line the inequality $\lambda_{\min}(\alpha,a)\ge2b_\alpha$ for all $a$ is equivalent to $\sigma_{\max}\le\alpha$ together with $v_\alpha\ge b_\alpha$ on the line (Remark~\ref{yo:rem:line}).
 
-The theorem has a numerical counterpart for the windows of Table~\ref{zh:tab:hp}. The matrices of that table, with the damping, give upper bounds for $\lambda_{\min}^{\rm even}(\alpha,a)$ (computed at $60$ digits, for $26$ and $40$ modes, \texttt{code/\allowbreak README.md}). In all $44$ values, for $a=0.5$ and $0.8$ and $\alpha-\frac12$ between $10^{-17}$ and $10^{-3}$, the finite section value lies above both bounds of the theorem: the least ratio to the floor $2b_\alpha$ is $1.030$ at $a=0.8$, $\alpha-\frac12=10^{-4}$ and $1.121$ at $a=0.5$, $\alpha-\frac12=10^{-3}$, and the least ratio to the undamped value of the same size is $1.011$ at $a=0.5$, $\alpha-\frac12=10^{-7}$ and $1.047$ at $a=0.8$, $\alpha-\frac12=10^{-17}$.
+Numerically, the matrices of Table~\ref{zh:tab:hp} with the damping give upper bounds for $\lambda_{\min}^{\rm even}(\alpha,a)$ (computed at $60$ digits, for $26$ and $40$ modes). In all $44$ values, for $a=0.5$ and $0.8$ and $\alpha-\frac12$ between $10^{-17}$ and $10^{-3}$, the finite section value lies above both bounds of the theorem: the least ratio to the floor $2b_\alpha$ is $1.030$ at $a=0.8$, $\alpha-\frac12=10^{-4}$ and $1.121$ at $a=0.5$, $\alpha-\frac12=10^{-3}$, and the least ratio to the undamped value of the same size is $1.011$ at $a=0.5$, $\alpha-\frac12=10^{-7}$ and $1.047$ at $a=0.8$, $\alpha-\frac12=10^{-17}$.
 
-The damped value is the sum of the two terms and not their maximum. For $\alpha-\frac12=\varepsilon$ the difference $\lambda_{\min}^{\rm even}(\frac12+\varepsilon,a)-\lambda_{\min}^{\rm even}(\frac12,a)$ equals $s\cdot4p_1\varepsilon$ with $s=1.111$ at $a=0.5$ for $\varepsilon$ from $10^{-7}$ to $10^{-4}$ and $s=1.082$ at $a=0.8$ for $\varepsilon$ from $10^{-17}$ to $10^{-14}$, the same at $26$ and $40$ modes to the digits quoted. For larger $\varepsilon$ at $a=0.8$ the factor $s$ falls, to $1.067$, $1.043$, $1.040$ and $1.030$ at $\varepsilon=10^{-10}$, $10^{-8}$, $10^{-6}$ and $10^{-4}$, so that from $\varepsilon=10^{-8}$ on the finite section value lies within $4.5$ percent of the floor $2b_\alpha$; the fall begins at $\varepsilon$ of order $10^{-10}$, where $\varepsilon$ times the slope is of the size of the gap of about $10^{-11}$ to the second even eigenvalue.
+The damped value is the sum of the two terms and not their maximum. For $\alpha-\frac12=\varepsilon$ the difference $\lambda_{\min}^{\rm even}(\frac12+\varepsilon,a)-\lambda_{\min}^{\rm even}(\frac12,a)$ equals $s\cdot4p_1\varepsilon$ with $s=1.111$ at $a=0.5$ for $\varepsilon$ from $10^{-7}$ to $10^{-4}$ and $s=1.082$ at $a=0.8$ for $\varepsilon$ from $10^{-17}$ to $10^{-14}$, the same at $26$ and $40$ modes to the digits quoted. For larger $\varepsilon$ at $a=0.8$ the factor $s$ falls, to $1.067$, $1.043$, $1.040$ and $1.030$ at $\varepsilon=10^{-10}$, $10^{-8}$, $10^{-6}$ and $10^{-4}$, so that from $\varepsilon=10^{-8}$ on the finite section value lies within $4.5$ percent of the floor $2b_\alpha$; the fall begins at $\varepsilon$ of order $10^{-10}$, where $\varepsilon$ times the slope is of the size of the gap of about $10^{-11}$ to the second even eigenvalue. Far above the crossover the least eigenvalue is close to the floor, as the converged entries of Table~\ref{yo:tab:lam} show.
 
-Far above the crossover the least eigenvalue is close to the floor, as the converged entries of Table~\ref{yo:tab:lam} show.
-
-The two terms of the theorem are equal, to first order in the damping, at the crossover $\varepsilon_\times=\lambda_{\min}^{\rm even}(\frac12,a)/(4p_1)$, at which the least eigenvalue is about twice $\lambda_{\min}^{\rm even}(\frac12,a)$ (the damping at which it exactly doubles is $0.90$ times $\varepsilon_\times$ at $a=0.5$ and $0.92$ times $\varepsilon_\times$ at $a=0.8$, for $26$ modes). Its value depends on which number is used for $\lambda_{\min}^{\rm even}(\frac12,a)$, and Table~\ref{zh:tab:cross} gives the choices. The $26$ mode values are not converged.
+The two terms of the theorem are equal, to first order in the damping, at the crossover $\varepsilon_\times=\lambda_{\min}^{\rm even}(\frac12,a)/(4p_1)$, at which the least eigenvalue is about twice $\lambda_{\min}^{\rm even}(\frac12,a)$ (the damping at which it exactly doubles is $0.90$ times $\varepsilon_\times$ at $a=0.5$ and $0.92$ times $\varepsilon_\times$ at $a=0.8$, for $26$ modes). Its value depends on the number used for $\lambda_{\min}^{\rm even}(\frac12,a)$; Table~\ref{zh:tab:cross} gives the choices (the $26$ mode values are not converged).
 
 \begin{table}[htbp]
 \centering\small
@@ -109,8 +105,8 @@ $a$ & value used for $\lambda_{\min}^{\rm even}(\frac12,a)$ & $\lambda$ & $\lamb
 0.8 & Zhu, certified upper bound & $2.27\times10^{-17}$ & $2.46\times10^{-16}$\\
 \bottomrule
 \end{tabular}
-\caption{The crossover $\varepsilon_\times=\lambda/(4p_1)$ of Theorem~\ref{zh:thm:twoparam} for several values of $\lambda=\lambda_{\min}^{\rm even}(\frac12,a)$, with $4p_1=0.0924200$. The extrapolated values are three point power law fits to the finite sections of $60$ digit matrices (script \texttt{code/zh\_window\_eigs.py}, record \texttt{data/zh\_window\_eigs.json}), not bounds; Zhu's reference values of his Table 1, $9.34\times10^{-7}$ and $1.65\times10^{-17}$, give $1.01\times10^{-5}$ and $1.79\times10^{-16}$.}
+\caption{The crossover $\varepsilon_\times=\lambda/(4p_1)$ of Theorem~\ref{zh:thm:twoparam} for several values of $\lambda=\lambda_{\min}^{\rm even}(\frac12,a)$, with $4p_1=0.0924200$. The extrapolated values are three point power law fits to the finite sections of $60$ digit matrices, not bounds; Zhu's reference values of his Table 1, $9.34\times10^{-7}$ and $1.65\times10^{-17}$, give $1.01\times10^{-5}$ and $1.79\times10^{-16}$.}
 \label{zh:tab:cross}
 \end{table}
 
-The explanation of the collapse is the one given at the end of Section~\ref{yo:sec:damped}. A damping of the size of the crossover already doubles the finite section values (computed); for larger damping the least eigenvalue is, under RH, at least $2b_\alpha$, a margin of order $\alpha-\frac12$ in place of $\lambda_{\min}^{\rm even}(\frac12,a)$. Whether certificates for the damped forms say more or less about the zeros than the certificates at $\alpha=\frac12$ is not settled here (Problem~\ref{zh:op:damped}).
+The collapse is explained at the end of Section~\ref{yo:sec:damped}. A damping of the size of the crossover already doubles the finite section values (computed); for larger damping the least eigenvalue is, under RH, at least $2b_\alpha$, a margin of order $\alpha-\frac12$ in place of $\lambda_{\min}^{\rm even}(\frac12,a)$. Whether certificates for the damped forms say more or less about the zeros than the certificates at $\alpha=\frac12$ is not settled here (Problem~\ref{zh:op:damped}).

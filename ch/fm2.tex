@@ -1,6 +1,6 @@
 \section{Laws on an interval}\label{ch:fminterval}
 
-The P\'olya law is symmetric and unimodal, and every such law is a mixture of uniform laws. This section asks which mixtures are ferromagnetic, for laws on an interval. Mixing towards the centre can destroy the property, as an atom at the origin shows; a concave shoulder guarantees it, and a convex one rules it out unless the density is linear on its support, a scaled triangle; and mixing towards the edges is always safe. The P\'olya law falls between the two shoulder cases, which is one way to see why its zeros are hard.
+The P\'olya law is symmetric and unimodal, hence a mixture of uniform laws. For laws on an interval we ask which mixtures are ferromagnetic. Mixing towards the centre can destroy the property, as an atom at the origin shows; a concave shoulder guarantees it, a convex one rules it out unless the density is a scaled triangle, and mixing towards the edges is always safe. The P\'olya law falls between the two shoulder cases.
 
 \subsection{Mixtures of uniform laws}\label{fm:sec:khinchine}
 
@@ -12,7 +12,7 @@ of which $f_1$ is the uniform density and $f_2$ the triangle. The uniform law it
 \[
 \frac{\sinh s}s=\prod_{k\ge1}\cosh\frac s{2^k},\qquad U\overset d=\sum_{k\ge1}2^{-k}\varepsilon_k,
 \]
-shows why: the uniform variable is a sum of independent fair signs, and the property is that of a single spin. So is every sum $\sum_kc_kU_k$ of independent scaled uniform variables. Mixtures behave differently.
+shows why: the uniform variable is a sum of independent fair signs. So is every sum $\sum_kc_kU_k$ of independent scaled uniform variables. Mixtures behave differently.
 
 \begin{theorem}\label{fm:thm:atom}
 For every $0<q<1$ the law $(1-q)\,U+q\,\delta_0$ is symmetric and unimodal but not ferromagnetic. Consequently, for every $0<q<1$ and every small enough $a>0$, the mixture of the uniform laws on $[-1,1]$ and on $[-a,a]$ with weights $1-q$ and $q$ is not ferromagnetic.
@@ -47,16 +47,16 @@ so $X$ is a scale mixture of $f_2$ for the signed measure $r^2p''(r)\,dr$, which
 \end{proposition}
 
 \begin{proof}
-(i) $\E e^{i\theta X}=\int_0^\infty\hat f_2(r\theta)\,\nu(dr)$ with $\hat f_2(\theta)=4\sin^2(\theta/2)/\theta^2$, which is nonnegative and, for $\theta\ne0$, vanishes exactly on $2\pi\mathbb Z\setminus\{0\}$. A nonnegative integral vanishes exactly when its integrand vanishes $\nu$ almost everywhere, and a countable set is null for an absolutely continuous measure. (ii) Each $(1-x/r)_+$ is convex on $(0,\infty)$, so a mixture of them with a probability law is convex there, and it suffices to show $\Phi''(0)<0$. The formula for $\Phi''$ is termwise differentiation of \eqref{eq:ch2:Phi}, written in $y_n$. At $u=0$ the term $n=1$ of the sum is below $-34$, since $R(\pi)<-800$ and $e^{-\pi}>0.043$, while $0<R(\pi n^2)<32\pi^4n^8$ for $n\ge2$ and $32\pi^4\sum_{n\ge2}n^8e^{-\pi n^2}<3$ (the three inequalities are certified in ball arithmetic, \texttt{pg3\_fejer.py}). For $y\ge7$, $R(y)=y\{32y^2(y-7)+330y-75\}>0$, so every term is positive when $u\ge\frac12\log(7/\pi)$.
+(i) $\E e^{i\theta X}=\int_0^\infty\hat f_2(r\theta)\,\nu(dr)$ with $\hat f_2(\theta)=4\sin^2(\theta/2)/\theta^2$, which is nonnegative and, for $\theta\ne0$, vanishes exactly on $2\pi\mathbb Z\setminus\{0\}$. A nonnegative integral vanishes exactly when its integrand vanishes $\nu$ almost everywhere, and a countable set is null for an absolutely continuous measure. (ii) Each $(1-x/r)_+$ is convex on $(0,\infty)$, so a mixture of them with a probability law is convex there, and it suffices to show $\Phi''(0)<0$. The formula for $\Phi''$ is termwise differentiation of \eqref{eq:ch2:Phi}, written in $y_n$. At $u=0$ the term $n=1$ of the sum is below $-34$, since $R(\pi)<-800$ and $e^{-\pi}>0.043$, while $0<R(\pi n^2)<32\pi^4n^8$ for $n\ge2$ and $32\pi^4\sum_{n\ge2}n^8e^{-\pi n^2}<3$ (the three inequalities are certified in ball arithmetic). For $y\ge7$, $R(y)=y\{32y^2(y-7)+330y-75\}>0$, so every term is positive when $u\ge\frac12\log(7/\pi)$.
 
 (iii) Put $y=\pi e^{2u}$ and $D(y)=\sum_{n\ge2}R(n^2y)e^{-(n^2-1)y}$, so that $\Phi''(u)=\frac12e^{u/2-y}F(y)$ with $F=R+D$; it suffices to show that $F$ has exactly one zero on $[\pi,\infty)$ and that it is simple. For $y\ge\pi$ and $n\ge2$, $0<R(n^2y)<32n^8y^4$ and $y^4e^{-(n^2-1)y}$ decreases, so $0<D(y)<32\pi^4e^{\pi}\sum_{n\ge2}n^8e^{-\pi n^2}<3e^\pi<72$. Since $R''(y)=384y^2-1344y+660>0$ for $y\ge3$, $R$ is convex on $[\pi,\frac92]$ and lies below the larger of its endpoint values, $R(\pi)<-800$ and $R(\frac92)=-945$, so $F<-728$ there. For $y\ge\frac92$, $R'(y)\ge R'(\frac92)=951$, and termwise differentiation gives $|D'(y)|\le64y^4\sum_{n\ge2}n^{10}e^{-(n^2-1)y}<40$ (the sum is at its largest at $y=\frac92$, where its first term dominates). Hence $F'>911$ on $[\frac92,\infty)$, $F(\frac92)<0$ and $F(7)>0$, so $F$ has exactly one zero, which lies in $(\frac92,7)$ and is simple. The prefactor is positive, which gives every sign claimed in (iii).
 \end{proof}
 
-The location of $u^*$ is certified in ball arithmetic, $u^*=0.23726528718742524911$ (\texttt{pg3\_fejer.py}), so the P\'olya density is concave on $|u|\le u^*$ and convex outside. Its mixing measure $r^2p''(r)\,dr$ has mass $-0.05106$ on $(0,u^*)$, negative because $p''<0$ there, and $1.05106$ on $(u^*,\infty)$ (computed; a note of Nicholas Polson merged into the book \cite{P26pg3}). Part (i) gives a second reason why this measure is signed: $\Xi$ vanishes at $\gamma_1$, and a probability mixing law with a nonzero absolutely continuous part would leave no real zero. At every real zero of $\Xi$ the contributions of $(0,u^*)$ and $(u^*,\infty)$ to the integral above cancel, but that cancellation is only the Fourier identity $\int_0^\infty p''(r)\sin^2(\theta r/2)\,dr=\theta^2\hat p(\theta)/4$ at a zero of $\hat p$, so it says nothing beyond the zero itself. The heat trace behaves the other way: by Theorem~\ref{thm:ch12:window} it is $2$ monotone unconditionally, so $W(t)=\int(1-tz/2)_+\,U_2(dz)$ with $U_2\ge0$ (Section~\ref{sec:ch12:kmono}), a positive mixture of triangles, and RH is the same positivity at every order.
+The location of $u^*$ is certified in ball arithmetic, $u^*=0.23726528718742524911$, so the P\'olya density is concave on $|u|\le u^*$ and convex outside. Its mixing measure $r^2p''(r)\,dr$ has mass $-0.05106$ on $(0,u^*)$ and $1.05106$ on $(u^*,\infty)$ (computed, \cite{P26pg3}). Part (i) gives a second reason why this measure is signed: $\Xi$ vanishes at $\gamma_1$, and a probability mixing law with a nonzero absolutely continuous part would leave no real zero. At every real zero of $\Xi$ the contributions of $(0,u^*)$ and $(u^*,\infty)$ to the integral above cancel, but this is only the Fourier identity $\int_0^\infty p''(r)\sin^2(\theta r/2)\,dr=\theta^2\hat p(\theta)/4$ at a zero of $\hat p$. The heat trace behaves the other way: by Theorem~\ref{thm:ch12:window} it is $2$ monotone unconditionally, so $W(t)=\int(1-tz/2)_+\,U_2(dz)$ with $U_2\ge0$ (Section~\ref{sec:ch12:kmono}), a positive mixture of triangles, and RH is the same positivity at every order.
 
 \subsection{The shoulder theorem}\label{fm:sec:shoulder}
 
-Let $p$ be a symmetric density on $[-1,1]$ that is absolutely continuous and nonincreasing on $[0,1]$, with $p(1)=0$, and put $g=-p'\ge0$ on $(0,1)$. Integrating $\varphi_X(z)=2\int_0^1p(y)\cos(zy)\,dy$ by parts turns the cosine transform of the density into a sine transform of its slope:
+Let $p$ be a symmetric density on $[-1,1]$ that is absolutely continuous and nonincreasing on $[0,1]$, with $p(1)=0$, and put $g=-p'\ge0$ on $(0,1)$. Integrating $\varphi_X(z)=2\int_0^1p(y)\cos(zy)\,dy$ by parts gives
 \begin{equation}\label{fm:eq:sine}
 z\,\varphi_X(z)=2\int_0^1g(y)\sin(zy)\,dy .
 \end{equation}
@@ -134,11 +134,11 @@ If $UR$ is ferromagnetic and $R$ is not $0$ almost surely, then for every $j\ge1
 The moments $\mu_j$ are finite, since $\E(UR)^{2j}=\mu_j/(2j+1)$ and $L_{UR}$ is entire, and positive, since $P(R>0)>0$. Substitute $b_j=\mu_j/(2j+1)!$ in \eqref{fm:eq:newton}: the factor is $(1+\frac1j)\frac{(2j+1)!^2}{(2j-1)!(2j+3)!}=\frac{2j+1}{2j+3}$. The upper bound is the Cauchy Schwarz inequality and holds for every $R$.
 \end{proof}
 
-The test is necessary and weak. For $R$ distributed as $\mathrm{Beta}(a,1)$, $\mu_j=a/(a+2j)$; at $j=1$ the condition is $a^2+4a-6\ge0$, that is $a\ge\sqrt{10}-2=1.1622777$, and for $j\ge2$ it holds for every $a>0$. Corollary~\ref{fm:cor:shoulder}(i) gives the true threshold $a\ge2$.
+The test is necessary but weak. For $R$ distributed as $\mathrm{Beta}(a,1)$, $\mu_j=a/(a+2j)$; at $j=1$ the condition is $a^2+4a-6\ge0$, that is $a\ge\sqrt{10}-2=1.1622777$, and for $j\ge2$ it holds for every $a>0$. Corollary~\ref{fm:cor:shoulder}(i) gives the true threshold $a\ge2$.
 
 \subsection{Summary}\label{fm:sec:intervalsummary}
 
-Table~\ref{fm:tab:interval} collects the answers. The P\'olya law is unbounded, so none of them applies to it.
+Table~\ref{fm:tab:interval} collects the answers. The P\'olya law has unbounded support, so none of them applies to it.
 
 \begin{table}[htbp]
 \centering\small

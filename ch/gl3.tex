@@ -59,11 +59,11 @@ Define $Y := \sqrt{2T}\,Z$ with $Z \sim N(0,1)$ independent of $T$. Conditioning
 \begin{equation}\label{gl:eq:wald}
 \E\big[e^{itY}\big] = \E\big[e^{-t^2T}\big] = \frac{\xi(\tfrac12)}{\xi(\tfrac12+|t|)},
 \end{equation}
-which evaluates $\xi$ on the real axis, where it is positive, even and super exponentially growing. This is the variable $Z\sqrt{2T}$ of Section~\ref{ch:clock}. It is the variable $X=Z\sqrt{2Y}$ of Proposition~\ref{pol:prop:pf}, where Chapter~\ref{chap:polyazeros} writes $Y$ for the clock. The moments of $T$ are the Taylor coefficients of~\eqref{gl:eq:thorin}: with $p_j := \sum_{\gamma>0}\gamma^{-2j}$,
+which evaluates $\xi$ on the real axis, where it is positive, even and super exponentially growing. This is the variable $Z\sqrt{2T}$ of Section~\ref{ch:clock} and $X=Z\sqrt{2Y}$ of Proposition~\ref{pol:prop:pf}, where Chapter~\ref{chap:polyazeros} writes $Y$ for the clock. The moments of $T$ are the Taylor coefficients of~\eqref{gl:eq:thorin}: with $p_j := \sum_{\gamma>0}\gamma^{-2j}$,
 \begin{equation}\label{gl:eq:moments}
 \E[T^k] = k!\,h_k\big(\{\gamma^{-2}\}\big),\qquad \E[Y^{2k}] = (2k-1)!!\,2^k\,\E[T^k],
 \end{equation}
-where $h_k$ is the complete homogeneous symmetric polynomialpolynomial. In particular $\E[T] = p_1$ and $\mathrm{Var}(T) = p_2$.
+where $h_k$ is the complete homogeneous symmetric polynomial. In particular $\E[T] = p_1$ and $\mathrm{Var}(T) = p_2$.
 
 \subsubsection{The Hadamard product and the transfer function}
 
@@ -77,15 +77,15 @@ which alternates in sign; read in $u=t^2$ it is the Laplace transform of no meas
 = \frac{\xi(\tfrac12+it)}{\xi(\tfrac12+|t|)}
 = \prod_{\gamma>0}\frac{\gamma^2-t^2}{\gamma^2+t^2},
 \end{equation}
-with zeros at $\pm\gamma$ and, continued in $t$, poles at $\pm i\gamma$, where the Laplace transform of $T$ stops being analytic. The left side is the characteristic function of the sum of $Y$ and an independent variable with the P\'olya density, so without any hypothesis the middle term is a characteristic function; the product on the right is its form under RH. The critical line moments $\int_0^X|\zeta(\tfrac12+it)|^{2k}dt$ are governed by~\eqref{gl:eq:hadamard}, not by $Y$; the transfer function links the two and has a closed form (Proposition~\ref{gl:prop:transfer}).
+with zeros at $\pm\gamma$ and, continued in $t$, poles at $\pm i\gamma$, where the Laplace transform of $T$ stops being analytic. The left side is the characteristic function of $Y$ plus an independent P\'olya variable, so the middle term is a characteristic function with no hypothesis; the product on the right is its form under RH. The critical line moments $\int_0^X|\zeta(\tfrac12+it)|^{2k}dt$ are governed by~\eqref{gl:eq:hadamard}, not by $Y$; the transfer function links the two and has a closed form (Proposition~\ref{gl:prop:transfer}).
 
 \subsection{Closed forms and their verification}\label{gl:sec:numerics}
 
 \subsubsection{The moment identity}
 
-We computed $\E[T^k]$ two ways. The zero side uses~\eqref{gl:eq:moments}, with $p_j$ summed over the first $800$ ordinates plus the Riemann von Mangoldt tail $\int_{\gamma_{800}}^\infty t^{-2j}\,\tfrac{1}{2\pi}\log\tfrac{t}{2\pi}\,dt$, started at the ordinate $\gamma_{800}=1183.7128$. The function side uses the Taylor expansion of $\xi(\tfrac12)/\xi(\tfrac12+w)$ in powers of $w^2$ at $w=0$, from the Taylor coefficients of $\xi(\tfrac12+s)$ at $s=0$. Table~\ref{gl:tab:moments} gives the result.
+$\E[T^k]$ is computed two ways. The zero side uses~\eqref{gl:eq:moments}, with $p_j$ summed over the first $800$ ordinates plus the Riemann von Mangoldt tail $\int_{\gamma_{800}}^\infty t^{-2j}\,\tfrac{1}{2\pi}\log\tfrac{t}{2\pi}\,dt$, started at the ordinate $\gamma_{800}=1183.7128$. The function side uses the Taylor expansion of $\xi(\tfrac12)/\xi(\tfrac12+w)$ in powers of $w^2$ at $w=0$, from the Taylor coefficients of $\xi(\tfrac12+s)$ at $s=0$ (Table~\ref{gl:tab:moments}).
 \begin{table}[htbp]
-\caption{The moments $\E[T^k]$ from the zeros ($800$ ordinates and the smooth tail from $\gamma_{800}$) and from the function (\texttt{gl\_zeta\_moments.py}, $100$ digits, \texttt{data/gl\_zeta\_moments.json}).}
+\caption{The moments $\E[T^k]$ from the zeros ($800$ ordinates and the smooth tail from $\gamma_{800}$) and from the function ($100$ digits).}
 \label{gl:tab:moments}
 \centering
 \begin{tabular}{cccc}
@@ -99,7 +99,7 @@ $4$ & $4.38851\times10^{-7}$ & $4.38824\times10^{-7}$ & $6.0\times10^{-5}$\\
 \bottomrule
 \end{tabular}
 \end{table}
-The residual is mostly the error of starting the smooth tail at an ordinate: with the first $800$ ordinates and the tail started at the midpoint of $\gamma_{800}$ and $\gamma_{801}$ the relative errors for $k=1,\dots,4$ are $3.1\times10^{-7}$, $5.8\times10^{-7}$, $8.1\times10^{-7}$ and $1.0\times10^{-6}$, and with the anchored tail below they are $8.8\times10^{-10}$, $1.6\times10^{-9}$, $2.3\times10^{-9}$ and $2.8\times10^{-9}$. The function side computes $\sum_ka_k^{-j}$ with no hypothesis (the cumulants of $T$ from $G(u)=\prod_k(1+u/a_k)$, Section~\ref{sec:wigfree:clock}), so the agreement checks the zero list and the tail. One missing zero at $\gamma_{800}$ would change $\E[T]$ by $3.1\times10^{-5}$ in relative terms, the order of the residuals in Table~\ref{gl:tab:moments}, so the table alone cannot show that none is missing; the anchored residual quoted above is smaller than that change by a factor of $3.5\times10^{4}$, and with it the agreement shows that no zero below the cut is missing from the list. It does not test that the zeros lie on the line: moving a pair of zeros at height $\gamma_{800}$ off the line by $0.25$ changes $p_1$ by $8.3\times10^{-12}$ in relative terms, below every residual. Nor is it a check on the Thorin property itself, which no finite computation can establish (Theorem~\ref{thm:ch13:perturb}).
+The residual is mostly the error of starting the smooth tail at an ordinate: with the first $800$ ordinates and the tail started at the midpoint of $\gamma_{800}$ and $\gamma_{801}$ the relative errors for $k=1,\dots,4$ are $3.1\times10^{-7}$, $5.8\times10^{-7}$, $8.1\times10^{-7}$ and $1.0\times10^{-6}$, and with the anchored tail below they are $8.8\times10^{-10}$, $1.6\times10^{-9}$, $2.3\times10^{-9}$ and $2.8\times10^{-9}$. The function side computes $\sum_ka_k^{-j}$ with no hypothesis (the cumulants of $T$ from $G(u)=\prod_k(1+u/a_k)$, Section~\ref{sec:wigfree:clock}), so the agreement checks the zero list and the tail. One missing zero at $\gamma_{800}$ would change $\E[T]$ by $3.1\times10^{-5}$ in relative terms, the order of the residuals in Table~\ref{gl:tab:moments}, so the table alone cannot exclude a missing zero; the anchored residual is smaller than that change by a factor of $3.5\times10^{4}$, and shows that no zero below the cut is missing. It does not test that the zeros lie on the line: moving a pair of zeros at height $\gamma_{800}$ off the line by $0.25$ changes $p_1$ by $8.3\times10^{-12}$ in relative terms, below every residual. Nor does it check the Thorin property, which no finite computation can establish (Theorem~\ref{thm:ch13:perturb}).
 
 \emph{Anchoring the tail.} Most of the residual comes from the fluctuation $S(T)$ of the zero count at the cut. Write $N(t)=N_0(t)+1+S(t)$ with $N_0=\vartheta/\pi$. Integration by parts gives, exactly,
 \begin{equation}\label{gl:eq:anchored}
@@ -108,9 +108,9 @@ The residual is mostly the error of starting the smooth tail at an ordinate: wit
 &+2j\int_T^\infty S(t)\,t^{-2j-1}\,dt .
 \end{aligned}
 \end{equation}
-The smooth tail keeps only the first term, with the error $-S(T)T^{-2j}$ of the second, of order $T^{-2j}\log T$ at most. Since $\int_T^XS(t)\,dt=O(\log X)$~\cite[Section~9.9]{Titchmarsh}, the third term is $O(jT^{-2j-1}\log T)$, so the anchored tail, which keeps the first two terms, typically gains over the smooth tail a factor of the order of the height of the cut. Table~\ref{gl:tab:anchored} gives the relative errors of $p_1,p_2,p_3$ against the values of the function side, for the first $N$ ordinates and the cut at the midpoint of $\gamma_N$ and $\gamma_{N+1}$, so that $N(T)=N$.
+The smooth tail keeps only the first term, with the error $-S(T)T^{-2j}$ of the second, of order $T^{-2j}\log T$ at most. Since $\int_T^XS(t)\,dt=O(\log X)$~\cite[Section~9.9]{Titchmarsh}, the third term is $O(jT^{-2j-1}\log T)$, so the anchored tail, which keeps the first two terms, typically gains a factor of the order of the cut height. Table~\ref{gl:tab:anchored} gives the relative errors of $p_1,p_2,p_3$ against the values of the function side, for the first $N$ ordinates and the cut at the midpoint of $\gamma_N$ and $\gamma_{N+1}$, so that $N(T)=N$.
 \begin{table}[htbp]
-\caption{Relative errors of $p_1,p_2,p_3$ for the smooth and the anchored tail with the first $N$ ordinates; the cuts are $T=1183.1475$ ($S(T)=0.083$) for $N=799$, $T=397.1503$ ($S(T)=0.244$) for $N=200$ and $T=680.8186$ ($S(T)=-0.211$) for $N=400$ (\texttt{gl\_zeta\_moments.py}, $100$ digits, \texttt{data/gl\_zeta\_moments.json}).}
+\caption{Relative errors of $p_1,p_2,p_3$ for the smooth and the anchored tail with the first $N$ ordinates; the cuts are $T=1183.1475$ ($S(T)=0.083$) for $N=799$, $T=397.1503$ ($S(T)=0.244$) for $N=200$ and $T=680.8186$ ($S(T)=-0.211$) for $N=400$ ($100$ digits).}
 \label{gl:tab:anchored}
 \centering
 \small
@@ -137,7 +137,7 @@ The classical evaluation
 \[
 \sum_\rho\frac1\rho = 1+\frac{\gamma_E}{2}-\frac12\log4\pi = 0.0230957089661\ldots,
 \]
-with $\gamma_E$ Euler's constant, which under RH is $\sum_{\gamma>0}(\gamma^2+\tfrac14)^{-1}$, differs from $\E[T] = 0.0231049931\ldots$ by about $9.3\times10^{-6}$. The shift by $\tfrac14$ is the tilt $u_0=\tfrac14$. The book identifies the classical constant as the mean of this tilted clock in Section~\ref{ch:bphit} (after Corollary~\ref{bp:cor:kent}), and as $\pi$ times the Thorin density of the shifted clock at basepoint one at the origin (Proposition~\ref{bp:prop:thorin}); what we add is the expansion~\eqref{gl:eq:classical-series} in the cumulants.
+with $\gamma_E$ Euler's constant, which under RH is $\sum_{\gamma>0}(\gamma^2+\tfrac14)^{-1}$, differs from $\E[T] = 0.0231049931\ldots$ by about $9.3\times10^{-6}$. The shift by $\tfrac14$ is the tilt $u_0=\tfrac14$. The constant is the mean of this tilted clock (Section~\ref{ch:bphit}, after Corollary~\ref{bp:cor:kent}) and $\pi$ times the Thorin density at the origin of the shifted clock at basepoint one (Proposition~\ref{bp:prop:thorin}); new here is its expansion~\eqref{gl:eq:classical-series} in the cumulants.
 
 \begin{proposition}[Esscher tilt]\label{gl:prop:tilt}
 Assume~\eqref{gl:eq:thorin} and let $u_0>0$. The tilted law $\Pr_{u_0}(dh) = e^{-u_0h}\Pr(T\in dh)/\E[e^{-u_0T}]$ is the GGC with Thorin measure $U_{\mathbb Q,u_0}=\sum_{\gamma>0}\delta_{u_0+\gamma^2}$ of Theorem~\ref{gl:thm:family}, which is the forward tilt of Theorem~\ref{tf:thm:tilt}(a), and
@@ -160,7 +160,7 @@ From the first $800$ zeros with the anchored tail, $\prod_{\gamma>0}\gamma^2/(\g
 \begin{equation}\label{gl:eq:classical-series}
 1+\frac{\gamma_E}{2}-\frac12\log4\pi \;=\; \sum_{j\ge1}(-1)^{j+1}4^{1-j}\,p_j,
 \end{equation}
-ties it to the whole cumulant sequence of $T$. With the $p_j$ of the function side the series agrees with the constant to a relative $2\times10^{-30}$ after ten terms, the size of the first omitted term.
+ties it to the whole cumulant sequence of $T$; with the $p_j$ of the function side it agrees with the constant to a relative $2\times10^{-30}$ after ten terms, the size of the first omitted term.
 
 \subsubsection{The transfer function}
 
@@ -177,7 +177,7 @@ which involves only the odd index power sums $p_1,p_3,p_5,\dots$.
 \end{proposition}
 
 \begin{proof}
-Lemma~\ref{gl:lem:product} gives $\xi(\tfrac12+s)/\xi(\tfrac12) = \prod_{\gamma>0}(1+s^2/\gamma^2)$ for all $s\in\C$. Setting $s=it$ and $s=|t|$ and dividing gives~\eqref{gl:eq:transfer-closed}, each factor real with modulus at most $1$. For~\eqref{gl:eq:logT}, $\log\frac{\gamma^2-t^2}{\gamma^2+t^2}=-2\operatorname{artanh}(t^2/\gamma^2)$; expand and interchange the absolutely convergent double sum.
+Lemma~\ref{gl:lem:product} gives $\xi(\tfrac12+s)/\xi(\tfrac12) = \prod_{\gamma>0}(1+s^2/\gamma^2)$ for all $s\in\C$. Dividing the values at $s=it$ and $s=|t|$ gives~\eqref{gl:eq:transfer-closed}, each factor real with modulus at most $1$. For~\eqref{gl:eq:logT}, $\log\frac{\gamma^2-t^2}{\gamma^2+t^2}=-2\operatorname{artanh}(t^2/\gamma^2)$; expand and interchange the absolutely convergent double sum.
 \end{proof}
 
 \begin{proposition}\label{gl:prop:odd}
@@ -199,7 +199,7 @@ Let $\mathfrak B(z) = \prod_{\gamma>0}(\gamma^2-z)/(\gamma^2+z)$, so $\mathfrak 
 \end{proposition}
 
 \begin{proof}
-Each factor $b_\gamma(z)=(\gamma^2-z)/(\gamma^2+z)$ is a Cayley map taking $\Re(z)>0$ into the unit disc with $|b_\gamma|=1$ on $\Re(z)=0$. Since $1-b_\gamma(z)=2z/(\gamma^2+z)$ and $\sum\gamma^{-2}<\infty$, the product converges locally uniformly away from $\{-\gamma^2\}$; this is the half plane Blaschke condition. A convergent product of Blaschke factors is a Blaschke product, so there is no singular inner factor, and by Lemma~\ref{gl:lem:product} its value is $\mathfrak B(z) = \xi(\tfrac12+i\sqrt z)/\xi(\tfrac12+\sqrt z)$, the product formula of the lemma having no exponential factor.
+Each factor $b_\gamma(z)=(\gamma^2-z)/(\gamma^2+z)$ is a Cayley map taking $\Re(z)>0$ into the unit disc with $|b_\gamma|=1$ on $\Re(z)=0$. Since $1-b_\gamma(z)=2z/(\gamma^2+z)$ and $\sum\gamma^{-2}<\infty$, the product converges locally uniformly away from $\{-\gamma^2\}$; this is the half plane Blaschke condition. A convergent product of Blaschke factors has no singular inner factor, and since the product of Lemma~\ref{gl:lem:product} has no exponential factor, $\mathfrak B(z) = \xi(\tfrac12+i\sqrt z)/\xi(\tfrac12+\sqrt z)$.
 \end{proof}
 
 \begin{remark}[Without RH]\label{gl:rem:blaschke}
@@ -219,7 +219,7 @@ For $\Re(s)>0$, with no hypothesis on the zeros,
 \end{proposition}
 
 \begin{proof}
-Since $T>0$ almost surely, $T^{-s}=\Gamma(s)^{-1}\int_0^\infty u^{s-1}e^{-uT}\,du$. Take expectations, with Fubini justified by positivity, substitute the Laplace transform~\eqref{gl:eq:thorin}, which holds without RH, and put $u=w^2$. The integral converges at $0$ for $\Re(s)>0$ and at $\infty$ for every $s$.
+Since $T>0$ almost surely, $T^{-s}=\Gamma(s)^{-1}\int_0^\infty u^{s-1}e^{-uT}\,du$. Take expectations (Fubini by positivity), substitute the Laplace transform~\eqref{gl:eq:thorin}, which holds without RH, and put $u=w^2$. The integral converges at $0$ for $\Re(s)>0$ and at $\infty$ for every $s$.
 \end{proof}
 
 In a computation at $30$ digits the two forms agree to $10^{-18}$ at $s=\tfrac12$ and to $1.4\times10^{-27}$ at $s=\tfrac34$; at $s=\tfrac14$ the integrand $u^{-3/4}$ of the first form is singular at the origin, and the value below is that of the second form. The values are
@@ -238,14 +238,14 @@ With no hypothesis on the zeros, $s\mapsto\E[T^{-s}]$ is an entire function, equ
 \end{proposition}
 
 \begin{proof}
-Since $T>0$ almost surely and $T$ has all positive and all negative moments, $\E|T^{-s}|=\E[T^{-\Re s}]<\infty$ for every $s$, so $\E[T^{-s}]$ is entire as an expectation and~\eqref{gl:eq:interp} holds by definition. What the residues add is that the continuation of the Mellin formula is this function. Write $M(s)=\int_0^\infty u^{s-1}\varphi(u)\,du$ with $\varphi(u)=\xi(\tfrac12)/\xi(\tfrac12+\sqrt u)=\sum_{n\ge0}c_nu^n$ near $0$, $c_n=(-1)^n\E[T^n]/n!$. Subtracting Taylor polynomials continues $M$ to a meromorphic function with simple poles at $s=-n$ and $\operatorname*{Res}_{s=-n}M = c_n$. Since $1/\Gamma$ is entire with simple zeros exactly there, $M/\Gamma$ is entire and
+Since $T>0$ almost surely and $T$ has all positive and all negative moments, $\E|T^{-s}|=\E[T^{-\Re s}]<\infty$ for every $s$, so $\E[T^{-s}]$ is entire and~\eqref{gl:eq:interp} holds by definition. The residues show that the continuation of the Mellin formula is this function. Write $M(s)=\int_0^\infty u^{s-1}\varphi(u)\,du$ with $\varphi(u)=\xi(\tfrac12)/\xi(\tfrac12+\sqrt u)=\sum_{n\ge0}c_nu^n$ near $0$, $c_n=(-1)^n\E[T^n]/n!$. Subtracting Taylor polynomials continues $M$ to a meromorphic function with simple poles at $s=-n$ and $\operatorname*{Res}_{s=-n}M = c_n$. Since $1/\Gamma$ is entire with simple zeros exactly there, $M/\Gamma$ is entire and
 \[
 \E[T^{-s}]\big|_{s=-n} = \frac{\operatorname*{Res}_{s=-n}M(s)}{\operatorname*{Res}_{s=-n}\Gamma(s)}
 = \frac{(-1)^n\E[T^n]/n!}{(-1)^n/n!} = \E[T^n].
 \]
 \end{proof}
 
-The entire function $\E[T^{-s}]$ is not of exponential type, because the radius of convergence of $\sum_n\E[T^n]\lambda^n/n!$ is $\gamma_1^2$ (Theorem~\ref{thm:wigfree:clock}(a)), so $\E[T^n]$ is not bounded by any geometric sequence, whereas the values of a function of exponential type along the integers grow at most geometrically. Its modulus is nevertheless bounded on every vertical line by $|\E[T^{-s}]|\le\E[T^{-\Re s}]$. We claim no uniqueness theorem of Carlson type.
+The entire function $\E[T^{-s}]$ is not of exponential type, because the radius of convergence of $\sum_n\E[T^n]\lambda^n/n!$ is $\gamma_1^2$ (Theorem~\ref{thm:wigfree:clock}(a)), so $\E[T^n]$ is not bounded by any geometric sequence, whereas the values of a function of exponential type along the integers grow at most geometrically. On every vertical line $|\E[T^{-s}]|\le\E[T^{-\Re s}]$. No uniqueness theorem of Carlson type is claimed.
 
 \subsubsection{Total positivity of the density of \texorpdfstring{$Y$}{Y}}\label{gl:sec:pfnum}
 
@@ -253,13 +253,13 @@ The density of $Y=\sqrt{2T}\,Z$ is
 \[
 f(y)=\frac1\pi\int_0^\infty\cos(ty)\,\frac{\xi(\tfrac12)}{\xi(\tfrac12+t)}\,dt,
 \]
-computed from $\xi$ on the real axis alone. By Proposition~\ref{pol:prop:pf}, $f$ is unconditionally a smooth symmetric density, and RH holds if and only if $f$ is a P\'olya frequency function of infinite order. One direction is Theorem~\ref{fm:thm:dual}(iv); the equivalence in the language of the Laguerre P\'olya class is in~\cite[Theorem 2.3 and Corollary 2.4]{KPS24}.
+computed from $\xi$ on the real axis alone. By Proposition~\ref{pol:prop:pf}, $f$ is unconditionally a smooth symmetric density, and RH holds if and only if $f$ is a P\'olya frequency function of infinite order. One direction is Theorem~\ref{fm:thm:dual}(iv); the equivalence, in the language of the Laguerre P\'olya class, is in~\cite[Theorem 2.3 and Corollary 2.4]{KPS24}.
 
-The low orders are decided by the low zeros (Chapter~\ref{chap:polyazeros}). Order two holds without RH, that is, $f$ is log concave (Theorem~\ref{pol:thm:pf2}, a floating point certificate), and, given the verification of RH to height $3\times10^{12}$~\cite{PT21}, $f$ lies within $1.6\times10^{-10}$ of a P\'olya frequency function of every order (Theorem~\ref{pol:thm:approxpf}), so that every minor of order $3$ and $4$ is at least $-1.1\times10^{-8}$ and $-1.2\times10^{-7}$. What follows tests $f$ at the orders two to eight on other grids. The computation is by \texttt{gl\_density\_pf.py} at $70$ digits, with the trapezoid rule in $t$; $f(2)$ agrees to $3\times10^{-62}$ with the residue series $\sum_kr_ke^{-\gamma_ky}$, $r_k=-\xi(\tfrac12)/\Xi'(\gamma_k)$, over the first $60$ zeros.
+The low orders are decided by the low zeros (Chapter~\ref{chap:polyazeros}). Order two holds without RH, that is, $f$ is log concave (Theorem~\ref{pol:thm:pf2}, a floating point certificate), and, given the verification of RH to height $3\times10^{12}$~\cite{PT21}, $f$ lies within $1.6\times10^{-10}$ of a P\'olya frequency function of every order (Theorem~\ref{pol:thm:approxpf}), so that every minor of order $3$ and $4$ is at least $-1.1\times10^{-8}$ and $-1.2\times10^{-7}$. We test $f$ at orders two to eight on other grids, at $70$ digits, with the trapezoid rule in $t$; $f(2)$ agrees to $3\times10^{-62}$ with the residue series $\sum_kr_ke^{-\gamma_ky}$, $r_k=-\xi(\tfrac12)/\Xi'(\gamma_k)$, over the first $60$ zeros.
 
 At the origin $f(0)=1.8994210510239\ldots$, which equals $\E[T^{-1/2}]/(2\sqrt\pi)$ with $\E[T^{-1/2}]=6.7332723127566\ldots$ (Proposition~\ref{gl:prop:negmom} at $s=\tfrac12$). On $[0,2]$ with step $0.05$, $ff''-f'^2<0$ at all $41$ grid points; the largest value, $-1.37\times10^{-22}$, is at $y=2$, where $f(2)=1.89857001286\times10^{-10}$. The $121$ minors $\det[f(x_r-y_c)]_{r,c<3}$ of order three with $x_r=(i+r)/10$ and $y_c=(j+c)/10$, $0\le i,j\le10$, depend only on $i-j$ and are all positive; the smallest, $6.8275\times10^{-16}$ at $|i-j|=10$, is far smaller than the $1.1\times10^{-8}$ by which Theorem~\ref{pol:thm:approxpf} allows a minor of order three to be negative. The Toeplitz minors $\det[f((r-c)h)]_{r,c<n}$ are positive for $n=3$ to $8$ at $h=0.05$, $0.2$ and $0.4$ (Table~\ref{gl:tab:toeplitz}), the smallest being $1.4971\times10^{-21}$.
 \begin{table}[htbp]
-\caption{Toeplitz minors $\det[f((r-c)h)]_{r,c<n}$ of the density of $Y$ (\texttt{gl\_density\_pf.py}, $70$ digits).}
+\caption{Toeplitz minors $\det[f((r-c)h)]_{r,c<n}$ of the density of $Y$ ($70$ digits).}
 \label{gl:tab:toeplitz}
 \centering
 \begin{tabular}{cccc}

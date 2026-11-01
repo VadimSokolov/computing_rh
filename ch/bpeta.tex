@@ -1,12 +1,10 @@
 \section{The Dedekind eta analogue at the basepoint one}\label{ch:bpeta}
 
-The $L$ function of the real character $\chi_{12}$ modulo $12$, to which Section~\ref{ch:chi12} carried the pipeline of the book, has no pole. Its completed function is entire and is a Mellin transform of the Dedekind eta function, whose product formula makes the kernel positive. We repeat for $L(s,\chi_{12})$ the calculations that Chapter~\ref{chap:basepoint} made for $\zeta$ at the basepoint one.
-
-The scripts are in the folder \texttt{basepoint\_one/eta} of the archive.
+The completed $L$ function of $\chi_{12}$ (Section~\ref{ch:chi12}) is entire, a Mellin transform of the Dedekind eta function with a positive kernel. We repeat for it the calculations that Chapter~\ref{chap:basepoint} made for $\zeta$ at the basepoint one.
 
 \subsection{The completed \texorpdfstring{$L$}{L} function and its Thorin measure}\label{bp:eta:sec}
 
-We use the completed function $\xi(s,\chi_{12})=(12/\pi)^{s/2}\Gamma(s/2)L(s,\chi_{12})$, its kernel $K$ and the variable $Y$ with density $K/\xi(\frac12,\chi_{12})$ of Section~\ref{sec:ch16:eta}; the function satisfies $\xi(s,\chi_{12})=\xi(1-s,\chi_{12})$ and is entire. We computed its zeros on the critical line by sign changes of $\xi(\frac12+it,\chi_{12})e^{\pi t/4}$ with \texttt{zeros12.py}, finding $297$ below height $340$; Section~\ref{sec:ch16:eta} lists the first of them. In this section $b_\alpha=(\xi'/\xi)(\alpha,\chi_{12})$ and $v_\alpha(\theta)=\re(\xi'/\xi)(\alpha+i\theta,\chi_{12})$, and $\varphi_\alpha$, $T_1$, $\widetilde T$, $\Pi$, $A$, $A_\alpha$, $Q$ and $a_k=-(\rho_k-\frac12)^2$ are formed with $\xi(s,\chi_{12})$ and its zeros $\rho=\beta+i\gamma$ in place of $\xi$. So is the tilted eta variable $V_\alpha$, the Esscher tilt of $Y$ by $e^{(\alpha-\frac12)Y}$, with $\E e^{sV_\alpha}=\xi(\alpha+s,\chi_{12})/\xi(\alpha,\chi_{12})$. The constants we need, computed by \texttt{base.py}, are
+We use the completed function $\xi(s,\chi_{12})=(12/\pi)^{s/2}\Gamma(s/2)L(s,\chi_{12})$, its kernel $K$ and the variable $Y$ with density $K/\xi(\frac12,\chi_{12})$ of Section~\ref{sec:ch16:eta}. Sign changes of $\xi(\frac12+it,\chi_{12})e^{\pi t/4}$, computed, give $297$ zeros on the critical line below height $340$. In this section $b_\alpha=(\xi'/\xi)(\alpha,\chi_{12})$ and $v_\alpha(\theta)=\re(\xi'/\xi)(\alpha+i\theta,\chi_{12})$, and $\varphi_\alpha$, $T_1$, $\widetilde T$, $\Pi$, $A$, $A_\alpha$, $Q$ and $a_k=-(\rho_k-\frac12)^2$ are formed with $\xi(s,\chi_{12})$ and its zeros $\rho=\beta+i\gamma$ in place of $\xi$. So is the tilted eta variable $V_\alpha$, the Esscher tilt of $Y$ by $e^{(\alpha-\frac12)Y}$, with $\E e^{sV_\alpha}=\xi(\alpha+s,\chi_{12})/\xi(\alpha,\chi_{12})$. The constants we need, computed, are
 \[
 L(1,\chi_{12})=\frac{\log(2+\sqrt3)}{\sqrt3}=0.760346,\qquad L'(1,\chi_{12})=0.362495,
 \]
@@ -26,10 +24,10 @@ the sum over the nontrivial zeros $\rho=\beta+i\gamma$ of $L(s,\chi_{12})$ in co
 \end{proposition}
 
 \begin{proof}
-The proof is that of Proposition~\ref{bp:prop:thorin}, with the Hadamard product of the entire function $\xi(s,\chi_{12})$ in place of that of $\xi$.
+As for Proposition~\ref{bp:prop:thorin}, with the Hadamard product of the entire function $\xi(s,\chi_{12})$ in place of that of $\xi$.
 \end{proof}
 
-The minimum on $[0,60]$ is at the origin, $v_1(0)/\pi=b_1/\pi=0.0525477$, and the cumulative mass tracks the zero count: $\int_0^{60}v_1/\pi=35.81$ against $N_{\chi_{12}}(60)=36$, where $N_{\chi_{12}}(T)$ counts the zeros with $0<\gamma\le T$ as in Section~\ref{sec:ch16:eta}. Table~\ref{bp:eta:tab:rho}, computed by \texttt{base.py}, compares direct values with the Poisson sum over the $297$ computed zeros; the nearly constant difference of $1.11\times10^{-3}$ is the contribution of the zeros above height $340$. Figure~\ref{bp:eta:fig:density} compares the density with that of $\zeta$: on this window the zeros of $L(s,\chi_{12})$ are more than twice as dense, and its density is correspondingly higher. As for $\zeta$, $\varphi_1(u)=1-b_1\sqrt u+O(u)$, so $T_1$ has infinite mean and $P(T_1>x)\sim b_1(\pi x)^{-1/2}=0.09314\,x^{-1/2}$.
+The minimum on $[0,60]$ is at the origin, $v_1(0)/\pi=b_1/\pi=0.0525477$, and the cumulative mass tracks the zero count: $\int_0^{60}v_1/\pi=35.81$ against $N_{\chi_{12}}(60)=36$, where $N_{\chi_{12}}(T)$ counts the zeros with $0<\gamma\le T$ as in Section~\ref{sec:ch16:eta}. Table~\ref{bp:eta:tab:rho}, computed, compares direct values with the Poisson sum over the $297$ computed zeros; the nearly constant difference of $1.11\times10^{-3}$ is the contribution of the zeros above height $340$. Figure~\ref{bp:eta:fig:density} compares the density with that of $\zeta$: on this window the zeros of $L(s,\chi_{12})$ are more than twice as dense, and the density correspondingly higher. As for $\zeta$, $\varphi_1(u)=1-b_1\sqrt u+O(u)$, so $T_1$ has infinite mean and $P(T_1>x)\sim b_1(\pi x)^{-1/2}=0.09314\,x^{-1/2}$.
 
 \begin{table}[htbp]
 \centering\small
@@ -52,13 +50,11 @@ $\theta$ & $v_1(\theta)/\pi$ from $\xi'/\xi(\cdot,\chi_{12})$ & from 297 zeros, 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{fig/bp1eta_density.pdf}
-\caption{Left: the Thorin densities at the basepoint one for $L(s,\chi_{12})$ and for $\zeta$ on $[0,60]$, with the ordinates of the zeros of $L(s,\chi_{12})$ (vertical lines). Right: the cumulative Thorin mass for $L(s,\chi_{12})$ against its zero count $N_{\chi_{12}}(T)$, written $N(T)$ in the plot. Drawn by \texttt{figs.py} of \texttt{basepoint\_one/eta}.}
+\caption{Left: the Thorin densities at the basepoint one for $L(s,\chi_{12})$ and for $\zeta$ on $[0,60]$, with the ordinates of the zeros of $L(s,\chi_{12})$ (vertical lines). Right: the cumulative Thorin mass for $L(s,\chi_{12})$ against its zero count $N_{\chi_{12}}(T)$, written $N(T)$ in the plot.}
 \label{bp:eta:fig:density}
 \end{figure}
 
 \subsection{The L\'evy form without a pole, at and below the basepoint one}\label{bp:eta:sec:levy}
-
-
 
 \begin{proposition}\label{bp:eta:prop:levy}
 For $\re s>0$,
@@ -80,9 +76,9 @@ Binet's formula \cite[\S5.9]{DLMF} for $\log\Gamma(\frac12+\frac s2)$, in the in
 The linear coefficient is $-\sum_n\Lambda_{\chi_{12}}(n)/n=\frac{L'}L(1,\chi_{12})$, which converges by the prime number theorem for arithmetic progressions \cite[Chapter~20]{Davenport}, in the form $\psi(y,\chi_{12})=O(y\,e^{-c\sqrt{\log y}})$, where $\psi(y,\chi_{12})=\sum_{n\le y}\Lambda_{\chi_{12}}(n)$ is the Chebyshev function of $\chi_{12}$.
 \end{proof}
 
-The form differs from that of $\zeta$ in two ways. There is no pole, so no compensating measure: the prime atoms converge on their own at the basepoint one. And the measure is signed for a different reason. For $\zeta$ the gamma density minus the pole term $dx/x$ is negative beyond $x=0.281$ and the prime atoms are positive; here the gamma density $e^{-x}/(x(1-e^{-2x}))$ is positive everywhere and the atoms carry the sign of $\chi_{12}(n)$ (Figure~\ref{bp:eta:fig:levy}, left). Table~\ref{bp:eta:tab:levy}, computed by \texttt{arith.py}, checks the form.
+The form differs from that of $\zeta$ in two ways. There is no pole, so no compensating measure: the prime atoms converge on their own at the basepoint one. And the measure is signed for another reason. For $\zeta$ the gamma density minus the pole term $dx/x$ is negative beyond $x=0.281$ and the prime atoms are positive; here the gamma density $e^{-x}/(x(1-e^{-2x}))$ is positive everywhere and the atoms carry the sign of $\chi_{12}(n)$ (Figure~\ref{bp:eta:fig:levy}, left). Table~\ref{bp:eta:tab:levy}, computed, checks the form.
 
-The tilted eta variable $V_1$, with moment generating function $\xi(1+s,\chi_{12})/\xi(1,\chi_{12})$, is not quasi infinitely divisible. Its positive and its negative atoms each have infinite total mass, since $\sum_{\chi_{12}(p)=1}1/p$ and $\sum_{\chi_{12}(p)=-1}1/p$ both diverge by Dirichlet's theorem, and they cancel only conditionally, so the argument of Proposition~\ref{sb:prop:qid}(3) applies with $\xi(1+s,\chi_{12})$ in place of $\xi(1+s)$, as the discussion after its proof explains. At every basepoint $\alpha>1$, by contrast, $V_\alpha$ is quasi infinitely divisible: there the atoms of each sign have finite total mass, and the Euler product writes its characteristic function as that of an infinitely divisible gamma piece times a quotient of two compound Poisson characteristic functions.
+The tilted eta variable $V_1$ is not quasi infinitely divisible. Its positive and its negative atoms each have infinite total mass, since $\sum_{\chi_{12}(p)=1}1/p$ and $\sum_{\chi_{12}(p)=-1}1/p$ both diverge by Dirichlet's theorem, and they cancel only conditionally, so the argument of Proposition~\ref{sb:prop:qid}(3) applies with $\xi(1+s,\chi_{12})$ in place of $\xi(1+s)$, as the discussion after its proof explains. At every basepoint $\alpha>1$, by contrast, $V_\alpha$ is quasi infinitely divisible: the atoms of each sign have finite total mass, and the Euler product writes its characteristic function as that of an infinitely divisible gamma piece times a quotient of two compound Poisson characteristic functions.
 
 \begin{table}[htbp]
 \centering\small
@@ -108,12 +104,12 @@ with
 \[
 A(\theta)=\tfrac12\big[\re\psi(\tfrac{1+i\theta}2)-\psi(\tfrac12)\big],\qquad Q(\theta)=\sum_n\frac{\Lambda_{\chi_{12}}(n)}n\,2\sin^2\Big(\frac{\theta\log n}2\Big).
 \]
-The drift becomes the stable one half factor $e^{-b_1\sqrt u}$, the gamma factor the smooth positive growth $A$, and the primes the oscillating $Q$, now without any divergent partner. With primes to $10^7$ the formula gives $0.84633$ at $\theta=10$ against the exact $0.84649$.\ref{bp:eta:fig:levy} (right) shows the three pieces: the prime piece ranges over both signs, and the positivity of the sum comes from the drift and the gamma factor, as Section~\ref{sec:ch16:sin2} found at the basepoint two.
+The drift becomes the stable one half factor $e^{-b_1\sqrt u}$, the gamma factor the smooth positive growth $A$, and the primes the oscillating $Q$, with no divergent partner. With primes to $10^7$ the formula gives $0.84633$ at $\theta=10$ against the exact $0.84649$. Figure~\ref{bp:eta:fig:levy} (right) shows the three pieces: the prime piece takes both signs, and the positivity of the sum comes from the drift and the gamma factor, as Section~\ref{sec:ch16:sin2} found at the basepoint two.
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{fig/bp1eta_levy.pdf}
-\caption{Left: the canonical measure $x\Pi(dx)$ of $\log\xi(1+s,\chi_{12})$, written with $\Lambda(1+s,\chi_{12})$ in the plot: the positive gamma density $e^{-x}/(1-e^{-2x})$ and the prime atoms $\Lambda_{\chi_{12}}(n)/n$ at $\log n$, of both signs, the positive ones drawn upward and the negative ones downward; there is no pole. Right: $v_1(\theta)$ on $[0,40]$, written $\pi\rho_1$ in the plot, as the sum of the drift $b_1$, written $b$, the gamma piece $A(\theta)$ and the prime piece $Q(\theta)$, written $P(\theta)$ in the plot. Drawn by \texttt{figs.py} of \texttt{basepoint\_one/eta}.}
+\caption{Left: the canonical measure $x\Pi(dx)$ of $\log\xi(1+s,\chi_{12})$, written with $\Lambda(1+s,\chi_{12})$ in the plot: the positive gamma density $e^{-x}/(1-e^{-2x})$ and the prime atoms $\Lambda_{\chi_{12}}(n)/n$ at $\log n$, of both signs, the positive ones drawn upward and the negative ones downward; there is no pole. Right: $v_1(\theta)$ on $[0,40]$, written $\pi\rho_1$ in the plot, as the sum of the drift $b_1$, written $b$, the gamma piece $A(\theta)$ and the prime piece $Q(\theta)$, written $P(\theta)$ in the plot.}
 \label{bp:eta:fig:levy}
 \end{figure}
 
@@ -121,13 +117,13 @@ The drift becomes the stable one half factor $e^{-b_1\sqrt u}$, the gamma factor
 \[
 b_\alpha+A_\alpha(\theta)+\lim_{X\to\infty}\sum_{n\le X}\frac{\Lambda_{\chi_{12}}(n)}{n^\alpha}\,2\sin^2\Big(\frac{\theta\log n}2\Big),
 \]
-with $A_\alpha(\theta)=\frac12[\re\psi(\frac{\alpha+i\theta}2)-\psi(\frac\alpha2)]$. Exactly as for $\zeta$ in Proposition~\ref{bp:prop:below}, the limit exists and gives the positive Thorin density $v_\alpha/\pi$ when $L(s,\chi_{12})$ has no zeros with $\re s>\alpha'$ for some $\alpha'<\alpha$, and conversely its existence for $\re s>0$ in the L\'evy form forces the absence of zeros with $\re s>\alpha$. The error at cutoff $X$ is given by the same explicit formula,
+with $A_\alpha(\theta)=\frac12[\re\psi(\frac{\alpha+i\theta}2)-\psi(\frac\alpha2)]$. As for $\zeta$ in Proposition~\ref{bp:prop:below}, the limit exists and gives the positive Thorin density $v_\alpha/\pi$ when $L(s,\chi_{12})$ has no zeros with $\re s>\alpha'$ for some $\alpha'<\alpha$, and conversely its existence for $\re s>0$ in the L\'evy form forces the absence of zeros with $\re s>\alpha$. The error at cutoff $X$ is given by the same explicit formula,
 \[
 \sum_\rho\Big[-\frac{X^{\rho-\alpha}}{\rho-\alpha}+\frac{X^{\rho-\alpha+i\theta}}{2(\rho-\alpha+i\theta)}+\frac{X^{\rho-\alpha-i\theta}}{2(\rho-\alpha-i\theta)}\Big]+O(X^{-\alpha}\log X),
 \]
 because $\psi(y,\chi_{12})=-\sum_\rho y^\rho/\rho+O(\log y)$ has no main term \cite[Chapter~19]{Davenport}.
 
-For $\zeta$ the prime piece and the pole piece each grow like $X^{1-\alpha}/(1-\alpha)$ and must cancel; for $L(s,\chi_{12})$ the prime piece stays bounded. Table~\ref{bp:eta:tab:below}, computed by \texttt{arith.py}, shows the errors, which decay like $X^{1/2-\alpha}$, and what remains after subtracting the explicit formula over the $297$ computed zeros. The correction removes most of the error at $\theta=\gamma_1$; at $\theta=10$, between zeros, it helps less, because $297$ zeros are fewer than the $1700$ used for $\zeta$ and the missing zeros above height $340$ dominate what remains. At the centre and the first ordinate the sum grows like $\log X$: the atom $\delta_{\gamma_1}$ forming (Figure~\ref{bp:eta:fig:below}).
+For $\zeta$ the prime piece and the pole piece each grow like $X^{1-\alpha}/(1-\alpha)$ and must cancel; for $L(s,\chi_{12})$ the prime piece stays bounded. Table~\ref{bp:eta:tab:below}, computed, shows the errors, which decay like $X^{1/2-\alpha}$, and what remains after subtracting the explicit formula over the $297$ computed zeros. The correction removes most of the error at $\theta=\gamma_1$; at $\theta=10$, between zeros, it helps less, because $297$ zeros are fewer than the $1700$ used for $\zeta$ and the missing zeros above height $340$ dominate what remains. At the centre and the first ordinate the sum grows like $\log X$: the atom $\delta_{\gamma_1}$ forming (Figure~\ref{bp:eta:fig:below}).
 
 \begin{table}[htbp]
 \centering\small
@@ -151,7 +147,7 @@ $\alpha$ & $\theta$ & $X$ & prime piece & error & error after zero correction\\
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{fig/bp1eta_below.pdf}
-\caption{Left: absolute error at $\theta=\gamma_1=3.8046$ for $L(s,\chi_{12})$ against the prime cutoff $X$, for $\alpha=1$, $0.9$, $0.75$ and $0.6$, from primes alone (solid) and after the zero correction over $297$ zeros (dashed). Right: at the centre and the first ordinate the sum grows like $\log X$, the atom of the GRH measure forming. Drawn by \texttt{figs.py} of \texttt{basepoint\_one/eta}.}
+\caption{Left: absolute error at $\theta=\gamma_1=3.8046$ for $L(s,\chi_{12})$ against the prime cutoff $X$, for $\alpha=1$, $0.9$, $0.75$ and $0.6$, from primes alone (solid) and after the zero correction over $297$ zeros (dashed). Right: at the centre and the first ordinate the sum grows like $\log X$, the atom of the GRH measure forming.}
 \label{bp:eta:fig:below}
 \end{figure}
 
@@ -161,7 +157,7 @@ We computed the Brownian boundary $b(t)$ whose crossing time has the law of $T_1
 
 \subsection{The two examples compared}\label{bp:sec:compare}
 
-Table~\ref{bp:eta:tab:cmp} sets the two basepoint one examples side by side. Structurally the eta case is the cleaner of the two: below the basepoint one its prime sums stay bounded, so the computation is far better conditioned. Nothing essential becomes easier, however. The negativity that $\zeta$ concentrates in the pole piece is carried here by the signs of $\chi_{12}(p)$; and, under GRH for $\chi_{12}$, the probabilistic picture is the same, with every constant scaled by the denser zeros.
+Table~\ref{bp:eta:tab:cmp} sets the two basepoint one examples side by side. Structurally the eta case is the cleaner: below the basepoint one its prime sums stay bounded, so the computation is far better conditioned. Nothing essential becomes easier, however. The negativity that $\zeta$ concentrates in the pole piece is carried by the signs of $\chi_{12}(p)$, and under GRH for $\chi_{12}$ the probabilistic picture is the same, every constant scaled by the denser zeros.
 
 \begin{table}[htbp]
 \centering\small
@@ -188,4 +184,4 @@ tangent approximation fails at & $t=0.091$ & $t=1.83$\\
 \label{bp:eta:tab:cmp}
 \end{table}
 
-The comparison confirms the two conclusions that fix the shape of the path to RH. First, at the basepoint one the constructions for the reciprocal Xi function are, with two exceptions, unconditional and explicit. The exceptions are the Krein string representation of Corollary~\ref{bp:cor:kent}, which assumes RH and simple zeros, and the Wald defect $\sum_\rho\rho^{-1}/\sqrt2$: Lemma~\ref{bp:lem:wald} gives it for a boundary bounded at infinity, and the boundedness of the computed Brownian boundary is observed, not proved. Second, below the basepoint one each positive statement for $\zeta$ holds, up to the boundary case, exactly when no zero lies to the right of the line $\re s=\alpha$ (Propositions~\ref{bp:prop:below} and \ref{wr:prop:wiener}, Theorems~\ref{bp:thm:alpha} and \ref{sm:thm:strip}). The eta example shows that the pole changes how the prime sums converge, not where they stop.
+The comparison confirms two conclusions that fix the shape of the path to RH. First, at the basepoint one the constructions for the reciprocal Xi function are, with two exceptions, unconditional and explicit. The exceptions are the Krein string representation of Corollary~\ref{bp:cor:kent}, which assumes RH and simple zeros, and the Wald defect $\sum_\rho\rho^{-1}/\sqrt2$: Lemma~\ref{bp:lem:wald} gives it for a boundary bounded at infinity, and the boundedness of the computed Brownian boundary is observed, not proved. Second, below the basepoint one each positive statement for $\zeta$ holds, up to the boundary case, exactly when no zero lies to the right of the line $\re s=\alpha$ (Propositions~\ref{bp:prop:below} and \ref{wr:prop:wiener}, Theorems~\ref{bp:thm:alpha} and \ref{sm:thm:strip}). The eta example shows that the pole changes how the prime sums converge, not where they stop.

@@ -1,0 +1,33 @@
+# Volume I, Chapter 24. A route to the Riemann Hypothesis
+
+<!-- cite:begin -->
+From *Computing the Riemann Hypothesis, Volume I: Representations of Xi, Thorin Measures and the Reciprocal Xi Function* by Nicholas G. Polson and Vadim Sokolov (2026), chapter 24. Cite as Polson and Sokolov (2026), *Computing the Riemann Hypothesis, Volume I: Representations of Xi, Thorin Measures and the Reciprocal Xi Function*, edition 2, https://doi.org/10.5281/zenodo.23861971. Book page: https://vsokolov.org/books/computing_rh/. Source: https://github.com/VadimSokolov/computing_rh.
+<!-- cite:end -->
+
+This chapter assembles the results of Volume I into one route to the Riemann Hypothesis (RH), says which steps are theorems, and states the one step that is missing. It does not prove RH. The route is the descent in level of the Thorin measure, read in the language of Lee and Yang. Its target has six equivalent forms: descent in level of the minimum of the Thorin density, backward Cauchy deconvolution through positive measures, a Cauchy mixture of one width, Weil positivity, ferromagnetism of the Pólya law (characteristic function in the Laguerre Pólya class), and the two spin Lee and Yang property, equivalently monotonicity of $|\xi(\sigma+it)|$ in $\sigma\ge\frac12$. The top of the descent, level one or the coupling $\frac12$, is proved with no hypothesis in each form, including a positive Cauchy mixture at level one, ferromagnetism of the cosh tilted law for couplings $w\ge\frac12$, and the Lee and Yang threshold of the truncated Euler product. The step from the top to the critical line passes three filters that rule out finite computations, arguments that ignore the Euler product (the Davenport and Heilbronn function has zeros off the line), and properties preserved by Gaussian damping. As a benchmark, curves over finite fields are decided by Hasse and Weil positivity through finite Toeplitz sections. For $\zeta$ the chapter reports certified ball arithmetic runs: a Weil ladder on 266 cells, Davenport and Heilbronn sections that become negative, the Hankel test, and positivity of the Thorin density with no zero on lines $\operatorname{Re}s=\alpha$ up to height $10^4$ and $10^5$ at several levels (certified). The missing step is a positive form built from the primes with the values of Weil's functional (the Hilbert and Pólya problem), followed by a work plan.
+
+## From the literature
+
+- Weil's positivity criterion (Weil 1952)
+- Lee and Yang theorem and ferromagnetic couplings (Lee and Yang 1952; Lieb and Sokal, as restated by Kozitsky)
+- Hasse and Weil: the Riemann Hypothesis for curves over finite fields, via the Hodge index theorem
+- $\Lambda\ge0$ for the de Bruijn Newman constant (Rodgers and Tao 2020)
+- the Davenport and Heilbronn function with zeros off the critical line (Davenport and Heilbronn)
+- the Hilbert and Pólya programmes (Connes; Deninger)
+
+## New results
+
+<!-- results:begin -->
+- [The Riemann Hypothesis for a curve over a finite field is equivalent to positive semidefinite Toeplitz matrices](../RESULTS.md#weil_riemann_hypothesis_for_curves_iff_toeplitz_positive) (Volume I, Proposition 24.4.1, page 684; proved): The Riemann Hypothesis for a curve over a finite field holds if and only if the Toeplitz matrices built from its normalised point counts are positive semidefinite for every size. New in this book.
+- [A Curie Weiss coupling of strength a shrinks the zero strip of Xi type laws from delta squared to delta squared minus a](../RESULTS.md#curie_weiss_coupling_shrinks_strip) (Volume I, Proposition 24.5.1, page 686; proved): Coupling laws of Xi type with a Curie Weiss weight of strength a puts the zeros of the partition function in a strip whose squared half width is the maximum of delta squared minus a and zero. New in this book.
+- [Problem: construct from the primes a positive semidefinite form for Weil's criterion](../RESULTS.md#question_positive_form_from_primes_for_weil_criterion) (Volume I, Problem 24.1, page 690; open): The book names as the missing piece a positive semidefinite Hermitian form built from the primes that equals the sum over zeros on a dense space of test functions, equivalently monotonicity of the modulus of xi in the real part or lowering the Pólya spin coupling to zero. New in this book.
+- [Problem: lower bounds for the margins that the runs only observe](../RESULTS.md#question_margin_laws_at_fixed_windows) (Volume I, Problem 24.2, page 691; open): The book asks for proofs at fixed windows and bounded heights of the margin laws seen in the runs: the least eigenvalue of Weil's form, the Thorin margin and the curve margin. New in this book.
+- [Problem: strip shrinking for pair couplings and the multiplicity rate](../RESULTS.md#question_quantitative_strip_shrinking_beyond_curie_weiss) (Volume I, Problem 24.3, page 691; open): The book asks for a shrinking bound for pair couplings that do not act through the magnetisation and for the rate delta squared minus N a for N identical copies. New in this book.
+- [Problem: the gap law for clusters as wide as the spacing of their neighbours](../RESULTS.md#question_gap_law_for_many_zero_pairs) (Volume I, Problem 24.4, page 691; open): The book asks for the gap law of the one variable ferromagnetism test when clusters of zeros are as wide as the spacing of their neighbours, so that a certificate states exactly how much of the strip it excludes. New in this book.
+- [Problem: a family along the Euler product with propagating Lee and Yang property](../RESULTS.md#question_family_along_the_euler_product) (Volume I, Problem 24.5, page 692; open): The book asks for an integer indexed family of laws or spins built from the Euler product of zeta whose Lee and Yang property or Toeplitz positivity propagates from one member to the next and whose limit is the Pólya spin. New in this book.
+- [Problem: the two spin Lee and Yang property for every w above some w_0 below one half](../RESULTS.md#question_two_spin_lee_yang_below_one_half_coupling) (Volume I, Problem 24.6, page 692; open): The book asks for a proof of the two spin Lee and Yang property for every w above some w_0 below one half, which is a zero free half plane Re s above one half plus w_0, the quasi Riemann hypothesis. New in this book.
+<!-- results:end -->
+
+## Key terms
+
+Riemann Hypothesis, RH, route to RH, Thorin measure, descent in level, backward Cauchy flow, deconvolution, Weil positivity, Weil criterion, Lee and Yang theorem, ferromagnet, two spin system, Pólya law, Laguerre Pólya class, Hilbert Polya conjecture, Hasse Weil, curves over finite fields, Hodge index theorem, Toeplitz test, Hankel test, Davenport and Heilbronn function, ball arithmetic, de Bruijn Newman constant

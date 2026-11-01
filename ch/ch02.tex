@@ -7,7 +7,7 @@ Most of the material is classical or taken from \cite{P26}.
 
 The completed zeta function $\xi$ of Section~\ref{ch:intro} is entire of order one and maximal type, satisfies $\xi(s)=\xi(1-s)$ and $\overline{\xi(\bar s)}=\xi(s)$, and is positive on the real axis. On the critical line $\Xi(\theta)=\xi(\frac12+i\theta)$ is real and even. The zeros $\rho=\beta+i\gamma$ of $\xi$ lie in the open strip $0<\re s<1$ and are symmetric under $\rho\mapsto1-\rho$ and $\rho\mapsto\bar\rho$.
 
-Hadamard's theorem applied to $G$, which is entire of order $\frac12$, gives, with $u=s^2$,
+Hadamard's theorem applied to $G$, entire of order $\frac12$, gives, with $u=s^2$,
 \begin{equation}\label{eq:ch2:hadamard}
 \frac{\xi(\frac12+s)}{\xi(\frac12)}=\prod_k\Big(1-\frac{s^2}{(\rho_k-\frac12)^2}\Big)=\prod_k\Big(1+\frac{s^2}{a_k}\Big),
 \end{equation}
@@ -15,13 +15,13 @@ with $\sum|a_k|^{-1}<\infty$. Logarithmic differentiation gives the partial frac
 \begin{equation}\label{eq:ch2:partial}
 \frac{\xi'}{\xi}(s)=\sum_\rho\frac1{s-\rho},
 \end{equation}
-in which each $\rho$ is grouped with $1-\rho$, as the differentiation of \eqref{eq:ch2:hadamard} produces, or with $\bar\rho$. Grouped either way the series converges absolutely, since each group is $O(\gamma^{-2})$ for fixed $s$ and $\sum_\rho\gamma^{-2}<\infty$; without grouping it converges only when summed symmetrically in $\im\rho$.
+in which each $\rho$ is grouped with $1-\rho$ (as differentiating \eqref{eq:ch2:hadamard} produces) or with $\bar\rho$. Grouped either way the series converges absolutely, since each group is $O(\gamma^{-2})$ for fixed $s$ and $\sum_\rho\gamma^{-2}<\infty$; ungrouped it converges only when summed symmetrically in $\im\rho$.
 
-Passing to $u=s^2$ folds each pair $\pm(\rho_k-\frac12)$ of zeros of $\xi(\frac12+s)$ into the single zero $-a_k$ of $G$, so the product has genus zero and needs no exponential factors. Since $\xi$ has no real zeros, $a_k$ is real only when $\rho_k$ lies on the critical line, and then $a_k=\gamma_k^2>0$. RH is therefore the statement that every zero of $G$ lies on the negative real axis. The reciprocal of a product of genus zero with negative zeros is a product of gamma Laplace transforms, and this is how generalised gamma convolutions enter.
+Passing to $u=s^2$ folds each pair $\pm(\rho_k-\frac12)$ of zeros of $\xi(\frac12+s)$ into the single zero $-a_k$ of $G$, so the product has genus zero. Since $\xi$ has no real zeros, $a_k$ is real only when $\rho_k$ lies on the critical line, and then $a_k=\gamma_k^2>0$. RH is therefore the statement that every zero of $G$ lies on the negative real axis. The reciprocal of a genus zero product with negative zeros is a product of gamma Laplace transforms, and this is how generalised gamma convolutions enter.
 
 A random variable $H\ge0$ is a generalised gamma convolution (GGC) if $\E e^{-uH}=\exp\{-du-\int_{(0,\infty)}\log(1+u/z)\,U(dz)\}$ for $u>0$, with a drift $d\ge0$ and a positive measure $U$, the Thorin measure, such that $\int_{(0,1)}|\log z|\,U(dz)+\int_{(1,\infty)}z^{-1}U(dz)<\infty$. The drift and the Thorin measure are unique, and the Laplace transform of a GGC extends to a holomorphic nonvanishing function on $\cut$.
 
-Unconditionally, $1/G$ is the Laplace transform of a probability law on $[0,\infty)$ \cite[Theorem A]{P26}; Section~\ref{ch:heat} states this as Theorem~\ref{thm:ch12:idsd} and proves it. A random variable $T$ with $\E e^{-uT}=1/G(u)$ for $u\ge0$ is called the clock variable. Its mean and variance are $\E T=\sum_ka_k^{-1}=G'(0)=\xi''(\frac12)/(2\xi(\frac12))=0.0231050$ and $\operatorname{Var}T=\sum_ka_k^{-2}=3.71726\times10^{-5}$; these constants, and $\xi(\frac12)=0.4971207781883141$, recur throughout the book.
+Unconditionally, $1/G$ is the Laplace transform of a probability law on $[0,\infty)$ (\cite[Theorem A]{P26}, Theorem~\ref{thm:ch12:idsd}). A random variable $T$ with $\E e^{-uT}=1/G(u)$ for $u\ge0$ is the clock variable. Its mean and variance are $\E T=\sum_ka_k^{-1}=G'(0)=\xi''(\frac12)/(2\xi(\frac12))=0.0231050$ and $\operatorname{Var}T=\sum_ka_k^{-2}=3.71726\times10^{-5}$; these constants, and $\xi(\frac12)=0.4971207781883141$, recur throughout the book.
 
 \begin{proposition}[Rigidity, {\cite[Proposition 3.4]{P26}}]\label{prop:rigid}
 The clock $1/G$ is the Laplace transform of a GGC if and only if RH holds, and then its Thorin measure is $U_{\RH}$ of \eqref{eq:URH} and the clock variable is $T=\sum_{\gamma>0}e_\gamma/\gamma^2$ with independent standard exponentials $e_\gamma$.
@@ -31,16 +31,16 @@ If $1/G$ is the Laplace transform of a GGC with drift $d$ and Thorin measure $U$
 
 \subsection{The P\'olya kernel and the P\'olya density}
 
-Riemann's continuation of $\zeta$ writes $\xi$ as a Mellin transform of a combination of $\omega(x)=\sum_{n\ge1}e^{-\pi n^2x}$ and its derivatives, and uses the theta transformation $1+2\omega(1/x)=\sqrt x\,(1+2\omega(x))$, $x>0$. The substitution $x=e^{2u}$ turns the Mellin transform into a Fourier transform, and in Titchmarsh's normalisation \cite[Section 10.1]{Titchmarsh} the result is
+Riemann's continuation writes $\xi$ as a Mellin transform of a combination of $\omega(x)=\sum_{n\ge1}e^{-\pi n^2x}$ and its derivatives, using the theta transformation $1+2\omega(1/x)=\sqrt x\,(1+2\omega(x))$, $x>0$. The substitution $x=e^{2u}$ turns it into a Fourier transform; in Titchmarsh's normalisation \cite[Section 10.1]{Titchmarsh},
 \begin{equation}\label{eq:ch2:Phi}
 \begin{aligned}
 \Phi(u)&=2\sum_{n\ge1}\big(2\pi^2n^4e^{9u/2}-3\pi n^2e^{5u/2}\big)\exp(-\pi n^2e^{2u}),\\
 \Xi(\theta)&=\int_{\mathbb R}\Phi(u)\cos(\theta u)\,du .
 \end{aligned}
 \end{equation}
-Here $u$ is the variable of the kernel, not the argument of the clock. P\'olya studied this representation \cite{Polya}, and $\Phi$ is called the P\'olya kernel.
+Here $u$ is the variable of the kernel, not the argument of the clock. P\'olya studied this representation \cite{Polya}, and $\Phi$ is the P\'olya kernel.
 
-The kernel is even and strictly positive, and $\Phi(u)\sim4\pi^2e^{9|u|/2}\exp(-\pi e^{2|u|})$ as $|u|\to\infty$. Evenness is the functional equation read through the theta transformation (Exercise~\ref{ex:ch2:even}). For $u\ge0$ every term of \eqref{eq:ch2:Phi} is positive, because $2\pi^2n^4e^{9u/2}-3\pi n^2e^{5u/2}=\pi n^2e^{5u/2}(2\pi n^2e^{2u}-3)$ and $2\pi n^2e^{2u}\ge2\pi>3$; positivity for $u<0$ follows by evenness. Evenness decides how $\Phi$ is computed: term $n$ is $n^{-1/2}$ times the first term translated to the left by $\log n$, so for $u\ge0$ the first term dominates, while for $u<0$ the terms are individually of order $n^{-1/2}$ and cancel almost completely, and computations therefore evaluate $\Phi(|u|)$.
+The kernel is even and strictly positive, and $\Phi(u)\sim4\pi^2e^{9|u|/2}\exp(-\pi e^{2|u|})$ as $|u|\to\infty$. Evenness is the functional equation read through the theta transformation (Exercise~\ref{ex:ch2:even}). For $u\ge0$ every term of \eqref{eq:ch2:Phi} is positive, because $2\pi^2n^4e^{9u/2}-3\pi n^2e^{5u/2}=\pi n^2e^{5u/2}(2\pi n^2e^{2u}-3)$ and $2\pi n^2e^{2u}\ge2\pi>3$; positivity for $u<0$ follows by evenness. Term $n$ is $n^{-1/2}$ times the first term translated left by $\log n$, so for $u\ge0$ the first term dominates, while for $u<0$ the terms are of order $n^{-1/2}$ and cancel almost completely; computations therefore evaluate $\Phi(|u|)$.
 
 Each term of \eqref{eq:ch2:Phi} is entire in $u$, and since $\re e^{2u}=e^{2x}\cos2y$ for $u=x+iy$, the series converges locally uniformly in the strip $|\im u|<\pi/4$, so $\Phi$ is analytic there; the boundary lines $\im u=\pm\pi/4$ are a natural boundary inherited from the theta function \cite[Chapter 11, Section 1.4, and Chapter 5, Section 3.2]{Remmert98}. The strip of analyticity makes the trapezoid rule spectrally accurate and permits the tilted contour of Section~\ref{sec:newcomp}. Figure~\ref{fig:ch2:kernel} shows $|\Phi|$ on lines inside the strip.
 
@@ -55,13 +55,13 @@ Since $\Xi(0)=\xi(\frac12)=\int_{\R}\Phi$, the P\'olya density $p=\Phi/\Xi(0)$ i
 \begin{equation}\label{eq:ch2:mgf}
 \frac{\xi(\frac12+s)}{\xi(\frac12)}=\E\,e^{sX}=\E\cosh(sX),\qquad s\in\C .
 \end{equation}
-The clock is $1/\E\cosh(\sqrt u\,X)$, and at $u=\theta^2$ it forms with the characteristic function of $X$ a van Dantzig pair, that is, a pair $(\varphi_1,\varphi_2)$ of characteristic functions with $\varphi_2(\theta)=1/\varphi_1(i\theta)$; the name goes back to a problem of van Dantzig, which Lukacs studied \cite{Lukacs68}. Here $\varphi_1(\theta)=\Xi(\theta)/\Xi(0)$ is the characteristic function of $X$, and $1/\varphi_1(i\theta)=\xi(\frac12)/\xi(\frac12+\theta)=\E e^{-\theta^2T}$ is the characteristic function of $Z\sqrt{2T}$, with $Z$ standard normal and independent of $T$ \cite[Theorem A]{P26}. G.~Letac asked whether $\varphi_1$ is the first member of a van Dantzig pair (private communication), and Theorem~\ref{thm:ch12:idsd} shows that it is, unconditionally.
+The clock is $1/\E\cosh(\sqrt u\,X)$, and at $u=\theta^2$ it forms with the characteristic function of $X$ a van Dantzig pair, a pair $(\varphi_1,\varphi_2)$ of characteristic functions with $\varphi_2(\theta)=1/\varphi_1(i\theta)$, after a problem of van Dantzig studied by Lukacs \cite{Lukacs68}. Here $\varphi_1(\theta)=\Xi(\theta)/\Xi(0)$ is the characteristic function of $X$, and $1/\varphi_1(i\theta)=\xi(\frac12)/\xi(\frac12+\theta)=\E e^{-\theta^2T}$ is the characteristic function of $Z\sqrt{2T}$, with $Z$ standard normal and independent of $T$ \cite[Theorem A]{P26}. G.~Letac asked whether $\varphi_1$ is the first member of a van Dantzig pair (private communication), and Theorem~\ref{thm:ch12:idsd} shows that it is, unconditionally.
 
-Two classical pairs show the shape to expect. The first is $(\cos\theta,1/\cosh\theta)$ and the second is $(\sin\theta/\theta,\theta/\sinh\theta)$. In both the first member has only real zeros and the second is the product of the reciprocal factors: $1/\cosh\theta=\prod_{k\ge1}(1+\theta^2/((k-\frac12)\pi)^2)^{-1}$ is the characteristic function of $\sum_{k\ge1}L_k/((k-\frac12)\pi)$, where the $L_k$ are independent standard Laplace variables, with density $\frac12e^{-|x|}$ and characteristic function $1/(1+\theta^2)$, and likewise $\theta/\sinh\theta$ is that of $\sum_{k\ge1}L_k/(k\pi)$.
+Two classical pairs show the shape to expect: $(\cos\theta,1/\cosh\theta)$ and $(\sin\theta/\theta,\theta/\sinh\theta)$. In both the first member has only real zeros and the second is the product of the reciprocal factors: $1/\cosh\theta=\prod_{k\ge1}(1+\theta^2/((k-\frac12)\pi)^2)^{-1}$ is the characteristic function of $\sum_{k\ge1}L_k/((k-\frac12)\pi)$, where the $L_k$ are independent standard Laplace variables, with density $\frac12e^{-|x|}$ and characteristic function $1/(1+\theta^2)$, and likewise $\theta/\sinh\theta$ is that of $\sum_{k\ge1}L_k/(k\pi)$.
 
 The Xi pair has the classical shape exactly when RH holds. If RH holds, $T=\sum_{\gamma>0}e_\gamma/\gamma^2$ (Proposition~\ref{prop:rigid}), so $Z\sqrt{2T}$ has the law of $\sum_{\gamma>0}L_\gamma/\gamma$, the sum that Section~\ref{ch:boschA} calls $\log W$. Conversely, if $Z\sqrt{2T}$ has the law of $\sum_kL_k/c_k$ for real $c_k$ with $\sum_kc_k^{-2}<\infty$, then $\xi(\frac12+\theta)/\xi(\frac12)=\prod_k(1+\theta^2/c_k^2)$ for real $\theta$, hence for complex $\theta$, and every zero of $\xi$ lies on the critical line. Konstantopoulos, Patie and Sarkar state the same equivalence in the language of the Laguerre P\'olya class and of P\'olya frequency functions \cite[Theorem 2.3 and Corollary 2.4]{KPS24}.
 
-The P\'olya variable also has a probabilistic construction. Let $S_2=\sum_{k\ge1}\frac2{\pi^2k^2}(e_k+e_k')$ with independent standard exponentials $e_k,e_k'$; it has the law of the sum of two independent hitting times of level $1$ by a three dimensional Bessel process started at $0$. By the theorem of Biane, Pitman and Yor \cite{BPY01}, going back to Williams \cite{Williams90}, $2\xi(s)=\E[(\pi S_2/2)^{s/2}]$. With $Y=\frac12\log(\pi S_2/2)$ this reads $\E e^{sY}=2\xi(s)$, so $X$ is $Y$ tilted by $e^{Y/2}$: $\E f(X)=\E[f(Y)e^{Y/2}]/\E e^{Y/2}$. Tilting $Y$ by $e^{\alpha Y}$ in place of $e^{Y/2}$ gives, at every real basepoint $\alpha$ and with no hypothesis on the zeros, a variable $V_\alpha$ with $\E e^{sV_\alpha}=\xi(\alpha+s)/\xi(\alpha)$ and $V_{1/2}=X$ (Section~\ref{bp:sec:mellin}).
+The P\'olya variable has a probabilistic construction. Let $S_2=\sum_{k\ge1}\frac2{\pi^2k^2}(e_k+e_k')$ with independent standard exponentials $e_k,e_k'$; it has the law of the sum of two independent hitting times of level $1$ by a three dimensional Bessel process started at $0$. By the theorem of Biane, Pitman and Yor \cite{BPY01}, going back to Williams \cite{Williams90}, $2\xi(s)=\E[(\pi S_2/2)^{s/2}]$. With $Y=\frac12\log(\pi S_2/2)$ this reads $\E e^{sY}=2\xi(s)$, so $X$ is $Y$ tilted by $e^{Y/2}$: $\E f(X)=\E[f(Y)e^{Y/2}]/\E e^{Y/2}$. Tilting $Y$ by $e^{\alpha Y}$ in place of $e^{Y/2}$ gives, at every real basepoint $\alpha$ and with no hypothesis on the zeros, a variable $V_\alpha$ with $\E e^{sV_\alpha}=\xi(\alpha+s)/\xi(\alpha)$ and $V_{1/2}=X$ (Section~\ref{bp:sec:mellin}).
 
 \subsection{The heat trace: spectral and arithmetic forms}
 
@@ -69,7 +69,7 @@ The heat trace of the zeros is
 \[
 W(t)=\sum_ke^{-a_kt}=\tfrac12\sum_\rho e^{(\rho-\frac12)^2t},\qquad t>0,
 \]
-and the series converges absolutely for every $t>0$ wherever the zeros lie, since $\re a_k=\gamma_k^2-(\beta_k-\frac12)^2>\gamma_k^2-\frac14$ for $\rho_k=\beta_k+i\gamma_k$. Integrating $e^{-(u+a_k)t}$ term by term, and using Frullani's integral $\log(1+u/a)=\int_0^\infty(1-e^{-ut})e^{-at}t^{-1}dt$ for $\re a>0$, gives, unconditionally for $u>0$ \cite[Theorem 4.3]{P26},
+which converges absolutely for every $t>0$ wherever the zeros lie, since $\re a_k=\gamma_k^2-(\beta_k-\frac12)^2>\gamma_k^2-\frac14$ for $\rho_k=\beta_k+i\gamma_k$. Integrating $e^{-(u+a_k)t}$ term by term, and using Frullani's integral $\log(1+u/a)=\int_0^\infty(1-e^{-ut})e^{-at}t^{-1}dt$ for $\re a>0$, gives, unconditionally for $u>0$ \cite[Theorem 4.3]{P26},
 \[
 \frac{G'}{G}(u)=\int_0^\infty e^{-ut}W(t)\,dt,\qquad \log G(u)=\int_0^\infty\big(1-e^{-ut}\big)\frac{W(t)}t\,dt .
 \]
@@ -77,7 +77,7 @@ The second formula shows that $W(t)/t$ is the only possible L\'evy density of th
 
 The classes of infinitely divisible laws of Section~\ref{sec:ch3:hierarchy} become sign conditions on $W$ \cite[Theorem 4.6]{P26}: $T$ is infinitely divisible if and only if $W\ge0$, self decomposable if and only if $W$ is nonincreasing, and a GGC if and only if $W$ is completely monotone, which by Proposition~\ref{prop:rigid} happens if and only if RH holds. The first two conditions hold unconditionally, in the strict forms $W>0$ and $W'<0$ on $(0,\infty)$ (Theorem~\ref{thm:ch12:idsd}, \cite[Theorem A]{P26}), by a proof that uses the verification of RH below height $1000$.
 
-The explicit formula expresses $W$ through the primes. For even test functions $h$ holomorphic and rapidly decreasing in a strip $|\im r|\le\frac12+c$ with $c>0$, Weil's explicit formula \cite{Weil52}, \cite[Theorem 5.12]{IwaniecKowalski04}, reads
+For even test functions $h$ holomorphic and rapidly decreasing in a strip $|\im r|\le\frac12+c$ with $c>0$, Weil's explicit formula \cite{Weil52}, \cite[Theorem 5.12]{IwaniecKowalski04}, reads
 \begin{multline*}
 \sum_\rho h(\gamma_\rho)=h(\tfrac i2)+h(-\tfrac i2)+\frac1{2\pi}\int_{\R}h(r)\big(\re\psi(\tfrac14+\tfrac{ir}2)-\log\pi\big)dr\\
 -2\sum_{n\ge2}\frac{\Lambda(n)}{\sqrt n}\,g(\log n),
@@ -90,9 +90,9 @@ m(r)&=\re\psi\big(\tfrac14+\tfrac{ir}2\big)-\log\pi .
 \end{aligned}
 \end{equation}
 
-The three terms of \eqref{eq:ch2:Warith} are the polar, archimedean and prime contributions. The polar term $e^{t/4}$ comes from $h(\pm\frac i2)$, that is, from the poles of $\pi^{-s/2}\Gamma(s/2)\zeta(s)$ at $s=1$ and $s=0$, which the factor $s(s-1)$ of $\xi$ removes. The prime term is the series $\sum\Lambda(n)n^{-1/2}$ smoothed by a Gaussian of standard deviation $\sqrt{2t}$ in $\log n$.
+The three terms of \eqref{eq:ch2:Warith} are the polar, archimedean and prime contributions. The polar term $e^{t/4}$ comes from $h(\pm\frac i2)$, the poles of $\pi^{-s/2}\Gamma(s/2)\zeta(s)$ at $s=1$ and $s=0$, which the factor $s(s-1)$ of $\xi$ removes. The prime term is $\sum\Lambda(n)n^{-1/2}$ smoothed by a Gaussian of standard deviation $\sqrt{2t}$ in $\log n$.
 
-Table~\ref{tab:ch2:W} reproduces the comparison of \cite[Table 4.1]{P26}, and the two sides agree to fifteen digits. The polar and archimedean terms are of order one while $W(t)$ decays like $e^{-\gamma_1^2t}$ with $\gamma_1^2=199.79$. An estimate of $W$ from \eqref{eq:ch2:Warith} at moderate $t$ must therefore survive a cancellation whose depth grows linearly in $t$. Section~\ref{sec:ch14:heat} extends the comparison to smaller and larger $t$ and gives that depth explicitly.
+Table~\ref{tab:ch2:W} reproduces \cite[Table 4.1]{P26}; the two sides agree to fifteen digits. The polar and archimedean terms are of order one while $W(t)$ decays like $e^{-\gamma_1^2t}$ with $\gamma_1^2=199.79$, so an estimate of $W$ from \eqref{eq:ch2:Warith} must survive a cancellation whose depth grows linearly in $t$. Section~\ref{sec:ch14:heat} extends the comparison and gives that depth explicitly.
 
 \begin{table}[htbp]
 \centering\footnotesize\setlength{\tabcolsep}{4pt}
@@ -113,7 +113,7 @@ $t$ & $W(t)$ from zeros & polar $+$ archimedean $-$ prime & archimedean & prime\
 
 \subsection{The Thorin density at a shifted basepoint}
 
-The formula for the Thorin density in the theorem below defines a density at every basepoint $\alpha>\frac12$, whatever the zeros do, and it is the starting point of the computations in Chapters~\ref{chap:measure} to \ref{chap:heat}. For a real basepoint $\alpha$ write $v_\alpha(r)=\re(\xi'/\xi)(\alpha+ir)$, and let $U_\alpha$ be the signed measure on $(0,\infty)$ given by
+The Thorin density of the theorem below is defined at every basepoint $\alpha>\frac12$, whatever the zeros do, and is the starting point of the computations in Chapters~\ref{chap:measure} to \ref{chap:heat}. For a real basepoint $\alpha$ write $v_\alpha(r)=\re(\xi'/\xi)(\alpha+ir)$, and let $U_\alpha$ be the signed measure on $(0,\infty)$ given by
 \begin{equation}\label{eq:Ualpha}
 U_\alpha(dz)=\frac{v_\alpha(\sqrt z)}{2\pi\sqrt z}\,dz .
 \end{equation}
@@ -127,7 +127,7 @@ so that $U_\alpha(dz)=\rho_\varepsilon(\theta)\,d\theta$. The family $\varepsilo
 If $\alpha>\re\rho$ for every zero, in particular for every $\alpha\ge1$, then $u\mapsto\xi(\alpha)/\xi(\alpha+\sqrt u)$ is the Laplace transform of a GGC $T_\alpha$ with Thorin density \eqref{eq:Ualpha}, and $v_\alpha>0$. It is the Laplace transform of a GGC if and only if $\alpha\ge\sup_\rho\re\rho$.
 \end{theorem}
 
-Until 2026 no basepoint $\alpha<1$ was known to satisfy the hypothesis of the theorem; the zero free half plane $\re s>\frac78$ announced in October 2026 would give every $\alpha>\frac78$ (Section~\ref{sec:ch25:open}). At every basepoint $\alpha>\frac12$ the shifted clock is still the Laplace transform of a probability law, with no hypothesis on the zeros (Theorem~\ref{bp:thm:alpha}); what the zeros decide is whether that law is a GGC. Let $P_a(x)=a/(\pi(a^2+x^2))$ denote the Poisson kernel, with $P_{-a}=-P_a$. Write $\mu_\varepsilon$ for the signed measure $U_{1/2+\varepsilon}$, and use the same symbol for its image in the chart $\theta=\sqrt z$, where it has the density \eqref{eq:rho}. By Theorem~\ref{thm:poisson}, $\mu_\varepsilon$ is the Thorin measure of the GGC $T_{1/2+\varepsilon}$ when $\frac12+\varepsilon>\re\rho$ for every zero, in particular for every $\varepsilon\ge\frac12$, and we call it the Thorin measure at resolution $\varepsilon$ in general.
+No basepoint $\alpha<1$ is known unconditionally to satisfy the hypothesis; the unrefereed zero free half plane $\re s>\frac78$ announced in October 2026 would give every $\alpha>\frac78$ (Section~\ref{sec:ch25:open}). At every basepoint $\alpha>\frac12$ the shifted clock is still the Laplace transform of a probability law, with no hypothesis on the zeros (Theorem~\ref{bp:thm:alpha}); the zeros decide whether that law is a GGC. Let $P_a(x)=a/(\pi(a^2+x^2))$ be the Poisson kernel, with $P_{-a}=-P_a$. Write $\mu_\varepsilon$ for the signed measure $U_{1/2+\varepsilon}$ and for its image in the chart $\theta=\sqrt z$, with density \eqref{eq:rho}. By Theorem~\ref{thm:poisson}, $\mu_\varepsilon$ is the Thorin measure of the GGC $T_{1/2+\varepsilon}$ when $\frac12+\varepsilon>\re\rho$ for every zero, in particular for every $\varepsilon\ge\frac12$; in general we call it the Thorin measure at resolution $\varepsilon$.
 
 \begin{proposition}[Poisson structure]\label{prop:struct}
 For $\varepsilon>0$ and $\theta\ge0$ such that $\frac12+\varepsilon+i\theta$ is not a zero of $\xi$,
@@ -142,27 +142,27 @@ where the second sum counts each off line pair $\{\frac12+\delta+i\gamma,\frac12
 Take real parts in \eqref{eq:ch2:partial} at $s=\alpha+i\theta$ with $\alpha=\tfrac12+\varepsilon$: a zero $\rho=\beta+i\gamma$ contributes $\pi P_{\alpha-\beta}(\theta-\gamma)$ to $v_\alpha(\theta)$, and $\alpha-\beta=\varepsilon\mp\delta$ when $\beta=\frac12\pm\delta$. Dividing by $\pi$ and grouping each zero $\rho$ with $\bar\rho$ gives the second form, and collecting the zeros $\rho$, $\bar\rho$, $1-\rho$ and $1-\bar\rho$ gives \eqref{eq:struct}. The series converges absolutely, and uniformly for $\theta$ in compact sets avoiding the zeros, since each term is $O(\gamma^{-2})$ there and $\sum_\rho\gamma^{-2}<\infty$.
 \end{proof}
 
-An off line pair contributes kernels of widths $\varepsilon+\delta$ and $\varepsilon-\delta$, and the second is negative once $\varepsilon<\delta$, that is, once the line $\re s=\frac12+\varepsilon$ lies to the left of the zero $\frac12+\delta+i\gamma$. If every zero lies to the left of the line, every kernel is positive and so is $v_\alpha$; a negative value of $v_\alpha$ therefore proves a zero to the right of $\alpha$.
+An off line pair contributes kernels of widths $\varepsilon+\delta$ and $\varepsilon-\delta$, and the second is negative once $\varepsilon<\delta$, that is, once the line $\re s=\frac12+\varepsilon$ lies left of the zero $\frac12+\delta+i\gamma$. If every zero lies left of the line, every kernel is positive and so is $v_\alpha$; a negative value of $v_\alpha$ therefore proves a zero to the right of $\alpha$.
 
 \begin{remark}[Positivity on one line]\label{rem:ch2:oneline}
-The criterion of Theorem~\ref{thm:poisson} concerns the analytic continuation of the shifted clock, not the sign of $v_\alpha$ on the single line $\re s=\alpha$. Once a zero $\rho$ lies to the right of the line, the shifted clock ceases to be a GGC, since $\xi(\alpha+\sqrt u)$ vanishes at $u=(\rho-\alpha)^2\in\cut$, but the density need not change sign, because the positive kernels of the other zeros can outweigh the negative one. Exercise~\ref{ex:ch2:line} gives an entire function with the order, symmetry and reality of $\xi$ whose density is positive on a line with a zero to its right; for $\xi$ itself it is not known, without assuming RH, whether positivity on one line excludes zeros to its right. Positivity on every line to the right of $\re s=\sigma_0$ does exclude zeros there: if $v_\alpha\ge0$ for every $\alpha>\sigma_0$, then no zero has $\re\rho>\sigma_0$, because $\re(\xi'/\xi)(\rho-b)\sim-m/b$ as $b\downarrow0$ at a zero $\rho$ of multiplicity $m$. With $\sigma_0=\frac12$ this is Lagarias's criterion \cite{Lagarias}: RH holds if and only if $v_\alpha\ge0$ for every $\alpha>\frac12$.
+Theorem~\ref{thm:poisson} concerns the analytic continuation of the shifted clock, not the sign of $v_\alpha$ on the single line $\re s=\alpha$. Once a zero $\rho$ lies right of the line, the shifted clock is not a GGC, since $\xi(\alpha+\sqrt u)$ vanishes at $u=(\rho-\alpha)^2\in\cut$, but the density need not change sign, because the positive kernels of the other zeros can outweigh the negative one. Exercise~\ref{ex:ch2:line} gives an entire function with the order, symmetry and reality of $\xi$ whose density is positive on a line with a zero to its right; for $\xi$ itself it is not known, without assuming RH, whether positivity on one line excludes zeros to its right. Positivity on every line to the right of $\re s=\sigma_0$ does exclude zeros there: if $v_\alpha\ge0$ for every $\alpha>\sigma_0$, then no zero has $\re\rho>\sigma_0$, because $\re(\xi'/\xi)(\rho-b)\sim-m/b$ as $b\downarrow0$ at a zero $\rho$ of multiplicity $m$. With $\sigma_0=\frac12$ this is Lagarias's criterion \cite{Lagarias}: RH holds if and only if $v_\alpha\ge0$ for every $\alpha>\frac12$.
 \end{remark}
 
 Integrated over $\theta>0$, a line zero contributes mass one, which concentrates at $\theta=\gamma$ as $\varepsilon\downarrow0$. An off line pair contributes mass two when $\varepsilon>\delta$, and when $\varepsilon<\delta$ a signed measure of mass zero whose total variation tends to zero as $\varepsilon\downarrow0$. These limits can be summed over the zeros: if $f$ is continuous with support in $[a,b]\subset(0,\infty)$, then for $0<\varepsilon\le1$ each term of \eqref{eq:struct} with $\gamma>b+1$ integrates $f$ to a number of modulus at most $C_f\gamma^{-2}$, where $C_f$ depends only on $f$, because the widths $c$ in \eqref{eq:struct} satisfy $|c|<\varepsilon+\frac12\le\frac32$, $|P_c(x)|\le|c|/(\pi x^2)$, and $|\theta\pm\gamma|\ge\gamma-b\ge\gamma/(b+1)$ for $\theta\in[a,b]$; as $\sum_\rho\gamma^{-2}<\infty$, dominated convergence applies to the sum over the zeros. Hence $\mu_\varepsilon\to U_{\rm line}=\sum_{\text{line zeros}}\delta_{\gamma^2}$ vaguely, whatever the truth of RH \cite[Proposition 9.5]{P17}.
 
 \subsection{The sine squared lemma: the Thorin density from the primes}
 
-The sine squared lemma produces the same Thorin density from the L\'evy side, where the primes appear as atoms. For $x>0$ and $s\ge0$,
+The sine squared lemma \cite[Lemma 8.1]{P17} produces the same Thorin density from the L\'evy side, where the primes appear as atoms. For $x>0$ and $s\ge0$,
 \begin{equation}\label{eq:sin2}
 e^{-sx}+sx-1=x\int_0^\infty\log\Big(1+\frac{s^2}{z}\Big)\frac{\sin^2(x\sqrt z/2)}{\pi\sqrt z}\,dz .
 \end{equation}
-To prove it, substitute $z=\theta^2$, which turns the right side into $\frac x\pi\int_0^\infty\log(1+s^2/\theta^2)(1-\cos x\theta)\,d\theta$. Both sides vanish at $s=0$, and their derivatives in $s$ agree because $\int_0^\infty(1-\cos x\theta)\,2s(\theta^2+s^2)^{-1}d\theta=\pi(1-e^{-sx})$.
+For the proof, $z=\theta^2$ turns the right side into $\frac x\pi\int_0^\infty\log(1+s^2/\theta^2)(1-\cos x\theta)\,d\theta$. Both sides vanish at $s=0$, and their derivatives in $s$ agree because $\int_0^\infty(1-\cos x\theta)\,2s(\theta^2+s^2)^{-1}d\theta=\pi(1-e^{-sx})$.
 
-The identity \eqref{eq:sin2} is \cite[Lemma 8.1]{P17}.
 
 Integrating \eqref{eq:sin2} against a measure turns L\'evy representations into Thorin representations. A L\'evy representation $\log f(\alpha+s)/f(\alpha)=cs+\int(e^{-sx}+sx-1)L(dx)$ for $s\ge0$, with $c$ real and $L$ a real measure on $(0,\infty)$ such that $\int\min(x,x^2)\,|L|(dx)<\infty$, becomes a Thorin representation with density $(2\pi\sqrt z)^{-1}[c+\int2\sin^2(x\sqrt z/2)\,xL(dx)]$, and the bracket equals $\re(f'/f)(\alpha+i\sqrt z)$ \cite[Theorem 8.2]{P17}. For $f=\xi$ at $\alpha>1$ the input is the signed canonical measure $xL(dx)$, with atoms $\Lambda(n)n^{-\alpha}$ at $\log n$, an archimedean density and a pole density \cite[Theorem 8.1]{P26}.
 
-Table~\ref{tab:prime} compares the two routes: the bracket computed from the canonical measure with the primes truncated at $N=2\times10^6$, and $v_\alpha(\theta)$ computed by the P\'olya route of Section~\ref{ch:polya}. The difference is the prime tail $\sum_{n>N}\Lambda(n)n^{-\alpha}(1-\cos(\theta\log n))$, of order $N^{1-\alpha}/(\alpha-1)$, except at $\alpha=3$, $\theta=50$, where it comes from the double precision quadrature of the archimedean integral.
+Table~\ref{tab:prime} compares the bracket computed from the canonical measure with primes truncated at $N=2\times10^6$ and $v_\alpha(\theta)$ computed by the P\'olya route of Section~\ref{ch:polya}.
+ The difference is the prime tail $\sum_{n>N}\Lambda(n)n^{-\alpha}(1-\cos(\theta\log n))$, of order $N^{1-\alpha}/(\alpha-1)$, except at $\alpha=3$, $\theta=50$, where it comes from the double precision quadrature of the archimedean integral.
 
 \begin{table}[t]
 \centering\small

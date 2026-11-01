@@ -1,12 +1,12 @@
 \section{The coefficient ladder}\label{ht:sec:coef}
 
-The density of the reciprocal Xi law has a P\'olya frequency ladder (Section~\ref{ht:sec:jensen} and Chapter~\ref{chap:polyazeros}), and so does the canonical function $\Theta$. This section adds a third object with such a ladder, the Taylor coefficients of $F(s)=\xi(\frac12+\sqrt s)/\xi(\frac12)$, and the next one shows what the three ladders can and cannot see. The results and computations of both sections come from notes contributed by Nick Polson \cite{PolsonResidue26}; the scripts that produced the numbers are listed in \texttt{code/README.md}.
+The density of the reciprocal Xi law has a P\'olya frequency ladder (Section~\ref{ht:sec:jensen} and Chapter~\ref{chap:polyazeros}), and so does the canonical function $\Theta$. A third ladder is that of the Taylor coefficients of $F(s)=\xi(\frac12+\sqrt s)/\xi(\frac12)$; Section~\ref{ht:sec:angle} shows what the three can and cannot see. Both sections are based on \cite{PolsonResidue26}.
 
 Riemann's integral gives, with the de Bruijn Newman kernel $\Phi_{\rm dBN}$ of Section~\ref{ch:dbn} (so that $\xi(\frac12+w)=8\int_0^\infty\Phi_{\rm dBN}(u)\cosh(2wu)\,\mathrm{d}u$),
 \[
 F(s)=\sum_{n\ge0}c_ns^n,\qquad c_n=\frac{\E V^{2n}}{(2n)!}=\frac8{\xi(\frac12)}\int_0^\infty\Phi_{\rm dBN}(u)\frac{(2u)^{2n}}{(2n)!}\,\mathrm{d}u>0 ,
 \]
-where $V$ is symmetric with the P\'olya density $\Phi/\Xi(0)$ of \eqref{eq:ch2:Phi}, so that $V/2$ has density proportional to $\Phi_{\rm dBN}$. Then $c_0=1$ and, computed at $110$ digits from the first $120$ zeros and Riemann's integral, $c_1=\sum_{\Im\rho>0}(-s_\rho)^{-1}=0.023104993$ (with $s_\rho=(\rho-\frac12)^2$), $c_2=2.4833405\times10^{-4}$ and $c_3=1.6743526\times10^{-6}$ (status: computed). As a check on all the coefficients, $\sum_nc_n=F(1)=\xi(\frac32)/\xi(\frac12)=1.02335500958$, which the computed series reproduces to the printed digits.
+where $V$ is symmetric with the P\'olya density $\Phi/\Xi(0)$ of \eqref{eq:ch2:Phi}, so that $V/2$ has density proportional to $\Phi_{\rm dBN}$. Then $c_0=1$ and, computed at $110$ digits from the first $120$ zeros and Riemann's integral, $c_1=\sum_{\Im\rho>0}(-s_\rho)^{-1}=0.023104993$ (with $s_\rho=(\rho-\frac12)^2$), $c_2=2.4833405\times10^{-4}$ and $c_3=1.6743526\times10^{-6}$ (status: computed). As a check, $\sum_nc_n=F(1)=\xi(\frac32)/\xi(\frac12)=1.02335500958$, which the computed series reproduces to the printed digits.
 
 \begin{theorem}[Coefficient ladder]\label{ht:thm:coef}
 \begin{enumerate}
@@ -17,7 +17,7 @@ where $V$ is symmetric with the P\'olya density $\Phi/\Xi(0)$ of \eqref{eq:ch2:P
 
 \begin{proof}
 (i) By the theorem of Aissen, Schoenberg and Whitney and of Edrei \cite{ASW52,Edrei53}, a sequence with $c_0=1$ is PF$_\infty$ if and only if its generating function is $e^{bs}\prod_i(1+\alpha_is)/\prod_i(1-\beta_is)$ with $b,\alpha_i,\beta_i\ge0$ and $\sum_i(\alpha_i+\beta_i)<\infty$. % UNCHECKED: Aissen, Schoenberg, Whitney and Edrei, theorem quoted from memory of the source note, papers not read
-Since $F$ is entire of order one half, so that it has no poles and is a product over its zeros, this says exactly that every zero of $F$ is real and negative, and the zeros of $F$ are the numbers $(\rho-\frac12)^2$, so that this is RH.
+Since $F$ is entire of order one half, a product over its zeros $(\rho-\frac12)^2$, this says exactly that these are real and negative, which is RH.
 
 (ii) Write $b_n=(2n)!\,c_n$. Csordas, Norfolk and Varga proved the Tur\'an inequalities $b_n^2>\frac{2n-1}{2n+1}b_{n-1}b_{n+1}$ \cite{CNV86}, which is the reduction already used in Section~\ref{pol:sec:lp} (the normalisations differ by the factor $4^n$, which cancels). Then
 \[
@@ -25,18 +25,18 @@ Since $F$ is entire of order one half, so that it has no poles and is a product 
 \]
 \end{proof}
 
-Part (ii) restates in the Toeplitz form the Tur\'an paragraph of Section~\ref{pol:sec:lp}; part (i) is the statement not made elsewhere in the book, and it places the coefficients on the same footing as the other two objects. The three ladders are
+Part (ii) restates the Tur\'an paragraph of Section~\ref{pol:sec:lp} in Toeplitz form; part (i) is the statement not made elsewhere in the book, and puts the coefficients on the footing of the other two objects. The three ladders are
 \[
 \Theta\ \text{completely monotone}\iff f\ \text{PF}_\infty\iff(c_n)\ \text{PF}_\infty\iff\text{RH},
 \]
 with unconditional low rungs for each: $T_k\ge0$ for $k\le H^2/80$ for $\Theta$ \cite[Section 6]{P17}, in another form Theorem~\ref{ht:thm:partialcm}; log concavity of $f$ on $[Y_{\!*},\infty)$ for the density (Theorem~\ref{ht:thm:lc}, a computer assisted theorem whose enclosed inputs are listed there); and PF$_2$ of $(c_n)$ by Theorem~\ref{ht:thm:coef}.
 
-The consecutive Toeplitz minors $\det[c_{n+i-j}]_{i,j<k}$, normalised by $c_n^k$, were computed for $k=2,\dots,7$ and $k-1\le n\le35-k$ (status: computed). They are all positive, and they decrease with $n$, so the smallest sit at the largest $n$ allowed; with this range they are $4.16\times10^{-2}$, $1.52\times10^{-4}$, $7.71\times10^{-8}$, $7.66\times10^{-12}$, $1.98\times10^{-16}$ and $1.70\times10^{-21}$. A different range gives different digits (for $n\le36-k$ the same minima are $4.05\times10^{-2}$, $1.4\times10^{-4}$, $6.5\times10^{-8}$, $5.8\times10^{-12}$, $1.3\times10^{-16}$ and $9.1\times10^{-22}$), so the range and the normalisation are part of the statement. Among $399$ random minors of orders $3$, $4$ and $5$ ($133$ of each), none was below $-10^{-40}$. The higher order Tur\'an inequalities of Dimitrov and Lucas \cite{DL11} and the hyperbolicity of Jensen polynomials of Griffin, Ono, Rolen and Zagier \cite{GORZ19} are rungs of a closely related ladder on the same coefficients. % UNCHECKED: Dimitrov and Lucas, paper not read
+The consecutive Toeplitz minors $\det[c_{n+i-j}]_{i,j<k}$, normalised by $c_n^k$, were computed for $k=2,\dots,7$ and $k-1\le n\le35-k$ (status: computed). They are all positive and decrease with $n$, so the smallest sit at the largest $n$ allowed: $4.16\times10^{-2}$, $1.52\times10^{-4}$, $7.71\times10^{-8}$, $7.66\times10^{-12}$, $1.98\times10^{-16}$ and $1.70\times10^{-21}$. A different range gives different digits (for $n\le36-k$ the same minima are $4.05\times10^{-2}$, $1.4\times10^{-4}$, $6.5\times10^{-8}$, $5.8\times10^{-12}$, $1.3\times10^{-16}$ and $9.1\times10^{-22}$), so the range and the normalisation are part of the statement. Among $399$ random minors of orders $3$, $4$ and $5$ ($133$ of each), none was below $-10^{-40}$. The higher order Tur\'an inequalities of Dimitrov and Lucas \cite{DL11} and the hyperbolicity of Jensen polynomials of Griffin, Ono, Rolen and Zagier \cite{GORZ19} are rungs of a closely related ladder on the same coefficients. % UNCHECKED: Dimitrov and Lucas, paper not read
 Of the three ladders, finite rungs of the coefficient ladder are the ones that can be proved, as Theorem~\ref{ht:thm:angle} shows next; finite rungs of the density ladder can be certified by computation; and the ladder of $\Theta$ is the one that connects to the Thorin measure.
 
 \section{The angle theorem: what the ladders can and cannot see}\label{ht:sec:angle}
 
-The coefficient ladder has a multiplicative structure that the other two lack. It yields an unconditional theorem, a test against a function that violates RH, and a clear statement of what climbing the ladders can give.
+The coefficient ladder has a multiplicative structure that the other two lack. It yields an unconditional theorem, a test against a function that violates RH, and a statement of what climbing the ladders can give.
 
 \subsection{The angle theorem}
 
@@ -70,11 +70,11 @@ Unconditionally, $(c_n)$ is PF$_k$ for every $k\le\lfloor\pi H\rfloor-1=94247779
 Any zero has $|\delta|<\frac12$, so by \eqref{ht:eq:angle} $\theta_\rho<2\arctan(1/(2\gamma))<1/\gamma$. Zeros up to the verified height have $\theta_\rho=0$; zeros above it have $\theta_\rho<1/H\le\pi/(k+1)$ for the stated $k$. In the second statement, a zero off the line has $\gamma>(K+1)/\pi$, so $\theta_\rho<1/\gamma<\pi/(K+1)$. Apply Theorem~\ref{ht:thm:angle}.
 \end{proof}
 
-The bound in the proof is the exact angle \eqref{ht:eq:angle}, not the cruder $1/(\gamma-1)$, which would fall three short of the count in the statement. The corollary contains part (ii) of Theorem~\ref{ht:thm:coef} as the case $k=2$, although the Tur\'an inequalities of Csordas, Norfolk and Varga are sharper than PF$_2$, and it explains the numerics of Section~\ref{ht:sec:coef}: no computable rung of the coefficient ladder can fail. The same angle of the zeros, there of the poles of the factors, drives the unconditional range of the power closure of Theorem~\ref{bs:thm:power} and Corollary~\ref{bs:cor:uncond}, and the two should be read side by side.
+The proof uses the exact angle \eqref{ht:eq:angle}; the cruder $1/(\gamma-1)$ would fall three short of the stated count. The case $k=2$ is part (ii) of Theorem~\ref{ht:thm:coef}, although the Tur\'an inequalities of Csordas, Norfolk and Varga are sharper than PF$_2$, and the corollary explains the numerics of Section~\ref{ht:sec:coef}: no computable rung of the coefficient ladder can fail. The same angle, there of the poles of the factors, drives the unconditional range of the power closure of Theorem~\ref{bs:thm:power} and Corollary~\ref{bs:cor:uncond}.
 
 \subsection{The Davenport Heilbronn test}\label{ht:sec:dhtest}
 
-The Davenport Heilbronn function $f_{DH}(s)=\sum a_nn^{-s}$ \cite{DH36}, with $a_n$ periodic modulo $5$ with values $(1,\kappa,-\kappa,-1,0)$ and $\kappa=(\sqrt{10-2\sqrt5}-2)/(\sqrt5-1)$, has the completed form $\xi_{DH}(s)=(5/\pi)^{s/2}\Gamma(\frac{s+1}2)f_{DH}(s)$ with $\xi_{DH}(s)=\xi_{DH}(1-s)$, which we checked to $60$ digits. It has no Euler product and it violates RH. It has the functional equation of $\xi$ and an archimedean term of the same growth, $\frac12\log\tau+O(1)$ at height $\tau$, but not the same archimedean factor: its term is $\frac12\log(5/\pi)+\frac12\psi(\frac{z+1}2)$ in place of that of $\xi$. The classical off line zero is $0.8085171824566374+85.69934848537759\,i$ \cite{Spira94} (computed again here by root finding at $60$ digits).
+The Davenport Heilbronn function $f_{DH}(s)=\sum a_nn^{-s}$ \cite{DH36}, with $a_n$ periodic modulo $5$ with values $(1,\kappa,-\kappa,-1,0)$ and $\kappa=(\sqrt{10-2\sqrt5}-2)/(\sqrt5-1)$, has the completed form $\xi_{DH}(s)=(5/\pi)^{s/2}\Gamma(\frac{s+1}2)f_{DH}(s)$ with $\xi_{DH}(s)=\xi_{DH}(1-s)$ (checked to $60$ digits), no Euler product, and zeros off the line. It has the functional equation of $\xi$ and an archimedean term of the same growth, $\frac12\log\tau+O(1)$ at height $\tau$, but not the same archimedean factor: its term is $\frac12\log(5/\pi)+\frac12\psi(\frac{z+1}2)$ in place of that of $\xi$. The classical off line zero is $0.8085171824566374+85.69934848537759\,i$ \cite{Spira94} (computed again here by root finding at $60$ digits).
 
 We computed the first $110$ Taylor coefficients of $F_{DH}(s)=\xi_{DH}(\frac12+\sqrt s)/\xi_{DH}(\frac12)$ by a Cauchy integral on the circle of radius $1000$ with $1024$ nodes at $220$ digits. For $\xi$ itself they agree with the coefficients from Riemann's integral to $3.9\times10^{-141}$ for $n\le109$, and a second radius ($700$) agrees with the first to $4.8\times10^{-126}$ for $\xi$ and $2.7\times10^{-158}$ for $F_{DH}$ (status: computed).
 
@@ -97,7 +97,7 @@ By the theorem of Aissen, Schoenberg, Whitney and Edrei, $(c_n^{DH})$ is not PF$
 
 \subsection{How sharp is the angle theorem?}\label{ht:sec:sharp}
 
-Theorem~\ref{ht:thm:angle} says that an off line pair at angle $\theta$ cannot break the coefficient ladder below order about $\pi/\theta$. To see whether it breaks near that order, we took the first $30$ zeros of $\xi$, replaced the $m$th by a pair at angle $\theta$ from the negative axis with the same modulus $\gamma_m^2$, and found the first order $k$ and index $n$ at which a contiguous Toeplitz minor of the polynomial's coefficients is negative, at $800$ bits with the zeros from interval arithmetic (status: computed).
+By Theorem~\ref{ht:thm:angle} an off line pair at angle $\theta$ cannot break the coefficient ladder below order about $\pi/\theta$. To see whether it breaks near that order, we took the first $30$ zeros of $\xi$, replaced the $m$th by a pair at angle $\theta$ from the negative axis with the same modulus $\gamma_m^2$, and found the first order $k$ and index $n$ at which a contiguous Toeplitz minor of the polynomial's coefficients is negative, at $800$ bits with the zeros from interval arithmetic (status: computed).
 
 \begin{table}[h]
 \centering\footnotesize\setlength{\tabcolsep}{3pt}
@@ -114,11 +114,11 @@ $\theta=\pi/10$ (bare threshold $10$) & $13$ & $20$ & $30$ & none to $40$ & none
 \label{ht:tab:sharp}
 \end{table}
 
-Two things stand out. When the pair is the lowest zero, the ladder fails only two or three orders beyond the bare threshold, so the angle theorem is nearly sharp. When the pair sits higher, the zeros below it smooth it, and the failing order grows: across the table it is $c\,(\pi/\theta)\sqrt m$ with $c$ between about $1.2$ and $1.7$, and the failure appears at index $n\approx m$. This is an observation on the computed entries, not a theorem (Problem~\ref{ht:prob:scaling}). If the scaling persists, which is heuristic, an off line zero at height $\gamma$, position $m\approx N(\gamma)$ and displacement $\delta$ first breaks the coefficient ladder at order about $(\pi\gamma/2|\delta|)\sqrt{N(\gamma)}$, of order $\gamma^{3/2}\sqrt{\log\gamma}/|\delta|$. That lies between the angle bound $\gamma/|\delta|$ and the order about $\gamma^2\log\gamma/|\delta|$ at which the ladder of $\Theta$ would be expected to fail. For the Davenport Heilbronn zero at height $85.7$, which is about the $44$th zero of that function (the main term of the zero count is $43.95$ at $T=85.7$, and $44.8$ with the constant $\frac78$), the scaling predicts a first failure between about $3500$ and $4900$ ($c$ from $1.2$ to $1.7$ times $2894$) at index near $44$. We cannot compute that far, since minors of that order need thousands of digits.
+When the pair is the lowest zero, the ladder fails only two or three orders beyond the bare threshold, so the angle theorem is nearly sharp. When the pair sits higher, the zeros below smooth it and the failing order grows: across the table it is $c\,(\pi/\theta)\sqrt m$ with $c$ between about $1.2$ and $1.7$, and the failure appears at index $n\approx m$. This is an observation on the computed entries, not a theorem (Problem~\ref{ht:prob:scaling}). If the scaling persists, which is heuristic, an off line zero at height $\gamma$, position $m\approx N(\gamma)$ and displacement $\delta$ first breaks the coefficient ladder at order about $(\pi\gamma/2|\delta|)\sqrt{N(\gamma)}$, of order $\gamma^{3/2}\sqrt{\log\gamma}/|\delta|$. That lies between the angle bound $\gamma/|\delta|$ and the order about $\gamma^2\log\gamma/|\delta|$ at which the ladder of $\Theta$ would be expected to fail. For the Davenport Heilbronn zero at height $85.7$, which is about the $44$th zero of that function (the main term of the zero count is $43.95$ at $T=85.7$, and $44.8$ with the constant $\frac78$), the scaling predicts a first failure between about $3500$ and $4900$ ($c$ from $1.2$ to $1.7$ times $2894$) at index near $44$. Minors of that order need thousands of digits, beyond our computations.
 
 \subsection{The density ladder compared}\label{ht:sec:denscmp}
 
-The same experiment on the density used the first $20$ zeros and Toeplitz determinants $\det[f(x_0+(i-j)h)]$ on a grid of base points $x_0$ and spacings $h$, with the arguments computed in exact multiprecision. Table~\ref{ht:tab:denscmp} is printed as the source note reports it. It has not been reproduced: the note does not define the $79$ base points and $5$ spacings, and no script of the book recomputes it. % UNCHECKED: tab:denscmp, source numbers not reproduced (PENDING in checks-G3, row 35)
+The same experiment on the density used the first $20$ zeros and Toeplitz determinants $\det[f(x_0+(i-j)h)]$ on a grid of base points $x_0$ and spacings $h$, with the arguments computed in exact multiprecision. Table~\ref{ht:tab:denscmp} is printed as the source note reports it. It has not been reproduced: the note does not define the $79$ base points and $5$ spacings, and the book does not recompute it. % UNCHECKED: tab:denscmp, source numbers not reproduced (PENDING in checks-G3, row 35)
 The control, in which the pair is replaced by two real zeros $10^{-6}$ apart, passes every order to $6$ in the same report.
 
 \begin{table}[h]
@@ -137,23 +137,23 @@ $\theta=\pi/100$, $\pi/400$ & none to $8$ & none to $8$ & none to $8$ ($m=6,11$)
 \label{ht:tab:denscmp}
 \end{table}
 
-If the table is right, then at large angles the density ladder reacts much sooner than the coefficient ladder, at order $3$ to $6$ where the coefficient ladder needs $12$ to $30$ (Table~\ref{ht:tab:sharp}). A plausible reason is that the density sees the pair as an oscillation in time, while the coefficients see it only through a smoothed generating function (heuristic). At angles of order $1/100$ and below, both ladders are blind at every order computed. Such angles are still far larger than any that an off line zero of $\zeta$ above the verified height can have, since $\theta_\rho<1/H<3.4\times10^{-13}$ there by the proof of Corollary~\ref{ht:cor:rungs}. The interval arithmetic repetition of the log concavity theorem, and the open window below $Y_{\!*}$, are in Theorem~\ref{ht:thm:lc} and the discussion after it.
+If the table is right, at large angles the density ladder reacts much sooner than the coefficient ladder, at order $3$ to $6$ where the coefficient ladder needs $12$ to $30$ (Table~\ref{ht:tab:sharp}). A plausible reason is that the density sees the pair as an oscillation in time, while the coefficients see it only through a smoothed generating function (heuristic). At angles of order $1/100$ and below, both ladders are blind at every order computed. Such angles are still far larger than any that an off line zero of $\zeta$ above the verified height can have, since $\theta_\rho<1/H<3.4\times10^{-13}$ there by the proof of Corollary~\ref{ht:cor:rungs}. The interval arithmetic repetition of the log concavity theorem, and the open window below $Y_{\!*}$, are in Theorem~\ref{ht:thm:lc} and the discussion after it.
 
 \subsection{Is there a path to RH?}\label{ht:sec:path}
 
-For the coefficient ladder the angle theorem makes the answer precise. Rung $K$ is implied by the location of the zeros up to height about $K/\pi$, and every off line zero is invisible below order about $\pi\gamma/(2|\delta|)$. The ladder of $\Theta$ behaves in the same way with order about $\gamma^2$, up to a logarithm, in place of $\gamma$ \cite[Section 6]{P17}. The density ladder is, by the computations above if they are confirmed, equally blind at realistic angles, although it reacts sooner when the angle is large. So each ladder is a reformulation of RH in which a finite rung is implied by a finite verification of zeros, and the evidence is that a finite rung is also no stronger than one. A proof of RH by climbing a ladder rung by rung would therefore need an argument that controls every rung at once.
+For the coefficient ladder the angle theorem makes the answer precise: rung $K$ is implied by the location of the zeros up to height about $K/\pi$, and every off line zero is invisible below order about $\pi\gamma/(2|\delta|)$. The ladder of $\Theta$ behaves in the same way with order about $\gamma^2$, up to a logarithm, in place of $\gamma$ \cite[Section 6]{P17}. The density ladder is, by the computations above if they are confirmed, equally blind at realistic angles, although it reacts sooner when the angle is large. So each ladder reformulates RH so that a finite rung is implied by a finite verification of zeros, and the evidence is that it is no stronger than one. A proof by climbing a ladder would need an argument that controls every rung at once.
 
-The Davenport Heilbronn test sharpens this. The function $f_{DH}$ has the functional equation and an archimedean term of the growth of $\xi$, it violates RH, and its low rungs hold. So an argument that applies verbatim to $f_{DH}$ would prove RH for a function for which it is false. Such an argument must use a property that $f_{DH}$ lacks, and the Euler product is the evident one. Chapter~\ref{chap:basepoint} shows where the Euler product gives positivity for free, to the right of $1$, where its first moment converges, and Proposition~\ref{bp:prop:below} extends this to the compensated form below $1$. Carrying the positivity into the strip is the hard step, and nothing in this chapter does it.
+The Davenport Heilbronn test sharpens this. The function $f_{DH}$ has the functional equation and an archimedean term of the growth of $\xi$, violates RH, and passes the low rungs. An argument that applies verbatim to $f_{DH}$ would prove RH where it is false, so it must use a property $f_{DH}$ lacks, evidently the Euler product. Chapter~\ref{chap:basepoint} shows where the Euler product gives positivity for free, to the right of $1$, where its first moment converges, and Proposition~\ref{bp:prop:below} extends this to the compensated form below $1$. Carrying the positivity into the strip is the hard step, and nothing here does it.
 
 \section{What a hitting time proof would need}\label{ht:sec:need}
 
-Taken together, the results of this chapter reduce a hitting time proof of RH to one of three constructions, none of which is known.
+Taken together, these results reduce a hitting time proof of RH to one of three constructions, none known.
 \begin{enumerate}
 \item A construction from the primes at basepoint $\alpha=\frac12$, finer than central limit scaling, of GGC laws whose Thorin measures converge vaguely to $\sum\delta_{\gamma^2}$. The heuristic Remark~\ref{ht:cor:shape} reads its positivity as a Weil type criterion. Equivalently, one would carry the arithmetic positivity of the Euler product at basepoint $\alpha>1$ into the critical strip. Section~\ref{ch:path} records what is known about the zero free half planes that this would require: the announced half plane $\Re s>\frac78$ is not enough, and the step needed beyond it is itself open.
 \item A positivity preserving evolution of the Krein string mass in the de Bruijn and Newman parameter or in the basepoint, sharp at $t=0$ or $\alpha=\frac12$.
 \item A proof that the harmonic mean of Brownian exit time transforms given by Riemann's integral is a GGC.
 \end{enumerate}
-By the Davenport Heilbronn argument of Section~\ref{ht:sec:path}, a proof of the second or third kind that does not use the Euler product cannot be expected to exist, which leaves the first. The statement is a heuristic one: it excludes arguments that apply verbatim to $f_{DH}$, not every argument that uses its functional equation.
+By the Davenport Heilbronn argument of Section~\ref{ht:sec:path}, a proof of the second or third kind that does not use the Euler product cannot be expected, which leaves the first. This is heuristic: it excludes arguments that apply verbatim to $f_{DH}$, not every argument using its functional equation.
 
 \section{Open problems}\label{ht:sec:open}
 
@@ -199,7 +199,7 @@ Enclose the constants $M_j$ of Proposition~\ref{ht:prop:explicit} rigorously, wi
 
 \section{Expansions of the reciprocal Xi function}\label{ht:sec:expansions}
 
-For reference, here are the expansions of $1/F(s)=\xi(\frac12)/\xi(\frac12+\sqrt s)$, of its law $\mu$, or of the associated canonical function, with the region of validity, the status and the hypotheses of each. Most are stated and proved elsewhere in the book, and only a pointer is given for those.
+For reference, the expansions of $1/F(s)=\xi(\frac12)/\xi(\frac12+\sqrt s)$, of its law $\mu$ and of its canonical function, with region of validity, status and hypotheses; most are proved elsewhere and only pointed to.
 
 \subsection*{Over the zeros}
 \begin{description}
@@ -239,4 +239,4 @@ For reference, here are the expansions of $1/F(s)=\xi(\frac12)/\xi(\frac12+\sqrt
 \item[Lower tail.] $\log f(y)=-\Lambda(y)-\frac12\log(2\pi|\psi''(s_y)|)+o(1)$ as $y\to0$, with $\Lambda$ the Legendre transform of $\psi=\log F$ (Table~\ref{ht:tab:saddle}); heuristic, since a rigorous version with derivatives is open.
 \end{description}
 
-Of these, only the residue expansion in its grouped form is explicit term by term and valid throughout the critical strip without hypotheses. The prime side expansions converge only to the right of $1$, or give $\Theta$ rather than the density; the Hadamard product, the Lorentzian sums and Kent's formula give positive objects only when the zeros cooperate.
+Only the residue expansion in its grouped form is explicit term by term and valid throughout the critical strip without hypotheses. The prime side expansions converge only to the right of $1$, or give $\Theta$ rather than the density; the Hadamard product, the Lorentzian sums and Kent's formula give positive objects only when the zeros cooperate.

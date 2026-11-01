@@ -1,6 +1,6 @@
 \section{A certificate for one point of the diagram}\label{cp:sec:cert}
 
-This section writes out the finite part of the statement $(0.2,0.6)\in\mathcal G$ as a certified computation with explicit constants, and runs it in ball arithmetic below height $160$. The statement is that $\xi_{0.2}$ has no zero with real part above $0.6$. Given a barrier $X$ (in the variable of $H_{0.2}$, so that it sits at height $X/2$ for $\xi_{0.2}$; see Theorem~\ref{cp:thm:cert}) beyond which this is known \cite{Polymath}, it is the vanishing of the winding number of $\xi_{0.2}$ around the rectangle $Q=[0.6,0.9]\times[0,X/2]$. Throughout, $t=0.2$.
+This section writes the finite part of the statement $(0.2,0.6)\in\mathcal G$, that $\xi_{0.2}$ has no zero with real part above $0.6$, as a certified computation with explicit constants, and runs it in ball arithmetic below height $160$. Given a barrier $X$ (in the variable of $H_{0.2}$, so that it sits at height $X/2$ for $\xi_{0.2}$; see Theorem~\ref{cp:thm:cert}) beyond which this is known \cite{Polymath}, it is the vanishing of the winding number of $\xi_{0.2}$ around the rectangle $Q=[0.6,0.9]\times[0,X/2]$. Throughout, $t=0.2$.
 
 \subsection{The lemmas}\label{cp:sec:lemmas}
 
@@ -49,7 +49,7 @@ The image of the segment lies in the open disc of radius $|\xi_t(s_0)|$ about $\
 \end{proof}
 
 \begin{theorem}[The certificate]\label{cp:thm:cert}
-Let $X$ be a barrier for $(0.2,0.6)$ in the variable of $H_{0.2}$, as Polymath15 provide one \cite{Polymath} (no script of this book checks it), that is, a number such that $H_{0.2}$ has no zero $z$ with $\re z\ge X$ and $\im z>0.2$, so that $\xi_{0.2}$ has no zero with $\re s>0.6$ and $\im s\ge X/2$. Let $s_0,\dots,s_M$ be points of the left, top and right edges of $Q$, in order along $\partial Q$ from one bottom corner, $s_0$, to the other, $s_M$, and including the two top corners, and let $B_j$ be ball enclosures of $\xi_{0.2}(s_j)$ with radii $\varepsilon_j$. Suppose that for every $j$ there are $r>0$ and $\eta\in(0,\frac\pi8)$ such that
+Let $X$ be a barrier for $(0.2,0.6)$ in the variable of $H_{0.2}$, as Polymath15 provide one \cite{Polymath} (not checked in this book), that is, a number such that $H_{0.2}$ has no zero $z$ with $\re z\ge X$ and $\im z>0.2$, so that $\xi_{0.2}$ has no zero with $\re s>0.6$ and $\im s\ge X/2$. Let $s_0,\dots,s_M$ be points of the left, top and right edges of $Q$, in order along $\partial Q$ from one bottom corner, $s_0$, to the other, $s_M$, and including the two top corners, and let $B_j$ be ball enclosures of $\xi_{0.2}(s_j)$ with radii $\varepsilon_j$. Suppose that for every $j$ there are $r>0$ and $\eta\in(0,\frac\pi8)$ such that
 \[\begin{gathered}
 |s_{j+1}-s_j|\,\frac{\bar K_\eta(0.2,\,0.4+r)}{r}\,e^{-2\eta(\theta_j-r)}+\varepsilon_j+\varepsilon_{j+1}<\min|B_j|,\\ \theta_j=\min(\im s_j,\im s_{j+1}),
 \end{gathered}\]
@@ -70,7 +70,7 @@ Let $t\ge0$ and $\frac12<\alpha<\sigma_1$, and suppose $v_t(\sigma,\theta)>0$ fo
 Near a zero $\rho$ of multiplicity $m$, $\xi_t'/\xi_t(s)=m/(s-\rho)+O(1)$, so at $s=\rho-\delta$ with small $\delta>0$ the real part is $-m/\delta+O(1)<0$. If $\alpha<\beta\le\sigma_1$, these points lie in the rectangle for small $\delta$. This is the argument of Remark~\ref{rem:ch2:oneline}, restricted to a rectangle of finite height.
 \end{proof}
 
-Positivity on the single line $\re s=\alpha$ is not enough (Remark~\ref{rem:ch2:oneline}), which is why the proposition asks for the whole rectangle. It is the pointwise counterpart of Theorem~\ref{cp:thm:cert}: the same evaluations of $\xi_t$ and $\xi_t'$ certify it, with a two dimensional grid and a bound on the derivative of $v_t$ in place of the argument increments, and the margin is the one measured in Proposition~\ref{cp:prop:see}.
+The proposition asks for the whole rectangle because positivity on the single line $\re s=\alpha$ is not enough (Remark~\ref{rem:ch2:oneline}). It is the pointwise counterpart of Theorem~\ref{cp:thm:cert}: the same evaluations of $\xi_t$ and $\xi_t'$ certify it, with a two dimensional grid and a bound on the derivative of $v_t$ in place of the argument increments, and the margin is the one measured in Proposition~\ref{cp:prop:see}.
 
 \subsection{Constants and the march}\label{cp:sec:march}
 
@@ -99,7 +99,7 @@ $1.0$ & $0.50117$\\
 $1.5$ & $0.50996$\\
 \bottomrule
 \end{tabular}
-\caption{Constants for the certificate at $t=0.2$, in floating point. Script \texttt{phase\_cert.py}.}
+\caption{Constants for the certificate at $t=0.2$, in floating point.}
 \label{cp:tab:K}
 \end{table}
 
@@ -120,7 +120,7 @@ $\xi_{0.2}$ has no zero $s$ with $0.6\le\re s\le0.9$ and $0\le\im s\le160$.
 \end{theorem}
 
 \begin{proof}
-For $T=60$, $120$ and $160$ the script walks the boundary of $Q_T=[0.6,0.9]\times[0,T]$ counterclockwise, up the right edge, along the top and down the left edge, with the steps of Theorem~\ref{cp:thm:cert}. The bottom edge is not walked, since $\xi_{0.2}$ is real and positive on it (Lemma~\ref{cp:lem:bottom}). The run took $4483$ steps for $T=60$ ($1737$ up the right edge, $31$ along the top and $2715$ down the left edge), $13{,}679$ for $T=120$ ($4955$, $11$ and $8713$) and $23{,}219$ for $T=160$ ($8142$, $20$ and $15{,}057$), and returned the winding number enclosures $[\pm3.94\times10^{-5}]$, $[\pm1.24\times10^{-6}]$ and $[\pm3.47\times10^{-7}]$. In every run the inequality of Theorem~\ref{cp:thm:cert} was verified in ball arithmetic at every step and no step failed, and the sum of the arguments lies within $\pi$ of $0$, so by Lemmas~\ref{cp:lem:bottom} to~\ref{cp:lem:grid} the winding number is $0$ and $\xi_{0.2}$ has no zero in $Q_T$, which for $T=160$ is the theorem. Script \texttt{phase\_rig.py}, data \texttt{phase\_rig.json}.
+For $T=60$, $120$ and $160$ the computation walks the boundary of $Q_T=[0.6,0.9]\times[0,T]$ counterclockwise, up the right edge, along the top and down the left edge, with the steps of Theorem~\ref{cp:thm:cert}. The bottom edge is not walked, since $\xi_{0.2}$ is real and positive on it (Lemma~\ref{cp:lem:bottom}). The run took $4483$ steps for $T=60$ ($1737$ up the right edge, $31$ along the top and $2715$ down the left edge), $13{,}679$ for $T=120$ ($4955$, $11$ and $8713$) and $23{,}219$ for $T=160$ ($8142$, $20$ and $15{,}057$), and returned the winding number enclosures $[\pm3.94\times10^{-5}]$, $[\pm1.24\times10^{-6}]$ and $[\pm3.47\times10^{-7}]$. In every run the inequality of Theorem~\ref{cp:thm:cert} was verified in ball arithmetic at every step and no step failed, and the sum of the arguments lies within $\pi$ of $0$, so by Lemmas~\ref{cp:lem:bottom} to~\ref{cp:lem:grid} the winding number is $0$ and $\xi_{0.2}$ has no zero in $Q_T$, which for $T=160$ is the theorem.
 \end{proof}
 
-With Lemma~\ref{cp:lem:right} this says that every zero of $\xi_{0.2}$ below height $160$ has $|\beta-\frac12|<0.1$; as a control, the same script run around $[0.4,0.6]\times[0,60]$, which contains the thirteen zeros on the line, returns the winding number enclosure $[13.0000\pm5.04\times10^{-5}]$ in $4841$ steps. The barrier of Polymath15 is near $X=6\times10^{10}$, height $3\times10^{10}$ for $\xi_{0.2}$, and reaching it in this framework requires the evaluator of the programme below.
+With Lemma~\ref{cp:lem:right} this says that every zero of $\xi_{0.2}$ below height $160$ has $|\beta-\frac12|<0.1$; as a control, the same walk around $[0.4,0.6]\times[0,60]$, which contains the thirteen zeros on the line, returns the winding number enclosure $[13.0000\pm5.04\times10^{-5}]$ in $4841$ steps. The barrier of Polymath15 is near $X=6\times10^{10}$, height $3\times10^{10}$ for $\xi_{0.2}$, and reaching it in this framework requires the evaluator of the programme below.
