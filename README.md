@@ -5,7 +5,7 @@ Nicholas G. Polson and Vadim Sokolov. Independently published, 2026. Edition 2, 
 
 In 2 volumes, each with a PDF and a DOI of its own:
 
-- Computing the Riemann Hypothesis, Volume I: Representations of Xi, Thorin Measures and the Reciprocal Xi Function. `pdf/computing_rh_vol1.pdf`. DOI: [10.5281/zenodo.23861971](https://doi.org/10.5281/zenodo.23861971).
+- Computing the Riemann Hypothesis, Volume I: Representations of Xi, Thorin Measures and the Reciprocal Xi Function. `pdf/computing_rh_vol1.pdf`. DOI: [10.5281/zenodo.23861971](https://doi.org/10.5281/zenodo.23861971). [Paperback](https://www.amazon.com/dp/B0HQ1D4ZSF).
 - Computing the Riemann Hypothesis, Volume II: Cauchy Deconvolution and Certified Computation. `pdf/computing_rh_vol2.pdf`. DOI: [10.5281/zenodo.23861976](https://doi.org/10.5281/zenodo.23861976).
 
 The Riemann Hypothesis can be restated as the positivity of a measure, the Thorin measure of a ratio of values of Riemann's Xi function. This book computes that measure from Pólya's integral for Xi, without primes or a list of zeros, in certified ball arithmetic, and asks what such computations can and cannot teach about the zeros.
@@ -111,6 +111,7 @@ All 793 catalogued results, with statements and status, are in [RESULTS.md](RESU
 - `RESULTS.md` and `summaries/`: the catalog of results and one summary per chapter.
 - `site/`: what the book's web pages are built from: `book.json` with every fact and result, the book page and the page of the results by chapter in Markdown, their head tags and the book's `llms.txt` section.
 - Book page: https://vsokolov.org/books/computing_rh/
+- Printed edition: https://www.amazon.com/dp/B0HQ1D4ZSF
 
 ## License
 

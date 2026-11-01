@@ -4,7 +4,7 @@
 
 Nicholas G. Polson and Vadim Sokolov. *Computing the Riemann Hypothesis*. Independently published, 2026. Edition 2, version 2.0.0.
 
-- Computing the Riemann Hypothesis, Volume I: Representations of Xi, Thorin Measures and the Reciprocal Xi Function. `pdf/computing_rh_vol1.pdf`. DOI: [10.5281/zenodo.23861971](https://doi.org/10.5281/zenodo.23861971).
+- Computing the Riemann Hypothesis, Volume I: Representations of Xi, Thorin Measures and the Reciprocal Xi Function. `pdf/computing_rh_vol1.pdf`. DOI: [10.5281/zenodo.23861971](https://doi.org/10.5281/zenodo.23861971). [Paperback](https://www.amazon.com/dp/B0HQ1D4ZSF).
 - Computing the Riemann Hypothesis, Volume II: Cauchy Deconvolution and Certified Computation. `pdf/computing_rh_vol2.pdf`. DOI: [10.5281/zenodo.23861976](https://doi.org/10.5281/zenodo.23861976).
 
 This file lists the results that are new in the book, that come from the authors' own papers, or that correct one of those papers. Results of other authors that the book presents are credited, with their authors, in the chapter summaries (`summaries/`). Each entry gives the result as the book states it, its status, and where the book proves it. 793 entries: 537 proved, 47 computed, 55 conditional, 149 open, 5 counterexample.

@@ -2,11 +2,11 @@
 
 By Nicholas G. Polson and [Vadim Sokolov](https://orcid.org/0000-0002-6618-2965).
 
-[![PDF](https://vsokolov.org/books/icon-pdf.svg)](https://github.com/VadimSokolov/computing_rh/releases/download/v2.0.0/computing_rh_vol1.pdf "PDF") [![Source on GitHub](https://vsokolov.org/books/icon-github.svg)](https://github.com/VadimSokolov/computing_rh/tree/v2.0.0 "Source on GitHub") [![DOI 10.5281/zenodo.23861971](https://zenodo.org/badge/DOI/10.5281/zenodo.23861971.svg)](https://doi.org/10.5281/zenodo.23861971)
+[![PDF](https://vsokolov.org/books/icon-pdf.svg)](https://github.com/VadimSokolov/computing_rh/releases/download/v2.0.0/computing_rh_vol1.pdf "PDF") [![Source on GitHub](https://vsokolov.org/books/icon-github.svg)](https://github.com/VadimSokolov/computing_rh/tree/v2.0.0 "Source on GitHub") [![DOI 10.5281/zenodo.23861971](https://zenodo.org/badge/DOI/10.5281/zenodo.23861971.svg)](https://doi.org/10.5281/zenodo.23861971) [![Paperback, available at Amazon](https://vsokolov.org/books/available-at-amazon.png)](https://www.amazon.com/dp/B0HQ1D4ZSF "Paperback on Amazon")
 
 ## Volumes
 
-- Computing the Riemann Hypothesis, Volume I: Representations of Xi, Thorin Measures and the Reciprocal Xi Function. [PDF](https://github.com/VadimSokolov/computing_rh/releases/download/v2.0.0/computing_rh_vol1.pdf). DOI: [10.5281/zenodo.23861971](https://doi.org/10.5281/zenodo.23861971).
+- Computing the Riemann Hypothesis, Volume I: Representations of Xi, Thorin Measures and the Reciprocal Xi Function. [PDF](https://github.com/VadimSokolov/computing_rh/releases/download/v2.0.0/computing_rh_vol1.pdf). DOI: [10.5281/zenodo.23861971](https://doi.org/10.5281/zenodo.23861971). [Paperback](https://www.amazon.com/dp/B0HQ1D4ZSF).
 - Computing the Riemann Hypothesis, Volume II: Cauchy Deconvolution and Certified Computation. [PDF](https://github.com/VadimSokolov/computing_rh/releases/download/v2.0.0/computing_rh_vol2.pdf). DOI: [10.5281/zenodo.23861976](https://doi.org/10.5281/zenodo.23861976).
 
 ## Description
