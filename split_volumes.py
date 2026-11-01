@@ -573,8 +573,15 @@ def write_xr(root, V):
     aux = os.path.join(root, V["main"] + ".aux")
     if not os.path.exists(aux):
         return
-    keep = [line for line in open(aux, encoding="latin1")
-            if line.startswith("\\newlabel{") and ":" in line[10:line.find("}")]]
+    # Numbers printed in the other volume carry this volume's roman numeral, as in Theorem II.12.3.
+    roman = "II" if V["main"].endswith("2") else "I"
+    keep = []
+    for line in open(aux, encoding="latin1"):
+        if line.startswith("\\newlabel{") and ":" in line[10:line.find("}")]:
+            i = line.find("}{{") + 3
+            if i > 2 and line[i] != "}":
+                line = line[:i] + roman + "." + line[i:]
+            keep.append(line)
     with open(os.path.join(root, V["main"] + "_xr.aux"), "w", encoding="latin1") as fh:
         fh.writelines(keep)
 

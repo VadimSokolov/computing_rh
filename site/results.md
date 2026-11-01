@@ -2666,7 +2666,7 @@ Source: [`ch/wigfree.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.
 
 ### Almost GGC theorem for the shifted clocks
 
-Volume I, Theorem 14.3.2, page 339 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Theorem 14.3.2, page 340 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -2680,7 +2680,7 @@ Source: [`ch/almost.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0
 
 ### Canonical factorisation of the shifted clock transform into a GGC and a defect
 
-Volume I, Proposition 14.3.3, page 340 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Proposition 14.3.3, page 341 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -2694,7 +2694,7 @@ Source: [`ch/almost.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0
 
 ### Signed Thorin representation of the reciprocal Xi function at every basepoint alpha at least one half, with damped sinusoid factors for zeros to the right
 
-Volume I, Theorem 14.3.4, page 341 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Theorem 14.3.4, page 342 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -2825,7 +2825,7 @@ Source: [`ch/pakes3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0
 
 ### Damped Pólya law as a mixture of arcsine laws
 
-Volume I, Proposition 14.4.13, page 369 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Proposition 14.4.13, page 370 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -2885,7 +2885,7 @@ Source: [`ch/pakes3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0
 
 ### Open problem on theta type functions whose GGC property forces zeros onto the line
 
-Volume I, Problem 14.1, page 378 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Problem 14.1, page 379 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: open.
 
@@ -6736,7 +6736,7 @@ Source: [`ch/cd1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/
 
 ### Logarithmic stability of Cauchy deconvolution for sources in a Sobolev ball, sharp in order and in the constant
 
-Volume II, Theorem 7.3.4, page 131 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Theorem 7.3.4, page 130 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -6750,7 +6750,7 @@ Source: [`ch/cd1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/
 
 ### Polynomial upper rate for density deconvolution with Cauchy noise and a target analytic in a strip
 
-Volume II, Proposition 7.4.1, page 132 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Proposition 7.4.1, page 131 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -6778,7 +6778,7 @@ Source: [`ch/cd1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/
 
 ### Problem: positivity and rates for the Thorin family
 
-Volume II, Problem 7.2, page 135 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Problem 7.2, page 134 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: open.
 
@@ -8670,7 +8670,7 @@ Source: [`ch/wt1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/
 
 ### The archimedean part of the heat trace is a compensated integral against u times the Levy density of minus half the logarithm of a Gamma(1/4) variable
 
-Volume II, Result 15.3, page 365 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Result 15.3, page 366 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -8684,7 +8684,7 @@ Source: [`ch/wt1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/
 
 ### The prime part is a positive weighted series of Frechet distribution functions and for small t is governed by the prime 2
 
-Volume II, Result 15.3, page 366 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Result 15.3, page 367 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -8796,7 +8796,7 @@ Source: [`ch/wt3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/
 
 ### Windows for the positivity of the second derivative of the heat trace suggested by the certificate bound (not certified)
 
-Volume II, Result 15.9.2, page 377 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Result 15.9.2, page 378 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: computed.
 
@@ -8838,7 +8838,7 @@ Source: [`ch/wt3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/
 
 ### Computed mean square of the normalised prime error on four windows of the log scale
 
-Volume II, Result 15.9.4, page 379 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Result 15.9.4, page 380 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: computed.
 
@@ -8866,7 +8866,7 @@ Source: [`ch/wt3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/
 
 ### One heat time suffices: RH holds if and only if the sine squared functional is nonnegative for every shift at a single heat time
 
-Volume II, Theorem 15.10.1, page 382 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Theorem 15.10.1, page 383 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -8908,7 +8908,7 @@ Source: [`ch/yo1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/
 
 ### Where the rungs fail: saddle point location for an off line zero
 
-Volume II, Proposition 15.15.2, page 390 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Proposition 15.15.2, page 391 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -8922,7 +8922,7 @@ Source: [`ch/yo1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/
 
 ### The tent coefficient of Yoshida's matrix: zero side, prime side and residue series
 
-Volume II, Proposition 15.18.1, page 394 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Proposition 15.18.1, page 395 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -8936,7 +8936,7 @@ Source: [`ch/yo2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/
 
 ### Yoshida's matrix is a Löwner matrix, and RH is the Pick property of one function
 
-Volume II, Theorem 15.19.1, page 399 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Theorem 15.19.1, page 400 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -8950,7 +8950,7 @@ Source: [`ch/yo2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/
 
 ### The damped Yoshida form is a Fourier multiplier with symbol Re xi'/xi over pi
 
-Volume II, Proposition 15.20.1, page 401 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Proposition 15.20.1, page 402 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -8964,7 +8964,7 @@ Source: [`ch/yo3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/
 
 ### Positivity of the damped Yoshida forms: basepoints beyond the zeros, and RH
 
-Volume II, Theorem 15.20.3, page 402 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Theorem 15.20.3, page 403 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -8992,7 +8992,7 @@ Source: [`ch/yo3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/
 
 ### Unconditional sharp coercivity of the damped Yoshida form at alpha equal to 1
 
-Volume II, Corollary 15.20.8, page 405 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Corollary 15.20.8, page 406 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -9006,7 +9006,7 @@ Source: [`ch/yo3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/
 
 ### Uncertainty barrier for the tent coefficient above the verified height
 
-Volume II, Proposition 15.21.1, page 408 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Proposition 15.21.1, page 409 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -9062,7 +9062,7 @@ Source: [`ch/yo4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/
 
 ### Open problem: what does Löwner positivity on the lattice of one window say about the zeros
 
-Volume II, Problem 15.7, page 411 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Problem 15.7, page 412 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: open.
 
@@ -9076,7 +9076,7 @@ Source: [`ch/yo4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/
 
 ### Open problem: the orders of the first failing rung and of Yoshida's window threshold for one off line pair
 
-Volume II, Problem 15.8, page 411 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Problem 15.8, page 412 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: open.
 
@@ -10370,7 +10370,7 @@ Source: [`ch/fm4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/
 
 ### RH is equivalent to an identity in law between the smoothed Pólya variable and a series of Maxwell variables
 
-Volume II, Theorem 19.1.14, page 531 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Theorem 19.1.14, page 532 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10398,7 +10398,7 @@ Source: [`ch/fm4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/
 
 ### A cusped weight never gives a ferromagnetic tilt nor a GGC tilted clock
 
-Volume II, Theorem 19.1.16, page 532 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Theorem 19.1.16, page 533 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10496,7 +10496,7 @@ Source: [`ch/ev2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/
 
 ### The mean of the candidate hitting time of the de Bruijn and Newman family increases in the flow time
 
-Volume II, Proposition 19.3.5, page 541 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Proposition 19.3.5, page 542 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10538,7 +10538,7 @@ Source: [`ch/ev4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/
 
 ### RH holds if and only if the reciprocal xi law is a Polya frequency density
 
-Volume II, Corollary 19.5.4, page 549 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Corollary 19.5.4, page 550 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10568,7 +10568,7 @@ Source: [`ch/ev4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/
 
 ### A proof by Spitzer's identity and Euler Maclaurin summation that the expected maximum of a symmetric stable walk has the constant of Comtet and Majumdar, zeta of s over a sine factor
 
-Volume II, Proposition 20.1.2, page 557 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Proposition 20.1.2, page 559 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10582,7 +10582,7 @@ Source: [`ch/cg1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/
 
 ### The logarithm of the Laplace transform of the uniform law is a regularised integral against Lebesgue minus counting measure
 
-Volume II, Proposition 20.1.3, page 558 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Proposition 20.1.3, page 560 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10596,7 +10596,7 @@ Source: [`ch/cg1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/
 
 ### If locally uniform limits of GGC reciprocals approximate Xi then RH holds
 
-Volume II, Corollary 20.2.2, page 559 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Corollary 20.2.2, page 561 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10610,7 +10610,7 @@ Source: [`ch/cg1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/
 
 ### The shifted zeta is an explicit series of zeta at s plus k with a tangent factor
 
-Volume II, Theorem 20.3.2, page 560 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Theorem 20.3.2, page 562 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10624,7 +10624,7 @@ Source: [`ch/cg1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/
 
 ### Obstructions: the shifted xi function has a pole at s equal 3, its zeros drift, and its reciprocal is not a GGC transform
 
-Volume II, Proposition 20.3.3, page 560 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Proposition 20.3.3, page 562 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10638,7 +10638,7 @@ Source: [`ch/cg1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/
 
 ### A signed L\'evy measure gives a Thorin density, which is nonnegative if and only if a logarithmic derivative inequality holds
 
-Volume II, Theorem 20.4.2, page 563 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Theorem 20.4.2, page 565 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10652,7 +10652,7 @@ Source: [`ch/cg2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/
 
 ### Zeros on a vertical line give a Thorin density that is a sum of Lorentzians tending to point masses at the ordinates
 
-Volume II, Corollary 20.4.3, page 563 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Corollary 20.4.3, page 565 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10666,7 +10666,7 @@ Source: [`ch/cg2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/
 
 ### The tilted uniform law has a strictly positive Thorin density for every positive tilt, a Lorentzian smoothing of the lattice 2 pi m
 
-Volume II, Theorem 20.4.4, page 564 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Theorem 20.4.4, page 566 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10680,7 +10680,7 @@ Source: [`ch/cg2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/
 
 ### The shifted zeta equals (2 pi) to the s times the Mellin transform of the positive Thorin density of the tilted uniform law
 
-Volume II, Theorem 20.4.5, page 565 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Theorem 20.4.5, page 567 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10694,7 +10694,7 @@ Source: [`ch/cg2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/
 
 ### Kink theorem: the Gauss damped Riemann kernel has finitely many real zeros and infinitely many nonreal zeros
 
-Volume II, Theorem 20.5.1, page 568 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Theorem 20.5.1, page 570 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10708,7 +10708,7 @@ Source: [`ch/cg3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/
 
 ### Modular constraints: a Laguerre P\'olya damped kernel must have vanishing odd derivatives of the damped kernel at the origin
 
-Volume II, Corollary 20.5.2, page 568 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Corollary 20.5.2, page 571 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10724,7 +10724,7 @@ Source: [`ch/cg3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/
 
 ### Jensen polynomial laws mu_d of the reciprocal xi function: convergence, existence if and only if RH, and existence up to degree 2e17
 
-Volume II, Proposition 21.1.1, page 574 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Proposition 21.1.1, page 576 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10738,7 +10738,7 @@ Source: [`ch/ht2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/
 
 ### Density of a sum of independent exponentials as a Laplace transform of a B spline, the Dirichlet mean form
 
-Volume II, Proposition 21.2.1, page 578 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Proposition 21.2.1, page 580 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10752,7 +10752,7 @@ Source: [`ch/ht2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/
 
 ### A sum of exponentials is a linear functional of the Gumbel extremal process
 
-Volume II, Theorem 21.2.2, page 579 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Theorem 21.2.2, page 581 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10766,7 +10766,7 @@ Source: [`ch/ht2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/
 
 ### Truncated Euler products give GGC laws Y_P, and first passage to the mean level decomposes as Y_P plus the first passage to the log of N_P
 
-Volume II, Proposition 21.3.1, page 582 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Proposition 21.3.1, page 584 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10780,7 +10780,7 @@ Source: [`ch/ht2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/
 
 ### One prime blocks, Möbius and Liouville factors and the Pólya Gamma law
 
-Volume II, Remark 21.3.2, page 583 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Remark 21.3.2, page 585 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10794,7 +10794,7 @@ Source: [`ch/ht2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/
 
 ### Brownian truncated Euler product identity for xi centred at one half
 
-Volume II, Theorem 21.3.3, page 584 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Theorem 21.3.3, page 586 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10808,7 +10808,7 @@ Source: [`ch/ht2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/
 
 ### Numerical check of the Brownian truncated Euler product identity
 
-Volume II, Table 21.4, page 586 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Table 21.4, page 588 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: computed.
 
@@ -10822,7 +10822,7 @@ Source: [`ch/ht2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/
 
 ### The Euler hitting times converge after scaling to a spectrally positive stable law of index 3/2
 
-Volume II, Theorem 21.3.4, page 587 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Theorem 21.3.4, page 589 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10836,7 +10836,7 @@ Source: [`ch/ht2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/
 
 ### Thorin rigidity: any factorisation of the reciprocal xi law into two GGC laws forces RH and splits the zeros
 
-Volume II, Theorem 21.4.1, page 588 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Theorem 21.4.1, page 590 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10850,7 +10850,7 @@ Source: [`ch/ht2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/
 
 ### Small time enclosure of the inverse first passage boundary of the reciprocal xi law, independent of RH
 
-Volume II, Proposition 21.7.1, page 591 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Proposition 21.7.1, page 593 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10864,7 +10864,7 @@ Source: [`ch/ht3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/
 
 ### Moving a pair of zeros off the line by delta multiplies the Laplace transform by 1+6 delta^2 s/gamma^4 to first order
 
-Volume II, Proposition 21.7.2, page 594 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Proposition 21.7.2, page 596 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10878,7 +10878,7 @@ Source: [`ch/ht3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/
 
 ### The reciprocal xi law as the reciprocal of an expected cosh under the size biased Biane Pitman Yor measure
 
-Volume II, Proposition 21.8.1, page 596 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Proposition 21.8.1, page 598 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10892,7 +10892,7 @@ Source: [`ch/ht3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/
 
 ### The law of the maximum of a Brownian excursion gives the Biane, Pitman and Yor identity for xi term by term
 
-Volume II, Result 21.8.2, page 597 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Result 21.8.2, page 599 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10906,7 +10906,7 @@ Source: [`ch/ht3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/
 
 ### The Davenport Heilbronn theta function is positive, giving a symmetric variable and a positive Polya kernel for a function violating RH
 
-Volume II, Proposition 21.8.3, page 598 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Proposition 21.8.3, page 600 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10920,7 +10920,7 @@ Source: [`ch/ht3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/
 
 ### Wiener and Gamma representation of the base point laws, and RH as monotonicity of the smoothed zero counting functions N_alpha
 
-Volume II, Proposition 21.8.4, page 599 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Proposition 21.8.4, page 601 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10934,7 +10934,7 @@ Source: [`ch/ht3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/
 
 ### The Taylor coefficients of xi(1/2+sqrt s) are a Polya frequency sequence if and only if RH, and unconditionally PF2
 
-Volume II, Theorem 21.10.1, page 602 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Theorem 21.10.1, page 604 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10948,7 +10948,7 @@ Source: [`ch/ht5.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/
 
 ### A three term quadratic coefficient sequence is PF_k if and only if its angle is at most pi/(k+1)
 
-Volume II, Lemma 21.11.1, page 603 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Lemma 21.11.1, page 605 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10962,7 +10962,7 @@ Source: [`ch/ht5.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/
 
 ### Angle theorem: if every zero has angle at most pi/(k+1) then the coefficient sequence of xi is PF_k
 
-Volume II, Theorem 21.11.2, page 603 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Theorem 21.11.2, page 605 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10976,7 +10976,7 @@ Source: [`ch/ht5.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/
 
 ### Unconditional rung count: the coefficient sequence of xi is PF_k for every k up to about 9.4e12
 
-Volume II, Corollary 21.11.3, page 604 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Corollary 21.11.3, page 606 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10992,7 +10992,7 @@ Source: [`ch/ht5.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/
 
 ### Consequences of a zero free half plane beyond 7/8: GGC basepoint and even part laws, imaginary zeros of the even and odd parts of xi, and a bound on the de Bruijn Newman constant
 
-Volume II, Theorem 23.1.1, page 625 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Theorem 23.1.1, page 627 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: conditional on $\zeta(s)\ne0$ for $\operatorname{Re}s>\frac78$ (announced in October 2026, not refereed).
 
@@ -11006,7 +11006,7 @@ Source: [`ch/polya9.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0
 
 ### Under (Q_{7/8}) the poles of 1/xi(1/2+sqrt w) lie in a parabola with vertex at most 9/64, and the sliver of the local theorem becomes thinner
 
-Volume II, Proposition 23.1.2, page 627 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Proposition 23.1.2, page 629 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: conditional on The quasi Riemann hypothesis $(\mathrm Q_{7/8})$ of the book, which rests on the unrefereed half plane of OpenAI (2026).
 
@@ -11020,7 +11020,7 @@ Source: [`ch/polya9.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0
 
 ### Gaussian smoothed Möbius sum: explicit formula over the zeros, with RH and the quasi Riemann hypothesis as growth exponents, and the trivial zero term as a finite range leading term only
 
-Volume II, Proposition 23.1.3, page 629 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Proposition 23.1.3, page 631 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -11034,7 +11034,7 @@ Source: [`ch/polya9.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0
 
 ### Under (Q_{7/8}), M(x) is O(x^{7/8+epsilon}), the Möbius series converges to 1/zeta on Re s above 7/8, and the Möbius series of 1/zeta(1/2+sqrt s) converges on the parabola region H_{3/8}
 
-Volume II, Proposition 23.1.4, page 630 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Proposition 23.1.4, page 632 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: conditional on The quasi Riemann hypothesis $(\mathrm Q_{7/8})$ of the book, which rests on the unrefereed half plane of OpenAI (2026).
 
@@ -11048,7 +11048,7 @@ Source: [`ch/polya9.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0
 
 ### Least prime in a progression under the half plane 7/8 for every Dirichlet L function: psi(x;q,a) = x/phi(q) + O(x^{7/8} log^2(qx)) and the least prime is O(q^{8+epsilon})
 
-Volume II, Remark 23.1.5, page 630 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Remark 23.1.5, page 632 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: conditional on That no Dirichlet $L$ function vanishes in $\operatorname{Re}s>\frac78$, which is claimed by OpenAI (2026) and not refereed.
 
@@ -11062,7 +11062,7 @@ Source: [`ch/polya9.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0
 
 ### Compensated clock positivity on every line to the right of alpha zero under a zero free half plane, by pairing each zero with its mirror image
 
-Volume II, Theorem 23.1.8, page 632 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Theorem 23.1.8, page 634 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: conditional on $\zeta(s)\ne0$ for $\operatorname{Re}s>\alpha_0$, a fixed $\alpha_0$ with $\frac12\le\alpha_0<1$ (RH when $\alpha_0=\frac12$).
 
@@ -11076,7 +11076,7 @@ Source: [`ch/polya9.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0
 
 ### One block for each zero, the Hadamard blocks of the compensated reciprocal of xi
 
-Volume II, Remark 23.1.9, page 633 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Remark 23.1.9, page 635 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -11090,7 +11090,7 @@ Source: [`ch/polya9.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0
 
 ### A quasi Riemann hypothesis at alpha zero is equivalent to the compensated clock condition on every line to its right
 
-Volume II, Corollary 23.1.10, page 634 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Corollary 23.1.10, page 636 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -11104,7 +11104,7 @@ Source: [`ch/polya9.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0
 
 ### The compensated reciprocal of xi is a GGC with positive Thorin density at every basepoint above 7/8 under a zero free half plane
 
-Volume II, Corollary 23.1.11, page 634 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Corollary 23.1.11, page 636 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: conditional on $\zeta(s)\ne0$ for $\operatorname{Re}s>\frac78$ (announced in October 2026, not refereed).
 
@@ -11118,7 +11118,7 @@ Source: [`ch/polya9.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0
 
 ### GGC basepoints of the compensated reciprocal of xi form the closed half line from the largest real part of a zero
 
-Volume II, Result 23.1.4, page 634 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Result 23.1.4, page 636 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
