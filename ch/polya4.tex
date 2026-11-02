@@ -90,6 +90,39 @@ Let $t_k^*$ be the positive zeros of $\Xi^*$ in increasing order and $\vartheta$
 For $\nu=\frac94+\frac{it}2$, the ascending series of $I_{-\nu}$ and the reflection formula give $K_\nu(2\pi)=\frac12\Gamma(\nu)\pi^{-\nu}\big(1+\frac{\pi^2}{1-\nu}+O(t^{-2})\big)$, the companion term $\frac12\Gamma(-\nu)\pi^\nu$ being smaller by a factor of order $t^{-9/2}$. With $s=\frac12+it$ we have $\Gamma(\nu)=(\frac s2+1)\frac s2\,\Gamma(\frac s2)$ and $\Gamma(\frac s2)\pi^{-it/2}=|\cdot|e^{i\vartheta(t)}$, so the phase of $K_\nu(2\pi)$ is $\vartheta(t)+\arg s+\arg(s+2)+\im\frac{\pi^2}{1-\nu}+O(t^{-2})$. Here $\arg s+\arg(s+2)=\pi-\frac3t+O(t^{-3})$ and $\im\frac{\pi^2}{1-\nu}=\frac{2\pi^2t}{t^2+25/4}=\frac{2\pi^2}{t}+O(t^{-3})$, so the phase is $\vartheta(t)+\pi+\frac{2\pi^2-3}{t}+O(t^{-2})$. The zeros of the real part are where this phase lies in $\frac\pi2+\pi\mathbb Z$, which is \eqref{pol:eq:gram}; the indexing is fixed by the first zero. The integer can also be fixed without computation, by letting the argument $2\pi$ of $K$ decrease to $0$ as in the proof of Proposition~\ref{pol:prop:skeleton}(ii); at basepoint $\frac94$ the ratio of $K_\nu(a)$ to $\frac12\Gamma(\nu)(a/2)^{-\nu}$ is then $1+O(a^2)$ uniformly in $t$, the companion term contributing $O(a^{9/2})$.
 \end{proof}
 
+\begin{theorem}[Exact Gram law for the two term kernel]\label{pol:thm:gramexact}
+Let $s=\frac12+it$, $G(s)=\frac12s(s-1)\pi^{-s/2}\Gamma(\frac s2)$, so that $\arg G(\frac12+it)=\vartheta(t)+\pi$, and put
+\[
+F(t)=2\pi^2K_{\frac94+\frac{it}2}(2\pi)-3\pi K_{\frac54+\frac{it}2}(2\pi).
+\]
+Then $\frac12\re F(t)$ is the characteristic function, at $2t$, of the density proportional to $(2\pi^2\cosh9u-3\pi\cosh5u)e^{-2\pi\cosh4u}$, the first term of Riemann's kernel with P\'olya's replacements. Let $g_k$ be the Gram points, $\vartheta(g_k)=k\pi$, so that $g_{-1}=9.667$ and $g_0=17.846$. Then $F(t)=\frac12G(s)\,(1+E(t))$ with $E(t)=\frac{2\pi^2i}t(1+o(1))$, and:
+\begin{enumerate}
+\item[(i)] for every $k\ge0$ the interval $[g_k,g_{k+1})$ contains exactly one zero of $\re F$, and it is simple; there is exactly one zero in $(0,g_{-1})$, at $t=7.604$, and none in $[g_{-1},g_0)$;
+\item[(ii)] with $N_*(T)$ the number of positive zeros of $\re F$ up to $T$, for $T\ge34$, $N_*(T)=\lfloor(\vartheta(T)+\delta(T))/\pi+\frac12\rfloor+1$ with $\delta=\arg(1+E)$, $|\delta(T)|\le\arcsin|E(T)|<\frac\pi2$, so that $|N_*(T)-\vartheta(T)/\pi-1|\le\frac12+|\delta(T)|/\pi$.
+\end{enumerate}
+This is proved: analytically for $t\ge34$ and in ball arithmetic on $[0,g_5]$.
+\end{theorem}
+
+\begin{proof}
+Write $w=s/2$, $D=w-\frac12$, $y=t/2$ and $\Sigma(\nu)=\sum_{k\ge0}\pi^{2k}/(k!(1-\nu)_k)$. The ascending series and the reflection formula give $K_\nu(2\pi)=\frac12\Gamma(\nu)\pi^{-\nu}\Sigma(\nu)+\frac12\Gamma(-\nu)\pi^\nu\Sigma(-\nu)$. Since $\Gamma(w+2)=(w+1)w\Gamma(w)$, the main part of $F$ is $\pi^{-w}\Gamma(w)\,w\,[D+(1+w)e_2-\frac32e_1]$ with $e_2=\Sigma(2+w)-1$ and $e_1=\Sigma(1+w)-1$, and $wD\,\pi^{-w}\Gamma(w)=\frac12G(s)$. So $E=E_m+R$, where $E_m=[(1+w)e_2-\frac32e_1]/D$ and $R$ collects the reflected terms.
+
+Put $A=\pi^2/y=2\pi^2/t$. Because $(-1-w)_k=(-1-w)(-w)_{k-1}$ we have $(1+w)e_2=-\sum_{k\ge1}\pi^{2k}/(k!(-w)_{k-1})$, and $|-w+j|\ge y$ for all $j\ge0$. Hence $|(1+w)e_2|\le y(e^A-1)$, $|e_1|\le e^A-1$, and
+\[
+|E_m|\le\frac{y+\frac32}{|D|}(e^A-1)=\frac{t+3}{\sqrt{t^2+\frac14}}\big(e^{2\pi^2/t}-1\big).
+\]
+Differentiating, $\frac d{dt}=\frac i2\frac d{dw}$ and $|\frac d{dw}1/(-w)_j|\le jy^{-j-1}$, so $|((1+w)e_2)'|\le\frac12[(A-1)e^A+1]$, $|e_1'|\le\frac12(A/y)e^A$, and from $E_m'=[((1+w)e_2)'-\frac32e_1']/D-\frac i2E_m/D$,
+\[
+|E_m'|\le\Big\{\tfrac12[(A-1)e^A+1]+\tfrac34\tfrac Ay\,e^A+\tfrac12|E_m|\Big\}\Big/|D|.
+\]
+For the reflected part, $|\Sigma(-2-w)|,|\Sigma(-1-w)|\le e^A$ and Stirling's formula give $|R(t+\tau)|=O(t^{-7/2})$ uniformly for $|\tau|\le\frac14$, and Cauchy's estimate gives $|R'(t)|\le4\sup_{|\tau|=1/4}|R(t+\tau)|$. In ball arithmetic $|R(34)|\le1.58\cdot10^{-3}$, $\sup_{|\tau|=1/4}|R(34+\tau)|\le3.13\cdot10^{-3}$, and $|R|\le8.5\cdot10^{-4}$, $1.9\cdot10^{-4}$, $3.0\cdot10^{-5}$, $3.3\cdot10^{-8}$ at $t=40,60,100,700$.
+
+At $t=34$ these give $|E|\le0.858$, $|E'|\le0.0477$, and so $|\delta'|\le|E'|/(1-|E|)\le0.336$, whereas $\vartheta'(34)=0.8442$. The bounds on $E_m$ and $E_m'$ decrease in $t$. So do monotone majorants of $|R|$ and of its supremum on the disc, which the margin at $t=34$ leaves room for: by reflection the ratio of gamma factors in $R$ is at most $\pi/(\sinh(\pi y)|\Gamma(1+w)\Gamma(2+w)|)$, and this denominator increases in $y$ because $\operatorname{Im}\psi(x+iy)\le\frac\pi2$ for $x\ge1$, while $e^A$ and $1/|D|$ decrease. And $\vartheta'$ increases, because $\re\psi(\frac14+iy)=\psi(\frac14)+\sum_{n\ge0}y^2/((n+\frac14)((n+\frac14)^2+y^2))$. So for $t\ge34$ we have $|E|<1$, $|\delta|<\frac\pi2$, and the phase $\Phi=\vartheta+\delta$ is strictly increasing. Now $\re F(t)=-\frac14(t^2+\frac14)|\pi^{-s/2}\Gamma(\frac s2)|\,|1+E|\cos\Phi(t)$, which vanishes exactly where $\cos\Phi=0$. At a Gram point $g_k\ge34$ the phase lies in $(k\pi-\frac\pi2,k\pi+\frac\pi2)$, so on $[g_k,g_{k+1})$ it passes exactly one odd multiple of $\frac\pi2$, exactly once, and the zero is simple since $\Phi'>0$. This covers $k\ge4$, and (ii) follows by counting: if $z_k$ is the zero in $[g_k,g_{k+1})$, then for $T\in[z_{m-1},z_m)$ we have $N_*(T)=m+1$ and $\Phi(T)\in[(m-\frac12)\pi,(m+\frac12)\pi)$.
+
+Below $g_5$ the Gram points are bracketed to $10^{-12}$ in ball arithmetic. The signs of $\re F(g_k)$ are $-,-,+,-,+,-,+$ for $k=-1,\dots,5$ (as sign changes of the characteristic function, each on a ball of radius $2\cdot10^{-12}$), so no zero sits at a Gram point. The winding number of $\re F$ around the boundary of $[g_k,g_{k+1}]\times[-\frac12,\frac12]$ is $1.0000000\pm3\cdot10^{-13}$ for $k=0,\dots,4$ and $0$ for $k=-1$, and around $[-g_{-1},g_{-1}]\times[-\frac12,\frac12]$ it is $2.0000000\pm3\cdot10^{-12}$ (a Lipschitz walk of $124$ steps with an Arb integral for the Lipschitz constant). A real function with an odd number of sign changes on an interval and winding number $1$ around the rectangle over it has exactly one zero there, real and simple; the winding number $0$ excludes zeros on $[g_{-1},g_0]$, and the two zeros in the symmetric rectangle are $\pm7.604$ by evenness and the sign of $\re F(0)>0$.
+\end{proof}
+
+The theorem upgrades Proposition~\ref{pol:prop:gram}, which is a sketch for large $T$, to an exact law from $g_0$ on, for the kernel with the correction term. The proof has not been written out for $\Xi^*$ or for the base kernel. For these two kernels the law is computed, not proved, on each of the $413$ Gram intervals between $g_0$ and $700$: exactly one zero in each. The same law holds for the Davenport and Heilbronn analogue of the kernel (computed, $399$ intervals), so the law carries no information on RH.
+
 Compare the Thorin form of the zero count, $U((0,t])=\vartheta(\sqrt t)/\pi+1+S(\sqrt t)$ under RH. P\'olya's $\Xi^*$ replaces the arithmetic fluctuation $S$ by a bounded rounding error: by Proposition~\ref{pol:prop:gram} its Thorin distribution $N^*(\sqrt t)$ is the rounding of the smooth archimedean distribution $\vartheta(\sqrt t)/\pi+1$. This is the distribution that the $2\sin^2$ lemma computes for the gamma factor in Theorem~\ref{rz:thm:gammaggc}, up to an affine function of $\sqrt t$: that theorem gives $(\vartheta(\sqrt t)-\vartheta'(0)\sqrt t)/\pi$ for the compensated factor $e^{-c\sqrt s}/G(s)$, with $c=-\vartheta'(0)$. In this sense $\Xi^*$ is the zeta function with $\zeta$ replaced by its first Dirichlet term and the result symmetrised, and its reciprocal $\Xi^*(0)/\Xi^*(\sqrt{-s})$ is, by P\'olya's theorem, an unconditional GGC with Thorin measure $\sum_k\delta_{(t_k^*)^2}$.
 
 \paragraph{Numerics.} $\Xi^*$ has 29 zeros in $(0,100]$, as does $\Xi$, but they are displaced: the first eight are $8.9928$, $19.0654$, $24.4748$, $28.9750$, $33.0069$, $36.7367$, $40.2491$, $43.5947$. There are $138$ zeros up to height $300$; at the last, $t^*_{138}=299.627$, the deviation from $k-\frac32$ times $t^*_k$ is $-5.329$, against the constant $-(2\pi^2-3)/\pi=-5.328$ of \eqref{pol:eq:gram} (Figure~\ref{pol:fig:one}, right).
@@ -129,6 +162,41 @@ Numerically, $\Xi^\circ$ has 28 zeros in $(0,100]$ (the 29th is $t^\circ_{29}=10
 \includegraphics[width=\textwidth]{fig/polya_fig1.pdf}
 \caption{Left: the clock $U_{3/4}(\tau)$ of the basepoint law at $\alpha=3/4$ for $0\le\tau\le60$, the zero count $N(\tau)$ (dotted), and the zeros of $\re\xi(3/4+i\tau)$, which sit exactly on the half integer levels (grey lines). Right: $\vartheta(t_k^*)/\pi-(k-\frac32)$ for the 138 zeros of P\'olya's $\Xi^*$ below height 300, with the asymptote $-(2\pi^2-3)/(\pi t)$ of Proposition~\ref{pol:prop:gram}.}\label{pol:fig:one}
 \end{figure}
+
+\subsection{The polynomial rungs and the Griffiths Simon class}\label{pol:sec:rungs}
+
+Write $\rho_a(u)\propto e^{-a\cosh4u}$ for the base spin (the kernel $e^{-a\cosh2t}$ in the variable $u=t/2$), so that P\'olya's spin is $\rho_P(u)\propto\cosh9u\,e^{-2\pi\cosh4u}$. The Griffiths Simon class of Section~\ref{fm:sec:def} is the class of weak limits of $\sum_i\lambda_iX_i$ with $\lambda_i\ge0$ and $(X_i)$ a ferromagnetic Ising system. It is closed under independent sums, scaling and weak limits with bounded variance, and under the two operations of the next lemma.
+
+\begin{lemma}[Closure]\label{pol:lem:closure}
+Let $\rho$ be the law of an element $X$ of the Griffiths Simon class, $F(u)=\log\E\cosh(\sqrt u\,X)$ and $b_X=\lim_{u\to\infty}F(u)/u$. (i) If $4b_Xc<1$, then $\rho(x)e^{cx^2}$ is in the class. (ii) If $Y$ is in the class and $4b_Xb_Y<1$, then $\rho(x)\E e^{xY}$ is in the class. Proved.
+\end{lemma}
+
+\begin{proof}
+For a finite Ising system $X_n=\sum\lambda_iX_i$ the moment generating function is $L_n(z)=\prod_j(1+z^2/y_j^2)$ with real $y_j$ (Lee and Yang), so $F_n(u)=\log L_n(\sqrt u)$ is concave in $u$. Pointwise convergence and concavity give $F_n(u)\le C_\varepsilon+(b_X+\varepsilon)u$ for large $n$. Hence $\E e^{c'X_n^2}=\E_ZL_n(\sqrt{2c'}Z)$, with $Z$ standard Gaussian, is bounded when $4(b_X+\varepsilon)c'<1$, the tilted laws are uniformly integrable, and the tilt $e^{cX_n^2}=e^{c\sum\lambda_i\lambda_jX_iX_j}$ adds nonnegative couplings, so each tilted $X_n$ is again a finite Ising magnetisation. For (ii), couple $X_n$ to an independent $Y_n$ by the weight $e^{XY}$, a ferromagnetic pair interaction, and use the same bound for $\E_XL_Y(X)$.
+\end{proof}
+
+\begin{corollary}\label{pol:cor:polya}
+If the base spin $\rho_{2\pi}$ is in the Griffiths Simon class, so is P\'olya's spin $\rho_P$. Indeed $\cosh9u=\E e^{uY}$ with $Y=\pm9$, a single Ising spin with $b_Y=0$, so $\rho_P(u)\propto\rho_{2\pi}(u)\E e^{uY}$ and Lemma~\ref{pol:lem:closure}(ii) applies with no condition. Proved, as an implication.
+\end{corollary}
+
+The two term kernel of Theorem~\ref{pol:thm:gramexact} does not follow in the same way, because $2\pi^2\cosh9u-3\pi\cosh5u$ is the moment generating function of a signed measure.
+
+\begin{theorem}[Polynomial rungs]\label{pol:thm:ladder}
+Let $f_K(x)=\int_0^xt\prod_{k\le K}(1+t^2/k^2\pi^2)\,dt$, an even polynomial of degree $2K+2$ with positive coefficients, and $\rho_{a,K}(u)\propto e^{-af_K(4u)}$. Then:
+\begin{enumerate}
+\item[(i)] each $\rho_{a,K}$ is a Lee Yang spin and a GHS spin;
+\item[(ii)] $f_K\uparrow\cosh-1$ locally uniformly, so $\rho_{a,K}\Rightarrow\rho_a$;
+\item[(iii)] $\rho_{a,1}$, with $f_1(x)=\frac{x^2}2+\frac{x^4}{4\pi^2}$, is a $\varphi^4$ spin with positive mass and lies in the Griffiths Simon class.
+\end{enumerate}
+Consequently the base spin $\rho_a$, and through Corollary~\ref{pol:cor:polya} P\'olya's spin, are in the class if infinitely many of the rungs $\rho_{a,K}$ are. Proved; whether any rung with $K\ge2$ is in the class is open.
+\end{theorem}
+
+\begin{proof}
+(i) $f_K'(x)=x\prod_{k\le K}(1+x^2/k^2\pi^2)$ has only imaginary roots, so de Bruijn's theorem \cite{deBruijn} (if $f$ is even, nonnegative and nonconstant and $f'$ is a limit of polynomials with imaginary roots, then $\int e^{-f(t)}e^{izt}dt$ has only real zeros) gives the Lee Yang property. $f_K'$ is an odd polynomial with positive coefficients, hence convex on $[0,\infty)$, which is the GHS criterion of Ellis, Monroe and Newman \cite{EMN76}. (ii) The partial products increase to $\sinh(t)/t$, so $f_K\uparrow\cosh-1$, and the densities converge by dominated convergence under $e^{-af_1}$, which also bounds their variances. (iii) is the theorem of Simon and Griffiths \cite{SimonGriffiths73}. The consequence follows from weak closure along any subsequence of rungs.
+\end{proof}
+% UNCHECKED: the exact form of de Bruijn's theorem as quoted in the proof of Theorem pol:thm:ladder (i) (here from memory of the source note, not read in de Bruijn 1950)
+
+No obstruction to reaching a rung with $K\ge2$ is known, and no construction either.
 
 \section{P\'olya's Mellin criterion applied to the Riemann kernel}\label{pol:sec:mellin}
 

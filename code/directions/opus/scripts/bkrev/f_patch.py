@@ -1,0 +1,9 @@
+p='/tmp/bkrev/BK.md';s=open(p).read()
+R=[("If Phi had an entire Schwartz extension of the class, xi(1/2+iE) would decay faster than every exponential, but log|xi/zeta|/E tends to -pi/4 (P5). So Phi is analytic only in |Im u|<pi/4 and is not in S_A.","Phi cannot be continued across |Im u|=pi/4: this is the natural boundary of the theta function (P5). So Phi is analytic only in |Im u|<pi/4 and is not in S_A."),
+("P5. Stirling: |xi(1/2+iE)| decays like E^{7/4}... e^{-pi E/4} times |zeta|; computed log(|xi/zeta|)/E=-0.646,-0.704,-0.738,-0.759 at E=50,100,200,400, tending to -pi/4 with a log E/E correction. A kernel with analytic extension to |Im u|<b and integrable boundary has transform O(e^{-b|E|}), so b<=pi/4.","P5. With x=e^{2u} and omega(x)=sum e^{-pi n^2 x}, Phi=2x^{9/4}omega''+3x^{5/4}omega'. This is a linear ODE for omega with coefficients analytic at x not 0. If Phi continued analytically past a point of Re x=0, x not 0, then so would omega, against the natural boundary of theta on the real axis of tau=ix (classical). Re x>0 is exactly |Im u|<pi/4. Consistent numerics: log(|xi/zeta|)/E=-0.646,-0.704,-0.738,-0.759 at E=50,100,200,400, tending to -pi/4 (Stirling, E^{7/4}e^{-pi E/4})."),
+("V(omega)=sum_rho e^{(rho-1/2)|omega|} (pairing rho with 1-rho conjugate, with sign of gamma matched to omega)","V(omega)=sum_rho e^{(beta-1/2)|omega|+i gamma omega}"),
+("S' has an extension: periodic on [0,a], whole line part u(0)=u(a) outside glued. It is self adjoint, and e^{2 pi i k u/a} on [0,a] extended by 0 are eigenvectors.","S' has the extension: periodic on [0,a], and on the complement of [0,a] the gluing u(0-)=u(a+). It is self adjoint, and e^{2 pi i k u/a} on [0,a], extended by 0, are eigenvectors."),
+]
+for a,b in R:
+    assert s.count(a)==1,a[:40]; s=s.replace(a,b)
+open(p,'w').write(s)

@@ -83,3 +83,136 @@ By independence $\E e^{sX}=\E e^{sD}\,\E e^{sR}$, and both factors are finite be
 The laws of Section~\ref{ch:fmapprox} that keep the first $K$ zeros of $\varphi_X$ exactly carry a Gaussian factor, so none of them is a component of the P\'olya law. If RH holds, any decomposition of $X$ into independent ferromagnetic pieces splits the ordinates into infinite sets, each the zero set of a characteristic function $\prod_k(1-t^2/c_k^2)$ with no Gaussian factor, like those of the uniform law, the fair sign and the symmetric beta laws in Table~\ref{fm:tab:examples}.
 
 The simplest such splitting would be a Vi\`ete product $L_X(s)=\prod_j\cosh(a_js)$, which would write $X=\sum_ja_j\varepsilon_j$ as a sum of independent scaled fair signs, a member of the Griffiths Simon class with uncoupled spins. The ordinates would then split into arithmetic progressions, and three consecutive terms of a progression satisfy $\gamma-2\gamma'+\gamma''=0$. The hypothesis that the positive ordinates are linearly independent over the rationals, which Ingham used in his work on the Mertens conjecture \cite{Ingham42}, forbids such a relation. Under that hypothesis the P\'olya law is not a sum of independent scaled fair signs, and if it belongs to the Griffiths Simon class at all, the spins must be coupled. See Section~\ref{ch:fmopen}.
+
+Ingham's hypothesis is not needed for this conclusion. The next proposition uses only two facts about the first ordinates.
+
+\begin{proposition}[proved]\label{fm:prop:indep}
+Let $X_n=\sum_i\lambda_{n,i}S_{n,i}+\sum_k\mu_{n,k}U_{n,k}+\sigma_nZ_n$ be finite sums of independent symmetric Ising spins $S\in\{\pm1\}$, independent uniform variables $U$ on $[-1,1]$ and an independent standard Gaussian $Z$, with nonnegative coefficients. Then $X_n$ does not converge in law to the P\'olya law $X$.
+\end{proposition}
+
+\begin{proof}
+Suppose $X_n\to X$ in law. By Theorem~\ref{fm:thm:closed} the characteristic functions $\varphi_n(\theta)=\E e^{i\theta X_n}$ converge to $\varphi_X$ locally uniformly on $\C$. A factor $\cos(\lambda\theta)$ vanishes exactly on $\frac{\pi}{2\lambda}\{1,3,5,\dots\}$, a factor $\sin(\mu\theta)/(\mu\theta)$ exactly on $\frac{\pi}{\mu}\{1,2,3,\dots\}$, and the Gaussian factor does not vanish. Fix a small $\varepsilon>0$. Since $\varphi_X$ has no zero in the disc $|\theta|<\gamma_1-\varepsilon$, Hurwitz's theorem gives that $\varphi_n$ has none there for large $n$, while $\varphi_n$ has a zero $\theta_n\to\gamma_1$. The factor that vanishes at $\theta_n$ has its first zero $b$ in $[\gamma_1-\varepsilon,\theta_n]$. Because $\theta_n<2b$, $\theta_n=b$, so the same factor also vanishes at $3\theta_n$ (a spin) or at $2\theta_n$ (a uniform variable). Passing to a subsequence and using Hurwitz's theorem again, $\varphi_X(3\gamma_1)=0$ or $\varphi_X(2\gamma_1)=0$. A real zero of $\varphi_X$ is an ordinate, so $2\gamma_1=28.2695$ or $3\gamma_1=42.4042$ would be an ordinate. The ordinates next to $2\gamma_1$ are $25.011$ and $30.425$, and those next to $3\gamma_1$ are $40.919$ and $43.327$, the list of ordinates below $50$ being complete. This is a contradiction.
+\end{proof}
+
+The argument applies to independent building blocks whose second zero is a fixed multiple $q$ of the first, and it fails exactly when $q\gamma_1$ is an ordinate. The proof uses computed values of the first ordinates and no hypothesis on the others. Its consequence is that the spins of any approximating system must be coupled (proved), and the next result shows what bounded commensurate couplings cannot do.
+
+\begin{lemma}[proved]\label{fm:lem:block}
+Let $X_B=\lambda\sum_{i\le k}n_iS_i$ with $\lambda>0$, positive integers $n_i$, $K=\sum_in_i$, and $(S_i)$ a ferromagnetic Ising system with positive couplings. Then $\varphi_B(y)=\E e^{iyX_B}$ is even, satisfies $\varphi_B(y+P)=(-1)^K\varphi_B(y)$ with $P=\pi/\lambda$, and has only real zeros. Its smallest positive zero $y_1$ satisfies $P/(2K)\le y_1\le P/2$.
+\end{lemma}
+
+\begin{proof}
+$M=\sum_in_iS_i$ takes values in $\{-K,\dots,K\}$ with the parity of $K$, so $e^{i(y+P)\lambda M}=(-1)^Ke^{iy\lambda M}$. The zeros are real by the Lee Yang theorem \cite{LeeYang}. Writing $w=e^{2i\lambda y}$, $e^{iK\lambda y}\varphi_B(y)$ is a polynomial of degree exactly $K$ in $w$ (the extreme coefficients are the probabilities of $M=\pm K$, which are positive), and all its roots lie on $|w|=1$ by the Lee Yang theorem again. So every period contains a zero and $y_1<P$. By periodicity and evenness $P-y_1>0$ is also a zero, so $y_1\le P-y_1$. For $0\le y<P/(2K)$ every $|\lambda yM|<\pi/2$, so $\varphi_B(y)=\E\cos(\lambda yM)>0$ and $y_1\ge P/(2K)$.
+\end{proof}
+
+\begin{theorem}\label{fm:thm:blocks}
+Let $X_n$ be finite sums of independent blocks $X_B$ as in Lemma~\ref{fm:lem:block}, each block with its own $\lambda$, couplings and integers, plus an independent Gaussian, and suppose every block has total weight $K\le K_0$. Then $X_n$ does not converge in law to the P\'olya law $X$ in the following two cases. (i) $K_0\le287$ (proved, with the ordinates in ball arithmetic \cite{Arb}). (ii) $K_0$ is arbitrary, provided that the set of ordinates contains no infinite arithmetic progression (conditional).
+\end{theorem}
+
+\begin{proof}
+Suppose $X_n\to X$ in law. As in Proposition~\ref{fm:prop:indep}, $\varphi_n\to\varphi_X$ locally uniformly, and some block has first zero $y_{1,n}\to\gamma_1$. By Lemma~\ref{fm:lem:block} its period satisfies $2y_{1,n}\le P_n\le2K_0y_{1,n}$. Pass to a subsequence with $P_n\to P\in[2\gamma_1,2K_0\gamma_1]$. The block vanishes at $y_{1,n}+mP_n$ and at $P_n-y_{1,n}+mP_n$ for every integer $m\ge0$, so by Hurwitz's theorem $\varphi_X(\gamma_1+mP)=0$ for all $m\ge0$, and $\varphi_X(P-\gamma_1)=0$.
+
+(ii) The ordinates would contain the infinite progression $\gamma_1+mP$, $m\ge0$.
+
+(i) The numbers $\gamma_c=P-\gamma_1\ge\gamma_1$ and $\gamma_a=P+\gamma_1\le(2K_0+1)\gamma_1\le575\gamma_1$ would be ordinates with $\gamma_a-\gamma_c=2\gamma_1$. Since $575\gamma_1<8127.5<\gamma_{8000}=8148.188$, both would lie among the first $8000$ ordinates. These were computed in ball arithmetic with radius below $10^{-34}$, and none of the $7993$ tests of $\gamma_a-\gamma_c=2\gamma_1$ with $\gamma_a\le\gamma_{8000}$ has a ball containing zero: the smallest value of $|\gamma_a-\gamma_c-2\gamma_1|$ is $6.05\times10^{-5}$, at $(a,c)=(7642,7610)$. This is a contradiction.
+\end{proof}
+
+% UNCHECKED: part (ii) rests on a published theorem excluding infinite arithmetic progressions of ordinates (Putnam 1954 and Li and Radziwill were named in the source note, neither read), so no citation is given.
+Theorem~\ref{fm:thm:blocks} excludes one shape of construction and nothing else. It does not say that a ferromagnetic approximation of the P\'olya law needs long range interaction. What it does show (proved for the stated $K_0$) is that independent clusters must have either incommensurate weights inside a cluster or total weights above $K_0$.
+
+\subsection{Complements: blocks, harmonic sums and M\"obius inversion}\label{fm:sec:levelrem}
+
+This subsection collects short complements to Theorem~\ref{thm:poisson} and to the search for spin decompositions of the P\'olya law. Each result carries its status. They give no route to RH, and none distinguishes $\zeta$ from the Davenport and Heilbronn function except through zeros to the right of the line $\re s=1$.
+
+For $\theta,\gamma>0$ let $\mathcal B_{\theta,\gamma}$ be the positive variable with $\E e^{-s\mathcal B_{\theta,\gamma}}=(\theta^2+\gamma^2)/((\theta+\sqrt s)^2+\gamma^2)$, $s\ge0$.
+
+\begin{proposition}\label{fm:prop:block}
+\textup{(i)} $\mathcal B_{\theta,\gamma}$ is a GGC whose Thorin density in $w=\sqrt t$ is the folded Cauchy density $\frac1\pi\bigl[\frac\theta{\theta^2+(w-\gamma)^2}+\frac\theta{\theta^2+(w+\gamma)^2}\bigr]$. \textup{(ii)} As $\theta\downarrow0$, $\mathcal B_{\theta,\gamma}\to e/\gamma^2$ in law, with $e$ a standard exponential. \textup{(iii)} $P(\mathcal B_{\theta,\gamma}>y)\sim\frac{2\theta}{\theta^2+\gamma^2}(\pi y)^{-1/2}$ as $y\to\infty$. \textup{(iv)} If no zero has $\beta\ge\alpha$, in particular for every $\alpha\ge1$, then $T_\alpha\overset d=\sum_{\gamma_\rho>0}\mathcal B_{\alpha-\beta_\rho,\gamma_\rho}$ with independent summands and almost sure convergence, the sum over the zeros with positive ordinate, with multiplicity. Status: proved.
+\end{proposition}
+
+\begin{proof}
+(i) Put $a=\sqrt s$. The function $2\log|z+ia|-2\log|z|$ is harmonic in the upper half plane, tends to $0$ at infinity, has an integrable logarithmic singularity at $0$ and boundary value $\log(1+s/w^2)$, so it is the Poisson integral of its boundary values. Evaluating at $\gamma+i\theta$ gives $\int_{\mathbb R}\log(1+s/w^2)\frac{\theta/\pi}{\theta^2+(w-\gamma)^2}\,dw=\log\frac{(\theta+a)^2+\gamma^2}{\theta^2+\gamma^2}$, which is the stated density folded onto $w>0$. (ii) The Cauchy densities converge to a unit mass at $\gamma$, and $(1+s/\gamma^2)^{-1}$ is the transform of $e/\gamma^2$. (iii) $1-\E e^{-s\mathcal B}=\frac{2\theta}{\theta^2+\gamma^2}\sqrt s+O(s)$, and Karamata's Tauberian theorem for regular variation of index $\frac12$ gives the tail. (iv) Pairing $\rho$ with $\bar\rho$ in Hadamard's product gives $\xi(\alpha+z)/\xi(\alpha)=\prod_{\gamma_\rho>0}\frac{(c_\rho+z)^2+\gamma_\rho^2}{c_\rho^2+\gamma_\rho^2}$ with $c_\rho=\alpha-\beta_\rho>0$; take $z=\sqrt s$ in the reciprocal. The partial sums increase, and since $\sum\gamma_\rho^{-2}<\infty$ the product of transforms converges absolutely, to a limit tending to $1$ as $s\downarrow0$, so the sum is almost surely finite and has the transform $\xi(\alpha)/\xi(\alpha+\sqrt s)$ of $T_\alpha$.
+\end{proof}
+
+Compared with Remark~\ref{pol:rem:blocks}, the block there is $\mathcal B_{\theta,\gamma}$ multiplied by the factor $e^{b_\rho w}$ with $b_\rho=2c_\rho/(c_\rho^2+\gamma_\rho^2)$ (there $u=w^2/2$, here $s=w^2$). The compensated block is not a Laplace transform, and the uncompensated one is. The two statements do not conflict: the factors $e^{b_\rho w}$ multiply to $e^{b_\alpha w}$, and (iii) shows that the one half stable parts of the blocks add up to the stable factor $S_\alpha$ of Proposition~\ref{bp:prop:valpha}, since $\sum_\rho b_\rho=b_\alpha=(\xi'/\xi)(\alpha)$.
+
+\begin{proposition}\label{fm:prop:wcauchy}
+Let $\alpha\ge1$, let $\mathrm{Br}$ be a Brownian motion independent of $T_\alpha$, and $W_\alpha=\mathrm{Br}(2T_\alpha)$. Then $W_\alpha$ is symmetric with $\E e^{iuW_\alpha}=\xi(\alpha)/\xi(\alpha+|u|)=1/\E e^{|u|V_\alpha}$, and $W_\alpha\overset d=C_\alpha+W_\alpha^\circ$ with independent terms, $C_\alpha$ a Cauchy variable of scale $b_\alpha=(\xi'/\xi)(\alpha)$ and $W_\alpha^\circ=\mathrm{Br}(2T_\alpha^\circ)$. Moreover $P(|W_\alpha|>x)=2b_\alpha/(\pi x)+O(x^{-3})$ and $P(|W_\alpha^\circ|>x)\sim4c(\alpha)/(3\pi x^3)$, with $c(\alpha)$ of Result~\ref{bp:res:tail}. Status: proved.
+\end{proposition}
+
+\begin{proof}
+$\E e^{iu\mathrm{Br}(2T)}=\E e^{-u^2T}$ gives the transform. By Proposition~\ref{bp:prop:valpha}, $T_\alpha=S_\alpha+T_\alpha^\circ$, and $\mathrm{Br}(2S_\alpha)$ has characteristic function $e^{-b_\alpha|u|}$. Write $\varphi(u)=\xi(\alpha)/\xi(\alpha+u)$, smooth on $[0,\infty)$ with integrable derivatives. Four integrations by parts in the cosine transform give the density $b_\alpha/(\pi x^2)+O(x^{-4})$, hence the first tail. For the second, $P(T_\alpha^\circ>t)\sim c(\alpha)t^{-3/2}/(6\sqrt\pi)$ and $\E|\mathrm{Br}(2)|^3=2^{3/2}\cdot2\sqrt{2/\pi}$ give $4c(\alpha)/(3\pi x^3)$.
+\end{proof}
+
+The uniform spin and the block are dual in the sense of Williams's pair. Let $H=\sum_{n\ge1}e_n/(n^2\pi^2)$ with independent standard exponentials $e_n$, so that $\E e^{-uH}=\sqrt u/\sinh\sqrt u$, and $H$ is one of the two independent summands of $S_2/2$ of Section~\ref{ch:clock}, credited there to Williams and to Biane, Pitman and Yor. For a uniform spin $U$ on $[-1,1]$ this reads $\E e^{-sa^2H}=1/\E e^{\sqrt s\,aU}$. Tilting the spin by the field $\theta$ turns the reciprocal into $\sum_{n\ge1}\mathcal B_{\theta,n\pi/a}$: every atom $(n\pi/a)^2$ of the Thorin measure of $a^2H$ is smeared into a Cauchy density of width $\theta$. This is an identity of transforms (proved).
+
+Proposition~\ref{fm:prop:indep} extends to the tilted laws $V_\alpha$ (proved). Let $Z_n$ be finite sums of independent Gaussian, uniform and fair sign spins, with laws $\mu_n$, and suppose their Esscher tilts $\nu_n$ by the field $\theta=\alpha-\frac12$ converge to the law of $V_\alpha$. For bounded continuous $f$ with even part $f_s$, the function $h=f_s/\cosh(\theta y)$ is bounded and continuous and, by symmetry, $\int f\,d\mu_n=m_n\int h\,d\nu_n$ with $m_n=\E e^{\theta Z_n}$. With $f=1$ this gives $1/m_n\to\int\operatorname{sech}(\theta y)\,dP_{V_\alpha}>0$, so $\mu_n$ converges weakly, and since $V_\alpha$ is the tilt of $X$ by $\theta$ the limit is the law of $X$, which Proposition~\ref{fm:prop:indep} excludes. So for no $\alpha$ is $V_\alpha$ a limit of tilted independent spin sums.
+
+\begin{theorem}\label{fm:thm:harmonic}
+Let $X_1,X_2,\dots$ be independent copies of the P\'olya variable and $S=\sum_{n\ge1}X_n/n$, convergent almost surely and in $L^2$. Then $\E e^{zS}=\prod_{n\ge1}\xi(\frac12+z/n)/\xi(\frac12)$ for $z\in\C$ and $\kappa_{2m}(S)=\zeta(2m)\kappa_{2m}(X)$ for $m\ge1$. Moreover RH holds if and only if $S\overset d=\sum_{\gamma>0}(\pi/\gamma)U_\gamma$ with independent $U_\gamma$ uniform on $[-1,1]$. Status: proved.
+\end{theorem}
+
+\begin{proof}
+The product and the cumulants follow from independence. Under RH, $\log\E e^{zS}=\sum_\gamma\sum_n\log(1+z^2/(n\gamma)^2)=\sum_\gamma\log\frac{\sinh(\pi z/\gamma)}{\pi z/\gamma}$. Conversely, if $S$ is such a sum, $\E e^{zS}$ vanishes only on the imaginary axis, and it vanishes at every zero of $\xi(\frac12+z)$, the factor $n=1$.
+\end{proof}
+
+The zeros of $\E e^{zS}$ are the points $n(\rho-\frac12)$, so the theorem is Newman's criterion (Theorem~\ref{fm:thm:hadamard}) with the harmonic scaling: it is equivalent to RH for the same reason and with the same difficulty, and gives no new route. Any direct proof that $S$ is a uniform sum would have to produce the sizes $\pi/\gamma$, which are the zeros.
+
+\begin{proposition}\label{fm:prop:mobius}
+Let $Y$ be symmetric with finite variance, $S_Y=\sum_{n\ge1}Y_n/n$ for independent copies $Y_n$, and let $S^{(k)}$ be independent copies of $S_Y$, independent of $Y$. With $S_\pm=\sum_{\mu(k)=\pm1}S^{(k)}/k$,
+\[
+Y+S_-\ \overset d=\ S_+ .
+\]
+Status: proved, with no hypothesis on zeros. If moreover $Y$ has finite moments of order $2m$, then $\kappa_{2m}(Y)=\kappa_{2m}(S_Y)/\zeta(2m)$.
+\end{proposition}
+
+\begin{proof}
+Both sides are convergent sums since $\sum k^{-2}<\infty$. In terms of characteristic functions, $\varphi_Y\varphi_{S_-}=\prod_m\varphi_Y(t/m)^{[m=1]+\#\{k\mid m:\mu(k)=-1\}}$ and $\varphi_{S_+}=\prod_m\varphi_Y(t/m)^{\#\{k\mid m:\mu(k)=1\}}$. The exponents agree because $\sum_{k\mid m}\mu(k)=[m=1]$. The rearrangement is legitimate since $|1-\varphi_Y(t/m)|\le\operatorname{Var}Y\,t^2/(2m^2)$ and the multiplicities are at most the divisor function, with $\sum_md(m)m^{-2}<\infty$.
+\end{proof}
+
+This holds for every symmetric law with finite variance, in particular for $X$ and for the symmetric Davenport and Heilbronn law $U_{DH}$ of Proposition~\ref{ht:prop:dhtheta}. The M\"obius function enters as an exponent on transforms: the identity is a convolution identity between laws, and no factor with $\mu(k)=-1$ is a measure, so $X$ is not a signed sum of copies of $S$. Under RH, $S_\pm$ are sums of independent uniform spins of sizes $\pi/(k\gamma)$, by Theorem~\ref{fm:thm:harmonic}. For $U_{DH}$ the spin reading fails: the moment generating function of $S_{DH}$ vanishes at $n(\rho-\frac12)$ for the zero $\rho=0.8085\ldots+85.6993\ldots i$, which is not imaginary (the zero is computed), so $S_{DH}$ is not a uniform sum (proved).
+
+\begin{proposition}\label{fm:prop:weights}
+Let $c_j>0$, $\alpha_j\ge1$, and $Z=\sum_jc_jV^{(j)}_{\alpha_j}$ with independent terms, converging in law, with finite moment generating function $\prod_j\xi(\alpha_j+c_jz)/\xi(\alpha_j)$. This function has no zero on the imaginary axis. $Z$ is an Esscher tilt by a field $\theta$ of a ferromagnetic law if and only if RH holds and $(\alpha_j-\frac12)/c_j=\theta$ for every $j$, and then the family is finite. Status: proved.
+\end{proposition}
+
+\begin{proof}
+The zeros are $z=(\rho-\alpha_j)/c_j$, with real part $(\beta-\alpha_j)/c_j<0$ since $\beta<1\le\alpha_j$. A tilt by $\theta$ of a ferromagnetic law has all its zeros on $\re z=-\theta$, so $(\alpha_j-\beta)/c_j=\theta$ for every zero and every $j$. A zero $\beta\neq\frac12$ and its partner $1-\beta$ would give two values for the same $j$, so $\beta=\frac12$ for all zeros, and $\theta=(\alpha_j-\frac12)/c_j$. Conversely, under RH with equal ratios, $Z$ is the tilt by $\theta$ of the ferromagnetic law $\sum_jc_jX^{(j)}$. The family is finite: $c_j\ge1/(2\theta)$, and $V_{\alpha_j}\ge V_1$ stochastically, by the monotone likelihood ratio of the Esscher family, so $P(c_jV_{\alpha_j}>b/(2\theta))\ge P(V_1>b)>0$ for a fixed $b>0$, and the terms of a convergent independent sum cannot do that infinitely often.
+\end{proof}
+
+So no weighting of the levels $\alpha\ge1$ gives a ferromagnetic system up to a tilt without proving RH.
+
+Three short identities for the levels. The first two use Chapter~\ref{chap:basepoint} notation, with $V_\alpha$ the Esscher tilt of $X$ at the basepoint $\alpha$ (Section~\ref{bp:sec:mellin}).
+
+\begin{proposition}\label{fm:prop:vminuse}
+Let $\alpha>1$, $G\sim\mathrm{Gamma}(\frac\alpha2+1,1)$, $N$ with $P(N=n)=n^{-\alpha}/\zeta(\alpha)$ and $e\sim\mathrm{Exp}(\alpha-1)$, all independent of one another and of $V_\alpha$. Then $V_\alpha-e\overset d=\frac12\log(G/\pi)-\log N$. Consequently $\sqrt{2\alpha}\,(V_\alpha-\frac12\log\frac\alpha{2\pi})\Rightarrow\mathrm N(0,1)$ as $\alpha\to\infty$. Status: proved.
+\end{proposition}
+
+\begin{proof}
+Both sides have moment generating function $\frac{\alpha-1}{\alpha-1+z}\cdot\frac{\xi(\alpha+z)}{\xi(\alpha)}$ for real $z>1-\alpha$, by $\xi(s)=(s-1)\pi^{-s/2}\Gamma(\frac s2+1)\zeta(s)$. For the limit, $e\to0$ and $N\to1$ in probability, and the central limit theorem for $G$ gives the rest.
+\end{proof}
+
+The right side is infinitely divisible, so $V_\alpha$ becomes so once one exponential is subtracted, although $V_\alpha$ itself is only quasi infinitely divisible (Proposition~\ref{sb:prop:qid}). The Gaussian approximation $\mathrm N(\frac12\log\frac{\alpha+4}{2\pi},\frac1{2(\alpha+4)})$ of the density (Laplace method, heuristic) is close: at $\alpha=50$ the exact mean and variance are $1.0674$ and $0.00939$, against $1.0756$ and $0.00926$ (computed).
+
+\begin{proposition}\label{fm:prop:modul}
+Let $\alpha\in\R$, $\theta=\alpha-\frac12$, $D_\alpha=V_\alpha-V_\alpha'$ with an independent copy, so that $\E\cosh(vD_\alpha)=\xi(\alpha+v)\xi(\alpha-v)/\xi(\alpha)^2$. Then for real $v$
+\[
+\log\E\cosh(vD_\alpha)=\int_{\mathbb R}2\sin^2\Bigl(\frac{vx}2\Bigr)\cos(\theta x)\,k(|x|)\frac{dx}{|x|},\qquad k(x)=2\sum_{\gamma_\rho>0}e^{-g_\rho x},
+\]
+with $g_\rho=-i(\rho-\frac12)$ and no hypothesis on the zeros. Moreover $v_{1-\alpha}=-v_\alpha$, and $D_\alpha$ is not ferromagnetic for $\alpha\ne\frac12$. Status: proved.
+\end{proposition}
+
+\begin{proof}
+With $f(z)=\log\xi(\frac12+z)/\xi(\frac12)=\sum_\rho\log(1+z^2/g_\rho^2)$ (sum over $\gamma_\rho>0$) and $\log(1+z^2/g^2)=\int_{\mathbb R}(1-\cos zx)e^{-g|x|}\,dx/|x|$ for $\re g>0$ and real $z$, the left side is $f(\theta+v)+f(\theta-v)-2f(\theta)$, and $1-\cos(\theta+v)x+1-\cos(\theta-v)x-2(1-\cos\theta x)=2\cos\theta x\,(1-\cos vx)$. The second claim is the differentiated functional equation. The moment generating function of $D_\alpha$ vanishes at $\pm(\rho-\alpha)$, and $\rho-\alpha$ and $(1-\rho)-\alpha$ are both imaginary only if $\alpha=\frac12$.
+\end{proof}
+
+At the level $\alpha$ the shift of the basepoint thus modulates the kernel by $\cos\theta x$ instead of damping it; computed at $\alpha=0.9$, $v=0.8$, the two sides are $0.029536$ and $0.029541$ (zeros to a finite height with a mean density tail).
+
+\begin{proposition}\label{fm:prop:fluct}
+The density $p_\alpha$ of $V_\alpha$ satisfies $p_\alpha(-y)=e^{-(2\alpha-1)y}p_\alpha(y)$. At $\alpha=1$, $\log\bigl(p_1(y)/p_1(-y)\bigr)=y$. Status: proved.
+\end{proposition}
+
+\begin{proof}
+$p_\alpha(y)=e^{(\alpha-\frac12)y}p(y)\xi(\frac12)/\xi(\alpha)$ with $p$ the even density of $X$.
+\end{proof}
+
+This is the form of the functional equation $\xi(s)=\xi(1-s)$ that resembles a fluctuation relation of statistical mechanics, with the field $\theta=\alpha-\frac12$ conjugate to $y$; as an analogy this reading is heuristic.

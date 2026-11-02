@@ -501,6 +501,69 @@ For a curve of genus $g$ the completed function is, when $|\alpha_j|=\sqrt q$, a
 
 The comparison locates the gap exactly. A curve has finitely many Frobenius spins, each of exponential type, so for the Frobenius spins that are laws (a spin with $a>0$ is a signed measure) the Lee and Yang theory of Theorem~\ref{cm:thm:stripLY} applies, and a finite computation decides each curve; the positivity that makes the spins ferromagnetic comes from intersection theory. The P\'olya spin is one spin of infinite type, the Maxwell decomposition of Theorem~\ref{fm:thm:maxwell} into infinitely many ferromagnetic spins is RH itself, and no source of positivity outside $\zeta$ is known. A proof along this route needs a positive form, built from the primes, whose diagonal values are the Weil functional; that is the Hilbert and P\'olya problem in the language of ferromagnets.
 
+\section{A Fej\'er window at level $\frac12+\delta$ and the height test}\label{cm:sec:window}
+
+This section records the explicit formula for a Cauchy times Fej\'er window, a test for off line zeros at level one that needs no bound on the interference of the other zeros, its ceiling, and a heuristic for the resolution. It is the finite window version of the damped criterion (Theorem~\ref{dc:thm:damped}) and of the Cauchy smoothed measure of Remark~\ref{bsy:rem:weil}.
+
+For $\delta>0$ and $L>0$ let $G(x)=e^{-\delta|x|}(1-|x|/L)_+$, with transform $H$, and for a centre $w$ let $g_w(x)=G(x)\cos wx$, whose transform is $h_w(r)=\frac12[H(r-w)+H(r+w)]$. The function $G$ is even, Lipschitz, of compact support, with $G'$ of bounded variation, so $\widehat{g_w}$ lies in the class $\mathcal B$ of Theorem~\ref{dc:thm:weil}; this hypothesis is needed, since the explicit formula fails for an even compactly supported function that is not regular enough (the indicator of an interval, whose transform decays like $1/r$). The flow $O_{\delta,L}(w)$ is the right side of the explicit formula for $g_w$, namely the archimedean and pole terms minus $2\sum_{n\le e^L}\Lambda(n)n^{-1/2-\delta}(1-\log n/L)\cos(w\log n)$; the prime part enters with a minus sign.
+
+\begin{theorem}[finite prime side at every level]\label{cm:thm:flow}
+For every $\delta>0$ and $L>0$, unconditionally, $O_{\delta,L}(w)=\sum_\rho h_w(\gamma_\rho)$, the series converging absolutely, and the prime side contains only the prime powers $n\le e^L$. Status: proved.
+\end{theorem}
+
+\begin{proof}
+This is Theorem~\ref{dc:thm:weil} for $g_w$, whose support is $[-L,L]$.
+\end{proof}
+
+The identity computes the Cauchy smoothed measure of Remark~\ref{bsy:rem:weil} further smoothed by the Fej\'er kernel, and the truncation reappears as a bias: the peak of one isolated zero on the line has height $H(0)=2/\delta-2(1-e^{-\delta L})/(\delta^2L)$, which is $11.55$ against $2/\delta=40$ at $\delta=0.05$, $L=14.5087$ (proved for the formula, computed for the numbers). The limit $L\to\infty$ gives the Cauchy smoothed measure $2v_{1/2+\delta}$ if every zero has $|\beta-\frac12|<\delta$ (proved, by dominated convergence, the pair kernels being bounded by $C(\delta)/r^2$ uniformly in $L\ge1$). If some zero has $\eta=|\beta-\frac12|>\delta$, its pair term is of size $e^{(\eta-\delta)L}/(L((\eta-\delta)^2+u^2))$ at distance $u$, with a sign that depends on $uL$, and the limit does not exist.
+
+\begin{theorem}[height test at level one]\label{cm:thm:height}
+Let $G$ be even, $G(0)=1$, $G\ge0$, supported in $[-L,L]$, with $\widehat{g_w}\in\mathcal B$, and such that $G(x)\cosh(\eta x)$ is positive definite for every $\eta\in[0,\frac12)$. Examples are $e^{-|x|/2}(1-|x|/L)_+$ and $\operatorname{sech}(x/2)(1-|x|/L)_+$. Let $O(w)$ be the flow of $G$ and $H_0(0)=\int G$. If $\sup_{w\in I}O(w)<2H_0(0)$ on an interval $I$, then every zero of $\zeta$ with ordinate in $I$ is simple and on the critical line. Status: proved.
+\end{theorem}
+
+\begin{proof}
+Since $\zeta$ has no zero on $\Re s=1$, every zero has $\eta<\frac12$. Group the zeros in orbits under $\rho\mapsto1-\bar\rho$, which preserve the ordinate. A zero on the line contributes $H_0(w-\gamma)+H_0(w+\gamma)\ge0$, and an off line pair contributes $2H_\eta(w-\gamma)+2H_\eta(w+\gamma)\ge0$, where $H_\eta$ is the transform of $G\cosh\eta x$; so $O(w)$ dominates every single orbit. At $w=\gamma$ an off line pair gives at least $2H_\eta(0)\ge2H_0(0)$ since $\cosh\ge1$, and so does a double zero on the line. The positivity: $e^{-|x|/2}\cosh\eta x$ is half the sum of $e^{-(1/2\mp\eta)|x|}$; the transform of $\operatorname{sech}(x/2)\cosh\eta x$ is $4\pi\cos(\pi\eta)\cosh(\pi r)/(\cosh2\pi r+\cos2\pi\eta)>0$; and multiplication by the Fej\'er triangle keeps positive definiteness.
+\end{proof}
+
+No bound on the interference is needed, because it has a sign. In substance this is the positivity behind de la Vall\'ee Poussin's argument (Theorem~\ref{cf:thm:dvp}), used as a test on a window of ordinates; it uses the nonvanishing of $\zeta$ on $\Re s=1$, which is the Euler product, and it does not transfer to the Davenport and Heilbronn function, which has zeros with $\beta>1$.
+
+How far the test reaches is a computation. With $G=e^{-|x|/2}(1-|x|/L)_+$ ($\delta=\frac12$) and $L=14.51$ the maximum of $O/H_0(0)$ over ordinates in $[5,160]$ is $1.5085<2$, so the zeros there are simple and on the line (computed, double precision, on a grid of step $0.01$; a bound between grid nodes needs ball arithmetic, which has not been run). With the sech kernel and the primes below $2\times10^6$ the first ordinate $w$ with $O(w)\ge2H_0(0)$ is $1329.03$ (computed, same caveats); the stop is the close pair of zeros at $1329.04$ and $1329.21$, whose gap is below the width of the kernel. This is exclusion on a window, and no alternative to Turing's method.
+
+\begin{theorem}[ceiling of the test]\label{cm:thm:ceiling}
+For any $G$ as in Theorem~\ref{cm:thm:height} one has $G\le\operatorname{sech}(x/2)$ and $H_0(0)\le2\pi$, and the hypothesis $\sup_IO<2H_0(0)$ on a window $I=[T,T+W]$ with $W\ge W_0(G)$ can hold only if $\log(T/2\pi)<4\pi$, that is $T<2\pi e^{4\pi}\approx1.8\times10^6$. If it is known a priori that all zeros satisfy $|\beta-\frac12|\le\eta_0$, the same argument with $G\cosh\eta_0x$ gives $H_0(0)\le\pi/\eta_0$ and the necessary condition $\eta_0<2\pi/\log(T/2\pi)$. Status: proved.
+\end{theorem}
+
+\begin{proof}
+Positive definiteness of $G\cosh\eta x$ gives $|G(x)\cosh\eta x|\le1$, hence $G\le\operatorname{sech}(x/2)$ and $H_0(0)\le2\pi$. Over a long window near $T$ the mean of $O$ is $\log(T/2\pi)+o(1)$: the prime cosines average to zero at fixed $L$, the pole term tends to $0$, and the archimedean term with $-\log\pi$ gives $\log(w/2\pi)$ since $G(0)=1$. So $\sup O\ge\log(T/2\pi)-o(1)$ as $W\to\infty$, and $\sup O<2H_0(0)<4\pi$, strictly since $G$ has compact support, forces the stated bound for $W\ge W_0(G)$. The strip form is the same with $\cosh\eta_0x$.
+\end{proof}
+
+So the positivity route at height $T$ needs a zero free region reaching to within $2\pi/\log(T/2\pi)$ of the line from the right, whereas the known regions start from $\Re s=1$, with width $c/\log T$ or the Vinogradov Korobov width; the gap is the whole strip.
+
+\begin{proposition}[size of the interference below level one]\label{cm:prop:nt}
+Let $\delta<\frac12$. A pair with $\eta>\delta$ at distance $d$ from the centre contributes about $2e^{(\eta-\delta)L}/(L((\eta-\delta)^2+d^2))$, with a sign that depends on $dL$. The counting function $N(T)$ does not see $\eta$, and without RH the only a priori limit is $\eta<\frac12$, so a bound on the interference from $N(T)$ alone is at least of order $e^{(1/2-\delta)L}/(Ld^2)$, against $H(0)\le L$. Status: proved as a size statement; the Davenport and Heilbronn function, which has a functional equation of the same shape, realises it (computed).
+\end{proposition}
+
+For that function the pair at $240.40$ contributes, at distance $5.03$ and $\delta=0.05$, $-0.02$, $+0.035$, $-0.155$ and $-1.93$ in units of $H(0)$ for $L=10,14.5,20,30$ (computed). Resolving zeros near $T$ needs $L$ of order $2\log(T/2\pi)$, so no argument that uses only properties shared with that function, in particular one from $N(T)$, can give a bound for $\delta<\frac12$.
+
+\begin{remark}[resolution law, heuristic]\label{cm:rem:resolution}
+Let $g$ be the gap to the neighbouring zero. Reading a zero needs $L\ge2\pi/g$ and the primes up to $e^L$, which is the heuristic $\Omega=\pi/\delta$ of Remark~\ref{es:rem:resolution}. For the zeros below $8148$ with $\delta=1/L$ the $L$ that reads $90$ per cent of the zeros in a window near $T$ is $1.7$ to $2.0$ times $\log(T/2\pi)$ (computed), and the $L$ that reads every zero is $2\pi/g_{\min}(T)$ (computed). Extrapolated with $L=1.9\log(T/2\pi)$ for $90$ per cent and $e^L/L$ primes (heuristic):
+\begin{center}\small
+\begin{tabular}{rrrr}
+$T$ & $\log(T/2\pi)$ & $L$ & primes \\
+\hline
+$150$ & $3.2$ & $6$ & $70$ \\
+$10^4$ & $7.4$ & $14$ & $9\times10^4$ \\
+$10^6$ & $12.0$ & $23$ & $3\times10^8$ \\
+$3\times10^{12}$ & $26.9$ & $51$ & $3\times10^{20}$ \\
+\end{tabular}
+\end{center}
+At $T=3\times10^{12}$ the primes up to $(T/2\pi)^{1.9}$ are about $3\times10^{20}$, against about $T^{1/2}$ terms for a value of $\zeta$ by the Riemann Siegel formula. Deconvolution therefore has no height limit in principle, since the identity of Theorem~\ref{cm:thm:flow} holds at every height, and a severe one in practice: the cost grows faster than any power of $T$ for all zeros, the proof that a peak is a zero on the line stops at the ceiling of Theorem~\ref{cm:thm:ceiling}, and below $\delta=\frac12$ it is lost by Proposition~\ref{cm:prop:nt}.
+\end{remark}
+
+\begin{remark}[control]\label{cm:rem:dh}
+For the Davenport and Heilbronn function (explicit formula with conductor $5$) the flow with $\delta=0.05$ and the primes $n\le500$ ($L=6.2$) has, among its maxima with $O/H(0)$ at least $2$, exactly the five off line ordinates below $300$ (about $85.70$, $114.16$, $166.48$, $176.70$, $240.40$), read to $0.01$, and this stays so to $n=3\times10^5$ (computed). At $\delta=\frac12$ the maxima above $2$ at $n=10^4$ include on line clusters (for example near $145.44$ and $149.38$), because the conductor raises the background, which is consistent with Theorem~\ref{cm:thm:height} being a one way statement. A pass at $\delta<\frac12$ says little; a negative value of the flow, if every $|\eta|\le\delta$ would give $O\ge0$, proves a zero with $|\eta|>\delta$ (Theorem~\ref{dc:thm:damped}).
+\end{remark}
+
 \section{Is this a path to RH?}\label{cm:sec:path}
 
 No. The four forms of RH in this chapter, the single width Cauchy mixture, the ferromagnetism of the P\'olya law, Weil's functional and the Lee and Yang property of the two spin system at every coupling, are each proved at the level one or the coupling $\frac12$, and each step below is a zero free half plane (Corollary~\ref{cm:cor:pair}). The descent in coupling is the descent in level of Section~\ref{ov1:sec:path}, and the three constraints apply. A proof must be infinite, since finite Euler products sit at $w=\frac12$ (Proposition~\ref{cm:prop:euler}) and finite computations cannot exclude zeros above them (Theorem~\ref{thm:ch13:perturb}). It must use the Euler product, since the Davenport and Heilbronn function has the same Cauchy structure. And it must not rest on a property preserved by Gaussian damping (Corollary~\ref{cm:cor:emn}). In statistical mechanical terms the Lee and Yang property is preserved when ferromagnetic interactions are added and RH asks for one to be removed, the coupling to the Ising spin; no general theorem goes in that direction, and $\Lambda\ge0$ says that the self interaction of the de Bruijn Newman flow cannot be removed either. What the chapter adds is the exact form of the target and the fact that the natural one variable test is strictly weaker than it.

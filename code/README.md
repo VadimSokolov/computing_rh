@@ -10,6 +10,8 @@ A number in this book can be checked once three things are known: the evaluator 
 
 The scripts of Chapters 12 and 14 to 21 are in `code/` as well, and their data files in `data/`, except those of Chapter 13, which are in `ferro/`.
 
+The folder `code/directions/` holds the scripts of the research reports on the authors' directions and of the referee checks of November 2026, behind the computed numbers added in version 2.1.0 (the finite rank obstruction, the Gaussian field, the block theorem, the exact Gram law, the partial theta families, the backward Cauchy flow). `opus/`, `astra/` and `fable/` name the AI system that wrote them; they are unrefereed. They run from the repository root, absolute paths were made relative, and the reports and notes that some of them read are not public.
+
 ## Libraries, the cluster and how the scripts run
 
 The scripts run with Python 3.11 and the libraries of `requirements.txt` in the repository root: python-flint 0.9.0, mpmath 1.3.0, numpy 2.4.6, scipy 1.17.1, sympy 1.14.0 and matplotlib 3.11.2, the versions of the reruns of September and October 2026. Some later runs used mpmath 1.4.1, as stated under Chapter 21. The long computations ran on the Hopper cluster of George Mason University; the drivers in `repro/` and the SLURM files name the paths of that cluster and need adapting elsewhere.

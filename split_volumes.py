@@ -78,6 +78,7 @@ VOLUMES = {
             (r"Haseo Ki, derivatives and the Keiper Li coefficients", r"Ki and the Keiper Li coefficients", ["c23", "ki1", "ki2", "ki3", "ch20"], None),
             ("PART", r"Synthesis"),
             (r"A route to the Riemann Hypothesis", None, ["nc_route"], None),
+            (r"The Berry Keating operator and the Thorin programme", None, ["nc_bk"], None),
             (r"Conclusions and open problems of the theory", r"Conclusions and open problems", ["c12", "path", "ch22"], None),
         ],
     },

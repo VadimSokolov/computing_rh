@@ -1,0 +1,153 @@
+% nc_bk with its \chapter turned into a section; generated
+% Chapter nc_bk: the Berry Keating operator, what is true about it, and a Krein string for the zeros.
+% Intended place: Volume I, after the chapter on Polya's Bessel function (Section ch:biane) and the hitting time chapters. Not yet wired into the volumes.
+% Numbers marked computed come from floating point or high precision runs of the code on the zeros of zeta; none is certified.
+\section{The Berry Keating operator and the Thorin programme}\label{ch:bk}
+
+Berry and Keating proposed the quantisation of the classical Hamiltonian $xp$ as a candidate for the operator of Hilbert and P\'olya \cite{BerryKeating99}. A recent preprint of Bagarello and Ku\.{z}el \cite{BagarelloKuzel26} describes this operator in $L_2(\R)$ and its natural restriction with defect indices $(2,2)$. This chapter says what is true about the operator and how it meets the results of the book, and it keeps one result: under RH the zeros define a Krein string without initial gap, whose length, Weyl function and infinite mass at its end are explicit (Section~\ref{bk:sec:string}). The chapter does not prove RH and it does not claim that the operator does. The status words of the book are used throughout: proved, computed, conditional, heuristic, open.
+
+\section{The operator and its status}\label{bk:sec:op}
+
+On $L_2(\R)$ let $U(t)f(x)=e^{-t/2}f(e^{-t}x)$ be the unitary group of dilations and
+\begin{equation}\label{bk:eq:H}
+H_{\mathrm{BK}}=\tfrac12(\hat x\hat p+\hat p\hat x)=-i\Big(x\frac{d}{dx}+\frac12\Big)
+\end{equation}
+its generator, the symmetrised quantisation of $xp$. Its generalised eigenfunctions are $|x|^{-1/2+iE}$ and in the coordinate $y=\log|x|$ it acts as $-i\,d/dy$ on each half line. The classical flow $x\mapsto xe^t$, $p\mapsto pe^{-t}$ is unbounded and the spectrum is continuous. Berry and Keating cut the phase plane at $|x|\ge l_x$, $|p|\ge l_p$ with $l_xl_p=2\pi$ and counted Planck cells.
+% UNCHECKED: the cutoff and the Planck cell count are quoted from the author's chapter; BerryKeating99 itself was not read for this book.
+
+The count of the zeros, with $N(T)=\#\{0<\gamma\le T\}$ over the ordinates of the nontrivial zeros and $\vartheta$ the Riemann Siegel phase, is
+\begin{equation}\label{bk:eq:count}
+N(T)=\frac{\vartheta(T)}\pi+1+S(T)=\frac T{2\pi}\Big(\log\frac T{2\pi}-1\Big)+\frac78+S(T)+O\Big(\frac1T\Big),
+\end{equation}
+in which $S(T)=\pi^{-1}\arg\zeta(\frac12+iT)$ is unbounded above and below by Selberg's theorem \cite{Selberg46}. Two statements about \eqref{bk:eq:count} are sometimes made that are false as written. The count does not equal its smooth part plus $o(1)$, because $S(T)$ is not small. And the constant $\frac78$ is not the area of the cut phase plane: for $\{xp\le E,\ x\ge l_x,\ p\ge l_p\}$ one computes $E\log(E/l_xl_p)-E+l_xl_p$, so the area divided by $2\pi$ gives the main term of \eqref{bk:eq:count} with the constant $+1$, and the constant $\frac78=1-\frac18$ needs a further $-\frac18$ that the area does not supply (proved). Whether Berry and Keating obtain that term from a phase correction is not examined here. In any case the semiclassical count reproduces the smooth part of \eqref{bk:eq:count} and none of $S(T)$.
+
+Bagarello and Ku\.{z}el \cite{BagarelloKuzel26}, an unrefereed preprint of June 2026, state the following, which we quote with credit and checked against the text of the preprint. Their Proposition~1: the Berry Keating operator has Lebesgue spectrum of multiplicity two. Their Lemma~2: the restriction $S$ of $H_{\mathrm{BK}}$ to the $f$ in its domain with $\langle(H_{\mathrm{BK}}-iI)f,\gamma_\pm\rangle=0$, where $\gamma_+(x)=|x|^{-3/2}\mathbf 1_{|x|>1}$ and $\gamma_-(x)=(\operatorname{sign}x)\gamma_+(x)$, is closed, densely defined and symmetric with defect indices $(2,2)$. Their proof reads this domain as $f(1)=f(-1)=0$, their condition $u(0)=0$, which is $y=0$ on each half line, using $+E$ in place of the $-E$ of Section~\ref{bk:sec:mellin}. For the generator \eqref{bk:eq:H} that condition is $\langle(H_{\mathrm{BK}}+iI)f,\gamma_\pm\rangle=0$ and the printed one is not local; but $H_{\mathrm{BK}}-iI=(H_{\mathrm{BK}}+iI)W$ with $W$ the Cayley transform of $H_{\mathrm{BK}}$, so the two operators are unitarily equivalent through $W$ and what follows holds for both (proved). Their Theorem~3: the spectrum of a proper extension of $S$ is $\mathbb C$, or $\mathbb C_\pm\cup\R$, or $\R$; in the last case the extension is similar to $H_{\mathrm{BK}}$, and if it is self adjoint it is unitarily equivalent to $H_{\mathrm{BK}}$. In particular no self adjoint extension of this $S$ has an eigenvalue, since $H_{\mathrm{BK}}$ has none (a consequence of their theorem, proved). That is the extent of what extension theory gives for this $S$. It is not a statement about every restriction. In the coordinate $y$, take on a half line the restriction of $-i\,d/dy$ to functions vanishing at $y=0$ and $y=a$. It has a self adjoint extension, namely $-i\,d/dy$ on $[0,a]$ with periodic condition, direct sum with $-i\,d/dy$ on the complement with the endpoints glued, and this extension has the eigenvalues $2\pi k/a$ with eigenfunctions $e^{2\pi iky/a}\mathbf 1_{[0,a]}$ (proved). So a boundary condition can create eigenvalues; the Lebesgue spectrum of the self adjoint extensions of the particular $S$ is a property of that $S$.
+
+\section{The spectral measure of Riemann's kernel}\label{bk:sec:mellin}
+
+Let $\Phi$ be P\'olya's kernel of \eqref{pol:eq:riemann}, so that $\xi(\frac12+iE)=\int_\R\Phi(u)e^{iEu}\,du$ with $\Phi$ even and positive. Define the Mellin transform adapted to $H_{\mathrm{BK}}$ on even functions by
+\[
+(\mathcal M^+f)(E)=\frac1{2\sqrt\pi}\int_\R\overline{\psi_E^+(x)}\,f(x)\,dx,\qquad \psi_E^+(x)=|x|^{-1/2+iE}.
+\]
+With the conjugate in the kernel, integration by parts gives $\mathcal M^+(H_{\mathrm{BK}}f)(E)=E\,(\mathcal M^+f)(E)$, so $H_{\mathrm{BK}}$ becomes multiplication by $E$; without the conjugate it becomes multiplication by $-E$.
+
+\begin{proposition}\label{bk:prop:mellin}
+Let $g(x)=\frac12|x|^{-1/2}\Phi(\log|x|)$. Then $g\in L_2(\R)$ is even, $\mathcal M^+$ is unitary from the even subspace to $L_2(\R)$, and
+\[
+(\mathcal M^+g)(E)=\frac{\xi(\frac12+iE)}{2\sqrt\pi}.
+\]
+Hence the spectral measure of $g$ for $H_{\mathrm{BK}}$ is $|\xi(\frac12+iE)|^2\,dE/(4\pi)$, of total mass $\|g\|^2=\frac12\int_\R\Phi^2\,du=0.159875906$ (the number computed, both sides of Parseval agreeing). Status: proved.
+\end{proposition}
+
+\begin{proof}
+For even $f$,
+\[
+(\mathcal M^+f)(E)=\pi^{-1/2}\int_0^\infty x^{-1/2-iE}f(x)\,dx=\pi^{-1/2}\int_\R e^{-iEy}e^{y/2}f(e^y)\,dy,
+\]
+and Plancherel in $y$ gives $\int|\mathcal M^+f|^2dE=2\int_0^\infty|f|^2dx=\|f\|^2$. For $g$ one has $e^{y/2}g(e^y)=\frac12\Phi(y)$, and the integral is $\frac12\xi(\frac12+iE)$ because $\Phi$ is even and real. The mass is Parseval for $\Phi$.
+\end{proof}
+
+The ordinates of the zeros on the critical line are exactly the points where the density of this measure vanishes, equivalently where $g$ is orthogonal to the generalised eigenfunction $\psi_E^+$. The operator has no eigenvalue there. The measure is a fixed smooth density built from $\xi$ and is a different object from the Thorin density $v_1/\pi$ of the book: it contains the zeros as zeros of a density, not as atoms.
+
+\section{The boundary condition and the finite rank obstruction}\label{bk:sec:nogo}
+
+The link between the Berry Keating proposal and the results of the book is the boundary condition. Berry and Keating conjectured that a boundary condition encoding the primes is what the cut phase plane is missing. Section~\ref{sec:biane:nogo} proves what such a condition cannot do. Recall that a selfadjoint operator $A$, bounded below with compact resolvent, is Gram regular if the number of its eigenvalues $\mu\le t^2/4$ is $\vartheta(t)/\pi+O(1)$, the target being the multiset $\{\gamma^2/4\}$ over the ordinates $\gamma>0$. A positive first order operator $K$ with $\vartheta(t)/\pi+O(1)$ levels up to $t$ gives the Gram regular operator $A=K^2/4$. By \eqref{bk:eq:count} this is the same as having the area count of Section~\ref{bk:sec:op} up to $O(1)$, which is all that a semiclassical confinement of $xp$ gives.
+
+\begin{proposition}\label{bk:prop:nogo}
+Let $A$ be Gram regular. Then no selfadjoint operator whose resolvent differs from that of $A$ by an operator of finite rank, in particular no other selfadjoint realisation obtained by changing a finite number of boundary conditions, has as spectrum $\{\gamma^2/4\}$ with multiplicity, even after a finite set is discarded. Likewise, if $K$ is a positive confinement of $xp$ with the area count, no selfadjoint $K'$ whose resolvent differs from that of $K$ by finite rank has as spectrum the positive ordinates with multiplicity, even after a finite set is discarded. The same holds if the phase of $A$ carries a finite number of prime terms. Status: proved, unconditionally.
+\end{proposition}
+
+\begin{proof}
+This is Theorem~\ref{thm:biane:nogo}, parts (i) and (ii), and Proposition~\ref{prop:biane:euler}: a change of finite rank moves the counting function by $O(1)$, while \eqref{bk:eq:count} contains $S(T)$, which is unbounded. For $K$ take $A=K^2/4$ and $B=K'^2/4$: the resolvent identity carries the finite rank change to every point of the resolvent set, and $(K^2+c)^{-1}=(K+i\sqrt c)^{-1}(K-i\sqrt c)^{-1}$.
+\end{proof}
+
+So a boundary condition that reaches the zeros must change the counting function by $S(T)$, that is, by the whole prime sum, and no finite rank change or finite set of primes can do so. This is a statement about the base and the size of the change and it offers no candidate. The Bagarello and Ku\.{z}el theorem of Section~\ref{bk:sec:op} concerns an unconfined line, where every self adjoint extension of that $S$ is again Lebesgue; the obstruction above concerns confined bases. Neither excludes an operator on a different space, and the string of Section~\ref{bk:sec:string} is not a finite rank move of any base.
+
+\section{Deconvolution on the prime side}\label{bk:sec:prime}
+
+Let $\gamma$ run over the ordinates, positive and negative, of the nontrivial zeros $\rho=\frac12+i\gamma$ with multiplicity, and let $\mu_0=\sum_\gamma\delta_\gamma$ and $P_a(x)=a/(\pi(a^2+x^2))$. Write $u_\sigma(t)=\pi^{-1}\re(\xi'/\xi)(\sigma+it)$, the Thorin density at level $\sigma$.
+
+\begin{proposition}[conditional on RH]\label{bk:prop:cauchy}
+Assume RH. For $\sigma>\frac12$ and $t\in\R$, $u_\sigma=P_{\sigma-1/2}*\mu_0$. With $\widehat{\mu_0}(\omega)=\sum_\gamma e^{-i\gamma\omega}$, the explicit formula gives, on compactly supported test functions in $\omega$,
+\[
+\widehat{\mu_0}(\omega)=2\cosh\frac\omega2+\Gamma(\omega)-\sum_{n\ge2}\frac{\Lambda(n)}{\sqrt n}\big(\delta_{\log n}+\delta_{-\log n}\big),
+\]
+where $\Gamma$ is the contribution of the Gamma factor and is smooth off $\omega=0$, and $\widehat{u_\sigma}=e^{-(\sigma-1/2)|\omega|}\widehat{\mu_0}$ for $\omega\ne0$. The deconvolution from level one to the line is the multiplier $e^{|\omega|/2}$, which on the comb takes the weight $\Lambda(n)/n$ to $\Lambda(n)/\sqrt n$.
+\end{proposition}
+
+\begin{proof}
+By the Hadamard product $(\xi'/\xi)(s)=\sum_\rho(s-\rho)^{-1}$ summed over pairs, and $\re(\sigma+it-\rho)^{-1}=(\sigma-\beta)/((\sigma-\beta)^2+(t-\gamma)^2)$ with $\beta=\frac12$ under RH, which is $\pi P_{\sigma-1/2}(t-\gamma)$. The explicit formula (Weil \cite{Weil52}, Guinand \cite{Guinand48}) applied to even $h$ whose transform is smooth of compact support, formally $h(r)=e^{-i\omega r}$, gives the second display, the pole term being $h(\frac i2)+h(-\frac i2)$.
+\end{proof}
+
+Without RH an off line pair $\rho,1-\bar\rho$ contributes $P_{\sigma-\beta}+P_{\sigma-1+\beta}$ and not a kernel of width $\sigma-\frac12$, and $\mu_0$ and its transform do not exist as stated. The comb of the explicit formula does not see the real parts of the zeros, so the multiplier $\sqrt n$ is algebra and holds with or without RH on the prime side; it is the passage to the limit that contains the hypothesis. What the book proves without a hypothesis is the following. Theorem~\ref{cm:thm:flow} and Remark~\ref{bsy:rem:weil} give the Cauchy and Fej\'er smoothed measure at every level $\sigma>\frac12$ with only the prime powers $n\le e^L$ on the prime side (proved), and its limit $L\to\infty$ exists if every zero has $|\beta-\frac12|<\sigma-\frac12$ and does not exist if some zero has $|\beta-\frac12|>\sigma-\frac12$. As $\sigma\downarrow\frac12$ the limit of $u_\sigma$ is the sum of $\delta_\gamma$ over the zeros with $\beta=\frac12$, which is positive with no hypothesis (Corollary~\ref{tx:cor:half}, proved). Hence positivity of the limit measure at level $\frac12$ is not RH. RH is the statement that this limit has mass $N(T)$ on $(0,T]$, that is, that no zero is missing from it (the book's statement of the zero free half plane in the language of levels is Section~\ref{ch:almost}). A reading of the weights $\Lambda(n)/\sqrt n=(\log p)\,p^{-m/2}$, $n=p^m$, as Gutzwiller amplitudes of the periodic orbits of period $m\log p$ is a heuristic only.
+
+Nothing here separates $\zeta$ from the Davenport and Heilbronn function: the form of the proposition uses the functional equation and the Hadamard product and not the Euler product (Section~\ref{bk:sec:close}).
+
+\section{The Krein string of the zeros}\label{bk:sec:string}
+
+This section is the main result of the chapter. Assume RH and let $\gamma_1\le\gamma_2\le\cdots$ be the positive ordinates with multiplicity, $\lambda_j$ the distinct values among the $\gamma_n^2$ and $m_j$ their multiplicities. Krein's correspondence is a bijection between strings and pairs $(c,\tau)$, where $c\ge0$ is the length of an initial massless gap and $\tau$ is a measure on $[0,\infty)$ with $\int d\tau/(1+\lambda)<\infty$; the length of the string is $c+\int\lambda^{-1}d\tau$ (Dym and McKean \cite{DymMcKean76}, Kotani and Watanabe \cite{KotaniWatanabe82}, as used in Section~\ref{ev:sec:kent}). The string has a reflecting end at $x=0$ and a Dirichlet end at $x=L$, as in Section~\ref{ev:sec:kent}; its mass function $M$ is nondecreasing and the spectral measure is the measure $\tau$.
+% UNCHECKED: the statement of Krein's correspondence is the source's, as in Section ev:sec:kent; Dym and McKean and Kotani and Watanabe were not read for this book.
+
+\begin{theorem}[conditional on RH]\label{bk:thm:string}
+Assume RH. Let $\tau=\sum_n\delta_{\gamma_n^2}$, the squared positive ordinates counted with multiplicity, so that $\tau$ has weight $m_j$ at $\lambda_j$ and unit weights exactly when the zeros are simple. Then:
+\begin{enumerate}
+\item[(a)] There is a unique string with $c=0$ and spectral measure $\tau$. Its Weyl function is explicit and uses no zero:
+\[
+h(-s)=\sum_n\frac1{\gamma_n^2+s}=\frac{(\xi'/\xi)(\frac12+\sqrt s)}{2\sqrt s},\qquad s>0.
+\]
+\item[(b)] Its length is $L=h(0+)=\sum_n\gamma_n^{-2}=\xi''(\frac12)/(2\xi(\frac12))=0.02310499311541897$ (the number computed).
+\item[(c)] Its mass function satisfies $M(L-)=\infty$, and $M$ has no jump at $x=0$.
+\item[(d)] If the zeros are simple, the Dirichlet eigenfunction at $L$ is $\varphi(L,-s)=\xi(\frac12+\sqrt s)/\xi(\frac12)$, the hitting time $T$ of the end $x=L$ has $\E e^{-sT}=\xi(\frac12)/\xi(\frac12+\sqrt s)$, which is the clock of Section~\ref{ch:clock}, and $\E T=L$.
+\end{enumerate}
+Status: conditional on RH, proved.
+\end{theorem}
+
+\begin{proof}
+(a) Under RH the zeros of $s\mapsto\xi(\frac12+\sqrt s)$ are the points $-\gamma_n^2<0$, the function has order $\frac12$ and genus zero, so $\xi(\frac12+\sqrt s)=\xi(\frac12)\prod_n(1+s/\gamma_n^2)$, and the logarithmic derivative in $s$ is the displayed formula. Since $\sum\gamma_n^{-2}<\infty$, Krein's correspondence gives a string with $c=0$; uniqueness is the correspondence with $c=0$. That $M$ has no bead at the origin follows from $sh(-s)\to\infty$: the asymptotics $(\xi'/\xi)(\frac12+r)\sim\frac12\log r$ give $h(-s)\sim\log\sqrt s/(4\sqrt s)$, which is much larger than the $1/(ms)$ of a bead of mass $m$.
+
+(b) The string has $\varphi(x,0)=1$ and $\psi(x,0)=x$, so $L=\psi(L,0)/\varphi(L,0)=h(0+)$, and $\xi'(\frac12)=0$ gives the closed form.
+
+(c) Suppose $m=M(L-)<\infty$. Write the equations as $d\varphi'=-\lambda\varphi\,dM$ at $\lambda=-s$ with $s>0$ and put $a=\sqrt{sm/L}$, $Y=\max(\varphi,\varphi'/a)$. Then $dY\le\sqrt{smL}\,Y\,(dx/L+dM/m)$, and $x/L+M(x)/m$ rises by at most $2$ on $[0,L)$, so $\varphi(L,-s)\le e^{2\sqrt{smL}}$ by Gronwall's inequality for Stieltjes integrals. On the other hand $\varphi(L,-s)=\prod_j(1+s/\lambda_j)$ over the distinct Dirichlet eigenvalues, which are the atoms of $\tau$, so $\log\varphi(L,-s)\ge n_0(s)\log2$ with $n_0(s)=\#\{j:\lambda_j\le s\}$. A positive proportion of the zeros are simple (Alp\"oge and Furman \cite{AF26}) and $N(T)\sim(T/2\pi)\log T$, so $n_0(T^2)\ge cT\log T$. Taking $s=T^2$, $cT\log T\log2\le2T\sqrt{mL}$, which is false for large $T$.
+
+(d) With simple zeros the atoms have unit weight, the Dirichlet eigenfunction at $L$ has the zeros $-\gamma_n^2$ and $\varphi(L,0)=1$, hence is the product above. The hitting time has transform $1/\varphi(L,-s)$ (Kent \cite{Kent80}, Proposition~\ref{ht:prop:kent}). Moreover $\E T=\partial_s\varphi(L,-s)|_{s=0}=\int(L-y)\,dM(y)=\sum\gamma_n^{-2}=L$.
+\end{proof}
+
+Three remarks on the status. First, the theorem is RH by inclusion. Item (a) contains the hypothesis that every $\gamma_n^2$ is real and positive, and Krein supplies a string for any such list with $\sum\lambda^{-1}<\infty$, so the existence of the string uses no property of $\zeta$. The same statement holds for every even real entire function of order below two (Corollary~\ref{ev:cor:rh}), and the theorem is a restatement of that corollary and not a route to RH. What it adds is the explicit Weyl function, the length, the norming of the weights by the choice of unit weights with $c=0$, which fixes the freedom noted in Section~\ref{ev:sec:kent} with one choice, and the infinite mass at the end. Second, simplicity is needed only in (d): with a multiple zero the atom has mass $m_j>1$, the Dirichlet function is the product over the distinct $\lambda_j$, and the hitting time law is that product, not the clock. Simplicity is not known, and (a) to (c) do not need it. Third, Corollary~\ref{ev:cor:rh} already carries the circularity: the string adds no independent access to the zeros.
+
+Bead data. The truncated strings with the first $N$ ordinates, $N=50,100,200,400,800$, have been computed by the Euclid algorithm on the truncated Weyl function, in arithmetic of at least $400$ digits. The mass of the last bead is $5.8\times10^{17}$, $1.9\times10^{30}$, $7\times10^{50}$, $9\times10^{84}$ and $10^{142}$, in line with (c) (computed). The largest bead to the left of $x=L/2$ is $0.0932$, $0.0446$, $0.0235$, $0.0122$ and $0.0067$ at $N=50$ to $800$, halving with $N$ like the largest bead of the homogeneous string $M(x)=x$, and to the left of $3L/4$ it is $0.391$, $0.134$, $0.059$, $0.030$ and $0.016$. No limit bead is visible. This is computed; whether the limit string has beads is open, and it does not follow from the infinitely many atoms, since the homogeneous string has infinitely many atoms and no beads. The mean $\sum\gamma_n^{-2}$ of the truncations equals their length to all printed digits.
+
+\section{A negative computation: the Langevin operator of P\'olya's kernel}\label{bk:sec:langevin}
+
+One may ask whether a differential operator built from $\Phi$ has the ordinates in its spectrum. A first order operator $-i(x\,d/dx+c)$ is symmetric on $L_2(\R_+,w\,dx)$ exactly when $(xw)'=2cw$, so $w$ is a power and Section~\ref{bk:sec:mellin} applies on a shifted line (proved). The natural second order operator is the Dirichlet form of $\Phi$ in the log coordinate $y$,
+\[
+\mathcal Lf=-\frac1\Phi(\Phi f')'=-f''-(\log\Phi)'f'\quad\text{on }L_2(\R,\Phi\,dy),
+\]
+the generator of the Langevin diffusion with invariant density $\Phi$. It is unitarily equivalent to $-d^2/dy^2+V$ with $V=\frac14((\log\Phi)')^2+\frac12(\log\Phi)''$. Since $\Phi(y)\propto e^{9|y|/2}\exp(-\pi e^{2|y|})$ for large $|y|$, $V\sim\pi^2e^{4|y|}\to\infty$, so $\mathcal L$ has discrete spectrum $0=\lambda_0<\lambda_1<\cdots$ (proved). If $-(\log\Phi)''\ge\kappa>0$ on $\R$, the criterion of Bakry and \'Emery gives $\lambda_1\ge\kappa$.
+% UNCHECKED: the Bakry Emery criterion is quoted from memory, no source read.
+The smallest value of $-(\log\Phi)''$ on a grid of $|y|\le0.35$ is $18.73$, at $y=0$ (computed). Table~\ref{bk:tab:langevin} gives the eigenvalues by finite differences on $|y|\le2$ with $16000$ points (computed; the grid of $8000$ points differs by at most $0.001$) against the squared ordinates. There is no relation: the eigenvalues grow slightly faster than linearly, and the ratios $\lambda_k/\gamma_k^2$ drift. Point spectrum is cheap; the zeros are fixed by the transform of $\Phi$, a global object, and not by a local expression in $\Phi$. Status: computed, negative.
+
+\begin{table}[t]
+\centering
+\caption{Eigenvalues $\lambda_k$ of the generator $\mathcal L$ of P\'olya's kernel, against the squared ordinates (computed).}
+\label{bk:tab:langevin}
+\begin{tabular}{rrr}
+\toprule
+$k$ & $\lambda_k$ & $\gamma_k^2$\\
+\midrule
+1 & 21.559 & 199.79\\
+2 & 47.836 & 441.93\\
+3 & 77.599 & 625.54\\
+4 & 110.378 & 925.67\\
+5 & 145.860 & 1084.72\\
+6 & 183.830 & 1412.72\\
+7 & 224.123 & 1674.34\\
+8 & 266.609 & 1877.24\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{What this adds and what it does not}\label{bk:sec:close}
+
+What is proved: the spectral measure of Riemann's kernel for the dilation generator (Proposition~\ref{bk:prop:mellin}); the correct form of the constant $\frac78$ and of the extension statements of Bagarello and Ku\.{z}el, with the caveat that other restrictions do create eigenvalues; and the finite rank obstruction applied to the Berry Keating boundary condition (Proposition~\ref{bk:prop:nogo}). What is conditional on RH: the Cauchy form with its comb (Proposition~\ref{bk:prop:cauchy}), which the book already has in stronger windowed form unconditionally, and the Krein string (Theorem~\ref{bk:thm:string}), whose additions to Corollary~\ref{ev:cor:rh} are the explicit Weyl function, the length and the infinite mass at its end. What is computed: the bead data and the Langevin spectrum, the latter negative. What is open: whether the limit string has beads, and whether any boundary condition on a Gram regular base can carry the prime sum $S(T)$ in a way that is spectrally natural.
+
+Selberg's theorem on $S(T)$ and the count of simple zeros aside, the results of Sections~\ref{bk:sec:prime} and \ref{bk:sec:string} use the Euler product only through the explicit formula, and their forms do not separate $\zeta$ from the Davenport and Heilbronn function; the Langevin computation was not run for it. A control run on that function, which has the functional equation, a Hadamard product and zeros off the line (Theorem~\ref{bsy:thm:dhid}), shows the same forms. Its zero at $0.8085171825+85.69934849i$ gives $u_{0.75}=-4.802$ and $u_{0.7}=-2.253$ at the ordinate $85.699$, against $+6.94$ at $\sigma=0.8585$ and $+2.19$ at $\sigma=1$ (computed): the density is positive at level one and turns negative below the real part of the zero, exactly as the Cauchy form predicts. The equivalences of Corollary~\ref{ev:cor:rh} hold for it word for word. The multiplier $\sqrt n$ is algebra. What separates $\zeta$ is only the positivity of $\Lambda(n)$ at level one together with the absence of zeros on $\re s=1$ (Theorem~\ref{cm:thm:height}). The Berry Keating programme therefore remains what it was: a precise statement of what an operator would have to supply, with this chapter's obstruction and string recording how far the unconditional and the conditional pictures reach.

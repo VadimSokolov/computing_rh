@@ -231,6 +231,76 @@ and $N_{\rm WKB}(T/2)=N_0(T)+\frac{2\pi}T+O(T^{-3})$: it agrees with the main te
 
 The $1516$ zeros $\nu_n\le1000$ are computed from \eqref{eq:biane:phase} with mpmath \cite{mpmath}.
 
+\subsection{A finite rank obstruction to perturbing the wall}\label{sec:biane:nogo}
+
+Can the integers be added to $A_P$ as a selfadjoint perturbation that moves its levels onto the zeta zeros? Lagarias \cite{Lagarias09} studied the Morse operators $-\frac{d^2}{du^2}+\frac14e^{2u}+ke^u$ on a right half line as a model for zeta; their spectrum is real and obeys a Weyl law with an $O(1)$ error, and Lagarias notes some parallels with the zeros of zeta. Kapustin \cite{Kapustin22} announced that the zeta zeros, one excepted, are the spectrum of a rank one perturbation of the inverse of a Morse type operator, with RH equivalent to that spectrum being real.
+% UNCHECKED: Lagarias09 checked against its abstract only; Kapustin22 is the statement of the source note (Polson and Sokolov, hitting time note), its abstract not read.
+The theorem below limits what a selfadjoint perturbation of finite rank can do. It has no arithmetic content beyond Selberg's theorem on $S(t)$, and it offers no candidate operator.
+
+Call a selfadjoint operator $A$, bounded below with compact resolvent, \emph{Gram regular} if $N_A(t)=\#\{\mu\le t^2/4\}$ over the eigenvalues $\mu$ of $A$ satisfies $N_A(t)=\vartheta(t)/\pi+O(1)$. The variable is the zeta scale $t=2\sqrt\mu$: the zeros of $P$ are $\pm2\nu_n$ with $\nu_n^2\in\operatorname{spec}A_P$ (Proposition~\ref{prop:biane:liouville}), so $N_{A_P}=N_P$, and $A_P$ is Gram regular by Proposition~\ref{prop:biane:phase}(iii). In the variable $t=\sqrt\mu$ it is $4A_P$ that matches, so that the clock $\tau_\infty$ of Theorem~\ref{thm:biane:clock} with $b=2\pi$ is the analogue of $4T$ and not of $T$, the clock of Section~\ref{ch:clock}. The target is the multiset $\{\gamma^2/4\}$, $\gamma$ running over the ordinates with $\re\gamma>0$ of the nontrivial zeros, which are real exactly under RH.
+
+\begin{theorem}\label{thm:biane:nogo}
+Let $A$ be Gram regular. (i) If $F$ is a bounded selfadjoint operator of finite rank, the spectrum of $A+F$ is not $\{\gamma^2/4\}$ with multiplicity, even when a finite set of eigenvalues and of ordinates is discarded. (ii) The same holds for every selfadjoint $B$ such that $(A+c)^{-1}-(B+c)^{-1}$ has finite rank for some $c$ with $A+c>0$, which covers finite rank perturbations of $A^{-1}$ when $0\notin\operatorname{spec}A$ and changes of boundary condition. (iii) The same holds for the target $\{\gamma^2/4+c'\}$, $c'\in\R$. The statement is unconditional (proved).
+\end{theorem}
+
+\begin{proof}
+Suppose the spectra agree up to finite sets. A selfadjoint operator has real spectrum and no $\gamma$ is purely imaginary, since $\xi$ has no real zero, so all but finitely many ordinates are real. By the min max principle a perturbation of rank $r$ changes the counting function by at most $r$, hence $N_{A+F}(t)=\vartheta(t)/\pi+O(1)$, and the count of ordinates is the same up to $O(1)$. But $N(t)=\vartheta(t)/\pi+1+S(t)$ exactly, so $S(t)=O(1)$, against Selberg \cite{Selberg46}, who proved that $S(t)$ is unbounded above and below (sharpened by Tsang \cite{Tsang}). For (ii), the eigenvalues of the two resolvents above $1/(t^2/4+c)$ are counted with a difference at most the rank, and they correspond to the levels below $t^2/4$. For (iii), $\vartheta(\sqrt{t^2+4c'})-\vartheta(t)=O(\log t/t)$.
+\end{proof}
+
+A rank one perturbation that is not selfadjoint carries no constraint at all: for distinct $\alpha_i$ and arbitrary $\beta_i$, the perturbation $\operatorname{diag}\alpha+uv^{T}$ with $v_i=1$ and $u_i=-\prod_j(\alpha_i-\beta_j)/\prod_{j\ne i}(\alpha_i-\alpha_j)$ has spectrum $\beta$, and it is diagonally similar to a selfadjoint perturbation of $\operatorname{diag}\alpha$ exactly when the $u_i$ all have one sign, that is, when the two lists weakly interlace. So the theorem does not exclude a real spectrum for a non Hermitian perturbation. For Kapustin's representation it gives only a conditional statement: if the unperturbed Morse type operator is Gram regular, the perturbation is not selfadjoint in the inner product of that operator, whether or not RH holds. The hypothesis is not checked here.
+
+\begin{proposition}\label{prop:biane:morse}
+(a) For real $k$ let $B_k=-\frac{d^2}{dx^2}+e^{2x}+2ke^x$ on $[\log2\pi,\infty)$ with a Dirichlet condition at $\log2\pi$; this is Lagarias's operator with $u=x+\log2$ and $u_0=\log4\pi$. Its eigenvalues are $\mu=\nu^2$ where, for large $\nu$, $\vartheta(2\nu)+\frac{3\pi}8-\frac{k\pi}2+O_k(1/\nu)\equiv0\bmod\pi$, so $B_k$ is Gram regular. At $k=0$ this is the rule of Proposition~\ref{prop:biane:phase}. (b) Let $V$ be real and locally bounded on $[\log2\pi,\infty)$ with $|V(x)|\le Ce^x$. Then $-\frac{d^2}{dx^2}+e^{2x}+V$ on that half line, with the Dirichlet condition of (a), is Gram regular, so no finite rank perturbation of it has the zeta spectrum. Consequently any real potential whose levels reach the zeros up to finite rank satisfies $\limsup_{x\to\infty}|V(x)|e^{-x}=\infty$. Status: proved.
+\end{proposition}
+
+\begin{proof}
+(a) With $z=2e^x$, the function $y=z^{-1/2}W_{-k,i\nu}(z)$ solves $-y''+(e^{2x}+2ke^x)y=\nu^2y$ and decays at $+\infty$, by Whittaker's equation, so the levels are the zeros of $\nu\mapsto W_{-k,i\nu}(4\pi)$. The connection formula \cite[(13.14.33)]{DLMF} writes $W_{-k,i\nu}(z)$ as twice the real part of $\Gamma(2i\nu)/\Gamma(\frac12+k+i\nu)\,z^{1/2-i\nu}e^{-z/2}M(\frac12+k-i\nu,1-2i\nu,z)$. For fixed $z$ the confluent series satisfies $M\to e^{z/2}(1+O(1/\nu))$, analytically in $\nu$, and Stirling's formula gives the phase of the bracket at $z=4\pi$ as $\nu\log(\nu/\pi)-\nu-\frac\pi4-\frac{k\pi}2+O(1/\nu)$. The zeros are where it is $\frac\pi2$ mod $\pi$. Since $\vartheta(2\nu)=\nu\log(\nu/\pi)-\nu-\frac\pi8+O(1/\nu)$, this is the stated rule; the phase has derivative $\log(\nu/\pi)+O(\nu^{-2})>0$, so there is one level per step of $\pi$ and the count is $\vartheta(2\nu)/\pi+O_k(1)$. (b) Take $k=C/2$. The terms $2ke^x$ and $V$ are infinitesimally form bounded with respect to $e^{2x}$, and $B_{-k}\le-\frac{d^2}{dx^2}+e^{2x}+V\le B_k$ in the form sense, so the min max principle sandwiches the count between those of $B_{\pm k}$; apply Theorem~\ref{thm:biane:nogo}. The last statement follows because $\limsup|V|e^{-x}<\infty$ and local boundedness give a global constant.
+\end{proof}
+
+
+The theorem applies against any fixed Gram regular reference, and a constant phase is the simplest one. For reference levels at $\vartheta(t)=(m+c)\pi$, $m\ge m_0$, let $N_c(t)$ be their count and $D_c=N-N_c$, where $N$ counts the zeros. Weak interlacing for a positive or negative rank one perturbation holds exactly when $D_c$ takes at most two adjacent values: if an interval between consecutive levels holds no zero the discrepancy drops by $2$ across it, and if it holds two or more it rises by at least $2$.
+
+\begin{proposition}\label{prop:biane:span}
+$D_c=S+\{\vartheta/\pi-c\}+c+m_0$ with $\{\cdot\}$ the fractional part, so over any range $\sup S-\inf S-1<\operatorname{span}D_c<\sup S-\inf S+1$ once the range holds enough levels. Over $[30,680]$ one has $S\in[-1.1455,1.1642]$, with the supremum $1.1642$ just after $\gamma_{379}=650.669$ and the infimum $-1.1455$ just before $\gamma_{289}=527.904$ (computed), hence $2\le\operatorname{span}D_c\le3$ for every real $c$: rank one is excluded against every constant phase on this range. The span is $3$ exactly for $c\in[0,0.1455)\cup(0.8358,1)$ modulo $1$ and $2$ otherwise (computed).
+\end{proposition}
+
+\begin{proof}
+$N_c(t)=\lfloor\vartheta/\pi-c\rfloor-m_0+1$ and $N=\vartheta/\pi+1+S$ give the formula. The two values of $S$ give $D_c(t_1)-D_c(t_2)>2.3097-1=1.3097$ between $t_1$ just after $\gamma_{379}$ and $t_2$ just before $\gamma_{289}$; an integer, so at least $2$. The upper bound is the same with $2.3097+1<4$.
+\end{proof}
+
+Against the true levels the picture is less clean than against an ideal phase, and it depends on the reference. With the first $400$ zeros, Table~\ref{tab:biane:interlace} gives for each reference the number of intervals between consecutive levels that do not hold exactly one zero. Every one of these is a witness against rank one, and the span is the quantity that matters (Remark~\ref{rem:biane:rank}). The Gram failure at $280.80$ is the classical first failure of Gram's law; the wall has a level in each of the $413$ Gram intervals from $g_0$ to $700$ (computed). The ideal phase $c=\frac58$ is the limit of the wall's levels, which approach $\vartheta/\pi\equiv\frac58$ with an error of $0.06$ at $t=100$ and $0.009$ at $t=680$, but it differs from them by up to $0.9$ in $t$ at $t\approx30$; the phase $c=\frac12$ is shown for comparison.
+
+\begin{table}[ht]
+\centering\small
+\begin{tabular}{lrrrr}
+\toprule
+reference levels on $[17,680]$ & intervals & without exactly one zero & first failure & span\\
+\midrule
+Gram points & $398$ & $22$ & $280.80$ & $3$\\
+levels of $A_P$ & $397$ & $199$ & $29.37$ & $2$\\
+ideal phase $c=\frac12$ & $397$ & $207$ & $20.65$ & $2$\\
+ideal phase $c=\frac58$ & $397$ & $188$ & $26.05$ & $2$\\
+\bottomrule
+\end{tabular}
+\caption{Interlacing of the first $400$ zeros with four reference lists (computed, double precision). The span is that of $N$ minus the count of the reference on $[30,680]$.}\label{tab:biane:interlace}
+\end{table}
+
+\begin{remark}\label{rem:biane:rank}
+With the zeros as input the rank is exactly the span on a finite section. Let $\alpha_1<\dots<\alpha_n$ and $\beta_1<\dots<\beta_n$ be two lists, $d=N_\beta-N_\alpha$, $p=\max(-d)$, $q=\max d$. By min max a real symmetric $F$ with $p'$ positive and $q'$ negative eigenvalues forces $-p'\le d\le q'$, and conversely there is such an $F$ with $p$ positive and $q$ negative eigenvalues and $\operatorname{spec}(\operatorname{diag}\alpha+F)=\beta$, built from $p+q$ rank one moves, each strictly interlacing after the common values are deleted, with weights from the secular equation. By Proposition~\ref{prop:biane:span} the rank needed against a constant phase is within $1$ of the width of $S$ on the range. For the Gram points and the wall on $[30,680]$ the matrices of size about $395$ reproduce the zeros to $10^{-11}$ in $t$ (computed). The vector of weights uses the zeros, so this is no construction of the zeros. By Selberg's theorem the width of $S$ is not bounded as the height grows, so the rank needed at height $T$ is not bounded either; at every computed height it is small, because $|S|$ is small there. No finite computation sees infinite rank.
+\end{remark}
+
+The obstruction belongs to the reference and not to the zeros, and a few primes in the phase change the finite picture. Put $\Theta_{p_0}(t)=\vartheta(t)+\operatorname{Im}\log\zeta_{p_0}(\frac12+it)=\vartheta(t)-\sum_{p\le p_0}\sum_{k\ge1}\sin(kt\log p)/(kp^{k/2})$ for the Euler product truncated at the primes $p\le p_0$.
+
+\begin{proposition}\label{prop:biane:euler}
+Fix $p_0$. Any selfadjoint operator whose levels are, up to a finite set, the solutions of $\Theta_{p_0}(t)\equiv c\pi\bmod\pi$ is Gram regular, so no finite rank perturbation of it has the zeta spectrum. Status: proved.
+\end{proposition}
+
+\begin{proof}
+$|\Theta_{p_0}-\vartheta|\le-\sum_{p\le p_0}\log(1-p^{-1/2})$ is bounded and $\Theta_{p_0}'=\vartheta'+O_{p_0}(1)$ with $\vartheta'\to\infty$, so $\Theta_{p_0}$ is eventually increasing and the count is $\Theta_{p_0}/\pi+O(1)=\vartheta/\pi+O_{p_0}(1)$. Apply Theorem~\ref{thm:biane:nogo}.
+\end{proof}
+
+Proposition~\ref{prop:biane:euler} is what a finite number of prime terms in the phase can honestly mean. It says nothing about rank at a given height. Let $e_m=m-\Theta_{p_0}(\gamma_m)/\pi$ from $m=8$; its width below $1$ means that rank one is possible for some $c$. On $[30,680]$, with the first $420$ zeros (to height $706.18$), the width is $1.3097$ without primes, reaching $1$ at $t=282.47$; $1.0387$ with $p_0=2$, reaching $1$ at $630.47$; and $0.7772$ with $p_0=3$, never reaching $1$, with about $45$ of $200$ phases of span $1$. With $p_0=3$ and $c=0$ no interval fails, and a matrix of size $395$ with positive weights reproduces the zeros from $32.9$ to $677.8$. These are computed in double precision, and $\Theta_{p_0}$ is not monotone at these heights for $p_0\ge2$ (on $1\%$ of the grid for $p_0=2$ and $3\%$ for $p_0=3$). So the exclusion of rank one in Proposition~\ref{prop:biane:span} belongs to references with no primes in the phase. The prime sum does not enter the wall: write $W(b)=\sum_{\gamma>0}e^{-\gamma^2b}=W_{\rm ar}(b)+W_{\rm pr}(b)$, with $W_{\rm pr}(b)=-\frac1{2\sqrt{\pi b}}\sum_{n\ge2}\Lambda(n)n^{-1/2}e^{-(\log n)^2/(4b)}$ and $W_{\rm ar}$ the pole and archimedean terms (Section~\ref{ht:sec:target}). Then $W_{\rm ar}(b)-\sum_ne^{-4\nu_n^2b}$ does not tend to $W_{\rm pr}(b)$ (at $b=0.005$ it is $0.325$ against $W_{\rm pr}=-7\times10^{-11}$, computed), and only the leading Weyl terms match, with a constant offset tending to $\frac98$.
+
 \subsection{The index side: a GGC with the squared zeros as Thorin atoms, and its clock}\label{sec:biane:index}
 
 Biane's Thorin measures in Theorem~\ref{thm:biane:dict} live on the time side: they describe the hitting time in the energy variable of its Laplace transform. The Thorin programme works on the index side, with the reciprocal $1/\E\cosh(\sqrt u\,X)$ of the moment generating function \eqref{eq:ch2:mgf} of the P\'olya law, whose Thorin atoms would be the squared ordinates. The same hitting time carries both measures, through the Mellin transforms of Proposition~\ref{prop:biane:mellin} and \eqref{bp:eq:bpy}.
@@ -514,4 +584,14 @@ What is the de Bruijn Newman constant $\Lambda_P$ of P\'olya's function, and tha
 
 \begin{question}\label{q:biane:curv}
 Is there a one parameter family of laws joining the drifted first passage time and the sum of two Bessel hitting times, each with a reciprocal symmetry that encodes a functional equation, as $\tau\mapsto1/\tau$ does for $H$ in Proposition~\ref{prop:biane:mellin}(i) and Jacobi's transformation does for $S_2$, along which the index side Thorin measure can be followed? The curvature family of Proposition~\ref{prop:biane:skappa} is an Esscher tilt and breaks the symmetry. Positivity of the index side Thorin measure at the Bessel end is RH.
+\end{question}
+
+Two further questions come from the finite rank theorem of Section~\ref{sec:biane:nogo}.
+
+\begin{question}\label{q:biane:infrank}
+Define, without using the zeros, a sequence of selfadjoint finite rank corrections of $A_P$, for instance by a prime sum, whose spectra converge to $\{\gamma^2/4\}$. The theorem shows that the ranks must be unbounded, and the question is open as stated. Any solution gives RH, because limits of real numbers are real and no $\gamma$ is purely imaginary. Under RH and with the zeros as input a solution exists trivially, as a sequence of rank one moves of the eigenvalues of $A_P$ onto $\gamma_n^2/4$, in the diagonal basis; the content of the question lies in the clause that the corrections be defined from the primes, and a scalar weight such as $\Lambda(n)/\sqrt n$ at each prime power defines no rank one operator without a vector, so that clause needs a definition first.
+\end{question}
+
+\begin{question}\label{q:biane:string}
+Fix one construction that assigns a Krein string to a finite list of levels and norming weights, for instance the Stieltjes continued fraction of $\sum_nw_n\delta_{\gamma_n^2/4}$, and apply it to the first $N$ ordinates and to the first $N$ levels of $A_P$ with the weights given by the norming constants of its eigenfunctions. How do the masses of the two strings compare as $N$ grows? A string is determined by its spectral measure, the eigenvalues together with the norming constants, and not by the ordinates alone, so the comparison must fix the weights of the zeros, and a difference of masses is not a perturbation of any rank in the sense of Theorem~\ref{thm:biane:nogo}. With the zeros as input this tests an inverse algorithm and is no arithmetic mechanism. Status: open.
 \end{question}

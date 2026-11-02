@@ -1,6 +1,6 @@
 # Results by chapter <small>Computing the Riemann Hypothesis</small>
 
-The results of [Computing the Riemann Hypothesis](https://vsokolov.org/books/computing_rh/) that are new in the book, that come from the authors' own papers, or that correct one of those papers, as the book states them: 793 entries (537 proved, 47 computed, 55 conditional, 149 open, 5 counterexample). Results of other authors that the book presents are credited in the [chapter summaries](https://github.com/VadimSokolov/computing_rh/tree/main/summaries).
+The results of [Computing the Riemann Hypothesis](https://vsokolov.org/books/computing_rh/) that are new in the book, that come from the authors' own papers, or that correct one of those papers, as the book states them: 824 entries (561 proved, 48 computed, 59 conditional, 151 open, 5 counterexample). Results of other authors that the book presents are credited in the [chapter summaries](https://github.com/VadimSokolov/computing_rh/tree/main/summaries).
 
 Status: proved; computed (established by a computation that the book reports and the entry names, such as an exact census or a fit to one, and not proved for every case); conditional (proved assuming the named statements, which the book does not prove); open (stated as an open question); counterexample (a proved counterexample); withdrawn (found wrong after release; the entry says what was wrong and which version corrects it).
 
@@ -18,7 +18,7 @@ Statement. Let $\xi(s)=\frac12 s(s - 1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$ be the com
 
 Earlier editions: Proposition 1.2.1, page 10 (edition 1).
 
-Source: [`ch/ch02.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch02.tex), label `prop:rigid`.
+Source: [`ch/ch02.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch02.tex), label `prop:rigid`.
 
 <a id="shifted_clock_ggc_right_of_every_zero"></a>
 
@@ -32,7 +32,7 @@ Statement. Let $\xi$ be the completed zeta function, and for real $\alpha$ and r
 
 Earlier editions: Theorem 1.2.2, page 14 (edition 1).
 
-Source: [`ch/ch02.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch02.tex), label `thm:poisson`.
+Source: [`ch/ch02.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch02.tex), label `thm:poisson`.
 
 <a id="one_line_positivity_exclusion_open"></a>
 
@@ -46,7 +46,7 @@ Statement. Let $\xi$ be the completed zeta function and, for real $\alpha>\frac1
 
 Earlier editions: Remark 1.2.4, page 15 (edition 1).
 
-Source: [`ch/ch02.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch02.tex), label `rem:ch2:oneline`.
+Source: [`ch/ch02.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch02.tex), label `rem:ch2:oneline`.
 
 ## Volume I, Chapter 3. Probabilistic representations of Xi
 
@@ -62,7 +62,7 @@ Statement. Let $\xi(s)=\tfrac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$ be Riemann'
 
 Earlier editions: Proposition 8.2.1, page 219 (edition 1).
 
-Source: [`ch/ch19.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch19.tex), label `prop:nogo`.
+Source: [`ch/ch19.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch19.tex), label `prop:nogo`.
 
 <a id="maslanka_coefficients_as_laguerre_moments_of_williams_variable"></a>
 
@@ -76,7 +76,7 @@ Statement. Let $W=\pi^2S_2/2=\sum_{n\ge1}\Gamma_n/n^2$ with independent Gamma(2)
 
 Earlier editions: Proposition 8.2.2, page 224 (edition 1).
 
-Source: [`ch/ch19.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch19.tex), label `prop:ch19:maslanka`.
+Source: [`ch/ch19.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch19.tex), label `prop:ch19:maslanka`.
 
 ## Volume I, Chapter 4. Infinite divisibility, GGC, EGGC and the Bondesson hierarchy
 
@@ -92,7 +92,7 @@ Statement. Let $T$ be the clock, with Lévy measure $W(v)\,dv/v$, $W(v)=\sum_je^
 
 Earlier editions: Result 1.3.2, page 19 (edition 1).
 
-Source: [`ch/ch03.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch03.tex), label `tx3:res:sdz`.
+Source: [`ch/ch03.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch03.tex), label `tx3:res:sdz`.
 
 ## Volume I, Chapter 5. The reciprocal Xi function
 
@@ -108,7 +108,7 @@ Statement. Write $\xi=\eta\zeta$ with $\eta(s)=\frac12s(s-1)\pi^{-s/2}\Gamma(\fr
 
 Earlier editions: Proposition 8.1.1, page 212 (edition 1).
 
-Source: [`ch/ch18.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch18.tex), label `tx3:prop:mobius`.
+Source: [`ch/ch18.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch18.tex), label `tx3:prop:mobius`.
 
 <a id="clock_lower_tail_chernoff_bound_density_vanishes_to_infinite_order_at_origin"></a>
 
@@ -122,7 +122,7 @@ Statement. Let $T$ be the clock, $\mathbb{E}e^{-uT}=1/G(u)$, $G(u)=\xi(\frac12+\
 
 Earlier editions: Result 8.1.1, page 213 (edition 1).
 
-Source: [`ch/ch18.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch18.tex), label `tx3:res:lowertail`.
+Source: [`ch/ch18.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch18.tex), label `tx3:res:lowertail`.
 
 <a id="rh_equivalent_to_clock_density_being_polya_frequency_function_of_infinite_order"></a>
 
@@ -136,7 +136,7 @@ Statement. RH holds if and only if the density $f$ of the clock $T$ is a Pólya 
 
 Earlier editions: Proposition 8.1.2, page 213 (edition 1).
 
-Source: [`ch/ch18.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch18.tex), label `tx2:prop:pf`.
+Source: [`ch/ch18.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch18.tex), label `tx2:prop:pf`.
 
 <a id="grouped_residue_expansion_of_the_density_of_the_reciprocal_xi_law_with_no_hypothesis"></a>
 
@@ -150,7 +150,7 @@ Statement. Let $\zeta$ be the Riemann zeta function, $\rho=\frac12+\delta+i\gamm
 
 Earlier editions: Theorem 24.1.1, page 854 (edition 1).
 
-Source: [`ch/ht1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ht1.tex), label `ht:thm:grouped`.
+Source: [`ch/ht1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ht1.tex), label `ht:thm:grouped`.
 
 <a id="absolutely_convergent_residue_series_for_the_density_given_a_lower_bound_for_xi_prime_at_zeros"></a>
 
@@ -164,7 +164,7 @@ Statement. Let $\zeta$ be the Riemann zeta function, $\rho=\frac12+\delta+i\gamm
 
 Earlier editions: Theorem 24.1.2, page 854 (edition 1).
 
-Source: [`ch/ht1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ht1.tex), label `ht:thm:res`.
+Source: [`ch/ht1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ht1.tex), label `ht:thm:res`.
 
 <a id="tail_of_the_density_of_the_reciprocal_xi_law_has_two_exponential_terms"></a>
 
@@ -178,7 +178,7 @@ Statement. Let $\zeta$ be the Riemann zeta function, $\rho=\frac12+\delta+i\gamm
 
 Earlier editions: Proposition 24.1.3, page 855 (edition 1).
 
-Source: [`ch/ht1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ht1.tex), label `ht:prop:tail`.
+Source: [`ch/ht1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ht1.tex), label `ht:prop:tail`.
 
 <a id="kent_formula_is_the_residue_expansion_under_rh_with_simple_zeros"></a>
 
@@ -192,7 +192,7 @@ Statement. Let $\zeta$ be the Riemann zeta function, $\rho=\frac12+\delta+i\gamm
 
 Earlier editions: Proposition 24.2.1, page 856 (edition 1).
 
-Source: [`ch/ht1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ht1.tex), label `ht:prop:kent`.
+Source: [`ch/ht1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ht1.tex), label `ht:prop:kent`.
 
 <a id="xi_of_one_half_plus_it_is_not_in_krein_class_and_the_partial_fraction_series_diverges"></a>
 
@@ -206,7 +206,7 @@ Statement. Let $\zeta$ be the Riemann zeta function, $\rho=\frac12+\delta+i\gamm
 
 Earlier editions: Proposition 24.2.2, page 857 (edition 1).
 
-Source: [`ch/ht1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ht1.tex), label `ht:prop:krein`.
+Source: [`ch/ht1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ht1.tex), label `ht:prop:krein`.
 
 <a id="rh_equivalent_to_weak_approximation_of_the_reciprocal_xi_law_by_ggc_laws"></a>
 
@@ -220,7 +220,7 @@ Statement. Let $\zeta$ be the Riemann zeta function, $\rho=\frac12+\delta+i\gamm
 
 Earlier editions: Proposition 24.3.1, page 858 (edition 1).
 
-Source: [`ch/ht1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ht1.tex), label `ht:prop:red`.
+Source: [`ch/ht1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ht1.tex), label `ht:prop:red`.
 
 <a id="truncated_hadamard_product_laws_are_ggc_exactly_while_the_zeros_used_lie_on_the_line"></a>
 
@@ -234,7 +234,7 @@ Statement. Let $\zeta$ be the Riemann zeta function, $\rho=\frac12+\delta+i\gamm
 
 Earlier editions: Proposition 24.5.1, page 859 (edition 1).
 
-Source: [`ch/ht1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ht1.tex), label `ht:prop:trunc`.
+Source: [`ch/ht1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ht1.tex), label `ht:prop:trunc`.
 
 <a id="density_of_the_reciprocal_xi_law_is_log_concave_far_in_the_tail"></a>
 
@@ -248,7 +248,7 @@ Statement. Let $\zeta$ be the Riemann zeta function, $\rho=\frac12+\delta+i\gamm
 
 Earlier editions: Theorem 24.5.2, page 861 (edition 1).
 
-Source: [`ch/ht1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ht1.tex), label `ht:thm:lctail`.
+Source: [`ch/ht1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ht1.tex), label `ht:thm:lctail`.
 
 <a id="log_concavity_of_the_density_near_the_origin_given_the_saddle_point_approximation"></a>
 
@@ -262,7 +262,7 @@ Statement. Let $\zeta$ be the Riemann zeta function, $\rho=\frac12+\delta+i\gamm
 
 Earlier editions: Proposition 24.5.3, page 861 (edition 1).
 
-Source: [`ch/ht1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ht1.tex), label `ht:prop:lc0`.
+Source: [`ch/ht1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ht1.tex), label `ht:prop:lc0`.
 
 <a id="explicit_truncation_error_for_the_density_of_the_reciprocal_xi_law_with_120_zeros"></a>
 
@@ -276,7 +276,7 @@ Statement. Let $\zeta$ be the Riemann zeta function, $\rho=\frac12+\delta+i\gamm
 
 Earlier editions: Proposition 24.5.4, page 862 (edition 1).
 
-Source: [`ch/ht1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ht1.tex), label `ht:prop:explicit`.
+Source: [`ch/ht1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ht1.tex), label `ht:prop:explicit`.
 
 <a id="density_of_the_reciprocal_xi_law_is_log_concave_from_0_008_given_computed_constants"></a>
 
@@ -290,7 +290,7 @@ Statement. Let $\zeta$ be the Riemann zeta function, $\rho=\frac12+\delta+i\gamm
 
 Earlier editions: Theorem 24.5.5, page 863 (edition 1).
 
-Source: [`ch/ht1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ht1.tex), label `ht:thm:lc`.
+Source: [`ch/ht1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ht1.tex), label `ht:thm:lc`.
 
 <a id="hcm_density_of_the_reciprocal_xi_law_would_imply_ggc_and_rh"></a>
 
@@ -304,7 +304,7 @@ Statement. Let $\zeta$ be the Riemann zeta function, $\rho=\frac12+\delta+i\gamm
 
 Earlier editions: Proposition 24.5.6, page 864 (edition 1).
 
-Source: [`ch/ht1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ht1.tex), label `ht:prop:hcm`.
+Source: [`ch/ht1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ht1.tex), label `ht:prop:hcm`.
 
 <a id="no_hcm_density_for_sums_of_exponentials_and_a_computed_zero_of_the_continued_density"></a>
 
@@ -318,7 +318,7 @@ Statement. Let $\zeta$ be the Riemann zeta function, $\rho=\frac12+\delta+i\gamm
 
 Earlier editions: Theorem 24.5.7, page 865 (edition 1).
 
-Source: [`ch/ht1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ht1.tex), label `ht:thm:nohcm`.
+Source: [`ch/ht1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ht1.tex), label `ht:thm:nohcm`.
 
 <a id="partial_complete_monotonicity_of_the_canonical_function_up_to_the_verified_height"></a>
 
@@ -332,7 +332,7 @@ Statement. Let $\gamma_1$ be the first ordinate, $s_\rho=(\rho-\frac12)^2$ and $
 
 Earlier editions: Theorem 24.15.1, page 895 (edition 1).
 
-Source: [`ch/ht4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ht4.tex), label `ht:thm:partialcm`.
+Source: [`ch/ht4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ht4.tex), label `ht:thm:partialcm`.
 
 <a id="quasi_riemann_hypothesis_equivalent_forms_through_the_prime_sum_and_base_point_laws"></a>
 
@@ -346,7 +346,7 @@ Statement. Write $\mathrm{QRH}(\alpha)$ for the statement that every nontrivial 
 
 Earlier editions: Proposition 24.15.2, page 897 (edition 1).
 
-Source: [`ch/ht4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ht4.tex), label `ht:prop:qrh`.
+Source: [`ch/ht4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ht4.tex), label `ht:prop:qrh`.
 
 <a id="reciprocal_xi_is_never_a_one_sided_or_two_sided_laplace_transform_of_a_positive_measure_in_the_translation_variable"></a>
 
@@ -360,7 +360,7 @@ Statement. Let $\xi$ be Riemann's xi function. For no real $\beta$ is $w\mapsto1
 
 Earlier editions: Lemma 24.15.3, page 898 (edition 1).
 
-Source: [`ch/ht4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ht4.tex), label `ht:lem:landau`.
+Source: [`ch/ht4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ht4.tex), label `ht:lem:landau`.
 
 <a id="prime_built_ggc_hitting_times_converge_to_the_base_point_laws_under_qrh_theta"></a>
 
@@ -374,7 +374,7 @@ Statement. Assume $\mathrm{QRH}(\theta)$ for some $\theta<1$ (every nontrivial z
 
 Earlier editions: Theorem 24.15.4, page 899 (edition 1).
 
-Source: [`ch/ht4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ht4.tex), label `ht:thm:primebuilt`.
+Source: [`ch/ht4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ht4.tex), label `ht:thm:primebuilt`.
 
 ## Volume I, Chapter 6. Riemann's continuation and the generalised gamma convolution question
 
@@ -388,7 +388,7 @@ Status: proved.
 
 Statement. Let $V$ be the positive random variable of Riemann's functional equation, with $\mathbb E V^{s/2}=2\xi(s)$. (i) (Williams; Biane, Pitman and Yor.) $V=\sum_{n\ge1}\Gamma_n/(\pi n^2)$ with independent Gamma(2) variables $\Gamma_n$, so $V$ is a GGC with Thorin measure $2\sum_n\delta_{\pi n^2}$. (ii) The density of $V$ is $f_V(x)=\sum_{n\ge1}\big[4\,g_2(x;\pi n^2)-6\,g_1(x;\pi n^2)\big]$ for $x>0$, with $g_j(x;r)$ the Gamma($j$) density of rate $r$; this is a signed mixture of Gamma(2) and exponential densities over the rates $\pi n^2$, each term has mass $-2$, and the masses sum to $1$ under zeta regularisation since $-2\zeta(0)=1$. (iii) For $\operatorname{Re}s>1$, $\mathbb E V^{s/2}=\sum_{n\ge1}(\pi n^2)^{-s/2}\big(4\Gamma(2+\tfrac s2)-6\Gamma(1+\tfrac s2)\big)=s(s-1)\pi^{-s/2}\Gamma(\tfrac s2)\zeta(s)=2\xi(s)$. (iv) $V$ is not a scale mixture of Gamma($a$) laws for any $a>0$; its density is positive, and the negative terms of the series for $f_V$ cannot be absorbed into a positive mixture.
 
-Source: [`ch/nc_riemanncont.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/nc_riemanncont.tex), label `riemanncont:prop:riemann`.
+Source: [`ch/nc_riemanncont.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/nc_riemanncont.tex), label `riemanncont:prop:riemann`.
 
 <a id="ggc_with_entire_transform_is_constant"></a>
 
@@ -400,7 +400,7 @@ Status: proved.
 
 Statement. A GGC whose Laplace transform extends to an entire function is a constant. In particular neither $X^2$ nor $|X|$ is a GGC, for the Pólya variable $X$. So Bondesson's product theorem does not apply to the factorisation $\tfrac12X^2\cdot C$ of the law whose Laplace transform is the arithmetic mean $\mathbb E\operatorname{sech}(\sqrt uX)$.
 
-Source: [`ch/nc_riemanncont.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/nc_riemanncont.tex), label `riemanncont:prop:entire`.
+Source: [`ch/nc_riemanncont.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/nc_riemanncont.tex), label `riemanncont:prop:entire`.
 
 <a id="half_line_thorin_density_positive_without_hypothesis"></a>
 
@@ -412,7 +412,7 @@ Status: proved.
 
 Statement. Let $\rho_k=\tfrac12+\delta_k+i\gamma_k$ be the nontrivial zeros with $\gamma_k>0$ (conjugate pairs taken together), $a_k=-(\rho_k-\tfrac12)^2$, $c_k=\sqrt{a_k}$ with positive real part (so $c_k=\gamma_k-i\delta_k$), $K(x)=\sum_ke^{-c_kx}$ and $P(s)=\prod_k(1+s/c_k)e^{-s/c_k}$. With no hypothesis on the zeros, let $m(\theta)=\frac1\pi\int_0^\infty(1-\cos x\theta)K(x)\,dx=\frac1\pi\sum_k\frac{\theta^2}{c_k(c_k^2+\theta^2)}$ for $\theta>0$. (i) $m(\theta)>0$ for every $\theta>0$, and $u\mapsto P(\sqrt u)$ is the Laplace transform of a GGC whose Thorin measure has density $m$ in the chart $\theta=\sqrt z$: $-\log P(s)=\int_0^\infty\log\big(1+s^2/\theta^2\big)m(\theta)\,d\theta$ for $s\ge0$. Moreover $P(s)P(-s)=\xi(\tfrac12+is)/\xi(\tfrac12)$, and $1/P(s)=\mathbb E e^{-sA}$ for the law $A$ of the book's half line proposition. (ii) The function $M(w)=\pi m(\sqrt w)/w=\sum_k\big(c_k(w+a_k)\big)^{-1}$ extends to a meromorphic function on $\mathbb C$, with simple poles at the points $-a_k$ of simple zeros and residues $1/c_k$ there. (iii) RH holds if and only if $M$ is a Stieltjes function, that is $M(w)=\int\nu(dz)/(w+z)$ for $w>0$ with a positive measure $\nu$. In that case $\nu=\sum_{\gamma>0}\gamma^{-1}\delta_{\gamma^2}$, which is $z^{-1/2}U_{\mathrm{RH}}(dz)$ with $U_{\mathrm{RH}}=\sum_{\gamma>0}\delta_{\gamma^2}$.
 
-Source: [`ch/nc_riemanncont.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/nc_riemanncont.tex), label `riemanncont:thm:half`.
+Source: [`ch/nc_riemanncont.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/nc_riemanncont.tex), label `riemanncont:thm:half`.
 
 <a id="de_bruijn_tilt_as_normal_mixture_of_esscher_tilts"></a>
 
@@ -424,7 +424,7 @@ Status: proved.
 
 Statement. Let $\Phi$ be the Pólya density, so that $\int_{\mathbb R}\Phi(u)\cosh(su)\,du=\xi(\tfrac12+s)$ and $\int_{\mathbb R}\Phi(u)e^{izu}\,du=\Xi(z)=\xi(\tfrac12+iz)$, and let $N$ be standard normal. (i) For $\lambda>0$, $e^{\lambda u^2}=\mathbb E\cosh(\sqrt{2\lambda}\,Nu)$, and for every $s,z\in\mathbb C$, $\int_{\mathbb R}\Phi(u)e^{\lambda u^2}\cosh(su)\,du=\mathbb E\,\xi\big(\tfrac12+s+\sqrt{2\lambda}N\big)$ and $\int_{\mathbb R}\Phi(u)e^{\lambda u^2}e^{izu}\,du=\mathbb E\,\Xi\big(z+i\sqrt{2\lambda}N\big)$; the de Bruijn tilt is a normal scale mixture of Esscher tilts, a Gaussian average of the basepoint moves $\alpha=\tfrac12+\sqrt{2\lambda}N$. (ii) For $b>0$, $e^{-bu^2}=\mathbb E\cos(\sqrt{2b}\,Nu)$ and $\int_{\mathbb R}\Phi(u)e^{-bu^2}e^{izu}\,du=\mathbb E\,\Xi(z+\sqrt{2b}N)$, a horizontal Gaussian smoothing of $\Xi$. (iii) $e^{-|u|}=\mathbb E\big[(\pi\tau)^{-1/2}e^{-u^2/(4\tau)}\big]$, so $e^{-|u|}\Phi$ is a positive mixture, over $b=1/(4\tau)$, of the damped kernels of (ii), and $F(z)=\int_{\mathbb R}\Phi(u)e^{-|u|}e^{izu}\,du=\frac1\pi\int_{\mathbb R}\frac{\Xi(z-y)}{1+y^2}\,dy$. (iv) $F(x)=2\Phi(0)/x^2+O(x^{-4})$ as $x\to\infty$ along the real axis, so $F$ has only finitely many real zeros.
 
-Source: [`ch/nc_riemanncont.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/nc_riemanncont.tex), label `riemanncont:prop:tilts`.
+Source: [`ch/nc_riemanncont.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/nc_riemanncont.tex), label `riemanncont:prop:tilts`.
 
 <a id="question_arithmetic_mean_sech_is_ggc"></a>
 
@@ -436,7 +436,7 @@ Status: open.
 
 Statement. Is $u\mapsto\mathbb E\operatorname{sech}(\sqrt u\,X)$, the Laplace transform of $\tfrac12X^2C$ (with $X$ the Pólya variable), a GGC transform? Bondesson's product theorem does not apply to the factorisation $\tfrac12X^2\cdot C$, since $X^2$ is not a GGC. An answer would not bear on RH directly, but it would show whether the arithmetic mean side of Jensen's inequality keeps the Thorin property.
 
-Source: [`ch/nc_riemanncont.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/nc_riemanncont.tex), label `riemanncont:prob:arith`.
+Source: [`ch/nc_riemanncont.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/nc_riemanncont.tex), label `riemanncont:prob:arith`.
 
 <a id="question_harmonic_mean_class_of_mixing_laws"></a>
 
@@ -448,7 +448,7 @@ Status: open.
 
 Statement. Find a class $\mathcal C$ of mixing laws for which the harmonic mean $1/\mathbb E[1/\varphi_X(u)]$ of GGC transforms $\varphi_x$ is again a GGC transform, and which is not already explained by Pólya's theorems on real zeros. Any such class containing the Pólya density must use the Euler product, since otherwise the Davenport and Heilbronn function refutes it.
 
-Source: [`ch/nc_riemanncont.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/nc_riemanncont.tex), label `riemanncont:prob:hm`.
+Source: [`ch/nc_riemanncont.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/nc_riemanncont.tex), label `riemanncont:prob:hm`.
 
 <a id="question_quantitative_bound_on_continuation_of_m"></a>
 
@@ -460,7 +460,7 @@ Status: open.
 
 Statement. The density $m$ of the half line theorem is positive with no hypothesis, and its continuation $M(w)$ has the poles $-a_k$. Is there a quantitative statement, in the spirit of the book's strip theorem (part 3), that bounds $\operatorname{Im}M(-x-i\eta)$ from below on $x>0$, for some $\eta>0$, in terms of computable data and a zero free region? Such a bound is a positivity statement at a level below one, so it would be at least as strong as a zero free half plane.
 
-Source: [`ch/nc_riemanncont.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/nc_riemanncont.tex), label `riemanncont:prob:half`.
+Source: [`ch/nc_riemanncont.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/nc_riemanncont.tex), label `riemanncont:prob:half`.
 
 <a id="question_even_weights_preserving_real_zeros_of_tilted_polya"></a>
 
@@ -472,7 +472,7 @@ Status: open.
 
 Statement. For which even weights $w$ with $w(0)=1$, other than $\mathbb E\cosh(uB)$ (a mixture of cosh factors), does $w\Phi$ have a Fourier transform with only real zeros under RH? The weight $e^{-|u|}$ fails, and the same argument covers every weight that is smooth on $[0,\infty)$ with $w'(0+)\ne0$. Is smoothness at the origin together with $\log w$ convex sufficient?
 
-Source: [`ch/nc_riemanncont.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/nc_riemanncont.tex), label `riemanncont:prob:tilt`.
+Source: [`ch/nc_riemanncont.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/nc_riemanncont.tex), label `riemanncont:prob:tilt`.
 
 ## Volume I, Chapter 7. The reciprocal Xi function as an extended generalised gamma convolution
 
@@ -486,7 +486,7 @@ Status: proved.
 
 Statement. Let $X\sim z(a,b)$, the law of $\log(G_a/G_b)$ for independent gamma variables of shapes $a$ and $b$. (i) For $-a<\operatorname{Re}s<b$, $\mathbb E e^{sX}=B(a+s,b-s)/B(a,b)=\Gamma(a+s)\Gamma(b-s)/(\Gamma(a)\Gamma(b))$. (ii) For the same $s$, $\mathbb E e^{sX}=\prod_{k\ge0}\frac{(a+k)(b+k)}{(a+k+s)(b+k-s)}$. (iii) $X\overset d=\mu W+\sqrt W\,Z$ with $\mu=\tfrac{a-b}2$, $Z$ standard normal and $W$ independent of $Z$ with $W=\sum_{k\ge0}\frac{2E_k}{(a+k)(b+k)}$, the $E_k$ independent standard exponential variables; so $W$ is a GGC with unit Thorin atoms at the points $\tfrac12(a+k)(b+k)$, and $X$ is a normal variance mean mixture. (iv) In the symmetric case $a=b=c$, $X\overset d=\sum_{k\ge0}L_k/(c+k)$ with independent standard Laplace variables $L_k$, and $X$ is a symmetric EGGC with Thorin measure $\sum_{k\ge0}\delta_{c+k}$ in the chart $\theta$; its characteristic function is $|\Gamma(c+i v)|^2/\Gamma(c)^2$.
 
-Source: [`ch/nc_zdist.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/nc_zdist.tex), label `zdist:prop:mix`.
+Source: [`ch/nc_zdist.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/nc_zdist.tex), label `zdist:prop:mix`.
 
 <a id="meixner_duality_symmetric_z_law"></a>
 
@@ -498,7 +498,7 @@ Status: proved.
 
 Statement. For $c>0$, the density of $z(c,c)$ is $f_{c,c}(x)=(2\cosh\tfrac x2)^{-2c}/B(c,c)$, a constant multiple of the characteristic function of the Meixner law of order $c$, and the characteristic function of $z(c,c)$ is $|\Gamma(c+iv)|^2/\Gamma(c)^2$, a constant multiple of the Meixner density $m_c(v)$. Both laws are symmetric EGGC laws: $z(c,c)$ with Thorin measure $\sum_{k\ge0}\delta_{c+k}$ and the Meixner law with Thorin measure $2c\sum_{k\ge0}\delta_{(2k+1)\pi}$, both in the chart $\theta$. For $c=\tfrac12$ the two coincide up to scale with the hyperbolic secant law.
 
-Source: [`ch/nc_zdist.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/nc_zdist.tex), label `zdist:prop:dual`.
+Source: [`ch/nc_zdist.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/nc_zdist.tex), label `zdist:prop:dual`.
 
 <a id="van_dantzig_pair_for_symmetric_z_law"></a>
 
@@ -510,7 +510,7 @@ Status: proved.
 
 Statement. Let $c>0$ and $\varphi_2(v)=|\Gamma(c+iv)|^2/\Gamma(c)^2$, the characteristic function of $z(c,c)$. There is a characteristic function $\varphi_1$ with $\varphi_2(\theta)=1/\varphi_1(i\theta)$ for all real $\theta$ if and only if $c\ge\tfrac12$. Then $\varphi_1(v)=\Gamma(c)^2/(\Gamma(c+v)\Gamma(c-v))$; for $c>\tfrac12$ it is the characteristic function of $2\Theta$, where $\Theta$ has density proportional to $\cos^{2c-2}\theta$ on $(-\tfrac\pi2,\tfrac\pi2)$, and for $c=\tfrac12$ it is $\cos(\pi v)$, the characteristic function of a symmetric sign times $\pi$.
 
-Source: [`ch/nc_zdist.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/nc_zdist.tex), label `zdist:prop:vd`.
+Source: [`ch/nc_zdist.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/nc_zdist.tex), label `zdist:prop:vd`.
 
 <a id="archimedean_factor_of_xi_squared_is_z_law"></a>
 
@@ -522,7 +522,7 @@ Status: proved.
 
 Statement. Let $X\sim z(\tfrac14,\tfrac14)$, $\xi(\tfrac12)/\xi(\tfrac12+u)=\mathbb E e^{-u^2T}$ with $\tilde T$ an independent copy of $T$, $Y=Z\sqrt{2T}$ with $Y'$ an independent copy, and $H_\infty$ the GGC with unit Thorin atoms at $c_k^2$, $c_k=2k+\tfrac12$. (i) For real $|s|<\tfrac12$, $\frac{\xi(\frac12+s)^2}{\xi(\frac12)^2}=(1-4s^2)^2\,\mathbb E e^{sX/2}\,\frac{\zeta(\frac12+s)\zeta(\frac12-s)}{\zeta(\frac12)^2}$, and on the critical line, for real $v$, $\frac{\Xi(v)^2}{\Xi(0)^2}=(1+4v^2)^2\,\mathbb E e^{ivX/2}\,\frac{|\zeta(\frac12+iv)|^2}{\zeta(\frac12)^2}$. (ii) Let $D_0=T+\tilde T-H_\infty$, with $T$, $\tilde T$ and $H_\infty$ independent. For $0\le w<\tfrac14$, $\mathbb E e^{-wD_0}=\frac{\zeta(\frac12)^2}{(1-4w)^2\,\zeta(\frac12+\sqrt w)\,\zeta(\frac12-\sqrt w)}$. (iii) $\mathbb E D_0=2\mathbb E T-\tfrac14\psi'(\tfrac14)=-8+(\log\zeta)''(\tfrac12)=-4.2531223024$. Consequently there is no law $Q$ on $[0,\infty)$, independent of $H_\infty$, with $T+\tilde T\overset d=H_\infty+Q$, and no random variable $R$ independent of $X$ with $Y+Y'\overset d=X/2+R$.
 
-Source: [`ch/nc_zdist.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/nc_zdist.tex), label `zdist:prop:arch`.
+Source: [`ch/nc_zdist.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/nc_zdist.tex), label `zdist:prop:arch`.
 
 <a id="sine_squared_image_of_z_law_levy_density_and_gamma_ratio"></a>
 
@@ -534,7 +534,7 @@ Status: proved.
 
 Statement. (i) The law $z(c,c)$ has Lévy density $k_c(|x|)/|x|$ with $k_c(r)=e^{-cr}/(1-e^{-r})=\sum_{n\ge0}e^{-(c+n)r}$, completely monotone, and the sine squared image of $k_c$, $\frac1\pi\int_0^\infty2\sin^2(x\theta/2)\,k_c(x)\,dx$, is $\frac1\pi\sum_n\theta^2/\big((c+n)((c+n)^2+\theta^2)\big)$. (ii) For $a>0$ and real $u$, $e^{\psi(a)|u|}\frac{\Gamma(a)}{\Gamma(a+|u|)}=\exp\Big\{-\frac1\pi\int_0^\infty\log\Big(1+\frac{u^2}{\theta^2}\Big)\big(\operatorname{Re}\psi(a+i\theta)-\psi(a)\big)\,d\theta\Big\}$, and $\operatorname{Re}\psi(a+i\theta)-\psi(a)>0$ for $\theta\ne0$. So the left side is the characteristic function of a symmetric EGGC, and $\Gamma(a)/\Gamma(a+|u|)$ is the product of $e^{-\psi(a)|u|}$, a Cauchy factor when $\psi(a)>0$ (that is $a>1.4616$), and that EGGC.
 
-Source: [`ch/nc_zdist.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/nc_zdist.tex), label `zdist:prop:sin2`.
+Source: [`ch/nc_zdist.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/nc_zdist.tex), label `zdist:prop:sin2`.
 
 <a id="heat_flow_of_laws_eggc_exactly_from_lambda"></a>
 
@@ -546,7 +546,7 @@ Status: proved.
 
 Statement. Let $\Lambda$ be the de Bruijn Newman constant, $H_t(z)=\int_0^\infty e^{tw^2}\Phi_{\mathrm{dBN}}(w)\cosh(zw)\,dw$, $\xi_t(s)=8H_t(-2i(s-\tfrac12))$ and $R_t(u)=H_t(0)/H_t(2i\sqrt u)$, so that $\xi_0=\xi$ and $R_t(v^2)=\xi_t(\tfrac12)/\xi_t(\tfrac12+v)$ for real $v$. (i) For every real $t$, $H_t(iy)>0$ for real $y$. If $R_t$ is the Laplace transform of a law $T_t$ on $[0,\infty)$, then $v\mapsto R_t(v^2)$ is the characteristic function of the symmetric law $Y_t=Z\sqrt{2T_t}$. (ii) For $t\ge\Lambda$ the law $T_t$ exists, and $v\mapsto R_t(v^2)$ is the characteristic function of a symmetric EGGC if and only if $t\ge\Lambda$, and then $Y_t\overset d=\sum_kL_k/\theta_k(t)$ over the positive zeros $\tfrac12\pm i\theta_k(t)$ of $\xi_t$. In particular $Y_t$ is an EGGC for every $t\ge0.2$, with no hypothesis, and $Y_0=Y$ is an EGGC if and only if RH holds. (iii) With $u_t$ the mode of the book's large $t$ proposition, $Y_t/u_t\Rightarrow\tfrac2\pi X_{1/2}$ as $t\to\infty$, where $X_{1/2}\sim z(\tfrac12,\tfrac12)$; the limit has characteristic function $1/\cosh(2v)$.
 
-Source: [`ch/nc_zdist.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/nc_zdist.tex), label `zdist:thm:flow`.
+Source: [`ch/nc_zdist.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/nc_zdist.tex), label `zdist:thm:flow`.
 
 <a id="eggc_limit_of_symmetric_eggc_laws_is_equivalent_to_rh"></a>
 
@@ -558,7 +558,7 @@ Status: proved.
 
 Statement. Let $Y=Z\sqrt{2T}$ with $\mathbb E e^{-u^2T}=\xi(\tfrac12)/\xi(\tfrac12+u)$. If there are symmetric EGGC laws $Y_n$ with $Y_n\Rightarrow Y$, then RH holds. Conversely, under RH the constant family $Y_n=Y$ is such a family.
 
-Source: [`ch/nc_zdist.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/nc_zdist.tex), label `zdist:prop:closure`.
+Source: [`ch/nc_zdist.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/nc_zdist.tex), label `zdist:prop:closure`.
 
 <a id="truncated_zero_sum_is_eggc_close_to_y"></a>
 
@@ -570,7 +570,7 @@ Status: conditional on All zeros of the zeta function with ordinate at most $T_0
 
 Statement. Let $T_0=3\times10^{12}$, the height below which every zero lies on the critical line, and for $2\le T'\le T_0$ put $m(T')=\sum_{k:\ \gamma_k>T'}1/a_k$ and $Y^{(T')}=\sqrt{2m(T')}\,Z_0+\sum_{0<\gamma\le T'}L_\gamma/\gamma$, with $a_k=-(\rho_k-\tfrac12)^2$ summed over the zeros with $\gamma_k>T'$, $Z_0$ standard normal and the $L_\gamma$ standard Laplace, all independent. Then $m(T')>0$, $Y^{(T')}$ is a symmetric EGGC, $\operatorname{Var}Y^{(T')}=\operatorname{Var}Y=2\mathbb E T$, and for real $v$ with $v^2\le T'^2/2$, $\big|\log\mathbb E e^{ivY}-\log\mathbb E e^{ivY^{(T')}}\big|\le v^4\,\epsilon(T')$ with $\epsilon(T')=\frac2\pi\Big(\frac{\log T'}{3T'^3}+\frac1{9T'^3}\Big)$.
 
-Source: [`ch/nc_zdist.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/nc_zdist.tex), label `zdist:prop:trunc`.
+Source: [`ch/nc_zdist.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/nc_zdist.tex), label `zdist:prop:trunc`.
 
 <a id="question_mixing_law_of_bnks_z_laws"></a>
 
@@ -582,7 +582,7 @@ Status: open.
 
 Statement. Read the paper of Barndorff-Nielsen, Kent and Sørensen on the $z$ laws and determine whether its mixing law for $z(a,b)$ is the GGC of the book's mixture proposition, part (iii), and whether its results on the asymmetric laws, $\mu\ne0$, have an analogue for the tilted Pólya variables $V_\alpha$, whose characteristic functions $\xi(\alpha+i\theta)/\xi(\alpha)$ are never infinitely divisible.
 
-Source: [`ch/nc_zdist.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/nc_zdist.tex), label `zdist:prob:bnks`.
+Source: [`ch/nc_zdist.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/nc_zdist.tex), label `zdist:prob:bnks`.
 
 <a id="question_sequences_giving_van_dantzig_pairs"></a>
 
@@ -594,7 +594,7 @@ Status: open.
 
 Statement. The van Dantzig proposition decides the property for the arithmetic progressions $c_k=c+k$. Characterise the positive sequences $(c_k)$ with $\sum c_k^{-2}<\infty$ for which $\sum_kL_k/c_k$ is the second member of a van Dantzig pair. Under RH the ordinates $\gamma_k$ are such a sequence, with first member $\Xi(v)/\Xi(0)$; the condition is that $\prod_k(1-v^2/c_k^2)$ be a characteristic function.
 
-Source: [`ch/nc_zdist.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/nc_zdist.tex), label `zdist:prob:vd`.
+Source: [`ch/nc_zdist.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/nc_zdist.tex), label `zdist:prob:vd`.
 
 <a id="question_family_of_eggc_laws_joining_z_law_to_y"></a>
 
@@ -606,7 +606,7 @@ Status: open.
 
 Statement. Is there a one parameter family of symmetric laws, each an EGGC with no hypothesis, joining $\tfrac2\pi X_{1/2}$ to $Y$ other than by the heat flow, along which the EGGC property can be followed by a computation that does not reduce to the reality of the zeros of $H_t$? The closure proposition implies that such a family cannot reach $Y$ unconditionally, so the question is which property of the family degenerates at the endpoint.
 
-Source: [`ch/nc_zdist.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/nc_zdist.tex), label `zdist:prob:interp`.
+Source: [`ch/nc_zdist.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/nc_zdist.tex), label `zdist:prob:interp`.
 
 <a id="question_levy_density_of_y_t_monotone_in_t"></a>
 
@@ -618,7 +618,7 @@ Status: open.
 
 Statement. Is the Lévy density $K_t(|y|)/|y|$ of $Y_t$, with $K_t(y)=\sum_ke^{-\theta_k(t)y}$ for $t\ge\Lambda$, monotone in $t$ for each fixed $y$? The same question for the stochastic order of $T_t$ is a problem of an earlier chapter; for $Y_t$ it would say that the flow moves Lévy mass monotonically between scales.
 
-Source: [`ch/nc_zdist.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/nc_zdist.tex), label `zdist:prob:flow`.
+Source: [`ch/nc_zdist.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/nc_zdist.tex), label `zdist:prob:flow`.
 
 <a id="question_remainder_after_partial_h_infinity"></a>
 
@@ -630,7 +630,7 @@ Status: open.
 
 Statement. The variable $D_0$ of the archimedean proposition has negative mean, so $T+\tilde T$ does not contain $H_\infty$ as an independent summand. For $0\le\lambda\le1$ let $H^{(\lambda)}$ be the GGC with Thorin atoms of mass $\lambda$ at the points $c_k^2$. For which $\lambda$ is $\mathbb E e^{-w(T+\tilde T)}/\mathbb E e^{-wH^{(\lambda)}}$ the Laplace transform of a law on $[0,\infty)$? The mean gives the necessary condition $\lambda\le2\mathbb E T/\mathbb E H_\infty=0.01075$, and at $\lambda=0$ the answer is yes. Is the set of such $\lambda$ an interval $[0,\lambda^*]$ with $\lambda^*>0$, and what is $\lambda^*$?
 
-Source: [`ch/nc_zdist.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/nc_zdist.tex), label `zdist:prob:remainder`.
+Source: [`ch/nc_zdist.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/nc_zdist.tex), label `zdist:prob:remainder`.
 
 ## Volume I, Chapter 8. The heat trace and the hierarchy of positivity
 
@@ -646,7 +646,7 @@ Statement. Let $\vartheta$ be the Riemann Siegel theta function, $\Lambda$ the v
 
 Earlier editions: Result 5.1.1, page 94 (edition 1).
 
-Source: [`ch/ch12.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch12.tex), label `tx3:res:wzero`.
+Source: [`ch/ch12.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch12.tex), label `tx3:res:wzero`.
 
 <a id="clock_infinitely_divisible_and_self_decomposable"></a>
 
@@ -660,7 +660,7 @@ Statement. Let $\xi$ be the completed Riemann zeta function, $\Xi(z)=\xi(\tfrac1
 
 Earlier editions: Theorem 5.1.1, page 95 (edition 1).
 
-Source: [`ch/ch12.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch12.tex), label `thm:ch12:idsd`.
+Source: [`ch/ch12.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch12.tex), label `thm:ch12:idsd`.
 
 <a id="hankel_positivity_at_one_time_iff_rh"></a>
 
@@ -674,7 +674,7 @@ Statement. Let $W(t)=\sum_je^{-a_jt}$ be the heat trace of the completed Riemann
 
 Earlier editions: Theorem 5.1.3, page 98 (edition 1).
 
-Source: [`ch/ch12.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch12.tex), label `thm:ch12:hankel`.
+Source: [`ch/ch12.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch12.tex), label `thm:ch12:hankel`.
 
 <a id="truncation_error_of_residues_of_reciprocal_xi_product_over_first_zeros"></a>
 
@@ -688,7 +688,7 @@ Statement. Let $a_j=-(\rho_j-\frac12)^2$ for one zero $\rho_j$ of each pair $\{\
 
 Earlier editions: Proposition 5.1.2, page 97 (edition 1).
 
-Source: [`ch/ch12.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch12.tex), label `tx:prop:trunc`.
+Source: [`ch/ch12.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch12.tex), label `tx:prop:trunc`.
 
 <a id="rh_equivalent_to_boundedness_of_heat_trace_on_vertical_line"></a>
 
@@ -702,7 +702,7 @@ Statement. Let $\rho_j=\frac12+\delta_j+i\gamma_j$ be the nontrivial zeros of th
 
 Earlier editions: Theorem 5.1.4, page 98 (edition 1).
 
-Source: [`ch/ch12.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch12.tex), label `tx:thm:vertical`.
+Source: [`ch/ch12.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch12.tex), label `tx:thm:vertical`.
 
 <a id="heat_trace_hankel_blocks_positive_definite_to_size_3e7"></a>
 
@@ -716,7 +716,7 @@ Statement. Let $\xi$ be the completed Riemann zeta function, $W(t)=\sum_je^{-a_j
 
 Earlier editions: Theorem 5.1.5, page 100 (edition 1).
 
-Source: [`ch/ch12.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch12.tex), label `thm:ch12:blocks`.
+Source: [`ch/ch12.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch12.tex), label `thm:ch12:blocks`.
 
 <a id="heat_trace_derivative_signs_to_order_1e17"></a>
 
@@ -730,7 +730,7 @@ Statement. Let $W(t)=\sum_je^{-a_jt}$ be the heat trace of the completed Riemann
 
 Earlier editions: Theorem 5.1.6, page 100 (edition 1).
 
-Source: [`ch/ch12.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch12.tex), label `thm:ch12:cm`.
+Source: [`ch/ch12.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch12.tex), label `thm:ch12:cm`.
 
 <a id="hankel_inertia_counts_zeros_off_critical_line"></a>
 
@@ -744,7 +744,7 @@ Statement. Let $W(t)=\sum_je^{-a_jt}$ be the heat trace of the completed Riemann
 
 Earlier editions: Theorem 5.1.7, page 102 (edition 1).
 
-Source: [`ch/ch12.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch12.tex), label `thm:ch12:inertia`.
+Source: [`ch/ch12.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch12.tex), label `thm:ch12:inertia`.
 
 <a id="heat_trace_completely_monotone_near_origin"></a>
 
@@ -758,7 +758,7 @@ Statement. Let $W(t)=\sum_je^{-a_jt}$ be the heat trace of the completed Riemann
 
 Earlier editions: Theorem 5.1.9, page 105 (edition 1).
 
-Source: [`ch/ch12.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch12.tex), label `thm:ch12:cmint`.
+Source: [`ch/ch12.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch12.tex), label `thm:ch12:cmint`.
 
 <a id="heat_trace_derivative_along_ray_is_gaussian_smoothing_of_zeros"></a>
 
@@ -772,7 +772,7 @@ Statement. Let $\xi$ be the completed Riemann zeta function and $W(t)=\sum_je^{-
 
 Earlier editions: Proposition 5.1.10, page 109 (edition 1).
 
-Source: [`ch/ch12.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch12.tex), label `prop:ch12:ray`.
+Source: [`ch/ch12.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch12.tex), label `prop:ch12:ray`.
 
 <a id="rh_iff_gaussian_smoothing_of_zeros_nonnegative"></a>
 
@@ -786,7 +786,7 @@ Statement. Let $\xi$ be the completed Riemann zeta function. Write each zero of 
 
 Earlier editions: Proposition 5.1.11, page 110 (edition 1).
 
-Source: [`ch/ch12.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch12.tex), label `prop:ch12:gauss`.
+Source: [`ch/ch12.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch12.tex), label `prop:ch12:gauss`.
 
 <a id="no_gaussian_criterion_on_vertical_line_alpha_above_one_half_under_rh"></a>
 
@@ -800,7 +800,7 @@ Statement. Assume the Riemann Hypothesis, and let $\gamma>0$ run over the ordina
 
 Earlier editions: Proposition 5.1.12, page 110 (edition 1).
 
-Source: [`ch/ch12.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch12.tex), label `tx:prop:offline`.
+Source: [`ch/ch12.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch12.tex), label `tx:prop:offline`.
 
 <a id="heat_trace_derivative_signs_to_order_1e25"></a>
 
@@ -814,7 +814,7 @@ Statement. Let $W(t)=\sum_je^{-a_jt}$ be the heat trace of the completed Riemann
 
 Earlier editions: Theorem 5.1.13, page 112 (edition 1).
 
-Source: [`ch/ch12.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch12.tex), label `thm:ch12:window`.
+Source: [`ch/ch12.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch12.tex), label `thm:ch12:window`.
 
 <a id="heat_trace_compound_poisson_defect_of_off_line_zeros"></a>
 
@@ -828,7 +828,7 @@ Statement. Let $\xi(s)=\tfrac12s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$ be the compl
 
 Earlier editions: Theorem 5.1.14, page 114 (edition 1).
 
-Source: [`ch/ch12.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch12.tex), label `xg:thm:defect`.
+Source: [`ch/ch12.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch12.tex), label `xg:thm:defect`.
 
 <a id="open_range_of_derivative_signs_of_the_heat_trace_beyond_1_70_h_squared"></a>
 
@@ -842,7 +842,7 @@ Statement. Let $W(t)=\sum_je^{-a_jt}$ be the heat trace of the completed Riemann
 
 Earlier editions: Problem 5.1, page 113 (edition 1).
 
-Source: [`ch/ch12.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch12.tex), label `prob:ch12:order`.
+Source: [`ch/ch12.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch12.tex), label `prob:ch12:order`.
 
 <a id="heat_trace_completely_monotone_up_to_time_1_70_and_order_1_52e25_certified"></a>
 
@@ -856,7 +856,7 @@ Statement. Let $\xi(s)=\tfrac12s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$ be the compl
 
 Earlier editions: Theorem 5.1.16, page 115 (edition 1).
 
-Source: [`ch/ch12.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch12.tex), label `ps:thm:free`.
+Source: [`ch/ch12.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch12.tex), label `ps:thm:free`.
 
 ## Volume I, Chapter 9. Weak limits, HCM and a Bosch type threshold
 
@@ -872,7 +872,7 @@ Statement. Let $\xi(s)=\tfrac12s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$ be the compl
 
 Earlier editions: Corollary 4.1.2, page 63 (edition 1).
 
-Source: [`ch/ch11.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch11.tex), label `cor:weak:closure`.
+Source: [`ch/ch11.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch11.tex), label `cor:weak:closure`.
 
 <a id="reciprocal_xi_hcm_iff_rh"></a>
 
@@ -886,7 +886,7 @@ Statement. Let $\xi(s)=\tfrac12s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$ be the compl
 
 Earlier editions: Corollary 4.1.3, page 64 (edition 1).
 
-Source: [`ch/ch11.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch11.tex), label `cor:hcm`.
+Source: [`ch/ch11.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch11.tex), label `cor:hcm`.
 
 <a id="deformed_reciprocal_xi_hcm_iff_time_at_least_lambda"></a>
 
@@ -900,7 +900,7 @@ Statement. Let $\xi$ be the completed Riemann zeta function, $\Xi(z)=\xi(\tfrac1
 
 Earlier editions: Corollary 4.2.5, page 71 (edition 1).
 
-Source: [`ch/boschA.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/boschA.tex), label `bh:cor:dbn`.
+Source: [`ch/boschA.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/boschA.tex), label `bh:cor:dbn`.
 
 <a id="question_hcm_powers_of_mellin_variable_w"></a>
 
@@ -914,7 +914,7 @@ Statement. Let $\xi$ be the completed Riemann zeta function and $\Xi(z)=\xi(\tfr
 
 Earlier editions: Question 4.2.7, page 72 (edition 1).
 
-Source: [`ch/boschA.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/boschA.tex), label `bh:q:beta`.
+Source: [`ch/boschA.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/boschA.tex), label `bh:q:beta`.
 
 <a id="question_single_power_hcm_implies_rh"></a>
 
@@ -928,7 +928,7 @@ Statement. Let $\xi$ be the completed Riemann zeta function and $\Xi(z)=\xi(\tfr
 
 Earlier editions: Question 4.2.8, page 72 (edition 1).
 
-Source: [`ch/boschA.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/boschA.tex), label `bh:q:single`.
+Source: [`ch/boschA.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/boschA.tex), label `bh:q:single`.
 
 <a id="elasticity_criterion_for_hcm_functions"></a>
 
@@ -942,7 +942,7 @@ Statement. Let $\Omega=\mathbb{C}\setminus(-\infty,0]$ and let $h$ be a positive
 
 Earlier editions: Theorem 4.3.2, page 73 (edition 1).
 
-Source: [`ch/boschB.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/boschB.tex), label `bs:thm:crit`.
+Source: [`ch/boschB.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/boschB.tex), label `bs:thm:crit`.
 
 <a id="reciprocal_xi_power_hcm_threshold"></a>
 
@@ -956,7 +956,7 @@ Statement. Let $\xi$ be the completed Riemann zeta function, $\Xi(z)=\xi(\tfrac1
 
 Earlier editions: Theorem 4.3.5, page 75 (edition 1).
 
-Source: [`ch/boschB.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/boschB.tex), label `bs:thm:power`.
+Source: [`ch/boschB.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/boschB.tex), label `bs:thm:power`.
 
 <a id="rh_iff_hcm_of_all_powers_below_one_and_pick_elasticity"></a>
 
@@ -970,7 +970,7 @@ Statement. Let $\xi$ be the completed Riemann zeta function, $\varphi(s)=\xi(\tf
 
 Earlier editions: Corollary 4.3.6, page 76 (edition 1).
 
-Source: [`ch/boschB.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/boschB.tex), label `bs:cor:rh`.
+Source: [`ch/boschB.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/boschB.tex), label `bs:cor:rh`.
 
 <a id="reciprocal_xi_power_hcm_unconditional_range"></a>
 
@@ -984,7 +984,7 @@ Statement. Let $\xi$ be the completed Riemann zeta function, $\Xi(z)=\xi(\tfrac1
 
 Earlier editions: Corollary 4.3.7, page 76 (edition 1).
 
-Source: [`ch/boschB.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/boschB.tex), label `bs:cor:uncond`.
+Source: [`ch/boschB.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/boschB.tex), label `bs:cor:uncond`.
 
 <a id="stieltjes_sign_of_clock_outside_parabolic_region"></a>
 
@@ -998,7 +998,7 @@ Statement. Let $\xi$ be the completed Riemann zeta function, $\Xi(z)=\xi(\tfrac1
 
 Earlier editions: Theorem 4.3.9, page 77 (edition 1).
 
-Source: [`ch/boschB.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/boschB.tex), label `bs:thm:local`.
+Source: [`ch/boschB.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/boschB.tex), label `bs:thm:local`.
 
 <a id="question_hcm_exponent_deficit_negative_heat_time"></a>
 
@@ -1012,7 +1012,7 @@ Statement. Let $\xi$ be the completed Riemann zeta function, $\Xi(z)=\xi(\tfrac1
 
 Earlier editions: Question 4.3.11, page 79 (edition 1).
 
-Source: [`ch/boschB.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/boschB.tex), label `bs:q:four`.
+Source: [`ch/boschB.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/boschB.tex), label `bs:q:four`.
 
 <a id="thorin_density_of_reciprocal_xi_power"></a>
 
@@ -1026,7 +1026,7 @@ Statement. Let $\xi$ be the completed Riemann zeta function, $\Xi(z)=\xi(\tfrac1
 
 Earlier editions: Theorem 4.3.12, page 79 (edition 1).
 
-Source: [`ch/boschB.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/boschB.tex), label `bs:thm:ggc`.
+Source: [`ch/boschB.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/boschB.tex), label `bs:thm:ggc`.
 
 <a id="thorin_measure_of_reciprocal_xi_power_under_rh_lamperti_kernel"></a>
 
@@ -1040,7 +1040,7 @@ Statement. Assume the Riemann Hypothesis. Let $\xi$ be the completed Riemann zet
 
 Earlier editions: Corollary 4.3.13, page 80 (edition 1).
 
-Source: [`ch/boschB.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/boschB.tex), label `bs:cor:lamperti`.
+Source: [`ch/boschB.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/boschB.tex), label `bs:cor:lamperti`.
 
 <a id="rh_iff_reciprocal_xi_power_is_ggc_transform_for_all_p"></a>
 
@@ -1054,7 +1054,7 @@ Statement. Let $\xi$ be the completed Riemann zeta function and $\varphi(s)=\xi(
 
 Earlier editions: Corollary 4.3.14, page 81 (edition 1).
 
-Source: [`ch/boschB.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/boschB.tex), label `bs:cor:rhX`.
+Source: [`ch/boschB.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/boschB.tex), label `bs:cor:rhX`.
 
 <a id="question_construct_x_half_without_zeros"></a>
 
@@ -1068,7 +1068,7 @@ Statement. Let $\xi$ be the completed Riemann zeta function and, for $0<p<1$, le
 
 Earlier editions: Question 4.3.15, page 81 (edition 1).
 
-Source: [`ch/boschB.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/boschB.tex), label `bs:q:five`.
+Source: [`ch/boschB.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/boschB.tex), label `bs:q:five`.
 
 <a id="question_thorin_density_positive_for_all_powers"></a>
 
@@ -1082,7 +1082,7 @@ Statement. Let $\xi$ be the completed Riemann zeta function. For $0<p<1$ and $\t
 
 Earlier editions: Question 4.3.16, page 81 (edition 1).
 
-Source: [`ch/boschB.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/boschB.tex), label `bs:q:one`.
+Source: [`ch/boschB.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/boschB.tex), label `bs:q:one`.
 
 <a id="thorin_density_of_power_positive_beyond_strip_from_primes"></a>
 
@@ -1096,7 +1096,7 @@ Statement. Let $\xi$ be the completed Riemann zeta function, $0<p<1$, $\vartheta
 
 Earlier editions: Proposition 4.3.18, page 82 (edition 1).
 
-Source: [`ch/boschB.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/boschB.tex), label `bs:prop:prime`.
+Source: [`ch/boschB.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/boschB.tex), label `bs:prop:prime`.
 
 <a id="cauchy_clock_density_eta_cubed_natural_boundary"></a>
 
@@ -1110,7 +1110,7 @@ Statement. Let $X_C=\sum_{k\ge1}e_k/(2k-1)^2$ with independent standard exponent
 
 Earlier editions: Theorem 4.3.20, page 83 (edition 1).
 
-Source: [`ch/boschB.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/boschB.tex), label `bs:thm:eta`.
+Source: [`ch/boschB.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/boschB.tex), label `bs:thm:eta`.
 
 <a id="question_natural_boundary_of_clock_density"></a>
 
@@ -1124,7 +1124,7 @@ Statement. Assume the Riemann Hypothesis and that all zeros are simple. Let $\xi
 
 Earlier editions: Question 4.3.21, page 83 (edition 1).
 
-Source: [`ch/boschB.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/boschB.tex), label `bs:q:two`.
+Source: [`ch/boschB.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/boschB.tex), label `bs:q:two`.
 
 <a id="clock_density_natural_boundary_under_gap_hypotheses"></a>
 
@@ -1138,7 +1138,7 @@ Statement. Let $\xi$ be the completed Riemann zeta function, $\Xi(z)=\xi(\tfrac1
 
 Earlier editions: Theorem 4.3.22, page 84 (edition 1).
 
-Source: [`ch/boschB.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/boschB.tex), label `bs:thm:nb`.
+Source: [`ch/boschB.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/boschB.tex), label `bs:thm:nb`.
 
 <a id="question_which_powers_of_clock_variable_are_hcm"></a>
 
@@ -1152,7 +1152,7 @@ Statement. Let $\xi$ be the completed Riemann zeta function and, for $0<p<1$, le
 
 Earlier editions: Question 4.3.24, page 85 (edition 1).
 
-Source: [`ch/boschB.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/boschB.tex), label `bs:q:three`.
+Source: [`ch/boschB.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/boschB.tex), label `bs:q:three`.
 
 <a id="mellin_variable_w_density_lower_bound_unconditional"></a>
 
@@ -1166,7 +1166,7 @@ Statement. Let $\xi$ be the completed Riemann zeta function, $\Xi(z)=\xi(\tfrac1
 
 Earlier editions: Theorem 4.3.25, page 86 (edition 1).
 
-Source: [`ch/boschB.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/boschB.tex), label `bs:thm:gpos`.
+Source: [`ch/boschB.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/boschB.tex), label `bs:thm:gpos`.
 
 <a id="elasticity_criterion_for_powers_of_mellin_variable_w"></a>
 
@@ -1180,7 +1180,7 @@ Statement. Let $\xi$ be the completed Riemann zeta function, $\chi(t)=\xi(\tfrac
 
 Earlier editions: Proposition 4.3.26, page 87 (edition 1).
 
-Source: [`ch/boschB.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/boschB.tex), label `bs:prop:Wcrit`.
+Source: [`ch/boschB.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/boschB.tex), label `bs:prop:Wcrit`.
 
 <a id="first_gap_necessary_condition_for_hcm_of_w_power"></a>
 
@@ -1194,7 +1194,7 @@ Statement. Let $\xi$ be the completed Riemann zeta function, $\Xi(z)=\xi(\tfrac1
 
 Earlier editions: Theorem 4.3.27, page 88 (edition 1).
 
-Source: [`ch/boschB.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/boschB.tex), label `bs:thm:gap`.
+Source: [`ch/boschB.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/boschB.tex), label `bs:thm:gap`.
 
 <a id="question_first_gap_conjecture"></a>
 
@@ -1208,7 +1208,7 @@ Statement. Let $W$ be the positive random variable, which exists unconditionally
 
 Earlier editions: Question 4.3.28, page 88 (edition 1).
 
-Source: [`ch/boschB.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/boschB.tex), label `bs:q:gap`.
+Source: [`ch/boschB.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/boschB.tex), label `bs:q:gap`.
 
 <a id="question_first_gap_conjecture_refined"></a>
 
@@ -1222,7 +1222,7 @@ Statement. Let $Y=\sum_nL_n/\lambda_n$ (a convergent series) with independent st
 
 Earlier editions: Question 4.3.29, page 90 (edition 1).
 
-Source: [`ch/boschB.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/boschB.tex), label `bs:q:gaprefined`.
+Source: [`ch/boschB.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/boschB.tex), label `bs:q:gaprefined`.
 
 ## Volume I, Chapter 10. Thorin type forms of the reciprocal zeta function
 
@@ -1238,7 +1238,7 @@ Statement. Let $0<q<1$ and $\lambda>0$, and let $E(s)=1-q\,e^{-\lambda\sqrt s}$,
 
 Earlier editions: Proposition 6.1.2, page 138 (edition 1).
 
-Source: [`ch/rz1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/rz1.tex), label `rz:prop:euler`.
+Source: [`ch/rz1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/rz1.tex), label `rz:prop:euler`.
 
 <a id="lai_vere_jones_identity"></a>
 
@@ -1252,7 +1252,7 @@ Statement. Let $\mu$ be the Möbius function and $\chi_4$ the nontrivial Dirichl
 
 Earlier editions: Proposition 6.1.3, page 139 (edition 1).
 
-Source: [`ch/rz1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/rz1.tex), label `rz:prop:lvj`.
+Source: [`ch/rz1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/rz1.tex), label `rz:prop:lvj`.
 
 <a id="vere_jones_representation_reciprocal_zeta"></a>
 
@@ -1266,7 +1266,7 @@ Statement. Let $\zeta$ be the Riemann zeta function, $\mu$ the Möbius function,
 
 Earlier editions: Theorem 6.1.5, page 139 (edition 1).
 
-Source: [`ch/rz1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/rz1.tex), label `rz:thm:sech`.
+Source: [`ch/rz1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/rz1.tex), label `rz:thm:sech`.
 
 <a id="exponential_as_eta_weighted_sum_of_log_blocks"></a>
 
@@ -1282,7 +1282,7 @@ Supersedes: Proposition 27.6 of Polson (2026) states the same identity with the 
 
 Earlier editions: Proposition 6.1.6, page 140 (edition 1).
 
-Source: [`ch/rz1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/rz1.tex), label `rz:prop:eta`.
+Source: [`ch/rz1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/rz1.tex), label `rz:prop:eta`.
 
 <a id="sawtooth_thorin_measure_of_vere_jones_block"></a>
 
@@ -1296,7 +1296,7 @@ Statement. Let $\lambda>0$, let $s$ lie in the cut plane $\mathbb{C}\setminus(-\
 
 Earlier editions: Lemma 6.1.7, page 140 (edition 1).
 
-Source: [`ch/rz1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/rz1.tex), label `rz:lem:saw`.
+Source: [`ch/rz1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/rz1.tex), label `rz:lem:saw`.
 
 <a id="vere_jones_representation_log_zeta"></a>
 
@@ -1310,7 +1310,7 @@ Statement. Let $\Lambda$ be the von Mangoldt function and $\mu$ the Möbius func
 
 Earlier editions: Theorem 6.1.8, page 141 (edition 1).
 
-Source: [`ch/rz1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/rz1.tex), label `rz:thm:saw`.
+Source: [`ch/rz1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/rz1.tex), label `rz:thm:saw`.
 
 <a id="thorin_measure_normalised_reciprocal_zeta_under_rh"></a>
 
@@ -1324,7 +1324,7 @@ Statement. Assume the Riemann Hypothesis. Let $\zeta$ be the Riemann zeta functi
 
 Earlier editions: Theorem 6.1.10, page 142 (edition 1).
 
-Source: [`ch/rz1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/rz1.tex), label `rz:thm:thorin`.
+Source: [`ch/rz1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/rz1.tex), label `rz:thm:thorin`.
 
 <a id="canonical_function_normalised_reciprocal_zeta"></a>
 
@@ -1338,7 +1338,7 @@ Statement. Let $\zeta$ be the Riemann zeta function, $\Lambda$ the von Mangoldt 
 
 Earlier editions: Theorem 6.1.11, page 143 (edition 1).
 
-Source: [`ch/rz1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/rz1.tex), label `rz:thm:w`.
+Source: [`ch/rz1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/rz1.tex), label `rz:thm:w`.
 
 <a id="theta_series_for_canonical_function_reciprocal_zeta"></a>
 
@@ -1352,7 +1352,7 @@ Statement. Let $\Lambda$ be the von Mangoldt function, $\mu$ the Möbius functio
 
 Earlier editions: Proposition 6.1.13, page 144 (edition 1).
 
-Source: [`ch/rz1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/rz1.tex), label `rz:prop:theta`.
+Source: [`ch/rz1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/rz1.tex), label `rz:prop:theta`.
 
 <a id="sawtooth_expansion_argument_function_gaussian_average"></a>
 
@@ -1366,7 +1366,7 @@ Statement. Assume the Riemann Hypothesis. Let $S(\tau)=\pi^{-1}\arg\zeta(\frac12
 
 Earlier editions: Corollary 6.1.14, page 145 (edition 1).
 
-Source: [`ch/rz1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/rz1.tex), label `rz:cor:Ssaw`.
+Source: [`ch/rz1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/rz1.tex), label `rz:cor:Ssaw`.
 
 <a id="rh_criterion_from_canonical_function"></a>
 
@@ -1380,7 +1380,7 @@ Statement. Let $\Lambda$ be the von Mangoldt function and $w(x)=e^{x/4}-\frac{1}
 
 Earlier editions: Theorem 6.1.15, page 145 (edition 1).
 
-Source: [`ch/rz1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/rz1.tex), label `rz:thm:crit`.
+Source: [`ch/rz1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/rz1.tex), label `rz:thm:crit`.
 
 <a id="thorin_measure_of_the_gamma_factor"></a>
 
@@ -1394,7 +1394,7 @@ Statement. Let $G(s)=\Gamma(\frac14+\frac{\sqrt s}2)\,\pi^{-\sqrt s/2}/\Gamma(\f
 
 Earlier editions: Theorem 6.2.1, page 147 (edition 1).
 
-Source: [`ch/rz2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/rz2.tex), label `rz:thm:gamma`.
+Source: [`ch/rz2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/rz2.tex), label `rz:thm:gamma`.
 
 <a id="heat_trace_closed_form_and_formal_thorin_measure_of_reciprocal_xi"></a>
 
@@ -1410,7 +1410,7 @@ Supersedes: Theorem 27.18 of Polson (2026) states that the series $U_R$ is the T
 
 Earlier editions: Theorem 6.2.3, page 149 (edition 1).
 
-Source: [`ch/rz2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/rz2.tex), label `rz:thm:RLVJ`.
+Source: [`ch/rz2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/rz2.tex), label `rz:thm:RLVJ`.
 
 <a id="sine_squared_lemma_polson_2017"></a>
 
@@ -1424,7 +1424,7 @@ Statement. Suppose that $f$ is a function, $\alpha$ a real number and $\mu$ a me
 
 Earlier editions: Lemma 6.2.4, page 150 (edition 1).
 
-Source: [`ch/rz2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/rz2.tex), label `rz:lem:P1`.
+Source: [`ch/rz2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/rz2.tex), label `rz:lem:P1`.
 
 <a id="sine_squared_lemma_clock_variable"></a>
 
@@ -1438,7 +1438,7 @@ Statement. Let $\tilde\mu$ be a signed measure on $(0,\infty)$ with $\int(1\wedg
 
 Earlier editions: Lemma 6.2.5, page 151 (edition 1).
 
-Source: [`ch/rz2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/rz2.tex), label `rz:lem:sin2`.
+Source: [`ch/rz2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/rz2.tex), label `rz:lem:sin2`.
 
 <a id="reciprocal_zeta_right_of_line_one_tilted_ggc"></a>
 
@@ -1452,7 +1452,7 @@ Statement. Let $\zeta$ be the Riemann zeta function and $\Lambda$ the von Mangol
 
 Earlier editions: Proposition 6.2.6, page 152 (edition 1).
 
-Source: [`ch/rz2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/rz2.tex), label `rz:prop:zetaright`.
+Source: [`ch/rz2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/rz2.tex), label `rz:prop:zetaright`.
 
 <a id="shifted_vere_jones_block_positive_thorin_density"></a>
 
@@ -1468,7 +1468,7 @@ Supersedes: Proposition 28.4 of Polson (2026) states that $\frac{1+e^{-\lambda(\
 
 Earlier editions: Proposition 6.2.7, page 152 (edition 1).
 
-Source: [`ch/rz2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/rz2.tex), label `rz:prop:block`.
+Source: [`ch/rz2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/rz2.tex), label `rz:prop:block`.
 
 <a id="cosine_levy_series_of_vere_jones_blocks_diverges"></a>
 
@@ -1482,7 +1482,7 @@ Statement. For a measure $U$ on $(0,\infty)$ put $K_U(x)=2\int e^{-\sqrt t\,x}\,
 
 Earlier editions: Proposition 6.2.9, page 154 (edition 1).
 
-Source: [`ch/rz2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/rz2.tex), label `rz:prop:diverge`.
+Source: [`ch/rz2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/rz2.tex), label `rz:prop:diverge`.
 
 <a id="meixner_density_not_polya_frequency_function"></a>
 
@@ -1496,7 +1496,7 @@ Statement. Let $p(\tau)=|\Gamma(\frac14+\frac{i\tau}2)|^2/(2^{3/2}\pi^{3/2})$ be
 
 Earlier editions: Proposition 6.2.10, page 154 (edition 1).
 
-Source: [`ch/rz2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/rz2.tex), label `rz:prop:meixstruct`.
+Source: [`ch/rz2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/rz2.tex), label `rz:prop:meixstruct`.
 
 <a id="gamma_factor_bernstein_function_and_meixner_score"></a>
 
@@ -1512,7 +1512,7 @@ Supersedes: Proposition 28.16 of Polson (2026) says that the smooth part $\theta
 
 Earlier editions: Proposition 6.2.11, page 155 (edition 1).
 
-Source: [`ch/rz2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/rz2.tex), label `rz:prop:bernstein`.
+Source: [`ch/rz2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/rz2.tex), label `rz:prop:bernstein`.
 
 <a id="tilted_reciprocal_gamma_factor_is_ggc"></a>
 
@@ -1526,7 +1526,7 @@ Statement. Let $\theta(\tau)=\operatorname{Im}\log\Gamma(\frac14+\frac{i\tau}2)-
 
 Earlier editions: Theorem 6.2.12, page 155 (edition 1).
 
-Source: [`ch/rz2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/rz2.tex), label `rz:thm:gammaggc`.
+Source: [`ch/rz2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/rz2.tex), label `rz:thm:gammaggc`.
 
 <a id="polya_autocorrelation_meixner_factorisation"></a>
 
@@ -1542,7 +1542,7 @@ Supersedes: Proposition 28.22 of Polson (2026) states the factorisation formally
 
 Earlier editions: Proposition 6.2.14, page 158 (edition 1).
 
-Source: [`ch/rz2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/rz2.tex), label `rz:prop:autocorr`.
+Source: [`ch/rz2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/rz2.tex), label `rz:prop:autocorr`.
 
 <a id="floor_reciprocal_xi_infinitely_divisible_ggc_iff_rh"></a>
 
@@ -1556,7 +1556,7 @@ Statement. Let $\xi(z)=\frac12z(z-1)\pi^{-z/2}\Gamma(z/2)\zeta(z)$ be Riemann's 
 
 Earlier editions: Theorem 6.2.15, page 159 (edition 1).
 
-Source: [`ch/rz2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/rz2.tex), label `rz:thm:floor`.
+Source: [`ch/rz2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/rz2.tex), label `rz:thm:floor`.
 
 <a id="floor_canonical_function_derivative_signs_to_order_1e10"></a>
 
@@ -1570,7 +1570,7 @@ Statement. Let $k(y)=W(y)+c/(2\sqrt{\pi y})$ with $W(y)=\frac12\sum_\rho e^{y(\r
 
 Earlier editions: Theorem 6.2.17, page 161 (edition 1).
 
-Source: [`ch/rz2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/rz2.tex), label `rz:thm:nmono`.
+Source: [`ch/rz2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/rz2.tex), label `rz:thm:nmono`.
 
 ## Volume I, Chapter 11. Infinite divisibility, necklaces and solved models
 
@@ -1586,7 +1586,7 @@ Statement. Let $\zeta$ be the Riemann zeta function, $\sqrt s$ the principal squ
 
 Earlier editions: Theorem 7.1.1, page 166 (edition 1).
 
-Source: [`ch/rz3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/rz3.tex), label `rz:thm:id`.
+Source: [`ch/rz3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/rz3.tex), label `rz:thm:id`.
 
 <a id="gaussian_smoothed_prime_number_theorem_error_negative_bias"></a>
 
@@ -1600,7 +1600,7 @@ Statement. Let $\Lambda$ be the von Mangoldt function, $\psi_C(y)=\sum_{n\le y}\
 
 Earlier editions: Proposition 7.1.2, page 167 (edition 1).
 
-Source: [`ch/rz3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/rz3.tex), label `rz:prop:bias`.
+Source: [`ch/rz3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/rz3.tex), label `rz:prop:bias`.
 
 <a id="reciprocal_zeta_bondesson_hierarchy_classification"></a>
 
@@ -1614,7 +1614,7 @@ Statement. Let $\varphi(s)=\zeta(\frac12)/\bigl((1-4s)\,\zeta(\frac12+\sqrt s)\b
 
 Earlier editions: Theorem 7.1.3, page 168 (edition 1).
 
-Source: [`ch/rz3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/rz3.tex), label `rz:thm:class`.
+Source: [`ch/rz3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/rz3.tex), label `rz:thm:class`.
 
 <a id="reciprocal_zeta_density_rises_from_origin"></a>
 
@@ -1628,7 +1628,7 @@ Statement. Let $\varphi(s)=\zeta(\frac12)/\bigl((1-4s)\,\zeta(\frac12+\sqrt s)\b
 
 Earlier editions: Theorem 7.1.4, page 170 (edition 1).
 
-Source: [`ch/rz3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/rz3.tex), label `rz:thm:shape`.
+Source: [`ch/rz3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/rz3.tex), label `rz:thm:shape`.
 
 <a id="reciprocal_zeta_law_not_built_from_ggc_operations"></a>
 
@@ -1642,7 +1642,7 @@ Statement. Let $X_\varphi$ be a random variable whose Laplace transform is the n
 
 Earlier editions: Corollary 7.1.6, page 171 (edition 1).
 
-Source: [`ch/rz3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/rz3.tex), label `rz:cor:hm`.
+Source: [`ch/rz3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/rz3.tex), label `rz:cor:hm`.
 
 <a id="ggc_class_not_closed_under_harmonic_mean"></a>
 
@@ -1656,7 +1656,7 @@ Statement. The statement (H) says: if $V_1$ and $V_2$ are independent generalise
 
 Earlier editions: Proposition 7.1.7, page 171 (edition 1).
 
-Source: [`ch/rz3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/rz3.tex), label `rz:prop:hmfalse`.
+Source: [`ch/rz3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/rz3.tex), label `rz:prop:hmfalse`.
 
 <a id="vere_jones_weights_are_necklace_polynomials"></a>
 
@@ -1670,7 +1670,7 @@ Statement. For $k\ge1$ let $M_k(q)=\frac1k\sum_{d\mid k}\mu(k/d)\,q^d$ be the ne
 
 Earlier editions: Theorem 7.1.8, page 173 (edition 1).
 
-Source: [`ch/rz3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/rz3.tex), label `rz:thm:necklace`.
+Source: [`ch/rz3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/rz3.tex), label `rz:thm:necklace`.
 
 <a id="necklace_weights_sign_rule"></a>
 
@@ -1686,7 +1686,7 @@ Supersedes: Proposition 29.2 of Polson (2026) states the sign rule only for odd 
 
 Earlier editions: Proposition 7.1.9, page 173 (edition 1).
 
-Source: [`ch/rz3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/rz3.tex), label `rz:prop:signs`.
+Source: [`ch/rz3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/rz3.tex), label `rz:prop:signs`.
 
 <a id="levy_representation_reciprocal_zeta_across_critical_strip"></a>
 
@@ -1700,7 +1700,7 @@ Statement. Fix $\sigma\in(0,1)$, let $\zeta$ be the Riemann zeta function, $\sqr
 
 Earlier editions: Theorem 7.1.12, page 176 (edition 1).
 
-Source: [`ch/rz3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/rz3.tex), label `rz:thm:levystrip`.
+Source: [`ch/rz3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/rz3.tex), label `rz:thm:levystrip`.
 
 <a id="shifted_reciprocal_zeta_never_ggc_on_the_strip"></a>
 
@@ -1716,7 +1716,7 @@ Supersedes: Proposition 29.5 of Polson (2026) proves that the shifted reciprocal
 
 Earlier editions: Proposition 7.1.13, page 177 (edition 1).
 
-Source: [`ch/rz3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/rz3.tex), label `rz:prop:onlyhalf`.
+Source: [`ch/rz3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/rz3.tex), label `rz:prop:onlyhalf`.
 
 <a id="laguerre_polya_class_integer_atom_ggc"></a>
 
@@ -1730,7 +1730,7 @@ Statement. Let $G$ be a real even entire function of order less than $2$ with $G
 
 Earlier editions: Proposition 7.1.15, page 180 (edition 1).
 
-Source: [`ch/rz3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/rz3.tex), label `rz:prop:lpthorin`.
+Source: [`ch/rz3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/rz3.tex), label `rz:prop:lpthorin`.
 
 <a id="lee_yang_property_integer_atom_ggc"></a>
 
@@ -1744,7 +1744,7 @@ Statement. Let $\rho$ be a symmetric probability law on $\mathbb{R}$ with $\int 
 
 Earlier editions: Proposition 7.1.16, page 181 (edition 1).
 
-Source: [`ch/rz3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/rz3.tex), label `rz:prop:newmanthorin`.
+Source: [`ch/rz3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/rz3.tex), label `rz:prop:newmanthorin`.
 
 <a id="random_harmonic_series_matches_polya_kernel_strip"></a>
 
@@ -1758,7 +1758,7 @@ Statement. Let $\Phi(t)=2\sum_{n\ge1}\bigl(2\pi^2n^4e^{9t/2}-3\pi n^2e^{5t/2}\bi
 
 Earlier editions: Proposition 7.1.17, page 182 (edition 1).
 
-Source: [`ch/rz3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/rz3.tex), label `rz:prop:harmonic`.
+Source: [`ch/rz3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/rz3.tex), label `rz:prop:harmonic`.
 
 <a id="reciprocal_xi_transform_harmonic_mean_of_brownian_exit_time_transforms"></a>
 
@@ -1772,7 +1772,7 @@ Statement. Let $\xi(s)=\frac12s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$ be the comple
 
 Earlier editions: Proposition 7.1.23, page 187 (edition 1).
 
-Source: [`ch/rz3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/rz3.tex), label `xg:prop:harm`.
+Source: [`ch/rz3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/rz3.tex), label `xg:prop:harm`.
 
 <a id="harmonic_mean_of_two_ggc_transforms_not_a_laplace_transform"></a>
 
@@ -1786,7 +1786,7 @@ Statement. A generalized gamma convolution (GGC) is a law on $[0,\infty)$ whose 
 
 Earlier editions: Example 7.1.24, page 188 (edition 1).
 
-Source: [`ch/rz3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/rz3.tex), label `xg:ex:harm`.
+Source: [`ch/rz3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/rz3.tex), label `xg:ex:harm`.
 
 <a id="gamma_two_scale_mixture_infinitely_divisible_but_not_ggc"></a>
 
@@ -1800,7 +1800,7 @@ Statement. A generalized gamma convolution (GGC) is a law on $[0,\infty)$ whose 
 
 Earlier editions: Example 7.1.25, page 188 (edition 1).
 
-Source: [`ch/rz3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/rz3.tex), label `xg:ex:g2`.
+Source: [`ch/rz3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/rz3.tex), label `xg:ex:g2`.
 
 <a id="clock_is_not_a_gamma_scale_mixture"></a>
 
@@ -1814,7 +1814,7 @@ Statement. Let $\xi(s)=\frac12s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$ be the comple
 
 Earlier editions: Theorem 7.1.26, page 188 (edition 1).
 
-Source: [`ch/rz3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/rz3.tex), label `xg:thm:nogamma`.
+Source: [`ch/rz3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/rz3.tex), label `xg:thm:nogamma`.
 
 ## Volume I, Chapter 12. The basepoint one and hitting times at the basepoints
 
@@ -1830,7 +1830,7 @@ Statement. Let $C_2=\sum_{k\ge1}\frac2{\pi^2(k-\frac12)^2}(e_k+e_k')$ with indep
 
 Earlier editions: Remark 9.1.1, page 337 (edition 1).
 
-Source: [`ch/basepoint.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/basepoint.tex), label `tx3:rem:ostrovsky`.
+Source: [`ch/basepoint.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/basepoint.tex), label `tx3:rem:ostrovsky`.
 
 <a id="compensated_sine_squared_formula_basepoint_one"></a>
 
@@ -1844,7 +1844,7 @@ Statement. Let $\xi$ be the completed Riemann zeta function, with zeros $\rho$, 
 
 Earlier editions: Proposition 9.1.3, page 340 (edition 1).
 
-Source: [`ch/basepoint.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/basepoint.tex), label `bp:prop:sin2`.
+Source: [`ch/basepoint.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/basepoint.tex), label `bp:prop:sin2`.
 
 <a id="de_la_vallee_poussin_inequality_in_thorin_form_from_sine_squared_lemma"></a>
 
@@ -1858,7 +1858,7 @@ Statement. For $\alpha>1$ let $c_\alpha=-\frac{\zeta'}\zeta(\alpha)$, $Z(\alpha,
 
 Earlier editions: Proposition 9.1.4, page 340 (edition 1).
 
-Source: [`ch/basepoint.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/basepoint.tex), label `tx3:prop:dvp`.
+Source: [`ch/basepoint.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/basepoint.tex), label `tx3:prop:dvp`.
 
 <a id="reciprocal_xi_is_ggc_for_basepoint_at_least_5_4962_by_sine_squared_lemma_alone"></a>
 
@@ -1872,7 +1872,7 @@ Statement. Let $\xi(s)=(s-1)\pi^{-s/2}\Gamma(1+\frac s2)\zeta(s)$ be the complet
 
 Earlier editions: Proposition 9.1.5, page 341 (edition 1).
 
-Source: [`ch/basepoint.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/basepoint.tex), label `tx:prop:alpha0`.
+Source: [`ch/basepoint.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/basepoint.tex), label `tx:prop:alpha0`.
 
 <a id="floating_point_thorin_condition_below_alpha_0_with_threshold_alpha_1_3_5748"></a>
 
@@ -1886,7 +1886,7 @@ Statement. In the variable $y=\sqrt z$ the Thorin density of $\xi(\alpha)/\xi(\a
 
 Earlier editions: Remark 9.1.6, page 342 (edition 1).
 
-Source: [`ch/basepoint.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/basepoint.tex), label `tx2:rem:alpha1`.
+Source: [`ch/basepoint.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/basepoint.tex), label `tx2:rem:alpha1`.
 
 <a id="heat_trace_weighted_reciprocal_xi_in_fourth_root_is_ggc_with_absolutely_continuous_thorin_measure"></a>
 
@@ -1900,7 +1900,7 @@ Statement. Let $\xi(s)=(s-1)\pi^{-s/2}\Gamma(1+\frac s2)\zeta(s)$ be the complet
 
 Earlier editions: Proposition 9.1.7, page 342 (edition 1).
 
-Source: [`ch/basepoint.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/basepoint.tex), label `tx:prop:W`.
+Source: [`ch/basepoint.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/basepoint.tex), label `tx:prop:W`.
 
 <a id="reciprocal_xi_not_laplace_transform_of_positive_measure_in_q_so_clock_variable_is_u_equals_q_squared"></a>
 
@@ -1914,7 +1914,7 @@ Statement. For every real $\alpha$, $q\mapsto\xi(\alpha)/\xi(\alpha+q)$ is not $
 
 Earlier editions: Remark 9.1.8, page 343 (edition 1).
 
-Source: [`ch/basepoint.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/basepoint.tex), label `tx3:rem:forced`.
+Source: [`ch/basepoint.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/basepoint.tex), label `tx3:rem:forced`.
 
 <a id="barnes_beta_law_with_levy_density_sech_squared_has_thorin_density_from_zeta_at_2w"></a>
 
@@ -1928,7 +1928,7 @@ Statement. Let $Y_{\mathfrak b}\ge0$ be infinitely divisible with Lévy density 
 
 Earlier editions: Proposition 9.1.9, page 343 (edition 1).
 
-Source: [`ch/basepoint.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/basepoint.tex), label `tx3:prop:barnes`.
+Source: [`ch/basepoint.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/basepoint.tex), label `tx3:prop:barnes`.
 
 <a id="levy_form_of_xi_at_basepoint_one"></a>
 
@@ -1942,7 +1942,7 @@ Statement. Let $\xi$ be the completed Riemann zeta function, $\psi=\Gamma'/\Gamm
 
 Earlier editions: Proposition 9.1.10, page 344 (edition 1).
 
-Source: [`ch/basepoint.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/basepoint.tex), label `bp:prop:levy`.
+Source: [`ch/basepoint.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/basepoint.tex), label `bp:prop:levy`.
 
 <a id="thorin_density_minimum_at_origin_basepoint_one"></a>
 
@@ -1956,7 +1956,7 @@ Statement. Let $\xi$ be the completed Riemann zeta function with zeros $\rho$, $
 
 Earlier editions: Proposition 9.1.11, page 346 (edition 1).
 
-Source: [`ch/basepoint.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/basepoint.tex), label `bp:prop:v1min`.
+Source: [`ch/basepoint.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/basepoint.tex), label `bp:prop:v1min`.
 
 <a id="thorin_density_minimum_at_origin_every_basepoint_from_one"></a>
 
@@ -1970,7 +1970,7 @@ Statement. Let $\xi$ be the completed Riemann zeta function, and for real $\alph
 
 Earlier editions: Proposition 9.1.12, page 349 (edition 1).
 
-Source: [`ch/basepoint.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/basepoint.tex), label `bp:prop:valpha`.
+Source: [`ch/basepoint.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/basepoint.tex), label `bp:prop:valpha`.
 
 <a id="heavy_tail_of_the_levy_density_of_the_thorin_remainder_at_basepoints_at_least_one"></a>
 
@@ -1984,7 +1984,7 @@ Statement. Let $\alpha\ge1$, let $v_\alpha(\theta)=\operatorname{Re}\frac{\xi'}\
 
 Earlier editions: Result 9.1.4, page 350 (edition 1).
 
-Source: [`ch/basepoint.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/basepoint.tex), label `bp:res:tail`.
+Source: [`ch/basepoint.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/basepoint.tex), label `bp:res:tail`.
 
 <a id="levy_form_below_basepoint_one_and_zero_free_half_plane"></a>
 
@@ -1998,7 +1998,7 @@ Statement. Let $\xi$ be the completed Riemann zeta function, $\Lambda$ the von M
 
 Earlier editions: Proposition 9.1.13, page 351 (edition 1).
 
-Source: [`ch/basepoint.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/basepoint.tex), label `bp:prop:below`.
+Source: [`ch/basepoint.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/basepoint.tex), label `bp:prop:below`.
 
 <a id="thorin_density_ratio_comparison_across_vertical_lines"></a>
 
@@ -2012,7 +2012,7 @@ Statement. Let $f$ be one of $\xi$, $\xi(\cdot,\chi_4)$ and $\xi(\cdot,\chi_{12}
 
 Earlier editions: Theorem 9.1.15, page 355 (edition 1).
 
-Source: [`ch/basepoint.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/basepoint.tex), label `thm:dbeta:comp`.
+Source: [`ch/basepoint.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/basepoint.tex), label `thm:dbeta:comp`.
 
 <a id="explicit_lower_bound_of_thorin_density_by_comparison_with_euler_product"></a>
 
@@ -2026,7 +2026,7 @@ Statement. Let $f$ be one of $\xi$, $\xi(\cdot,\chi_4)$ and $\xi(\cdot,\chi_{12}
 
 Earlier editions: Corollary 9.1.16, page 356 (edition 1).
 
-Source: [`ch/basepoint.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/basepoint.tex), label `cor:dbeta:lower`.
+Source: [`ch/basepoint.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/basepoint.tex), label `cor:dbeta:lower`.
 
 <a id="thorin_density_minimum_at_origin_below_one_equivalent_to_rh"></a>
 
@@ -2040,7 +2040,7 @@ Statement. Let $f$ be one of $\xi$, $\xi(\cdot,\chi_4)$ and $\xi(\cdot,\chi_{12}
 
 Earlier editions: Theorem 9.1.18, page 357 (edition 1).
 
-Source: [`ch/basepoint.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/basepoint.tex), label `thm:dbeta:minall`.
+Source: [`ch/basepoint.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/basepoint.tex), label `thm:dbeta:minall`.
 
 <a id="heat_trace_at_basepoint_one_positive_certified_from_primes"></a>
 
@@ -2054,7 +2054,7 @@ Statement. Let $\xi$ be the completed Riemann zeta function, $v_1(\theta)=\opera
 
 Earlier editions: Proposition 9.1.24, page 364 (edition 1).
 
-Source: [`ch/basepoint.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/basepoint.tex), label `bp:prop:heatcert`.
+Source: [`ch/basepoint.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/basepoint.tex), label `bp:prop:heatcert`.
 
 <a id="heat_trace_identity_at_the_centre_with_a_finite_part"></a>
 
@@ -2068,7 +2068,7 @@ Statement. Let $W(t)=\sum_{\operatorname{Re}\gamma>0}e^{-t\gamma^2}$ over the ze
 
 Earlier editions: Remark 9.1.25, page 365 (edition 1).
 
-Source: [`ch/basepoint.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/basepoint.tex), label `bp:rem:centre`.
+Source: [`ch/basepoint.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/basepoint.tex), label `bp:rem:centre`.
 
 <a id="no_brownian_first_passage_to_random_level_at_basepoint_one"></a>
 
@@ -2082,7 +2082,7 @@ Statement. Let $\xi$ be the completed Riemann zeta function and $T_1$ the genera
 
 Earlier editions: Proposition 9.2.1, page 367 (edition 1).
 
-Source: [`ch/bphit.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/bphit.tex), label `bp:prop:nogo`.
+Source: [`ch/bphit.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/bphit.tex), label `bp:prop:nogo`.
 
 <a id="basepoint_one_clock_subordination_of_tilted_centre_clock"></a>
 
@@ -2096,7 +2096,7 @@ Statement. Let $\xi$ be the completed Riemann zeta function and $T$ the centre c
 
 Earlier editions: Theorem 9.2.2, page 368 (edition 1).
 
-Source: [`ch/bphit.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/bphit.tex), label `bp:thm:sub`.
+Source: [`ch/bphit.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/bphit.tex), label `bp:thm:sub`.
 
 <a id="basepoint_one_clock_kent_string_hitting_time_under_rh"></a>
 
@@ -2110,7 +2110,7 @@ Statement. Let $T$ be the centre clock, with $\mathbb{E}e^{-uT}=\xi(\frac12)/\xi
 
 Earlier editions: Corollary 9.2.3, page 369 (edition 1).
 
-Source: [`ch/bphit.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/bphit.tex), label `bp:cor:kent`.
+Source: [`ch/bphit.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/bphit.tex), label `bp:cor:kent`.
 
 <a id="shifted_clock_subordination_every_basepoint_above_centre"></a>
 
@@ -2124,7 +2124,7 @@ Statement. Let $\xi$ be the completed Riemann zeta function with zeros $\rho=\be
 
 Earlier editions: Theorem 9.2.5, page 373 (edition 1).
 
-Source: [`ch/bphit.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/bphit.tex), label `bp:thm:alpha`.
+Source: [`ch/bphit.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/bphit.tex), label `bp:thm:alpha`.
 
 <a id="shifted_clock_levy_measure_and_self_decomposability"></a>
 
@@ -2138,7 +2138,7 @@ Statement. Let $\xi$ be the completed Riemann zeta function with zeros $\rho$, l
 
 Earlier editions: Corollary 9.2.6, page 374 (edition 1).
 
-Source: [`ch/bphit.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/bphit.tex), label `bp:cor:levyalpha`.
+Source: [`ch/bphit.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/bphit.tex), label `bp:cor:levyalpha`.
 
 ## Volume I, Chapter 13. The critical strip, Riesz's criterion and the squarefree series
 
@@ -2154,7 +2154,7 @@ Statement. Let $\xi(s)=\frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$ be the compl
 
 Earlier editions: Proposition 10.1.1, page 378 (edition 1).
 
-Source: [`ch/strip.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/strip.tex), label `sm:prop:cf`.
+Source: [`ch/strip.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/strip.tex), label `sm:prop:cf`.
 
 <a id="reciprocal_xi_thorin_form_and_eggc_criterion"></a>
 
@@ -2168,7 +2168,7 @@ Statement. Let $\xi(s)=\frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$ be the compl
 
 Earlier editions: Theorem 10.1.2, page 380 (edition 1).
 
-Source: [`ch/strip.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/strip.tex), label `sm:thm:thorin`.
+Source: [`ch/strip.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/strip.tex), label `sm:thm:thorin`.
 
 <a id="eggc_property_across_the_critical_strip"></a>
 
@@ -2182,7 +2182,7 @@ Statement. Let $\xi(s)=\frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$ be the compl
 
 Earlier editions: Theorem 10.1.3, page 382 (edition 1).
 
-Source: [`ch/strip.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/strip.tex), label `sm:thm:strip`.
+Source: [`ch/strip.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/strip.tex), label `sm:thm:strip`.
 
 <a id="poisson_trace_completely_monotone_iff_rh"></a>
 
@@ -2196,7 +2196,7 @@ Statement. Let $\xi(s)=\frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$ be the compl
 
 Earlier editions: Corollary 10.1.4, page 385 (edition 1).
 
-Source: [`ch/strip.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/strip.tex), label `sm:cor:poisson`.
+Source: [`ch/strip.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/strip.tex), label `sm:cor:poisson`.
 
 <a id="poisson_trace_law_positive_half_of_reciprocal_xi_law"></a>
 
@@ -2210,7 +2210,7 @@ Statement. Let $\xi(s)=\frac12s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$ be the comple
 
 Earlier editions: Proposition 10.1.5, page 386 (edition 1).
 
-Source: [`ch/strip.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/strip.tex), label `sm:prop:half`.
+Source: [`ch/strip.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/strip.tex), label `sm:prop:half`.
 
 <a id="poisson_trace_continuation_with_poles_at_log_prime_powers_and_residue"></a>
 
@@ -2224,7 +2224,7 @@ Statement. Let $\rho=\beta+i\gamma$ run over the nontrivial zeros of the Riemann
 
 Earlier editions: Proposition 10.1.6, page 387 (edition 1).
 
-Source: [`ch/strip.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/strip.tex), label `sm:prop:cramer`.
+Source: [`ch/strip.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/strip.tex), label `sm:prop:cramer`.
 
 <a id="poisson_trace_derivative_conditions_hold_below_verified_height"></a>
 
@@ -2238,7 +2238,7 @@ Statement. Let $\rho_k=\beta_k+i\gamma_k$ ($\gamma_k>0$) be the nontrivial zeros
 
 Earlier editions: Theorem 10.1.8, page 389 (edition 1).
 
-Source: [`ch/strip.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/strip.tex), label `thm:biane:cmrange`.
+Source: [`ch/strip.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/strip.tex), label `thm:biane:cmrange`.
 
 <a id="rectangle_theorem_for_poisson_trace_remains_valid_under_quasi_rh_at_seven_eighths_with_range_four_pi_over_three"></a>
 
@@ -2252,7 +2252,7 @@ Statement. In the rectangle theorem for the Poisson trace conditions, assume $(\
 
 Earlier editions: Remark 10.1.9, page 389 (edition 1).
 
-Source: [`ch/strip.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/strip.tex), label `tx3:rem:qrhrange`.
+Source: [`ch/strip.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/strip.tex), label `tx3:rem:qrhrange`.
 
 <a id="poisson_trace_positive_definite_and_bounded_forms_of_rh"></a>
 
@@ -2266,7 +2266,7 @@ Statement. Let $\rho_k=\beta_k+i\gamma_k$ ($\gamma_k>0$) be the nontrivial zeros
 
 Earlier editions: Proposition 10.1.10, page 390 (edition 1).
 
-Source: [`ch/strip.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/strip.tex), label `prop:biane:pd`.
+Source: [`ch/strip.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/strip.tex), label `prop:biane:pd`.
 
 <a id="poisson_trace_versus_polya_trace_small_y_asymptotics"></a>
 
@@ -2280,7 +2280,7 @@ Statement. Let $\rho_k=\beta_k+i\gamma_k$ ($\gamma_k>0$) be the nontrivial zeros
 
 Earlier editions: Proposition 10.1.11, page 392 (edition 1).
 
-Source: [`ch/strip.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/strip.tex), label `prop:biane:traces`.
+Source: [`ch/strip.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/strip.tex), label `prop:biane:traces`.
 
 <a id="tilted_polya_kernel_translates_obstruction_and_approximation_cost"></a>
 
@@ -2294,7 +2294,7 @@ Statement. Let $\xi(s)=\frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$ and let $\Ph
 
 Earlier editions: Proposition 10.1.12, page 394 (edition 1).
 
-Source: [`ch/strip.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/strip.tex), label `wr:prop:wiener`.
+Source: [`ch/strip.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/strip.tex), label `wr:prop:wiener`.
 
 <a id="polya_kernel_analogue_of_salem_criterion"></a>
 
@@ -2308,7 +2308,7 @@ Statement. Let $\xi(s)=\frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$, let $\Phi$ 
 
 Earlier editions: Corollary 10.1.13, page 396 (edition 1).
 
-Source: [`ch/strip.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/strip.tex), label `wr:cor:salem`.
+Source: [`ch/strip.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/strip.tex), label `wr:cor:salem`.
 
 <a id="twisted_riesz_function_and_basepoint_riesz_criterion"></a>
 
@@ -2322,7 +2322,7 @@ Statement. Let $\mu$ be the Möbius function and, for real $h$ and $x>0$, let $R
 
 Earlier editions: Proposition 10.2.1, page 400 (edition 1).
 
-Source: [`ch/riesz.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/riesz.tex), label `ri:prop:twisted`.
+Source: [`ch/riesz.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/riesz.tex), label `ri:prop:twisted`.
 
 <a id="riesz_function_as_centre_clock_average"></a>
 
@@ -2336,7 +2336,7 @@ Statement. Let $R(x)=x\sum_{n\ge1}\mu(n)n^{-2}e^{-x/n^2}=-\sum_{k\ge1}\frac{(-x)
 
 Earlier editions: Proposition 10.2.4, page 402 (edition 1).
 
-Source: [`ch/riesz.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/riesz.tex), label `ri:prop:avg`.
+Source: [`ch/riesz.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/riesz.tex), label `ri:prop:avg`.
 
 <a id="riesz_coefficients_as_ggc_laplace_values"></a>
 
@@ -2350,7 +2350,7 @@ Statement. Let $\xi(s)=\frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$ be the compl
 
 Earlier editions: Proposition 10.2.5, page 403 (edition 1).
 
-Source: [`ch/riesz.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/riesz.tex), label `ri:prop:ggccoef`.
+Source: [`ch/riesz.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/riesz.tex), label `ri:prop:ggccoef`.
 
 <a id="riesz_criterion_as_ggc_property_of_basepoint_clocks"></a>
 
@@ -2364,7 +2364,7 @@ Statement. Let $\xi(s)=\frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$ be the compl
 
 Earlier editions: Theorem 10.2.7, page 405 (edition 1).
 
-Source: [`ch/riesz.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/riesz.tex), label `ri:thm:ggcriesz`.
+Source: [`ch/riesz.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/riesz.tex), label `ri:thm:ggcriesz`.
 
 <a id="squarefree_reciprocal_sum_closed_form_constant"></a>
 
@@ -2378,7 +2378,7 @@ Statement. Let $K$ be a number field of degree $n\ge2$ with Dedekind zeta functi
 
 Earlier editions: Proposition 10.3.1, page 413 (edition 1).
 
-Source: [`ch/sqfree.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/sqfree.tex), label `prop:sqfree:alpha1`.
+Source: [`ch/sqfree.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/sqfree.tex), label `prop:sqfree:alpha1`.
 
 <a id="squarefree_dirichlet_series_as_gamma_factor_times_polya_ratio"></a>
 
@@ -2392,7 +2392,7 @@ Statement. Let $\xi(s)=\frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$, let $\Phi$ 
 
 Earlier editions: Proposition 10.3.3, page 415 (edition 1).
 
-Source: [`ch/sqfree.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/sqfree.tex), label `prop:sqfree:polya`.
+Source: [`ch/sqfree.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/sqfree.tex), label `prop:sqfree:polya`.
 
 <a id="squarefree_constant_as_difference_of_tilted_polya_means"></a>
 
@@ -2406,7 +2406,7 @@ Statement. Let $\xi(s)=\frac12 s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$ be the compl
 
 Earlier editions: Theorem 10.3.5, page 416 (edition 1).
 
-Source: [`ch/sqfree.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/sqfree.tex), label `thm:sqfree:const`.
+Source: [`ch/sqfree.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/sqfree.tex), label `thm:sqfree:const`.
 
 <a id="dedekind_clock_is_ggc_iff_rh_for_dedekind_zeta"></a>
 
@@ -2420,7 +2420,7 @@ Statement. Let $K$ be a number field with $r_1$ real and $r_2$ pairs of complex 
 
 Earlier editions: Proposition 10.3.6, page 417 (edition 1).
 
-Source: [`ch/sqfree.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/sqfree.tex), label `prop:sqfree:thorinK`.
+Source: [`ch/sqfree.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/sqfree.tex), label `prop:sqfree:thorinK`.
 
 <a id="squarefree_constant_of_a_number_field_through_zeros"></a>
 
@@ -2434,7 +2434,7 @@ Statement. Let $K$ be a number field with $r_1$ real and $r_2$ pairs of complex 
 
 Earlier editions: Theorem 10.3.7, page 417 (edition 1).
 
-Source: [`ch/sqfree.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/sqfree.tex), label `thm:sqfree:constK`.
+Source: [`ch/sqfree.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/sqfree.tex), label `thm:sqfree:constK`.
 
 <a id="smoothed_squarefree_counts_equivalent_to_rh"></a>
 
@@ -2448,7 +2448,7 @@ Statement. Let $\mu$ be the Möbius function, and for $x>0$ let $Q_1(x)=\sum_{n\
 
 Earlier editions: Theorem 10.3.9, page 420 (edition 1).
 
-Source: [`ch/sqfree.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/sqfree.tex), label `thm:sqfree:smooth`.
+Source: [`ch/sqfree.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/sqfree.tex), label `thm:sqfree:smooth`.
 
 <a id="squarefree_error_lower_bound_order_fourth_root_of_x"></a>
 
@@ -2462,7 +2462,7 @@ Statement. Let $Q(x)=\sum_{n\le x}\mu(n)^2$ be the number of squarefree integers
 
 Earlier editions: Corollary 10.3.11, page 423 (edition 1).
 
-Source: [`ch/sqfree.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/sqfree.tex), label `cor:sqfree:omega`.
+Source: [`ch/sqfree.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/sqfree.tex), label `cor:sqfree:omega`.
 
 <a id="squarefree_gamma_n_smoothing_bound_under_rh"></a>
 
@@ -2476,7 +2476,7 @@ Statement. Let $Q(x)=\sum_{m\le x}\mu(m)^2$ be the number of squarefree integers
 
 Earlier editions: Proposition 10.3.12, page 424 (edition 1).
 
-Source: [`ch/sqfree.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/sqfree.tex), label `prop:sqfree:gamman`.
+Source: [`ch/sqfree.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/sqfree.tex), label `prop:sqfree:gamman`.
 
 <a id="gamma2_smoothed_squarefree_error_as_mertens_average"></a>
 
@@ -2490,7 +2490,7 @@ Statement. Let $\mu$ be the Möbius function, $M(t)=\sum_{d\le t}\mu(d)$ the Mer
 
 Earlier editions: Theorem 10.3.15, page 426 (edition 1).
 
-Source: [`ch/sqfree.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/sqfree.tex), label `thm:sqfree:mertens`.
+Source: [`ch/sqfree.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/sqfree.tex), label `thm:sqfree:mertens`.
 
 <a id="gamma_smoothing_threshold_shape_two"></a>
 
@@ -2504,7 +2504,7 @@ Statement. Let $\mu$ be the Möbius function, $Q(x)=\sum_{n\le x}\mu(n)^2$ the n
 
 Earlier editions: Theorem 10.3.18, page 428 (edition 1).
 
-Source: [`ch/sqfree.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/sqfree.tex), label `thm:sqfree:threshold`.
+Source: [`ch/sqfree.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/sqfree.tex), label `thm:sqfree:threshold`.
 
 <a id="squarefree_error_pointwise_bound_under_rh_open"></a>
 
@@ -2518,7 +2518,7 @@ Statement. Let $Q(x)=\sum_{n\le x}\mu(n)^2$ be the number of squarefree integers
 
 Earlier editions: Question 10.3.19, page 430 (edition 1).
 
-Source: [`ch/sqfree.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/sqfree.tex), label `q:sqfree:pointwise`.
+Source: [`ch/sqfree.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/sqfree.tex), label `q:sqfree:pointwise`.
 
 <a id="squarefree_error_fejer_constant_and_unboundedness_open"></a>
 
@@ -2532,7 +2532,7 @@ Statement. Let $Q(x)=\sum_{n\le x}\mu(n)^2$ be the number of squarefree integers
 
 Earlier editions: Question 10.3.20, page 430 (edition 1).
 
-Source: [`ch/sqfree.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/sqfree.tex), label `q:sqfree:fejer`.
+Source: [`ch/sqfree.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/sqfree.tex), label `q:sqfree:fejer`.
 
 ## Volume I, Chapter 14. Below the basepoint one: a map of processes, free probability, almost GGCs and the Lambert law
 
@@ -2548,7 +2548,7 @@ Statement. Let $\xi(s)=\frac{1}{2}s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$ be Rieman
 
 Earlier editions: Proposition 11.1.1, page 432 (edition 1).
 
-Source: [`ch/sato.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/sato.tex), label `sb:prop:bdlp`.
+Source: [`ch/sato.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/sato.tex), label `sb:prop:bdlp`.
 
 <a id="centre_clock_and_shifted_clocks_unimodal"></a>
 
@@ -2562,7 +2562,7 @@ Statement. Let $\xi(s)=\frac{1}{2}s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$ be Rieman
 
 Earlier editions: Corollary 11.1.2, page 433 (edition 1).
 
-Source: [`ch/sato.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/sato.tex), label `sb:cor:unimodal`.
+Source: [`ch/sato.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/sato.tex), label `sb:cor:unimodal`.
 
 <a id="polya_tilt_basepoint_one_not_quasi_infinitely_divisible"></a>
 
@@ -2576,7 +2576,7 @@ Statement. Let $\xi(s)=\frac{1}{2}s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$ be Rieman
 
 Earlier editions: Proposition 11.1.3, page 436 (edition 1).
 
-Source: [`ch/sato.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/sato.tex), label `sb:prop:qid`.
+Source: [`ch/sato.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/sato.tex), label `sb:prop:qid`.
 
 <a id="thorin_bernstein_criterion_for_shifted_clock_exponent"></a>
 
@@ -2590,7 +2590,7 @@ Statement. Let $\xi(s)=\frac{1}{2}s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$ be Rieman
 
 Earlier editions: Proposition 11.1.4, page 439 (edition 1).
 
-Source: [`ch/sato.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/sato.tex), label `sb:prop:tbf`.
+Source: [`ch/sato.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/sato.tex), label `sb:prop:tbf`.
 
 <a id="upsilon_image_and_free_counterpart_of_centre_clock"></a>
 
@@ -2604,7 +2604,7 @@ Statement. Let $\xi(s)=\frac{1}{2}s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$ be Rieman
 
 Earlier editions: Theorem 11.2.3, page 450 (edition 1).
 
-Source: [`ch/wigfree.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/wigfree.tex), label `thm:wigfree:clock`.
+Source: [`ch/wigfree.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/wigfree.tex), label `thm:wigfree:clock`.
 
 <a id="rh_equivalent_to_existence_of_freely_infinitely_divisible_law_with_cumulant_transform_log_xi_ratio"></a>
 
@@ -2618,7 +2618,7 @@ Statement. Let $\mathcal{C}_\xi(z)=\log\{\xi(\frac12)/\xi(\frac12+\sqrt{-z})\}=\
 
 Earlier editions: Proposition 11.2.4, page 452 (edition 1).
 
-Source: [`ch/wigfree.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/wigfree.tex), label `tx2:prop:free`.
+Source: [`ch/wigfree.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/wigfree.tex), label `tx2:prop:free`.
 
 <a id="dickman_reading_of_the_upsilon_preimage_of_the_clock_under_rh"></a>
 
@@ -2632,7 +2632,7 @@ Statement. Let $D$ be the Dickman law, $\mathbb{E}e^{-sD}=\exp(-\operatorname{Ei
 
 Earlier editions: Result 11.2.3, page 452 (edition 1).
 
-Source: [`ch/wigfree.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/wigfree.tex), label `tx3:res:dickman`.
+Source: [`ch/wigfree.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/wigfree.tex), label `tx3:res:dickman`.
 
 <a id="gamma_layer_peeling_keeps_real_zeros_under_rh"></a>
 
@@ -2646,7 +2646,7 @@ Statement. Let $\xi(s)=\frac{1}{2}s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$ be Rieman
 
 Earlier editions: Proposition 11.2.9, page 460 (edition 1).
 
-Source: [`ch/wigfree.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/wigfree.tex), label `prop:wigfree:peel`.
+Source: [`ch/wigfree.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/wigfree.tex), label `prop:wigfree:peel`.
 
 <a id="no_gamma_scale_mixture_for_polya_and_williams_variables"></a>
 
@@ -2660,7 +2660,7 @@ Statement. Let $\xi(s)=\frac{1}{2}s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$ be Rieman
 
 Earlier editions: Theorem 11.2.10, page 461 (edition 1).
 
-Source: [`ch/wigfree.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/wigfree.tex), label `thm:wigfree:nomix`.
+Source: [`ch/wigfree.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/wigfree.tex), label `thm:wigfree:nomix`.
 
 <a id="almost_ggc_theorem"></a>
 
@@ -2674,7 +2674,7 @@ Statement. Let $\xi(s)=\frac{1}{2}s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$ be Rieman
 
 Earlier editions: Theorem 11.4.2, page 472 (edition 1).
 
-Source: [`ch/almost.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/almost.tex), label `ag:thm:almost`.
+Source: [`ch/almost.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/almost.tex), label `ag:thm:almost`.
 
 <a id="canonical_factorisation_of_shifted_clock_transform"></a>
 
@@ -2688,7 +2688,7 @@ Statement. Let $\xi(s)=\frac{1}{2}s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$ be Rieman
 
 Earlier editions: Proposition 11.4.3, page 473 (edition 1).
 
-Source: [`ch/almost.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/almost.tex), label `ag:prop:factor`.
+Source: [`ch/almost.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/almost.tex), label `ag:prop:factor`.
 
 <a id="signed_thorin_representation_of_clock_at_every_basepoint_with_damped_sinusoid_factors"></a>
 
@@ -2702,7 +2702,7 @@ Statement. Let $\xi(s)=(s-1)\pi^{-s/2}\Gamma(1+\frac s2)\zeta(s)$ be the complet
 
 Earlier editions: Theorem 11.4.4, page 475 (edition 1).
 
-Source: [`ch/almost.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/almost.tex), label `tx:thm:signed`.
+Source: [`ch/almost.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/almost.tex), label `tx:thm:signed`.
 
 <a id="signed_thorin_measure_at_critical_line_basepoint_is_atoms_at_ordinates_of_zeros_on_the_line"></a>
 
@@ -2716,7 +2716,7 @@ Statement. Let $\xi(s)=(s-1)\pi^{-s/2}\Gamma(1+\frac s2)\zeta(s)$ be the complet
 
 Earlier editions: Corollary 11.4.5, page 475 (edition 1).
 
-Source: [`ch/almost.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/almost.tex), label `tx:cor:half`.
+Source: [`ch/almost.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/almost.tex), label `tx:cor:half`.
 
 <a id="explicit_defect_bounds_from_rh_verification"></a>
 
@@ -2730,7 +2730,7 @@ Statement. Let $\xi(s)=\frac{1}{2}s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$ be Rieman
 
 Earlier editions: Theorem 11.4.6, page 476 (edition 1).
 
-Source: [`ch/almost.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/almost.tex), label `ag:thm:explicit`.
+Source: [`ch/almost.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/almost.tex), label `ag:thm:explicit`.
 
 <a id="thorin_density_positive_on_verified_window"></a>
 
@@ -2744,7 +2744,7 @@ Statement. Let $\xi(s)=\frac{1}{2}s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$ be Rieman
 
 Earlier editions: Corollary 11.4.7, page 477 (edition 1).
 
-Source: [`ch/almost.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/almost.tex), label `cor:dbeta:window`.
+Source: [`ch/almost.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/almost.tex), label `cor:dbeta:window`.
 
 <a id="size_biased_clock_decomposition_exponential_mixture_iff_rh"></a>
 
@@ -2759,7 +2759,7 @@ With no hypothesis, $\widehat T\overset{d}{=}T+A$, where $A$ is independent of $
 
 Earlier editions: Proposition 11.5.1, page 489 (edition 1).
 
-Source: [`ch/pakes.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/pakes.tex), label `pk:prop:sizebias`.
+Source: [`ch/pakes.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/pakes.tex), label `pk:prop:sizebias`.
 
 <a id="centre_clock_urbanik_class_l2_not_l3"></a>
 
@@ -2774,7 +2774,7 @@ Unconditionally, that is, using only the verification of the Riemann Hypothesis 
 
 Earlier editions: Theorem 11.5.8, page 496 (edition 1).
 
-Source: [`ch/pakes2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/pakes2.tex), label `pk:thm:ladder`.
+Source: [`ch/pakes2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/pakes2.tex), label `pk:thm:ladder`.
 
 <a id="clock_first_two_driving_processes_self_decomposable_unimodal"></a>
 
@@ -2789,7 +2789,7 @@ With no hypothesis, for every $s>0$ the laws of $Z_s$ and of $Z^{[2]}_s$ are sel
 
 Earlier editions: Corollary 11.5.9, page 498 (edition 1).
 
-Source: [`ch/pakes2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/pakes2.tex), label `pk:cor:unimodal`.
+Source: [`ch/pakes2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/pakes2.tex), label `pk:cor:unimodal`.
 
 <a id="clock_not_supercritical_csbp_martingale_limit"></a>
 
@@ -2804,7 +2804,7 @@ With no hypothesis, $(-1)^{15}g_{16}<0$: in ball arithmetic $g_{16}=1.4952447494
 
 Earlier editions: Theorem 11.5.11, page 502 (edition 1).
 
-Source: [`ch/pakes2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/pakes2.tex), label `pk:thm:nobranch`.
+Source: [`ch/pakes2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/pakes2.tex), label `pk:thm:nobranch`.
 
 <a id="criticality_filter_damped_polya_kernel"></a>
 
@@ -2819,7 +2819,7 @@ Let $\mathcal{P}$ be a property of even positive integrable functions on $\mathb
 
 Earlier editions: Proposition 11.5.12, page 504 (edition 1).
 
-Source: [`ch/pakes3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/pakes3.tex), label `pk:prop:filter`.
+Source: [`ch/pakes3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/pakes3.tex), label `pk:prop:filter`.
 
 <a id="damped_polya_law_arcsine_mixture"></a>
 
@@ -2834,7 +2834,7 @@ For every $t\le0$ the function $h_t(\rho)=-2\rho\int_\rho^\infty p_t'(r)\,dr/\sq
 
 Earlier editions: Proposition 11.5.13, page 505 (edition 1).
 
-Source: [`ch/pakes3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/pakes3.tex), label `pk:prop:arcsine`.
+Source: [`ch/pakes3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/pakes3.tex), label `pk:prop:arcsine`.
 
 <a id="biane_pitman_yor_lognormal_tilt_not_ggc_near_zero"></a>
 
@@ -2849,7 +2849,7 @@ Statement. Let $\xi$ be the completed Riemann zeta function and $f(b)=\sum_{m\ge
 
 Earlier editions: Proposition 11.5.15, page 508 (edition 1).
 
-Source: [`ch/pakes3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/pakes3.tex), label `pk:prop:bpytilt`.
+Source: [`ch/pakes3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/pakes3.tex), label `pk:prop:bpytilt`.
 
 <a id="theta_variable_character_minus_8_not_ggc"></a>
 
@@ -2864,7 +2864,7 @@ Neither $\mathcal{B}_{\chi_{-8}}$ nor $1/\mathcal{B}_{\chi_{-8}}$ is a GGC. (The
 
 Earlier editions: Proposition 11.5.18, page 511 (edition 1).
 
-Source: [`ch/pakes3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/pakes3.tex), label `pk:prop:chi8`.
+Source: [`ch/pakes3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/pakes3.tex), label `pk:prop:chi8`.
 
 <a id="theta_odd_character_reciprocal_laplace_transform"></a>
 
@@ -2879,7 +2879,7 @@ Then $\int_0^\infty e^{-\lambda x}\vartheta_a(x)\,dx=\sqrt q\,\Sigma_a(w)/\sinh 
 
 Earlier editions: Proposition 11.5.19, page 512 (edition 1).
 
-Source: [`ch/pakes3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/pakes3.tex), label `pk:prop:reflected`.
+Source: [`ch/pakes3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/pakes3.tex), label `pk:prop:reflected`.
 
 <a id="open_ggc_class_theta_functions_zeros_on_line"></a>
 
@@ -2894,7 +2894,7 @@ Question. Find a natural class of functions $\xi(s,a)$ with positive kernels, co
 
 Earlier editions: Problem 11.1, page 514 (edition 1).
 
-Source: [`ch/pakes3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/pakes3.tex), label `pk:prob:ggc`.
+Source: [`ch/pakes3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/pakes3.tex), label `pk:prob:ggc`.
 
 <a id="open_biane_pitman_yor_tilt_ggc_for_no_t"></a>
 
@@ -2909,7 +2909,7 @@ Question. Is $\mathcal{B}_t$ a GGC for no $t\ne0$? For $t<0$ a positive answer w
 
 Earlier editions: Problem 11.2, page 515 (edition 1).
 
-Source: [`ch/pakes3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/pakes3.tex), label `pk:prob:tilt`.
+Source: [`ch/pakes3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/pakes3.tex), label `pk:prob:tilt`.
 
 <a id="open_ggc_theta_variables_of_passing_characters"></a>
 
@@ -2924,7 +2924,7 @@ Question. Which of the variables $\mathcal{B}_{\chi_d}$ for $d=-4$, $-3$, $5$, $
 
 Earlier editions: Problem 11.3, page 515 (edition 1).
 
-Source: [`ch/pakes3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/pakes3.tex), label `pk:prob:side`.
+Source: [`ch/pakes3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/pakes3.tex), label `pk:prob:side`.
 
 <a id="open_li_coefficients_unconditional_positivity_size_biased_clock"></a>
 
@@ -2939,7 +2939,7 @@ With no hypothesis, $\lambda_n=\int_0^\infty k_n(t)W(t)\,dt=m_0\,\mathbb{E}k_n(A
 
 Earlier editions: Problem 11.4, page 515 (edition 1).
 
-Source: [`ch/pakes3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/pakes3.tex), label `pk:prob:li`.
+Source: [`ch/pakes3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/pakes3.tex), label `pk:prob:li`.
 
 <a id="open_ladder_index_along_de_bruijn_newman_flow"></a>
 
@@ -2954,7 +2954,7 @@ Question. Describe the ladder index of $R_t$ along the de Bruijn Newman flow. A 
 
 Earlier editions: Problem 11.5, page 515 (edition 1).
 
-Source: [`ch/pakes3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/pakes3.tex), label `pk:prob:ladder`.
+Source: [`ch/pakes3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/pakes3.tex), label `pk:prob:ladder`.
 
 ## Volume I, Chapter 15. The Dedekind eta function, L(s, chi_12) and Ramanujan's Delta
 
@@ -2970,7 +2970,7 @@ Statement. Let $E_{n,j}$, $n\ge1$, $1\le j\le24$, be independent exponential ran
 
 Earlier editions: Theorem 8.5.2, page 269 (edition 1).
 
-Source: [`ch/ch16.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch16.tex), label `thm:maxexp:max`.
+Source: [`ch/ch16.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch16.tex), label `thm:maxexp:max`.
 
 <a id="gamma_mixture_and_mixed_poisson_forms_of_delta_l_values"></a>
 
@@ -2984,7 +2984,7 @@ Statement. Let $M^*$ be the maximum of independent exponential random variables,
 
 Earlier editions: Corollary 8.5.3, page 269 (edition 1).
 
-Source: [`ch/ch16.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch16.tex), label `cor:maxexp:forms`.
+Source: [`ch/ch16.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch16.tex), label `cor:maxexp:forms`.
 
 <a id="delta_and_chi12_l_values_as_infinitely_divisible_probabilities"></a>
 
@@ -2998,7 +2998,7 @@ Statement. Let $M^*$ be the maximum of independent exponential random variables,
 
 Earlier editions: Proposition 8.5.7, page 274 (edition 1).
 
-Source: [`ch/ch16.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch16.tex), label `prop:maxexp:krist`.
+Source: [`ch/ch16.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch16.tex), label `prop:maxexp:krist`.
 
 <a id="rh_iff_gamma_k_scale_mixture_and_kolmogorov_law_of_the_clock"></a>
 
@@ -3012,7 +3012,7 @@ Statement. Let $W(t)=\sum_{\operatorname{Re}\gamma>0}e^{-t\gamma^2}$ be the cano
 
 Earlier editions: Remark 8.5.8, page 275 (edition 1).
 
-Source: [`ch/ch16.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch16.tex), label `rem:maxexp:kolmogorov`.
+Source: [`ch/ch16.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch16.tex), label `rem:maxexp:kolmogorov`.
 
 <a id="laplace_transform_of_max_of_exponentials_m1_closed_form"></a>
 
@@ -3026,7 +3026,7 @@ Statement. Let $M_1$ be the maximum of independent exponential random variables,
 
 Earlier editions: Proposition 8.5.9, page 276 (edition 1).
 
-Source: [`ch/ch16.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch16.tex), label `prop:ch16:M1`.
+Source: [`ch/ch16.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch16.tex), label `prop:ch16:M1`.
 
 <a id="discrete_mixture_of_gamma_k_laws_is_not_a_ggc"></a>
 
@@ -3040,7 +3040,7 @@ Statement. Let $k$ be a positive integer and $\varphi(z)=\sum_nw_n(1+z/\lambda_n
 
 Earlier editions: Result 8.5.8, page 275 (edition 1).
 
-Source: [`ch/ch16.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch16.tex), label `res:maxexp:nonggc`.
+Source: [`ch/ch16.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch16.tex), label `res:maxexp:nonggc`.
 
 <a id="completed_zeta_function_as_mellin_transform_of_a_kristiansen_law"></a>
 
@@ -3054,7 +3054,7 @@ Statement. Let $N$ have the zeta law $\Pr(N=n)=n^{-4}/\zeta(4)$, let $G_2$ be a 
 
 Earlier editions: Result 8.5.8, page 275 (edition 1).
 
-Source: [`ch/ch16.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch16.tex), label `res:maxexp:zetaq`.
+Source: [`ch/ch16.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch16.tex), label `res:maxexp:zetaq`.
 
 <a id="renyi_type_decomposition_of_max_of_exponentials_m1"></a>
 
@@ -3068,7 +3068,7 @@ Statement. Let $M_1$ be the maximum of independent exponential random variables,
 
 Earlier editions: Corollary 8.5.10, page 276 (edition 1).
 
-Source: [`ch/ch16.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch16.tex), label `cor:maxexp:renyi`.
+Source: [`ch/ch16.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch16.tex), label `cor:maxexp:renyi`.
 
 <a id="levy_density_and_bondesson_function_of_max_of_exponentials_m1"></a>
 
@@ -3082,7 +3082,7 @@ Statement. Let $M_1$ be the maximum of independent exponential random variables,
 
 Earlier editions: Proposition 8.5.12, page 278 (edition 1).
 
-Source: [`ch/ch16.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch16.tex), label `prop:maxexp:levy`.
+Source: [`ch/ch16.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch16.tex), label `prop:maxexp:levy`.
 
 <a id="thorin_measure_of_m1_difference_of_two_ggc_thorin_measures"></a>
 
@@ -3096,7 +3096,7 @@ Statement. Let $b_n=\pi(n^2-1)/12$, let $E_n$ and $E'_m$ be independent standard
 
 Earlier editions: Theorem 8.5.13, page 279 (edition 1).
 
-Source: [`ch/ch16.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch16.tex), label `thm:maxexp:ggc`.
+Source: [`ch/ch16.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch16.tex), label `thm:maxexp:ggc`.
 
 <a id="certified_zeros_of_laplace_transform_of_max_of_exponentials_m_star"></a>
 
@@ -3110,7 +3110,7 @@ Statement. Let $M^*$ be the maximum of independent exponential random variables,
 
 Earlier editions: Proposition 8.5.14, page 280 (edition 1).
 
-Source: [`ch/ch16.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch16.tex), label `prop:maxexp:psizeros`.
+Source: [`ch/ch16.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch16.tex), label `prop:maxexp:psizeros`.
 
 <a id="max_of_exponentials_m_star_not_in_bondesson_class"></a>
 
@@ -3124,7 +3124,7 @@ Statement. Let $M^*$ be the maximum of independent exponential random variables,
 
 Earlier editions: Corollary 8.5.15, page 281 (edition 1).
 
-Source: [`ch/ch16.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch16.tex), label `cor:maxexp:notBO`.
+Source: [`ch/ch16.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch16.tex), label `cor:maxexp:notBO`.
 
 <a id="open_infinite_divisibility_of_maxima_of_exponentials"></a>
 
@@ -3138,7 +3138,7 @@ Statement. Is every maximum of independent exponential random variables infinite
 
 Earlier editions: Question 8.5.16, page 282 (edition 1).
 
-Source: [`ch/ch16.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch16.tex), label `q:maxexp:id`.
+Source: [`ch/ch16.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch16.tex), label `q:maxexp:id`.
 
 <a id="open_real_zeros_of_cosh_kernel_with_exponential_multiplier"></a>
 
@@ -3152,7 +3152,7 @@ Statement. For which $a>0$, $c_m\ge0$ and $\beta_m>0$ does the Fourier transform
 
 Earlier editions: Question 8.5.17, page 285 (edition 1).
 
-Source: [`ch/ch16.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch16.tex), label `q:maxexp:mult`.
+Source: [`ch/ch16.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch16.tex), label `q:maxexp:mult`.
 
 <a id="polya_kernel_of_imaginary_quadratic_field"></a>
 
@@ -3166,7 +3166,7 @@ Statement. Let $d<0$ be a fundamental discriminant, $K=\mathbb{Q}(\sqrt d)$, $\c
 
 Earlier editions: Theorem 8.5.18, page 287 (edition 1).
 
-Source: [`ch/ch16.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch16.tex), label `thm:sqfree:kernelK`.
+Source: [`ch/ch16.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch16.tex), label `thm:sqfree:kernelK`.
 
 <a id="polya_kernel_takes_negative_values_when_two_and_three_inert"></a>
 
@@ -3180,7 +3180,7 @@ Statement. For a fundamental discriminant $d<0$ let $K=\mathbb{Q}(\sqrt d)$, $\c
 
 Earlier editions: Theorem 8.5.19, page 289 (edition 1).
 
-Source: [`ch/ch16.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch16.tex), label `thm:sqfree:inert`.
+Source: [`ch/ch16.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch16.tex), label `thm:sqfree:inert`.
 
 <a id="open_density_of_positive_polya_kernels_imaginary_quadratic"></a>
 
@@ -3194,7 +3194,7 @@ Statement. For a fundamental discriminant $d<0$ let $\Phi_K$ be the Pólya kerne
 
 Earlier editions: Question 8.5.20, page 290 (edition 1).
 
-Source: [`ch/ch16.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch16.tex), label `q:sqfree:density`.
+Source: [`ch/ch16.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch16.tex), label `q:sqfree:density`.
 
 <a id="open_positivity_criterion_polya_kernel_real_quadratic"></a>
 
@@ -3208,7 +3208,7 @@ Statement. For a number field $K$ with $r_1$ real and $r_2$ complex places the c
 
 Earlier editions: Question 8.5.21, page 290 (edition 1).
 
-Source: [`ch/ch16.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch16.tex), label `q:sqfree:realquad`.
+Source: [`ch/ch16.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch16.tex), label `q:sqfree:realquad`.
 
 <a id="levy_form_of_dirichlet_beta_function_from_basepoint_one"></a>
 
@@ -3222,7 +3222,7 @@ Statement. Let $L(s,\chi_4)=\sum_{n\ge0}(-1)^n(2n+1)^{-s}$ be the Dirichlet beta
 
 Earlier editions: Proposition 8.5.24, page 293 (edition 1).
 
-Source: [`ch/ch16.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch16.tex), label `prop:dbeta:levy`.
+Source: [`ch/ch16.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch16.tex), label `prop:dbeta:levy`.
 
 <a id="thorin_measure_of_dirichlet_beta_function_from_basepoint_one"></a>
 
@@ -3236,7 +3236,7 @@ Statement. Let $L(s,\chi_4)=\sum_{n\ge0}(-1)^n(2n+1)^{-s}$ be the Dirichlet beta
 
 Earlier editions: Proposition 8.5.25, page 295 (edition 1).
 
-Source: [`ch/ch16.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch16.tex), label `prop:dbeta:thorin`.
+Source: [`ch/ch16.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch16.tex), label `prop:dbeta:thorin`.
 
 <a id="termwise_positivity_thresholds_dirichlet_beta_and_chi12"></a>
 
@@ -3250,7 +3250,7 @@ Statement. Let $\xi(s,\chi_4)=(4/\pi)^{(s+1)/2}\Gamma(\frac{s+1}2)L(s,\chi_4)$ b
 
 Earlier editions: Proposition 8.5.26, page 296 (edition 1).
 
-Source: [`ch/ch16.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch16.tex), label `prop:dbeta:termwise`.
+Source: [`ch/ch16.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch16.tex), label `prop:dbeta:termwise`.
 
 <a id="no_bound_from_prime_weight_sizes_beats_absolute_values_kronecker"></a>
 
@@ -3264,7 +3264,7 @@ Statement. Let $L(s,\chi_4)=\sum_{n\ge0}(-1)^n(2n+1)^{-s}$ be the Dirichlet beta
 
 Earlier editions: Proposition 8.5.27, page 297 (edition 1).
 
-Source: [`ch/ch16.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch16.tex), label `prop:dbeta:kron`.
+Source: [`ch/ch16.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch16.tex), label `prop:dbeta:kron`.
 
 <a id="thorin_density_of_dirichlet_beta_as_difference_over_gaussian_field"></a>
 
@@ -3278,7 +3278,7 @@ Statement. Let $\xi(s)=\frac12s(s-1)\pi^{-s/2}\Gamma(\frac s2)\zeta(s)$, let $\x
 
 Earlier editions: Proposition 8.5.28, page 298 (edition 1).
 
-Source: [`ch/ch16.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch16.tex), label `prop:dbeta:factor`.
+Source: [`ch/ch16.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch16.tex), label `prop:dbeta:factor`.
 
 <a id="grh_chi4_iff_gaussian_field_thorin_density_dominates_xi"></a>
 
@@ -3292,7 +3292,7 @@ Statement. Let $\xi(s)=\frac12s(s-1)\pi^{-s/2}\Gamma(\frac s2)\zeta(s)$, $\xi(s,
 
 Earlier editions: Corollary 8.5.29, page 298 (edition 1).
 
-Source: [`ch/ch16.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch16.tex), label `cor:dbeta:dom`.
+Source: [`ch/ch16.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch16.tex), label `cor:dbeta:dom`.
 
 <a id="open_coupling_construction_over_gaussian_primes"></a>
 
@@ -3306,7 +3306,7 @@ Statement. Let $\xi$ be Riemann's xi function, $\xi(s,\chi_4)$ the completed Dir
 
 Earlier editions: Question 8.5.30, page 299 (edition 1).
 
-Source: [`ch/ch16.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch16.tex), label `q:dbeta:coupling`.
+Source: [`ch/ch16.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch16.tex), label `q:dbeta:coupling`.
 
 <a id="thorin_mass_of_dirichlet_beta_as_argument_of_completed_function"></a>
 
@@ -3320,7 +3320,7 @@ Statement. Let $L(s,\chi_4)=\sum_{n\ge0}(-1)^n(2n+1)^{-s}$ be the Dirichlet beta
 
 Earlier editions: Proposition 8.5.31, page 300 (edition 1).
 
-Source: [`ch/ch16.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch16.tex), label `prop:dbeta:arg`.
+Source: [`ch/ch16.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch16.tex), label `prop:dbeta:arg`.
 
 <a id="grh_chi4_iff_argument_of_completed_function_nondecreasing"></a>
 
@@ -3334,7 +3334,7 @@ Statement. Let $\xi(s,\chi_4)=(4/\pi)^{(s+1)/2}\Gamma(\frac{s+1}2)L(s,\chi_4)$ b
 
 Earlier editions: Corollary 8.5.32, page 301 (edition 1).
 
-Source: [`ch/ch16.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch16.tex), label `cor:dbeta:argmono`.
+Source: [`ch/ch16.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch16.tex), label `cor:dbeta:argmono`.
 
 <a id="half_kernel_of_dirichlet_beta_not_a_gamma_mixture"></a>
 
@@ -3348,7 +3348,7 @@ Statement. Let $K_4(u)=2e^{3u/2}\eta(ie^{2u})^3$ be the kernel of the completed 
 
 Earlier editions: Proposition 8.5.33, page 302 (edition 1).
 
-Source: [`ch/ch16.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch16.tex), label `prop:dbeta:nocm`.
+Source: [`ch/ch16.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch16.tex), label `prop:dbeta:nocm`.
 
 <a id="open_reciprocal_side_representation_from_eta_product"></a>
 
@@ -3362,7 +3362,7 @@ Statement. Let $q=e^{-2\pi x}$ and let $\eta$ be Dedekind's eta function. The fu
 
 Earlier editions: Question 8.5.34, page 303 (edition 1).
 
-Source: [`ch/ch16.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch16.tex), label `q:dbeta:recip`.
+Source: [`ch/ch16.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch16.tex), label `q:dbeta:recip`.
 
 <a id="eta_analogue_thorin_measure_positive_at_basepoint_one"></a>
 
@@ -3376,7 +3376,7 @@ Statement. Let $\chi_{12}$ be the real primitive even Dirichlet character modulo
 
 Earlier editions: Proposition 11.3.1, page 465 (edition 1).
 
-Source: [`ch/bpeta.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/bpeta.tex), label `bp:eta:prop:thorin`.
+Source: [`ch/bpeta.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/bpeta.tex), label `bp:eta:prop:thorin`.
 
 <a id="eta_analogue_levy_form_at_basepoint_one"></a>
 
@@ -3390,7 +3390,7 @@ Statement. Let $\chi_{12}$ be the real primitive even Dirichlet character modulo
 
 Earlier editions: Proposition 11.3.2, page 466 (edition 1).
 
-Source: [`ch/bpeta.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/bpeta.tex), label `bp:eta:prop:levy`.
+Source: [`ch/bpeta.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/bpeta.tex), label `bp:eta:prop:levy`.
 
 ## Volume I, Chapter 16. Dirichlet L functions and the Linnik constant
 
@@ -3406,7 +3406,7 @@ Statement. Let $F$ be a number field with $r_1$ real and $r_2$ complex places, d
 
 Earlier editions: Theorem 21.2.3, page 760 (edition 1).
 
-Source: [`ch/gl2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/gl2.tex), label `gl:thm:family`.
+Source: [`ch/gl2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/gl2.tex), label `gl:thm:family`.
 
 <a id="thorin_property_of_dedekind_clock_at_tilt_zero_and_above_one_quarter_threshold_and_shift"></a>
 
@@ -3420,7 +3420,7 @@ Statement. Let $F$ be a number field with $r_1$ real and $r_2$ complex places, d
 
 Earlier editions: Corollary 21.2.4, page 761 (edition 1).
 
-Source: [`ch/gl2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/gl2.tex), label `gl:cor:basepoints`.
+Source: [`ch/gl2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/gl2.tex), label `gl:cor:basepoints`.
 
 <a id="transfer_function_from_real_axis_to_critical_line_is_product_over_ordinates_under_rh"></a>
 
@@ -3434,7 +3434,7 @@ Statement. Assume the Riemann Hypothesis. Let $\xi$ be Riemann's xi function, le
 
 Earlier editions: Proposition 21.3.6, page 767 (edition 1).
 
-Source: [`ch/gl3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/gl3.tex), label `gl:prop:transfer`.
+Source: [`ch/gl3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/gl3.tex), label `gl:prop:transfer`.
 
 <a id="odd_index_power_sums_of_inverse_squared_ordinates_determine_all_zeros_under_rh"></a>
 
@@ -3448,7 +3448,7 @@ Statement. Assume the Riemann Hypothesis. Let $\gamma>0$ run over the ordinates 
 
 Earlier editions: Proposition 21.3.7, page 767 (edition 1).
 
-Source: [`ch/gl3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/gl3.tex), label `gl:prop:odd`.
+Source: [`ch/gl3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/gl3.tex), label `gl:prop:odd`.
 
 <a id="transfer_function_is_blaschke_product_for_right_half_plane_under_rh"></a>
 
@@ -3462,7 +3462,7 @@ Statement. Assume the Riemann Hypothesis. Let $\gamma>0$ run over the ordinates 
 
 Earlier editions: Proposition 21.3.8, page 768 (edition 1).
 
-Source: [`ch/gl3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/gl3.tex), label `gl:prop:inner`.
+Source: [`ch/gl3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/gl3.tex), label `gl:prop:inner`.
 
 <a id="negative_moments_of_centre_clock_as_mellin_transform_of_reciprocal_xi"></a>
 
@@ -3476,7 +3476,7 @@ Statement. Let $\xi$ be Riemann's xi function and let $T$ be the centre clock, t
 
 Earlier editions: Proposition 21.3.10, page 768 (edition 1).
 
-Source: [`ch/gl3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/gl3.tex), label `gl:prop:negmom`.
+Source: [`ch/gl3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/gl3.tex), label `gl:prop:negmom`.
 
 <a id="growth_of_gamma_times_reciprocal_xi_on_vertical_strips_in_the_critical_strip_under_rh"></a>
 
@@ -3490,7 +3490,7 @@ Statement. Assume the Riemann Hypothesis. Let $\xi$ be Riemann's xi function, $F
 
 Earlier editions: Lemma 21.4.1, page 771 (edition 1).
 
-Source: [`ch/gl4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/gl4.tex), label `gl:lem:stirling`.
+Source: [`ch/gl4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/gl4.tex), label `gl:lem:stirling`.
 
 <a id="absolute_convergence_hypothesis_of_master_theorem_route_holds_for_reciprocal_xi_without_rh"></a>
 
@@ -3504,7 +3504,7 @@ Statement. Let $\xi$ be Riemann's xi function, let $T$ be the centre clock, the 
 
 Earlier editions: Lemma 21.4.2, page 772 (edition 1).
 
-Source: [`ch/gl4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/gl4.tex), label `gl:lem:fubini`.
+Source: [`ch/gl4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/gl4.tex), label `gl:lem:fubini`.
 
 <a id="hardy_class_master_theorem_for_reciprocal_xi_in_shifted_variable_holds_and_is_empty"></a>
 
@@ -3518,7 +3518,7 @@ Statement. Let $\xi(s)=(s-1)\pi^{-s/2}\Gamma(1+\frac s2)\zeta(s)$ be the complet
 
 Earlier editions: Proposition 21.4.3, page 773 (edition 1).
 
-Source: [`ch/gl4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/gl4.tex), label `tx:prop:hardy`.
+Source: [`ch/gl4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/gl4.tex), label `tx:prop:hardy`.
 
 <a id="reciprocal_xi_is_not_laplace_transform_of_any_random_variable_and_not_characteristic_function"></a>
 
@@ -3532,7 +3532,7 @@ Statement. Let $\xi(s)=(s-1)\pi^{-s/2}\Gamma(1+\frac s2)\zeta(s)$ be the complet
 
 Earlier editions: Theorem 21.4.4, page 774 (edition 1).
 
-Source: [`ch/gl4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/gl4.tex), label `tx:thm:nosqrt`.
+Source: [`ch/gl4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/gl4.tex), label `tx:thm:nosqrt`.
 
 <a id="thorin_representation_of_reciprocal_completed_l_function_of_real_character_under_grh"></a>
 
@@ -3546,7 +3546,7 @@ Statement. Let $\chi$ be a real primitive character modulo $q>1$ of parity $a\in
 
 Earlier editions: Proposition 21.5.1, page 775 (edition 1).
 
-Source: [`ch/gl5.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/gl5.tex), label `gl:prop:Lreal`.
+Source: [`ch/gl5.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/gl5.tex), label `gl:prop:Lreal`.
 
 <a id="thorin_representation_of_product_of_conjugate_completed_l_functions_of_complex_character_under_grh"></a>
 
@@ -3560,7 +3560,7 @@ Statement. Let $\chi$ be a complex primitive character modulo $q>1$ of parity $a
 
 Earlier editions: Proposition 21.5.2, page 776 (edition 1).
 
-Source: [`ch/gl5.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/gl5.tex), label `gl:prop:Lcomplex`.
+Source: [`ch/gl5.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/gl5.tex), label `gl:prop:Lcomplex`.
 
 <a id="completed_dedekind_zeta_of_quadratic_field_factors_and_clocks_of_cyclotomic_fields_add"></a>
 
@@ -3574,7 +3574,7 @@ Statement. Let $\chi$ be a real primitive character of conductor $q$ and parity 
 
 Earlier editions: Proposition 21.5.3, page 777 (edition 1).
 
-Source: [`ch/gl5.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/gl5.tex), label `gl:prop:dedekind`.
+Source: [`ch/gl5.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/gl5.tex), label `gl:prop:dedekind`.
 
 <a id="signed_levy_decomposition_of_log_completed_dedekind_zeta_function_with_negative_density"></a>
 
@@ -3588,7 +3588,7 @@ Statement. Let $F$ be a number field with $r_1$ real and $r_2$ complex places an
 
 Earlier editions: Proposition 21.5.4, page 778 (edition 1).
 
-Source: [`ch/gl5.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/gl5.tex), label `gl:prop:levyF`.
+Source: [`ch/gl5.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/gl5.tex), label `gl:prop:levyF`.
 
 <a id="sine_squared_lemma_for_dedekind_zeta_functions_and_real_dirichlet_characters"></a>
 
@@ -3602,7 +3602,7 @@ Statement. Let $f$ be either $\xi_F(s)=s(s-1)|d_F|^{s/2}\Gamma_{\mathbb{R}}(s)^{
 
 Earlier editions: Proposition 21.5.6, page 779 (edition 1).
 
-Source: [`ch/gl5.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/gl5.tex), label `gl:prop:sinsq`.
+Source: [`ch/gl5.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/gl5.tex), label `gl:prop:sinsq`.
 
 <a id="basepoint_family_thorin_property_for_dedekind_zeta_functions_and_real_characters_holds_left_of_all_zeros"></a>
 
@@ -3616,7 +3616,7 @@ Statement. Let $f$ be either $\xi_F(s)=s(s-1)|d_F|^{s/2}\Gamma_{\mathbb{R}}(s)^{
 
 Earlier editions: Theorem 21.5.8, page 780 (edition 1).
 
-Source: [`ch/gl5.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/gl5.tex), label `gl:thm:sinsq`.
+Source: [`ch/gl5.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/gl5.tex), label `gl:thm:sinsq`.
 
 <a id="thorin_property_of_quadratic_and_cyclotomic_dedekind_zeta_functions_implies_grh_and_central_nonvanishing"></a>
 
@@ -3630,7 +3630,7 @@ Statement. Let $\chi$ be a real primitive character of conductor $q$, $F=\mathbb
 
 Earlier editions: Theorem 21.6.1, page 784 (edition 1).
 
-Source: [`ch/gl6.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/gl6.tex), label `gl:thm:grh`.
+Source: [`ch/gl6.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/gl6.tex), label `gl:thm:grh`.
 
 <a id="mixtures_of_ggc_laplace_transforms_with_unit_atom_thorin_measures_are_not_ggc_in_odd_configuration"></a>
 
@@ -3644,7 +3644,7 @@ Statement. Let $\varphi_1,\varphi_2$ be Laplace transforms of generalized gamma 
 
 Earlier editions: Proposition 21.6.3, page 787 (edition 1).
 
-Source: [`ch/gl6.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/gl6.tex), label `gl:prop:mixture`.
+Source: [`ch/gl6.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/gl6.tex), label `gl:prop:mixture`.
 
 <a id="family_modulo_five_mixture_of_clocks_is_not_ggc_under_grh"></a>
 
@@ -3658,7 +3658,7 @@ Statement. Let $\chi_5$ be the real primitive character modulo $5$ (the Legendre
 
 Earlier editions: Proposition 21.6.4, page 788 (edition 1).
 
-Source: [`ch/gl6.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/gl6.tex), label `gl:prop:mod5`.
+Source: [`ch/gl6.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/gl6.tex), label `gl:prop:mod5`.
 
 <a id="real_zero_of_dirichlet_l_function_makes_first_rung_of_twisted_heat_trace_fail"></a>
 
@@ -3672,7 +3672,7 @@ Statement. Let $\chi$ be a primitive real Dirichlet character of conductor $q\ge
 
 Earlier editions: Proposition 21.6.6, page 790 (edition 1).
 
-Source: [`ch/gl6.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/gl6.tex), label `gl:prop:rung1`.
+Source: [`ch/gl6.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/gl6.tex), label `gl:prop:rung1`.
 
 <a id="seven_powers_of_two_from_thorin_property_of_all_cyclotomic_fields"></a>
 
@@ -3686,7 +3686,7 @@ Statement. Suppose that for every integer $q\ge3$ the function $\varphi_{F,0}(s)
 
 Earlier editions: Corollary 21.7.1, page 791 (edition 1).
 
-Source: [`ch/gl7.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/gl7.tex), label `gl:cor:K7`.
+Source: [`ch/gl7.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/gl7.tex), label `gl:cor:K7`.
 
 <a id="open_problem_thorin_property_of_reciprocal_xi_and_cyclotomic_clocks_without_knowing_the_zeros"></a>
 
@@ -3700,7 +3700,7 @@ Statement. Let $\xi_F(s)=s(s-1)|d_F|^{s/2}\Gamma_{\mathbb{R}}(s)^{r_1}\Gamma_{\m
 
 Earlier editions: Problem 21.1, page 792 (edition 1).
 
-Source: [`ch/gl8.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/gl8.tex), label `gl:op:direct`.
+Source: [`ch/gl8.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/gl8.tex), label `gl:op:direct`.
 
 <a id="open_problem_seven_powers_of_two_from_grh_with_possible_real_zeros"></a>
 
@@ -3714,7 +3714,7 @@ Statement. Show that every sufficiently large even integer is a sum of two prime
 
 Earlier editions: Problem 21.2, page 792 (edition 1).
 
-Source: [`ch/gl8.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/gl8.tex), label `gl:op:exceptional`.
+Source: [`ch/gl8.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/gl8.tex), label `gl:op:exceptional`.
 
 <a id="open_problem_anchored_tail_of_the_moment_identity_at_large_height_and_for_l_functions"></a>
 
@@ -3728,7 +3728,7 @@ Statement. Let $T$ be the centre clock of Riemann's xi function. Its moments are
 
 Earlier editions: Problem 21.3, page 793 (edition 1).
 
-Source: [`ch/gl8.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/gl8.tex), label `gl:op:numerics`.
+Source: [`ch/gl8.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/gl8.tex), label `gl:op:numerics`.
 
 <a id="open_problem_negative_moment_of_the_clock_as_a_family_statistic_and_symplectic_prediction"></a>
 
@@ -3742,7 +3742,7 @@ Statement. For a real primitive character $\chi$ let $T_\chi$ be the clock (unde
 
 Earlier editions: Problem 21.4, page 793 (edition 1).
 
-Source: [`ch/gl8.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/gl8.tex), label `gl:op:negmoment`.
+Source: [`ch/gl8.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/gl8.tex), label `gl:op:negmoment`.
 
 <a id="open_problem_infinite_divisibility_of_the_family_mixture_of_clocks_of_dirichlet_characters"></a>
 
@@ -3756,7 +3756,7 @@ Statement. Let $\mathcal F_q$ consist of the real primitive characters modulo $q
 
 Earlier editions: Problem 21.5, page 794 (edition 1).
 
-Source: [`ch/gl8.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/gl8.tex), label `gl:op:family`.
+Source: [`ch/gl8.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/gl8.tex), label `gl:op:family`.
 
 <a id="open_problem_sign_definite_explicit_formula_for_primes_in_progressions_not_congruent_to_one"></a>
 
@@ -3770,7 +3770,7 @@ Statement. Let $F_q=\mathbb{Q}(\zeta_q)$ and $\psi(x;q,a)=\sum_{n\le x,\ n\equiv
 
 Earlier editions: Problem 21.6, page 794 (edition 1).
 
-Source: [`ch/gl8.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/gl8.tex), label `gl:op:signdefinite`.
+Source: [`ch/gl8.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/gl8.tex), label `gl:op:signdefinite`.
 
 <a id="open_problem_certified_backward_continuation_of_the_thorin_density_from_the_primes"></a>
 
@@ -3784,7 +3784,7 @@ Statement. Let $f$ be the completed Dedekind zeta function $\xi_F(s)=s(s-1)|d_F|
 
 Earlier editions: Problem 21.7, page 794 (edition 1).
 
-Source: [`ch/gl8.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/gl8.tex), label `gl:op:backward`.
+Source: [`ch/gl8.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/gl8.tex), label `gl:op:backward`.
 
 <a id="open_problem_exponential_sum_over_primes_on_the_minor_arcs_as_an_expectation_against_ggc_laws"></a>
 
@@ -3798,7 +3798,7 @@ Statement. For $F=\mathbb{Q}$ let $\nu_F$ be the signed Lévy measure of the com
 
 Earlier editions: Problem 21.8, page 795 (edition 1).
 
-Source: [`ch/gl8.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/gl8.tex), label `gl:op:arith`.
+Source: [`ch/gl8.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/gl8.tex), label `gl:op:arith`.
 
 <a id="open_problem_best_minor_arc_exponent_in_linnik_problem_from_a_zero_free_half_plane"></a>
 
@@ -3812,7 +3812,7 @@ Statement. Consider the circle method for Linnik's problem of writing large even
 
 Earlier editions: Problem 21.9, page 795 (edition 1).
 
-Source: [`ch/gl8.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/gl8.tex), label `gl:op:quasi`.
+Source: [`ch/gl8.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/gl8.tex), label `gl:op:quasi`.
 
 <a id="open_problem_finite_order_total_positivity_forcing_real_zeros_in_a_class_of_entire_functions"></a>
 
@@ -3826,7 +3826,7 @@ Statement. Let $T$ be the centre clock of Riemann's xi function, $Z$ an independ
 
 Earlier editions: Problem 21.10, page 795 (edition 1).
 
-Source: [`ch/gl8.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/gl8.tex), label `gl:op:pf`.
+Source: [`ch/gl8.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/gl8.tex), label `gl:op:pf`.
 
 ## Volume I, Chapter 17. Completeness of the secant dilates and the Möbius problem
 
@@ -3842,7 +3842,7 @@ Statement. Let $\operatorname{sech}=1/\cosh$ and let $g$ be a measurable functio
 
 Earlier editions: Theorem 29.1.4, page 1025 (edition 1).
 
-Source: [`ch/lv1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/lv1.tex), label `lv:thm:L1`.
+Source: [`ch/lv1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/lv1.tex), label `lv:thm:L1`.
 
 <a id="mobius_secant_series_converges_in_every_weight_with_c_at_least_one"></a>
 
@@ -3856,7 +3856,7 @@ Statement. For $c>0$ let $\mathcal W_c=L^2((0,\infty),x^{2c-1}dx)$ and $\operato
 
 Earlier editions: Theorem 29.2.2, page 1027 (edition 1).
 
-Source: [`ch/lv1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/lv1.tex), label `lv:thm:c1`.
+Source: [`ch/lv1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/lv1.tex), label `lv:thm:c1`.
 
 <a id="single_weight_completeness_of_secant_dilates_is_unconditional_by_carleman"></a>
 
@@ -3870,7 +3870,7 @@ Statement. For $c>0$ let $\mathcal W_c=L^2((0,\infty),x^{2c-1}dx)$ and $\operato
 
 Earlier editions: Theorem 29.3.2, page 1028 (edition 1).
 
-Source: [`ch/lv1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/lv1.tex), label `lv:thm:single`.
+Source: [`ch/lv1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/lv1.tex), label `lv:thm:single`.
 
 <a id="two_weight_necessity_zero_free_strip_for_the_beta_function"></a>
 
@@ -3884,7 +3884,7 @@ Statement. For $c>0$ let $\mathcal W_c=L^2((0,\infty),x^{2c-1}dx)$ and $\operato
 
 Earlier editions: Proposition 29.5.1, page 1030 (edition 1).
 
-Source: [`ch/lv1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/lv1.tex), label `lv:prop:nec`.
+Source: [`ch/lv1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/lv1.tex), label `lv:prop:nec`.
 
 <a id="two_weight_criterion_zero_free_half_plane_for_the_beta_function"></a>
 
@@ -3898,7 +3898,7 @@ Statement. For $c>0$ let $\mathcal W_c=L^2((0,\infty),x^{2c-1}dx)$ and $\operato
 
 Earlier editions: Theorem 29.5.2, page 1030 (edition 1).
 
-Source: [`ch/lv1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/lv1.tex), label `lv:thm:two`.
+Source: [`ch/lv1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/lv1.tex), label `lv:thm:two`.
 
 <a id="zeta_version_one_weight_completeness_and_two_weight_criterion_for_the_bose_kernel"></a>
 
@@ -3912,7 +3912,7 @@ Statement. For $c>0$ let $\mathcal W_c=L^2((0,\infty),x^{2c-1}dx)$ and $\operato
 
 Earlier editions: Theorem 29.6.1, page 1031 (edition 1).
 
-Source: [`ch/lv1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/lv1.tex), label `lv:thm:zeta`.
+Source: [`ch/lv1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/lv1.tex), label `lv:thm:zeta`.
 
 <a id="necessity_of_the_divergence_condition_for_completeness_in_one_weight"></a>
 
@@ -3926,7 +3926,7 @@ Statement. For $c>0$ let $\mathcal W_c=L^2((0,\infty),x^{2c-1}dx)$ and $\operato
 
 Earlier editions: Theorem 29.10.2, page 1035 (edition 1).
 
-Source: [`ch/lv2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/lv2.tex), label `lv:thm:nec`.
+Source: [`ch/lv2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/lv2.tex), label `lv:thm:nec`.
 
 <a id="necessity_and_sufficiency_of_divergent_reciprocal_sum_for_the_secant_dilates_conditional"></a>
 
@@ -3940,7 +3940,7 @@ Statement. For $c>0$ let $\mathcal W_c=L^2((0,\infty),x^{2c-1}dx)$ and $\operato
 
 Earlier editions: Corollary 29.10.3, page 1036 (edition 1).
 
-Source: [`ch/lv2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/lv2.tex), label `lv:cor:iff`.
+Source: [`ch/lv2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/lv2.tex), label `lv:cor:iff`.
 
 <a id="salem_criterion_for_the_fermi_and_secant_kernels_on_a_divergent_set_of_dilations"></a>
 
@@ -3954,7 +3954,7 @@ Statement. Let $\sigma>0$, let $k$ be $1/(e^x+1)$ or $\operatorname{sech}x$, and
 
 Earlier editions: Theorem 29.11.1, page 1037 (edition 1).
 
-Source: [`ch/lv2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/lv2.tex), label `lv:thm:salem`.
+Source: [`ch/lv2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/lv2.tex), label `lv:thm:salem`.
 
 <a id="residual_identity_for_the_weighted_error_of_arbitrary_secant_combinations"></a>
 
@@ -3968,7 +3968,7 @@ Statement. For $c>0$ let $\mathcal W_c=L^2((0,\infty),x^{2c-1}dx)$ and $\operato
 
 Earlier editions: Proposition 29.12.1, page 1040 (edition 1).
 
-Source: [`ch/lv2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/lv2.tex), label `lv:prop:segment`.
+Source: [`ch/lv2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/lv2.tex), label `lv:prop:segment`.
 
 <a id="mellin_transform_of_the_meixner_density_in_terms_of_an_entire_dirichlet_type_series"></a>
 
@@ -3982,7 +3982,7 @@ Statement. For $t>0$ let $f_t(x)=|\Gamma(\frac t2+\frac{ix}2)|^2$, $x>0$. For $0
 
 Earlier editions: Theorem 29.13.1, page 1041 (edition 1).
 
-Source: [`ch/lv2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/lv2.tex), label `lv:thm:meixner`.
+Source: [`ch/lv2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/lv2.tex), label `lv:thm:meixner`.
 
 <a id="one_weight_completeness_throughout_the_meixner_family"></a>
 
@@ -3996,7 +3996,7 @@ Statement. For $c>0$ let $\mathcal W_c=L^2((0,\infty),x^{2c-1}dx)$ and $\operato
 
 Earlier editions: Corollary 29.13.2, page 1042 (edition 1).
 
-Source: [`ch/lv2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/lv2.tex), label `lv:cor:meixner`.
+Source: [`ch/lv2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/lv2.tex), label `lv:cor:meixner`.
 
 <a id="order_two_meixner_kernel_gives_an_unconditional_mobius_route"></a>
 
@@ -4010,7 +4010,7 @@ Statement. For $c>0$ let $\mathcal W_c=L^2((0,\infty),x^{2c-1}dx)$ and $\operato
 
 Earlier editions: Theorem 29.13.3, page 1043 (edition 1).
 
-Source: [`ch/lv2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/lv2.tex), label `lv:thm:t2`.
+Source: [`ch/lv2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/lv2.tex), label `lv:thm:t2`.
 
 <a id="thorin_form_of_the_two_weight_criterion_for_the_reciprocal_xi_function"></a>
 
@@ -4024,7 +4024,7 @@ Statement. Let $\Xi$ be either the Riemann function $\xi$ or $\xi(\cdot,\chi_4)$
 
 Earlier editions: Theorem 29.14.2, page 1045 (edition 1).
 
-Source: [`ch/lv2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/lv2.tex), label `lv:thm:thorin`.
+Source: [`ch/lv2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/lv2.tex), label `lv:thm:thorin`.
 
 <a id="thorin_representations_of_reciprocal_xi_above_the_zero_free_abscissa"></a>
 
@@ -4038,7 +4038,7 @@ Statement. Let $\Xi$ be either the Riemann function $\xi$ or $\xi(\cdot,\chi_4)$
 
 Earlier editions: Corollary 29.14.3, page 1045 (edition 1).
 
-Source: [`ch/lv2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/lv2.tex), label `lv:cor:uncond`.
+Source: [`ch/lv2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/lv2.tex), label `lv:cor:uncond`.
 
 <a id="cauchy_semigroup_of_thorin_measures_of_the_reciprocal_xi_function"></a>
 
@@ -4052,7 +4052,7 @@ Statement. Let $\Xi$ be either the Riemann function $\xi$ or $\xi(\cdot,\chi_4)$
 
 Earlier editions: Theorem 29.14.4, page 1046 (edition 1).
 
-Source: [`ch/lv2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/lv2.tex), label `lv:thm:semigroup`.
+Source: [`ch/lv2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/lv2.tex), label `lv:thm:semigroup`.
 
 ## Volume I, Chapter 18. Hitting times, Krein strings and the Pólya Bessel clock
 
@@ -4068,7 +4068,7 @@ Statement. For real $\kappa$ let $s_\kappa(z)=\sin(\sqrt\kappa z)/\sqrt\kappa$ (
 
 Earlier editions: Proposition 8.7.6, page 313 (edition 1).
 
-Source: [`ch/biane.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/biane.tex), label `prop:biane:skappa`.
+Source: [`ch/biane.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/biane.tex), label `prop:biane:skappa`.
 
 <a id="exact_quantisation_rule_for_zeros_of_polya_bessel_function"></a>
 
@@ -4082,13 +4082,61 @@ Statement. Let $K_\mu$ and $I_\mu$ be the modified Bessel functions of the secon
 
 Earlier editions: Proposition 8.7.8, page 316 (edition 1).
 
-Source: [`ch/biane.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/biane.tex), label `prop:biane:phase`.
+Source: [`ch/biane.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/biane.tex), label `prop:biane:phase`.
+
+<a id="no_finite_rank_selfadjoint_perturbation_of_gram_regular_operator_gives_zeta_spectrum"></a>
+
+### No finite rank selfadjoint perturbation of a Gram regular operator has the zeta spectrum
+
+Volume I, Theorem 18.1.9, page 512 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+
+Status: proved.
+
+Statement. Let $\vartheta$ be the Riemann Siegel theta function. Call a selfadjoint operator $A$, bounded below with compact resolvent, Gram regular if $N_A(t)=\#\{\mu\le t^2/4\}$, counted over the eigenvalues $\mu$ of $A$, satisfies $N_A(t)=\vartheta(t)/\pi+O(1)$. The target is the multiset $\{\gamma^2/4\}$, with $\gamma$ running over the ordinates of the nontrivial zeros of $\zeta$ with $\operatorname{Re}\gamma>0$ (real exactly under the Riemann Hypothesis). Let $A$ be Gram regular. (i) If $F$ is a bounded selfadjoint operator of finite rank, the spectrum of $A+F$ is not $\{\gamma^2/4\}$ with multiplicity, even when a finite set of eigenvalues and of ordinates is discarded. (ii) The same holds for every selfadjoint $B$ such that $(A+c)^{-1}-(B+c)^{-1}$ has finite rank for some $c$ with $A+c>0$; this covers finite rank perturbations of $A^{-1}$ when $0\notin\operatorname{spec}A$ and changes of boundary condition. (iii) The same holds for the target $\{\gamma^2/4+c'\}$ with $c'\in\mathbb{R}$. The statement is unconditional. It rests on Selberg's theorem that $S(t)=\frac1\pi\arg\zeta(\frac12+it)$ is unbounded above and below, and it offers no candidate operator.
+
+Source: [`ch/biane.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/biane.tex), label `thm:biane:nogo`.
+
+<a id="morse_type_operators_are_gram_regular"></a>
+
+### Morse type half line operators are Gram regular
+
+Volume I, Proposition 18.1.10, page 513 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+
+Status: proved.
+
+Statement. (a) For real $k$ let $B_k=-\frac{d^2}{dx^2}+e^{2x}+2ke^x$ on $[\log2\pi,\infty)$ with a Dirichlet condition at $\log2\pi$. Its eigenvalues are $\mu=\nu^2$ where, for large $\nu$, $\vartheta(2\nu)+\frac{3\pi}8-\frac{k\pi}2+O_k(1/\nu)\equiv0 \bmod \pi$, with $\vartheta$ the Riemann Siegel theta function, so $B_k$ is Gram regular (its counting function in the variable $t=2\sqrt\mu$ is $\vartheta(t)/\pi+O(1)$). (b) Let $V$ be real and locally bounded on $[\log2\pi,\infty)$ with $|V(x)|\le Ce^x$. Then $-\frac{d^2}{dx^2}+e^{2x}+V$ on that half line with the same Dirichlet condition is Gram regular, so no finite rank selfadjoint perturbation of it has the spectrum $\{\gamma^2/4\}$ of the squared half ordinates of the zeta zeros. Consequently any real potential whose levels reach the zeros up to finite rank satisfies $\limsup_{x\to\infty}|V(x)|e^{-x}=\infty$.
+
+Source: [`ch/biane.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/biane.tex), label `prop:biane:morse`.
+
+<a id="rank_one_excluded_against_constant_phase_on_30_to_680"></a>
+
+### Discrepancy span against a constant phase, rank one excluded on the zeros up to height 680
+
+Volume I, Proposition 18.1.11, page 514 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+
+Status: computed.
+
+Statement. Let $\vartheta$ be the Riemann Siegel theta function, $N$ the zero counting function, $S(t)=N(t)-\vartheta(t)/\pi-1$, and for a constant $c$ let the reference levels be the solutions of $\vartheta(t)=(m+c)\pi$ with $m\ge m_0$, with counting function $N_c$ and discrepancy $D_c=N-N_c$. Then $D_c=S+\{\vartheta/\pi-c\}+c+m_0$, where $\{\cdot\}$ is the fractional part (proved), so over any range $\sup S-\inf S-1<\operatorname{span}D_c<\sup S-\inf S+1$ once the range holds enough levels. Computed, not proved for every height: over $[30,680]$ one has $S\in[-1.1455,1.1642]$, with the supremum $1.1642$ just after the zero $\gamma_{379}=650.669$ and the infimum $-1.1455$ just before $\gamma_{289}=527.904$, hence $2\le\operatorname{span}D_c\le3$ for every real $c$, so a rank one perturbation is excluded against every constant phase on this range; the span is $3$ exactly for $c\in[0,0.1455)\cup(0.8358,1)$ modulo $1$ and $2$ otherwise. Weak interlacing for a positive or negative rank one perturbation holds exactly when $D_c$ takes at most two adjacent values.
+
+Source: [`ch/biane.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/biane.tex), label `prop:biane:span`.
+
+<a id="no_finite_rank_perturbation_of_prime_truncated_phase_operator"></a>
+
+### Operators with levels given by a prime truncated phase are Gram regular
+
+Volume I, Proposition 18.1.13, page 515 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+
+Status: proved.
+
+Statement. Let $\vartheta$ be the Riemann Siegel theta function, fix $p_0$, and put $\Theta_{p_0}(t)=\vartheta(t)-\sum_{p\le p_0}\sum_{k\ge1}\sin(kt\log p)/(kp^{k/2})$ with $p$ running over primes. Any selfadjoint operator whose levels are, up to a finite set, the solutions of $\Theta_{p_0}(t)\equiv c\pi \bmod \pi$ is Gram regular (its counting function is $\vartheta(t)/\pi+O_{p_0}(1)$ in the variable $t=2\sqrt\mu$), so no finite rank selfadjoint perturbation of it has the spectrum $\{\gamma^2/4\}$ of the squared half ordinates of the zeta zeros.
+
+Source: [`ch/biane.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/biane.tex), label `prop:biane:euler`.
 
 <a id="index_side_thorin_measure_of_polya_bessel_function"></a>
 
 ### Index side Thorin measure of Pólya's Bessel function
 
-Volume I, Theorem 18.1.9, page 512 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Theorem 18.1.14, page 516 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -4096,13 +4144,13 @@ Statement. Let $K_\mu(x)=\int_0^\infty e^{-x\cosh t}\cosh(\mu t)\,dt$ be the Mac
 
 Earlier editions: Theorem 8.7.9, page 318 (edition 1).
 
-Source: [`ch/biane.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/biane.tex), label `thm:biane:indexP`.
+Source: [`ch/biane.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/biane.tex), label `thm:biane:indexP`.
 
 <a id="clock_of_polya_bessel_function_hitting_time_of_explicit_diffusion"></a>
 
 ### Clock of Pólya's Bessel function as a hitting time of an explicit diffusion
 
-Volume I, Theorem 18.1.10, page 513 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Theorem 18.1.15, page 517 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -4110,13 +4158,13 @@ Statement. Let $K_0$, $K_1$ and $K_\mu$ be Macdonald functions and $R$ the diffu
 
 Earlier editions: Theorem 8.7.10, page 320 (edition 1).
 
-Source: [`ch/biane.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/biane.tex), label `thm:biane:clock`.
+Source: [`ch/biane.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/biane.tex), label `thm:biane:clock`.
 
 <a id="sine_squared_forms_of_bessel_clock_drifted_clock_and_polya_clock"></a>
 
 ### Sine squared forms of the Bessel clock, the drifted clock and Pólya's clock
 
-Volume I, Proposition 18.1.13, page 516 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Proposition 18.1.18, page 521 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -4124,13 +4172,13 @@ Statement. Let $K_\mu$ be the Macdonald function, $\nu_n$ the positive zeros of 
 
 Earlier editions: Proposition 8.7.13, page 323 (edition 1).
 
-Source: [`ch/biane.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/biane.tex), label `prop:biane:sin2`.
+Source: [`ch/biane.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/biane.tex), label `prop:biane:sin2`.
 
 <a id="klein_gordon_criterion_for_real_zeros"></a>
 
 ### Klein Gordon criterion for real zeros
 
-Volume I, Theorem 18.1.14, page 518 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Theorem 18.1.19, page 522 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -4138,13 +4186,13 @@ Statement. Let $g$ be even, positive and continuous on $\mathbb{R}$ with $\int g
 
 Earlier editions: Theorem 8.7.14, page 324 (edition 1).
 
-Source: [`ch/biane.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/biane.tex), label `thm:biane:kg`.
+Source: [`ch/biane.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/biane.tex), label `thm:biane:kg`.
 
 <a id="de_bruijn_newman_constant_of_polya_function_is_finite"></a>
 
 ### De Bruijn Newman constant of Pólya's function is finite
 
-Volume I, Proposition 18.1.15, page 520 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Proposition 18.1.20, page 523 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -4152,13 +4200,13 @@ Statement. For real $t$ let $P_t(\theta)=\int_{\mathbb{R}}e^{tu^2/4}e^{-2\pi\cos
 
 Earlier editions: Proposition 8.7.15, page 325 (edition 1).
 
-Source: [`ch/biane.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/biane.tex), label `prop:biane:lambdaP`.
+Source: [`ch/biane.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/biane.tex), label `prop:biane:lambdaP`.
 
 <a id="gaussian_damping_property_cannot_imply_real_zeros"></a>
 
 ### A property that survives Gaussian damping cannot imply real zeros
 
-Volume I, Proposition 18.1.16, page 523 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Proposition 18.1.21, page 527 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -4166,13 +4214,13 @@ Statement. Let $\Phi(u)=2\sum_{n\ge1}\big(2\pi^2n^4e^{9u/2}-3\pi n^2e^{5u/2}\big
 
 Earlier editions: Proposition 8.7.16, page 329 (edition 1).
 
-Source: [`ch/biane.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/biane.tex), label `prop:biane:damping`.
+Source: [`ch/biane.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/biane.tex), label `prop:biane:damping`.
 
 <a id="open_diffusion_for_clock_of_riemann_xi_function"></a>
 
 ### Open question on a diffusion for the clock of the Riemann xi function
 
-Volume I, Question 18.1.17, page 524 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Question 18.1.22, page 528 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: open.
 
@@ -4180,13 +4228,13 @@ Statement. Let $\xi(s)=\frac12s(s-1)\pi^{-s/2}\Gamma(\frac s2)\zeta(s)$ and let 
 
 Earlier editions: Question 8.7.17, page 330 (edition 1).
 
-Source: [`ch/biane.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/biane.tex), label `q:biane:radial`.
+Source: [`ch/biane.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/biane.tex), label `q:biane:radial`.
 
 <a id="open_klein_gordon_extension_of_polya_kernel"></a>
 
 ### Open question on a Klein Gordon extension of Pólya's kernel
 
-Volume I, Question 18.1.18, page 525 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Question 18.1.23, page 528 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: open.
 
@@ -4194,13 +4242,13 @@ Statement. Let $\Phi(u)=2\sum_{n\ge1}\big(2\pi^2n^4e^{9u/2}-3\pi n^2e^{5u/2}\big
 
 Earlier editions: Question 8.7.18, page 331 (edition 1).
 
-Source: [`ch/biane.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/biane.tex), label `q:biane:kg`.
+Source: [`ch/biane.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/biane.tex), label `q:biane:kg`.
 
 <a id="open_de_bruijn_newman_constants_of_polya_functions"></a>
 
 ### Open question on the de Bruijn Newman constants of Pólya's functions
 
-Volume I, Question 18.1.19, page 525 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Question 18.1.24, page 529 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: open.
 
@@ -4208,13 +4256,13 @@ Statement. For real $t$ let $P_t(\theta)=\int_{\mathbb{R}}e^{tu^2/4}e^{-2\pi\cos
 
 Earlier editions: Question 8.7.19, page 331 (edition 1).
 
-Source: [`ch/biane.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/biane.tex), label `q:biane:lambda`.
+Source: [`ch/biane.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/biane.tex), label `q:biane:lambda`.
 
 <a id="open_family_joining_the_two_clocks"></a>
 
 ### Open question on a family joining the two clocks
 
-Volume I, Question 18.1.20, page 525 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Question 18.1.25, page 529 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: open.
 
@@ -4222,7 +4270,31 @@ Statement. Let $H$ be the first passage time of Brownian motion with drift $\sqr
 
 Earlier editions: Question 8.7.20, page 331 (edition 1).
 
-Source: [`ch/biane.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/biane.tex), label `q:biane:curv`.
+Source: [`ch/biane.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/biane.tex), label `q:biane:curv`.
+
+<a id="open_unbounded_rank_corrections_of_the_wall_operator_from_primes"></a>
+
+### Selfadjoint corrections of the wall operator defined from the primes (open question)
+
+Volume I, Question 18.1.26, page 529 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+
+Status: open.
+
+Statement. Let $A_P$ be the selfadjoint operator of the book's Pólya wall, whose levels $\nu_n^2$ have the counting function of the Riemann Siegel phase up to a bounded error. Open question: define, without using the zeros, a sequence of selfadjoint finite rank corrections of $A_P$, for instance by a prime sum, whose spectra converge to $\{\gamma^2/4\}$, with $\gamma$ running over the ordinates of the nontrivial zeros of $\zeta$ with positive real part. The book proves that the ranks must be unbounded (no single finite rank correction works), so the question is open as stated. Any solution gives the Riemann Hypothesis, because limits of real numbers are real and no ordinate is purely imaginary. Under the Riemann Hypothesis and with the zeros as input a solution exists trivially, as a sequence of rank one moves of the eigenvalues of $A_P$ onto $\gamma_n^2/4$ in the diagonal basis; the content of the question lies in the clause that the corrections be defined from the primes.
+
+Source: [`ch/biane.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/biane.tex), label `q:biane:infrank`.
+
+<a id="open_krein_string_comparison_of_zeros_and_wall_levels"></a>
+
+### Krein string masses of the zeros against the wall levels (open question)
+
+Volume I, Question 18.1.27, page 529 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+
+Status: open.
+
+Statement. Fix one construction that assigns a Krein string to a finite list of levels and norming weights, for instance the Stieltjes continued fraction of $\sum_nw_n\delta_{\gamma_n^2/4}$, and apply it to the first $N$ ordinates $\gamma_n$ of the zeta zeros and to the first $N$ levels of the wall operator $A_P$ with the weights given by the norming constants of its eigenfunctions. Open question: how do the masses of the two strings compare as $N$ grows? A string is determined by its spectral measure, the eigenvalues together with the norming constants, and not by the ordinates alone, so the comparison must fix the weights of the zeros; a difference of masses is not a perturbation of any rank. With the zeros as input this tests an inverse algorithm and is no arithmetic mechanism.
+
+Source: [`ch/biane.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/biane.tex), label `q:biane:string`.
 
 ## Volume I, Chapter 19. The Pólya density as a maximum and as an extreme value law
 
@@ -4230,7 +4302,7 @@ Source: [`ch/biane.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.
 
 ### Pólya kernel from a sum of two maxima of exponential variables
 
-Volume I, Proposition 19.2.1, page 530 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Proposition 19.2.1, page 534 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -4238,13 +4310,13 @@ Statement. Let $\xi(s)=\frac12s(s-1)\pi^{-s/2}\Gamma(\frac s2)\zeta(s)$ be Riema
 
 Earlier editions: Proposition 14.2.1, page 584 (edition 1).
 
-Source: [`ch/maxwald.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/maxwald.tex), label `mw:prop:sum`.
+Source: [`ch/maxwald.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/maxwald.tex), label `mw:prop:sum`.
 
 <a id="khinchin_factorisation_of_tilted_maximum_of_exponentials"></a>
 
 ### Khinchin factorisation of the tilted maximum of exponential variables
 
-Volume I, Theorem 19.3.1, page 531 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Theorem 19.3.1, page 535 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -4252,13 +4324,13 @@ Statement. Fix $\sigma>1$. Let $M_4$ be the maximum of independent exponential r
 
 Earlier editions: Theorem 14.3.1, page 586 (edition 1).
 
-Source: [`ch/maxwald.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/maxwald.tex), label `mw:thm:khinchin`.
+Source: [`ch/maxwald.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/maxwald.tex), label `mw:thm:khinchin`.
 
 <a id="wald_couples_of_maximum_of_exponentials_and_logistic_law"></a>
 
 ### Wald couples of the maximum of exponential variables and the logistic law
 
-Volume I, Theorem 19.4.2, page 532 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Theorem 19.4.2, page 536 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -4266,13 +4338,13 @@ Statement. Call a pair $(\tau,\varsigma)$ of independent random variables with $
 
 Earlier editions: Theorem 14.4.2, page 586 (edition 1).
 
-Source: [`ch/maxwald.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/maxwald.tex), label `mw:thm:wald`.
+Source: [`ch/maxwald.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/maxwald.tex), label `mw:thm:wald`.
 
 <a id="stieltjes_criterion_for_rh_through_smoothed_thorin_density_of_clock"></a>
 
 ### Stieltjes criterion for RH through the smoothed Thorin density of the clock
 
-Volume I, Theorem 19.6.1, page 533 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Theorem 19.6.1, page 537 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -4280,13 +4352,13 @@ Statement. Let $\xi(s)=\frac12s(s-1)\pi^{-s/2}\Gamma(\frac s2)\zeta(s)$, let $\r
 
 Earlier editions: Theorem 14.6.1, page 587 (edition 1).
 
-Source: [`ch/maxwald.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/maxwald.tex), label `mw:thm:stieltjes`.
+Source: [`ch/maxwald.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/maxwald.tex), label `mw:thm:stieltjes`.
 
 <a id="off_line_zero_makes_smoothed_thorin_density_of_clock_negative"></a>
 
 ### An off line zero makes the smoothed Thorin density of the clock negative
 
-Volume I, Lemma 19.6.2, page 534 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Lemma 19.6.2, page 538 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -4294,13 +4366,13 @@ Statement. Let $\xi(s)=\frac12s(s-1)\pi^{-s/2}\Gamma(\frac s2)\zeta(s)$, let $\r
 
 Earlier editions: Lemma 14.6.2, page 588 (edition 1).
 
-Source: [`ch/maxwald.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/maxwald.tex), label `mw:lem:detect`.
+Source: [`ch/maxwald.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/maxwald.tex), label `mw:lem:detect`.
 
 <a id="explicit_ggc_within_laplace_distance_of_the_clock"></a>
 
 ### An explicit GGC within a stated Laplace distance of the clock
 
-Volume I, Proposition 19.7.2, page 536 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Proposition 19.7.2, page 540 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -4308,13 +4380,13 @@ Statement. Let $\xi(s)=\frac12s(s-1)\pi^{-s/2}\Gamma(\frac s2)\zeta(s)$, let $\r
 
 Earlier editions: Proposition 14.7.2, page 590 (edition 1).
 
-Source: [`ch/maxwald2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/maxwald2.tex), label `mw:prop:approx`.
+Source: [`ch/maxwald2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/maxwald2.tex), label `mw:prop:approx`.
 
 <a id="term_of_one_zero_in_thorin_density_of_basepoint_family_lambda_chart"></a>
 
 ### Term of one zero in the Thorin density of the basepoint family in the lambda chart
 
-Volume I, Proposition 19.8.1, page 537 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Proposition 19.8.1, page 541 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -4322,13 +4394,13 @@ Statement. Let $\xi$ be Riemann's xi function, $\alpha>\frac12$, $P_\delta(\thet
 
 Earlier editions: Proposition 14.8.1, page 591 (edition 1).
 
-Source: [`ch/maxwald2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/maxwald2.tex), label `mw:prop:lambda`.
+Source: [`ch/maxwald2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/maxwald2.tex), label `mw:prop:lambda`.
 
 <a id="clock_is_not_a_maximum_of_independent_exponential_variables"></a>
 
 ### The clock is not a maximum of independent exponential variables
 
-Volume I, Proposition 19.9.1, page 539 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Proposition 19.9.1, page 543 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -4336,13 +4408,13 @@ Statement. Let $\xi$ be Riemann's xi function, $T$ the clock, the random variabl
 
 Earlier editions: Proposition 14.9.1, page 595 (edition 1).
 
-Source: [`ch/maxwald2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/maxwald2.tex), label `mw:prop:nomax`.
+Source: [`ch/maxwald2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/maxwald2.tex), label `mw:prop:nomax`.
 
 <a id="gumbel_limit_for_maxima_of_independent_copies_of_the_clock"></a>
 
 ### Gumbel limit for maxima of independent copies of the clock and of the maximum M_4
 
-Volume I, Proposition 19.10.1, page 541 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Proposition 19.10.1, page 545 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -4350,13 +4422,13 @@ Statement. Let $\xi$ be Riemann's xi function, $\Xi(\theta)=\xi(\frac12+i\theta)
 
 Earlier editions: Proposition 14.10.1, page 596 (edition 1).
 
-Source: [`ch/maxwald2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/maxwald2.tex), label `mw:prop:gnedenko`.
+Source: [`ch/maxwald2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/maxwald2.tex), label `mw:prop:gnedenko`.
 
 <a id="finite_maxima_converge_to_maximum_and_finite_stages_to_xi"></a>
 
 ### Convergence of the finite maxima and of the finite stages of xi
 
-Volume I, Theorem 19.12.1, page 544 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Theorem 19.12.1, page 548 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -4364,13 +4436,13 @@ Statement. Let $(E_n)_{n\ge1}$ and $(E'_m)_{m\ge1}$ be independent standard expo
 
 Earlier editions: Theorem 14.12.1, page 599 (edition 1).
 
-Source: [`ch/maxwald3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/maxwald3.tex), label `mw:thm:finite`.
+Source: [`ch/maxwald3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/maxwald3.tex), label `mw:thm:finite`.
 
 <a id="hurwitz_zeros_of_finite_stages_and_sufficient_condition_for_rh"></a>
 
 ### Zeros of the symmetrised finite stages and a sufficient condition for RH
 
-Volume I, Corollary 19.12.2, page 545 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Corollary 19.12.2, page 549 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -4378,13 +4450,13 @@ Statement. Let $M_4^{(N)}$ be the maximum of the independent exponential variabl
 
 Earlier editions: Corollary 14.12.2, page 599 (edition 1).
 
-Source: [`ch/maxwald3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/maxwald3.tex), label `mw:cor:hurwitz`.
+Source: [`ch/maxwald3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/maxwald3.tex), label `mw:cor:hurwitz`.
 
 <a id="finite_order_ggc_bondesson_and_hcm_classes_of_the_clock"></a>
 
 ### Finite order GGC, Bondesson and HCM classes of the clock, and RH as the infinite order case
 
-Volume I, Theorem 19.13.2, page 549 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Theorem 19.13.2, page 553 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -4392,13 +4464,13 @@ Statement. Let $\xi(s)=\frac12s(s-1)\pi^{-s/2}\Gamma(\frac s2)\zeta(s)$ and let 
 
 Earlier editions: Theorem 14.13.2, page 604 (edition 1).
 
-Source: [`ch/maxwald3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/maxwald3.tex), label `mw:thm:bondesson`.
+Source: [`ch/maxwald3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/maxwald3.tex), label `mw:thm:bondesson`.
 
 <a id="finite_arithmetic_form_of_basepoint_density_below_basepoint_one"></a>
 
 ### Finite arithmetic form of the basepoint density below basepoint one
 
-Volume I, Proposition 19.14.1, page 551 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Proposition 19.14.1, page 555 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: conditional on Part (b) assumes the Riemann hypothesis. Part (a) holds without any hypothesis, and part (c) holds without any hypothesis when delta is at least one half and otherwise needs that every zero lies within delta of the critical line, which the Riemann hypothesis gives for every delta above zero.
 
@@ -4406,13 +4478,13 @@ Statement. Let $\xi$ be Riemann's xi function, $\Lambda$ the von Mangoldt functi
 
 Earlier editions: Proposition 14.14.1, page 606 (edition 1).
 
-Source: [`ch/maxwald3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/maxwald3.tex), label `mw:prop:AX`.
+Source: [`ch/maxwald3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/maxwald3.tex), label `mw:prop:AX`.
 
 <a id="open_zero_freeness_of_symmetric_finite_stages_of_the_maximum"></a>
 
 ### Zero freeness of the symmetric finite stages of the maximum
 
-Volume I, Problem 19.1, page 553 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Problem 19.1, page 557 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: open.
 
@@ -4420,13 +4492,13 @@ Statement. Let $\xi$ be Riemann's xi function. For $N\ge1$ let $M_4^{(N)}$ be th
 
 Earlier editions: Problem 14.1, page 608 (edition 1).
 
-Source: [`ch/maxwald3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/maxwald3.tex), label `mw:prob:hurwitz`.
+Source: [`ch/maxwald3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/maxwald3.tex), label `mw:prob:hurwitz`.
 
 <a id="open_termwise_positive_continuation_of_prime_form_below_basepoint_one"></a>
 
 ### A termwise positive continuation of the prime form below basepoint one
 
-Volume I, Problem 19.2, page 554 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Problem 19.2, page 558 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: open.
 
@@ -4434,13 +4506,13 @@ Statement. Let $\xi$ be Riemann's xi function. For $\alpha>1$ the density $v_\al
 
 Earlier editions: Problem 14.2, page 608 (edition 1).
 
-Source: [`ch/maxwald3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/maxwald3.tex), label `mw:prob:lagarias`.
+Source: [`ch/maxwald3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/maxwald3.tex), label `mw:prob:lagarias`.
 
 <a id="open_existence_of_half_flow_clock_for_small_positive_times"></a>
 
 ### Existence of the half flow clock for small positive times
 
-Volume I, Problem 19.3, page 554 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Problem 19.3, page 558 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: open.
 
@@ -4448,13 +4520,13 @@ Statement. Let $\xi$ be Riemann's xi function, $\Phi_{\mathrm{dBN}}(u)=\sum_{n\g
 
 Earlier editions: Problem 14.3, page 609 (edition 1).
 
-Source: [`ch/maxwald3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/maxwald3.tex), label `mw:prob:flow`.
+Source: [`ch/maxwald3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/maxwald3.tex), label `mw:prob:flow`.
 
 <a id="open_khinchin_analogue_of_tilted_maximum_at_one_half"></a>
 
 ### An analogue of the Khinchin factorisation at one half
 
-Volume I, Problem 19.4, page 555 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Problem 19.4, page 559 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: open.
 
@@ -4462,13 +4534,13 @@ Statement. Let $\xi$ be Riemann's xi function and $\Xi(\theta)=\xi(\frac12+i\the
 
 Earlier editions: Problem 14.4, page 609 (edition 1).
 
-Source: [`ch/maxwald3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/maxwald3.tex), label `mw:prob:khinchin`.
+Source: [`ch/maxwald3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/maxwald3.tex), label `mw:prob:khinchin`.
 
 <a id="gumbel_decomposition_of_each_term_of_the_theta_series_kernel"></a>
 
 ### Each term of the theta series kernel is an explicit combination of two Gumbel kernels of fractional order
 
-Volume I, Theorem 19.17.1, page 556 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Theorem 19.17.1, page 560 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -4476,13 +4548,13 @@ Statement. Let $\Phi(u)=\sum_{n\ge1}\phi_n(u)$ with $\phi_n(u)=(2\pi^2n^4e^{9u}-
 
 Earlier editions: Theorem 25.1.1, page 916 (edition 1).
 
-Source: [`ch/ev1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ev1.tex), label `ev:thm:decomp`.
+Source: [`ch/ev1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ev1.tex), label `ev:thm:decomp`.
 
 <a id="dyck_chain_polynomial_has_thirteen_zeros_left_of_the_line_below_height_sixty_at_n_25600"></a>
 
 ### Zeros of the Dirichlet polynomial of the Dyck chain at n equal to 25600 below height 60 (computed)
 
-Volume I, Result 19.17, page 557 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Result 19.17, page 561 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: computed.
 
@@ -4490,13 +4562,13 @@ Statement. Let $H_n$ be the height of a uniform Dyck path of length $2n$, $Y_n=\
 
 Earlier editions: Result 25.1, page 918 (edition 1).
 
-Source: [`ch/ev1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ev1.tex), label `ev:res:dyckcensus`.
+Source: [`ch/ev1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ev1.tex), label `ev:res:dyckcensus`.
 
 <a id="open_lattice_bias_expansion_of_dyck_chain_dirichlet_polynomial"></a>
 
 ### Lattice bias expansion of the Dirichlet polynomial of the Dyck chain (conjecture)
 
-Volume I, Conjecture 19.17.2, page 558 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Conjecture 19.17.2, page 562 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: open.
 
@@ -4504,13 +4576,13 @@ Statement. Let $H_n$ be the height of a uniform Dyck path of length $2n$, $Y_n=\
 
 Earlier editions: Conjecture 25.1.2, page 918 (edition 1).
 
-Source: [`ch/ev1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ev1.tex), label `ev:conj:lbias`.
+Source: [`ch/ev1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ev1.tex), label `ev:conj:lbias`.
 
 <a id="dyck_chain_zeros_first_order_displacement_given_lattice_bias_conjecture"></a>
 
 ### First order displacement of the zeros of the Dyck chain polynomial from the zeros of xi (conditional)
 
-Volume I, Proposition 19.17.3, page 559 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Proposition 19.17.3, page 563 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: conditional on The lattice bias conjecture, that $F_n(s)=2\xi(s)-\frac{3s}{\sqrt{\pi n}}\xi(s-1)+O(1/n)$ locally uniformly on $\operatorname{Re}s>0$.
 
@@ -4518,13 +4590,13 @@ Statement. Let $F_n(s)=\mathbb{E}Y_n^s$ be the Dirichlet polynomial of the Dyck 
 
 Earlier editions: Proposition 25.1.3, page 919 (edition 1).
 
-Source: [`ch/ev1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ev1.tex), label `ev:prop:lbias`.
+Source: [`ch/ev1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ev1.tex), label `ev:prop:lbias`.
 
 <a id="lattice_bias_coefficient_phase_formula_on_critical_line"></a>
 
 ### Phase formula for the lattice bias coefficient at a zero on the critical line
 
-Volume I, Proposition 19.17.4, page 559 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Proposition 19.17.4, page 563 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -4532,13 +4604,13 @@ Statement. Let $\xi$ be the Riemann xi function, $\rho=\frac12+i\gamma$, $\gamma
 
 Earlier editions: Proposition 25.1.4, page 919 (edition 1).
 
-Source: [`ch/ev1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ev1.tex), label `ev:prop:lbphase`.
+Source: [`ch/ev1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ev1.tex), label `ev:prop:lbphase`.
 
 <a id="lattice_bias_displacement_computed_first_200_zeros_and_zero_near_rho_64"></a>
 
 ### Lattice bias displacement of the Dyck chain zeros, computed for 200 zeros of xi and the zero near the 64th (computed)
 
-Volume I, Result 19.17, page 560 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Result 19.17, page 564 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: computed.
 
@@ -4546,13 +4618,13 @@ Statement. Let $\rho_k=\frac12+i\gamma_k$ be the zeros of $\zeta$ on the critica
 
 Earlier editions: Result 25.1, page 920 (edition 1).
 
-Source: [`ch/ev1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ev1.tex), label `ev:res:lbias`.
+Source: [`ch/ev1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ev1.tex), label `ev:res:lbias`.
 
 <a id="rh_equivalent_to_ggc_reciprocal_xi_law_and_to_the_existence_of_a_string"></a>
 
 ### All zeros of Xi are real if and only if the reciprocal xi law is a GGC, and real and simple if and only if it is the hitting time of a string
 
-Volume I, Corollary 19.19.1, page 562 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Corollary 19.19.1, page 566 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -4560,13 +4632,13 @@ Statement. Let $\Xi$ be the Riemann Xi function, $\xi$ the Riemann xi function, 
 
 Earlier editions: Corollary 25.3.1, page 922 (edition 1).
 
-Source: [`ch/ev1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ev1.tex), label `ev:cor:rh`.
+Source: [`ch/ev1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ev1.tex), label `ev:cor:rh`.
 
 <a id="principal_eigenvalue_of_the_string_from_the_tail_of_the_hitting_time_under_rh"></a>
 
 ### Under RH with simple zeros the tail of the hitting time is a sum of exponentials and its excess is exponential with rate the first squared ordinate
 
-Volume I, Proposition 19.19.2, page 563 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Proposition 19.19.2, page 567 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: conditional on RH, simple zeros, and $|\xi'(\rho)|\ge e^{-C|\gamma|}$ for some constant $C$ and all zeros $\rho=\frac12+i\gamma$.
 
@@ -4574,13 +4646,13 @@ Statement. Let $\Xi$ be the Riemann Xi function, $\xi$ the Riemann xi function, 
 
 Earlier editions: Proposition 25.3.2, page 923 (edition 1).
 
-Source: [`ch/ev1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ev1.tex), label `ev:prop:tail`.
+Source: [`ch/ev1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ev1.tex), label `ev:prop:tail`.
 
 <a id="hankel_determinants_positive_if_and_only_if_all_zeros_of_a_candidate_kernel_are_real"></a>
 
 ### Hankel test: the zeros of an even entire kernel with infinitely many zeros are real if and only if two families of Hankel determinants are positive
 
-Volume I, Proposition 19.22.1, page 566 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Proposition 19.22.1, page 570 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -4588,7 +4660,7 @@ Statement. Let $\widehat H$ be an even real entire function of order less than t
 
 Earlier editions: Proposition 25.6.1, page 927 (edition 1).
 
-Source: [`ch/ev1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ev1.tex), label `ev:prop:hankel`.
+Source: [`ch/ev1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ev1.tex), label `ev:prop:hankel`.
 
 ## Volume I, Chapter 20. Ferromagnetic random variables
 
@@ -4596,7 +4668,7 @@ Source: [`ch/ev1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/
 
 ### Clock and van Dantzig partner of a ferromagnetic law
 
-Volume I, Theorem 20.1.4, page 571 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Theorem 20.1.4, page 575 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -4604,13 +4676,13 @@ Statement. A real random variable $X$ is called ferromagnetic if it is symmetric
 
 Earlier editions: Theorem 13.1.4, page 531 (edition 1).
 
-Source: [`ch/fm1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/fm1.tex), label `fm:thm:dual`.
+Source: [`ch/fm1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/fm1.tex), label `fm:thm:dual`.
 
 <a id="ferromagnetic_laws_closed_under_convergence_in_law"></a>
 
 ### Ferromagnetic laws are closed under convergence in law
 
-Volume I, Theorem 20.1.5, page 573 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Theorem 20.1.5, page 577 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -4618,13 +4690,13 @@ Statement. A real random variable $X$ is called ferromagnetic if it is symmetric
 
 Earlier editions: Theorem 13.1.5, page 533 (edition 1).
 
-Source: [`ch/fm1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/fm1.tex), label `fm:thm:closed`.
+Source: [`ch/fm1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/fm1.tex), label `fm:thm:closed`.
 
 <a id="rh_iff_polya_law_is_a_limit_in_law_of_ferromagnetic_laws"></a>
 
 ### RH holds exactly when the Pólya law is a limit in law of ferromagnetic laws
 
-Volume I, Corollary 20.1.8, page 574 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Corollary 20.1.8, page 578 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -4632,13 +4704,13 @@ Statement. A real random variable $X$ is called ferromagnetic if it is symmetric
 
 Earlier editions: Corollary 13.1.8, page 534 (edition 1).
 
-Source: [`ch/fm1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/fm1.tex), label `fm:cor:limit`.
+Source: [`ch/fm1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/fm1.tex), label `fm:cor:limit`.
 
 <a id="mixture_of_uniform_law_with_atom_at_origin_is_not_ferromagnetic"></a>
 
 ### A uniform law mixed with an atom at the origin is not ferromagnetic
 
-Volume I, Theorem 20.2.1, page 575 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Theorem 20.2.1, page 579 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: counterexample, proved.
 
@@ -4646,13 +4718,13 @@ Statement. A real random variable is called ferromagnetic if it is symmetric, ha
 
 Earlier editions: Theorem 13.2.1, page 535 (edition 1).
 
-Source: [`ch/fm2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/fm2.tex), label `fm:thm:atom`.
+Source: [`ch/fm2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/fm2.tex), label `fm:thm:atom`.
 
 <a id="polya_law_not_a_scale_mixture_of_triangle_law_and_single_inflection_of_kernel"></a>
 
 ### The Pólya law is not a scale mixture of the triangular law, and its kernel has one inflection point
 
-Volume I, Proposition 20.2.3, page 576 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Proposition 20.2.3, page 580 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -4660,13 +4732,13 @@ Statement. Let $f_2(x)=(1-|x|)_+$ be the triangular density on $[-1,1]$, so that
 
 Earlier editions: Proposition 13.2.3, page 536 (edition 1).
 
-Source: [`ch/fm2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/fm2.tex), label `fm:prop:triangle`.
+Source: [`ch/fm2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/fm2.tex), label `fm:prop:triangle`.
 
 <a id="shoulder_theorem_for_ferromagnetic_laws_on_an_interval"></a>
 
 ### Shoulder theorem for symmetric laws on an interval
 
-Volume I, Theorem 20.2.4, page 577 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Theorem 20.2.4, page 581 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -4674,13 +4746,13 @@ Statement. A real random variable is called ferromagnetic if it is symmetric, ha
 
 Earlier editions: Theorem 13.2.4, page 537 (edition 1).
 
-Source: [`ch/fm2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/fm2.tex), label `fm:thm:shoulder`.
+Source: [`ch/fm2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/fm2.tex), label `fm:thm:shoulder`.
 
 <a id="ferromagnetic_laws_among_power_kernels_and_products_of_uniform_laws"></a>
 
 ### Ferromagnetic laws among the kernels 1 minus |x|^b, k monotone kernels and products of uniform laws
 
-Volume I, Corollary 20.2.5, page 578 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Corollary 20.2.5, page 582 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -4688,13 +4760,13 @@ Statement. A real random variable is called ferromagnetic if it is symmetric, ha
 
 Earlier editions: Corollary 13.2.5, page 538 (edition 1).
 
-Source: [`ch/fm2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/fm2.tex), label `fm:cor:shoulder`.
+Source: [`ch/fm2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/fm2.tex), label `fm:cor:shoulder`.
 
 <a id="shell_mixtures_of_uniform_laws_are_ferromagnetic"></a>
 
 ### Densities nondecreasing in |x| and mixtures of uniform laws on shells are ferromagnetic
 
-Volume I, Theorem 20.2.6, page 578 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Theorem 20.2.6, page 582 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -4702,13 +4774,13 @@ Statement. A real random variable is called ferromagnetic if it is symmetric, ha
 
 Earlier editions: Theorem 13.2.6, page 539 (edition 1).
 
-Source: [`ch/fm2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/fm2.tex), label `fm:thm:ushaped`.
+Source: [`ch/fm2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/fm2.tex), label `fm:thm:ushaped`.
 
 <a id="residue_expansion_of_mellin_transform_of_ferromagnetic_clock"></a>
 
 ### Residue expansion of the Mellin transform of a ferromagnetic clock and of a pair
 
-Volume I, Proposition 20.3.1, page 580 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Proposition 20.3.1, page 584 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -4716,13 +4788,13 @@ Statement. Let $X$ be a ferromagnetic random variable (a characteristic function
 
 Earlier editions: Proposition 13.3.1, page 541 (edition 1).
 
-Source: [`ch/fm2m.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/fm2m.tex), label `fm:prop:residue`.
+Source: [`ch/fm2m.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/fm2m.tex), label `fm:prop:residue`.
 
 <a id="mellin_transform_of_sum_of_k_uniform_spins_as_zeta_combination"></a>
 
 ### Mellin transform of the clock of a sum of k uniform spins as a combination of zeta values
 
-Volume I, Proposition 20.3.2, page 582 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Proposition 20.3.2, page 586 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -4730,13 +4802,13 @@ Statement. Let $U_1,\dots,U_k$ be independent random variables uniform on $[-1,1
 
 Earlier editions: Proposition 13.3.2, page 542 (edition 1).
 
-Source: [`ch/fm2m.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/fm2m.tex), label `fm:prop:kspins`.
+Source: [`ch/fm2m.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/fm2m.tex), label `fm:prop:kspins`.
 
 <a id="nonreal_zeros_of_mellin_transform_for_one_four_six_uniform_spins_computed"></a>
 
 ### Zeros of the Mellin transform of the clock for one, four and six uniform spins (computed)
 
-Volume I, Result 20.3, page 583 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Result 20.3, page 587 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: computed.
 
@@ -4744,13 +4816,13 @@ Statement. Let $U_1,\dots,U_k$ be independent uniform on $[-1,1]$ and $X_k=\pi(U
 
 Earlier editions: Result 13.3, page 543 (edition 1).
 
-Source: [`ch/fm2m.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/fm2m.tex), label `fm:res:kzeros`.
+Source: [`ch/fm2m.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/fm2m.tex), label `fm:res:kzeros`.
 
 <a id="mellin_transform_for_one_plus_cosine_density_has_zeros_off_one_line_computed"></a>
 
 ### The density (1+cos t)/2pi gives a ferromagnetic law whose Mellin transform has zeros off one line (computed)
 
-Volume I, Result 20.3, page 583 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Result 20.3, page 587 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: computed.
 
@@ -4758,13 +4830,13 @@ Statement. Let $X$ have the density $(1+\cos t)/2\pi$ on $[-\pi,\pi]$, which is 
 
 Earlier editions: Result 13.3, page 543 (edition 1).
 
-Source: [`ch/fm2m.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/fm2m.tex), label `fm:res:onecos`.
+Source: [`ch/fm2m.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/fm2m.tex), label `fm:res:onecos`.
 
 <a id="first_two_zeros_of_mellin_transform_leave_line_under_density_deformation_computed"></a>
 
 ### Deformation of the uniform pair, the first two Mellin zeros leave the line at different rates (computed)
 
-Volume I, Result 20.3, page 583 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Result 20.3, page 587 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: computed.
 
@@ -4772,13 +4844,13 @@ Statement. For $\varepsilon\ge0$ let $X_\varepsilon$ have the density $(1+\varep
 
 Earlier editions: Result 13.3, page 544 (edition 1).
 
-Source: [`ch/fm2m.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/fm2m.tex), label `fm:res:deform`.
+Source: [`ch/fm2m.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/fm2m.tex), label `fm:res:deform`.
 
 <a id="polya_law_has_no_gaussian_component_and_no_finite_zero_summand"></a>
 
 ### The Pólya law has no Gaussian component and no ferromagnetic summand with finitely many zeros
 
-Volume I, Theorem 20.4.1, page 586 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Theorem 20.4.1, page 590 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -4786,13 +4858,133 @@ Statement. Let $X$ be a symmetric random variable with $\mathbb{E}e^{sX}<\infty$
 
 Earlier editions: Theorem 13.4.1, page 547 (edition 1).
 
-Source: [`ch/fm3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/fm3.tex), label `fm:thm:nosqrt`.
+Source: [`ch/fm3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/fm3.tex), label `fm:thm:nosqrt`.
+
+<a id="independent_ising_uniform_gaussian_sums_do_not_converge_to_polya_law"></a>
+
+### Finite sums of independent spins, uniforms and a Gaussian do not converge to the Pólya law
+
+Volume I, Proposition 20.4.2, page 591 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+
+Status: proved.
+
+Statement. Let $X_n=\sum_i\lambda_{n,i}S_{n,i}+\sum_k\mu_{n,k}U_{n,k}+\sigma_nZ_n$ be finite sums of independent symmetric Ising spins $S\in\{\pm1\}$, independent uniform variables $U$ on $[-1,1]$ and an independent standard Gaussian $Z$, with nonnegative coefficients. Then $X_n$ does not converge in law to the Pólya law $X$, the symmetric law with moment generating function $\xi(\frac12+s)/\xi(\frac12)$ where $\xi$ is the completed zeta function. The proof uses the computed value of the first ordinate $\gamma_1=14.1347\ldots$ and that no ordinate equals $2\gamma_1$ or $3\gamma_1$ (the ordinates below $50$ being known), and no hypothesis on the other ordinates.
+
+Source: [`ch/fm3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/fm3.tex), label `fm:prop:indep`.
+
+<a id="no_polya_limit_of_independent_ferromagnetic_blocks_of_bounded_weight"></a>
+
+### Independent ferromagnetic blocks of bounded total weight do not converge to the Pólya law
+
+Volume I, Theorem 20.4.4, page 592 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+
+Status: conditional on For part (ii) only: the set of ordinates of the zeta zeros contains no infinite arithmetic progression.
+
+Statement. A block is $X_B=\lambda\sum_{i\le k}n_iS_i$ with $\lambda>0$, positive integers $n_i$, total weight $K=\sum_in_i$, and $(S_i)$ a ferromagnetic Ising system with positive couplings. Let $X_n$ be finite sums of independent blocks, each block with its own $\lambda$, couplings and integers, plus an independent Gaussian, and suppose every block has total weight $K\le K_0$. Then $X_n$ does not converge in law to the Pólya law $X$ (the symmetric law with moment generating function $\xi(\frac12+s)/\xi(\frac12)$) in the following two cases. (i) $K_0\le287$; this is proved, with the first $8000$ ordinates computed in ball arithmetic (radius below $10^{-34}$). (ii) $K_0$ is arbitrary, provided that the set of ordinates of the zeros of $\zeta$ contains no infinite arithmetic progression (conditional on that statement, which the book does not prove).
+
+Source: [`ch/fm3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/fm3.tex), label `fm:thm:blocks`.
+
+<a id="cauchy_blocks_gamma_convolutions_and_decomposition_of_the_tilted_hitting_time"></a>
+
+### Cauchy blocks of the hitting time: GGC property, limits, tail and decomposition
+
+Volume I, Proposition 20.4.5, page 593 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+
+Status: proved.
+
+Statement. For $\theta,\gamma>0$ let $\mathcal B_{\theta,\gamma}$ be the positive variable with $\mathbb{E}e^{-s\mathcal B_{\theta,\gamma}}=(\theta^2+\gamma^2)/((\theta+\sqrt s)^2+\gamma^2)$ for $s\ge0$. (i) $\mathcal B_{\theta,\gamma}$ is a generalised gamma convolution whose Thorin density in $w=\sqrt t$ is the folded Cauchy density $\frac1\pi\bigl[\frac\theta{\theta^2+(w-\gamma)^2}+\frac\theta{\theta^2+(w+\gamma)^2}\bigr]$. (ii) As $\theta\downarrow0$, $\mathcal B_{\theta,\gamma}\to e/\gamma^2$ in law, with $e$ a standard exponential. (iii) $P(\mathcal B_{\theta,\gamma}>y)\sim\frac{2\theta}{\theta^2+\gamma^2}(\pi y)^{-1/2}$ as $y\to\infty$. (iv) Let $\xi$ be the completed zeta function, $\rho=\beta_\rho+i\gamma_\rho$ its zeros, and $T_\alpha$ the variable with Laplace transform $\xi(\alpha)/\xi(\alpha+\sqrt s)$. If no zero has $\beta_\rho\ge\alpha$, in particular for every $\alpha\ge1$, then $T_\alpha\overset d=\sum_{\gamma_\rho>0}\mathcal B_{\alpha-\beta_\rho,\gamma_\rho}$ with independent summands and almost sure convergence, the sum over the zeros with positive ordinate, with multiplicity.
+
+Source: [`ch/fm3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/fm3.tex), label `fm:prop:block`.
+
+<a id="cauchy_component_of_brownian_motion_at_the_tilted_hitting_time"></a>
+
+### Brownian motion at twice the tilted hitting time has a Cauchy component
+
+Volume I, Proposition 20.4.6, page 594 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+
+Status: proved.
+
+Statement. Let $\alpha\ge1$, $\xi$ the completed zeta function, $T_\alpha$ the variable with Laplace transform $\xi(\alpha)/\xi(\alpha+\sqrt s)$, $\mathrm{Br}$ a Brownian motion independent of $T_\alpha$, and $W_\alpha=\mathrm{Br}(2T_\alpha)$. Then $W_\alpha$ is symmetric with $\mathbb{E}e^{iuW_\alpha}=\xi(\alpha)/\xi(\alpha+|u|)=1/\mathbb{E}e^{|u|V_\alpha}$, where $V_\alpha$ is the Esscher tilt of the Pólya variable at the basepoint $\alpha$. Moreover $W_\alpha\overset d=C_\alpha+W_\alpha^\circ$ with independent terms, $C_\alpha$ a Cauchy variable of scale $b_\alpha=(\xi'/\xi)(\alpha)$ and $W_\alpha^\circ=\mathrm{Br}(2T_\alpha^\circ)$, where $T_\alpha=S_\alpha+T_\alpha^\circ$ is the decomposition of the book into a one half stable part and a remainder. Further $P(|W_\alpha|>x)=2b_\alpha/(\pi x)+O(x^{-3})$ and $P(|W_\alpha^\circ|>x)\sim4c(\alpha)/(3\pi x^3)$, with $c(\alpha)$ the constant of the book's tail result for $T_\alpha^\circ$, namely $P(T_\alpha^\circ>t)\sim c(\alpha)t^{-3/2}/(6\sqrt\pi)$.
+
+Source: [`ch/fm3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/fm3.tex), label `fm:prop:wcauchy`.
+
+<a id="harmonic_sum_of_polya_variables_and_rh_as_uniform_sum"></a>
+
+### Harmonic sum of independent Pólya variables, moments, and RH as a uniform sum
+
+Volume I, Theorem 20.4.7, page 594 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+
+Status: proved.
+
+Statement. Let $X$ be the Pólya variable (symmetric, with moment generating function $\xi(\frac12+z)/\xi(\frac12)$, $\xi$ the completed zeta function), $X_1,X_2,\dots$ independent copies, and $S=\sum_{n\ge1}X_n/n$, convergent almost surely and in $L^2$. Then $\mathbb{E}e^{zS}=\prod_{n\ge1}\xi(\frac12+z/n)/\xi(\frac12)$ for $z\in\mathbb{C}$ and $\kappa_{2m}(S)=\zeta(2m)\kappa_{2m}(X)$ for $m\ge1$, with $\kappa_{2m}$ the cumulant of order $2m$. Moreover the Riemann Hypothesis holds if and only if $S\overset d=\sum_{\gamma>0}(\pi/\gamma)U_\gamma$ with independent $U_\gamma$ uniform on $[-1,1]$, the sum over the positive ordinates $\gamma$ of the zeros. The book notes that this is Newman's criterion with the harmonic scaling and gives no new route to RH.
+
+Source: [`ch/fm3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/fm3.tex), label `fm:thm:harmonic`.
+
+<a id="mobius_inversion_identity_for_harmonic_sums_of_symmetric_laws"></a>
+
+### Möbius inversion identity for harmonic sums of independent symmetric variables
+
+Volume I, Proposition 20.4.8, page 595 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+
+Status: proved.
+
+Statement. Let $Y$ be a symmetric random variable with finite variance, $S_Y=\sum_{n\ge1}Y_n/n$ for independent copies $Y_n$ of $Y$, and let $S^{(k)}$, $k\ge1$, be independent copies of $S_Y$, independent of $Y$. With $\mu$ the Möbius function and $S_\pm=\sum_{\mu(k)=\pm1}S^{(k)}/k$, one has $Y+S_-\overset d=S_+$. No hypothesis on zeros of $\zeta$ is needed. If moreover $Y$ has finite moments of order $2m$, then $\kappa_{2m}(Y)=\kappa_{2m}(S_Y)/\zeta(2m)$, with $\kappa_{2m}$ the cumulant of order $2m$. The identity is a convolution identity between laws, not a signed sum. For the symmetric Davenport and Heilbronn law the spin reading of $S_{DH}$ fails, since its moment generating function vanishes at $n(\rho-\frac12)$ for the nonreal zero $\rho=0.8085\ldots+85.6993\ldots i$ (the location of that zero is computed).
+
+Source: [`ch/fm3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/fm3.tex), label `fm:prop:mobius`.
+
+<a id="weighted_sums_of_tilted_polya_laws_ferromagnetic_only_under_rh"></a>
+
+### Weighted sums of tilted Pólya variables are a tilt of a ferromagnetic law only under RH
+
+Volume I, Proposition 20.4.9, page 595 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+
+Status: proved.
+
+Statement. Let $c_j>0$, $\alpha_j\ge1$, let $V^{(j)}_{\alpha_j}$ be independent Esscher tilts of the Pólya variable (the variable with moment generating function $\xi(\alpha+z)/\xi(\alpha)$, $\xi$ the completed zeta function), and $Z=\sum_jc_jV^{(j)}_{\alpha_j}$ converging in law, with finite moment generating function $\prod_j\xi(\alpha_j+c_jz)/\xi(\alpha_j)$. This function has no zero on the imaginary axis. $Z$ is an Esscher tilt by a field $\theta$ of a ferromagnetic law if and only if the Riemann Hypothesis holds and $(\alpha_j-\frac12)/c_j=\theta$ for every $j$, and then the family is finite. So no weighting of the levels $\alpha\ge1$ gives a ferromagnetic system up to a tilt without proving RH.
+
+Source: [`ch/fm3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/fm3.tex), label `fm:prop:weights`.
+
+<a id="tilted_polya_variable_minus_exponential_is_log_gamma_minus_log_zeta_variable"></a>
+
+### The tilted Pólya variable minus an exponential, and its Gaussian limit
+
+Volume I, Proposition 20.4.10, page 596 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+
+Status: proved.
+
+Statement. Let $\alpha>1$, let $V_\alpha$ be the Esscher tilt of the Pólya variable with moment generating function $\xi(\alpha+z)/\xi(\alpha)$ ($\xi$ the completed zeta function), $G\sim\mathrm{Gamma}(\frac\alpha2+1,1)$, $N$ with $P(N=n)=n^{-\alpha}/\zeta(\alpha)$ and $e\sim\mathrm{Exp}(\alpha-1)$ (rate $\alpha-1$), all independent of one another and of $V_\alpha$. Then $V_\alpha-e\overset d=\frac12\log(G/\pi)-\log N$. Consequently $\sqrt{2\alpha}\,(V_\alpha-\frac12\log\frac\alpha{2\pi})$ converges in law to the standard normal $\mathrm{N}(0,1)$ as $\alpha\to\infty$.
+
+Source: [`ch/fm3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/fm3.tex), label `fm:prop:vminuse`.
+
+<a id="modulus_of_tilted_polya_difference_has_explicit_cosine_kernel"></a>
+
+### Cosh moment of the difference of two tilted Pólya variables, kernel with cos(theta x)
+
+Volume I, Proposition 20.4.11, page 596 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+
+Status: proved.
+
+Statement. Let $\alpha\in\mathbb{R}$, $\theta=\alpha-\frac12$, $V_\alpha$ the Esscher tilt of the Pólya variable with moment generating function $\xi(\alpha+z)/\xi(\alpha)$ ($\xi$ the completed zeta function), and $D_\alpha=V_\alpha-V_\alpha'$ with an independent copy, so that $\mathbb{E}\cosh(vD_\alpha)=\xi(\alpha+v)\xi(\alpha-v)/\xi(\alpha)^2$. Then for real $v$, $\log\mathbb{E}\cosh(vD_\alpha)=\int_{\mathbb{R}}2\sin^2(vx/2)\cos(\theta x)\,k(|x|)\,dx/|x|$ with $k(x)=2\sum_{\gamma_\rho>0}e^{-g_\rho x}$ and $g_\rho=-i(\rho-\frac12)$, the sum over zeros with positive ordinate, and no hypothesis on the zeros. Moreover the tilt exponent satisfies $v_{1-\alpha}=-v_\alpha$ (the differentiated functional equation), and $D_\alpha$ is not ferromagnetic for $\alpha\ne\frac12$.
+
+Source: [`ch/fm3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/fm3.tex), label `fm:prop:modul`.
+
+<a id="density_of_tilted_polya_variable_satisfies_fluctuation_relation"></a>
+
+### Fluctuation relation for the density of the tilted Pólya variable
+
+Volume I, Proposition 20.4.12, page 597 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+
+Status: proved.
+
+Statement. Let $V_\alpha$ be the Esscher tilt of the Pólya variable by the field $\theta=\alpha-\frac12$, with moment generating function $\xi(\alpha+z)/\xi(\alpha)$ ($\xi$ the completed zeta function) and density $p_\alpha$. Then $p_\alpha(-y)=e^{-(2\alpha-1)y}p_\alpha(y)$, and at $\alpha=1$, $\log(p_1(y)/p_1(-y))=y$. The reading as a fluctuation relation of statistical mechanics is an analogy only.
+
+Source: [`ch/fm3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/fm3.tex), label `fm:prop:fluct`.
 
 <a id="powers_of_exponential_of_polya_variable_not_infinitely_divisible_below_two"></a>
 
 ### Powers of the exponential of the Pólya variable are not infinitely divisible for exponent below 2
 
-Volume I, Proposition 20.5.1, page 588 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Proposition 20.5.1, page 598 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -4800,13 +4992,13 @@ Statement. Let $X$ be the Pólya variable, the symmetric random variable with de
 
 Earlier editions: Proposition 13.6.1, page 564 (edition 1).
 
-Source: [`ch/fm5.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/fm5.tex), label `fm:prop:notid`.
+Source: [`ch/fm5.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/fm5.tex), label `fm:prop:notid`.
 
 <a id="exponential_of_polya_variable_is_not_a_generalised_gamma_convolution"></a>
 
 ### The exponential of the Pólya variable is not a generalised gamma convolution
 
-Volume I, Theorem 20.5.3, page 589 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Theorem 20.5.3, page 599 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -4814,13 +5006,13 @@ Statement. Let $\xi(s)=\frac12s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$, and let $B_0
 
 Earlier editions: Theorem 13.6.3, page 565 (edition 1).
 
-Source: [`ch/fm5.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/fm5.tex), label `fm:thm:notggc`.
+Source: [`ch/fm5.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/fm5.tex), label `fm:thm:notggc`.
 
 <a id="size_bias_principle_for_sums_of_gamma_variables_with_integer_shapes"></a>
 
 ### Size bias principle for sums of gamma variables with integer shapes
 
-Volume I, Theorem 20.5.5, page 591 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Theorem 20.5.5, page 600 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -4828,13 +5020,13 @@ Statement. Let $Y=\sum_{n=1}^K\Gamma_n/\tau_n$ with $0<\tau_1<\dots<\tau_K$ and 
 
 Earlier editions: Theorem 13.6.5, page 567 (edition 1).
 
-Source: [`ch/fm5.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/fm5.tex), label `fm:thm:sbp`.
+Source: [`ch/fm5.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/fm5.tex), label `fm:thm:sbp`.
 
 <a id="factorisation_of_exponential_of_polya_variable_against_biane_pitman_yor_variable"></a>
 
 ### Factorisation of the exponential of the Pólya variable against a Biane Pitman Yor variable
 
-Volume I, Theorem 20.5.6, page 592 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Theorem 20.5.6, page 602 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -4842,13 +5034,13 @@ Statement. Let $\xi(s)=\frac12s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$, let $B_0=\su
 
 Earlier editions: Theorem 13.6.6, page 568 (edition 1).
 
-Source: [`ch/fm5.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/fm5.tex), label `fm:thm:factor`.
+Source: [`ch/fm5.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/fm5.tex), label `fm:thm:factor`.
 
 <a id="exponential_of_polya_variable_self_decomposable_with_theta_levy_density"></a>
 
 ### The exponential of the Pólya variable is self decomposable with a Lévy density built from the theta function
 
-Volume I, Theorem 20.5.7, page 593 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Theorem 20.5.7, page 603 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -4856,13 +5048,13 @@ Statement. Let $\omega(x)=\sum_{n\ge1}e^{-\pi n^2x}$, let $B_q$, $0<q<1$, be the
 
 Earlier editions: Theorem 13.6.7, page 569 (edition 1).
 
-Source: [`ch/fm5.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/fm5.tex), label `fm:thm:sd`.
+Source: [`ch/fm5.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/fm5.tex), label `fm:thm:sd`.
 
 <a id="hyperbolically_completely_monotone_powers_of_exponential_of_polya_variable"></a>
 
 ### Hyperbolically completely monotone densities of the powers of the exponential of the Pólya variable
 
-Volume I, Proposition 20.5.8, page 595 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Proposition 20.5.8, page 605 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -4870,13 +5062,13 @@ Statement. Let $X$ be the Pólya variable, the symmetric random variable with de
 
 Earlier editions: Proposition 13.6.8, page 571 (edition 1).
 
-Source: [`ch/fm5.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/fm5.tex), label `fm:prop:hcm`.
+Source: [`ch/fm5.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/fm5.tex), label `fm:prop:hcm`.
 
 <a id="stern_row_counts_are_euler_phi_up_to_depth_and_knauf_partition_function_limit"></a>
 
 ### The Stern row counts c_N(m) as coprime pairs of the Calkin Wilf tree, and the limit of Knauf's partition function, with a new proof of Knauf's limit
 
-Volume I, Proposition 20.6.1, page 597 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Proposition 20.6.1, page 606 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -4884,13 +5076,13 @@ Statement. Let $s$ be Stern's diatomic sequence, $s(1)=1$, $s(2n)=s(n)$, $s(2n+1
 
 Earlier editions: Proposition 13.7.1, page 573 (edition 1).
 
-Source: [`ch/fm5k.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/fm5k.tex), label `fm:prop:stern`.
+Source: [`ch/fm5k.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/fm5k.tex), label `fm:prop:stern`.
 
 <a id="perron_identity_for_knauf_partition_function_with_profile_term"></a>
 
 ### Perron identity for Knauf's partition function, with the depth profile term and the remainder R_N
 
-Volume I, Proposition 20.6.2, page 598 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Proposition 20.6.2, page 607 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -4898,27 +5090,13 @@ Statement. Let $s$ be Stern's diatomic sequence, $s(1)=1$, $s(2n)=s(n)$, $s(2n+1
 
 Earlier editions: Proposition 13.7.2, page 574 (edition 1).
 
-Source: [`ch/fm5k.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/fm5k.tex), label `fm:prop:perron`.
-
-<a id="open_regularity_of_depth_profile_gives_convergence_of_remainder_of_knauf_chain"></a>
-
-### Conjecture that the remainder R_N of Knauf's partition function tends to zero on a strip around the line 3/2
-
-Volume I, Conjecture 20.6.3, page 599 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
-
-Status: open.
-
-Statement. Let $R_N$ be the remainder of the Perron identity for the partition function $Z_N(\beta)=\sum_{k=2^N}^{2^{N+1}-1}s(k)^{-\beta}$ of Knauf's spin chain, where $s$ is Stern's diatomic sequence, so that $Z_N-W_N(2-\beta)/\zeta(2)=\zeta(\beta-1)/\zeta(\beta)+R_N$ with $W_N(z)=\int_0^\infty w_N(x)x^{z-1}\,dx$, where $w_N(x)=c_N(m)/\varphi(m)$ for $m\le x<m+1$ and $w_N=1$ on $(0,1)$, $c_N(m)$ is the number of $k$ with $2^N\le k<2^{N+1}$ and $s(k)=m$ ($s$ Stern's diatomic sequence), and $\varphi$ is Euler's function. Conjecture: there is an open strip $\sigma_1<\operatorname{Re}\beta<\sigma_2$ with $1\le\sigma_1<\frac32<\sigma_2\le2$ on which $R_N\to0$ locally uniformly as $N\to\infty$. If it holds, then by Hurwitz's theorem every point $1+\rho$ in the strip, for $\rho$ a nontrivial zero of $\zeta$, is the limit of as many zeros of the corrected sum $Z_N-W_N(2-\beta)/\zeta(2)$ as its multiplicity, and no other limit points occur in the strip. The computations support it only at the first twenty points $1+\rho_n$ on the line $\operatorname{Re}\beta=\frac32$, and at $\beta=\frac32+2i$ the modulus of $R_N$ stays between $0.021$ and $0.051$ for $10\le N\le34$ with no decrease. The consequence does not decide the Riemann Hypothesis, since the zeros of the corrected sum would converge to the points $1+\rho$ whether or not $\operatorname{Re}\rho=\frac12$.
-
-Earlier editions: Conjecture 13.7.3, page 575 (edition 1).
-
-Source: [`ch/fm5k.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/fm5k.tex), label `fm:conj:R`.
+Source: [`ch/fm5k.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/fm5k.tex), label `fm:prop:perron`.
 
 <a id="computed_fisher_zeros_of_knauf_chain_and_corrected_sum_near_one_plus_rho"></a>
 
 ### Computed zeros of Knauf's partition function and of the corrected sum near the points 1 plus rho
 
-Volume I, Result 20.6.2, page 599 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Result 20.6.2, page 608 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: computed.
 
@@ -4926,13 +5104,27 @@ Statement. Let $Z_N(\beta)=\sum_{k=2^N}^{2^{N+1}-1}s(k)^{-\beta}$ be the partiti
 
 Earlier editions: Result 13.7.2, page 575 (edition 1).
 
-Source: [`ch/fm5k.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/fm5k.tex), label `fm:res:fisher`.
+Source: [`ch/fm5k.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/fm5k.tex), label `fm:res:fisher`.
+
+<a id="open_regularity_of_depth_profile_gives_convergence_of_remainder_of_knauf_chain"></a>
+
+### Conjecture that the remainder R_N of Knauf's partition function tends to zero on a strip around the line 3/2
+
+Volume I, Conjecture 20.6.3, page 609 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+
+Status: open.
+
+Statement. Let $R_N$ be the remainder of the Perron identity for the partition function $Z_N(\beta)=\sum_{k=2^N}^{2^{N+1}-1}s(k)^{-\beta}$ of Knauf's spin chain, where $s$ is Stern's diatomic sequence, so that $Z_N-W_N(2-\beta)/\zeta(2)=\zeta(\beta-1)/\zeta(\beta)+R_N$ with $W_N(z)=\int_0^\infty w_N(x)x^{z-1}\,dx$, where $w_N(x)=c_N(m)/\varphi(m)$ for $m\le x<m+1$ and $w_N=1$ on $(0,1)$, $c_N(m)$ is the number of $k$ with $2^N\le k<2^{N+1}$ and $s(k)=m$ ($s$ Stern's diatomic sequence), and $\varphi$ is Euler's function. Conjecture: there is an open strip $\sigma_1<\operatorname{Re}\beta<\sigma_2$ with $1\le\sigma_1<\frac32<\sigma_2\le2$ on which $R_N\to0$ locally uniformly as $N\to\infty$. If it holds, then by Hurwitz's theorem every point $1+\rho$ in the strip, for $\rho$ a nontrivial zero of $\zeta$, is the limit of as many zeros of the corrected sum $Z_N-W_N(2-\beta)/\zeta(2)$ as its multiplicity, and no other limit points occur in the strip. The computations support it only at the first twenty points $1+\rho_n$ on the line $\operatorname{Re}\beta=\frac32$, and at $\beta=\frac32+2i$ the modulus of $R_N$ stays between $0.021$ and $0.051$ for $10\le N\le34$ with no decrease. The consequence does not decide the Riemann Hypothesis, since the zeros of the corrected sum would converge to the points $1+\rho$ whether or not $\operatorname{Re}\rho=\frac12$.
+
+Earlier editions: Conjecture 13.7.3, page 575 (edition 1).
+
+Source: [`ch/fm5k.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/fm5k.tex), label `fm:conj:R`.
 
 <a id="lee_yang_property_of_farey_chain_in_a_field_holds_when_other_words_weigh_less_than_two"></a>
 
 ### Circle lemma for palindromic polynomials with small middle coefficients, and the Farey chain above beta star of N
 
-Volume I, Lemma 20.6.5, page 601 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Lemma 20.6.5, page 611 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -4940,13 +5132,13 @@ Statement. Let $P(x)=1+x^N+Q(x)$ with $Q(x)=\sum_{k=1}^{N-1}a_kx^k$ and $a_k=a_{
 
 Earlier editions: Lemma 13.7.5, page 577 (edition 1).
 
-Source: [`ch/fm5k.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/fm5k.tex), label `fm:lem:circle`.
+Source: [`ch/fm5k.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/fm5k.tex), label `fm:lem:circle`.
 
 <a id="computed_lee_yang_threshold_of_farey_chain_for_even_n_from_ten_to_thirty_six"></a>
 
 ### Computed Lee and Yang threshold of the Farey chain in a field for even N from 10 to 36
 
-Volume I, Result 20.6.3, page 602 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Result 20.6.3, page 611 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: computed.
 
@@ -4954,13 +5146,13 @@ Statement. For the Farey chain in a field, with partition function $Z^{\rm F}_N(
 
 Earlier editions: Result 13.7.3, page 578 (edition 1).
 
-Source: [`ch/fm5k.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/fm5k.tex), label `fm:res:ly`.
+Source: [`ch/fm5k.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/fm5k.tex), label `fm:res:ly`.
 
 <a id="open_lee_yang_property_of_farey_chain_above_and_below_beta_two"></a>
 
 ### Conjecture on the Lee and Yang property of the Farey chain in a field above and below beta equal to 2
 
-Volume I, Conjecture 20.6.6, page 602 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Conjecture 20.6.6, page 611 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: open.
 
@@ -4968,13 +5160,13 @@ Statement. For the Farey chain in a field, with partition function $Z^{\rm F}_N(
 
 Earlier editions: Conjecture 13.7.6, page 578 (edition 1).
 
-Source: [`ch/fm5k.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/fm5k.tex), label `fm:conj:ly`.
+Source: [`ch/fm5k.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/fm5k.tex), label `fm:conj:ly`.
 
 <a id="open_mixed_shoulders_sine_transform_of_slope"></a>
 
 ### Mixed shoulders and the sine transform of the slope (open problem)
 
-Volume I, Problem 20.1, page 603 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Problem 20.1, page 612 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: open.
 
@@ -4982,27 +5174,27 @@ Statement. A real random variable is called ferromagnetic if it is symmetric, ha
 
 Earlier editions: Problem 13.1, page 579 (edition 1).
 
-Source: [`ch/fm6.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/fm6.tex), label `fm:prob:shoulder`.
+Source: [`ch/fm6.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/fm6.tex), label `fm:prob:shoulder`.
 
 <a id="open_polya_law_in_griffiths_simon_class"></a>
 
 ### Does the Pólya law belong to the Griffiths Simon class (open problem)
 
-Volume I, Problem 20.3, page 603 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Problem 20.3, page 613 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: open.
 
-Statement. The Griffiths Simon class consists of the weak limits of suitably scaled sums of ferromagnetically coupled Ising spins; its laws are ferromagnetic, that is symmetric with a moment generating function that vanishes only on the imaginary axis. The class of Ellis, Monroe and Newman consists of the laws with density $e^{-V(x)}$, $V$ even and $V'$ convex on $[0,\infty)$, and their weak limits; by a theorem of Newman the Pólya law (the symmetric law with density $\Phi/\xi(\frac12)$, where $\xi(s)=\frac12s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$ and $\Phi(t)=\sum_{n\ge1}(4\pi^2n^4e^{9t/2}-6\pi n^2e^{5t/2})\exp(-\pi n^2e^{2t})$, and with moment generating function $\xi(\frac12+s)/\xi(\frac12)$) belongs to it. Open problem: does the Pólya law belong to the Griffiths Simon class? A positive answer would imply the Riemann Hypothesis. Under Ingham's hypothesis, that the positive ordinates of the zeros of $\zeta$ are linearly independent over the rationals, the Pólya law is not a sum of independent scaled fair signs, so the spins of any approximating system would have to be coupled.
+Statement. The Griffiths Simon class consists of the weak limits of suitably scaled sums of ferromagnetically coupled Ising spins; its laws are ferromagnetic, that is symmetric with a moment generating function that vanishes only on the imaginary axis. The class of Ellis, Monroe and Newman consists of the laws with density $e^{-V(x)}$, $V$ even and $V'$ convex on $[0,\infty)$, and their weak limits; by a theorem of Newman the Pólya law (the symmetric law with density $\Phi/\xi(\frac12)$, where $\xi(s)=\frac12s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$ and $\Phi(t)=\sum_{n\ge1}(4\pi^2n^4e^{9t/2}-6\pi n^2e^{5t/2})\exp(-\pi n^2e^{2t})$, and with moment generating function $\xi(\frac12+s)/\xi(\frac12)$) belongs to it. Open problem: does the Pólya law belong to the Griffiths Simon class? A positive answer would imply the Riemann Hypothesis. The book proves, with no hypothesis on the zeros, that finite sums of independent symmetric Ising spins, independent uniform variables on $[-1,1]$ and an independent Gaussian, with nonnegative coefficients, do not converge in law to the Pólya law, so the spins of any approximating system would have to be coupled.
 
 Earlier editions: Problem 13.3, page 579 (edition 1).
 
-Source: [`ch/fm6.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/fm6.tex), label `fm:prob:gs`.
+Source: [`ch/fm6.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/fm6.tex), label `fm:prob:gs`.
 
 <a id="open_splitting_the_zeros_into_two_characteristic_functions"></a>
 
 ### Splitting the zeros of the Pólya characteristic function into two characteristic functions (open problem)
 
-Volume I, Problem 20.4, page 603 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Problem 20.4, page 613 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: open.
 
@@ -5010,27 +5202,13 @@ Statement. Assume the Riemann Hypothesis, and let $X$ be the Pólya variable (th
 
 Earlier editions: Problem 13.4, page 580 (edition 1).
 
-Source: [`ch/fm6.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/fm6.tex), label `fm:prob:split`.
-
-<a id="open_lines_of_zeros_of_mellin_transform_of_a_clock"></a>
-
-### Which ferromagnetic laws have all nonreal zeros of the clock Mellin transform on one vertical line? (open problem)
-
-Volume I, Problem 20.2, page 603 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
-
-Status: open.
-
-Statement. For a ferromagnetic law $X$ let $\mathcal D_X(w)=\Gamma(w)\mathbb{E}T_X^{-w}$ be the Mellin transform of the Laplace transform of its clock $T_X$ (the sum of $e_k/c_k^2$ over the zeros $\pm c_k$ of the characteristic function). Open problem: for which ferromagnetic laws $X$ does $\mathcal D_X$ have nonreal zeros, all of them on one vertical line? The uniform pair $\pi U+\pi U'$ ($U,U'$ independent uniform on $[-1,1]$) has this property if and only if the Riemann Hypothesis holds, since $\mathcal D_{\pi U+\pi U'}(w)=2\pi^{-w}\Gamma(w)\xi(1+2w)$. The sums of one, four and six independent copies of $\pi U$ do not have it (for four and six computed), and neither do the pairs $X_\varepsilon+X_\varepsilon'$ with density proportional to $1+\varepsilon t^2$ on $[-\pi,\pi]$ for small $\varepsilon>0$ (computed), so no theorem whose hypotheses hold for every symmetric density on an interval that is nondecreasing in $|t|$ can give it. Is the uniform pair, up to scale, the only pair $X+X'$ with $X$ a symmetric density on an interval nondecreasing in $|t|$ that has it? A first step is the first order motion of the zeros along the densities $\frac1{2\pi}+\varepsilon g$ on $[-\pi,\pi]$, which is linear in $g$: is there an even $g\ne0$ with $\int g=0$ along which every zero $\frac{\rho_k-1}2$ keeps its real part to first order?
-
-Earlier editions: Problem 13.2, page 579 (edition 1).
-
-Source: [`ch/fm6.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/fm6.tex), label `fm:prob:mellin`.
+Source: [`ch/fm6.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/fm6.tex), label `fm:prob:split`.
 
 <a id="open_positivity_of_zero_completed_laws_and_the_threshold_v_star"></a>
 
 ### Positivity of the zero completed laws and the threshold near K = 5000 (open problem)
 
-Volume I, Problem 20.5, page 604 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Problem 20.5, page 613 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: open.
 
@@ -5038,13 +5216,13 @@ Statement. Let $X$ be the Pólya variable, the symmetric random variable with de
 
 Earlier editions: Problem 13.5, page 580 (edition 1).
 
-Source: [`ch/fm6.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/fm6.tex), label `fm:prob:zc`.
+Source: [`ch/fm6.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/fm6.tex), label `fm:prob:zc`.
 
 <a id="open_cosine_constant_omega_interval_and_improved_bounds"></a>
 
 ### The cosine constant Omega, whether the good tilts form an interval, and improved bounds (open problem)
 
-Volume I, Problem 20.6, page 604 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Problem 20.6, page 613 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: open.
 
@@ -5052,13 +5230,27 @@ Statement. Let $p$ be the Pólya density $\Phi/\xi(\frac12)$, where $\xi(s)=\fra
 
 Earlier editions: Problem 13.6, page 580 (edition 1).
 
-Source: [`ch/fm6.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/fm6.tex), label `fm:prob:omega`.
+Source: [`ch/fm6.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/fm6.tex), label `fm:prob:omega`.
+
+<a id="open_lines_of_zeros_of_mellin_transform_of_a_clock"></a>
+
+### Which ferromagnetic laws have all nonreal zeros of the clock Mellin transform on one vertical line? (open problem)
+
+Volume I, Problem 20.2, page 613 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+
+Status: open.
+
+Statement. For a ferromagnetic law $X$ let $\mathcal D_X(w)=\Gamma(w)\mathbb{E}T_X^{-w}$ be the Mellin transform of the Laplace transform of its clock $T_X$ (the sum of $e_k/c_k^2$ over the zeros $\pm c_k$ of the characteristic function). Open problem: for which ferromagnetic laws $X$ does $\mathcal D_X$ have nonreal zeros, all of them on one vertical line? The uniform pair $\pi U+\pi U'$ ($U,U'$ independent uniform on $[-1,1]$) has this property if and only if the Riemann Hypothesis holds, since $\mathcal D_{\pi U+\pi U'}(w)=2\pi^{-w}\Gamma(w)\xi(1+2w)$. The sums of one, four and six independent copies of $\pi U$ do not have it (for four and six computed), and neither do the pairs $X_\varepsilon+X_\varepsilon'$ with density proportional to $1+\varepsilon t^2$ on $[-\pi,\pi]$ for small $\varepsilon>0$ (computed), so no theorem whose hypotheses hold for every symmetric density on an interval that is nondecreasing in $|t|$ can give it. Is the uniform pair, up to scale, the only pair $X+X'$ with $X$ a symmetric density on an interval nondecreasing in $|t|$ that has it? A first step is the first order motion of the zeros along the densities $\frac1{2\pi}+\varepsilon g$ on $[-\pi,\pi]$, which is linear in $g$: is there an even $g\ne0$ with $\int g=0$ along which every zero $\frac{\rho_k-1}2$ keeps its real part to first order?
+
+Earlier editions: Problem 13.2, page 579 (edition 1).
+
+Source: [`ch/fm6.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/fm6.tex), label `fm:prob:mellin`.
 
 <a id="open_size_bias_principle_for_real_shapes"></a>
 
 ### The size bias principle for real shapes (open problem)
 
-Volume I, Problem 20.7, page 604 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Problem 20.7, page 614 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: open.
 
@@ -5066,13 +5258,13 @@ Statement. Let $Y=\sum_{n=1}^K\Gamma_n/\tau_n$ with $0<\tau_1<\dots<\tau_K$ and 
 
 Earlier editions: Problem 13.7, page 580 (edition 1).
 
-Source: [`ch/fm6.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/fm6.tex), label `fm:prob:sbp`.
+Source: [`ch/fm6.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/fm6.tex), label `fm:prob:sbp`.
 
 <a id="open_powers_of_exponential_of_polya_variable_below_hcm_threshold"></a>
 
 ### Infinite divisibility of powers of the exponential of the Pólya variable below the HCM threshold (open problem)
 
-Volume I, Problem 20.8, page 604 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Problem 20.8, page 614 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: open.
 
@@ -5080,13 +5272,13 @@ Statement. Let $X$ be the Pólya variable, the symmetric random variable with de
 
 Earlier editions: Problem 13.8, page 580 (edition 1).
 
-Source: [`ch/fm6.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/fm6.tex), label `fm:prob:powers`.
+Source: [`ch/fm6.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/fm6.tex), label `fm:prob:powers`.
 
 <a id="open_depth_profile_of_knauf_chain_and_continued_fraction_sums"></a>
 
 ### The depth profile of Knauf's chain and the sums of partial quotients (open problem)
 
-Volume I, Problem 20.9, page 605 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Problem 20.9, page 614 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: open.
 
@@ -5094,13 +5286,13 @@ Statement. Let $Z_N(\beta)=\sum_{k=2^N}^{2^{N+1}-1}s(k)^{-\beta}$ for Stern's di
 
 Earlier editions: Problem 13.9, page 581 (edition 1).
 
-Source: [`ch/fm6.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/fm6.tex), label `fm:prob:profile`.
+Source: [`ch/fm6.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/fm6.tex), label `fm:prob:profile`.
 
 <a id="open_lee_yang_threshold_of_farey_chain"></a>
 
 ### The Lee and Yang threshold of the Farey chain (open problem)
 
-Volume I, Problem 20.10, page 605 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Problem 20.10, page 614 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: open.
 
@@ -5108,7 +5300,7 @@ Statement. For the Farey chain in a field, with partition function $Z^{\rm F}_N(
 
 Earlier editions: Problem 13.10, page 581 (edition 1).
 
-Source: [`ch/fm6.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/fm6.tex), label `fm:prob:fareyly`.
+Source: [`ch/fm6.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/fm6.tex), label `fm:prob:fareyly`.
 
 ## Volume I, Chapter 21. Cauchy mixtures, the reverse sine squared lemma and a two spin Lee and Yang form of RH
 
@@ -5116,301 +5308,349 @@ Source: [`ch/fm6.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/
 
 ### The Thorin density of a law of Xi type is a signed Cauchy mixture
 
-Volume I, Theorem 21.1.2, page 608 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Theorem 21.1.2, page 618 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
 Statement. Let $X$ be a symmetric random variable with $\mathbb E e^{aX^2}<\infty$ for some $a>0$ whose moment generating function is $L(s)=\mathbb E e^{sX}=e^{bs^2}\prod_r(1-s^2/r^2)$, with $b\ge0$ and $\sum_r|r|^{-2}<\infty$ (a law of Xi type), and write its zeros as $r=\delta+i\gamma$, both members of each pair $\pm r$ included. Let $u_y(v)=\pi^{-1}\operatorname{Re}(L'/L)(y+iv)$ and $P_a(x)=a/(\pi(a^2+x^2))$. For $y>0$ with $y\ne\delta$ for every zero, \[u_y(v)=\frac{2b}{\pi}\,y+\sum_r\operatorname{sgn}(y-\delta)\,P_{|y-\delta|}(v-\gamma),\] the sum taken over the pairs $\{r,-\bar r\}$, absolutely and locally uniformly convergent in $v$.
 
-Source: [`ch/nc_cauchy.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/nc_cauchy.tex), label `cm:thm:signed`.
+Source: [`ch/nc_cauchy.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/nc_cauchy.tex), label `cm:thm:signed`.
 
 <a id="positive_cauchy_mixture_at_every_level_iff_ferromagnetic"></a>
 
 ### Positive Cauchy mixtures at every level are exactly the ferromagnetic laws
 
-Volume I, Theorem 21.2.1, page 609 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Theorem 21.2.1, page 619 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
 Statement. For $X$ of Xi type (symmetric, $\mathbb E e^{aX^2}<\infty$ for some $a>0$, with $L(s)=\mathbb E e^{sX}=e^{bs^2}\prod_r(1-s^2/r^2)$ as above) the following are equivalent. (i) $u_y(v)\ge0$ for every $y>0$ and every $v$ at which it is defined. (ii) There are $\eta\ge0$ and a positive measure $\nu$ with $\int(1+x^2)^{-1}\nu(dx)<\infty$ such that $u_y=\eta y+P_y*\nu$ for every $y>0$. (iii) $X$ is ferromagnetic, that is, $L$ vanishes only on the imaginary axis. (iv) $u\mapsto1/L(\sqrt u)$ is the Laplace transform of a generalised gamma convolution with drift $b$ and Thorin measure $\sum_km_k\delta_{c_k^2}$, the $c_k$ being the zeros of the characteristic function with multiplicities $m_k$. Then $\eta=2b/\pi$ and $\nu=\sum_km_k(\delta_{c_k}+\delta_{-c_k})$, both unique, and $b=0$ if $X$ has Gaussian moments of all orders.
 
-Source: [`ch/nc_cauchy.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/nc_cauchy.tex), label `cm:thm:ferro`.
+Source: [`ch/nc_cauchy.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/nc_cauchy.tex), label `cm:thm:ferro`.
 
 <a id="cauchy_defect_strip_classes_closure"></a>
 
 ### Strip classes of laws of Xi type and the Cauchy defect
 
-Volume I, Proposition 21.2.4, page 609 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Proposition 21.2.4, page 619 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
 Statement. For $\delta\ge0$ let $\mathcal C_\delta$ be the set of laws of Xi type whose characteristic function has all its zeros in $|\operatorname{Im}\theta|\le\delta$. For $X$ of Xi type, $u_y\ge0$ for every $y>\delta$ if and only if $X\in\mathcal C_\delta$; then for $y>\delta$, $u_y$ is a positive Cauchy mixture with widths in $[y-\delta,y+\delta]$, plus the drift. The classes are closed under independent sums (the Thorin densities add) and under the tilts $m(x)=\mathbb E e^{xY}$, $Y=\sqrt{2\mu}Z+\sum_j\lambda_j\varepsilon_j$ ($Z$ standard Gaussian, $\varepsilon_j$ signs), which map $\mathcal C_\delta$ into $\mathcal C_{\delta'}$ with $\delta'=(\max(\delta^2-\operatorname{Var}Y,0))^{1/2}$ when the density decays faster than $e^{-|x|^\kappa}$ for some $\kappa>2$. They are not closed under mixtures.
 
-Source: [`ch/nc_cauchy.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/nc_cauchy.tex), label `cm:prop:strip`.
+Source: [`ch/nc_cauchy.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/nc_cauchy.tex), label `cm:prop:strip`.
 
 <a id="ellis_monroe_newman_class_not_inside_ferromagnetic_class"></a>
 
 ### The Ellis, Monroe and Newman class is not inside the ferromagnetic class
 
-Volume I, Corollary 21.2.5, page 610 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Corollary 21.2.5, page 620 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
 Statement. Given $\Lambda\ge0$ (Rodgers and Tao), the class of laws with density $e^{-V}$, $V$ even and $V'$ convex on $[0,\infty)$ (and their weak limits), the class of Ellis, Monroe and Newman, is not contained in the class of ferromagnetic laws.
 
-Source: [`ch/nc_cauchy.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/nc_cauchy.tex), label `cm:cor:emn`.
+Source: [`ch/nc_cauchy.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/nc_cauchy.tex), label `cm:cor:emn`.
 
 <a id="reverse_sine_squared_kernel_lemma"></a>
 
 ### The reverse sine squared kernel lemma
 
-Volume I, Lemma 21.3.1, page 610 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Lemma 21.3.1, page 620 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
 Statement. For $a>0$ and real $\gamma,\theta$, $\int_{\mathbb R}e^{-a|x|}\cos(\gamma x)\cos(\theta x)\,dx=\pi\big[P_a(\theta-\gamma)+P_a(\theta+\gamma)\big]$ with $P_a(x)=a/(\pi(a^2+x^2))$. For a zero $\rho=\beta+i\gamma$ of $\xi$ with $\beta<\alpha$, $\log(1+s/(\alpha-\rho))=\int_0^\infty(1-e^{-sx})e^{-(\alpha-\rho)x}\,dx/x$, and the canonical density of $\rho$ and $\bar\rho$ together is $2e^{-(\alpha-\beta)x}\cos\gamma x$.
 
-Source: [`ch/nc_cauchy.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/nc_cauchy.tex), label `cm:lem:kernel`.
+Source: [`ch/nc_cauchy.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/nc_cauchy.tex), label `cm:lem:kernel`.
 
 <a id="reverse_sine_squared_lemma_zeros_to_canonical_measure"></a>
 
 ### The reverse sine squared lemma, from the zeros to the canonical measure
 
-Volume I, Theorem 21.3.2, page 610 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Theorem 21.3.2, page 620 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
 Statement. Let $\alpha\ge1$, or more generally let $\alpha>\frac12$ with every zero of $\xi$ having $\beta<\alpha$. The series $K_\alpha(x)=\sum_{\gamma>0}e^{-(\alpha-\beta)|x|}\cos\gamma x$ converges in $\mathcal S'(\mathbb R)$; its Fourier cosine transform is $v_\alpha$; on $(0,\infty)$ it equals $-\frac12xL_\alpha$, where $L_\alpha$ is the Lévy measure of $\log\xi(\alpha+s)/\xi(\alpha)=cs+\int(e^{-sx}+sx-1)L_\alpha(dx)$, with $c=b_\alpha=\sum_\rho(\alpha-\rho)^{-1}$; and it is positive definite, with $v_\alpha>0$.
 
-Source: [`ch/nc_cauchy.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/nc_cauchy.tex), label `cm:thm:reverse`.
+Source: [`ch/nc_cauchy.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/nc_cauchy.tex), label `cm:thm:reverse`.
 
 <a id="single_width_cauchy_mixture_at_one_basepoint_implies_rh"></a>
 
 ### A single width Cauchy mixture at one basepoint at least one implies RH
 
-Volume I, Theorem 21.3.3, page 611 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Theorem 21.3.3, page 621 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
 Statement. Let $\alpha\ge1$. If $v_\alpha/\pi=P_{\alpha-1/2}*\nu$ for a positive measure $\nu$, so that the Thorin density of $1/\xi$ at the single basepoint $\alpha$ is a positive Cauchy mixture of the single width $\alpha-\frac12$, then RH holds, the Pólya law is ferromagnetic, and $\nu=\sum_\gamma\delta_\gamma$. The converse holds at every $\alpha>\frac12$.
 
-Source: [`ch/nc_cauchy.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/nc_cauchy.tex), label `cm:thm:single`.
+Source: [`ch/nc_cauchy.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/nc_cauchy.tex), label `cm:thm:single`.
 
 <a id="damped_cosine_series_is_weil_functional"></a>
 
 ### The undamped reverse sine squared series is Weil's functional
 
-Volume I, Theorem 21.3.4, page 611 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Theorem 21.3.4, page 621 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
 Statement. Let $h$ be even and real with $e^{|x|/2}(|h|+|h''|)$ integrable, and $\alpha\ge1$, $w=\alpha-\frac12$. Group the zeros in pairs $\{\rho,1-\bar\rho\}$ with real parts $\frac12\pm\delta$, a zero on the line ($\delta=0$) forming a pair by itself, with the single term $e^{(\frac12-\alpha)|x|}$ in the sum below. Then \[\big\langle e^{w|x|}K_\alpha,h\big\rangle:=\sum_{\rm pairs}\int\big(e^{(\frac12+\delta-\alpha)|x|}+e^{(\frac12-\delta-\alpha)|x|}\big)e^{w|x|}\cos(\gamma x)h(x)\,dx=\frac12\sum_\rho\widehat h(t_\rho),\] with $t_\rho=(\rho-\frac12)/i$ and $\widehat h(t)=\int h(x)e^{-itx}dx$; the series converges absolutely and does not depend on $\alpha$. It is Weil's functional; under RH it equals $\frac12\sum_\gamma|\widehat g(\gamma)|^2\ge0$ for $h=g*\tilde g$, and Weil's criterion gives the converse.
 
-Source: [`ch/nc_cauchy.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/nc_cauchy.tex), label `cm:thm:weil`.
+Source: [`ch/nc_cauchy.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/nc_cauchy.tex), label `cm:thm:weil`.
 
 <a id="cosine_tilted_laws_ferromagnetic_for_half_and_above"></a>
 
 ### Cosine tilted laws are ferromagnetic when the tilt exceeds the strip
 
-Volume I, Theorem 21.4.1, page 612 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Theorem 21.4.1, page 622 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
 Statement. For $X$ of Xi type and $w>0$, the law $\cosh(wx)\,P(dx)/\mathbb E\cosh(wX)$ is ferromagnetic whenever every zero of $L$ has $|\operatorname{Re}r|<w$. In particular the cosine tilt $p_w=\cosh(wx)\,p/\mathbb E\cosh(wX)$ of the Pólya law $p$ is ferromagnetic for every $w\ge\frac12$, with no hypothesis.
 
-Source: [`ch/nc_cauchy.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/nc_cauchy.tex), label `cm:thm:tilt`.
+Source: [`ch/nc_cauchy.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/nc_cauchy.tex), label `cm:thm:tilt`.
 
 <a id="two_spin_lee_yang_property_iff_zero_free_half_plane"></a>
 
 ### The two spin Lee and Yang property is a zero free half plane
 
-Volume I, Theorem 21.5.1, page 613 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Theorem 21.5.1, page 623 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
 Statement. Let $X$ be of Xi type and $w>0$, let $\varepsilon$ be a fair sign independent of $X$, and let $Z_w(h_1,h_2)=\mathbb E\sum_{\varepsilon=\pm1}e^{wX\varepsilon+h_1X+h_2\varepsilon}=e^{h_2}L(h_1+w)+e^{-h_2}L(h_1-w)$. The pair has the Lee and Yang property if $Z_w\ne0$ whenever $\operatorname{Re}h_1>0$ and $\operatorname{Re}h_2>0$. (a) If no zero of $L$ has $\operatorname{Re}r>w$, the pair has the Lee and Yang property. (b) If the pair has the Lee and Yang property, no zero of $L$ has $\operatorname{Re}r>w$; so the pair has the Lee and Yang property at the coupling $w$ exactly when $X\in\mathcal C_w$. (c) For $w_0\ge0$, the pair has the Lee and Yang property for every $w>w_0$ if and only if no zero has $\operatorname{Re}r>w_0$.
 
-Source: [`ch/nc_cauchy.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/nc_cauchy.tex), label `cm:thm:pair`.
+Source: [`ch/nc_cauchy.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/nc_cauchy.tex), label `cm:thm:pair`.
 
 <a id="polya_ising_pair_lee_yang_for_half_and_rh_form"></a>
 
 ### The Pólya spin coupled to an Ising spin, unconditional at one half and equivalent to RH
 
-Volume I, Corollary 21.5.2, page 614 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Corollary 21.5.2, page 624 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
 Statement. The Pólya spin coupled to one Ising spin with coupling $w$ is a Lee and Yang ferromagnet for every $w\ge\frac12$, with no hypothesis. For $w_0\in[0,\frac12)$ it is one for every $w>w_0$ if and only if $\zeta$ has no zero with $\operatorname{Re}s>\frac12+w_0$. RH holds if and only if it is one for every $w>0$.
 
-Source: [`ch/nc_cauchy.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/nc_cauchy.tex), label `cm:cor:pair`.
+Source: [`ch/nc_cauchy.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/nc_cauchy.tex), label `cm:cor:pair`.
 
 <a id="finite_euler_products_two_spin_threshold_one_half"></a>
 
 ### Truncated Euler products sit exactly at the coupling one half
 
-Volume I, Proposition 21.5.3, page 614 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Proposition 21.5.3, page 624 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
 Statement. For $N\ge2$ let $E_N(s)=\prod_{p\le N}(1-p^{-1/2-s})(1-p^{-1/2+s})$, the truncated Euler product of $\zeta(\frac12+s)^{-1}\zeta(\frac12-s)^{-1}$. Its zeros are $\pm\frac12+2\pi ik/\log p$, and the two spin system built from $E_N$ in place of $L$ has the Lee and Yang property exactly for $w\ge\frac12$.
 
-Source: [`ch/nc_cauchy.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/nc_cauchy.tex), label `cm:prop:euler`.
+Source: [`ch/nc_cauchy.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/nc_cauchy.tex), label `cm:prop:euler`.
 
 <a id="sum_of_two_three_point_spins_tilt_threshold"></a>
 
 ### The sum of two three point spins, an exact law whose tilt threshold lies inside the strip
 
-Volume I, Proposition 21.6.1, page 614 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Proposition 21.6.1, page 624 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
 Statement. Let $0<q<\frac14$, $\cosh a=\frac{1-2q}{2q}$ (so $a>0$), and $X=Y_1+Y_2$ with $Y_1,Y_2$ independent and $P(Y_i=\pm1)=q$, $P(Y_i=0)=1-2q$. Then $X$ is of Xi type, and its cosine tilt is ferromagnetic exactly for $w\ge w^*$, where $\cosh2w^*=\cosh^2a$. Moreover $\sinh w^*=\sinh a/\sqrt2$, $a/\sqrt2<w^*<a$, and $w^*/a\to\cos\frac\pi4$ as $q\uparrow\frac14$. Since $L$ has its zeros at real parts $\pm a$, $X$ lies in $\mathcal C_a$ and not in $\mathcal C_w$ for $w<a$. So for every $w\in[w^*,a)$ the cosine tilt of $X$ at $w$ is ferromagnetic while $X\notin\mathcal C_w$. For $w>0$ and $w<w^*$ the tilt has no zero on the imaginary axis at all.
 
-Source: [`ch/nc_cauchy.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/nc_cauchy.tex), label `cm:prop:twospin`.
+Source: [`ch/nc_cauchy.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/nc_cauchy.tex), label `cm:prop:twospin`.
 
 <a id="planted_pair_in_xi_slice_threshold_computed"></a>
 
 ### A pair planted in Xi has slice threshold 0.2951 below its width 0.3
 
-Volume I, Proposition 21.6.2, page 616 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Proposition 21.6.2, page 626 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: computed.
 
 Statement. Let $F(z)=\Xi(z)\,\dfrac{(z^2-c^2)(z^2-\bar c^2)}{(z^2-\gamma_k^2)(z^2-\gamma_{k+1}^2)}$ with $c=\frac12(\gamma_k+\gamma_{k+1})+i\eta$, an even entire function, real on the real axis, with strip half width $\eta$. For $k=1$ and $\eta=0.3$, $F(z+iw)+F(z-iw)$ has only real zeros in $[1,45.3]\times[-2.2,2.2]$ at $w=0.299<\eta$. The nonreal zero born from $c$ reaches the real axis at $w^*\approx0.2951$, its imaginary part behaving like $(w^*-w)^{1/2}$. The inverse Fourier transform of $F$ is positive at $x=0,0.25,\dots,1.25$, with ratio to the Pólya density between $0.989$ and $1.111$.
 
-Source: [`ch/nc_cauchy.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/nc_cauchy.tex), label `cm:prop:counter`.
+Source: [`ch/nc_cauchy.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/nc_cauchy.tex), label `cm:prop:counter`.
 
 <a id="phase_criterion_for_real_zeros_of_the_tilt"></a>
 
 ### The phase criterion for the real zeros of the cosine tilt
 
-Volume I, Proposition 21.6.3, page 617 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Proposition 21.6.3, page 627 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
 Statement. Let $F$ be real entire and even, and let $\Theta_w(x)$ be a continuous argument of $F(x+iw)$ on an interval $I$ where $F(x+iw)\ne0$. The real zeros of the tilt $F(z+iw)+F(z-iw)$ in $I$ are the points where $\Theta_w\in\frac\pi2+\pi\mathbb Z$. A real zero $a$ of $F$ contributes $\arg(x-a+iw)$ to $\Theta_w$, which decreases by $\pi$ across $a$; a zero $c=m+i\eta$ contributes $\arg(x-m+i(w-\eta))$, which increases by $\pi$ across $m$ when $w<\eta$ and decreases when $w>\eta$, while $\bar c$ contributes a decrease. So for $w<\eta$ the planted pair produces a local rise of $\Theta_w$ near $m$, of height tending to $\pi$ as $w\uparrow\eta$, and two nonreal zeros of the tilt become real exactly when that rise first reaches a level $\frac\pi2+k\pi$.
 
-Source: [`ch/nc_cauchy.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/nc_cauchy.tex), label `cm:prop:phase`.
+Source: [`ch/nc_cauchy.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/nc_cauchy.tex), label `cm:prop:phase`.
 
 <a id="slice_threshold_gap_law_for_a_simple_pair"></a>
 
 ### The gap law eta minus w* equals phi squared eta cubed over two for a simple pair
 
-Volume I, Theorem 21.7.1, page 618 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Theorem 21.7.1, page 628 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
 Statement. Let $F$ be real entire and even with a planted pair $c=m+i\eta$, $\bar c$, and write $G=F/((z-c)(z-\bar c))$, real on the real axis with $G(m)\ne0$. Let $r>0$ be such that $G$ has no zero in the disc $|z-m|\le2r$. For $\eta$ small enough the tilt $F(z+iw)+F(z-iw)$ has exactly two zeros in $|z-m|<r$ for every $w\in(0,\eta)$, and they are real if and only if $\Phi_w(u)=\arctan\dfrac{2wu}{u^2+\eta^2-w^2}+\psi_w(m+u)$, with $\psi_w(x)=\arg G(x+iw)$ a continuous branch near $m$, takes a value in $\frac\pi2+\pi\mathbb Z$ for some $u\in(-r,r)$. If $\phi=(G'/G)(m)\ne0$, the slice threshold $w^*$ satisfies \[\eta-w^*=\tfrac12\,\phi^2\,\eta^3\big(1+O(\eta)\big)\qquad(\eta\to0),\] and if $\phi=0$, then $\eta-w^*=O(\eta^7)$.
 
-Source: [`ch/nc_cauchy.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/nc_cauchy.tex), label `cm:thm:exact`.
+Source: [`ch/nc_cauchy.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/nc_cauchy.tex), label `cm:thm:exact`.
 
 <a id="slice_thresholds_several_pairs_and_multiple_zeros"></a>
 
 ### Slice thresholds for several pairs and pairs of higher multiplicity
 
-Volume I, Theorem 21.8.1, page 622 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Theorem 21.8.1, page 632 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
 Statement. Let $F=G_0\prod_{j=1}^K\big((z^2-c_j^2)(z^2-\bar c_j^2)\big)^{n_j}$ with distinct heights $m_j>0$, multiplicities $n_j\ge1$, $c_j=m_j+i\eta_j$, $\eta_j=t_j\eta$, $t_j\in(0,1]$, and $G_0$ real entire, real on the real axis, with $G_0(m_j)\ne0$. Let $G_j=F/((z-c_j)(z-\bar c_j))^{n_j}$ and let $G_j^0$ be its limit as $\eta\to0$ near $m_j$, with field $\phi_j=\dfrac{(G_j^0)'}{G_j^0}(m_j)=\dfrac{G_0'}{G_0}(m_j)+\sum_{l\ne j}\dfrac{2n_l}{m_j-m_l}+\sum_{l}\dfrac{2n_l}{m_j+m_l}$. The local slice threshold $w_j^*$ is the least $w$ for which all $2n_j$ zeros of the tilt born from $c_j$ and $\bar c_j$ are real. Let $r>0$ be such that $G_j^0$ has no zero in $|z-m_j|\le2r$ for every $j$. For $\eta$ small enough the tilt $F(z+iw)+F(z-iw)$ has exactly $2n_j$ zeros in $|z-m_j|<r$ for every $w\in[0,\eta]$; they are all real for $w\ge\eta_j$, and (i) for $n_j$ odd, $\eta_j-w_j^*=\dfrac{\phi_j^2}{2n_j^2}\,\eta_j^3\big(1+O(\eta)\big)$ when $\phi_j\ne0$, and $O(\eta^7)$ when $\phi_j=0$; (ii) for $n_j$ even, $w_j^*=\eta_j\cos\dfrac{\pi}{2n_j}+O(\eta^2)$, and more precisely $w_j^*=\eta_j\sin\Big(\dfrac{(n_j-1)\pi}{2n_j}+\dfrac{|\psi_j|}{n_j}\Big)+O(\eta^3)$ with $\psi_j=\operatorname{dist}(\arg G_j(m_j+iw_j^*),\pi\mathbb Z)=O(\eta)$. The configuration is seen by the one variable test, in the sense that every zero born from a planted zero is real, exactly for $w\ge\max_jw_j^*$.
 
-Source: [`ch/nc_cauchy.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/nc_cauchy.tex), label `cm:thm:several`.
+Source: [`ch/nc_cauchy.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/nc_cauchy.tex), label `cm:thm:several`.
 
 <a id="strip_lee_yang_theorem_bounded_spins_lieb_sokal"></a>
 
 ### Ferromagnetic coupling never widens the strip, for spins of exponential type
 
-Volume I, Theorem 21.9.1, page 624 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Theorem 21.9.1, page 634 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: conditional on Rests on Proposition 2.2 of Lieb and Sokal (1981), as restated by Kozitsky, not read in the original.
 
 Statement. Let $\chi_1,\dots,\chi_N$ be symmetric probability measures on $\mathbb R$ whose Laplace transforms $\varphi_i(x)=\int e^{x\sigma}\chi_i(d\sigma)$ are entire of exponential type, for instance measures of bounded support, and suppose $\varphi_i(x)\ne0$ whenever $\operatorname{Re}x>\delta_i$. Let $J_{ij}\ge0$. Then the partition function $Z(h_1,\dots,h_N)=\int\exp\big(\tfrac12\sum_{i,j}J_{ij}\sigma_i\sigma_j+\sum_ih_i\sigma_i\big)\prod_i\chi_i(d\sigma_i)$ does not vanish when $\operatorname{Re}h_i>\delta_i$ for every $i$. It does not vanish when $\operatorname{Re}h_i<-\delta_i$ for every $i$ either, and in a common field all its zeros lie in $|\operatorname{Re}h|\le\max_i\delta_i$.
 
-Source: [`ch/nc_cauchy.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/nc_cauchy.tex), label `cm:thm:stripLY`.
+Source: [`ch/nc_cauchy.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/nc_cauchy.tex), label `cm:thm:stripLY`.
 
 <a id="strip_lee_yang_theorem_for_laws_of_xi_type"></a>
 
 ### Ferromagnetic coupling never widens the strip, for laws of Xi type with Gaussian moments
 
-Volume I, Theorem 21.9.2, page 626 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Theorem 21.9.2, page 636 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: conditional on Rests on Proposition 2.2 of Lieb and Sokal (1981), as restated by Kozitsky, not read in the original.
 
 Statement. Let $\chi_1,\dots,\chi_N$ be laws of Xi type with Gaussian moments of all orders, whose Laplace transforms satisfy $\varphi_i(x)\ne0$ for $\operatorname{Re}x>\delta_i$, and let $J_{ij}\ge0$. Then $Z(h_1,\dots,h_N)=\int\exp\big(\tfrac12\sum_{i,j}J_{ij}\sigma_i\sigma_j+\sum_ih_i\sigma_i\big)\prod_i\chi_i(d\sigma_i)\ne0$ whenever $\operatorname{Re}h_i>\delta_i$ for every $i$. In particular $N$ Pólya spins in any ferromagnetic coupling have all the zeros of their partition function in a common field in the strip $|\operatorname{Re}h|\le\sup_\rho|\beta-\frac12|$, with no hypothesis.
 
-Source: [`ch/nc_cauchy.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/nc_cauchy.tex), label `cm:thm:stripXi`.
+Source: [`ch/nc_cauchy.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/nc_cauchy.tex), label `cm:thm:stripXi`.
 
 <a id="strip_bound_for_the_bare_pair_coupling"></a>
 
 ### The bare Pólya Ising pair has its field zeros inside the strip
 
-Volume I, Proposition 21.9.3, page 626 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Proposition 21.9.3, page 636 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
 Statement. Let $X$ be of Xi type in $\mathcal C_\delta$ and couple it to a fair Ising spin with strength $w\ge0$. In a common field $h$ the partition function $e^{h}L(h+w)+e^{-h}L(h-w)$ has no zero with $|\operatorname{Re}h|>\delta$, and none off the imaginary axis when every zero of $L$ has $|\operatorname{Re}r|<w$.
 
-Source: [`ch/nc_cauchy.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/nc_cauchy.tex), label `cm:prop:strippair`.
+Source: [`ch/nc_cauchy.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/nc_cauchy.tex), label `cm:prop:strippair`.
 
 <a id="rh_iff_modulus_of_xi_monotone_in_the_two_spin_form"></a>
 
 ### The two spin Lee and Yang property at every coupling is monotonicity of the modulus of xi
 
-Volume I, Theorem 21.11.1, page 628 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Theorem 21.11.1, page 638 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
 Statement. The Pólya spin coupled to one Ising spin is a Lee and Yang ferromagnet for every coupling $w>0$ if and only if $\sigma\mapsto|\xi(\sigma+it)|$ is nondecreasing on $[\frac12,\infty)$ for every $t$, if and only if RH holds.
 
-Source: [`ch/nc_cauchy.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/nc_cauchy.tex), label `cm:thm:mono`.
+Source: [`ch/nc_cauchy.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/nc_cauchy.tex), label `cm:thm:mono`.
 
 <a id="frobenius_spin_ferromagnetic_iff_hasse_bound"></a>
 
 ### A Frobenius spin is ferromagnetic exactly when the Hasse bound holds
 
-Volume I, Proposition 21.11.2, page 628 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Proposition 21.11.2, page 638 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
 Statement. For an elliptic curve over $\mathbb F_q$ with $\#E(\mathbb F_q)=q+1-a$, put $L_E(x)=q^x\big(1-aq^{-1/2-x}+q^{-2x}\big)=2\cosh(x\log q)-a/\sqrt q$, where $x=s-\frac12$. For $a\le0$, $L_E$ is the moment generating function of the three point measure with masses $1$, $|a|/\sqrt q$, $1$ at $-\log q$, $0$, $\log q$; for $a>0$ the imaginary field shift $x\mapsto x+i\pi/\log q$ turns it into minus such a function and changes no real part. Its zeros are imaginary if and only if $|a|\le2\sqrt q$, and otherwise lie at real parts $\pm\delta$, $\cosh(\delta\log q)=|a|/(2\sqrt q)$. Hence the Hasse bound holds exactly when this Frobenius spin is ferromagnetic, when its Thorin density is a single width Cauchy mixture at every level, and when the pair formed with an Ising spin is a Lee and Yang ferromagnet at every coupling.
 
-Source: [`ch/nc_cauchy.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/nc_cauchy.tex), label `cm:prop:frob`.
+Source: [`ch/nc_cauchy.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/nc_cauchy.tex), label `cm:prop:frob`.
+
+<a id="finite_prime_side_flow_identity_for_cauchy_fejer_window"></a>
+
+### Explicit formula with a finite prime side for the Cauchy times Fejér window
+
+Volume I, Theorem 21.12.1, page 640 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+
+Status: proved.
+
+Statement. For $\delta>0$ and $L>0$ let $G(x)=e^{-\delta|x|}(1-|x|/L)_+$ with Fourier transform $H$, and for a centre $w$ let $g_w(x)=G(x)\cos wx$, with transform $h_w(r)=\frac12[H(r-w)+H(r+w)]$. The flow $O_{\delta,L}(w)$ is the right side of the explicit formula for $g_w$ (the archimedean and pole terms minus $2\sum_{n\le e^L}\Lambda(n)n^{-1/2-\delta}(1-\log n/L)\cos(w\log n)$, with $\Lambda$ the von Mangoldt function). Then, for every $\delta>0$ and $L>0$, unconditionally, $O_{\delta,L}(w)=\sum_\rho h_w(\gamma_\rho)$ over the nontrivial zeros $\rho$ of $\zeta$ with ordinates $\gamma_\rho$, the series converging absolutely, and the prime side contains only the prime powers $n\le e^L$.
+
+Source: [`ch/nc_cauchy.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/nc_cauchy.tex), label `cm:thm:flow`.
+
+<a id="height_test_at_level_one_for_simple_zeros_on_the_critical_line"></a>
+
+### Height test at level one excluding off line and multiple zeros in an ordinate window
+
+Volume I, Theorem 21.12.2, page 640 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+
+Status: proved.
+
+Statement. Let $G$ be even, $G(0)=1$, $G\ge0$, supported in $[-L,L]$, with $\widehat{g_w}$ in the class of test functions for which the explicit formula of the book holds, where $g_w(x)=G(x)\cos wx$, and such that $G(x)\cosh(\eta x)$ is positive definite for every $\eta\in[0,\frac12)$. Examples are $e^{-|x|/2}(1-|x|/L)_+$ and $\operatorname{sech}(x/2)(1-|x|/L)_+$. Let $O(w)$ be the flow of $G$ (the right side of the explicit formula for $g_w$, containing the prime powers $n\le e^L$) and $H_0(0)=\int G$. If $\sup_{w\in I}O(w)<2H_0(0)$ on an interval $I$, then every zero of $\zeta$ with ordinate in $I$ is simple and on the critical line. The book's computations with this test (maximum of $O/H_0(0)$ equal to $1.5085$ over the ordinates in $[5,160]$ for $G=e^{-|x|/2}(1-|x|/14.51)_+$, in double precision on a grid of step $0.01$) are not part of this theorem.
+
+Source: [`ch/nc_cauchy.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/nc_cauchy.tex), label `cm:thm:height`.
+
+<a id="ceiling_of_the_height_test_near_1_8_million"></a>
+
+### Ceiling of the level one height test
+
+Volume I, Theorem 21.12.3, page 641 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+
+Status: proved.
+
+Statement. For any window $G$ as in the level one height test (even, $G(0)=1$, $G\ge0$, compactly supported, with $G(x)\cosh\eta x$ positive definite for every $\eta\in[0,\frac12)$) one has $G\le\operatorname{sech}(x/2)$ and $H_0(0)=\int G\le2\pi$, and the hypothesis $\sup_IO<2H_0(0)$ on a window $I=[T,T+W]$ with $W\ge W_0(G)$ can hold only if $\log(T/2\pi)<4\pi$, that is $T<2\pi e^{4\pi}\approx1.8\times10^6$. If it is known a priori that all zeros satisfy $|\beta-\frac12|\le\eta_0$, the same argument with $G\cosh\eta_0x$ gives $H_0(0)\le\pi/\eta_0$ and the necessary condition $\eta_0<2\pi/\log(T/2\pi)$.
+
+Source: [`ch/nc_cauchy.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/nc_cauchy.tex), label `cm:thm:ceiling`.
+
+<a id="size_of_the_interference_below_level_one_from_an_off_line_pair"></a>
+
+### Interference of an off line pair below level one is exponentially large in L
+
+Volume I, Proposition 21.12.4, page 641 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+
+Status: proved.
+
+Statement. Let $\delta<\frac12$ and consider the Cauchy times Fejér window with damping $\delta$ and length $L$. A pair of zeros with $\eta=|\beta-\frac12|>\delta$ at distance $d$ from the centre contributes about $2e^{(\eta-\delta)L}/(L((\eta-\delta)^2+d^2))$ to the flow, with a sign that depends on $dL$. The counting function $N(T)$ does not see $\eta$, and without the Riemann Hypothesis the only a priori limit is $\eta<\frac12$, so a bound on the interference from $N(T)$ alone is at least of order $e^{(1/2-\delta)L}/(Ld^2)$, against $H(0)\le L$. This is a size statement; the Davenport and Heilbronn function, which has a functional equation of the same shape, realises it (computed: for the pair at $240.40$, at distance $5.03$ and $\delta=0.05$, the contributions are $-0.02$, $+0.035$, $-0.155$ and $-1.93$ in units of $H(0)$ for $L=10,14.5,20,30$).
+
+Source: [`ch/nc_cauchy.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/nc_cauchy.tex), label `cm:prop:nt`.
 
 <a id="question_is_the_one_variable_tilt_set_an_interval_and_quantitative_converse"></a>
 
 ### Open problem on the one variable tilt, intervals and the constant kappa
 
-Volume I, Problem 21.1, page 630 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Problem 21.1, page 643 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: open.
 
 Statement. For the one variable tilt, is the set of $w$ for which $\cosh(wx)\,P(dx)$ is ferromagnetic always an interval? Extend the gap law to clusters whose width is comparable to the spacing of the neighbouring zeros. Is there a constant $\kappa>0$ such that ferromagnetism of $\cosh(wx)\,P(dx)$ for every $w>w_0$ implies that no zero has $|\operatorname{Re}r|>w_0/\kappa$? The sum of two three point spins gives $\kappa\le\cos\frac\pi4$.
 
-Source: [`ch/nc_cauchy.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/nc_cauchy.tex), label `cm:prob:interval`.
+Source: [`ch/nc_cauchy.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/nc_cauchy.tex), label `cm:prob:interval`.
 
 <a id="question_two_spin_system_from_the_euler_product"></a>
 
 ### Open problem, a Lee and Yang system built from the Euler product
 
-Volume I, Problem 21.2, page 630 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Problem 21.2, page 643 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: open.
 
 Statement. Find a coupled system of Lee and Yang spins built from the Euler product, not from $\xi$, with coupling below $\frac12$ and a partition function that contains $L(h_1\pm w)$; its Lee and Yang property would be a zero free half plane.
 
-Source: [`ch/nc_cauchy.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/nc_cauchy.tex), label `cm:prob:euler`.
+Source: [`ch/nc_cauchy.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/nc_cauchy.tex), label `cm:prob:euler`.
 
 <a id="question_strict_shrinking_of_the_strip_under_coupling"></a>
 
 ### Open problem, strict shrinking of the strip under ferromagnetic coupling
 
-Volume I, Problem 21.3, page 630 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Problem 21.3, page 643 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: open.
 
 Statement. Ferromagnetic couplings never widen the strip of a law of Xi type with Gaussian moments of all orders. Do they shrink it strictly, by at least an amount comparable to the coupling?
 
-Source: [`ch/nc_cauchy.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/nc_cauchy.tex), label `cm:prob:strip`.
+Source: [`ch/nc_cauchy.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/nc_cauchy.tex), label `cm:prob:strip`.
 
 ## Volume I, Chapter 22. Pólya and the zeros of entire functions
 
@@ -5418,7 +5658,7 @@ Source: [`ch/nc_cauchy.tex`](https://github.com/VadimSokolov/computing_rh/blob/v
 
 ### Five equivalent forms of the Riemann Hypothesis in the Thorin variable: Laguerre Pólya class, Pólya Schur multipliers, Jensen polynomials and GGC
 
-Volume I, Proposition 22.4.1, page 636 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Proposition 22.4.1, page 650 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -5426,13 +5666,13 @@ Statement. Let $\xi(s)=\frac12s(s-1)\pi^{-s/2}\Gamma(\frac s2)\zeta(s)$ be Riema
 
 Earlier editions: Proposition 16.4.1, page 644 (edition 1).
 
-Source: [`ch/polya3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/polya3.tex), label `pol:prop:lp`.
+Source: [`ch/polya3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/polya3.tex), label `pol:prop:lp`.
 
 <a id="open_problem_exact_proof_that_reciprocal_xi_density_is_log_concave_and_pf_n"></a>
 
 ### Open problem: an exact arithmetic proof that the reciprocal Xi density is log concave, and then Pólya frequency of every order n
 
-Volume I, Problem 22.1, page 638 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Problem 22.1, page 652 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: open.
 
@@ -5440,13 +5680,13 @@ Statement. Let $\xi$ be Riemann's xi function, $Y$ have the reciprocal Xi law wi
 
 Earlier editions: Problem 16.1, page 646 (edition 1).
 
-Source: [`ch/polya3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/polya3.tex), label `pol:op:pf2`.
+Source: [`ch/polya3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/polya3.tex), label `pol:op:pf2`.
 
 <a id="even_part_basepoint_laws_are_ggc_with_thorin_atoms_at_zeros_of_real_part_of_xi"></a>
 
 ### Even part basepoint laws: GGC laws whose Thorin atoms are the zeros of the real part of xi on a vertical line
 
-Volume I, Corollary 22.6.2, page 639 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Corollary 22.6.2, page 653 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -5454,13 +5694,13 @@ Statement. Let $\xi(s)=\frac12s(s-1)\pi^{-s/2}\Gamma(\frac s2)\zeta(s)$ be Riema
 
 Earlier editions: Corollary 16.6.2, page 647 (edition 1).
 
-Source: [`ch/polya4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/polya4.tex), label `pol:cor:evenpart`.
+Source: [`ch/polya4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/polya4.tex), label `pol:cor:evenpart`.
 
 <a id="zeros_of_real_part_of_xi_on_a_vertical_line_at_half_integer_crossings_of_the_clock"></a>
 
 ### Half integer crossings of the clock: zeros of the real part of xi on a vertical line and the even part law as a midpoint rule
 
-Volume I, Proposition 22.6.3, page 639 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Proposition 22.6.3, page 653 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -5468,13 +5708,13 @@ Statement. Let $\xi(s)=\frac12s(s-1)\pi^{-s/2}\Gamma(\frac s2)\zeta(s)$ be Riema
 
 Earlier editions: Proposition 16.6.3, page 647 (edition 1).
 
-Source: [`ch/polya4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/polya4.tex), label `pol:prop:round`.
+Source: [`ch/polya4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/polya4.tex), label `pol:prop:round`.
 
 <a id="zeros_of_polya_xi_star_at_half_gram_points"></a>
 
 ### Zeros of Pólya's Xi star at half Gram points
 
-Volume I, Proposition 22.7.2, page 641 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Proposition 22.7.2, page 655 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -5482,13 +5722,25 @@ Statement. Let $K_\nu$ be the modified Bessel function of the second kind and $\
 
 Earlier editions: Proposition 16.7.2, page 649 (edition 1).
 
-Source: [`ch/polya4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/polya4.tex), label `pol:prop:gram`.
+Source: [`ch/polya4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/polya4.tex), label `pol:prop:gram`.
+
+<a id="exact_gram_law_for_the_two_term_kernel"></a>
+
+### Exact Gram law for the zeros of the two term kernel
+
+Volume I, Theorem 22.7.3, page 656 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+
+Status: proved.
+
+Statement. Let $s=\frac12+it$, $G(s)=\frac12s(s-1)\pi^{-s/2}\Gamma(\frac s2)$, so that $\arg G(\frac12+it)=\vartheta(t)+\pi$ with $\vartheta$ the Riemann Siegel theta function, $K_\nu$ the modified Bessel function of the second kind, and $F(t)=2\pi^2K_{\frac94+\frac{it}2}(2\pi)-3\pi K_{\frac54+\frac{it}2}(2\pi)$. Then $\frac12\operatorname{Re}F(t)$ is the characteristic function, at $2t$, of the density proportional to $(2\pi^2\cosh9u-3\pi\cosh5u)e^{-2\pi\cosh4u}$. Let $g_k$ be the Gram points, $\vartheta(g_k)=k\pi$, so $g_{-1}=9.667$ and $g_0=17.846$. Then $F(t)=\frac12G(s)(1+E(t))$ with $E(t)=\frac{2\pi^2i}t(1+o(1))$, and: (i) for every $k\ge0$ the interval $[g_k,g_{k+1})$ contains exactly one zero of $\operatorname{Re}F$, and it is simple; there is exactly one zero in $(0,g_{-1})$, at $t=7.604$, and none in $[g_{-1},g_0)$; (ii) with $N_*(T)$ the number of positive zeros of $\operatorname{Re}F$ up to $T$, for $T\ge34$, $N_*(T)=\lfloor(\vartheta(T)+\delta(T))/\pi+\frac12\rfloor+1$ with $\delta=\arg(1+E)$ and $|\delta(T)|\le\arcsin|E(T)|<\frac\pi2$, so that $|N_*(T)-\vartheta(T)/\pi-1|\le\frac12+|\delta(T)|/\pi$. The proof is analytic for $t\ge34$ and in ball arithmetic on $[0,g_5]$. For the base kernel and for the kernel of $\Xi^*$ the one zero per Gram interval law is only computed, between $g_0$ and $700$.
+
+Source: [`ch/polya4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/polya4.tex), label `pol:thm:gramexact`.
 
 <a id="zeros_of_half_gram_skeleton_at_basepoint_one_quarter_and_their_displacement_from_zeta_zeros"></a>
 
 ### The zeros of the even part at basepoint one quarter sit at half Gram points, displaced from the zeta zeros by the argument S
 
-Volume I, Proposition 22.7.3, page 642 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Proposition 22.7.4, page 658 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -5496,13 +5748,37 @@ Statement. Let $K_\nu(a)=\int_0^\infty e^{-a\cosh u}\cosh(\nu u)\,du$ be the Mac
 
 Earlier editions: Proposition 16.7.3, page 650 (edition 1).
 
-Source: [`ch/polya4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/polya4.tex), label `pol:prop:skeleton`.
+Source: [`ch/polya4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/polya4.tex), label `pol:prop:skeleton`.
+
+<a id="polya_spin_in_griffiths_simon_class_if_base_spin_is"></a>
+
+### The base spin in the Griffiths Simon class implies Pólya's spin is (implication)
+
+Volume I, Corollary 22.7.6, page 660 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+
+Status: proved.
+
+Statement. Let $\rho_{2\pi}$ be the base spin density and $\rho_P(u)\propto\rho_{2\pi}(u)\cosh9u$ Pólya's spin, where $\cosh9u=\mathbb{E}e^{uY}$ with $Y=\pm9$ a single Ising spin. If $\rho_{2\pi}$ is in the Griffiths Simon class (the weak limits of suitably scaled sums of ferromagnetically coupled Ising spins), then so is $\rho_P$. The book proves the implication, from a closure lemma under multiplication by $\mathbb{E}e^{xY}$ for $Y$ in the class with $4b_Xb_Y<1$ (here $b_Y=0$), and does not prove that $\rho_{2\pi}$ is in the class.
+
+Source: [`ch/polya4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/polya4.tex), label `pol:cor:polya`.
+
+<a id="polynomial_rungs"></a>
+
+### Polynomial rungs of the cosh ladder are Lee Yang and GHS spins
+
+Volume I, Theorem 22.7.7, page 660 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+
+Status: proved.
+
+Statement. Let $f_K(x)=\int_0^xt\prod_{k\le K}(1+t^2/k^2\pi^2)\,dt$, an even polynomial of degree $2K+2$ with positive coefficients, and $\rho_{a,K}(u)\propto e^{-af_K(4u)}$. Then: (i) each $\rho_{a,K}$ is a Lee Yang spin (its Fourier transform has only real zeros, by de Bruijn's theorem) and a GHS spin (by the criterion of Ellis, Monroe and Newman); (ii) $f_K\uparrow\cosh-1$ locally uniformly, so $\rho_{a,K}$ converges weakly to the base spin $\rho_a\propto e^{-a(\cosh 4u-1)}$; (iii) $\rho_{a,1}$, with $f_1(x)=\frac{x^2}2+\frac{x^4}{4\pi^2}$, is a $\varphi^4$ spin with positive mass and lies in the Griffiths Simon class (Simon and Griffiths 1973). Consequently the base spin $\rho_a$, and through the implication for Pólya's spin, Pólya's spin are in the class if infinitely many of the rungs $\rho_{a,K}$ are. Whether any rung with $K\ge2$ is in the Griffiths Simon class is open.
+
+Source: [`ch/polya4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/polya4.tex), label `pol:thm:ladder`.
 
 <a id="open_problem_sign_condition_on_the_primal_measure_with_bessel_euler_and_davenport_heilbronn_tests"></a>
 
 ### Open problem: a sign condition on the primal measure of the 2 sin squared lemma that holds for the Bessel model, survives the Euler product and fails for Davenport Heilbronn
 
-Volume I, Problem 22.2, page 646 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Problem 22.2, page 663 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: open.
 
@@ -5510,13 +5786,13 @@ Statement. For an entire function $f$ that is zero free on $\operatorname{Re}z\g
 
 Earlier editions: Problem 16.2, page 654 (edition 1).
 
-Source: [`ch/polya5.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/polya5.tex), label `pol:op:sign`.
+Source: [`ch/polya5.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/polya5.tex), label `pol:op:sign`.
 
 <a id="open_problem_real_rootedness_of_the_even_part_of_xi_at_one_basepoint_inside_the_strip"></a>
 
 ### Open problem: only imaginary zeros of the even part of xi at one basepoint inside the critical strip, without a quasi Riemann hypothesis
 
-Volume I, Problem 22.3, page 646 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Problem 22.3, page 663 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: open.
 
@@ -5524,13 +5800,13 @@ Statement. Let $\xi$ be Riemann's xi function and, for $\alpha>\frac12$, $A_\alp
 
 Earlier editions: Problem 16.3, page 654 (edition 1).
 
-Source: [`ch/polya5.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/polya5.tex), label `pol:op:even`.
+Source: [`ch/polya5.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/polya5.tex), label `pol:op:even`.
 
 <a id="open_problem_derivative_laws_of_xi_and_of_the_thorin_variable_function_are_ggc"></a>
 
 ### Open problem: are the derivative laws of xi, or of F in the Thorin variable, generalized gamma convolutions for some n
 
-Volume I, Problem 22.4, page 646 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Problem 22.4, page 663 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: open.
 
@@ -5538,13 +5814,13 @@ Statement. Let $\xi$ be Riemann's xi function and $F(s)=\xi(\frac12+\sqrt s)/\xi
 
 Earlier editions: Problem 16.4, page 654 (edition 1).
 
-Source: [`ch/polya5.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/polya5.tex), label `pol:op:deriv`.
+Source: [`ch/polya5.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/polya5.tex), label `pol:op:deriv`.
 
 <a id="exact_ratio_of_even_part_and_basepoint_laplace_transforms_of_the_reciprocal_xi_family"></a>
 
 ### Exact ratio of the even part and basepoint Laplace transforms, and the exact defect of the midpoint rule
 
-Volume I, Theorem 22.11.1, page 647 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Theorem 22.11.1, page 664 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -5552,13 +5828,13 @@ Statement. Let $\xi$ be Riemann's xi function. For $\alpha>\frac12$ and real $s\
 
 Earlier editions: Theorem 16.11.1, page 655 (edition 1).
 
-Source: [`ch/polya6.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/polya6.tex), label `pol:thm:exact`.
+Source: [`ch/polya6.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/polya6.tex), label `pol:thm:exact`.
 
 <a id="log_concavity_of_two_sided_reciprocal_xi_density_floating_point_certificate"></a>
 
 ### Log concavity of the two sided reciprocal Xi density: a floating point certificate
 
-Volume I, Theorem 22.11.5, page 649 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Theorem 22.11.5, page 666 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: computed.
 
@@ -5566,13 +5842,13 @@ Statement. Let $\xi$ be Riemann's xi function, $\varphi(t^2)=\xi(\frac12)/\xi(\f
 
 Earlier editions: Theorem 16.11.5, page 657 (edition 1).
 
-Source: [`ch/polya6.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/polya6.tex), label `pol:thm:pf2`.
+Source: [`ch/polya6.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/polya6.tex), label `pol:thm:pf2`.
 
 <a id="two_sided_reciprocal_xi_density_uniformly_close_to_a_polya_frequency_density_of_every_order"></a>
 
 ### The two sided reciprocal Xi density is uniformly close to a Pólya frequency density of every order
 
-Volume I, Theorem 22.11.6, page 649 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Theorem 22.11.6, page 666 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -5580,13 +5856,13 @@ Statement. Let $\xi$ be Riemann's xi function, $H=3\times10^{12}$ the height up 
 
 Earlier editions: Theorem 16.11.6, page 658 (edition 1).
 
-Source: [`ch/polya6.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/polya6.tex), label `pol:thm:approxpf`.
+Source: [`ch/polya6.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/polya6.tex), label `pol:thm:approxpf`.
 
 <a id="exact_stieltjes_form_of_the_two_sin_squared_lemma_and_the_compensated_clock_condition"></a>
 
 ### Exact form of the 2 sin squared lemma: the compensated reciprocal is a GGC if and only if the clock runs at least as fast at every height as at height zero
 
-Volume I, Theorem 22.11.7, page 651 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Theorem 22.11.7, page 668 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -5594,13 +5870,13 @@ Statement. Let $f$ be a real entire function with no zeros in the half plane $\o
 
 Earlier editions: Theorem 16.11.7, page 659 (edition 1).
 
-Source: [`ch/polya7.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/polya7.tex), label `pol:thm:exactlemma`.
+Source: [`ch/polya7.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/polya7.tex), label `pol:thm:exactlemma`.
 
 <a id="archimedean_and_prime_parts_of_the_compensated_clock_with_threshold_7_78918"></a>
 
 ### Primes and the compensated clock: the prime sum, the archimedean bracket and the threshold 7.78918
 
-Volume I, Proposition 22.11.8, page 652 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Proposition 22.11.8, page 669 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -5608,13 +5884,13 @@ Statement. Let $\xi$ be Riemann's xi function, $\Lambda$ the von Mangoldt functi
 
 Earlier editions: Proposition 16.11.8, page 660 (edition 1).
 
-Source: [`ch/polya7.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/polya7.tex), label `pol:prop:primes`.
+Source: [`ch/polya7.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/polya7.tex), label `pol:prop:primes`.
 
 <a id="pole_term_needs_the_gamma_factor_for_the_compensated_reciprocal"></a>
 
 ### The pole term needs the gamma factor, the compensated reciprocal of (s minus 1) zeta is not a GGC
 
-Volume I, Remark 22.11.9, page 653 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Remark 22.11.9, page 670 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -5622,13 +5898,13 @@ Statement. Let $f(s)=(s-1)\zeta(s)$, a real entire function with no zeros in $\o
 
 Earlier editions: Remark 16.11.9, page 661 (edition 1).
 
-Source: [`ch/polya7.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/polya7.tex), label `pol:rem:pole`.
+Source: [`ch/polya7.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/polya7.tex), label `pol:rem:pole`.
 
 <a id="compensated_clock_condition_on_every_line_to_the_right_of_alpha_zero_gives_a_zero_free_half_plane"></a>
 
 ### The compensated clock condition on every line to the right of alpha zero implies a zero free half plane
 
-Volume I, Proposition 22.11.10, page 654 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Proposition 22.11.10, page 671 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -5636,13 +5912,13 @@ Statement. Let $\xi$ be Riemann's xi function, $b_\alpha=\frac{\xi'}\xi(\alpha)$
 
 Earlier editions: Proposition 16.11.10, page 662 (edition 1).
 
-Source: [`ch/polya7.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/polya7.tex), label `pol:prop:comp`.
+Source: [`ch/polya7.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/polya7.tex), label `pol:prop:comp`.
 
 <a id="compensated_clock_condition_holds_at_almost_all_heights_inside_the_strip"></a>
 
 ### Compensated clock condition at almost all heights in the critical strip, unconditionally, with the exceptional set bounded by zero density
 
-Volume I, Theorem 22.11.14, page 656 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Theorem 22.11.14, page 673 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -5650,13 +5926,13 @@ Statement. Let $\xi$ be Riemann's xi function, $b_\alpha=\frac{\xi'}\xi(\alpha)$
 
 Earlier editions: Theorem 16.11.14, page 664 (edition 1).
 
-Source: [`ch/polya8.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/polya8.tex), label `pol:thm:almostall`.
+Source: [`ch/polya8.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/polya8.tex), label `pol:thm:almostall`.
 
 <a id="hankel_determinants_of_the_reciprocal_xi_density_have_the_pf_sign_far_in_the_tail"></a>
 
 ### Hankel determinants of the two sided reciprocal Xi density have the Pólya frequency sign far in the tail
 
-Volume I, Proposition 22.11.15, page 657 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Proposition 22.11.15, page 674 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -5664,13 +5940,13 @@ Statement. Let $\xi$ be Riemann's xi function, $\Xi(z)=\xi(\frac12+iz)$ with pos
 
 Earlier editions: Proposition 16.11.15, page 665 (edition 1).
 
-Source: [`ch/polya8.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/polya8.tex), label `pol:prop:hankel`.
+Source: [`ch/polya8.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/polya8.tex), label `pol:prop:hankel`.
 
 <a id="zero_accounting_for_the_even_and_odd_parts_of_xi_on_a_vertical_line"></a>
 
 ### Zero accounting for the even and odd parts of xi: almost all zeros are purely imaginary
 
-Volume I, Theorem 22.11.16, page 658 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Theorem 22.11.16, page 675 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -5678,7 +5954,7 @@ Statement. Let $\xi$ be Riemann's xi function and $\frac12<\alpha\le1$ such that
 
 Earlier editions: Theorem 16.11.16, page 666 (edition 1).
 
-Source: [`ch/polya8.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/polya8.tex), label `pol:thm:accounting`.
+Source: [`ch/polya8.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/polya8.tex), label `pol:thm:accounting`.
 
 ## Volume I, Chapter 23. Haseo Ki, derivatives and the Keiper Li coefficients
 
@@ -5686,7 +5962,7 @@ Source: [`ch/polya8.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0
 
 ### Eventually Thorin: after any positive time the reciprocal of the flowed Xi function is a GGC transform times a finite rational factor
 
-Volume I, Proposition 23.2.1, page 664 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Proposition 23.2.1, page 680 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -5694,13 +5970,13 @@ Statement. For real $t$ let $\Xi_t(\theta)=\int_{\mathbb{R}}\Phi(u)e^{tu^2/4}\co
 
 Earlier editions: Proposition 23.2.1, page 842 (edition 1).
 
-Source: [`ch/ki1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ki1.tex), label `ki:prop:eventual`.
+Source: [`ch/ki1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ki1.tex), label `ki:prop:eventual`.
 
 <a id="thorin_atoms_of_the_flowed_function_lie_right_of_a_shrinking_parabola"></a>
 
 ### Shrinking parabolas: Thorin atoms of the flowed Xi function lie to the right of a parabola that collapses at t = 1/2
 
-Volume I, Corollary 23.2.2, page 664 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Corollary 23.2.2, page 680 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -5708,13 +5984,13 @@ Statement. For real $t$ let $\Xi_t(\theta)=\int_{\mathbb{R}}\Phi(u)e^{tu^2/4}\co
 
 Earlier editions: Corollary 23.2.2, page 843 (edition 1).
 
-Source: [`ch/ki1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ki1.tex), label `ki:cor:parab`.
+Source: [`ch/ki1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ki1.tex), label `ki:cor:parab`.
 
 <a id="no_property_closed_under_a_gaussian_tilt_of_the_polya_density_can_imply_rh"></a>
 
 ### No slack in the Gaussian direction: no class of kernels closed under Gaussian damping and containing Phi has only real zeros
 
-Volume I, Proposition 23.2.3, page 665 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Proposition 23.2.3, page 681 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -5722,13 +5998,13 @@ Statement. Let $\Phi$ be Riemann's kernel, $\Phi(u)=2\sum_{n\ge1}(2\pi^2n^4e^{9u
 
 Earlier editions: Proposition 23.2.3, page 843 (edition 1).
 
-Source: [`ch/ki1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ki1.tex), label `ki:prop:obstruction`.
+Source: [`ch/ki1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ki1.tex), label `ki:prop:obstruction`.
 
 <a id="reciprocals_of_derivatives_of_xi_converge_to_the_laplace_transform_of_the_brownian_exit_time"></a>
 
 ### Brownian exit time limit: the reciprocals of the even derivatives of Xi, rescaled, converge to 1 over cosh of the square root of 2s
 
-Volume I, Proposition 23.3.1, page 666 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Proposition 23.3.1, page 682 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -5736,13 +6012,13 @@ Statement. Let $\Phi$ be Riemann's kernel, $\Phi(u)=2\sum_{n\ge1}(2\pi^2n^4e^{9u
 
 Earlier editions: Proposition 23.3.1, page 844 (edition 1).
 
-Source: [`ch/ki2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ki2.tex), label `ki:prop:bm`.
+Source: [`ch/ki2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ki2.tex), label `ki:prop:bm`.
 
 <a id="conjecture_on_the_edgeworth_rate_of_convergence_of_the_derivative_clocks"></a>
 
 ### Conjecture: the Edgeworth rate of convergence of the zeros and clocks of the derivatives of Xi
 
-Volume I, Remark 23.3.3, page 667 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Remark 23.3.3, page 683 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: open.
 
@@ -5750,13 +6026,13 @@ Statement. Let $\Phi$ be Riemann's kernel, $\Phi(u)=2\sum_{n\ge1}(2\pi^2n^4e^{9u
 
 Earlier editions: Remark 23.3.3, page 845 (edition 1).
 
-Source: [`ch/ki2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ki2.tex), label `ki:conj:rate`.
+Source: [`ch/ki2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ki2.tex), label `ki:conj:rate`.
 
 <a id="keiper_li_coefficients_as_thorin_functional"></a>
 
 ### Keiper Li coefficients as values of the Thorin functional
 
-Volume I, Proposition 23.6.1, page 673 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Proposition 23.6.1, page 689 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -5764,13 +6040,13 @@ Statement. Let $\xi$ be Riemann's completed zeta function and, for $n\ge1$, let 
 
 Earlier editions: Proposition 8.3.1, page 226 (edition 1).
 
-Source: [`ch/ch20.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch20.tex), label `prop:ch20:thorin`.
+Source: [`ch/ch20.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch20.tex), label `prop:ch20:thorin`.
 
 <a id="li_coefficients_from_heat_trace_and_cumulants_of_tilted_clock"></a>
 
 ### Li coefficients from the heat trace and from the cumulants of the clock tilted at one quarter
 
-Volume I, Proposition 23.6.2, page 674 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Proposition 23.6.2, page 690 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -5778,7 +6054,7 @@ Statement. Let $\xi(s)=\frac12s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$ be Riemann's 
 
 Earlier editions: Proposition 8.3.2, page 227 (edition 1).
 
-Source: [`ch/ch20.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch20.tex), label `prop:ch20:heat`.
+Source: [`ch/ch20.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch20.tex), label `prop:ch20:heat`.
 
 ## Volume I, Chapter 24. A route to the Riemann Hypothesis
 
@@ -5786,105 +6062,155 @@ Source: [`ch/ch20.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0
 
 ### The Riemann Hypothesis for a curve over a finite field is equivalent to positive semidefinite Toeplitz matrices
 
-Volume I, Proposition 24.4.1, page 684 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Proposition 24.4.1, page 700 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
 Statement. Let $C$ be a smooth, projective, geometrically irreducible curve of genus $g$ over $\mathbb F_q$ with $N_n$ points over $\mathbb F_{q^n}$, and put $s_0=2g$ and $s_n=s_{-n}=(q^n+1-N_n)/q^{n/2}=\sum_{j=1}^{2g}\alpha_j^n/q^{n/2}$ for $n\ge1$, the $\alpha_j$ being the $2g$ Frobenius eigenvalues. The Riemann Hypothesis for $C$, $|\alpha_j|=\sqrt q$ for every $j$, holds if and only if the Toeplitz matrices $(s_{k-l})_{0\le k,l<n}$ are positive semidefinite for every $n$.
 
-Source: [`ch/nc_route.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/nc_route.tex), label `route:prop:toeplitz`.
+Source: [`ch/nc_route.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/nc_route.tex), label `route:prop:toeplitz`.
 
 <a id="curie_weiss_coupling_shrinks_strip"></a>
 
 ### A Curie Weiss coupling of strength a shrinks the zero strip of Xi type laws from delta squared to delta squared minus a
 
-Volume I, Proposition 24.5.1, page 686 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Proposition 24.5.1, page 702 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
 Statement. Let $\chi_1,\dots,\chi_N$ be laws of Xi type in $\mathcal C_\delta$ whose densities are $O(e^{-|x|^\kappa})$ for some $\kappa>2$, and couple them with the Curie Weiss weight $e^{\frac a2S^2}$, $S=\sum_i\sigma_i$, $a\ge0$. In a common field the partition function $\mathbb E e^{\frac a2S^2+hS}$ has all its zeros in $|\operatorname{Re}h|\le\big(\max(\delta^2-a,0)\big)^{1/2}$.
 
-Source: [`ch/nc_route.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/nc_route.tex), label `route:prop:cw`.
+Source: [`ch/nc_route.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/nc_route.tex), label `route:prop:cw`.
 
 <a id="question_positive_form_from_primes_for_weil_criterion"></a>
 
 ### Problem: construct from the primes a positive semidefinite form for Weil's criterion
 
-Volume I, Problem 24.1, page 690 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Problem 24.1, page 707 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: open.
 
 Statement. Construct, from the primes, a positive semidefinite Hermitian form $\mathcal Q$ on a space of test functions dense enough for Weil's criterion, such that $\mathcal Q(g)=\sum_\rho\widehat g(t_\rho)\overline{\widehat g(\bar t_\rho)}$ for every $g$ in it. Equivalently: prove the monotonicity of $|\xi(\sigma+it)|$ in $\sigma\ge\tfrac12$; or prove that the coupling of the Pólya spin to an Ising spin can be lowered from $\tfrac12$ to $0$ without losing the Lee and Yang property.
 
-Source: [`ch/nc_route.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/nc_route.tex), label `route:prob:missing`.
+Source: [`ch/nc_route.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/nc_route.tex), label `route:prob:missing`.
 
 <a id="question_margin_laws_at_fixed_windows"></a>
 
 ### Problem: lower bounds for the margins that the runs only observe
 
-Volume I, Problem 24.2, page 691 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Problem 24.2, page 707 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: open.
 
 Statement. Prove, at fixed windows $X$ and bounded heights, a lower bound for the margin that the runs only observe: the least eigenvalue of Weil's form on $N$ modes at the window $X$ (exponential in $N$ to $N=40$, then saturating at small $X$), the Thorin margin linear in $\alpha-\tfrac12$ with a constant that grows like $(\log T)^2$, and the curve margin $\varepsilon_N\approx(6.8\,x^{-4})^N$ with its threshold at $\tau=2g$. A bound uniform in $X$ or in the height would imply RH, so only the restricted form is a problem of this plan. Computationally open: the levels $0.51$ to $0.55$ above $10^4$, the Weil grid beyond $N=600$, and the Hankel orders beyond $k=128$.
 
-Source: [`ch/nc_route.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/nc_route.tex), label `route:prob:margin`.
+Source: [`ch/nc_route.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/nc_route.tex), label `route:prob:margin`.
 
 <a id="question_quantitative_strip_shrinking_beyond_curie_weiss"></a>
 
 ### Problem: strip shrinking for pair couplings and the multiplicity rate
 
-Volume I, Problem 24.3, page 691 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Problem 24.3, page 708 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: open.
 
 Statement. Ferromagnetic couplings never widen the strip, and the Curie Weiss proposition gives the shrinking $\delta^2\mapsto\delta^2-a$ for a Curie Weiss coupling of strength $a$. Prove a shrinking bound for pair couplings that do not act through the magnetisation, such as nearest neighbour chains, and prove the multiplicity rate $\delta^2\mapsto\delta^2-Na$, which is expected only for $N$ identical copies and to first order.
 
-Source: [`ch/nc_route.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/nc_route.tex), label `route:prob:shrink`.
+Source: [`ch/nc_route.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/nc_route.tex), label `route:prob:shrink`.
 
 <a id="question_gap_law_for_many_zero_pairs"></a>
 
 ### Problem: the gap law for clusters as wide as the spacing of their neighbours
 
-Volume I, Problem 24.4, page 691 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Problem 24.4, page 708 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: open.
 
 Statement. For one pair off the line, the exact criterion of the book gives the law $\eta-w^*=\tfrac12\phi^2\eta^3(1+O(\eta))$, so the one variable test, ferromagnetism of $\cosh(wx)\,p$, measures the distance of an isolated pair from the line to third order. For clusters that are small compared with their distance from the other zeros each cluster is seen through its own field, among simple pairs the widest decide the threshold, and a double pair is missed by the fixed fraction $1-\cos\tfrac\pi4$ of its distance rather than to third order. What remains is clusters as wide as the spacing of their neighbours, so that a certificate for the tilt in a window says exactly how much of the strip it excludes; such a certificate can exclude at most the zeros with $\operatorname{Re}s>\tfrac12+w/\cos\tfrac\pi4$ unless simplicity of the zeros is also certified.
 
-Source: [`ch/nc_route.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/nc_route.tex), label `route:prob:gap`.
+Source: [`ch/nc_route.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/nc_route.tex), label `route:prob:gap`.
 
 <a id="question_family_along_the_euler_product"></a>
 
 ### Problem: a family along the Euler product with propagating Lee and Yang property
 
-Volume I, Problem 24.5, page 692 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Problem 24.5, page 708 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: open.
 
 Statement. For a curve the point counts over all extensions $\mathbb F_{q^n}$ are governed by the same $2g$ eigenvalues, and positivity of the Toeplitz form propagates along $n$. Find a family of laws or spins indexed by an integer, built from the Euler product of $\zeta$, whose Lee and Yang property, or Toeplitz positivity, can be propagated from one member to the next, and whose limit is the Pólya spin. Finite truncations of the Euler product are not such a family.
 
-Source: [`ch/nc_route.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/nc_route.tex), label `route:prob:family`.
+Source: [`ch/nc_route.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/nc_route.tex), label `route:prob:family`.
 
 <a id="question_two_spin_lee_yang_below_one_half_coupling"></a>
 
 ### Problem: the two spin Lee and Yang property for every w above some w_0 below one half
 
-Volume I, Problem 24.6, page 692 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Problem 24.6, page 708 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: open.
 
 Statement. Prove the two spin Lee and Yang property for every $w>w_0$, for one $w_0<\tfrac12$. By the book's pair corollary the two spin form at every $w>w_0$ is the zero free half plane $\operatorname{Re}s>\tfrac12+w_0$, the quasi Riemann hypothesis. A proof by the methods of this book would be a proof of positivity from the primes at a level below one.
 
-Source: [`ch/nc_route.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/nc_route.tex), label `route:prob:qrh`.
+Source: [`ch/nc_route.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/nc_route.tex), label `route:prob:qrh`.
 
-## Volume I, Chapter 25. Conclusions and open problems of the theory
+## Volume I, Chapter 25. The Berry Keating operator and the Thorin programme
+
+<a id="bk_spectral_measure_of_polya_kernel_for_dilation_generator"></a>
+
+### Spectral measure of Pólya's kernel for the Berry Keating dilation generator
+
+Volume I, Proposition 25.3.1, page 713 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+
+Status: proved.
+
+Statement. Let $H=-i(x\,d/dx+\frac12)$ be the generator of the unitary dilations $f\mapsto e^{-t/2}f(e^{-t}x)$ on $L_2(\mathbb{R})$ (the symmetrised quantisation of $xp$), and let $\xi(s)=\frac12s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$. Let $\Phi$ be the even positive Pólya kernel with $\xi(\frac12+iE)=\int_{\mathbb{R}}\Phi(u)e^{iEu}\,du$. On even functions define $(\mathcal M^+f)(E)=\frac1{2\sqrt\pi}\int_{\mathbb{R}}|x|^{-1/2-iE}f(x)\,dx$, which turns $H$ into multiplication by $E$. Put $g(x)=\frac12|x|^{-1/2}\Phi(\log|x|)$. Then $g\in L_2(\mathbb{R})$ is even, $\mathcal M^+$ is unitary from the even subspace onto $L_2(\mathbb{R})$, and $(\mathcal M^+g)(E)=\xi(\frac12+iE)/(2\sqrt\pi)$. Hence the spectral measure of $g$ for $H$ is $|\xi(\frac12+iE)|^2\,dE/(4\pi)$, of total mass $\|g\|^2=\frac12\int_{\mathbb{R}}\Phi^2\,du=0.159875906$ (the number computed, both sides of Parseval agreeing). The ordinates of the zeros on the critical line are the points where this density vanishes; $H$ has no eigenvalue there. The statement says nothing about the location of the zeros.
+
+Source: [`ch/nc_bk.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/nc_bk.tex), label `bk:prop:mellin`.
+
+<a id="bk_finite_rank_obstruction_for_berry_keating_boundary_condition"></a>
+
+### Finite rank changes cannot give the zeros as spectrum of a Gram regular operator
+
+Volume I, Proposition 25.4.1, page 713 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+
+Status: proved.
+
+Statement. A selfadjoint operator $A$, bounded below with compact resolvent, is Gram regular if the number of its eigenvalues $\mu\le t^2/4$ is $\vartheta(t)/\pi+O(1)$, where $\vartheta$ is the Riemann Siegel phase; the target is the multiset $\{\gamma^2/4\}$ over the ordinates $\gamma>0$ of the nontrivial zeros of $\zeta$, with multiplicity. Let $A$ be Gram regular. Then no selfadjoint operator whose resolvent differs from that of $A$ by an operator of finite rank, in particular no other selfadjoint realisation obtained by changing a finite number of boundary conditions, has spectrum $\{\gamma^2/4\}$ with multiplicity, even after a finite set is discarded. Likewise, if $K$ is a positive first order operator (a confinement of $xp$) with $\vartheta(t)/\pi+O(1)$ levels up to $t$, no selfadjoint $K'$ whose resolvent differs from that of $K$ by finite rank has as spectrum the positive ordinates with multiplicity, even after a finite set is discarded. The same holds if the phase of $A$ carries a finite number of prime terms. The proof is that a finite rank change moves the counting function by $O(1)$, whereas $S(T)=\pi^{-1}\arg\zeta(\frac12+iT)$ is unbounded (Selberg). The statement is unconditional and offers no candidate operator.
+
+Source: [`ch/nc_bk.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/nc_bk.tex), label `bk:prop:nogo`.
+
+<a id="bk_cauchy_deconvolution_comb_conditional_on_rh"></a>
+
+### Cauchy form of the Thorin density and its comb on the prime side (conditional on RH)
+
+Volume I, Proposition 25.5.1, page 714 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+
+Status: conditional on the Riemann Hypothesis.
+
+Statement. Assume the Riemann Hypothesis. Let $\gamma$ run over the ordinates, positive and negative, of the nontrivial zeros $\rho=\frac12+i\gamma$ of $\zeta$ with multiplicity, let $\mu_0=\sum_\gamma\delta_\gamma$, $P_a(x)=a/(\pi(a^2+x^2))$, $\xi(s)=\frac12s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$ and $u_\sigma(t)=\pi^{-1}\operatorname{Re}(\xi'/\xi)(\sigma+it)$. For $\sigma>\frac12$ and $t\in\mathbb{R}$, $u_\sigma=P_{\sigma-1/2}*\mu_0$. With $\widehat{\mu_0}(\omega)=\sum_\gamma e^{-i\gamma\omega}$, the explicit formula gives, on compactly supported test functions in $\omega$, $\widehat{\mu_0}(\omega)=2\cosh\frac\omega2+\Gamma(\omega)-\sum_{n\ge2}\frac{\Lambda(n)}{\sqrt n}\big(\delta_{\log n}+\delta_{-\log n}\big)$, where $\Lambda$ is the von Mangoldt function and $\Gamma(\omega)$ is the contribution of the Gamma factor, smooth off $\omega=0$, and $\widehat{u_\sigma}=e^{-(\sigma-1/2)|\omega|}\widehat{\mu_0}$ for $\omega\ne0$. The deconvolution from level one to the critical line is the multiplier $e^{|\omega|/2}$, which on the comb takes the weight $\Lambda(n)/n$ to $\Lambda(n)/\sqrt n$. Without RH the measure $\mu_0$ and its transform do not exist as stated. The form uses the functional equation and the Hadamard product and not the Euler product, so it does not separate $\zeta$ from the Davenport and Heilbronn function.
+
+Source: [`ch/nc_bk.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/nc_bk.tex), label `bk:prop:cauchy`.
+
+<a id="bk_krein_string_of_the_zeros_conditional_on_rh"></a>
+
+### Krein string with spectral measure the squared ordinates of the zeros (conditional on RH)
+
+Volume I, Theorem 25.6.1, page 715 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+
+Status: conditional on the Riemann Hypothesis.
+
+Statement. Assume the Riemann Hypothesis and let $\xi(s)=\frac12s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$. Let $\gamma_1\le\gamma_2\le\cdots$ be the positive ordinates of the nontrivial zeros with multiplicity, and $\tau=\sum_n\delta_{\gamma_n^2}$, so that $\tau$ has weight $m_j$ at the distinct value $\lambda_j$ of multiplicity $m_j$. Krein's correspondence is a bijection between strings with a reflecting end at $x=0$ and a Dirichlet end at $x=L$ and pairs $(c,\tau)$, with $c\ge0$ the length of an initial massless gap and $\tau$ a measure on $[0,\infty)$ with $\int d\tau/(1+\lambda)<\infty$. (a) There is a unique string with $c=0$ and spectral measure $\tau$, and its Weyl function uses no zero: $h(-s)=\sum_n(\gamma_n^2+s)^{-1}=(\xi'/\xi)(\frac12+\sqrt s)/(2\sqrt s)$ for $s>0$. (b) Its length is $L=h(0+)=\sum_n\gamma_n^{-2}=\xi''(\frac12)/(2\xi(\frac12))=0.02310499311541897$ (the number computed). (c) Its mass function $M$ satisfies $M(L-)=\infty$ and has no jump at $x=0$. (d) If the zeros are simple, the Dirichlet eigenfunction at $L$ is $\varphi(L,-s)=\xi(\frac12+\sqrt s)/\xi(\frac12)$, the hitting time $T$ of the end $x=L$ has $\mathbb{E}e^{-sT}=\xi(\frac12)/\xi(\frac12+\sqrt s)$ (the clock of the book) and $\mathbb{E}T=L$. Part (c) uses that a positive proportion of the zeros are simple (Alpöge and Furman) and $N(T)\sim(T/2\pi)\log T$. Simplicity is needed only in (d). The theorem is RH by inclusion: existence of the string uses no property of $\zeta$, and the same holds for every even real entire function of order below two, so it is a restatement of the book's equivalence for such functions and not a route to RH.
+
+Source: [`ch/nc_bk.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/nc_bk.tex), label `bk:thm:string`.
+
+## Volume I, Chapter 26. Conclusions and open problems of the theory
 
 <a id="open_jensen_polynomials_as_finite_free_products"></a>
 
 ### Jensen polynomials of the Pólya moments as finite free products (open problem)
 
-Volume I, Problem 25.1, page 700 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Problem 26.1, page 726 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: open.
 
@@ -5892,13 +6218,13 @@ Statement. Let $X$ be the Pólya variable, the symmetric random variable with de
 
 Earlier editions: Problem 12.1, page 524 (edition 1).
 
-Source: [`ch/ch22.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch22.tex), label `prob:wigfree:jensen`.
+Source: [`ch/ch22.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch22.tex), label `prob:wigfree:jensen`.
 
 <a id="open_laguerre_meixner_pollaczek_expansions_of_polya_density"></a>
 
 ### Laguerre and Meixner Pollaczek expansions of the Pólya density (open problem)
 
-Volume I, Problem 25.2, page 700 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Problem 26.2, page 726 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: open.
 
@@ -5906,13 +6232,13 @@ Statement. Let $X$ be the Pólya variable, the symmetric random variable with de
 
 Earlier editions: Problem 12.2, page 524 (edition 1).
 
-Source: [`ch/ch22.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch22.tex), label `prob:wigfree:laguerre`.
+Source: [`ch/ch22.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch22.tex), label `prob:wigfree:laguerre`.
 
 <a id="open_jacobi_parameters_of_zero_measure_and_local_semicircle_model"></a>
 
 ### Jacobi parameters of the zero measure and the local semicircle model (open problem)
 
-Volume I, Problem 25.3, page 701 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Problem 26.3, page 727 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: open.
 
@@ -5920,13 +6246,13 @@ Statement. Let $\gamma_1\le\gamma_2\le\cdots$ be the positive ordinates of the z
 
 Earlier editions: Problem 12.3, page 525 (edition 1).
 
-Source: [`ch/ch22.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch22.tex), label `prob:wigfree:jacobi`.
+Source: [`ch/ch22.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch22.tex), label `prob:wigfree:jacobi`.
 
 <a id="open_order_at_which_a_zero_collision_is_registered_by_hankel_test"></a>
 
 ### Order at which a zero collision is registered by the Hankel test (open problem)
 
-Volume I, Problem 25.4, page 701 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Problem 26.4, page 727 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: open.
 
@@ -5934,13 +6260,13 @@ Statement. Let $\xi(s)=\frac12s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$ be Riemann's 
 
 Earlier editions: Problem 12.4, page 525 (edition 1).
 
-Source: [`ch/ch22.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch22.tex), label `prob:wigfree:window`.
+Source: [`ch/ch22.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch22.tex), label `prob:wigfree:window`.
 
 <a id="open_unconditional_collision_brackets_for_de_bruijn_newman_flow"></a>
 
 ### Unconditional brackets for the collision times of zeros along the de Bruijn Newman flow (open problem)
 
-Volume I, Problem 25.5, page 701 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Problem 26.5, page 727 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: open.
 
@@ -5948,13 +6274,13 @@ Statement. Let $\xi(s)=\frac12s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$ be Riemann's 
 
 Earlier editions: Problem 12.5, page 525 (edition 1).
 
-Source: [`ch/ch22.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch22.tex), label `prob:wigfree:collide`.
+Source: [`ch/ch22.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch22.tex), label `prob:wigfree:collide`.
 
 <a id="open_moving_derivative_sign_ladder_of_heat_trace_without_new_zeros"></a>
 
 ### Extending the derivative sign ladder of the heat trace without new information on the zeros (open problem)
 
-Volume I, Problem 25.6, page 701 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume I, Problem 26.6, page 727 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: open.
 
@@ -5962,7 +6288,7 @@ Statement. Let $\xi$ be Riemann's xi function, $\gamma_k$ the ordinates of its z
 
 Earlier editions: Problem 12.6, page 525 (edition 1).
 
-Source: [`ch/ch22.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch22.tex), label `prob:wigfree:ladder`.
+Source: [`ch/ch22.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch22.tex), label `prob:wigfree:ladder`.
 
 ## Volume II, Chapter 1. What computation can and cannot decide
 
@@ -5978,7 +6304,7 @@ Statement. Let $\xi$ be the completed Riemann zeta function and $W(t)=\sum_je^{-
 
 Earlier editions: Theorem 5.2.1, page 117 (edition 1).
 
-Source: [`ch/ch13.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch13.tex), label `thm:ch13:perturb`.
+Source: [`ch/ch13.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch13.tex), label `thm:ch13:perturb`.
 
 <a id="pair_of_zeros_off_the_line_at_the_ordinate_of_a_line_zero_is_positive_for_resolution_below_d_over_sqrt_3_or_above_d"></a>
 
@@ -5992,7 +6318,7 @@ Statement. Let $d>0$, $\varepsilon>0$, $\varepsilon\ne d$ and $u=(\theta-\gamma)
 
 Earlier editions: Proposition 5.2.2, page 122 (edition 1).
 
-Source: [`ch/ch13.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch13.tex), label `tx4:prop:triple`.
+Source: [`ch/ch13.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch13.tex), label `tx4:prop:triple`.
 
 <a id="bernstein_pick_route_closed_by_certified_zero"></a>
 
@@ -6006,7 +6332,7 @@ Statement. Let $\xi$ be the completed Riemann zeta function, $\Xi(z)=\xi(\tfrac1
 
 Earlier editions: Theorem 5.2.3, page 123 (edition 1).
 
-Source: [`ch/ch13.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch13.tex), label `thm:ch13:mellin`.
+Source: [`ch/ch13.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch13.tex), label `thm:ch13:mellin`.
 
 <a id="first_failing_derivative_order_local_model_off_line_quadruple"></a>
 
@@ -6020,7 +6346,7 @@ Statement. Let $\xi$ be the completed Riemann zeta function. Let $F$ be obtained
 
 Earlier editions: Proposition 5.2.4, page 123 (edition 1).
 
-Source: [`ch/ch13.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch13.tex), label `xg:prop:local`.
+Source: [`ch/ch13.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch13.tex), label `xg:prop:local`.
 
 ## Volume II, Chapter 2. Evaluating the Xi function in ball arithmetic
 
@@ -6036,7 +6362,7 @@ Statement. Let $\Phi(u)=2\sum_{n\ge 1}\bigl(2\pi^2n^4e^{9u/2} - 3\pi n^2e^{5u/2}
 
 Earlier editions: Proposition 2.1.1, page 29 (edition 1).
 
-Source: [`ch/ch04.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch04.tex), label `prop:tilt`.
+Source: [`ch/ch04.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch04.tex), label `prop:tilt`.
 
 ## Volume II, Chapter 3. The Thorin measure at finite resolution
 
@@ -6052,7 +6378,7 @@ Statement. Let $\xi$ be the completed zeta function, $\Xi(\theta)=\xi(\frac12+i\
 
 Earlier editions: Proposition 3.2.2, page 48 (edition 1).
 
-Source: [`ch/ch07.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch07.tex), label `prop:mass`.
+Source: [`ch/ch07.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch07.tex), label `prop:mass`.
 
 <a id="off_line_zero_signatures"></a>
 
@@ -6066,7 +6392,7 @@ Statement. Let $P_a(x)=a/(\pi(a^2+x^2))$ for $a>0$ be the Poisson (Cauchy) kerne
 
 Earlier editions: Proposition 3.3.1, page 50 (edition 1).
 
-Source: [`ch/ch08.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch08.tex), label `prop:signature`.
+Source: [`ch/ch08.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch08.tex), label `prop:signature`.
 
 <a id="littlewood_identity_thorin_mass"></a>
 
@@ -6080,7 +6406,7 @@ Statement. Let $\xi$ be the completed zeta function and, for $\varepsilon>0$ and
 
 Earlier editions: Proposition 3.4.1, page 54 (edition 1).
 
-Source: [`ch/ch09.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch09.tex), label `prop:littlewood`.
+Source: [`ch/ch09.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch09.tex), label `prop:littlewood`.
 
 <a id="zero_density_identity_thorin_mass"></a>
 
@@ -6094,7 +6420,7 @@ Statement. Let $\xi$ be the completed zeta function. For $\varepsilon>0$ and $T>
 
 Earlier editions: Proposition 3.4.2, page 54 (edition 1).
 
-Source: [`ch/ch09.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch09.tex), label `prop:zerodensity`.
+Source: [`ch/ch09.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch09.tex), label `prop:zerodensity`.
 
 ## Volume II, Chapter 4. The de Bruijn Newman flow computed from the Pólya density
 
@@ -6110,7 +6436,7 @@ Statement. Let $\Phi(u)=\sum_{n\ge1}\bigl(2\pi^2n^4e^{9u}-3\pi n^2e^{5u}\bigr)\e
 
 Earlier editions: Proposition 8.4.1, page 231 (edition 1).
 
-Source: [`ch/ch21.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch21.tex), label `prop:ch21:velocity`.
+Source: [`ch/ch21.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch21.tex), label `prop:ch21:velocity`.
 
 <a id="backward_heat_flow_critical_point_collision_bound"></a>
 
@@ -6124,7 +6450,7 @@ Statement. Let $f_s$, $s\ge0$, be real entire functions of genus at most one, sm
 
 Earlier editions: Theorem 8.4.7, page 243 (edition 1).
 
-Source: [`ch/ch21.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch21.tex), label `thm:wigbiane:riccati`.
+Source: [`ch/ch21.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch21.tex), label `thm:wigbiane:riccati`.
 
 <a id="backward_heat_flow_biane_form_collision_bound"></a>
 
@@ -6138,7 +6464,7 @@ Statement. Let $f_s$, $s\ge0$, be real entire functions of genus at most one, sm
 
 Earlier editions: Theorem 8.4.9, page 244 (edition 1).
 
-Source: [`ch/ch21.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch21.tex), label `thm:wigbiane:biane2`.
+Source: [`ch/ch21.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch21.tex), label `thm:wigbiane:biane2`.
 
 <a id="backward_heat_flow_local_bound_nonreal_zeros"></a>
 
@@ -6152,7 +6478,7 @@ Statement. Let $f_s$, $s\ge0$, be real entire functions of genus at most one, sm
 
 Earlier editions: Theorem 8.4.12, page 245 (edition 1).
 
-Source: [`ch/ch21.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch21.tex), label `thm:wigbiane:local`.
+Source: [`ch/ch21.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch21.tex), label `thm:wigbiane:local`.
 
 <a id="backward_heat_flow_delta_collision_bound"></a>
 
@@ -6166,7 +6492,7 @@ Statement. Let $f_s$, $s\ge0$, be real entire functions of genus at most one, sm
 
 Earlier editions: Corollary 8.4.13, page 246 (edition 1).
 
-Source: [`ch/ch21.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch21.tex), label `cor:wigbiane:delta`.
+Source: [`ch/ch21.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch21.tex), label `cor:wigbiane:delta`.
 
 <a id="backward_heat_flow_collision_deadline"></a>
 
@@ -6180,7 +6506,7 @@ Statement. Let $f_s$, $s\ge0$, be real entire functions of genus at most one, sm
 
 Earlier editions: Theorem 8.4.14, page 247 (edition 1).
 
-Source: [`ch/ch21.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch21.tex), label `thm:wigbiane:upper`.
+Source: [`ch/ch21.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch21.tex), label `thm:wigbiane:upper`.
 
 <a id="backward_heat_flow_collision_deadline_kappa_form"></a>
 
@@ -6194,7 +6520,7 @@ Statement. Let $f_s$, $s\ge0$, be real entire functions of genus at most one, sm
 
 Earlier editions: Corollary 8.4.15, page 247 (edition 1).
 
-Source: [`ch/ch21.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch21.tex), label `cor:wigbiane:kappa`.
+Source: [`ch/ch21.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch21.tex), label `cor:wigbiane:kappa`.
 
 <a id="nonreal_zeros_control_along_backward_heat_flow"></a>
 
@@ -6208,7 +6534,7 @@ Statement. For real $t$ let $H_t(z)=\int_0^\infty e^{tu^2}\Phi(u)\cos(zu)\,du$ b
 
 Earlier editions: Problem 8.1, page 250 (edition 1).
 
-Source: [`ch/ch21.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch21.tex), label `prob:wigbiane:control`.
+Source: [`ch/ch21.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch21.tex), label `prob:wigbiane:control`.
 
 <a id="shielding_deficit_identity_for_adjacent_real_zeros_of_de_bruijn_newman_function"></a>
 
@@ -6222,7 +6548,7 @@ Statement. Let $a<b$ be adjacent simple real zeros of an entire function with ze
 
 Earlier editions: Theorem 8.4.16, page 252 (edition 1).
 
-Source: [`ch/ch21.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch21.tex), label `nw:thm:shield`.
+Source: [`ch/ch21.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch21.tex), label `nw:thm:shield`.
 
 <a id="shielding_deficit_consequences_lattice_tail_single_gap_and_smallest_gap_does_not_shrink"></a>
 
@@ -6236,7 +6562,7 @@ Statement. In the setting of the shielding deficit identity (adjacent simple rea
 
 Earlier editions: Corollary 8.4.17, page 252 (edition 1).
 
-Source: [`ch/ch21.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch21.tex), label `nw:cor:shield`.
+Source: [`ch/ch21.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch21.tex), label `nw:cor:shield`.
 
 <a id="tilted_kernel_gaussian_average_and_reciprocal_tilted_clock_gaussian_smoothing"></a>
 
@@ -6250,7 +6576,7 @@ Statement. Let $\xi(s)=\frac12s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$ be Riemann's 
 
 Earlier editions: Proposition 8.4.18, page 253 (edition 1).
 
-Source: [`ch/ch21.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch21.tex), label `xg:prop:gauss`.
+Source: [`ch/ch21.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch21.tex), label `xg:prop:gauss`.
 
 <a id="mean_of_tilted_clock_increases_along_the_flow"></a>
 
@@ -6264,7 +6590,7 @@ Statement. Let $\Phi(v)=2\sum_{n\ge1}\bigl(2\pi^2n^4e^{9v/2}-3\pi n^2e^{5v/2}\bi
 
 Earlier editions: Result 8.4.8, page 254 (edition 1).
 
-Source: [`ch/ch21.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch21.tex), label `res:ch21:meanup`.
+Source: [`ch/ch21.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch21.tex), label `res:ch21:meanup`.
 
 <a id="large_tilt_limit_of_the_clock_twice_brownian_exit_time"></a>
 
@@ -6278,7 +6604,7 @@ Statement. Let $\Phi(u)=\sum_{n\ge1}\bigl(2\pi^2n^4e^{9u}-3\pi n^2e^{5u}\bigr)\e
 
 Earlier editions: Proposition 8.4.19, page 255 (edition 1).
 
-Source: [`ch/ch21.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch21.tex), label `xg:prop:large`.
+Source: [`ch/ch21.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch21.tex), label `xg:prop:large`.
 
 <a id="tilted_clock_not_monotone_under_common_exponential_coupling"></a>
 
@@ -6292,7 +6618,7 @@ Statement. For $t\ge0.2$ every zero of the de Bruijn Newman function $H_t(z)=\in
 
 Earlier editions: Result 8.4.8, page 255 (edition 1).
 
-Source: [`ch/ch21.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch21.tex), label `res:ch21:coupling`.
+Source: [`ch/ch21.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch21.tex), label `res:ch21:coupling`.
 
 <a id="open_stochastic_monotonicity_of_the_tilted_clock"></a>
 
@@ -6306,7 +6632,7 @@ Statement. Let $H_t(z)=\int_0^\infty e^{tu^2}\Phi(u)\cos(zu)\,du$ be the de Brui
 
 Earlier editions: Problem 8.2, page 255 (edition 1).
 
-Source: [`ch/ch21.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch21.tex), label `prob:ch21:order`.
+Source: [`ch/ch21.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch21.tex), label `prob:ch21:order`.
 
 <a id="gaussian_smoothing_of_reciprocal_ggc_transform_is_again_one"></a>
 
@@ -6320,7 +6646,7 @@ Statement. A generalized gamma convolution (GGC) with Thorin measure $U\ge0$ and
 
 Earlier editions: Theorem 8.4.20, page 256 (edition 1).
 
-Source: [`ch/ch21.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch21.tex), label `xg:thm:smooth`.
+Source: [`ch/ch21.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch21.tex), label `xg:thm:smooth`.
 
 <a id="laguerre_expression_central_second_moment_vanishes_uniformly_along_de_bruijn_newman_flow"></a>
 
@@ -6334,7 +6660,7 @@ Statement. Let $\Phi_{\mathrm{dBN}}$ be the de Bruijn Newman kernel, the even fu
 
 Earlier editions: Theorem 8.4.21, page 258 (edition 1).
 
-Source: [`ch/ch21.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch21.tex), label `nw:thm:conc`.
+Source: [`ch/ch21.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch21.tex), label `nw:thm:conc`.
 
 <a id="uniform_asymptotic_of_laguerre_ratio_one_eighth_log_n_squared_on_every_window"></a>
 
@@ -6348,7 +6674,7 @@ Statement. Let $L_{n,t}$ be the Laguerre expressions of the de Bruijn Newman fun
 
 Earlier editions: Theorem 8.4.23, page 259 (edition 1).
 
-Source: [`ch/ch21.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch21.tex), label `nw:thm:compact`.
+Source: [`ch/ch21.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch21.tex), label `nw:thm:compact`.
 
 <a id="de_bruijn_newman_constant_positive_implies_a_multiple_real_zero_at_lambda"></a>
 
@@ -6362,7 +6688,7 @@ Statement. Let $\Phi_{\mathrm{dBN}}(u)=\sum_{n\ge1}\big(2\pi^2n^4e^{9u}-3\pi n^2
 
 Earlier editions: Corollary 8.4.25, page 260 (edition 1).
 
-Source: [`ch/ch21.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch21.tex), label `ft:cor:collide`.
+Source: [`ch/ch21.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch21.tex), label `ft:cor:collide`.
 
 <a id="local_rouche_criterion_for_backward_persistence_of_a_pair_of_real_zeros_of_de_bruijn_newman_function"></a>
 
@@ -6376,7 +6702,7 @@ Statement. Let $H_t(z)=\int_{\mathbb{R}}\nu_t(u)e^{izu}\,du$ be the de Bruijn Ne
 
 Earlier editions: Proposition 8.4.27, page 262 (edition 1).
 
-Source: [`ch/ch21.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch21.tex), label `nw:prop:local`.
+Source: [`ch/ch21.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch21.tex), label `nw:prop:local`.
 
 <a id="no_fixed_step_rouche_criterion_certifies_backward_persistence_at_every_height_for_de_bruijn_newman_function"></a>
 
@@ -6390,7 +6716,7 @@ Statement. With the notation of the local Rouché criterion ($H_t$ the de Bruijn
 
 Earlier editions: Proposition 8.4.28, page 262 (edition 1).
 
-Source: [`ch/ch21.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ch21.tex), label `nw:prop:height`.
+Source: [`ch/ch21.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ch21.tex), label `nw:prop:height`.
 
 ## Volume II, Chapter 6. The Thorin phase diagram
 
@@ -6406,7 +6732,7 @@ Statement. Let $\xi(s)=\frac12s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$ be Riemann's 
 
 Earlier editions: Theorem 15.2.3, page 615 (edition 1).
 
-Source: [`ch/cp2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cp2.tex), label `cp:thm:transfer`.
+Source: [`ch/cp2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cp2.tex), label `cp:thm:transfer`.
 
 <a id="minimum_of_thorin_density_at_origin_along_heat_flow"></a>
 
@@ -6420,7 +6746,7 @@ Statement. Let $\xi$ be Riemann's xi function, $\Phi_{\mathrm{dBN}}(u)=\sum_{n\g
 
 Earlier editions: Proposition 15.2.5, page 616 (edition 1).
 
-Source: [`ch/cp2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cp2.tex), label `cp:prop:minflow`.
+Source: [`ch/cp2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cp2.tex), label `cp:prop:minflow`.
 
 <a id="heat_average_as_shifted_gaussian_average_of_xi"></a>
 
@@ -6434,7 +6760,7 @@ Statement. Let $\xi(s)=g(s)\zeta(s)$ be Riemann's xi function with $g(s)=\frac12
 
 Earlier editions: Lemma 15.2.6, page 617 (edition 1).
 
-Source: [`ch/cp2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cp2.tex), label `cp:lem:shift`.
+Source: [`ch/cp2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cp2.tex), label `cp:lem:shift`.
 
 <a id="zero_count_of_heat_flow_function_with_argument_bound"></a>
 
@@ -6448,7 +6774,7 @@ Statement. Let $\xi(s)=g(s)\zeta(s)$ be Riemann's xi function with $g(s)=\frac12
 
 Earlier editions: Proposition 15.2.7, page 618 (edition 1).
 
-Source: [`ch/cp2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cp2.tex), label `cp:prop:count`.
+Source: [`ch/cp2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cp2.tex), label `cp:prop:count`.
 
 <a id="minimum_of_thorin_density_at_origin_up_to_basepoint_ten_at_time_point_two_conditional"></a>
 
@@ -6462,7 +6788,7 @@ Statement. Let $\xi_t$ be the heat flow function ($\xi_t(s)=8\int_0^\infty e^{tu
 
 Earlier editions: Corollary 15.2.8, page 619 (edition 1).
 
-Source: [`ch/cp2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cp2.tex), label `cp:cor:minflow`.
+Source: [`ch/cp2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cp2.tex), label `cp:cor:minflow`.
 
 <a id="phase_diagram_theorem_de_bruijn_strip_theorem_in_thorin_form"></a>
 
@@ -6476,7 +6802,7 @@ Statement. Let $\xi(s)=\frac12s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$ be Riemann's 
 
 Earlier editions: Theorem 15.3.2, page 620 (edition 1).
 
-Source: [`ch/cp3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cp3.tex), label `cp:thm:phase`.
+Source: [`ch/cp3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cp3.tex), label `cp:thm:phase`.
 
 <a id="winding_number_certificate_for_point_0_2_0_6_of_phase_diagram"></a>
 
@@ -6490,7 +6816,7 @@ Statement. Let $\Phi_{\mathrm{dBN}}(u)=\sum_{n\ge1}(2\pi^2n^4e^{9u}-3\pi n^2e^{5
 
 Earlier editions: Theorem 15.5.6, page 625 (edition 1).
 
-Source: [`ch/cp5.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cp5.tex), label `cp:thm:cert`.
+Source: [`ch/cp5.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cp5.tex), label `cp:thm:cert`.
 
 <a id="thorin_form_certificate_positive_log_derivative_on_rectangle"></a>
 
@@ -6504,7 +6830,7 @@ Statement. Let $\Phi_{\mathrm{dBN}}(u)=\sum_{n\ge1}(2\pi^2n^4e^{9u}-3\pi n^2e^{5
 
 Earlier editions: Proposition 15.5.7, page 626 (edition 1).
 
-Source: [`ch/cp5.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cp5.tex), label `cp:prop:thorincert`.
+Source: [`ch/cp5.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cp5.tex), label `cp:prop:thorincert`.
 
 <a id="xi_time_0_2_no_zero_in_rectangle_up_to_height_160_certified"></a>
 
@@ -6518,7 +6844,7 @@ Statement. Let $\Phi_{\mathrm{dBN}}(u)=\sum_{n\ge1}(2\pi^2n^4e^{9u}-3\pi n^2e^{5
 
 Earlier editions: Theorem 15.5.8, page 628 (edition 1).
 
-Source: [`ch/cp5.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cp5.tex), label `cp:thm:rig`.
+Source: [`ch/cp5.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cp5.tex), label `cp:thm:rig`.
 
 <a id="heat_flow_zero_pair_near_height_185_still_real_at_minus_0_287979_certified"></a>
 
@@ -6532,7 +6858,7 @@ Statement. Let $\Phi_{\mathrm{dBN}}(u)=\sum_{n\ge1}(2\pi^2n^4e^{9u}-3\pi n^2e^{5
 
 Earlier editions: Proposition 15.6.1, page 631 (edition 1).
 
-Source: [`ch/cp6.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cp6.tex), label `cp:prop:gas`.
+Source: [`ch/cp6.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cp6.tex), label `cp:prop:gas`.
 
 <a id="open_thorin_densities_at_time_0_and_0_2_near_polymath15_barrier"></a>
 
@@ -6546,7 +6872,7 @@ Statement. Let $\Phi_{\mathrm{dBN}}(u)=\sum_{n\ge1}(2\pi^2n^4e^{9u}-3\pi n^2e^{5
 
 Earlier editions: Problem 15.1, page 635 (edition 1).
 
-Source: [`ch/cp6.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cp6.tex), label `cp:prob:high`.
+Source: [`ch/cp6.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cp6.tex), label `cp:prob:high`.
 
 <a id="open_boundary_of_ggc_region_for_times_up_to_0_2"></a>
 
@@ -6560,7 +6886,7 @@ Statement. Let $\xi_t(s)=8\int_0^\infty e^{tu^2}\Phi_{\mathrm{dBN}}(u)\cosh((2s-
 
 Earlier editions: Problem 15.2, page 635 (edition 1).
 
-Source: [`ch/cp6.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cp6.tex), label `cp:prob:boundary`.
+Source: [`ch/cp6.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cp6.tex), label `cp:prob:boundary`.
 
 <a id="open_phase_diagram_coordinate_for_symmetrised_truncations"></a>
 
@@ -6574,7 +6900,7 @@ Statement. Let $\xi_t(s)=8\int_0^\infty e^{tu^2}\Phi_{\mathrm{dBN}}(u)\cosh((2s-
 
 Earlier editions: Problem 15.3, page 635 (edition 1).
 
-Source: [`ch/cp6.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cp6.tex), label `cp:prob:trunc`.
+Source: [`ch/cp6.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cp6.tex), label `cp:prob:trunc`.
 
 <a id="open_cholesky_factor_of_weil_gram_matrix_on_hat_functions"></a>
 
@@ -6588,7 +6914,7 @@ Statement. For $h$ smooth enough, with $\hat h(r)=\int h(x)e^{irx}\,dx$, let $W(
 
 Earlier editions: Problem 15.4, page 635 (edition 1).
 
-Source: [`ch/cp6.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cp6.tex), label `cp:prob:chol`.
+Source: [`ch/cp6.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cp6.tex), label `cp:prob:chol`.
 
 <a id="open_global_monotone_functional_of_zeros_along_heat_flow"></a>
 
@@ -6602,7 +6928,7 @@ Statement. Let $\Phi_{\mathrm{dBN}}(u)=\sum_{n\ge1}(2\pi^2n^4e^{9u}-3\pi n^2e^{5
 
 Earlier editions: Problem 15.5, page 635 (edition 1).
 
-Source: [`ch/cp6.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cp6.tex), label `cp:prob:gas`.
+Source: [`ch/cp6.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cp6.tex), label `cp:prob:gas`.
 
 <a id="open_explicit_bounds_for_zeta_heat_log_derivative_and_argument_term"></a>
 
@@ -6616,7 +6942,7 @@ Statement. Let $\xi_t$ be the heat flow function ($\xi_t(s)=8\int_0^\infty e^{tu
 
 Earlier editions: Problem 15.6, page 635 (edition 1).
 
-Source: [`ch/cp6.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cp6.tex), label `cp:prob:rvm`.
+Source: [`ch/cp6.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cp6.tex), label `cp:prob:rvm`.
 
 ## Volume II, Chapter 7. The Cauchy deconvolution operator
 
@@ -6632,7 +6958,7 @@ Statement. Let $P_a(x)=(a/\pi)/(a^2+x^2)$ be the Cauchy density of width $a>0$. 
 
 Earlier editions: Proposition 33.1.1, page 1167 (edition 1).
 
-Source: [`ch/cd1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cd1.tex), label `cd:prop:unique`.
+Source: [`ch/cd1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cd1.tex), label `cd:prop:unique`.
 
 <a id="range_of_cauchy_convolution_on_l2_and_the_failure_of_the_naive_description"></a>
 
@@ -6646,7 +6972,7 @@ Statement. Let $P_a(x)=(a/\pi)/(a^2+x^2)$, $a>0$, with Fourier transform $\wideh
 
 Earlier editions: Proposition 33.1.2, page 1168 (edition 1).
 
-Source: [`ch/cd1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cd1.tex), label `cd:prop:range`.
+Source: [`ch/cd1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cd1.tex), label `cd:prop:range`.
 
 <a id="positive_data_with_a_signed_source_and_the_closed_form_of_the_critical_width"></a>
 
@@ -6660,7 +6986,7 @@ Statement. Let $P_a(x)=(a/\pi)/(a^2+x^2)$, $d>0$, $0<q<1$, $a>0$ and $\mu=\delta
 
 Earlier editions: Example 33.2.1, page 1169 (edition 1).
 
-Source: [`ch/cd1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cd1.tex), label `cd:ex:signed`.
+Source: [`ch/cd1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cd1.tex), label `cd:ex:signed`.
 
 <a id="critical_width_of_a_positive_datum_is_attained"></a>
 
@@ -6674,7 +7000,7 @@ Statement. Let $P_c(x)=(c/\pi)/(c^2+x^2)$ with $P_0*\nu=\nu$, and let $u\ge0$ sa
 
 Earlier editions: Proposition 33.2.2, page 1169 (edition 1).
 
-Source: [`ch/cd1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cd1.tex), label `cd:prop:critical`.
+Source: [`ch/cd1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cd1.tex), label `cd:prop:critical`.
 
 <a id="existence_of_a_positive_source_iff_nonnegative_harmonic_extension_below_the_line"></a>
 
@@ -6688,7 +7014,7 @@ Statement. Let $u\ge0$ be continuous with $\int u(x)(1+x^2)^{-1}dx<\infty$ and l
 
 Earlier editions: Theorem 33.2.3, page 1170 (edition 1).
 
-Source: [`ch/cd1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cd1.tex), label `cd:thm:herglotz`.
+Source: [`ch/cd1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cd1.tex), label `cd:thm:herglotz`.
 
 <a id="three_lines_holder_stability_of_cauchy_deconvolution_between_levels"></a>
 
@@ -6702,7 +7028,7 @@ Statement. Let $P_y$ be the Cauchy density of width $y>0$, with $P_0*\mu=\mu$, l
 
 Earlier editions: Theorem 33.3.1, page 1171 (edition 1).
 
-Source: [`ch/cd1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cd1.tex), label `cd:thm:holder`.
+Source: [`ch/cd1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cd1.tex), label `cd:thm:holder`.
 
 <a id="sharp_holder_exponent_for_finite_signed_sources"></a>
 
@@ -6716,7 +7042,7 @@ Statement. Let $P_y$ be the Cauchy density of width $y>0$ with $P_0*\nu=\nu$. Le
 
 Earlier editions: Proposition 33.3.2, page 1172 (edition 1).
 
-Source: [`ch/cd1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cd1.tex), label `cd:prop:finite`.
+Source: [`ch/cd1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cd1.tex), label `cd:prop:finite`.
 
 <a id="two_level_bound_for_positive_sources_of_cauchy_deconvolution"></a>
 
@@ -6730,7 +7056,7 @@ Statement. Let $P_y$ be the Cauchy density of width $y>0$. If $\mu_1,\mu_2\ge0$ 
 
 Earlier editions: Corollary 33.3.3, page 1172 (edition 1).
 
-Source: [`ch/cd1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cd1.tex), label `cd:cor:positive`.
+Source: [`ch/cd1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cd1.tex), label `cd:cor:positive`.
 
 <a id="logarithmic_stability_of_cauchy_deconvolution_at_the_boundary_is_sharp"></a>
 
@@ -6744,7 +7070,7 @@ Statement. Let $P_a$ be the Cauchy density of width $a>0$, $s>0$, and $H^s$ the 
 
 Earlier editions: Theorem 33.3.4, page 1173 (edition 1).
 
-Source: [`ch/cd1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cd1.tex), label `cd:thm:log`.
+Source: [`ch/cd1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cd1.tex), label `cd:thm:log`.
 
 <a id="spectral_cutoff_deconvolution_of_cauchy_noise_with_a_target_analytic_in_a_strip"></a>
 
@@ -6758,7 +7084,7 @@ Statement. Let $Y_1,\dots,Y_n$ be i.i.d. observations $Y_j=X_j+E_j$, with $X_j$ 
 
 Earlier editions: Proposition 33.4.1, page 1174 (edition 1).
 
-Source: [`ch/cd1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cd1.tex), label `cd:prop:strip`.
+Source: [`ch/cd1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cd1.tex), label `cd:prop:strip`.
 
 <a id="open_problem_estimating_the_critical_width_of_a_positive_datum"></a>
 
@@ -6772,7 +7098,7 @@ Statement. Let $u\ge0$ with $\int u(x)(1+x^2)^{-1}dx<\infty$ and $c^*(u)=\sup\{c
 
 Earlier editions: Problem 33.1, page 1177 (edition 1).
 
-Source: [`ch/cd1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cd1.tex), label `cd:prob:width`.
+Source: [`ch/cd1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cd1.tex), label `cd:prob:width`.
 
 <a id="open_problem_does_positivity_alone_give_a_polynomial_rate_for_the_thorin_family"></a>
 
@@ -6786,7 +7112,7 @@ Statement. Let $P_a$ be the Cauchy density of width $a>0$. Positive sources of t
 
 Earlier editions: Problem 33.2, page 1177 (edition 1).
 
-Source: [`ch/cd1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cd1.tex), label `cd:prob:rates`.
+Source: [`ch/cd1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cd1.tex), label `cd:prob:rates`.
 
 <a id="open_problem_three_lines_with_positivity_on_a_window"></a>
 
@@ -6800,7 +7126,7 @@ Statement. Let $P_y$ be the Cauchy density of width $y>0$. The three lines bound
 
 Earlier editions: Problem 33.3, page 1178 (edition 1).
 
-Source: [`ch/cd1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cd1.tex), label `cd:prob:three`.
+Source: [`ch/cd1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cd1.tex), label `cd:prob:three`.
 
 ## Volume II, Chapter 8. Three families of generalised gamma convolutions and the deconvolution obstruction
 
@@ -6816,7 +7142,7 @@ Statement. Let $\xi$ be Riemann's xi function and $G(u)=\xi(\tfrac12+\sqrt u)/\x
 
 Earlier editions: Theorem 19.1.2, page 727 (edition 1).
 
-Source: [`ch/tf1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/tf1.tex), label `tf:thm:tilt`.
+Source: [`ch/tf1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/tf1.tex), label `tf:thm:tilt`.
 
 <a id="poisson_semigroup_of_basepoint_thorin_densities_and_its_converse"></a>
 
@@ -6830,7 +7156,7 @@ Statement. Let $\xi$ be Riemann's xi function with zeros $\rho=\beta+i\gamma$ co
 
 Earlier editions: Theorem 19.2.1, page 728 (edition 1).
 
-Source: [`ch/tf2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/tf2.tex), label `tf:thm:poisson`.
+Source: [`ch/tf2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/tf2.tex), label `tf:thm:poisson`.
 
 <a id="deconvolution_form_of_rh_thorin_density_at_basepoint_is_smoothing_of_positive_measure"></a>
 
@@ -6844,7 +7170,7 @@ Statement. Let $\xi$ be Riemann's xi function with zeros $\rho=\beta+i\gamma$ of
 
 Earlier editions: Theorem 19.2.2, page 729 (edition 1).
 
-Source: [`ch/tf2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/tf2.tex), label `tf:thm:deconv`.
+Source: [`ch/tf2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/tf2.tex), label `tf:thm:deconv`.
 
 <a id="thorin_density_near_the_critical_line_is_epsilon_times_laguerre_quantity"></a>
 
@@ -6858,7 +7184,7 @@ Statement. Let $\xi$ be Riemann's xi function, $\Xi(\theta)=\xi(\tfrac12+i\theta
 
 Earlier editions: Proposition 19.3.1, page 732 (edition 1).
 
-Source: [`ch/tf3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/tf3.tex), label `tf:prop:nearline`.
+Source: [`ch/tf3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/tf3.tex), label `tf:prop:nearline`.
 
 <a id="visibility_curve_of_off_line_quadruple_closed_forms_in_three_lattice_models"></a>
 
@@ -6872,7 +7198,7 @@ Statement. No off line zero of $\xi$ is known; consider a hypothetical zero set 
 
 Earlier editions: Proposition 19.3.2, page 734 (edition 1).
 
-Source: [`ch/tf3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/tf3.tex), label `tf:prop:curve`.
+Source: [`ch/tf3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/tf3.tex), label `tf:prop:curve`.
 
 <a id="number_of_levels_in_lattice_models_is_one_quarter_of_log_height"></a>
 
@@ -6886,7 +7212,7 @@ Statement. Consider the three lattice models of a single hypothetical off line q
 
 Earlier editions: Corollary 19.3.3, page 736 (edition 1).
 
-Source: [`ch/tf3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/tf3.tex), label `tf:cor:levels`.
+Source: [`ch/tf3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/tf3.tex), label `tf:cor:levels`.
 
 <a id="no_averaging_stable_property_carries_real_zeros_for_the_heat_flow_functions"></a>
 
@@ -6900,7 +7226,7 @@ Statement. Let $\xi$ be Riemann's xi function, $\Xi(\theta)=\xi(\tfrac12+i\theta
 
 Earlier editions: Corollary 19.4.2, page 739 (edition 1).
 
-Source: [`ch/tf4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/tf4.tex), label `tf:cor:average`.
+Source: [`ch/tf4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/tf4.tex), label `tf:cor:average`.
 
 <a id="question_certificate_with_levels_for_the_actual_zeros"></a>
 
@@ -6914,7 +7240,7 @@ Statement. Let $\xi$ be Riemann's xi function, $\Xi(\theta)=\xi(\tfrac12+i\theta
 
 Earlier editions: Problem 19.1, page 740 (edition 1).
 
-Source: [`ch/tf4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/tf4.tex), label `tf:prob:levels`.
+Source: [`ch/tf4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/tf4.tex), label `tf:prob:levels`.
 
 <a id="question_stability_with_an_a_priori_bound_from_the_thorin_structure"></a>
 
@@ -6928,7 +7254,7 @@ Statement. Let $\xi$ be Riemann's xi function and suppose that the strip $\tfrac
 
 Earlier editions: Problem 19.2, page 740 (edition 1).
 
-Source: [`ch/tf4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/tf4.tex), label `tf:prob:three`.
+Source: [`ch/tf4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/tf4.tex), label `tf:prob:three`.
 
 <a id="question_seeing_the_boundary_of_the_heat_flow_at_negative_time"></a>
 
@@ -6942,7 +7268,7 @@ Statement. Let $\xi$ be Riemann's xi function and $H_t$ the de Bruijn Newman fun
 
 Earlier editions: Problem 19.3, page 740 (edition 1).
 
-Source: [`ch/tf4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/tf4.tex), label `tf:prob:heat`.
+Source: [`ch/tf4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/tf4.tex), label `tf:prob:heat`.
 
 <a id="question_distribution_of_the_window_of_levels_below_delta_and_the_sine_kernel"></a>
 
@@ -6956,7 +7282,7 @@ Statement. Let $\xi$ be Riemann's xi function and add by hand a hypothetical qua
 
 Earlier editions: Problem 19.4, page 740 (edition 1).
 
-Source: [`ch/tf4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/tf4.tex), label `tf:prob:window`.
+Source: [`ch/tf4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/tf4.tex), label `tf:prob:window`.
 
 ## Volume II, Chapter 9. Deconvolution as a damped Weil criterion
 
@@ -6972,7 +7298,7 @@ Statement. Let $\xi$ be the completed Riemann zeta function, with nontrivial zer
 
 Earlier editions: Theorem 20.1.1, page 744 (edition 1).
 
-Source: [`ch/dc1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/dc1.tex), label `dc:thm:weil`.
+Source: [`ch/dc1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/dc1.tex), label `dc:thm:weil`.
 
 <a id="damped_weil_criterion_no_zero_above_one_half_plus_epsilon"></a>
 
@@ -6986,7 +7312,7 @@ Statement. Let $\xi$ be the completed Riemann zeta function with nontrivial zero
 
 Earlier editions: Theorem 20.1.2, page 745 (edition 1).
 
-Source: [`ch/dc1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/dc1.tex), label `dc:thm:damped`.
+Source: [`ch/dc1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/dc1.tex), label `dc:thm:damped`.
 
 <a id="ladder_theorem_least_eigenvalue_damped_weil_form_algebraic_rate_and_line_dichotomy"></a>
 
@@ -7000,7 +7326,7 @@ Statement. Let $\xi$ be the completed Riemann zeta function with nontrivial zero
 
 Earlier editions: Theorem 20.2.1, page 747 (edition 1).
 
-Source: [`ch/dc2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/dc2.tex), label `dc:thm:ladder`.
+Source: [`ch/dc2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/dc2.tex), label `dc:thm:ladder`.
 
 <a id="open_certified_rungs_of_the_damped_weil_ladder_in_interval_arithmetic"></a>
 
@@ -7014,7 +7340,7 @@ Statement. Let $\xi$ be the completed Riemann zeta function with zeros $\rho$ an
 
 Earlier editions: Problem 20.1, page 754 (edition 1).
 
-Source: [`ch/dc3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/dc3.tex), label `dc:prob:cert`.
+Source: [`ch/dc3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/dc3.tex), label `dc:prob:cert`.
 
 <a id="open_exact_rate_of_the_damped_weil_ladder_at_depth_epsilon"></a>
 
@@ -7028,7 +7354,7 @@ Statement. Let $\xi$ be the completed Riemann zeta function with zeros $\rho=\be
 
 Earlier editions: Problem 20.2, page 754 (edition 1).
 
-Source: [`ch/dc3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/dc3.tex), label `dc:prob:rate`.
+Source: [`ch/dc3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/dc3.tex), label `dc:prob:rate`.
 
 <a id="open_transition_of_the_damped_weil_ladder_at_the_line"></a>
 
@@ -7042,7 +7368,7 @@ Statement. Let $\xi$ be the completed Riemann zeta function with zeros $\rho$ an
 
 Earlier editions: Problem 20.3, page 754 (edition 1).
 
-Source: [`ch/dc3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/dc3.tex), label `dc:prob:transition`.
+Source: [`ch/dc3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/dc3.tex), label `dc:prob:transition`.
 
 <a id="open_uniform_positivity_of_the_damped_weil_form_from_structure"></a>
 
@@ -7056,7 +7382,7 @@ Statement. Let $\xi$ be the completed Riemann zeta function with zeros $\rho$ an
 
 Earlier editions: Problem 20.4, page 754 (edition 1).
 
-Source: [`ch/dc3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/dc3.tex), label `dc:prob:uniform`.
+Source: [`ch/dc3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/dc3.tex), label `dc:prob:uniform`.
 
 ## Volume II, Chapter 10. The level one measure and the backward Cauchy flow
 
@@ -7072,7 +7398,7 @@ Statement. Let $\xi(s)=\frac12s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$, let $\rho=\s
 
 Earlier editions: Theorem 30.1.1, page 1051 (edition 1).
 
-Source: [`ch/lo1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/lo1.tex), label `lo:thm:density`.
+Source: [`ch/lo1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/lo1.tex), label `lo:thm:density`.
 
 <a id="fourier_transform_of_the_level_one_thorin_measure_is_a_sum_of_prime_atoms"></a>
 
@@ -7086,7 +7412,7 @@ Statement. With $\mathfrak U_1=\sum_\rho\mathrm{Cauchy}(\gamma_\rho,1-\sigma_\rh
 
 Earlier editions: Proposition 30.2.1, page 1053 (edition 1).
 
-Source: [`ch/lo1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/lo1.tex), label `lo:prop:spectrum`.
+Source: [`ch/lo1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/lo1.tex), label `lo:prop:spectrum`.
 
 <a id="backward_cauchy_flow_converges_exactly_when_zeta_has_the_zero_free_half_plane"></a>
 
@@ -7100,7 +7426,7 @@ Statement. Let $\frac12\le\theta'<1$, $a=1-\theta'$, $\mathfrak U_\theta=\sum_\r
 
 Earlier editions: Theorem 30.3.1, page 1056 (edition 1).
 
-Source: [`ch/lo1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/lo1.tex), label `lo:thm:dichotomy`.
+Source: [`ch/lo1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/lo1.tex), label `lo:thm:dichotomy`.
 
 <a id="computed_backward_flow_locates_109_zeros_from_samples_on_the_line_one"></a>
 
@@ -7114,7 +7440,7 @@ Statement. The computation samples the level one Thorin density $u_1(v)=\frac1\p
 
 Earlier editions: Result 30.3.1, page 1057 (edition 1).
 
-Source: [`ch/lo1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/lo1.tex), label `lo:res:flow`.
+Source: [`ch/lo1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/lo1.tex), label `lo:res:flow`.
 
 <a id="positive_deconvolution_of_the_level_one_density_and_the_total_kl_residual"></a>
 
@@ -7128,7 +7454,7 @@ Statement. Let $\theta'\in[\frac12,1)$, $a=1-\theta'$, $P_a(v)=(a/\pi)/(a^2+v^2)
 
 Earlier editions: Proposition 30.4.1, page 1060 (edition 1).
 
-Source: [`ch/lo2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/lo2.tex), label `lo:prop:emres`.
+Source: [`ch/lo2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/lo2.tex), label `lo:prop:emres`.
 
 <a id="computed_em_injection_test_separates_an_off_line_quartet_from_a_control"></a>
 
@@ -7142,7 +7468,7 @@ Statement. The computation runs the EM iteration for the Cauchy deconvolution of
 
 Earlier editions: Result 30.4.4, page 1063 (edition 1).
 
-Source: [`ch/lo2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/lo2.tex), label `lo:res:inject`.
+Source: [`ch/lo2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/lo2.tex), label `lo:res:inject`.
 
 <a id="computed_gbc_under_a_gue_prior_counts_zeros_in_unit_bins_from_the_level_one_density"></a>
 
@@ -7156,7 +7482,7 @@ Statement. Let $\xi(s)=\frac12s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$ and $u_1(v)=\
 
 Earlier editions: Result 30.5.2, page 1064 (edition 1).
 
-Source: [`ch/lo2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/lo2.tex), label `lo:res:gbc`.
+Source: [`ch/lo2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/lo2.tex), label `lo:res:gbc`.
 
 <a id="open_implementation_of_the_data_augmentation_sampler_and_gbc_inversion_for_level_one"></a>
 
@@ -7170,7 +7496,7 @@ Statement. Let $u_1(v)=\frac1\pi\operatorname{Re}\frac{\xi'}{\xi}(1+iv)$ be the 
 
 Earlier editions: Problem 30.1, page 1067 (edition 1).
 
-Source: [`ch/lo2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/lo2.tex), label `lo:prob:sampler`.
+Source: [`ch/lo2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/lo2.tex), label `lo:prob:sampler`.
 
 <a id="open_characterisation_of_level_one_thorin_densities_in_the_selberg_class"></a>
 
@@ -7184,7 +7510,7 @@ Statement. Characterise, without reference to zeros, the functions $\frac1\pi[g(
 
 Earlier editions: Problem 30.2, page 1067 (edition 1).
 
-Source: [`ch/lo2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/lo2.tex), label `lo:prob:selberg`.
+Source: [`ch/lo2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/lo2.tex), label `lo:prob:selberg`.
 
 <a id="open_rate_of_the_backward_cauchy_flow_and_the_lower_bound_off_the_half_plane"></a>
 
@@ -7198,7 +7524,7 @@ Statement. Let $\xi(s)=\frac12s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$ have zeros $\
 
 Earlier editions: Problem 30.3, page 1067 (edition 1).
 
-Source: [`ch/lo2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/lo2.tex), label `lo:prob:rate`.
+Source: [`ch/lo2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/lo2.tex), label `lo:prob:rate`.
 
 <a id="open_posterior_of_the_off_line_offset_delta_under_a_prior_allowing_off_line_zeros"></a>
 
@@ -7212,13 +7538,13 @@ Statement. Replace the GUE prior for the zeros in the generative Bayesian comput
 
 Earlier editions: Problem 30.4, page 1067 (edition 1).
 
-Source: [`ch/lo2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/lo2.tex), label `lo:prob:delta`.
+Source: [`ch/lo2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/lo2.tex), label `lo:prob:delta`.
 
 <a id="dyck_chain_one_sided_approach_criterion_fails_for_t_above_gamma_64_conditionally"></a>
 
 ### One sided approach in the Dyck chain: the criterion implies RH, and conditionally on the lattice bias conjecture it fails for T above gamma 64
 
-Volume II, Result 10, page 554 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Result 10, page 559 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: conditional on The lattice bias conjecture, that $F_n(s)=2\xi(s)-\frac{3s}{\sqrt{\pi n}}\xi(s-1)+O(1/n)$ locally uniformly on $\operatorname{Re}s>0$ (for the failure of the hypothesis).
 
@@ -7226,7 +7552,7 @@ Statement. Let $H_n$ be the height of a uniform Dyck path of length $2n$, $Y_n=\
 
 Earlier editions: Result 10, page 947 (edition 1).
 
-Source: [`ch/ev4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ev4.tex), label `ev:res:dyckside`.
+Source: [`ch/ev4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ev4.tex), label `ev:res:dyckside`.
 
 ## Volume II, Chapter 11. Complexity and acceleration of the backward flow
 
@@ -7242,7 +7568,7 @@ Statement. Let $A$ be a matrix with positive entries, $y$ a vector of nonnegativ
 
 Earlier editions: Theorem 31.2.1, page 1076 (edition 1).
 
-Source: [`ch/cx1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cx1.tex), label `cx:thm:logconcave`.
+Source: [`ch/cx1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cx1.tex), label `cx:thm:logconcave`.
 
 <a id="precision_required_for_the_level_one_data_in_the_backward_cauchy_flow"></a>
 
@@ -7256,7 +7582,7 @@ Statement. Let $\xi$ be the Riemann xi function, $u_1(v)=\pi^{-1}\operatorname{R
 
 Earlier editions: Proposition 31.2.2, page 1077 (edition 1).
 
-Source: [`ch/cx1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cx1.tex), label `cx:prop:precision`.
+Source: [`ch/cx1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cx1.tex), label `cx:prop:precision`.
 
 <a id="em_limits_converge_to_the_thorin_measure_if_and_only_if_no_zero_right_of_the_level"></a>
 
@@ -7270,7 +7596,7 @@ Statement. Let $\frac12\le\theta'<1$, $a=1-\theta'$, $\xi$ the Riemann xi functi
 
 Earlier editions: Proposition 31.3.4, page 1080 (edition 1).
 
-Source: [`ch/cx1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cx1.tex), label `cx:prop:what`.
+Source: [`ch/cx1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cx1.tex), label `cx:prop:what`.
 
 <a id="von_neumann_ulam_estimator_for_the_backward_flow_has_infinite_variance"></a>
 
@@ -7284,7 +7610,7 @@ Statement. Let $\theta'\in[\frac12,1)$, let $A$ be the square section of order $
 
 Earlier editions: Proposition 31.5.1, page 1087 (edition 1).
 
-Source: [`ch/cx1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cx1.tex), label `cx:prop:vnvar`.
+Source: [`ch/cx1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cx1.tex), label `cx:prop:vnvar`.
 
 <a id="thorin_measure_is_a_heat_flow_of_the_zeros_run_to_a_first_passage_time"></a>
 
@@ -7298,7 +7624,7 @@ Statement. Let $T_a$ be the first passage time to level $a>0$ of a Brownian moti
 
 Earlier editions: Proposition 31.6.1, page 1089 (edition 1).
 
-Source: [`ch/cx1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cx1.tex), label `cx:prop:subord`.
+Source: [`ch/cx1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cx1.tex), label `cx:prop:subord`.
 
 <a id="thorin_positivity_equivalent_to_zero_free_half_plane_and_positivity_of_xi_log_derivative"></a>
 
@@ -7312,7 +7638,7 @@ Statement. Let $\xi$ be the Riemann xi function and, for $\frac12\le\theta<1$, $
 
 Earlier editions: Theorem 31.9.1, page 1094 (edition 1).
 
-Source: [`ch/cx2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cx2.tex), label `cx:thm:positivity`.
+Source: [`ch/cx2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cx2.tex), label `cx:thm:positivity`.
 
 <a id="mass_deficit_identity_counts_zeros_right_of_the_level"></a>
 
@@ -7326,7 +7652,7 @@ Statement. Let $\xi$ be the Riemann xi function, $u_\sigma(v)=\pi^{-1}\operatorn
 
 Earlier editions: Proposition 31.9.2, page 1095 (edition 1).
 
-Source: [`ch/cx2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cx2.tex), label `cx:prop:deficit`.
+Source: [`ch/cx2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cx2.tex), label `cx:prop:deficit`.
 
 <a id="level_mass_function_jumps_at_real_parts_of_off_line_zeros"></a>
 
@@ -7340,7 +7666,7 @@ Statement. With $\xi$, $u_\sigma$, $M_\sigma(T)=\int_0^Tu_\sigma(v)\,dv$, $N(\th
 
 Earlier editions: Corollary 31.9.3, page 1096 (edition 1).
 
-Source: [`ch/cx2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cx2.tex), label `cx:cor:levelmass`.
+Source: [`ch/cx2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cx2.tex), label `cx:cor:levelmass`.
 
 <a id="certified_positivity_of_the_thorin_densities_at_levels_three_quarters_and_seven_eighths_up_to_1420"></a>
 
@@ -7354,7 +7680,7 @@ Statement. Let $\xi$ be the Riemann xi function, $u_\theta(v)=\pi^{-1}\operatorn
 
 Earlier editions: Theorem 31.9.6, page 1102 (edition 1).
 
-Source: [`ch/cx2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cx2.tex), label `cx:thm:certified`.
+Source: [`ch/cx2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cx2.tex), label `cx:thm:certified`.
 
 <a id="global_minimum_of_the_thorin_density_at_level_seven_eighths_conditional"></a>
 
@@ -7368,7 +7694,7 @@ Statement. Let $\xi$ be the Riemann xi function and $u_\theta(v)=\pi^{-1}\operat
 
 Earlier editions: Theorem 31.10.2, page 1105 (edition 1).
 
-Source: [`ch/cx2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cx2.tex), label `cx:thm:globalmin`.
+Source: [`ch/cx2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cx2.tex), label `cx:thm:globalmin`.
 
 <a id="global_minimum_of_the_thorin_density_uniform_in_the_level_conditional"></a>
 
@@ -7382,7 +7708,7 @@ Statement. Let $\xi$ be the Riemann xi function, $u_\theta(v)=\pi^{-1}\operatorn
 
 Earlier editions: Theorem 31.11.1, page 1110 (edition 1).
 
-Source: [`ch/cx3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cx3.tex), label `cx:thm:uniform`.
+Source: [`ch/cx3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cx3.tex), label `cx:thm:uniform`.
 
 <a id="level_by_level_global_minimum_equivalent_to_zero_free_half_plane_with_explicit_excess"></a>
 
@@ -7396,7 +7722,7 @@ Statement. Let $\xi$ be the Riemann xi function, $u_\theta(v)=\pi^{-1}\operatorn
 
 Earlier editions: Theorem 31.11.3, page 1112 (edition 1).
 
-Source: [`ch/cx3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cx3.tex), label `cx:thm:lbl`.
+Source: [`ch/cx3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cx3.tex), label `cx:thm:lbl`.
 
 <a id="slope_of_the_excess_of_the_thorin_density_and_its_minimum_in_the_first_gap"></a>
 
@@ -7410,7 +7736,7 @@ Statement. Let $\xi$ be the Riemann xi function, $\theta\in(\frac12,1]$ be such 
 
 Earlier editions: Proposition 31.11.4, page 1114 (edition 1).
 
-Source: [`ch/cx3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cx3.tex), label `cx:prop:slope`.
+Source: [`ch/cx3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cx3.tex), label `cx:prop:slope`.
 
 <a id="a_posteriori_bound_for_window_masses_of_the_backward_flow_from_its_residual"></a>
 
@@ -7424,7 +7750,7 @@ Statement. Let $\theta'\in[\frac12,1)$, $a=1-\theta'$, $P_a(x)=(a/\pi)/(a^2+x^2)
 
 Earlier editions: Proposition 31.11.5, page 1116 (edition 1).
 
-Source: [`ch/cx3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cx3.tex), label `cx:prop:apost`.
+Source: [`ch/cx3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cx3.tex), label `cx:prop:apost`.
 
 <a id="centroid_of_a_gaussian_window_locates_a_single_zero_under_rh"></a>
 
@@ -7438,7 +7764,7 @@ Statement. Assume the Riemann hypothesis, so that the Thorin measure at level $\
 
 Earlier editions: Corollary 31.11.9, page 1122 (edition 1).
 
-Source: [`ch/cx3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cx3.tex), label `cx:cor:zeroloc`.
+Source: [`ch/cx3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cx3.tex), label `cx:cor:zeroloc`.
 
 <a id="smoothed_prime_sum_evaluates_the_level_one_density_with_explicit_error"></a>
 
@@ -7452,7 +7778,7 @@ Statement. Let $v\ge2$, $X\ge2$, $s=1+iv$, $L=\zeta'/\zeta$, $\Lambda$ the von M
 
 Earlier editions: Theorem 31.11.10, page 1124 (edition 1).
 
-Source: [`ch/cx3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cx3.tex), label `cx:thm:fastu1`.
+Source: [`ch/cx3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cx3.tex), label `cx:thm:fastu1`.
 
 <a id="rate_at_the_boundary_two_phase_convergence_of_em_for_the_cauchy_deconvolution"></a>
 
@@ -7466,7 +7792,7 @@ Statement. For EM applied to the continuous Cauchy deconvolution $P_a*\mu=u_1$ a
 
 Earlier editions: Problem 31.1, page 1129 (edition 1).
 
-Source: [`ch/cx3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cx3.tex), label `cx:prob:twophase`.
+Source: [`ch/cx3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cx3.tex), label `cx:prob:twophase`.
 
 <a id="closed_form_of_the_limiting_slope_of_the_thorin_density_excess"></a>
 
@@ -7480,7 +7806,7 @@ Statement. Under the Riemann hypothesis, with $\gamma$ running over the positive
 
 Earlier editions: Problem 31.2, page 1129 (edition 1).
 
-Source: [`ch/cx3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cx3.tex), label `cx:prob:closedform`.
+Source: [`ch/cx3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cx3.tex), label `cx:prob:closedform`.
 
 <a id="algorithm_polynomial_in_log_height_and_log_accuracy_for_the_level_one_density"></a>
 
@@ -7494,7 +7820,7 @@ Statement. Let $u_1(v)=\pi^{-1}\operatorname{Re}(\xi'/\xi)(1+iv)$. The smoothed 
 
 Earlier editions: Problem 31.3, page 1129 (edition 1).
 
-Source: [`ch/cx3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cx3.tex), label `cx:prob:polylog`.
+Source: [`ch/cx3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cx3.tex), label `cx:prob:polylog`.
 
 <a id="best_residual_of_a_first_order_method_for_a_single_blurred_atom"></a>
 
@@ -7508,7 +7834,7 @@ Statement. For a single atom at $\gamma$ blurred by the Cauchy density $P_a$ and
 
 Earlier editions: Problem 31.4, page 1129 (edition 1).
 
-Source: [`ch/cx3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cx3.tex), label `cx:prob:bestresidual`.
+Source: [`ch/cx3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cx3.tex), label `cx:prob:bestresidual`.
 
 ## Volume II, Chapter 12. The explicit formula as a deconvolution
 
@@ -7524,7 +7850,7 @@ Statement. Let $\xi$ be the completed Riemann zeta function, let $\rho=\sigma_\r
 
 Earlier editions: Theorem 32.1.1, page 1135 (edition 1).
 
-Source: [`ch/es1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/es1.tex), label `es:thm:explicit`.
+Source: [`ch/es1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/es1.tex), label `es:thm:explicit`.
 
 <a id="unresolvable_perturbation_of_the_cauchy_deconvolution"></a>
 
@@ -7538,7 +7864,7 @@ Statement. Let $\Omega>0$, $L\ge1$, $\chi_L(v)=(2\pi L^2)^{-1/2}e^{-v^2/2L^2}$, 
 
 Earlier editions: Proposition 32.1.2, page 1137 (edition 1).
 
-Source: [`ch/es1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/es1.tex), label `es:prop:resolution`.
+Source: [`ch/es1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/es1.tex), label `es:prop:resolution`.
 
 <a id="tapered_transform_of_the_level_one_density_is_a_sum_of_damped_exponentials"></a>
 
@@ -7552,7 +7878,7 @@ Statement. Let $\xi$ be the completed Riemann zeta function with zeros $\rho=\si
 
 Earlier editions: Theorem 32.2.1, page 1138 (edition 1).
 
-Source: [`ch/es1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/es1.tex), label `es:thm:taper`.
+Source: [`ch/es1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/es1.tex), label `es:thm:taper`.
 
 <a id="posterior_concentration_for_zeros_in_a_window_under_the_tapered_model"></a>
 
@@ -7566,7 +7892,7 @@ Statement. Fix a window centre $c$, a taper width $\ell$, a step $\Delta$, sampl
 
 Earlier editions: Theorem 32.4.1, page 1142 (edition 1).
 
-Source: [`ch/es1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/es1.tex), label `es:thm:concentration`.
+Source: [`ch/es1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/es1.tex), label `es:thm:concentration`.
 
 <a id="rate_tau_to_the_one_half_for_the_real_part_of_a_pair_of_zeros"></a>
 
@@ -7580,7 +7906,7 @@ Statement. Work in the window model of the tapered transform at a level $\theta>
 
 Earlier editions: Theorem 32.5.2, page 1146 (edition 1).
 
-Source: [`ch/es2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/es2.tex), label `es:thm:singular`.
+Source: [`ch/es2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/es2.tex), label `es:thm:singular`.
 
 <a id="bayes_factors_for_the_line_against_a_pair_of_zeros"></a>
 
@@ -7594,7 +7920,7 @@ Statement. In the setting of the rate theorem for the real part of a pair (hypot
 
 Earlier editions: Theorem 32.5.4, page 1150 (edition 1).
 
-Source: [`ch/es2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/es2.tex), label `es:thm:bf`.
+Source: [`ch/es2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/es2.tex), label `es:thm:bf`.
 
 <a id="levels_below_the_zeros_signed_lorentzians_and_poles"></a>
 
@@ -7608,7 +7934,7 @@ Statement. Let $\frac12<\theta\le1$ with $\theta\ne\sigma_\rho$ for every zero $
 
 Earlier editions: Proposition 32.8.1, page 1157 (edition 1).
 
-Source: [`ch/es2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/es2.tex), label `es:prop:level`.
+Source: [`ch/es2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/es2.tex), label `es:prop:level`.
 
 <a id="pencil_at_height_3e12_inside_the_verified_range_demonstration"></a>
 
@@ -7622,7 +7948,7 @@ Statement. A demonstration, computed and not a finding about the zeros: the wind
 
 Earlier editions: Result 32.8.6, page 1159 (edition 1).
 
-Source: [`ch/es2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/es2.tex), label `es:res:window3e12`.
+Source: [`ch/es2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/es2.tex), label `es:res:window3e12`.
 
 <a id="pencil_components_above_the_verified_range_at_height_1e13"></a>
 
@@ -7636,7 +7962,7 @@ Statement. A computation with scripts written for the book: the window centred a
 
 Earlier editions: Result 32.8.7, page 1161 (edition 1).
 
-Source: [`ch/es2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/es2.tex), label `es:res:pencil1e13`.
+Source: [`ch/es2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/es2.tex), label `es:res:pencil1e13`.
 
 <a id="certified_zeros_on_the_critical_line_at_height_1e13_plus_100"></a>
 
@@ -7650,7 +7976,7 @@ Statement. In ball arithmetic at $160$ bits, with each step of $0.02$ having opp
 
 Earlier editions: Result 32.8.7, page 1161 (edition 1).
 
-Source: [`ch/es2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/es2.tex), label `es:res:zeros1e13`.
+Source: [`ch/es2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/es2.tex), label `es:res:zeros1e13`.
 
 <a id="open_rigorous_matrix_pencil_perturbation_bound"></a>
 
@@ -7664,7 +7990,7 @@ Statement. The matrix pencil applied to the tapered transform $F(\omega_j)=\sum_
 
 Earlier editions: Problem 32.1, page 1162 (edition 1).
 
-Source: [`ch/es2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/es2.tex), label `es:prob:rigorous_pencil`.
+Source: [`ch/es2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/es2.tex), label `es:prob:rigorous_pencil`.
 
 <a id="open_spurious_components_at_window_edges"></a>
 
@@ -7678,7 +8004,7 @@ Statement. In the many window use of the matrix pencil on the tapered transform 
 
 Earlier editions: Problem 32.2, page 1162 (edition 1).
 
-Source: [`ch/es2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/es2.tex), label `es:prob:spurious`.
+Source: [`ch/es2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/es2.tex), label `es:prob:spurious`.
 
 <a id="open_pencil_at_greater_height_with_rigorous_argument_principle"></a>
 
@@ -7692,7 +8018,7 @@ Statement. The matrix pencil runs on one window of fifty two or fifty three zero
 
 Earlier editions: Problem 32.3, page 1163 (edition 1).
 
-Source: [`ch/es2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/es2.tex), label `es:prob:higher_wider`.
+Source: [`ch/es2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/es2.tex), label `es:prob:higher_wider`.
 
 <a id="open_adaptive_prior_for_the_zeros_in_a_window"></a>
 
@@ -7706,7 +8032,7 @@ Statement. The problem: place the sine kernel determinantal process on marked di
 
 Earlier editions: Problem 32.4, page 1163 (edition 1).
 
-Source: [`ch/es2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/es2.tex), label `es:prob:adaptive_prior`.
+Source: [`ch/es2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/es2.tex), label `es:prob:adaptive_prior`.
 
 <a id="open_design_maximising_the_information_for_the_real_part"></a>
 
@@ -7720,7 +8046,7 @@ Statement. The detectable displacement of an off line pair of zeros is $\delta^*
 
 Earlier editions: Problem 32.5, page 1163 (edition 1).
 
-Source: [`ch/es2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/es2.tex), label `es:prob:constant_rate`.
+Source: [`ch/es2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/es2.tex), label `es:prob:constant_rate`.
 
 ## Volume II, Chapter 13. From level one to the critical line: particle filters and nested sampling
 
@@ -7736,7 +8062,7 @@ Statement. Let $\xi$ be the completed Riemann zeta function with zeros $\rho=\si
 
 Earlier editions: Proposition 34.1.2, page 1182 (edition 1).
 
-Source: [`ch/c34.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/c34.tex), label `cf:prop:transport`.
+Source: [`ch/c34.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/c34.tex), label `cf:prop:transport`.
 
 <a id="local_positivity_of_the_density_from_a_narrowing_zero_free_region"></a>
 
@@ -7750,7 +8076,7 @@ Statement. Let $\xi$ be the completed Riemann zeta function with zeros $\rho=\si
 
 Earlier editions: Corollary 34.1.3, page 1182 (edition 1).
 
-Source: [`ch/c34.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/c34.tex), label `cf:cor:localpos`.
+Source: [`ch/c34.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/c34.tex), label `cf:cor:localpos`.
 
 <a id="zeros_off_the_line_are_invisible_in_the_limit_of_the_density_at_one_half"></a>
 
@@ -7764,7 +8090,7 @@ Statement. Let $\xi$ be the completed Riemann zeta function with zeros $\rho=\si
 
 Earlier editions: Proposition 34.2.1, page 1183 (edition 1).
 
-Source: [`ch/cf1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cf1.tex), label `cf:prop:ends`.
+Source: [`ch/cf1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cf1.tex), label `cf:prop:ends`.
 
 <a id="zeros_of_the_davenport_heilbronn_function_off_the_line_below_height_200"></a>
 
@@ -7778,7 +8104,7 @@ Statement. Let $\kappa=(\sqrt{10-2\sqrt5}-2)/(\sqrt5-1)$ and $f(s)=5^{-s}\bigl[\
 
 Earlier editions: Result 34.2, page 1184 (edition 1).
 
-Source: [`ch/cf1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cf1.tex), label `cf:res:dhzeros`.
+Source: [`ch/cf1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cf1.tex), label `cf:res:dhzeros`.
 
 <a id="detectability_of_a_symmetric_pair_of_zeros_off_the_line_from_one_level"></a>
 
@@ -7792,7 +8118,7 @@ Statement. Let $P_a(x)=\frac{a}{\pi(a^2+x^2)}$, $a=\theta-\frac12>\delta>0$. At 
 
 Earlier editions: Proposition 34.3.1, page 1187 (edition 1).
 
-Source: [`ch/cf1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cf1.tex), label `cf:prop:detect`.
+Source: [`ch/cf1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cf1.tex), label `cf:prop:detect`.
 
 <a id="open_best_resolution_of_the_pair_parameter_from_levels_above_a_threshold"></a>
 
@@ -7806,7 +8132,7 @@ Statement. Consider a symmetric pair of zeros of the completed Riemann zeta func
 
 Earlier editions: Problem 34.1, page 1188 (edition 1).
 
-Source: [`ch/cf1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cf1.tex), label `cf:op:pairres`.
+Source: [`ch/cf1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cf1.tex), label `cf:op:pairres`.
 
 <a id="non_asymptotic_concentration_of_the_particle_approximation_with_multinomial_resampling_under_a_ratio_minorisation_of_the_mutation_kernels"></a>
 
@@ -7820,7 +8146,7 @@ Statement. Let $\eta_0$ be a probability measure on a space $E$, $G_0,\dots,G_{n
 
 Earlier editions: Theorem 34.5.1, page 1195 (edition 1).
 
-Source: [`ch/cf2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cf2.tex), label `cf:thm:conc`.
+Source: [`ch/cf2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cf2.tex), label `cf:thm:conc`.
 
 <a id="concentration_of_the_particle_filter_along_the_cauchy_flow"></a>
 
@@ -7834,7 +8160,7 @@ Statement. Consider the Gaussian tolerance posterior of the chapter, in which ze
 
 Earlier editions: Corollary 34.5.4, page 1197 (edition 1).
 
-Source: [`ch/cf2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cf2.tex), label `cf:cor:cauchyconc`.
+Source: [`ch/cf2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cf2.tex), label `cf:cor:cauchyconc`.
 
 <a id="one_level_determines_the_density_only_with_an_order_condition_and_inversion_is_unstable"></a>
 
@@ -7848,7 +8174,7 @@ Statement. Let $F_1,F_2$ be real entire functions of order at most one with all 
 
 Earlier editions: Proposition 34.6.1, page 1202 (edition 1).
 
-Source: [`ch/cf2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cf2.tex), label `cf:prop:determine`.
+Source: [`ch/cf2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cf2.tex), label `cf:prop:determine`.
 
 <a id="zero_density_controls_the_negative_part_of_the_thorin_measure"></a>
 
@@ -7862,7 +8188,7 @@ Statement. Let $\xi$ be the completed Riemann zeta function, $u_\theta(v)=\frac1
 
 Earlier editions: Theorem 34.7.1, page 1203 (edition 1).
 
-Source: [`ch/cf3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cf3.tex), label `cf:thm:negmass`.
+Source: [`ch/cf3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cf3.tex), label `cf:thm:negmass`.
 
 <a id="open_how_negative_can_the_thorin_density_be_without_the_riemann_hypothesis"></a>
 
@@ -7876,7 +8202,7 @@ Statement. Let $\mathfrak U_\theta$ be the measure on the line with density $u_\
 
 Earlier editions: Problem 34.2, page 1203 (edition 1).
 
-Source: [`ch/cf3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cf3.tex), label `cf:op:negdepth`.
+Source: [`ch/cf3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cf3.tex), label `cf:op:negdepth`.
 
 <a id="a_separated_zero_off_the_line_forces_negative_thorin_mass"></a>
 
@@ -7890,7 +8216,7 @@ Statement. Let $\xi$ be the completed Riemann zeta function, $u_\theta(v)=\frac1
 
 Earlier editions: Proposition 34.7.2, page 1205 (edition 1).
 
-Source: [`ch/cf3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cf3.tex), label `cf:prop:converse`.
+Source: [`ch/cf3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cf3.tex), label `cf:prop:converse`.
 
 <a id="open_converse_of_the_negative_mass_bound_for_zero_density"></a>
 
@@ -7904,7 +8230,7 @@ Statement. Let $N(\theta,T)$ be the number of zeros of the Riemann zeta function
 
 Earlier editions: Problem 34.3, page 1204 (edition 1).
 
-Source: [`ch/cf3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cf3.tex), label `cf:op:converse`.
+Source: [`ch/cf3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cf3.tex), label `cf:op:converse`.
 
 <a id="two_sided_control_of_negative_thorin_mass_and_zero_count_for_separated_zeros"></a>
 
@@ -7918,7 +8244,7 @@ Statement. With the notation of the converse proposition for a separated zero (t
 
 Earlier editions: Corollary 34.7.3, page 1206 (edition 1).
 
-Source: [`ch/cf3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cf3.tex), label `cf:cor:twosided`.
+Source: [`ch/cf3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cf3.tex), label `cf:cor:twosided`.
 
 <a id="every_zero_off_the_line_forces_negative_thorin_mass_in_proportion_to_its_isolation"></a>
 
@@ -7932,7 +8258,7 @@ Statement. With $u_\theta$, $k(\rho)$, $d(\rho)$, $\mathrm{cr}(\rho)$, $C_1$ and
 
 Earlier editions: Theorem 34.7.4, page 1206 (edition 1).
 
-Source: [`ch/cf3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cf3.tex), label `cf:thm:converse`.
+Source: [`ch/cf3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cf3.tex), label `cf:thm:converse`.
 
 <a id="positivity_margin_of_the_thorin_density_under_the_quasi_riemann_hypothesis"></a>
 
@@ -7946,7 +8272,7 @@ Statement. Let $\xi$ be the completed Riemann zeta function and $u_\theta(v)=\fr
 
 Earlier editions: Proposition 34.7.5, page 1208 (edition 1).
 
-Source: [`ch/cf3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cf3.tex), label `cf:prop:margin`.
+Source: [`ch/cf3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cf3.tex), label `cf:prop:margin`.
 
 <a id="open_consequences_of_a_zero_free_half_plane_at_7_8_for_the_thorin_framework"></a>
 
@@ -7960,7 +8286,7 @@ Statement. Let QRH($\theta_0$) be the statement that the Riemann zeta function h
 
 Earlier editions: Problem 34.4, page 1207 (edition 1).
 
-Source: [`ch/cf3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cf3.tex), label `cf:op:qrh78`.
+Source: [`ch/cf3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cf3.tex), label `cf:op:qrh78`.
 
 <a id="open_certificate_for_the_screen_in_each_window"></a>
 
@@ -7974,7 +8300,7 @@ Statement. The GBC screen of the chapter returns a posterior for the real parts 
 
 Earlier editions: Problem 34.5, page 1209 (edition 1).
 
-Source: [`ch/cf3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cf3.tex), label `cf:op:certificate`.
+Source: [`ch/cf3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cf3.tex), label `cf:op:certificate`.
 
 <a id="de_la_vallee_poussin_inequality_for_the_thorin_density_in_general_cosine_form"></a>
 
@@ -7988,7 +8314,7 @@ Statement. Let $\xi(s)=\frac12s(s-1)\pi^{-s/2}\Gamma(\frac s2)\zeta(s)$, $u_\the
 
 Earlier editions: Theorem 34.8.1, page 1209 (edition 1).
 
-Source: [`ch/cf3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cf3.tex), label `cf:thm:dvp`.
+Source: [`ch/cf3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cf3.tex), label `cf:thm:dvp`.
 
 <a id="crude_zero_free_region_constant_from_the_thorin_form_of_de_la_vallee_poussin"></a>
 
@@ -8002,7 +8328,7 @@ Statement. Let $c_\ast=(14-8\sqrt3)/5=0.028719\ldots$. For every $c<c_\ast$ ther
 
 Earlier editions: Corollary 34.8.2, page 1210 (edition 1).
 
-Source: [`ch/cf3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cf3.tex), label `cf:cor:zfr`.
+Source: [`ch/cf3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cf3.tex), label `cf:cor:zfr`.
 
 <a id="the_davenport_heilbronn_function_has_the_hadamard_density_but_violates_qrh_for_every_level"></a>
 
@@ -8016,7 +8342,7 @@ Statement. Let $\kappa=(\sqrt{10-2\sqrt5}-2)/(\sqrt5-1)$ and $f(s)=5^{-s}\bigl[\
 
 Earlier editions: Proposition 34.8.3, page 1210 (edition 1).
 
-Source: [`ch/cf3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cf3.tex), label `cf:prop:barrier`.
+Source: [`ch/cf3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cf3.tex), label `cf:prop:barrier`.
 
 <a id="multilevel_inequality_for_the_thorin_density_with_level_kernels"></a>
 
@@ -8030,7 +8356,7 @@ Statement. Fix $v\ge2$, $L=\log v$, and let $u_\theta$ and $g_\theta$ be the den
 
 Earlier editions: Theorem 34.8.4, page 1211 (edition 1).
 
-Source: [`ch/cf3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cf3.tex), label `cf:thm:multilevel`.
+Source: [`ch/cf3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cf3.tex), label `cf:thm:multilevel`.
 
 <a id="zero_free_constant_of_an_admissible_cosine_polynomial_and_level_kernel_pair"></a>
 
@@ -8044,7 +8370,7 @@ Statement. Let $p(\omega)=\sum_{k=0}^Ka_k\cos k\omega\ge0$ with $a_k\ge0$ and le
 
 Earlier editions: Corollary 34.8.6, page 1212 (edition 1).
 
-Source: [`ch/cf3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cf3.tex), label `cf:cor:ystar`.
+Source: [`ch/cf3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cf3.tex), label `cf:cor:ystar`.
 
 <a id="no_admissible_pair_gives_a_zero_free_constant_above_one_over_log_gamma"></a>
 
@@ -8058,7 +8384,7 @@ Statement. Let $p(\omega)=\sum_{k=0}^Ka_k\cos k\omega\ge0$ with $a_k\ge0$ and $a
 
 Earlier editions: Proposition 34.8.7, page 1213 (edition 1).
 
-Source: [`ch/cf3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cf3.tex), label `cf:prop:barrier2`.
+Source: [`ch/cf3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cf3.tex), label `cf:prop:barrier2`.
 
 <a id="zero_free_constants_of_admissible_pairs_computed_by_optimisation"></a>
 
@@ -8072,7 +8398,7 @@ Statement. Computed (code cf_arith.py, not certified): in the scheme of the zero
 
 Earlier editions: Table 34.12, page 1214 (edition 1).
 
-Source: [`ch/cf3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cf3.tex), label `cf:tab:arith`.
+Source: [`ch/cf3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cf3.tex), label `cf:tab:arith`.
 
 <a id="computed_ceiling_of_the_admissible_scheme_by_linear_programming"></a>
 
@@ -8086,7 +8412,7 @@ Statement. Computed by discretised linear programming (not certified: positive d
 
 Earlier editions: Table 34.13, page 1216 (edition 1).
 
-Source: [`ch/cf3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cf3.tex), label `cf:tab:lp`.
+Source: [`ch/cf3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cf3.tex), label `cf:tab:lp`.
 
 <a id="one_far_level_paired_with_its_reflection_gives_a_zero_free_constant_without_smoothing"></a>
 
@@ -8100,7 +8426,7 @@ Statement. Let $p(\omega)=\sum_{k=0}^Ka_k\cos k\omega\ge0$ with $a_k\ge0$ and $a
 
 Earlier editions: Proposition 34.8.10, page 1217 (edition 1).
 
-Source: [`ch/cf3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cf3.tex), label `cf:prop:stechkin`.
+Source: [`ch/cf3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cf3.tex), label `cf:prop:stechkin`.
 
 <a id="nested_sampling_finds_the_two_davenport_heilbronn_zeros_in_1000_to_1020"></a>
 
@@ -8114,7 +8440,7 @@ Statement. Computed in ball arithmetic: for the Davenport and Heilbronn function
 
 Earlier editions: Result 34.9.2, page 1219 (edition 1).
 
-Source: [`ch/cf4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cf4.tex), label `cf:res:nsdh`.
+Source: [`ch/cf4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cf4.tex), label `cf:res:nsdh`.
 
 ## Volume II, Chapter 14. Balazard, Saias and Yor: Monte Carlo along vertical lines
 
@@ -8130,7 +8456,7 @@ Statement. Let $\zeta$ be the Riemann zeta function, $\rho=\beta+i\gamma$ its no
 
 Earlier editions: Theorem 35.2.1, page 1228 (edition 1).
 
-Source: [`ch/bsy1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/bsy1.tex), label `bsy:thm:bsy`.
+Source: [`ch/bsy1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/bsy1.tex), label `bsy:thm:bsy`.
 
 <a id="computed_bound_on_the_defect_from_all_possible_zeros_above_the_verified_height"></a>
 
@@ -8144,7 +8470,7 @@ Statement. A zero $\rho=\beta+i\gamma$ with $\beta>\theta$ contributes about $2(
 
 Earlier editions: Remark 35.2.2, page 1229 (edition 1).
 
-Source: [`ch/bsy1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/bsy1.tex), label `bsy:rem:local`.
+Source: [`ch/bsy1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/bsy1.tex), label `bsy:rem:local`.
 
 <a id="equivalent_forms_of_the_riemann_hypothesis_by_defect_and_positivity_of_thorin_measures"></a>
 
@@ -8158,7 +8484,7 @@ Statement. Let $\zeta$ be the Riemann zeta function, $\xi$ the completed zeta fu
 
 Earlier editions: Corollary 35.3.3, page 1231 (edition 1).
 
-Source: [`ch/bsy1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/bsy1.tex), label `bsy:cor:equiv`.
+Source: [`ch/bsy1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/bsy1.tex), label `bsy:cor:equiv`.
 
 <a id="levy_density_of_the_reciprocal_xi_function_is_positive_without_hypothesis"></a>
 
@@ -8172,7 +8498,7 @@ Statement. Let $\xi$ be the completed zeta function with zeros $\rho=\beta+i\gam
 
 Earlier editions: Proposition 35.4.1, page 1232 (edition 1).
 
-Source: [`ch/bsy1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/bsy1.tex), label `bsy:prop:kpos`.
+Source: [`ch/bsy1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/bsy1.tex), label `bsy:prop:kpos`.
 
 <a id="riemann_hypothesis_equivalent_to_reciprocal_xi_being_an_eggc"></a>
 
@@ -8186,7 +8512,7 @@ Statement. Let $\xi$ be the completed zeta function. The Riemann hypothesis hold
 
 Earlier editions: Proposition 35.4.2, page 1232 (edition 1).
 
-Source: [`ch/bsy1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/bsy1.tex), label `bsy:prop:eggc`.
+Source: [`ch/bsy1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/bsy1.tex), label `bsy:prop:eggc`.
 
 <a id="infinite_divisibility_of_the_reciprocal_davenport_heilbronn_function_without_the_eggc_property"></a>
 
@@ -8200,7 +8526,7 @@ Statement. Let $\kappa=(\sqrt{10-2\sqrt5}-2)/(\sqrt5-1)$, $f(s)=5^{-s}\bigl[\zet
 
 Earlier editions: Theorem 35.4.3, page 1233 (edition 1).
 
-Source: [`ch/bsy1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/bsy1.tex), label `bsy:thm:dhid`.
+Source: [`ch/bsy1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/bsy1.tex), label `bsy:thm:dhid`.
 
 <a id="negative_trace_for_a_combination_of_dirichlet_l_functions_of_imprimitive_characters"></a>
 
@@ -8214,7 +8540,7 @@ Statement. Let $B(s)=L(s,\chi_4)$ with $\chi_4$ the character modulo $4$, $\Lamb
 
 Earlier editions: Remark 35.4.5, page 1236 (edition 1).
 
-Source: [`ch/bsy1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/bsy1.tex), label `bsy:rem:negW`.
+Source: [`ch/bsy1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/bsy1.tex), label `bsy:rem:negW`.
 
 <a id="criterion_as_optional_stopping_of_planar_brownian_motion_on_log_h_theta"></a>
 
@@ -8228,7 +8554,7 @@ Statement. Let $B$ be planar Brownian motion started at $s_0=1+it_0$, $\tau$ its
 
 Earlier editions: Proposition 35.5.1, page 1236 (edition 1).
 
-Source: [`ch/bsy1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/bsy1.tex), label `bsy:prop:yor`.
+Source: [`ch/bsy1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/bsy1.tex), label `bsy:prop:yor`.
 
 <a id="moments_of_the_complex_logarithm_of_h_theta_under_harmonic_measure_given_qrh"></a>
 
@@ -8242,7 +8568,7 @@ Statement. Assume $\mathrm{QRH}(\theta)$, $\frac12\le\theta<1$: $\zeta$ has no z
 
 Earlier editions: Theorem 35.5.2, page 1237 (edition 1).
 
-Source: [`ch/bsy1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/bsy1.tex), label `bsy:thm:cmart`.
+Source: [`ch/bsy1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/bsy1.tex), label `bsy:thm:cmart`.
 
 <a id="computed_moments_of_log_h_theta_for_zeta_and_the_davenport_heilbronn_function"></a>
 
@@ -8256,7 +8582,7 @@ Statement. Let $h_\theta(s)=\zeta(s)\frac{s-1}{s-2\theta+1}$ for $\zeta$, $Z=X+i
 
 Earlier editions: Table 35.2, page 1239 (edition 1).
 
-Source: [`ch/bsy1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/bsy1.tex), label `bsy:tab:cm`.
+Source: [`ch/bsy1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/bsy1.tex), label `bsy:tab:cm`.
 
 <a id="complex_moments_of_log_h_theta_through_horizontal_cuts_from_the_zeros_without_qrh"></a>
 
@@ -8270,7 +8596,7 @@ Statement. Let $\frac12\le\theta<1$, $z=1+it_0$, $z^*=2\theta-1+it_0$, $K(s)=\fr
 
 Earlier editions: Proposition 35.5.4, page 1239 (edition 1).
 
-Source: [`ch/bsy1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/bsy1.tex), label `bsy:prop:cuts`.
+Source: [`ch/bsy1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/bsy1.tex), label `bsy:prop:cuts`.
 
 <a id="log_of_zeta_has_every_moment_under_the_cauchy_law_on_a_vertical_line"></a>
 
@@ -8284,7 +8610,7 @@ Statement. Let $\frac12\le\theta<1$, $t_0\in\mathbb{R}$, $f(\tau)=\log|\zeta(\th
 
 Earlier editions: Lemma 35.6.1, page 1241 (edition 1).
 
-Source: [`ch/bsy2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/bsy2.tex), label `bsy:lem:var`.
+Source: [`ch/bsy2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/bsy2.tex), label `bsy:lem:var`.
 
 <a id="computed_gain_factor_of_the_optimal_weight_over_plain_monte_carlo_for_the_defect_integrands"></a>
 
@@ -8298,7 +8624,7 @@ Statement. Let $\mu=\mathbb{E}_Pf$, $w>0$, $Z=\mathbb{E}_Pw$ and $q=Pw/Z$. For i
 
 Earlier editions: Remark 35.6.2, page 1242 (edition 1).
 
-Source: [`ch/bsy2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/bsy2.tex), label `bsy:rem:weight`.
+Source: [`ch/bsy2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/bsy2.tex), label `bsy:rem:weight`.
 
 <a id="computed_local_defects_of_the_cauchy_average_for_zeta_and_davenport_heilbronn"></a>
 
@@ -8312,7 +8638,7 @@ Statement. Let $D_\theta(t_0)$ be the defect of the Cauchy average of $\log|h|$ 
 
 Earlier editions: Table 35.3, page 1244 (edition 1).
 
-Source: [`ch/bsy2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/bsy2.tex), label `bsy:tab:defects`.
+Source: [`ch/bsy2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/bsy2.tex), label `bsy:tab:defects`.
 
 <a id="why_the_trapezoid_rule_on_sorted_nodes_has_no_n_to_the_minus_four_bound_for_log_zeta"></a>
 
@@ -8326,7 +8652,7 @@ Statement. Let $\frac12\le\theta<1$, $f(\tau)=\log|\zeta(\theta+i\tau)|$ and $g=
 
 Earlier editions: Proposition 35.6.4, page 1247 (edition 1).
 
-Source: [`ch/bsy2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/bsy2.tex), label `bsy:prop:rate`.
+Source: [`ch/bsy2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/bsy2.tex), label `bsy:prop:rate`.
 
 <a id="computed_root_mean_square_error_of_the_weighted_trapezoid_rule_for_the_cauchy_average"></a>
 
@@ -8340,7 +8666,7 @@ Statement. Computed in floating point over $400$ replications at $t_0=0$ for the
 
 Earlier editions: Table 35.4, page 1246 (edition 1).
 
-Source: [`ch/bsy2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/bsy2.tex), label `bsy:tab:yks`.
+Source: [`ch/bsy2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/bsy2.tex), label `bsy:tab:yks`.
 
 <a id="balazard_saias_yor_identity_on_a_half_disc_with_green_function_and_harmonic_measure"></a>
 
@@ -8354,7 +8680,7 @@ Statement. Let $c=\theta+it_0$, $R>0$, $H=\{|s-c|<R,\operatorname{Re}s>\theta\}$
 
 Earlier editions: Theorem 35.6.6, page 1249 (edition 1).
 
-Source: [`ch/bsy2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/bsy2.tex), label `bsy:thm:halfdisk`.
+Source: [`ch/bsy2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/bsy2.tex), label `bsy:thm:halfdisk`.
 
 <a id="half_disc_identity_tends_to_the_balazard_saias_yor_identity_as_the_radius_tends_to_infinity"></a>
 
@@ -8368,7 +8694,7 @@ Statement. Let $h_\theta(s)=\zeta(s)\frac{s-1}{s-2\theta+1}$ and $z=1+it_0$. Alo
 
 Earlier editions: Remark 35.6.7, page 1250 (edition 1).
 
-Source: [`ch/bsy2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/bsy2.tex), label `bsy:rem:halfplane`.
+Source: [`ch/bsy2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/bsy2.tex), label `bsy:rem:halfplane`.
 
 <a id="exact_bias_and_variance_of_the_sorted_trapezoid_rule_at_independent_uniform_nodes"></a>
 
@@ -8382,7 +8708,7 @@ Statement. Let $g\in C^4[a,b]$ and let $T_N$ be the trapezoid rule on the sorted
 
 Earlier editions: Lemma 35.6.8, page 1250 (edition 1).
 
-Source: [`ch/bsy2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/bsy2.tex), label `bsy:lem:trap`.
+Source: [`ch/bsy2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/bsy2.tex), label `bsy:lem:trap`.
 
 <a id="half_disc_boundary_integral_by_sorted_trapezoid_rule_has_mean_square_rate_n_to_the_minus_four_and_minus_five"></a>
 
@@ -8396,7 +8722,7 @@ Statement. In the half disc identity, each of the two pieces of the boundary int
 
 Earlier editions: Result 35.6.5, page 1251 (edition 1).
 
-Source: [`ch/bsy2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/bsy2.tex), label `bsy:res:halfdisk_rates`.
+Source: [`ch/bsy2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/bsy2.tex), label `bsy:res:halfdisk_rates`.
 
 <a id="computed_errors_of_the_sorted_trapezoid_rule_on_the_half_disc_identity_for_zeta_and_davenport_heilbronn"></a>
 
@@ -8410,7 +8736,7 @@ Statement. Computed in floating point on the half disc identity with $R=1$, $t_0
 
 Earlier editions: Table 35.5, page 1252 (edition 1).
 
-Source: [`ch/bsy2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/bsy2.tex), label `bsy:tab:halfdisk`.
+Source: [`ch/bsy2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/bsy2.tex), label `bsy:tab:halfdisk`.
 
 <a id="tail_of_the_cauchy_average_of_log_zeta_beyond_height_t_under_rh"></a>
 
@@ -8424,7 +8750,7 @@ Statement. Assume the Riemann hypothesis. Let $t_0\in\mathbb{R}$ and $P_{1/2}(t_
 
 Earlier editions: Result 35.6.6, page 1252 (edition 1).
 
-Source: [`ch/bsy2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/bsy2.tex), label `bsy:res:tail`.
+Source: [`ch/bsy2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/bsy2.tex), label `bsy:res:tail`.
 
 <a id="computed_truncation_error_of_the_cauchy_average_by_the_shifted_trapezoid_rule_on_the_whole_line"></a>
 
@@ -8438,7 +8764,7 @@ Statement. Computed in floating point at $t_0=85.7$: the error of the shifted tr
 
 Earlier editions: Table 35.6, page 1253 (edition 1).
 
-Source: [`ch/bsy2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/bsy2.tex), label `bsy:tab:trunc`.
+Source: [`ch/bsy2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/bsy2.tex), label `bsy:tab:trunc`.
 
 <a id="rates_of_the_shifted_trapezoid_grid_for_the_smoothed_riesz_integrand"></a>
 
@@ -8452,7 +8778,7 @@ Statement. Let $g$ be square integrable on the torus $[0,1)^2$ and $Q(\delta)=m^
 
 Earlier editions: Proposition 35.7.2, page 1256 (edition 1).
 
-Source: [`ch/bsy3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/bsy3.tex), label `bsy:prop:rates2d`.
+Source: [`ch/bsy3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/bsy3.tex), label `bsy:prop:rates2d`.
 
 <a id="weighted_monte_carlo_voronoi_and_delaunay_rules_at_independent_uniform_nodes_have_rate_n_to_the_minus_one_half_minus_two_over_d"></a>
 
@@ -8466,7 +8792,7 @@ Statement. Let $Q=[-1,1]^d$, $X_1,\dots,X_N$ independent and uniform on $Q$, and
 
 Earlier editions: Theorem 35.7.3, page 1257 (edition 1).
 
-Source: [`ch/bsy3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/bsy3.tex), label `bsy:thm:wmc`.
+Source: [`ch/bsy3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/bsy3.tex), label `bsy:thm:wmc`.
 
 <a id="computed_errors_of_weighted_rules_at_independent_uniform_nodes_in_one_and_two_dimensions"></a>
 
@@ -8480,7 +8806,7 @@ Statement. Computed in floating point, root mean square error at independent uni
 
 Earlier editions: Table 35.7, page 1259 (edition 1).
 
-Source: [`ch/bsy3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/bsy3.tex), label `bsy:tab:wmc`.
+Source: [`ch/bsy3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/bsy3.tex), label `bsy:tab:wmc`.
 
 <a id="computed_errors_of_two_dimensional_weighted_rules_for_the_smoothed_riesz_integral"></a>
 
@@ -8494,7 +8820,7 @@ Statement. Let $\varphi(x,y)=b(x)b(y)$ with $b(x)=e^{-1/(1-x^2)}$ on the box $0.
 
 Earlier editions: Table 35.8, page 1260 (edition 1).
 
-Source: [`ch/bsy3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/bsy3.tex), label `bsy:tab:2d`.
+Source: [`ch/bsy3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/bsy3.tex), label `bsy:tab:2d`.
 
 <a id="approximate_deflation_of_a_zero_leaves_no_floor_for_the_shifted_trapezoid_grid"></a>
 
@@ -8508,7 +8834,7 @@ Statement. Let $\psi\in C_c^\infty((0,1)^2)$, $\rho,\hat\rho\in(0,1)^2$ with $0<
 
 Earlier editions: Proposition 35.7.5, page 1262 (edition 1).
 
-Source: [`ch/bsy3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/bsy3.tex), label `bsy:prop:defl`.
+Source: [`ch/bsy3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/bsy3.tex), label `bsy:prop:defl`.
 
 <a id="counting_zeros_from_the_horizontal_logarithmic_derivative_alone"></a>
 
@@ -8522,7 +8848,7 @@ Statement. Let $f\not\equiv0$ be meromorphic on a connected neighbourhood of $\{
 
 Earlier editions: Theorem 35.7.6, page 1262 (edition 1).
 
-Source: [`ch/bsy3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/bsy3.tex), label `bsy:thm:thorincount`.
+Source: [`ch/bsy3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/bsy3.tex), label `bsy:thm:thorincount`.
 
 <a id="computed_error_of_the_deflated_shifted_grid_against_the_error_of_the_deflating_zero"></a>
 
@@ -8536,7 +8862,7 @@ Statement. For the Davenport and Heilbronn function on the box of the smoothed R
 
 Earlier editions: Table 35.9, page 1263 (edition 1).
 
-Source: [`ch/bsy3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/bsy3.tex), label `bsy:tab:defl`.
+Source: [`ch/bsy3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/bsy3.tex), label `bsy:tab:defl`.
 
 <a id="explicit_formula_at_a_cauchy_smoothed_level_gives_the_thorin_integral_when_no_zero_lies_right_of_the_level"></a>
 
@@ -8550,7 +8876,7 @@ Statement. Let $F\ge0$ have a Fourier transform supported in $[-L,L]$, Lipschitz
 
 Earlier editions: Remark 35.8.1, page 1265 (edition 1).
 
-Source: [`ch/bsy3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/bsy3.tex), label `bsy:rem:weil`.
+Source: [`ch/bsy3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/bsy3.tex), label `bsy:rem:weil`.
 
 <a id="open_implementable_sampler_with_variance_below_plain_monte_carlo_for_the_defect"></a>
 
@@ -8564,7 +8890,7 @@ Statement. Let $\frac12\le\theta<1$, $t_0\in\mathbb{R}$, $f(\tau)=\log|\zeta(\th
 
 Earlier editions: Problem 35.1, page 1265 (edition 1).
 
-Source: [`ch/bsy3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/bsy3.tex), label `bsy:op:weight`.
+Source: [`ch/bsy3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/bsy3.tex), label `bsy:op:weight`.
 
 <a id="open_rate_of_voronoi_and_delaunay_rules_for_the_negative_thorin_mass"></a>
 
@@ -8578,7 +8904,7 @@ Statement. Let $m_\sigma(t)=\pi^{-1}\operatorname{Re}\frac{\xi'}{\xi}(\sigma+it)
 
 Earlier editions: Problem 35.2, page 1265 (edition 1).
 
-Source: [`ch/bsy3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/bsy3.tex), label `bsy:op:2d`.
+Source: [`ch/bsy3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/bsy3.tex), label `bsy:op:2d`.
 
 <a id="open_rate_in_n_of_the_truncated_whole_line_average_and_a_certified_tail_correction"></a>
 
@@ -8592,7 +8918,7 @@ Statement. On a half disc the sorted trapezoid rule reaches the mean square rate
 
 Earlier editions: Problem 35.3, page 1266 (edition 1).
 
-Source: [`ch/bsy3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/bsy3.tex), label `bsy:op:line`.
+Source: [`ch/bsy3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/bsy3.tex), label `bsy:op:line`.
 
 <a id="open_extension_of_the_rate_of_voronoi_and_delaunay_weights_to_dependent_nodes"></a>
 
@@ -8606,7 +8932,7 @@ Statement. The rate $N^{-1/2-2/d}$ for the root mean square error of Voronoi and
 
 Earlier editions: Problem 35.4, page 1266 (edition 1).
 
-Source: [`ch/bsy3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/bsy3.tex), label `bsy:op:rates`.
+Source: [`ch/bsy3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/bsy3.tex), label `bsy:op:rates`.
 
 <a id="open_converse_of_the_moment_identities_and_the_central_limit_theorem_for_log_h_theta"></a>
 
@@ -8620,7 +8946,7 @@ Statement. Fix $\theta\in[\frac12,1)$ and let $Z_{t_0}$ be the boundary value of
 
 Earlier editions: Problem 35.5, page 1266 (edition 1).
 
-Source: [`ch/bsy3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/bsy3.tex), label `bsy:op:cmart`.
+Source: [`ch/bsy3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/bsy3.tex), label `bsy:op:cmart`.
 
 <a id="open_negative_trace_for_a_combination_of_primitive_l_functions"></a>
 
@@ -8634,7 +8960,7 @@ Statement. Is there a linear combination of $L(s,\chi)$ over primitive character
 
 Earlier editions: Problem 35.6, page 1266 (edition 1).
 
-Source: [`ch/bsy3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/bsy3.tex), label `bsy:op:dh`.
+Source: [`ch/bsy3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/bsy3.tex), label `bsy:op:dh`.
 
 ## Volume II, Chapter 15. Weil positivity and Yoshida's Hermitian forms: certificates and barriers
 
@@ -8650,7 +8976,7 @@ Statement. Let $\rho_j=\beta_j+i\tau_j$ with $\tau_j>0$ be the nontrivial zeros 
 
 Earlier editions: Theorem 26.2.1, page 953 (edition 1).
 
-Source: [`ch/wt1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/wt1.tex), label `wt:thm:main`.
+Source: [`ch/wt1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/wt1.tex), label `wt:thm:main`.
 
 <a id="explicit_formula_for_the_heat_trace_agrees_with_zeros_to_all_printed_digits"></a>
 
@@ -8664,7 +8990,7 @@ Statement. Let $\rho_j=\beta_j+i\tau_j$ with $\tau_j>0$ be the nontrivial zeros 
 
 Earlier editions: Result 26.1, page 952 (edition 1).
 
-Source: [`ch/wt1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/wt1.tex), label `wt:res:check`.
+Source: [`ch/wt1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/wt1.tex), label `wt:res:check`.
 
 <a id="archimedean_part_of_the_heat_trace_is_u_times_a_gumbel_type_levy_density_of_order_one_quarter"></a>
 
@@ -8678,7 +9004,7 @@ Statement. Let $g_t(u)=(4\pi t)^{-1/2}e^{-u^2/4t}$, $\psi=\Gamma'/\Gamma$, $\Lam
 
 Earlier editions: Result 26.3, page 954 (edition 1).
 
-Source: [`ch/wt1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/wt1.tex), label `wt:res:acomp`.
+Source: [`ch/wt1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/wt1.tex), label `wt:res:acomp`.
 
 <a id="prime_part_of_the_heat_trace_is_a_weighted_series_of_frechet_distribution_functions_governed_by_the_prime_2"></a>
 
@@ -8692,7 +9018,7 @@ Statement. Let $g_t(u)=(4\pi t)^{-1/2}e^{-u^2/4t}$, $\Lambda$ the von Mangoldt f
 
 Earlier editions: Result 26.3, page 955 (edition 1).
 
-Source: [`ch/wt1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/wt1.tex), label `wt:res:frechet`.
+Source: [`ch/wt1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/wt1.tex), label `wt:res:frechet`.
 
 <a id="first_sign_changes_of_the_archimedean_derivatives_for_orders_one_to_six_computed"></a>
 
@@ -8706,7 +9032,7 @@ Statement. Let $\psi=\Gamma'/\Gamma$ and $w(\lambda)=\big(\operatorname{Re}\psi(
 
 Earlier editions: Result 26.4.1, page 957 (edition 1).
 
-Source: [`ch/wt1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/wt1.tex), label `wt:res:window`.
+Source: [`ch/wt1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/wt1.tex), label `wt:res:window`.
 
 <a id="spectral_density_of_the_archimedean_part_changes_sign_exactly_once_at_the_square_of_the_critical_point_of_theta"></a>
 
@@ -8720,7 +9046,7 @@ Statement. Let $\psi=\Gamma'/\Gamma$ and $w(\lambda)=\big(\operatorname{Re}\psi(
 
 Earlier editions: Lemma 26.8.1, page 960 (edition 1).
 
-Source: [`ch/wt2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/wt2.tex), label `wt:lem:w`.
+Source: [`ch/wt2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/wt2.tex), label `wt:lem:w`.
 
 <a id="first_sign_change_of_the_derivatives_of_the_archimedean_part_lies_near_n_over_lambda_star"></a>
 
@@ -8734,7 +9060,7 @@ Statement. Let $\psi=\Gamma'/\Gamma$ and $w(\lambda)=\big(\operatorname{Re}\psi(
 
 Earlier editions: Proposition 26.8.2, page 960 (edition 1).
 
-Source: [`ch/wt2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/wt2.tex), label `wt:prop:window`.
+Source: [`ch/wt2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/wt2.tex), label `wt:prop:window`.
 
 <a id="prime_by_prime_window_law_for_the_order_one_positivity_of_the_truncated_prime_part"></a>
 
@@ -8748,7 +9074,7 @@ Statement. Let $\gamma_1=14.134725\ldots$ be the ordinate of the first nontrivia
 
 Earlier editions: Result 26.8.2, page 961 (edition 1).
 
-Source: [`ch/wt2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/wt2.tex), label `wt:res:law`.
+Source: [`ch/wt2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/wt2.tex), label `wt:res:law`.
 
 <a id="rigidity_of_the_prime_point_process_variance_in_short_intervals_follows_the_gue_prediction_computed"></a>
 
@@ -8762,7 +9088,7 @@ Statement. Let $\psi_{\mathrm C}(y)=\sum_{n\le y}\Lambda(n)$ and $V_\delta=\frac
 
 Earlier editions: Result 26.8.3, page 963 (edition 1).
 
-Source: [`ch/wt2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/wt2.tex), label `wt:res:rig`.
+Source: [`ch/wt2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/wt2.tex), label `wt:res:rig`.
 
 <a id="window_law_for_the_archimedean_part_with_explicit_constants_beta_and_delta"></a>
 
@@ -8776,7 +9102,7 @@ Statement. Let $\psi=\Gamma'/\Gamma$ and $w(\lambda)=\big(\operatorname{Re}\psi(
 
 Earlier editions: Proposition 26.9.1, page 965 (edition 1).
 
-Source: [`ch/wt3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/wt3.tex), label `wt:prop:expansion`.
+Source: [`ch/wt3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/wt3.tex), label `wt:prop:expansion`.
 
 <a id="one_sided_certificates_for_the_heat_trace_from_finitely_many_primes"></a>
 
@@ -8790,7 +9116,7 @@ Statement. Let $g_t(u)=(4\pi t)^{-1/2}e^{-u^2/4t}$, $\psi=\Gamma'/\Gamma$, $\Lam
 
 Earlier editions: Proposition 26.9.2, page 966 (edition 1).
 
-Source: [`ch/wt3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/wt3.tex), label `wt:prop:cert`.
+Source: [`ch/wt3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/wt3.tex), label `wt:prop:cert`.
 
 <a id="windows_for_positive_second_derivative_of_the_heat_trace_from_the_certificate_bound_computed_on_a_grid"></a>
 
@@ -8804,7 +9130,7 @@ Statement. Let $W''$ be the second derivative of the heat trace of the zeros and
 
 Earlier editions: Result 26.9.2, page 966 (edition 1).
 
-Source: [`ch/wt3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/wt3.tex), label `wt:res:cert`.
+Source: [`ch/wt3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/wt3.tex), label `wt:res:cert`.
 
 <a id="heat_trace_is_a_gaussian_smoothing_of_the_normalised_prime_error_with_no_hypothesis"></a>
 
@@ -8818,7 +9144,7 @@ Statement. Let $g_t(u)=(4\pi t)^{-1/2}e^{-u^2/4t}$, $\psi=\Gamma'/\Gamma$, $\Lam
 
 Earlier editions: Proposition 26.9.3, page 967 (edition 1).
 
-Source: [`ch/wt3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/wt3.tex), label `wt:prop:smooth`.
+Source: [`ch/wt3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/wt3.tex), label `wt:prop:smooth`.
 
 <a id="rh_equivalent_to_finite_discounted_energy_of_the_normalised_prime_error"></a>
 
@@ -8832,7 +9158,7 @@ Statement. Let $\psi_{\mathrm C}(y)=\sum_{n\le y}\Lambda(n)$ and $D(u)=(\psi_{\m
 
 Earlier editions: Proposition 26.9.4, page 968 (edition 1).
 
-Source: [`ch/wt3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/wt3.tex), label `wt:prop:energy`.
+Source: [`ch/wt3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/wt3.tex), label `wt:prop:energy`.
 
 <a id="mean_square_of_the_normalised_prime_error_from_primes_up_to_two_times_ten_to_the_seven_computed"></a>
 
@@ -8846,7 +9172,7 @@ Statement. Let $D(u)=(\psi_{\mathrm C}(e^u)-e^u)e^{-u/2}$ with $\psi_{\mathrm C}
 
 Earlier editions: Result 26.9.4, page 968 (edition 1).
 
-Source: [`ch/wt3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/wt3.tex), label `wt:res:energy`.
+Source: [`ch/wt3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/wt3.tex), label `wt:res:energy`.
 
 <a id="rh_equivalent_to_positive_semidefiniteness_of_two_hankel_families_of_normalised_cumulants"></a>
 
@@ -8860,7 +9186,7 @@ Statement. Let $\rho_j=\beta_j+i\tau_j$ with $\tau_j>0$ be the nontrivial zeros 
 
 Earlier editions: Proposition 26.9.5, page 970 (edition 1).
 
-Source: [`ch/wt3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/wt3.tex), label `wt:prop:hankel`.
+Source: [`ch/wt3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/wt3.tex), label `wt:prop:hankel`.
 
 <a id="one_heat_time_suffices_rh_iff_sine_squared_functional_is_nonnegative_for_all_shifts"></a>
 
@@ -8874,7 +9200,7 @@ Statement. Let $\rho_j=\beta_j+i\tau_j$ with $\tau_j>0$ be the nontrivial zeros 
 
 Earlier editions: Theorem 26.10.1, page 971 (edition 1).
 
-Source: [`ch/wt3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/wt3.tex), label `wt:thm:sin2`.
+Source: [`ch/wt3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/wt3.tex), label `wt:thm:sin2`.
 
 <a id="ladder_rungs_are_diagonal_values_of_weil_form_on_hermite_gaussians"></a>
 
@@ -8888,7 +9214,7 @@ Statement. Let $\rho$ run over the nontrivial zeros of the Riemann zeta function
 
 Earlier editions: Proposition 17.2.1, page 681 (edition 1).
 
-Source: [`ch/yo1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/yo1.tex), label `yo:prop:diag`.
+Source: [`ch/yo1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/yo1.tex), label `yo:prop:diag`.
 
 <a id="rh_is_positivity_of_odd_ladder_rungs_and_every_large_rung_fails"></a>
 
@@ -8902,7 +9228,7 @@ Statement. Let $\rho=\frac12+\delta+i\gamma$ run over the nontrivial zeros of th
 
 Earlier editions: Theorem 17.3.1, page 682 (edition 1).
 
-Source: [`ch/yo1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/yo1.tex), label `yo:thm:rungs`.
+Source: [`ch/yo1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/yo1.tex), label `yo:thm:rungs`.
 
 <a id="saddle_point_location_of_failing_ladder_rungs_for_an_off_line_zero"></a>
 
@@ -8916,7 +9242,7 @@ Statement. Let $\rho=\frac12+\delta+i\gamma$ with $\gamma>0$ run over the nontri
 
 Earlier editions: Proposition 17.3.2, page 683 (edition 1).
 
-Source: [`ch/yo1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/yo1.tex), label `yo:prop:saddle`.
+Source: [`ch/yo1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/yo1.tex), label `yo:prop:saddle`.
 
 <a id="tent_coefficient_zero_side_prime_side_and_residue_series"></a>
 
@@ -8930,13 +9256,25 @@ Statement. Let $\rho$ run over the nontrivial zeros of the Riemann zeta function
 
 Earlier editions: Proposition 17.6.1, page 687 (edition 1).
 
-Source: [`ch/yo2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/yo2.tex), label `yo:prop:tent`.
+Source: [`ch/yo2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/yo2.tex), label `yo:prop:tent`.
+
+<a id="gaussian_field_of_the_variogram_function_psi"></a>
+
+### Gaussian field with variogram Psi built from the zeta ordinates
+
+Volume II, Proposition 15.18.3, page 398 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+
+Status: conditional on The Riemann Hypothesis, for part (b) only; parts (a) and (c) are unconditional.
+
+Statement. Let $\xi$ be the completed zeta function and $\Psi(t)=\sum_\rho(1-\cos\gamma_\rho t)/\gamma_\rho^2$ over all nontrivial zeros $\rho=\beta+i\gamma_\rho$ of $\zeta$ (the variogram function; $\Psi=D/2$ for the book's function $D$). (a) Unconditionally, for $\operatorname{Re}z>\frac12$, $\int_0^\infty e^{-zt}\Psi(t)\,dt=z^{-2}\,\frac{\xi'}{\xi}(\frac12+z)$. (b) Assume the Riemann Hypothesis. Let $a_\gamma,b_\gamma$ be independent standard normals, one pair for each zero with $\gamma>0$, counted with multiplicity, and $X_t=\sum_{\gamma>0}(a_\gamma\cos\gamma t+b_\gamma\sin\gamma t)/\gamma$. Then the series converges almost surely, uniformly on compact sets, to a stationary centred Gaussian process with continuous paths and $\mathbb{E}(X_t-X_s)^2=\Psi(|t-s|)$. If moreover the zeros are simple, then almost surely $\lim_{T\to\infty}\frac1T\int_0^TX_t^2\,dt=\sum_{\gamma>0}E_\gamma/\gamma^2$ with $E_\gamma=(a_\gamma^2+b_\gamma^2)/2$ independent standard exponentials, a variable with the law of the book's clock $\sum_{\gamma>0}E_\gamma/\gamma^2$. (c) Unconditionally, for $\ell>0$ the following are equivalent: a Gaussian process $(Y_t)_{0\le t\le\ell}$ with $\mathbb{E}(Y_t-Y_s)^2=\Psi(|t-s|)$ exists; $G(u,v)=\Psi(u)+\Psi(v)-\Psi(|u-v|)$ is positive semidefinite on $[0,\ell]$; and $Q(f)=\sum_\rho\hat f(\gamma_\rho)\hat f(-\gamma_\rho)\ge0$ for all real $f\in C_c^\infty(0,\ell)$.
+
+Source: [`ch/yo2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/yo2.tex), label `yo:prop:field`.
 
 <a id="yoshida_matrix_is_a_lowner_matrix_and_rh_is_the_pick_property"></a>
 
 ### Yoshida's matrix is a Löwner matrix, and RH is the Pick property of one function
 
-Volume II, Theorem 15.19.1, page 400 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Theorem 15.19.1, page 402 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -8944,13 +9282,13 @@ Statement. Let $\rho$ run over the nontrivial zeros of the Riemann zeta function
 
 Earlier editions: Theorem 17.7.1, page 692 (edition 1).
 
-Source: [`ch/yo2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/yo2.tex), label `yo:thm:lowner`.
+Source: [`ch/yo2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/yo2.tex), label `yo:thm:lowner`.
 
 <a id="damped_yoshida_form_is_a_fourier_multiplier_with_symbol_xi_log_derivative"></a>
 
 ### The damped Yoshida form is a Fourier multiplier with symbol Re xi'/xi over pi
 
-Volume II, Proposition 15.20.1, page 402 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Proposition 15.20.1, page 404 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -8958,13 +9296,13 @@ Statement. Let $\xi(s)=\frac12s(s-1)\pi^{-s/2}\Gamma(\frac s2)\zeta(s)$, let $\s
 
 Earlier editions: Proposition 17.8.1, page 694 (edition 1).
 
-Source: [`ch/yo3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/yo3.tex), label `yo:prop:mult`.
+Source: [`ch/yo3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/yo3.tex), label `yo:prop:mult`.
 
 <a id="damped_yoshida_forms_are_positive_semidefinite_for_basepoints_beyond_the_zeros_and_rh_equivalence"></a>
 
 ### Positivity of the damped Yoshida forms: basepoints beyond the zeros, and RH
 
-Volume II, Theorem 15.20.3, page 403 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Theorem 15.20.3, page 405 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -8972,13 +9310,13 @@ Statement. Let $\rho$ run over the nontrivial zeros of the Riemann zeta function
 
 Earlier editions: Theorem 17.8.3, page 695 (edition 1).
 
-Source: [`ch/yo3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/yo3.tex), label `yo:thm:damped`.
+Source: [`ch/yo3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/yo3.tex), label `yo:thm:damped`.
 
 <a id="sharp_coercivity_of_damped_yoshida_forms_by_the_minimum_of_xi_log_derivative"></a>
 
 ### Sharp coercivity of the damped Yoshida forms on every window
 
-Volume II, Theorem 15.20.5, page 404 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Theorem 15.20.5, page 406 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -8986,13 +9324,13 @@ Statement. Let $\xi(s)=\frac12s(s-1)\pi^{-s/2}\Gamma(\frac s2)\zeta(s)$, $\sigma
 
 Earlier editions: Theorem 17.8.5, page 696 (edition 1).
 
-Source: [`ch/yo3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/yo3.tex), label `yo:thm:coercive`.
+Source: [`ch/yo3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/yo3.tex), label `yo:thm:coercive`.
 
 <a id="unconditional_sharp_coercivity_of_the_damped_yoshida_form_at_basepoint_one"></a>
 
 ### Unconditional sharp coercivity of the damped Yoshida form at alpha equal to 1
 
-Volume II, Corollary 15.20.8, page 406 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Corollary 15.20.8, page 408 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -9000,13 +9338,13 @@ Statement. Let $\gamma_E$ be Euler's constant, $\xi(s)=\frac12s(s-1)\pi^{-s/2}\G
 
 Earlier editions: Corollary 17.8.8, page 698 (edition 1).
 
-Source: [`ch/yo3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/yo3.tex), label `yo:cor:half`.
+Source: [`ch/yo3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/yo3.tex), label `yo:cor:half`.
 
 <a id="uncertainty_barrier_for_the_tent_coefficient_above_the_verified_height"></a>
 
 ### Uncertainty barrier for the tent coefficient above the verified height
 
-Volume II, Proposition 15.21.1, page 409 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Proposition 15.21.1, page 411 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -9014,13 +9352,13 @@ Statement. Let $\rho$ run over the nontrivial zeros of the Riemann zeta function
 
 Earlier editions: Proposition 17.9.1, page 701 (edition 1).
 
-Source: [`ch/yo4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/yo4.tex), label `yo:prop:barrier`.
+Source: [`ch/yo4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/yo4.tex), label `yo:prop:barrier`.
 
 <a id="tent_coefficient_computed_positive_up_to_level_47_from_the_verified_height_and_1700_zeros"></a>
 
 ### Computed positivity of the tent coefficient up to level 47.48 from the verification of RH
 
-Volume II, Proposition 15.21.2, page 409 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Proposition 15.21.2, page 411 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: computed.
 
@@ -9028,13 +9366,13 @@ Statement. Let $\rho$ run over the nontrivial zeros of the Riemann zeta function
 
 Earlier editions: Proposition 17.9.2, page 701 (edition 1).
 
-Source: [`ch/yo4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/yo4.tex), label `yo:prop:Dpos`.
+Source: [`ch/yo4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/yo4.tex), label `yo:prop:Dpos`.
 
 <a id="open_symbol_inequality_for_xi_log_derivative_below_basepoint_one"></a>
 
 ### Open problem: the symbol inequality Re xi'/xi at least xi'/xi(alpha) below the line alpha equal to 1
 
-Volume II, Problem 15.5, page 411 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Problem 15.5, page 413 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: open.
 
@@ -9042,13 +9380,13 @@ Statement. Let $\xi(s)=\frac12s(s-1)\pi^{-s/2}\Gamma(\frac s2)\zeta(s)$, $v_\alp
 
 Earlier editions: Problem 17.1, page 703 (edition 1).
 
-Source: [`ch/yo4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/yo4.tex), label `yo:op:symbol`.
+Source: [`ch/yo4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/yo4.tex), label `yo:op:symbol`.
 
 <a id="open_prime_side_proof_of_the_symbol_inequality_at_basepoint_one"></a>
 
 ### Open problem: a prime side proof of the symbol inequality at alpha equal to 1
 
-Volume II, Problem 15.6, page 411 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Problem 15.6, page 413 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: open.
 
@@ -9056,13 +9394,13 @@ Statement. Let $\xi(s)=\frac12s(s-1)\pi^{-s/2}\Gamma(\frac s2)\zeta(s)$, $\Lambd
 
 Earlier editions: Problem 17.2, page 704 (edition 1).
 
-Source: [`ch/yo4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/yo4.tex), label `yo:op:primes`.
+Source: [`ch/yo4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/yo4.tex), label `yo:op:primes`.
 
 <a id="open_lowner_positivity_of_yoshida_form_on_the_lattice_of_a_single_window"></a>
 
 ### Open problem: what does Löwner positivity on the lattice of one window say about the zeros
 
-Volume II, Problem 15.7, page 412 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Problem 15.7, page 414 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: open.
 
@@ -9070,13 +9408,13 @@ Statement. For $a>0$ let $\nu_n=\pi n/a$ and $g_a(\nu)=\sum_\rho\sin^2(a\gamma_\
 
 Earlier editions: Problem 17.3, page 704 (edition 1).
 
-Source: [`ch/yo4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/yo4.tex), label `yo:op:lowner`.
+Source: [`ch/yo4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/yo4.tex), label `yo:op:lowner`.
 
 <a id="open_orders_of_the_first_failing_rung_and_of_the_window_threshold_for_one_off_line_pair"></a>
 
 ### Open problem: the orders of the first failing rung and of Yoshida's window threshold for one off line pair
 
-Volume II, Problem 15.8, page 412 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Problem 15.8, page 414 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: open.
 
@@ -9084,13 +9422,13 @@ Statement. Let $\rho=\frac12+\delta+i\gamma$ with $\gamma>0$ and $0<\delta<\frac
 
 Earlier editions: Problem 17.4, page 704 (edition 1).
 
-Source: [`ch/yo4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/yo4.tex), label `yo:op:orders`.
+Source: [`ch/yo4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/yo4.tex), label `yo:op:orders`.
 
 <a id="open_zero_density_sharpening_of_the_barrier_and_barriers_for_windows"></a>
 
 ### Open problem: zero density estimates and the barrier, and a barrier for windows
 
-Volume II, Problem 15.9, page 412 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Problem 15.9, page 414 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: open.
 
@@ -9098,7 +9436,7 @@ Statement. Let $D(x)=\sum_\rho4\sin^2(\gamma_\rho x/2)/\gamma_\rho^2$ be the ten
 
 Earlier editions: Problem 17.5, page 704 (edition 1).
 
-Source: [`ch/yo4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/yo4.tex), label `yo:op:density`.
+Source: [`ch/yo4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/yo4.tex), label `yo:op:density`.
 
 ## Volume II, Chapter 16. Zhu's compact windows and the Landau Widom horizon
 
@@ -9106,7 +9444,7 @@ Source: [`ch/yo4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/
 
 ### Dictionary: Zhu's window form is Yoshida's Weil form and, under RH, a sampling functional of the Thorin measure
 
-Volume II, Proposition 16.2.1, page 415 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Proposition 16.2.1, page 417 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: conditional on The Riemann Hypothesis, used only for the second set of identities (the sum over the zeros, the integral against the Thorin measure and the sampling reading of the least eigenvalue). The identity $Q(f)=\langle f,f\rangle=\mathcal{Y}(f*f)$ holds with no hypothesis on the zeros.
 
@@ -9114,13 +9452,13 @@ Statement. Let $\zeta$ be the Riemann zeta function, with nontrivial zeros writt
 
 Earlier editions: Proposition 18.2.1, page 709 (edition 1).
 
-Source: [`ch/zhu1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/zhu1.tex), label `zh:prop:dict`.
+Source: [`ch/zhu1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/zhu1.tex), label `zh:prop:dict`.
 
 <a id="two_parameter_bound_for_least_eigenvalue_of_damped_weil_form_on_a_window"></a>
 
 ### Two parameter bound: the damped least eigenvalue is at least the undamped one, and under RH at least $2\xi'(\alpha)/\xi(\alpha)$
 
-Volume II, Theorem 16.5.2, page 426 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Theorem 16.5.2, page 428 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: conditional on The Riemann Hypothesis, used for part (ii) when $\alpha<1$, for the lower bound $2b_\alpha\ge4p_1(\alpha-\frac12)-4p_2(\alpha-\frac12)^3$ at every $\alpha>\frac12$ and for the closing maximum. Part (i), the bound $\lambda_{\min}(\alpha,a)\ge2b_\alpha$ for $\alpha\ge1$ and the upper bound $2b_\alpha\le4p_1(\alpha-\frac12)$ hold with no hypothesis on the zeros.
 
@@ -9128,13 +9466,13 @@ Statement. Let $\xi(s)=\frac12s(s-1)\pi^{-s/2}\Gamma(\frac s2)\zeta(s)$ be Riema
 
 Earlier editions: Theorem 18.5.2, page 720 (edition 1).
 
-Source: [`ch/zhu3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/zhu3.tex), label `zh:thm:twoparam`.
+Source: [`ch/zhu3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/zhu3.tex), label `zh:thm:twoparam`.
 
 <a id="open_problem_horizon_as_a_theorem_largest_window_from_zeros_verified_to_height_h"></a>
 
 ### Open problem: the Landau Widom horizon as a theorem, the largest window on which Weil's form is positive when the zeros are controlled up to a height
 
-Volume II, Problem 16.1, page 428 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Problem 16.1, page 430 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: open.
 
@@ -9142,13 +9480,13 @@ Statement. Let $\mathcal{Y}(g)=\sum_\rho\widehat g(\gamma_\rho)$ be Weil's funct
 
 Earlier editions: Problem 18.1, page 722 (edition 1).
 
-Source: [`ch/zhu4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/zhu4.tex), label `zh:op:horizon`.
+Source: [`ch/zhu4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/zhu4.tex), label `zh:op:horizon`.
 
 <a id="open_problem_derive_zhu_decay_law_for_least_eigenvalue_from_thorin_side"></a>
 
 ### Open problem: derive Zhu's Landau Widom decay law for the least eigenvalue of Weil's form on a window from the Thorin side
 
-Volume II, Problem 16.2, page 428 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Problem 16.2, page 430 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: open.
 
@@ -9156,13 +9494,13 @@ Statement. Let $\mathcal{Y}(g)=\sum_\rho\widehat g(\gamma_\rho)$ be Weil's funct
 
 Earlier editions: Problem 18.2, page 723 (edition 1).
 
-Source: [`ch/zhu4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/zhu4.tex), label `zh:op:decay`.
+Source: [`ch/zhu4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/zhu4.tex), label `zh:op:decay`.
 
 <a id="open_problem_certified_damped_windows_for_basepoint_between_one_half_and_one"></a>
 
 ### Open problem: certified damped windows for basepoints between one half and one
 
-Volume II, Problem 16.3, page 429 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Problem 16.3, page 431 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: open.
 
@@ -9170,13 +9508,13 @@ Statement. Let $\xi(s)=\frac12s(s-1)\pi^{-s/2}\Gamma(\frac s2)\zeta(s)$ be Riema
 
 Earlier editions: Problem 18.3, page 723 (edition 1).
 
-Source: [`ch/zhu4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/zhu4.tex), label `zh:op:damped`.
+Source: [`ch/zhu4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/zhu4.tex), label `zh:op:damped`.
 
 <a id="open_problem_comb_cancellation_on_average_over_paley_wiener_functions"></a>
 
 ### Open problem: comb cancellation on average over Paley Wiener functions
 
-Volume II, Problem 16.4, page 429 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Problem 16.4, page 431 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: open.
 
@@ -9184,7 +9522,7 @@ Statement. Let $\Lambda$ be the von Mangoldt function and, for $a>0$, let $\math
 
 Earlier editions: Problem 18.4, page 723 (edition 1).
 
-Source: [`ch/zhu4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/zhu4.tex), label `zh:op:comb`.
+Source: [`ch/zhu4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/zhu4.tex), label `zh:op:comb`.
 
 ## Volume II, Chapter 17. Truncations: the Biane Pitman Yor lattice, the beta lattice and Hermite coefficients
 
@@ -9192,7 +9530,7 @@ Source: [`ch/zhu4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0
 
 ### First order expansion of the zeros of the truncated lattice transforms
 
-Volume II, Proposition 17.1.2, page 435 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. First stated in Polson (2026), On Hilbert's 8th Problem: the reciprocal Xi clock, Thorin measures, van Dantzig pairs, zero free approximations, hitting times and the reciprocal zeta function, first edition, Independently published.
+Volume II, Proposition 17.1.2, page 437 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. First stated in Polson (2026), On Hilbert's 8th Problem: the reciprocal Xi clock, Thorin measures, van Dantzig pairs, zero free approximations, hitting times and the reciprocal zeta function, first edition, Independently published.
 
 Status: proved.
 
@@ -9200,13 +9538,13 @@ Statement. Let $e_k,e_k'$ ($k\ge1$) be independent standard exponential random v
 
 Earlier editions: Proposition 7.2.2, page 190 (edition 1).
 
-Source: [`ch/rz4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/rz4.tex), label `rz:prop:firstorder`.
+Source: [`ch/rz4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/rz4.tex), label `rz:prop:firstorder`.
 
 <a id="truncated_lattice_displacement_formula_hardy_function"></a>
 
 ### Displacement constant of the truncated zeros in terms of Hardy's function
 
-Volume II, Theorem 17.1.3, page 436 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. First stated in Polson (2026), On Hilbert's 8th Problem: the reciprocal Xi clock, Thorin measures, van Dantzig pairs, zero free approximations, hitting times and the reciprocal zeta function, first edition, Independently published.
+Volume II, Theorem 17.1.3, page 438 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. First stated in Polson (2026), On Hilbert's 8th Problem: the reciprocal Xi clock, Thorin measures, van Dantzig pairs, zero free approximations, hitting times and the reciprocal zeta function, first edition, Independently published.
 
 Status: proved.
 
@@ -9214,13 +9552,13 @@ Statement. Let $\rho=\frac12+i\gamma$ be a simple zero of $\zeta$ on the critica
 
 Earlier editions: Theorem 7.2.3, page 191 (edition 1).
 
-Source: [`ch/rz4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/rz4.tex), label `rz:thm:kappaexact`.
+Source: [`ch/rz4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/rz4.tex), label `rz:thm:kappaexact`.
 
 <a id="conjecture_t_false_truncated_zeros_right_of_the_line"></a>
 
 ### Conjecture T is false for large n
 
-Volume II, Corollary 17.1.4, page 437 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. First stated in Polson (2026), On Hilbert's 8th Problem: the reciprocal Xi clock, Thorin measures, van Dantzig pairs, zero free approximations, hitting times and the reciprocal zeta function, first edition, Independently published.
+Volume II, Corollary 17.1.4, page 439 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. First stated in Polson (2026), On Hilbert's 8th Problem: the reciprocal Xi clock, Thorin measures, van Dantzig pairs, zero free approximations, hitting times and the reciprocal zeta function, first edition, Independently published.
 
 Status: counterexample, proved.
 
@@ -9228,13 +9566,13 @@ Statement. Let $e_k,e_k'$ be independent standard exponential variables and $F_n
 
 Earlier editions: Corollary 7.2.4, page 192 (edition 1).
 
-Source: [`ch/rz4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/rz4.tex), label `rz:cor:Tfalse`.
+Source: [`ch/rz4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/rz4.tex), label `rz:cor:Tfalse`.
 
 <a id="symmetrised_truncations_symmetry_and_limit"></a>
 
 ### Symmetrised truncations: symmetry, limit and persistence of simple zeros on the line
 
-Volume II, Proposition 17.1.6, page 438 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. First stated in Polson (2026), On Hilbert's 8th Problem: the reciprocal Xi clock, Thorin measures, van Dantzig pairs, zero free approximations, hitting times and the reciprocal zeta function, first edition, Independently published.
+Volume II, Proposition 17.1.6, page 440 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. First stated in Polson (2026), On Hilbert's 8th Problem: the reciprocal Xi clock, Thorin measures, van Dantzig pairs, zero free approximations, hitting times and the reciprocal zeta function, first edition, Independently published.
 
 Status: proved.
 
@@ -9242,13 +9580,13 @@ Statement. Let $e_k,e_k'$ be independent standard exponential variables, $F_n(w)
 
 Earlier editions: Proposition 7.2.6, page 193 (edition 1).
 
-Source: [`ch/rz4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/rz4.tex), label `rz:prop:symtrunc`.
+Source: [`ch/rz4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/rz4.tex), label `rz:prop:symtrunc`.
 
 <a id="symmetrised_truncations_real_rooted_implies_rh"></a>
 
 ### Real rooted symmetrised truncations for infinitely many n imply the Riemann Hypothesis
 
-Volume II, Theorem 17.1.7, page 438 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. First stated in Polson (2026), On Hilbert's 8th Problem: the reciprocal Xi clock, Thorin measures, van Dantzig pairs, zero free approximations, hitting times and the reciprocal zeta function, first edition, Independently published.
+Volume II, Theorem 17.1.7, page 440 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. First stated in Polson (2026), On Hilbert's 8th Problem: the reciprocal Xi clock, Thorin measures, van Dantzig pairs, zero free approximations, hitting times and the reciprocal zeta function, first edition, Independently published.
 
 Status: proved.
 
@@ -9256,13 +9594,13 @@ Statement. Let $e_k,e_k'$ be independent standard exponential variables, $F_n(w)
 
 Earlier editions: Theorem 7.2.7, page 193 (edition 1).
 
-Source: [`ch/rz4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/rz4.tex), label `rz:thm:symhurwitz`.
+Source: [`ch/rz4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/rz4.tex), label `rz:thm:symhurwitz`.
 
 <a id="truncated_approximate_functional_equation_zeta_two_on_the_line_zeta_three_off_the_line"></a>
 
 ### Zeros of the approximate functional equation truncations of zeta, N equal to 2 and 3
 
-Volume II, Proposition 17.1.8, page 439 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Proposition 17.1.8, page 441 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -9270,13 +9608,13 @@ Statement. Let $\chi$ be the factor in $\zeta(s)=\chi(s)\zeta(1-s)$, $\zeta_N(s)
 
 Earlier editions: Proposition 7.2.8, page 195 (edition 1).
 
-Source: [`ch/rz4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/rz4.tex), label `rz:prop:zetaN`.
+Source: [`ch/rz4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/rz4.tex), label `rz:prop:zetaN`.
 
 <a id="symmetrised_truncations_single_term_bound_explicit_heights"></a>
 
 ### Single term bound: no off line zeros of the symmetrised truncation above explicit heights
 
-Volume II, Theorem 17.1.9, page 440 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. First stated in Polson (2026), On Hilbert's 8th Problem: the reciprocal Xi clock, Thorin measures, van Dantzig pairs, zero free approximations, hitting times and the reciprocal zeta function, first edition, Independently published.
+Volume II, Theorem 17.1.9, page 442 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. First stated in Polson (2026), On Hilbert's 8th Problem: the reciprocal Xi clock, Thorin measures, van Dantzig pairs, zero free approximations, hitting times and the reciprocal zeta function, first edition, Independently published.
 
 Status: proved.
 
@@ -9284,13 +9622,13 @@ Statement. For $n\ge1$ let $\alpha_k,\beta_k$ ($k\le n$) be defined by the parti
 
 Earlier editions: Theorem 7.2.9, page 196 (edition 1).
 
-Source: [`ch/rz4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/rz4.tex), label `rz:thm:Yn`.
+Source: [`ch/rz4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/rz4.tex), label `rz:thm:Yn`.
 
 <a id="conjecture_s_small_n_above_explicit_heights"></a>
 
 ### Conjecture S for n up to 6 and n = 8 above explicit heights
 
-Volume II, Corollary 17.1.10, page 441 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. First stated in Polson (2026), On Hilbert's 8th Problem: the reciprocal Xi clock, Thorin measures, van Dantzig pairs, zero free approximations, hitting times and the reciprocal zeta function, first edition, Independently published.
+Volume II, Corollary 17.1.10, page 443 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. First stated in Polson (2026), On Hilbert's 8th Problem: the reciprocal Xi clock, Thorin measures, van Dantzig pairs, zero free approximations, hitting times and the reciprocal zeta function, first edition, Independently published.
 
 Status: proved.
 
@@ -9298,13 +9636,13 @@ Statement. Let $K_n(w)=\pi^{-w}F_n(w)+\pi^{w-\frac12}F_n(\frac12-w)$ be the symm
 
 Earlier editions: Corollary 7.2.10, page 196 (edition 1).
 
-Source: [`ch/rz4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/rz4.tex), label `rz:cor:Ssmall`.
+Source: [`ch/rz4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/rz4.tex), label `rz:cor:Ssmall`.
 
 <a id="symmetrised_truncations_torus_bound"></a>
 
 ### Torus bound for the symmetrised truncations
 
-Volume II, Theorem 17.1.11, page 441 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. First stated in Polson (2026), On Hilbert's 8th Problem: the reciprocal Xi clock, Thorin measures, van Dantzig pairs, zero free approximations, hitting times and the reciprocal zeta function, first edition, Independently published.
+Volume II, Theorem 17.1.11, page 443 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. First stated in Polson (2026), On Hilbert's 8th Problem: the reciprocal Xi clock, Thorin measures, van Dantzig pairs, zero free approximations, hitting times and the reciprocal zeta function, first edition, Independently published.
 
 Status: proved.
 
@@ -9312,13 +9650,13 @@ Statement. Let $\alpha_k,\beta_k$ ($k\le n$) be defined by $\prod_{j\le n}(1+\la
 
 Earlier editions: Theorem 7.2.11, page 197 (edition 1).
 
-Source: [`ch/rz4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/rz4.tex), label `rz:thm:torus`.
+Source: [`ch/rz4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/rz4.tex), label `rz:thm:torus`.
 
 <a id="conjecture_s_above_explicit_thresholds_n_to_36"></a>
 
 ### Conjecture S for n up to 24, 32 and 36 above explicit thresholds
 
-Volume II, Corollary 17.1.12, page 442 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. Corrects a statement of Polson (2026), On Hilbert's 8th Problem: the reciprocal Xi clock, Thorin measures, van Dantzig pairs, zero free approximations, hitting times and the reciprocal zeta function, first edition, Independently published.
+Volume II, Corollary 17.1.12, page 444 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. Corrects a statement of Polson (2026), On Hilbert's 8th Problem: the reciprocal Xi clock, Thorin measures, van Dantzig pairs, zero free approximations, hitting times and the reciprocal zeta function, first edition, Independently published.
 
 Status: proved.
 
@@ -9328,13 +9666,13 @@ Supersedes: Corollary 30.11 of Polson (2026) is conditional: it supposes that th
 
 Earlier editions: Corollary 7.2.12, page 198 (edition 1).
 
-Source: [`ch/rz4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/rz4.tex), label `rz:cor:Storus`.
+Source: [`ch/rz4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/rz4.tex), label `rz:cor:Storus`.
 
 <a id="thorin_positivity_of_reciprocal_xi_is_weil_criterion"></a>
 
 ### Thorin positivity of R is Weil's criterion
 
-Volume II, Proposition 17.1.14, page 445 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. Corrects a statement of Polson (2026), On Hilbert's 8th Problem: the reciprocal Xi clock, Thorin measures, van Dantzig pairs, zero free approximations, hitting times and the reciprocal zeta function, first edition, Independently published.
+Volume II, Proposition 17.1.14, page 447 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. Corrects a statement of Polson (2026), On Hilbert's 8th Problem: the reciprocal Xi clock, Thorin measures, van Dantzig pairs, zero free approximations, hitting times and the reciprocal zeta function, first edition, Independently published.
 
 Status: proved.
 
@@ -9344,13 +9682,13 @@ Supersedes: Theorem 30.13 of Polson (2026) states the correspondence between Tho
 
 Earlier editions: Proposition 7.2.14, page 200 (edition 1).
 
-Source: [`ch/rz4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/rz4.tex), label `rz:thm:weil`.
+Source: [`ch/rz4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/rz4.tex), label `rz:thm:weil`.
 
 <a id="weil_positivity_on_bernstein_cone"></a>
 
 ### Weil positivity on the Bernstein cone
 
-Volume II, Theorem 17.1.15, page 447 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. Corrects a statement of Polson (2026), On Hilbert's 8th Problem: the reciprocal Xi clock, Thorin measures, van Dantzig pairs, zero free approximations, hitting times and the reciprocal zeta function, first edition, Independently published.
+Volume II, Theorem 17.1.15, page 449 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. Corrects a statement of Polson (2026), On Hilbert's 8th Problem: the reciprocal Xi clock, Thorin measures, van Dantzig pairs, zero free approximations, hitting times and the reciprocal zeta function, first edition, Independently published.
 
 Status: proved.
 
@@ -9360,13 +9698,13 @@ Supersedes: Theorem 30.14 of Polson (2026) has the integrability condition with 
 
 Earlier editions: Theorem 7.2.15, page 203 (edition 1).
 
-Source: [`ch/rz4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/rz4.tex), label `rz:thm:bernsteincone`.
+Source: [`ch/rz4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/rz4.tex), label `rz:thm:bernsteincone`.
 
 <a id="debruijn_newman_flow_ggc_path"></a>
 
 ### The de Bruijn Newman flow as a path of GGCs
 
-Volume II, Theorem 17.1.16, page 449 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. First stated in Polson (2026), On Hilbert's 8th Problem: the reciprocal Xi clock, Thorin measures, van Dantzig pairs, zero free approximations, hitting times and the reciprocal zeta function, first edition, Independently published.
+Volume II, Theorem 17.1.16, page 451 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. First stated in Polson (2026), On Hilbert's 8th Problem: the reciprocal Xi clock, Thorin measures, van Dantzig pairs, zero free approximations, hitting times and the reciprocal zeta function, first edition, Independently published.
 
 Status: proved.
 
@@ -9374,13 +9712,13 @@ Statement. Let $\Phi_{\mathrm{dBN}}(u)=\sum_{n\ge1}\bigl(2\pi^2n^4e^{9u}-3\pi n^
 
 Earlier editions: Theorem 7.2.16, page 205 (edition 1).
 
-Source: [`ch/rz4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/rz4.tex), label `rz:thm:dbn`.
+Source: [`ch/rz4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/rz4.tex), label `rz:thm:dbn`.
 
 <a id="no_ggc_multiplier_can_create_positivity"></a>
 
 ### No GGC multiplier can create the positivity of R
 
-Volume II, Proposition 17.1.17, page 450 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. Corrects a statement of Polson (2026), On Hilbert's 8th Problem: the reciprocal Xi clock, Thorin measures, van Dantzig pairs, zero free approximations, hitting times and the reciprocal zeta function, first edition, Independently published.
+Volume II, Proposition 17.1.17, page 452 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. Corrects a statement of Polson (2026), On Hilbert's 8th Problem: the reciprocal Xi clock, Thorin measures, van Dantzig pairs, zero free approximations, hitting times and the reciprocal zeta function, first edition, Independently published.
 
 Status: proved.
 
@@ -9390,13 +9728,13 @@ Supersedes: Proposition 30.16 of Polson (2026) states that the same is true with
 
 Earlier editions: Proposition 7.2.17, page 205 (edition 1).
 
-Source: [`ch/rz4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/rz4.tex), label `rz:prop:nomult`.
+Source: [`ch/rz4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/rz4.tex), label `rz:prop:nomult`.
 
 <a id="open_conjecture_s_for_infinitely_many_n"></a>
 
 ### Conjecture S for infinitely many n
 
-Volume II, Problem 17.1, page 451 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. First stated in Polson (2026), On Hilbert's 8th Problem: the reciprocal Xi clock, Thorin measures, van Dantzig pairs, zero free approximations, hitting times and the reciprocal zeta function, first edition, Independently published.
+Volume II, Problem 17.1, page 453 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. First stated in Polson (2026), On Hilbert's 8th Problem: the reciprocal Xi clock, Thorin measures, van Dantzig pairs, zero free approximations, hitting times and the reciprocal zeta function, first edition, Independently published.
 
 Status: open.
 
@@ -9404,13 +9742,13 @@ Statement. Let $e_k,e_k'$ be independent standard exponential variables, $F_n(w)
 
 Earlier editions: Problem 7.1, page 207 (edition 1).
 
-Source: [`ch/rz4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/rz4.tex), label `rz:prob:S`.
+Source: [`ch/rz4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/rz4.tex), label `rz:prob:S`.
 
 <a id="open_torus_method_beyond_n_36"></a>
 
 ### Torus method beyond n = 36
 
-Volume II, Problem 17.2, page 451 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. First stated in Polson (2026), On Hilbert's 8th Problem: the reciprocal Xi clock, Thorin measures, van Dantzig pairs, zero free approximations, hitting times and the reciprocal zeta function, first edition, Independently published.
+Volume II, Problem 17.2, page 453 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. First stated in Polson (2026), On Hilbert's 8th Problem: the reciprocal Xi clock, Thorin measures, van Dantzig pairs, zero free approximations, hitting times and the reciprocal zeta function, first edition, Independently published.
 
 Status: open.
 
@@ -9418,13 +9756,13 @@ Statement. Let $\alpha_k,\beta_k$ ($k\le n$) be the partial fraction coefficient
 
 Earlier editions: Problem 7.2, page 207 (edition 1).
 
-Source: [`ch/rz4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/rz4.tex), label `rz:prob:torus`.
+Source: [`ch/rz4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/rz4.tex), label `rz:prob:torus`.
 
 <a id="open_finite_order_to_all_orders_n_monotonicity_of_the_floor"></a>
 
 ### From finite order to all orders for the floor
 
-Volume II, Problem 17.3, page 452 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. First stated in Polson (2026), On Hilbert's 8th Problem: the reciprocal Xi clock, Thorin measures, van Dantzig pairs, zero free approximations, hitting times and the reciprocal zeta function, first edition, Independently published.
+Volume II, Problem 17.3, page 454 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. First stated in Polson (2026), On Hilbert's 8th Problem: the reciprocal Xi clock, Thorin measures, van Dantzig pairs, zero free approximations, hitting times and the reciprocal zeta function, first edition, Independently published.
 
 Status: open.
 
@@ -9432,13 +9770,13 @@ Statement. Let $W(y)=\frac12\sum_\rho e^{y(\rho-\frac12)^2}$, the sum over the n
 
 Earlier editions: Problem 7.3, page 207 (edition 1).
 
-Source: [`ch/rz4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/rz4.tex), label `rz:prob:allorders`.
+Source: [`ch/rz4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/rz4.tex), label `rz:prob:allorders`.
 
 <a id="open_largest_cone_of_unconditional_weil_positivity"></a>
 
 ### Beyond the Bernstein cone
 
-Volume II, Problem 17.4, page 452 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. First stated in Polson (2026), On Hilbert's 8th Problem: the reciprocal Xi clock, Thorin measures, van Dantzig pairs, zero free approximations, hitting times and the reciprocal zeta function, first edition, Independently published.
+Volume II, Problem 17.4, page 454 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. First stated in Polson (2026), On Hilbert's 8th Problem: the reciprocal Xi clock, Thorin measures, van Dantzig pairs, zero free approximations, hitting times and the reciprocal zeta function, first edition, Independently published.
 
 Status: open.
 
@@ -9446,13 +9784,13 @@ Statement. Weil's functional $\sum_\rho\hat h(\gamma_\rho)$, with $\gamma_\rho=-
 
 Earlier editions: Problem 7.4, page 208 (edition 1).
 
-Source: [`ch/rz4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/rz4.tex), label `rz:prob:cone`.
+Source: [`ch/rz4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/rz4.tex), label `rz:prob:cone`.
 
 <a id="open_deforming_the_binary_product"></a>
 
 ### Deforming the binary product
 
-Volume II, Problem 17.5, page 452 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. First stated in Polson (2026), On Hilbert's 8th Problem: the reciprocal Xi clock, Thorin measures, van Dantzig pairs, zero free approximations, hitting times and the reciprocal zeta function, first edition, Independently published.
+Volume II, Problem 17.5, page 454 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. First stated in Polson (2026), On Hilbert's 8th Problem: the reciprocal Xi clock, Thorin measures, van Dantzig pairs, zero free approximations, hitting times and the reciprocal zeta function, first edition, Independently published.
 
 Status: open.
 
@@ -9460,13 +9798,13 @@ Statement. With the necklace weights $b_n(q)$ of the Vere-Jones factorisation, e
 
 Earlier editions: Problem 7.5, page 208 (edition 1).
 
-Source: [`ch/rz4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/rz4.tex), label `rz:prob:binary`.
+Source: [`ch/rz4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/rz4.tex), label `rz:prob:binary`.
 
 <a id="open_regularising_the_autocorrelation_of_the_polya_kernel"></a>
 
 ### Regularising the autocorrelation of the Pólya kernel
 
-Volume II, Problem 17.6, page 452 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. Corrects a statement of Polson (2026), On Hilbert's 8th Problem: the reciprocal Xi clock, Thorin measures, van Dantzig pairs, zero free approximations, hitting times and the reciprocal zeta function, first edition, Independently published.
+Volume II, Problem 17.6, page 454 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. Corrects a statement of Polson (2026), On Hilbert's 8th Problem: the reciprocal Xi clock, Thorin measures, van Dantzig pairs, zero free approximations, hitting times and the reciprocal zeta function, first edition, Independently published.
 
 Status: open.
 
@@ -9476,13 +9814,13 @@ Supersedes: Open Problem 30.22 of Polson (2026) poses the problem up to a logari
 
 Earlier editions: Problem 7.6, page 208 (edition 1).
 
-Source: [`ch/rz4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/rz4.tex), label `rz:prob:meixner`.
+Source: [`ch/rz4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/rz4.tex), label `rz:prob:meixner`.
 
 <a id="open_unimodality_of_the_canonical_function_and_density"></a>
 
 ### Unimodality of w and of the density f
 
-Volume II, Problem 17.7, page 452 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. Corrects a statement of Polson (2026), On Hilbert's 8th Problem: the reciprocal Xi clock, Thorin measures, van Dantzig pairs, zero free approximations, hitting times and the reciprocal zeta function, first edition, Independently published.
+Volume II, Problem 17.7, page 454 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. Corrects a statement of Polson (2026), On Hilbert's 8th Problem: the reciprocal Xi clock, Thorin measures, van Dantzig pairs, zero free approximations, hitting times and the reciprocal zeta function, first edition, Independently published.
 
 Status: open.
 
@@ -9492,13 +9830,13 @@ Supersedes: Theorem 28.12 of Polson (2026) states that $w$ is unimodal, with a p
 
 Earlier editions: Problem 7.7, page 208 (edition 1).
 
-Source: [`ch/rz4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/rz4.tex), label `rz:prob:unimodal`.
+Source: [`ch/rz4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/rz4.tex), label `rz:prob:unimodal`.
 
 <a id="open_levy_density_positive_on_every_line_of_the_strip"></a>
 
 ### Infinite divisibility across the strip
 
-Volume II, Problem 17.8, page 453 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Problem 17.8, page 455 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: open.
 
@@ -9506,13 +9844,13 @@ Statement. For $\sigma\in(0,1)$ let $\varphi_\sigma(s)=\zeta(\sigma)/\bigl((1-s/
 
 Earlier editions: Problem 7.8, page 208 (edition 1).
 
-Source: [`ch/rz4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/rz4.tex), label `rz:prob:strip`.
+Source: [`ch/rz4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/rz4.tex), label `rz:prob:strip`.
 
 <a id="open_meixner_pollaczek_truncations_real_rooted"></a>
 
 ### Meixner Pollaczek truncations with real zeros
 
-Volume II, Problem 17.9, page 453 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. First stated in Polson (2026), On Hilbert's 8th Problem: the reciprocal Xi clock, Thorin measures, van Dantzig pairs, zero free approximations, hitting times and the reciprocal zeta function, first edition, Independently published.
+Volume II, Problem 17.9, page 455 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. First stated in Polson (2026), On Hilbert's 8th Problem: the reciprocal Xi clock, Thorin measures, van Dantzig pairs, zero free approximations, hitting times and the reciprocal zeta function, first edition, Independently published.
 
 Status: open.
 
@@ -9520,13 +9858,13 @@ Statement. Let $Z$ be Hardy's function and $p(\tau)=|\Gamma(\frac14+\frac{i\tau}
 
 Earlier editions: Problem 7.9, page 209 (edition 1).
 
-Source: [`ch/rz4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/rz4.tex), label `rz:prob:mptrunc`.
+Source: [`ch/rz4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/rz4.tex), label `rz:prob:mptrunc`.
 
 <a id="open_nyman_beurling_and_the_sech_expansion"></a>
 
 ### Nyman Beurling criterion and the sech expansion
 
-Volume II, Problem 17.10, page 453 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. First stated in Polson (2026), On Hilbert's 8th Problem: the reciprocal Xi clock, Thorin measures, van Dantzig pairs, zero free approximations, hitting times and the reciprocal zeta function, first edition, Independently published.
+Volume II, Problem 17.10, page 455 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. First stated in Polson (2026), On Hilbert's 8th Problem: the reciprocal Xi clock, Thorin measures, van Dantzig pairs, zero free approximations, hitting times and the reciprocal zeta function, first edition, Independently published.
 
 Status: open.
 
@@ -9534,13 +9872,13 @@ Statement. For $\operatorname{Re}\sqrt s>\frac12$ the book writes $1/\zeta(\frac
 
 Earlier editions: Problem 7.10, page 209 (edition 1).
 
-Source: [`ch/rz4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/rz4.tex), label `rz:prob:nymanbeurling`.
+Source: [`ch/rz4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/rz4.tex), label `rz:prob:nymanbeurling`.
 
 <a id="open_product_representation_of_the_reciprocal_xi_law"></a>
 
 ### Product representations of the law of R
 
-Volume II, Problem 17.11, page 453 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. First stated in Polson (2026), On Hilbert's 8th Problem: the reciprocal Xi clock, Thorin measures, van Dantzig pairs, zero free approximations, hitting times and the reciprocal zeta function, first edition, Independently published.
+Volume II, Problem 17.11, page 455 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. First stated in Polson (2026), On Hilbert's 8th Problem: the reciprocal Xi clock, Thorin measures, van Dantzig pairs, zero free approximations, hitting times and the reciprocal zeta function, first edition, Independently published.
 
 Status: open.
 
@@ -9548,13 +9886,13 @@ Statement. Let $X_R$ be a random variable with Laplace transform $R(s)=\xi(\frac
 
 Earlier editions: Problem 7.11, page 209 (edition 1).
 
-Source: [`ch/rz4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/rz4.tex), label `rz:prob:xrproduct`.
+Source: [`ch/rz4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/rz4.tex), label `rz:prob:xrproduct`.
 
 <a id="truncated_mellin_transforms_converge_and_grh_for_chi4_is_a_local_zero_free_statement"></a>
 
 ### Truncations converge locally uniformly, and GRH for chi 4 is equivalent to zero free compact subsets of the left half strip for large n
 
-Volume II, Theorem 17.2.1, page 456 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Theorem 17.2.1, page 458 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -9562,13 +9900,13 @@ Statement. Let $\chi_4$ be the nonprincipal Dirichlet character modulo $4$, $L(s
 
 Earlier editions: Theorem 28.1.1, page 1000 (edition 1).
 
-Source: [`ch/tr1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/tr1.tex), label `tr:thm:local`.
+Source: [`ch/tr1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/tr1.tex), label `tr:thm:local`.
 
 <a id="midpoint_tail_cumulants_of_the_beta_lattice"></a>
 
 ### The tail cumulants of the beta lattice have an explicit expansion in the truncation index
 
-Volume II, Lemma 17.3.1, page 457 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Lemma 17.3.1, page 459 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -9576,13 +9914,13 @@ Statement. Let $\chi_4$ be the nonprincipal Dirichlet character modulo $4$, $L(s
 
 Earlier editions: Lemma 28.2.1, page 1001 (edition 1).
 
-Source: [`ch/tr1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/tr1.tex), label `tr:lem:tail`.
+Source: [`ch/tr1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/tr1.tex), label `tr:lem:tail`.
 
 <a id="drift_law_of_the_zeros_of_truncated_beta_mellin_transforms"></a>
 
 ### The truncated Mellin transform differs from M by a multiple of M(z+r), and each simple zero is displaced by a multiple of the first unmatched cumulant difference
 
-Volume II, Theorem 17.3.2, page 457 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Theorem 17.3.2, page 459 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -9590,13 +9928,13 @@ Statement. Let $\chi_4$ be the nonprincipal Dirichlet character modulo $4$, $L(s
 
 Earlier editions: Theorem 28.2.2, page 1001 (edition 1).
 
-Source: [`ch/tr1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/tr1.tex), label `tr:thm:drift`.
+Source: [`ch/tr1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/tr1.tex), label `tr:thm:drift`.
 
 <a id="drift_of_the_hard_cutoff_and_of_the_mean_correction_zeros"></a>
 
 ### The hard cutoff zeros drift at the rate 1 over n and the mean corrected zeros at 1 over n cubed, with the coefficient delta m
 
-Volume II, Corollary 17.3.3, page 458 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Corollary 17.3.3, page 460 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -9604,13 +9942,13 @@ Statement. Let $\chi_4$ be the nonprincipal Dirichlet character modulo $4$, $L(s
 
 Earlier editions: Corollary 28.2.3, page 1002 (edition 1).
 
-Source: [`ch/tr1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/tr1.tex), label `tr:cor:named`.
+Source: [`ch/tr1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/tr1.tex), label `tr:cor:named`.
 
 <a id="gamma_remainders_with_matched_mean_and_variance_give_different_third_order_drifts"></a>
 
 ### Remainders matching mean and variance but not the third cumulant give different drifts, so the formula of delta 2 needs the matching hypothesis
 
-Volume II, Proposition 17.3.4, page 459 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Proposition 17.3.4, page 461 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -9618,13 +9956,13 @@ Statement. Let $\chi_4$ be the nonprincipal Dirichlet character modulo $4$, $L(s
 
 Earlier editions: Proposition 28.2.4, page 1004 (edition 1).
 
-Source: [`ch/tr1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/tr1.tex), label `tr:prop:gamma`.
+Source: [`ch/tr1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/tr1.tex), label `tr:prop:gamma`.
 
 <a id="side_of_approach_of_a_truncated_zero_is_set_by_a_gram_phase"></a>
 
 ### The sign of the real part of the drift is the sign of minus sin Theta m times the derivative of the Hardy function of chi 4
 
-Volume II, Theorem 17.4.1, page 460 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Theorem 17.4.1, page 462 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -9632,13 +9970,13 @@ Statement. Let $\chi_4$ be the nonprincipal Dirichlet character modulo $4$, $L(s
 
 Earlier editions: Theorem 28.3.1, page 1005 (edition 1).
 
-Source: [`ch/tr1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/tr1.tex), label `tr:thm:phase`.
+Source: [`ch/tr1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/tr1.tex), label `tr:thm:phase`.
 
 <a id="beta_zeros_below_height_500_located_by_sign_changes_of_the_hardy_function"></a>
 
 ### L(s,chi 4) has 379 zeros below height 500 by sign changes, all simple and on the line as far as the computation sees, with five anomalous Gram parities
 
-Volume II, Result 17.4.1, page 461 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Result 17.4.1, page 463 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: computed.
 
@@ -9646,13 +9984,13 @@ Statement. Let $\chi_4$ be the nonprincipal Dirichlet character modulo $4$, $L(s
 
 Earlier editions: Result 28.3.1, page 1005 (edition 1).
 
-Source: [`ch/tr1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/tr1.tex), label `tr:res:gram`.
+Source: [`ch/tr1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/tr1.tex), label `tr:res:gram`.
 
 <a id="no_one_sided_criterion_for_truncations_of_the_beta_lattice_at_a_fixed_order"></a>
 
 ### One sided criterion fails at order m if some critical zero is approached from the left
 
-Volume II, Corollary 17.4.2, page 462 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Corollary 17.4.2, page 464 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -9660,13 +9998,13 @@ Statement. Let $\chi_4$ be the nonprincipal Dirichlet character modulo $4$, $L(s
 
 Earlier editions: Corollary 28.3.2, page 1006 (edition 1).
 
-Source: [`ch/tr1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/tr1.tex), label `tr:cor:nogo`.
+Source: [`ch/tr1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/tr1.tex), label `tr:cor:nogo`.
 
 <a id="anomalous_gram_parity_of_the_beta_function_forces_left_approach_with_a_margin"></a>
 
 ### Infinitely many Gram anomalies with a margin force infinitely many zeros with negative real drift
 
-Volume II, Proposition 17.4.3, page 463 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Proposition 17.4.3, page 465 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -9674,13 +10012,13 @@ Statement. Let $\chi_4$ be the nonprincipal Dirichlet character modulo $4$, $L(s
 
 Earlier editions: Proposition 28.3.3, page 1007 (edition 1).
 
-Source: [`ch/tr1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/tr1.tex), label `tr:prop:gram`.
+Source: [`ch/tr1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/tr1.tex), label `tr:prop:gram`.
 
 <a id="symmetrised_truncations_give_a_hurwitz_criterion_for_grh_of_chi4"></a>
 
 ### If the symmetrised truncations have only critical zeros for infinitely many n then GRH holds for chi 4
 
-Volume II, Theorem 17.6.1, page 465 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Theorem 17.6.1, page 467 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -9688,13 +10026,13 @@ Statement. Let $\chi_4$ be the nonprincipal Dirichlet character modulo $4$, $L(s
 
 Earlier editions: Theorem 28.5.1, page 1009 (edition 1).
 
-Source: [`ch/tr1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/tr1.tex), label `tr:thm:symhurwitz`.
+Source: [`ch/tr1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/tr1.tex), label `tr:thm:symhurwitz`.
 
 <a id="every_simple_critical_zero_of_xi4_is_the_limit_of_one_critical_zero_of_the_symmetrised_truncation"></a>
 
 ### Each simple critical zero is the limit of exactly one zero of the symmetrised truncation, and that zero is critical
 
-Volume II, Proposition 17.6.2, page 465 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Proposition 17.6.2, page 467 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -9702,13 +10040,13 @@ Statement. Let $\chi_4$ be the nonprincipal Dirichlet character modulo $4$, $L(s
 
 Earlier editions: Proposition 28.5.2, page 1009 (edition 1).
 
-Source: [`ch/tr1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/tr1.tex), label `tr:prop:symlocal`.
+Source: [`ch/tr1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/tr1.tex), label `tr:prop:symlocal`.
 
 <a id="hermite_coefficients_of_xi_are_the_taylor_coefficients_of_a_gaussian_smoothing"></a>
 
 ### The Hermite coefficients of Xi are generated by the Gaussian smoothing G a, with an explicit moment formula
 
-Volume II, Theorem 17.8.1, page 468 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Theorem 17.8.1, page 470 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -9716,13 +10054,13 @@ Statement. Let $\Phi(u)=2\sum_{n\ge1}(2\pi^2n^4e^{9u/2}-3\pi n^2e^{5u/2})\exp(-\
 
 Earlier editions: Theorem 28.7.1, page 1013 (edition 1).
 
-Source: [`ch/tr2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/tr2.tex), label `tr:thm:heat`.
+Source: [`ch/tr2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/tr2.tex), label `tr:thm:heat`.
 
 <a id="additive_asymptotic_of_the_hermite_coefficients_of_xi_at_the_turning_points"></a>
 
 ### The normalised Hermite coefficient equals Xi at the turning point up to an explicit error of order a to the fourth
 
-Volume II, Theorem 17.9.1, page 470 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Theorem 17.9.1, page 472 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -9730,13 +10068,13 @@ Statement. Let $\Phi(u)=2\sum_{n\ge1}(2\pi^2n^4e^{9u/2}-3\pi n^2e^{5u/2})\exp(-\
 
 Earlier editions: Theorem 28.8.1, page 1014 (edition 1).
 
-Source: [`ch/tr2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/tr2.tex), label `tr:thm:herm`.
+Source: [`ch/tr2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/tr2.tex), label `tr:thm:herm`.
 
 <a id="hermite_coefficients_do_not_vanish_at_the_turning_points_over_zeros_of_xi"></a>
 
 ### At a real zero of Xi the Hermite coefficient at the matching scale does not vanish for large m
 
-Volume II, Proposition 17.9.2, page 471 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Proposition 17.9.2, page 473 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -9744,13 +10082,13 @@ Statement. Let $\Phi(u)=2\sum_{n\ge1}(2\pi^2n^4e^{9u/2}-3\pi n^2e^{5u/2})\exp(-\
 
 Earlier editions: Proposition 28.8.2, page 1016 (edition 1).
 
-Source: [`ch/tr2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/tr2.tex), label `tr:prop:zeros`.
+Source: [`ch/tr2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/tr2.tex), label `tr:prop:zeros`.
 
 <a id="first_negative_hermite_coefficient_of_xi_marks_the_first_zero"></a>
 
 ### The index of the first negative Hermite coefficient satisfies 4 a squared m star tends to gamma 1 squared
 
-Volume II, Corollary 17.10.1, page 472 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Corollary 17.10.1, page 474 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -9758,13 +10096,13 @@ Statement. Let $\Phi(u)=2\sum_{n\ge1}(2\pi^2n^4e^{9u/2}-3\pi n^2e^{5u/2})\exp(-\
 
 Earlier editions: Corollary 28.9.1, page 1016 (edition 1).
 
-Source: [`ch/tr2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/tr2.tex), label `tr:cor:first`.
+Source: [`ch/tr2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/tr2.tex), label `tr:cor:first`.
 
 <a id="verified_sign_changes_of_hermite_coefficients_with_a_turing_bound_certify_all_zeros"></a>
 
 ### A verified sign change count of the Hermite coefficients together with an upper bound on the zero count proves real and simple zeros
 
-Volume II, Proposition 17.11.2, page 474 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Proposition 17.11.2, page 476 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -9772,13 +10110,13 @@ Statement. Let $\Phi(u)=2\sum_{n\ge1}(2\pi^2n^4e^{9u/2}-3\pi n^2e^{5u/2})\exp(-\
 
 Earlier editions: Proposition 28.10.2, page 1019 (edition 1).
 
-Source: [`ch/tr2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/tr2.tex), label `tr:prop:verified`.
+Source: [`ch/tr2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/tr2.tex), label `tr:prop:verified`.
 
 <a id="average_run_length_of_the_hermite_coefficient_signs_given_one_sign_change_per_zero"></a>
 
 ### If each simple zero gives one sign change the mean run of the Hermite coefficient signs is asymptotic to pi T over a squared log of T over 2 pi
 
-Volume II, Proposition 17.12.1, page 476 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Proposition 17.12.1, page 478 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: conditional on the zeros $t$ of $\Xi$ with $T\le\Re t\le T+H$ are real and simple and the sign changes of $(b_m(a))$ with $t_m\in[T,T+H]$ correspond one to one to them.
 
@@ -9786,7 +10124,7 @@ Statement. Let $\Phi(u)=2\sum_{n\ge1}(2\pi^2n^4e^{9u/2}-3\pi n^2e^{5u/2})\exp(-\
 
 Earlier editions: Proposition 28.11.1, page 1020 (edition 1).
 
-Source: [`ch/tr2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/tr2.tex), label `tr:prop:run`.
+Source: [`ch/tr2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/tr2.tex), label `tr:prop:run`.
 
 ## Volume II, Chapter 18. Friable approximants of Xi after Miyatake and the cosh ladder
 
@@ -9794,7 +10132,7 @@ Source: [`ch/tr2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/
 
 ### The friable approximant of Xi is exponentially close to Xi in a strip, with the accuracy set by the first omitted prime
 
-Volume II, Theorem 18.2.1, page 483 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Theorem 18.2.1, page 485 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -9802,13 +10140,13 @@ Statement. Let $\xi$ be Riemann's xi function and $\Xi(t)=\xi(\frac12+it)$, an e
 
 Earlier editions: Theorem 22.2.1, page 801 (edition 1).
 
-Source: [`ch/mi1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/mi1.tex), label `mi:thm:approx`.
+Source: [`ch/mi1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/mi1.tex), label `mi:thm:approx`.
 
 <a id="certified_tracking_of_a_simple_zero_of_xi_by_a_real_zero_of_the_friable_approximant"></a>
 
 ### Certified tracking: a Rouche criterion for a real zero of the friable approximant near a simple zero of Xi
 
-Volume II, Corollary 18.2.2, page 483 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Corollary 18.2.2, page 485 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -9816,13 +10154,13 @@ Statement. Let $\xi$ be Riemann's xi function and $\Xi(t)=\xi(\frac12+it)$, an e
 
 Earlier editions: Corollary 22.2.2, page 802 (edition 1).
 
-Source: [`ch/mi1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/mi1.tex), label `mi:cor:rouche`.
+Source: [`ch/mi1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/mi1.tex), label `mi:cor:rouche`.
 
 <a id="friable_symmetrised_euler_product_has_spurious_zeros_near_the_poles_with_real_part_tending_to_one"></a>
 
 ### The symmetrised finite Euler product of Xi has zeros near the lines of its poles with real part tending to one
 
-Volume II, Proposition 18.1.5, page 483 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Proposition 18.1.5, page 485 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -9830,13 +10168,13 @@ Statement. Let $P\ge2$, let $\zeta_P(s)=\prod_{p\le P}(1-p^{-s})^{-1}$ be the Eu
 
 Earlier editions: Proposition 22.1.5, page 801 (edition 1).
 
-Source: [`ch/mi1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/mi1.tex), label `mi:prop:polezeros`.
+Source: [`ch/mi1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/mi1.tex), label `mi:prop:polezeros`.
 
 <a id="kink_constant_of_the_friable_approximant_and_finitely_many_real_zeros"></a>
 
 ### The folded kernel of the friable approximant has a kink of exact size c_P, so Xi_P tends to c_P on the real line and has finitely many real zeros
 
-Volume II, Theorem 18.2.3, page 484 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Theorem 18.2.3, page 486 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -9844,13 +10182,13 @@ Statement. Let $\xi$ be Riemann's xi function and $\Xi(t)=\xi(\frac12+it)$, an e
 
 Earlier editions: Theorem 22.2.3, page 802 (edition 1).
 
-Source: [`ch/mi1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/mi1.tex), label `mi:thm:kink`.
+Source: [`ch/mi1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/mi1.tex), label `mi:thm:kink`.
 
 <a id="no_summable_reweighting_of_the_theta_series_has_infinitely_many_real_zeros"></a>
 
 ### No reweighting of Riemann's theta series by summable weights has infinitely many real zeros
 
-Volume II, Theorem 18.2.4, page 484 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Theorem 18.2.4, page 487 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -9858,27 +10196,13 @@ Statement. Let $\xi$ be Riemann's xi function and $\Xi(t)=\xi(\frac12+it)$, an e
 
 Earlier editions: Theorem 22.2.4, page 802 (edition 1).
 
-Source: [`ch/mi1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/mi1.tex), label `mi:thm:noproxy`.
-
-<a id="truncated_theta_series_have_finitely_many_real_zeros_and_the_first_zeros_for_one_and_two_terms"></a>
-
-### Theta series truncated to N terms of Xi: constants, real zeros and nonreal zeros for N equal to 1 and 2 (computed)
-
-Volume II, Result 18.2, page 485 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
-
-Status: computed.
-
-Statement. Let $\psi_N(x)=\sum_{n\le N}e^{-\pi n^2x}$ and $\Xi_w(t)=\frac12-2(t^2+\frac14)\int_0^\infty\psi_N(e^{2u})e^{u/2}\cos(tu)\,du$, the weights being $w_n=1$ for $n\le N$ and $0$ otherwise; this is even and entire of order at most one, with finitely many real zeros and infinitely many nonreal zeros, and it tends to $c_E=\sum_{m>N}(4\pi m^2-1)e^{-\pi m^2}>0$ on $\mathbb{R}$. Computed: $c_E=1.71806\cdot10^{-4}$ for $N=1$ and $c_E=5.89126\cdot10^{-11}$ for $N=2$. In $0<t\le60$ the function $\Xi_w$ has $2$ real zeros for $N=1$, at $14.1659$ and $19.5639$, and $6$ for $N=2$, at $14.1347$, $21.0220$, $25.0109$, $30.4243$, $32.9388$ and $37.4954$, against the $13$ zeros of the Riemann Xi function $\Xi(t)=\xi(\frac12+it)$ there. Its nonreal zeros with $0<\operatorname{Re}t\le60$ and $0<\operatorname{Im}t\le12$ are $22.915+4.666i$ and $27.930+9.028i$ for $N=1$, and $41.190+1.462i$, $45.418+4.421i$, $49.549+7.364i$ and $53.720+10.074i$ for $N=2$. These values come from the argument principle and are a computation at these two values of $N$ and this range only. The computation follows a note of Nicholas Polson merged into the book.
-
-Earlier editions: Result 22.2, page 803 (edition 1).
-
-Source: [`ch/mi1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/mi1.tex), label `mi:res:trunc`.
+Source: [`ch/mi1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/mi1.tex), label `mi:thm:noproxy`.
 
 <a id="deficit_of_the_friable_approximant_is_positive_and_decreasing_in_the_prime_bound"></a>
 
 ### The deficit Xi_P minus Xi is positive on the real line and decreases as the prime bound grows
 
-Volume II, Theorem 18.3.1, page 486 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Theorem 18.3.1, page 488 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -9886,13 +10210,13 @@ Statement. Let $\xi$ be Riemann's xi function and $\Xi(t)=\xi(\frac12+it)$, an e
 
 Earlier editions: Theorem 22.3.1, page 804 (edition 1).
 
-Source: [`ch/mi1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/mi1.tex), label `mi:thm:positive`.
+Source: [`ch/mi1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/mi1.tex), label `mi:thm:positive`.
 
 <a id="no_term_of_the_theta_series_has_a_vanishing_transform_and_the_laplace_law_is_a_mixture"></a>
 
 ### The transform of no theta term vanishes on the real line, and the Laplace law is a mixture of the Polya law and a pole law
 
-Volume II, Result 18.3.2, page 486 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Result 18.3.2, page 488 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -9900,13 +10224,27 @@ Statement. Let $\xi(s)=\frac12s(s-1)\pi^{-s/2}\Gamma(\frac s2)\zeta(s)$, $\Xi(t)
 
 Earlier editions: Result 22.3.2, page 804 (edition 1).
 
-Source: [`ch/mi1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/mi1.tex), label `mi:res:laws`.
+Source: [`ch/mi1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/mi1.tex), label `mi:res:laws`.
+
+<a id="truncated_theta_series_have_finitely_many_real_zeros_and_the_first_zeros_for_one_and_two_terms"></a>
+
+### Theta series truncated to N terms of Xi: constants, real zeros and nonreal zeros for N equal to 1 and 2 (computed)
+
+Volume II, Result 18.2, page 488 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+
+Status: computed.
+
+Statement. Let $\psi_N(x)=\sum_{n\le N}e^{-\pi n^2x}$ and $\Xi_w(t)=\frac12-2(t^2+\frac14)\int_0^\infty\psi_N(e^{2u})e^{u/2}\cos(tu)\,du$, the weights being $w_n=1$ for $n\le N$ and $0$ otherwise; this is even and entire of order at most one, with finitely many real zeros and infinitely many nonreal zeros, and it tends to $c_E=\sum_{m>N}(4\pi m^2-1)e^{-\pi m^2}>0$ on $\mathbb{R}$. Computed: $c_E=1.71806\cdot10^{-4}$ for $N=1$ and $c_E=5.89126\cdot10^{-11}$ for $N=2$. In $0<t\le60$ the function $\Xi_w$ has $2$ real zeros for $N=1$, at $14.1659$ and $19.5639$, and $6$ for $N=2$, at $14.1347$, $21.0220$, $25.0109$, $30.4243$, $32.9388$ and $37.4954$, against the $13$ zeros of the Riemann Xi function $\Xi(t)=\xi(\frac12+it)$ there. Its nonreal zeros with $0<\operatorname{Re}t\le60$ and $0<\operatorname{Im}t\le12$ are $22.915+4.666i$ and $27.930+9.028i$ for $N=1$, and $41.190+1.462i$, $45.418+4.421i$, $49.549+7.364i$ and $53.720+10.074i$ for $N=2$. These values come from the argument principle and are a computation at these two values of $N$ and this range only. The computation follows a note of Nicholas Polson merged into the book.
+
+Earlier editions: Result 22.2, page 803 (edition 1).
+
+Source: [`ch/mi1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/mi1.tex), label `mi:res:trunc`.
 
 <a id="deficit_of_the_friable_approximant_is_a_sum_of_lorentzians_with_explicit_error"></a>
 
 ### Uniform Lorentzian bound: the deficit of the friable approximant is a sum of Lorentzians with an explicit uniform relative error
 
-Volume II, Theorem 18.3.4, page 487 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Theorem 18.3.4, page 490 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -9914,13 +10252,13 @@ Statement. For $a\ge9\pi$ put $b=a-\frac14$, $f_a(w)=e^{-ae^w}e^{w/4}$, $C_a(t)=
 
 Earlier editions: Theorem 22.3.4, page 805 (edition 1).
 
-Source: [`ch/mi1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/mi1.tex), label `mi:thm:lorentz`.
+Source: [`ch/mi1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/mi1.tex), label `mi:thm:lorentz`.
 
 <a id="uniform_curvature_bound_for_the_log_of_the_deficit_of_the_friable_approximant"></a>
 
 ### Curvature: the logarithm of the deficit of the friable approximant is uniformly almost convex for t at least 14
 
-Volume II, Theorem 18.3.5, page 488 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Theorem 18.3.5, page 490 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -9928,13 +10266,13 @@ Statement. Let $\mathcal F(P)$ be the set of positive integers all of whose prim
 
 Earlier editions: Theorem 22.3.5, page 806 (edition 1).
 
-Source: [`ch/mi1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/mi1.tex), label `mi:thm:curv`.
+Source: [`ch/mi1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/mi1.tex), label `mi:thm:curv`.
 
 <a id="real_zeros_of_the_friable_approximant_live_in_negative_humps_of_xi_in_pairs"></a>
 
 ### Real zeros of the friable approximant live in the negative humps of Xi, in pairs, and surviving humps are nested in P
 
-Volume II, Theorem 18.4.1, page 489 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Theorem 18.4.1, page 491 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -9942,13 +10280,13 @@ Statement. Let $\xi$ be Riemann's xi function and $\Xi(t)=\xi(\frac12+it)$, an e
 
 Earlier editions: Theorem 22.4.1, page 807 (edition 1).
 
-Source: [`ch/mi1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/mi1.tex), label `mi:thm:humps`.
+Source: [`ch/mi1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/mi1.tex), label `mi:thm:humps`.
 
 <a id="count_of_real_zeros_of_the_friable_approximant_is_twice_the_number_of_deep_humps"></a>
 
 ### Count: the number of positive real zeros of the friable approximant is twice the number of negative humps of Xi deeper than the deficit
 
-Volume II, Theorem 18.4.2, page 490 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Theorem 18.4.2, page 492 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -9956,13 +10294,13 @@ Statement. Let $\xi$ be Riemann's xi function and $\Xi(t)=\xi(\frac12+it)$, an e
 
 Earlier editions: Theorem 22.4.2, page 808 (edition 1).
 
-Source: [`ch/mi1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/mi1.tex), label `mi:thm:count`.
+Source: [`ch/mi1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/mi1.tex), label `mi:thm:count`.
 
 <a id="conjecture_on_the_number_of_real_zeros_of_the_friable_approximant_and_the_peaks_of_hardys_function"></a>
 
 ### Conjecture: the number of real zeros of the friable approximant is the zero count at the breakdown height plus a correction from the peaks of Hardy's function
 
-Volume II, Conjecture 18.5.1, page 491 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Conjecture 18.5.1, page 494 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: open.
 
@@ -9970,13 +10308,25 @@ Statement. Let $\xi$ be Riemann's xi function and $\Xi(t)=\xi(\frac12+it)$, an e
 
 Earlier editions: Conjecture 22.5.1, page 810 (edition 1).
 
-Source: [`ch/mi2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/mi2.tex), label `mi:conj:survey`.
+Source: [`ch/mi2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/mi2.tex), label `mi:conj:survey`.
+
+<a id="truncated_friable_star_family_not_lee_yang_for_n_at_least_3"></a>
+
+### Truncated two term family is not Lee Yang for N at least 3 (certified)
+
+Volume II, Proposition 18.7.2, page 497 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+
+Status: proved.
+
+Statement. Let $\rho_{*,N}(u)\propto\sum_{n\le N}(2\pi^2n^4\cosh9u-3\pi n^2\cosh5u)e^{-2\pi n^2\cosh4u}$, with characteristic function continued to complex $t$ as $\psi_N(2t)=\frac14\sum_{n\le N}[T_n(t)+T_n(-t)]$, $T_n(t)=2\pi^2n^4K_{\frac94+\frac{it}2}(2\pi n^2)-3\pi n^2K_{\frac54+\frac{it}2}(2\pi n^2)$, $K_\nu$ the modified Bessel function of the second kind, and $\psi_\infty$ the limit as $N\to\infty$. For $N=3$, $\psi_3(2t)$ has exactly one zero in the box of half width $0.025$ around $188.433681-0.274981i$. For every $N$ with $4\le N\le\infty$, $\psi_N(2t)$ has exactly one zero in the box of half width $0.02$ around $188.434477-0.192499i$. So no $\rho_{*,N}$ with $N\ge3$, and not the limit, is a Lee Yang spin. Certified in ball arithmetic: a winding number around the box for $N=3$; for $N=4$ a boundary walk with point values in ball arithmetic and a Lipschitz bound, and Rouché's theorem for the terms with $n\ge5$.
+
+Source: [`ch/mi3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/mi3.tex), label `mi:prop:starnonreal`.
 
 <a id="kink_budget_when_the_pole_kernel_is_replaced_by_a_smooth_even_kernel"></a>
 
 ### Kink budget: the limit of the friable approximant with a smooth even kernel replacing the pole term
 
-Volume II, Proposition 18.8.1, page 495 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Proposition 18.8.1, page 499 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -9984,13 +10334,13 @@ Statement. Let $\mathcal F(P)$ be the set of positive integers all of whose prim
 
 Earlier editions: Proposition 22.8.1, page 814 (edition 1).
 
-Source: [`ch/mi3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/mi3.tex), label `mi:prop:kinkbudget`.
+Source: [`ch/mi3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/mi3.tex), label `mi:prop:kinkbudget`.
 
 <a id="reweighting_with_weights_in_zero_one_has_smallest_deficit_for_the_indicator_of_the_complement"></a>
 
 ### Reweighting: among weights in [0,1] vanishing on a given set, the indicator of the complement has the smallest deficit
 
-Volume II, Proposition 18.8.2, page 496 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Proposition 18.8.2, page 499 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -9998,13 +10348,13 @@ Statement. Let $\xi$ be Riemann's xi function and $\Xi(t)=\xi(\frac12+it)$, an e
 
 Earlier editions: Proposition 22.8.2, page 814 (edition 1).
 
-Source: [`ch/mi3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/mi3.tex), label `mi:prop:reweight`.
+Source: [`ch/mi3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/mi3.tex), label `mi:prop:reweight`.
 
 <a id="friable_approximant_is_uniformly_close_to_xi_on_the_imaginary_axis_for_p_2_and_3"></a>
 
 ### The friable approximants for P = 2 and 3 are uniformly close to Xi on the imaginary axis and have no zero there
 
-Volume II, Proposition 18.9.1, page 497 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Proposition 18.9.1, page 500 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: computed.
 
@@ -10012,13 +10362,13 @@ Statement. Let $\xi$ be Riemann's xi function and $\Xi(t)=\xi(\frac12+it)$, an e
 
 Earlier editions: Proposition 22.9.1, page 815 (edition 1).
 
-Source: [`ch/mi3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/mi3.tex), label `mi:prop:axis`.
+Source: [`ch/mi3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/mi3.tex), label `mi:prop:axis`.
 
 <a id="shift_identity_xi_is_the_cosine_of_a_shift_applied_to_the_transform_of_phi_over_cosh"></a>
 
 ### Shift identity: Xi is the average of two shifts of the transform of Phi divided by cosh, which contains Miyatake's identity
 
-Volume II, Proposition 18.11.1, page 500 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Proposition 18.11.1, page 503 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10026,13 +10376,13 @@ Statement. Let $\xi$ be Riemann's xi function and $\Xi(t)=\xi(\frac12+it)$, an e
 
 Earlier editions: Proposition 22.11.1, page 818 (edition 1).
 
-Source: [`ch/mi4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/mi4.tex), label `mi:prop:shiftb`.
+Source: [`ch/mi4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/mi4.tex), label `mi:prop:shiftb`.
 
 <a id="transform_of_phi_over_cosh_is_a_levy_area_smoothing_and_a_polya_gamma_mixture_of_the_flow"></a>
 
 ### Levy area, Polya Gamma clock and Thorin atoms: the transform of Phi over cosh is Xi smoothed by Levy's stochastic area
 
-Volume II, Theorem 18.11.2, page 500 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Theorem 18.11.2, page 503 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10040,13 +10390,13 @@ Statement. Let $\xi$ be Riemann's xi function and $\Xi(t)=\xi(\frac12+it)$, an e
 
 Earlier editions: Theorem 22.11.2, page 819 (edition 1).
 
-Source: [`ch/mi4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/mi4.tex), label `mi:thm:levyarea`.
+Source: [`ch/mi4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/mi4.tex), label `mi:thm:levyarea`.
 
 <a id="logistic_partition_of_unity_splits_xi_into_two_pieces_of_the_transform_over_cosh"></a>
 
 ### Logistic partition: 2 xi is the sum of two logistic weighted expectations of a power of a random variable
 
-Volume II, Proposition 18.11.3, page 500 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Proposition 18.11.3, page 504 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10054,13 +10404,13 @@ Statement. Let $\xi$ be Riemann's xi function and $\Upsilon=V^{1/2}$ with $V$ th
 
 Earlier editions: Proposition 22.11.3, page 819 (edition 1).
 
-Source: [`ch/mi4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/mi4.tex), label `mi:prop:logistic`.
+Source: [`ch/mi4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/mi4.tex), label `mi:prop:logistic`.
 
 <a id="exponential_tail_of_the_transform_of_phi_over_cosh_appears_exactly_above_b_equal_two"></a>
 
 ### Exponential tail: the transform of Phi over cosh has a residue term C_b e^{-pi z/(2b)} exactly when b exceeds 2
 
-Volume II, Theorem 18.12.1, page 501 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Theorem 18.12.1, page 504 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10068,13 +10418,13 @@ Statement. Let $\xi$ be Riemann's xi function and $\Xi(t)=\xi(\frac12+it)$, an e
 
 Earlier editions: Theorem 22.12.1, page 820 (edition 1).
 
-Source: [`ch/mi4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/mi4.tex), label `mi:thm:tail`.
+Source: [`ch/mi4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/mi4.tex), label `mi:thm:tail`.
 
 <a id="cusp_asymptotics_of_the_residue_constant_as_b_decreases_to_two"></a>
 
 ### Cusp asymptotics: the residue constant C_b of the transform of Phi over cosh as b decreases to 2
 
-Volume II, Theorem 18.12.2, page 502 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Theorem 18.12.2, page 505 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10082,13 +10432,13 @@ Statement. Let $\Phi$ be Riemann's kernel, $\Phi(u)=2\sum_{n\ge1}(2\pi^2n^4e^{9u
 
 Earlier editions: Theorem 22.12.2, page 820 (edition 1).
 
-Source: [`ch/mi4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/mi4.tex), label `mi:thm:cusp`.
+Source: [`ch/mi4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/mi4.tex), label `mi:thm:cusp`.
 
 <a id="transform_of_phi_over_cosh_for_b_above_two_is_not_in_the_laguerre_polya_class"></a>
 
 ### For b above 2 with C_b nonzero the transform of Phi over cosh has finitely many real zeros and is not in the Laguerre Polya class
 
-Volume II, Corollary 18.12.3, page 502 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Corollary 18.12.3, page 506 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10096,13 +10446,13 @@ Statement. Let $\Phi$ be Riemann's kernel, $\Phi(u)=2\sum_{n\ge1}(2\pi^2n^4e^{9u
 
 Earlier editions: Corollary 22.12.3, page 821 (edition 1).
 
-Source: [`ch/mi4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/mi4.tex), label `mi:cor:notLP`.
+Source: [`ch/mi4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/mi4.tex), label `mi:cor:notLP`.
 
 <a id="polar_part_of_the_psi_m_kernel_is_a_simple_pole_at_cos_two_pi_over_nine_with_positive_residue"></a>
 
 ### Polar part of the Miyatake kernel in the variable cosh t: a simple pole at cos(2 pi/9) with positive residue r_0
 
-Volume II, Proposition 18.13.1, page 504 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Proposition 18.13.1, page 507 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10110,13 +10460,13 @@ Statement. Let $\Phi$ be Riemann's kernel, $\Phi(u)=2\sum_{n\ge1}(2\pi^2n^4e^{9u
 
 Earlier editions: Proposition 22.13.1, page 823 (edition 1).
 
-Source: [`ch/mi4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/mi4.tex), label `mi:prop:polar`.
+Source: [`ch/mi4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/mi4.tex), label `mi:prop:polar`.
 
 <a id="exponential_mixture_of_polya_bessel_functions_has_nonreal_zeros_unless_the_exponent_is_cos_two_pi_over_nine"></a>
 
 ### The exponent is forced: an exponential mixture of Pólya Bessel functions has finitely many real zeros unless its exponent is cos(2 pi/9)
 
-Volume II, Proposition 18.13.2, page 505 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Proposition 18.13.2, page 508 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10124,13 +10474,13 @@ Statement. Let $0<\theta<\frac\pi2$ and $a_0>0$, let $K_\nu$ be the modified Bes
 
 Earlier editions: Proposition 22.13.2, page 823 (edition 1).
 
-Source: [`ch/mi4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/mi4.tex), label `mi:prop:rigid`.
+Source: [`ch/mi4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/mi4.tex), label `mi:prop:rigid`.
 
 <a id="polar_transform_is_a_meixner_convolution_of_a_laguerre_polya_function_and_the_meixner_law_is_a_polya_frequency_function"></a>
 
 ### A Meixner convolution: the polar transform is a Pólya frequency density convolved with a Laguerre Pólya function
 
-Volume II, Proposition 18.13.3, page 505 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Proposition 18.13.3, page 509 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10138,13 +10488,13 @@ Statement. Let $c_1=\cos\frac\pi9$ and $c_0=\cos\frac{2\pi}9=2c_1^2-1$, and let 
 
 Earlier editions: Proposition 22.13.3, page 824 (edition 1).
 
-Source: [`ch/mi4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/mi4.tex), label `mi:prop:meixner`.
+Source: [`ch/mi4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/mi4.tex), label `mi:prop:meixner`.
 
 <a id="bottom_of_the_cosh_ladder_is_bounded_by_the_quasi_riemann_abscissa"></a>
 
 ### The bottom of the cosh ladder is at most the largest real part of a zero of zeta minus one half
 
-Volume II, Proposition 18.14.1, page 507 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Proposition 18.14.1, page 511 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10152,13 +10502,13 @@ Statement. Let $\xi$ be Riemann's xi function and $\Xi(t)=\xi(\frac12+it)$, an e
 
 Earlier editions: Proposition 22.14.1, page 826 (edition 1).
 
-Source: [`ch/mi5.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/mi5.tex), label `mi:prop:BTheta`.
+Source: [`ch/mi5.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/mi5.tex), label `mi:prop:BTheta`.
 
 <a id="conjecture_bottom_of_the_cosh_ladder_equals_the_asymptotic_quasi_riemann_abscissa"></a>
 
 ### Conjecture: the bottom of the cosh ladder lies between the asymptotic and the global quasi Riemann abscissa
 
-Volume II, Conjecture 18.14.2, page 509 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Conjecture 18.14.2, page 511 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: open.
 
@@ -10166,13 +10516,13 @@ Statement. With $F_b(z)=\int\Phi(u)\cosh(bu)e^{izu}\,du$, so that $F_b(x)=\opera
 
 Earlier editions: Conjecture 22.14.2, page 827 (edition 1).
 
-Source: [`ch/mi5.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/mi5.tex), label `mi:conj:quasi`.
+Source: [`ch/mi5.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/mi5.tex), label `mi:conj:quasi`.
 
 <a id="paired_form_of_the_cosh_ladder_hermite_biehler_equivalence_with_zero_free_half_plane"></a>
 
 ### Paired form: zeta has no zero to the right of alpha exactly when the real and imaginary parts of xi on the line alpha interlace
 
-Volume II, Theorem 18.14.3, page 509 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Theorem 18.14.3, page 513 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10180,13 +10530,13 @@ Statement. Let $\xi$ be Riemann's xi function, $\alpha>\frac12$, $E_\alpha(z)=\x
 
 Earlier editions: Theorem 22.14.3, page 828 (edition 1).
 
-Source: [`ch/mi5.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/mi5.tex), label `mi:thm:paired`.
+Source: [`ch/mi5.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/mi5.tex), label `mi:thm:paired`.
 
 <a id="density_of_real_zeros_of_the_real_and_imaginary_parts_of_xi_on_a_line_to_the_right_of_one_half"></a>
 
 ### Real zeros of the real and imaginary parts of xi on a vertical line right of one half have asymptotically full density
 
-Volume II, Theorem 18.14.4, page 511 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Theorem 18.14.4, page 514 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10194,13 +10544,13 @@ Statement. Let $\xi$ be Riemann's xi function, $N^\pm(T)$ the number of nontrivi
 
 Earlier editions: Theorem 22.14.4, page 830 (edition 1).
 
-Source: [`ch/mi5.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/mi5.tex), label `mi:thm:density`.
+Source: [`ch/mi5.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/mi5.tex), label `mi:thm:density`.
 
 <a id="zeros_of_real_parts_and_imaginary_parts_of_xi_on_two_lines_to_the_right_of_one_alternate_or_fail_to_alternate_by_the_euler_product"></a>
 
 ### Interlacing across rungs: criteria for the zeros of the real and imaginary parts of xi on two lines to alternate or to fail to alternate
 
-Volume II, Proposition 18.14.5, page 512 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Proposition 18.14.5, page 515 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10208,13 +10558,13 @@ Statement. Let $\xi(s)=\frac12s(s-1)\pi^{-s/2}\Gamma(\frac s2)\zeta(s)$ be Riema
 
 Earlier editions: Proposition 22.14.5, page 831 (edition 1).
 
-Source: [`ch/mi5.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/mi5.tex), label `mi:prop:pairs`.
+Source: [`ch/mi5.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/mi5.tex), label `mi:prop:pairs`.
 
 <a id="zeros_of_the_real_part_of_xi_on_a_line_to_the_right_of_one_do_not_alternate_with_the_zeros_of_xi"></a>
 
 ### Non interlacing: the zeros of A_alpha and of the Bessel functions K do not alternate with the real zeros of Xi
 
-Volume II, Proposition 18.14.6, page 513 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Proposition 18.14.6, page 516 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10222,13 +10572,13 @@ Statement. Let $\xi$ be Riemann's xi function, $\Xi(t)=\xi(\frac12+it)$, $\varth
 
 Earlier editions: Proposition 22.14.6, page 832 (edition 1).
 
-Source: [`ch/mi5.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/mi5.tex), label `mi:prop:noninter`.
+Source: [`ch/mi5.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/mi5.tex), label `mi:prop:noninter`.
 
 <a id="collision_of_one_pair_of_zeros_under_a_vertical_random_average_is_decided_by_the_variance_and_the_kurtosis"></a>
 
 ### Collision of one pair of zeros under a random vertical average: the critical spread depends on the variance and the fourth moment
 
-Volume II, Proposition 18.14.8, page 515 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Proposition 18.14.8, page 518 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10236,7 +10586,7 @@ Statement. Let $G$ be a real entire function of order less than two, $a\in\mathb
 
 Earlier editions: Proposition 22.14.8, page 834 (edition 1).
 
-Source: [`ch/mi5.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/mi5.tex), label `mi:prop:collision`.
+Source: [`ch/mi5.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/mi5.tex), label `mi:prop:collision`.
 
 ## Volume II, Chapter 19. Ferromagnetic and extreme value approximants with certified real zeros
 
@@ -10244,7 +10594,7 @@ Source: [`ch/mi5.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/
 
 ### Cosine and Gaussian tilts of the Pólya law with variance at least 9/64 if there is no zero beyond 7/8
 
-Volume II, Proposition 19.1.2, page 520 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Proposition 19.1.2, page 524 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: conditional on The Riemann zeta function has no zero with real part greater than 7/8 (announced by OpenAI in October 2026, not refereed, and not proved in the book).
 
@@ -10252,13 +10602,13 @@ Statement. Let $X$ be the Pólya variable, the symmetric random variable with de
 
 Earlier editions: Proposition 13.5.2, page 549 (edition 1).
 
-Source: [`ch/fm4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/fm4.tex), label `fm:prop:bruijn`.
+Source: [`ch/fm4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/fm4.tex), label `fm:prop:bruijn`.
 
 <a id="ferromagnetic_laws_on_a_bessel_kernel_with_multipliers"></a>
 
 ### Ferromagnetic laws with density proportional to a multiplier times exp(-a cosh(l t)), Bessel transform and clock
 
-Volume II, Theorem 19.1.4, page 522 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Theorem 19.1.4, page 526 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10266,13 +10616,13 @@ Statement. A symmetric real random variable $X$ is called ferromagnetic if $\mat
 
 Earlier editions: Theorem 13.5.4, page 551 (edition 1).
 
-Source: [`ch/fm4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/fm4.tex), label `fm:thm:bessel`.
+Source: [`ch/fm4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/fm4.tex), label `fm:thm:bessel`.
 
 <a id="bessel_family_laws_are_log_mixtures_of_generalised_inverse_gaussian_laws"></a>
 
 ### Laws on a Bessel kernel as logarithms of mixtures of generalised inverse Gaussian laws
 
-Volume II, Proposition 19.1.5, page 523 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Proposition 19.1.5, page 527 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10280,13 +10630,13 @@ Statement. Let $a,\ell>0$, $\mu\ge0$, $\lambda_1,\dots,\lambda_N\ge0$, $Z$ stand
 
 Earlier editions: Proposition 13.5.5, page 552 (edition 1).
 
-Source: [`ch/fm4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/fm4.tex), label `fm:prop:besselgig`.
+Source: [`ch/fm4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/fm4.tex), label `fm:prop:besselgig`.
 
 <a id="no_sequence_on_one_bessel_kernel_converges_in_law_to_polya_law"></a>
 
 ### No sequence of laws on a convergent Bessel kernel with Laguerre Pólya multipliers converges in law to the Pólya law
 
-Volume II, Proposition 19.1.8, page 525 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Proposition 19.1.8, page 529 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10294,13 +10644,13 @@ Statement. Let $p=\Phi/\xi(\frac12)$ be the Pólya density, where $\xi(s)=\frac1
 
 Earlier editions: Proposition 13.5.8, page 554 (edition 1).
 
-Source: [`ch/fm4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/fm4.tex), label `fm:prop:fixedkernel`.
+Source: [`ch/fm4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/fm4.tex), label `fm:prop:fixedkernel`.
 
 <a id="coupled_bessel_spins_with_ferromagnetic_interaction_give_ferromagnetic_sums"></a>
 
 ### Coupled spins with Bessel kernel laws and a ferromagnetic interaction have ferromagnetic nonnegative combinations
 
-Volume II, Corollary 19.1.9, page 526 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Corollary 19.1.9, page 530 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10308,13 +10658,13 @@ Statement. A symmetric real random variable $X$ is called ferromagnetic if $\mat
 
 Earlier editions: Corollary 13.5.9, page 555 (edition 1).
 
-Source: [`ch/fm4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/fm4.tex), label `fm:cor:coupled`.
+Source: [`ch/fm4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/fm4.tex), label `fm:cor:coupled`.
 
 <a id="small_coupling_moves_the_zeros_of_two_bessel_spins_by_order_j_or_square_root_of_j"></a>
 
 ### Zeros of the transform of two weakly coupled Bessel spins move by order J at a simple zero and by plus or minus the square root of J at a common zero
 
-Volume II, Proposition 19.1.10, page 527 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Proposition 19.1.10, page 531 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10322,13 +10672,13 @@ Statement. Let $q_1,q_2$ be laws of the Bessel kernel theorem (densities proport
 
 Earlier editions: Proposition 13.5.10, page 556 (edition 1).
 
-Source: [`ch/fm4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/fm4.tex), label `fm:prop:levelrep`.
+Source: [`ch/fm4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/fm4.tex), label `fm:prop:levelrep`.
 
 <a id="bessel_pair_mellin_transform_has_no_zero_in_box_computed"></a>
 
 ### Mellin transform of the clock of the Bessel K pair has no zero in a box where the uniform pair has two (computed)
 
-Volume II, Result 19.1.3, page 527 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Result 19.1.3, page 531 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: computed.
 
@@ -10336,13 +10686,13 @@ Statement. Let $q$ be the law with characteristic function $\varphi_q(\theta)=K_
 
 Earlier editions: Result 13.5.3, page 556 (edition 1).
 
-Source: [`ch/fm4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/fm4.tex), label `fm:res:besselmellin`.
+Source: [`ch/fm4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/fm4.tex), label `fm:res:besselmellin`.
 
 <a id="components_of_riemann_theta_series_and_their_mixture_are_not_ferromagnetic"></a>
 
 ### The components of the theta series in Riemann's formula and their mixture are not ferromagnetic
 
-Volume II, Proposition 19.1.11, page 528 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Proposition 19.1.11, page 532 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10350,13 +10700,13 @@ Statement. For $n\ge1$ let $r_n(t)=e^{|t|/2}\exp(-\pi n^2e^{2|t|})$, and conside
 
 Earlier editions: Proposition 13.5.11, page 557 (edition 1).
 
-Source: [`ch/fm4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/fm4.tex), label `fm:prop:nocomponent`.
+Source: [`ch/fm4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/fm4.tex), label `fm:prop:nocomponent`.
 
 <a id="zero_completed_laws_maxwell_construction_and_rh_criterion"></a>
 
 ### Zero completed laws of the Pólya variable, the Maxwell construction and a criterion for RH
 
-Volume II, Theorem 19.1.12, page 529 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Theorem 19.1.12, page 533 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10364,13 +10714,37 @@ Statement. Let $X$ be the Pólya variable, the symmetric random variable with de
 
 Earlier editions: Theorem 13.5.12, page 558 (edition 1).
 
-Source: [`ch/fm4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/fm4.tex), label `fm:thm:zc`.
+Source: [`ch/fm4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/fm4.tex), label `fm:thm:zc`.
+
+<a id="hermite_series_of_the_polya_density_converges_with_no_hypothesis"></a>
+
+### Hermite series for the Pólya density convolved with a Gaussian converges unconditionally
+
+Volume II, Proposition 19.1.14, page 535 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+
+Status: proved.
+
+Statement. Let $X$ be the Pólya variable with characteristic function $\varphi_X$ whose zeros are at $\pm\gamma_k$, $\gamma_k$ running over the ordinates of the zeros of $\zeta$ with positive real part, with multiplicity (not assumed real). Let $e_j(N)$ be the $j$th elementary symmetric function of $\gamma_1^{-2},\dots,\gamma_N^{-2}$ and $e_j=\lim_Ne_j(N)$. Then all $e_j(N)\ge0$, they increase with $N$ to $e_j$, and $\sum_je_j\sqrt{(2j)!}\,v^{-j}<\infty$ for every $v>0$. With $g_v$ the $N(0,v)$ density, $\mathrm{He}_n$ the Hermite polynomial $\mathrm{He}_n(y)=\mathbb{E}(y+iZ)^n$ ($Z$ standard normal) and $f_{N,v}(x)=g_v(x)\sum_{j\le N}e_j(N)v^{-j}\mathrm{He}_{2j}(x/\sqrt v)$, the functions $f_{N,v}$ converge, uniformly after multiplication by $e^{x^2/4v}$, to the density of $X+\sqrt vZ$ with $Z$ an independent standard normal, for every $v>0$, with no hypothesis on the zeros.
+
+Source: [`ch/fm4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/fm4.tex), label `fm:prop:hermiteinf`.
+
+<a id="positivity_of_hermite_syntheses_above_half_the_variance_for_zeta_and_dh"></a>
+
+### Positive Hermite syntheses at Gaussian variance at least half the variance, zeta and Davenport and Heilbronn
+
+Volume II, Proposition 19.1.15, page 535 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+
+Status: proved.
+
+Statement. Let $X$ be the Pólya variable, $f_{N,v}$ the density with Fourier transform $e^{-v\theta^2/2}\prod_{k\le N}(1-\theta^2/\gamma_k^2)$ over the ordinates $\gamma_k$ of the zeros of $\zeta$ in the order of the book, and let $v\ge\frac12\operatorname{Var}X=\sum_k\operatorname{Re}\gamma_k^{-2}=0.0231$. Then $f_{N,v}\ge0$ for every $N$ ending a conjugate pair, and $f_{N,v}$ converges weakly to the law of $X+\sqrt vZ$, $Z$ an independent standard normal. This holds for the zeta function with no hypothesis on the zeros. It holds equally for the Davenport and Heilbronn function, which has zeros off the critical line, for $v\ge\frac12\operatorname{Var}X_{\mathrm{DH}}=0.0981$; for that function the input that the nonreal ordinates satisfy $|\operatorname{Im}\gamma|/\operatorname{Re}\gamma<0.02$ rests on computed zeros to height $200$ and a bound $|\operatorname{Im}\gamma|\le1.5$. For zeta the input is that a nonreal ordinate has $\operatorname{Re}\gamma>3\cdot10^{12}$ and $|\operatorname{Im}\gamma|<\frac12$ (Platt and Trudgian 2021 and the zero free region).
+
+Source: [`ch/fm4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/fm4.tex), label `fm:prop:heightpos`.
 
 <a id="rh_iff_polya_variable_smoothed_by_gaussian_equals_maxwell_series_in_law"></a>
 
 ### RH is equivalent to an identity in law between the smoothed Pólya variable and a series of Maxwell variables
 
-Volume II, Theorem 19.1.14, page 532 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Theorem 19.1.16, page 536 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10378,13 +10752,13 @@ Statement. Let $X$ be the Pólya variable, the symmetric random variable with de
 
 Earlier editions: Theorem 13.5.14, page 561 (edition 1).
 
-Source: [`ch/fm4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/fm4.tex), label `fm:thm:maxwell`.
+Source: [`ch/fm4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/fm4.tex), label `fm:thm:maxwell`.
 
 <a id="polya_law_within_total_variation_two_millionths_of_a_ferromagnetic_law"></a>
 
 ### Total variation distance from the Pólya law to ferromagnetic laws is below two millionths, with no hypothesis
 
-Volume II, Proposition 19.1.15, page 532 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Proposition 19.1.17, page 537 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10392,13 +10766,13 @@ Statement. Let $X$ be the Pólya variable, the symmetric random variable with de
 
 Earlier editions: Proposition 13.5.15, page 561 (edition 1).
 
-Source: [`ch/fm4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/fm4.tex), label `fm:prop:tvcert`.
+Source: [`ch/fm4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/fm4.tex), label `fm:prop:tvcert`.
 
 <a id="cusped_weight_never_gives_ferromagnetic_tilt_or_ggc_tilted_clock"></a>
 
 ### A cusped weight never gives a ferromagnetic tilt nor a GGC tilted clock
 
-Volume II, Theorem 19.1.16, page 533 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Theorem 19.1.18, page 538 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10406,13 +10780,13 @@ Statement. Let $\xi(s)=\frac12s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$ be the comple
 
 Earlier editions: Theorem 13.5.16, page 562 (edition 1).
 
-Source: [`ch/fm4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/fm4.tex), label `xg:thm:cauchy`.
+Source: [`ch/fm4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/fm4.tex), label `xg:thm:cauchy`.
 
 <a id="laplace_weighted_debruijn_newman_function_and_a_sufficient_condition_for_rh"></a>
 
 ### Laplace weighted de Bruijn Newman function H^[a] and a sufficient condition for RH
 
-Volume II, Proposition 19.1.17, page 534 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Proposition 19.1.19, page 539 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10420,13 +10794,13 @@ Statement. Let $\Phi_{\mathrm{dBN}}$ be the de Bruijn Newman kernel, $H_t(z)=\in
 
 Earlier editions: Proposition 13.5.17, page 563 (edition 1).
 
-Source: [`ch/fm4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/fm4.tex), label `xg:prop:laplace`.
+Source: [`ch/fm4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/fm4.tex), label `xg:prop:laplace`.
 
 <a id="height_rule_for_the_folded_kernels_reduces_rh_to_real_zeros_in_a_growing_disc"></a>
 
 ### If the folded kernels have only real zeros in the disc of radius 2c(N+1)^2 for every N then RH holds
 
-Volume II, Proposition 19.2.1, page 537 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Proposition 19.2.1, page 542 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10434,13 +10808,13 @@ Statement. Let $\Phi^F_N=\sum_{n\le N}\phi_n$ be the folded kernel and $H^F_N$ i
 
 Earlier editions: Proposition 25.7.1, page 929 (edition 1).
 
-Source: [`ch/ev2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ev2.tex), label `ev:prop:reduction`.
+Source: [`ch/ev2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ev2.tex), label `ev:prop:reduction`.
 
 <a id="kink_bound_for_the_error_of_the_folded_kernel_on_the_real_axis"></a>
 
 ### Kink bound: the error of the folded kernel decays like 1/x^2 with an explicit constant
 
-Volume II, Lemma 19.3.1, page 538 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Lemma 19.3.1, page 543 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10448,13 +10822,13 @@ Statement. Let $\Phi^F_N=\sum_{n\le N}\phi_n$ be the folded kernel and $H^F_N$ i
 
 Earlier editions: Lemma 25.8.1, page 930 (edition 1).
 
-Source: [`ch/ev2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ev2.tex), label `ev:lem:kink`.
+Source: [`ch/ev2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ev2.tex), label `ev:lem:kink`.
 
 <a id="rouche_certificate_that_the_folded_kernel_has_only_real_zeros_below_a_height"></a>
 
 ### Rouche certificate: a circle inequality and a sign change count show that all zeros of the folded kernel below a height are real
 
-Volume II, Proposition 19.3.2, page 538 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Proposition 19.3.2, page 544 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10462,13 +10836,13 @@ Statement. Let $\Phi^F_N=\sum_{n\le N}\phi_n$ be the folded kernel and $H^F_N$ i
 
 Earlier editions: Proposition 25.8.2, page 930 (edition 1).
 
-Source: [`ch/ev2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ev2.tex), label `ev:prop:rouche`.
+Source: [`ch/ev2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ev2.tex), label `ev:prop:rouche`.
 
 <a id="shifted_bessel_kernels_give_a_liouville_boundary_value_problem_with_rational_boundary_law"></a>
 
 ### Zeros of Re K_{mu+i nu}(a) for integer mu solve a Liouville problem with a rational spectral boundary condition
 
-Volume II, Theorem 19.3.3, page 540 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Theorem 19.3.3, page 545 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10476,13 +10850,13 @@ Statement. Let $\mu\ge0$ be an integer, $a>0$ and $K$ the modified Bessel functi
 
 Earlier editions: Theorem 25.8.3, page 932 (edition 1).
 
-Source: [`ch/ev2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ev2.tex), label `ev:thm:shift`.
+Source: [`ch/ev2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ev2.tex), label `ev:thm:shift`.
 
 <a id="extended_boundary_problem_is_self_adjoint_with_real_eigenvalues"></a>
 
 ### The boundary problem with a boundary law with a point mass and poles is self adjoint with real eigenvalues, positive under a sign condition
 
-Volume II, Proposition 19.3.4, page 540 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Proposition 19.3.4, page 546 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10490,13 +10864,13 @@ Statement. Consider the Liouville problem $-g''+a^2e^{2\tau}g=\lambda g$ on $(0,
 
 Earlier editions: Proposition 25.8.4, page 932 (edition 1).
 
-Source: [`ch/ev2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ev2.tex), label `ev:prop:ext`.
+Source: [`ch/ev2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ev2.tex), label `ev:prop:ext`.
 
 <a id="mean_of_the_de_bruijn_newman_hitting_time_increases_with_the_flow_time"></a>
 
 ### The mean of the candidate hitting time of the de Bruijn and Newman family increases in the flow time
 
-Volume II, Proposition 19.3.5, page 542 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Proposition 19.3.5, page 547 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10504,13 +10878,13 @@ Statement. Let $\Phi(u)=\sum_{n\ge1}(2\pi^2n^4e^{9u}-3\pi n^2e^{5u})e^{-\pi n^2e
 
 Earlier editions: Proposition 25.8.5, page 933 (edition 1).
 
-Source: [`ch/ev2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ev2.tex), label `ev:prop:dbn`.
+Source: [`ch/ev2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ev2.tex), label `ev:prop:dbn`.
 
 <a id="cotangent_law_for_the_boundary_law_of_the_shifted_bessel_kernels_with_fractional_shift"></a>
 
 ### Cotangent law: the boundary values of the shifted Bessel kernels grow like cot(pi mu/2) times sqrt(lambda_k)
 
-Volume II, Proposition 19.4.1, page 544 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Proposition 19.4.1, page 550 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: conditional on the asymptotic $K_{\mu+i\nu}(a)=\frac12\Gamma(\mu+i\nu)(a/2)^{-\mu-i\nu}(1+O((a/2\nu)^{2\mu}))$ for large $\nu$, used in a sketch with heuristic error terms (only the leading term, from the phase computation, is derived).
 
@@ -10518,13 +10892,13 @@ Statement. Let $a>0$, $\mu>0$ not an integer, $K$ the modified Bessel function o
 
 Earlier editions: Proposition 25.9.1, page 936 (edition 1).
 
-Source: [`ch/ev3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ev3.tex), label `ev:prop:cot`.
+Source: [`ch/ev3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ev3.tex), label `ev:prop:cot`.
 
 <a id="signs_of_the_tail_coefficients_alternate_for_real_simple_atoms"></a>
 
 ### The coefficients of the tail expansion alternate in sign when the atoms are real and simple
 
-Volume II, Proposition 19.5.1, page 548 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Proposition 19.5.1, page 553 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10532,13 +10906,13 @@ Statement. Let $\gamma_1^2<\gamma_2^2<\cdots$ be real and simple atoms and $c_k=
 
 Earlier editions: Proposition 25.10.1, page 941 (edition 1).
 
-Source: [`ch/ev4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ev4.tex), label `ev:prop:sign`.
+Source: [`ch/ev4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ev4.tex), label `ev:prop:sign`.
 
 <a id="rh_equivalent_to_the_reciprocal_xi_law_being_a_polya_frequency_density"></a>
 
 ### RH holds if and only if the reciprocal xi law is a Polya frequency density
 
-Volume II, Corollary 19.5.4, page 550 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Corollary 19.5.4, page 555 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10546,13 +10920,13 @@ Statement. Let $\Xi$ be the Riemann Xi function, $\xi$ the Riemann xi function, 
 
 Earlier editions: Corollary 25.10.4, page 942 (edition 1).
 
-Source: [`ch/ev4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ev4.tex), label `ev:cor:pf`.
+Source: [`ch/ev4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ev4.tex), label `ev:cor:pf`.
 
 <a id="expansion_of_the_mean_excess_function_with_exponential_rate_under_rh"></a>
 
 ### Mean excess function: two term expansion with an exponential rate under RH, simple zeros and a lower bound for xi prime
 
-Volume II, Proposition 19.5.5, page 550 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Proposition 19.5.5, page 556 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: conditional on RH (all zeros of $\Xi$ are real), all zeros simple, and $|\xi'(\rho)|\ge e^{-C|\gamma|}$ for some constant $C$ and all zeros $\rho=\frac12+i\gamma$.
 
@@ -10560,7 +10934,7 @@ Statement. Let $\Xi$ be the Riemann Xi function, $\xi$ the Riemann xi function, 
 
 Earlier editions: Proposition 25.10.5, page 943 (edition 1).
 
-Source: [`ch/ev4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ev4.tex), label `ev:prop:meexp`.
+Source: [`ch/ev4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ev4.tex), label `ev:prop:meexp`.
 
 ## Volume II, Chapter 20. The Comtet Majumdar family: damped kernels and a solved model
 
@@ -10568,7 +10942,7 @@ Source: [`ch/ev4.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/
 
 ### A proof by Spitzer's identity and Euler Maclaurin summation that the expected maximum of a symmetric stable walk has the constant of Comtet and Majumdar, zeta of s over a sine factor
 
-Volume II, Proposition 20.1.2, page 559 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Proposition 20.1.2, page 563 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10576,13 +10950,13 @@ Statement. Let $S_n$ be a random walk whose steps $X$ are symmetric stable with 
 
 Earlier editions: Proposition 27.1.2, page 980 (edition 1).
 
-Source: [`ch/cg1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cg1.tex), label `cg:prop:spitzer`.
+Source: [`ch/cg1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cg1.tex), label `cg:prop:spitzer`.
 
 <a id="logarithm_of_the_uniform_transform_as_a_regularised_signed_levy_integral"></a>
 
 ### The logarithm of the Laplace transform of the uniform law is a regularised integral against Lebesgue minus counting measure
 
-Volume II, Proposition 20.1.3, page 560 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Proposition 20.1.3, page 564 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10590,13 +10964,13 @@ Statement. For $x>0$, $\ln\frac{1-e^{-x}}{x}=-\lim_{R\to\infty}\{\int_0^R(1-e^{-
 
 Earlier editions: Proposition 27.1.3, page 981 (edition 1).
 
-Source: [`ch/cg1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cg1.tex), label `cg:prop:signed`.
+Source: [`ch/cg1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cg1.tex), label `cg:prop:signed`.
 
 <a id="locally_uniform_limit_of_ggc_reciprocals_implies_real_zeros"></a>
 
 ### If locally uniform limits of GGC reciprocals approximate Xi then RH holds
 
-Volume II, Corollary 20.2.2, page 561 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Corollary 20.2.2, page 565 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10604,13 +10978,13 @@ Statement. Let $\Xi$ be the Riemann Xi function and let $\Xi_\delta$ be even, re
 
 Earlier editions: Corollary 27.2.2, page 982 (edition 1).
 
-Source: [`ch/cg1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cg1.tex), label `cg:cor:closure`.
+Source: [`ch/cg1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cg1.tex), label `cg:cor:closure`.
 
 <a id="exact_expansion_of_the_shifted_zeta_in_zeta_at_integer_translates"></a>
 
 ### The shifted zeta is an explicit series of zeta at s plus k with a tangent factor
 
-Volume II, Theorem 20.3.2, page 562 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Theorem 20.3.2, page 566 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10618,13 +10992,13 @@ Statement. Let $g(x)=\frac1{e^x-1}-\frac1x$, $\delta>0$, $I_\delta(s)=\frac1\pi\
 
 Earlier editions: Theorem 27.3.2, page 982 (edition 1).
 
-Source: [`ch/cg1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cg1.tex), label `cg:thm:expansion`.
+Source: [`ch/cg1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cg1.tex), label `cg:thm:expansion`.
 
 <a id="shifted_family_has_poles_drifting_zeros_and_no_ggc_reciprocal"></a>
 
 ### Obstructions: the shifted xi function has a pole at s equal 3, its zeros drift, and its reciprocal is not a GGC transform
 
-Volume II, Proposition 20.3.3, page 562 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Proposition 20.3.3, page 566 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10632,13 +11006,13 @@ Statement. Let $0<\delta<2\pi$, $g(x)=\frac1{e^x-1}-\frac1x$, $F_\delta(s)=\oper
 
 Earlier editions: Proposition 27.3.3, page 983 (edition 1).
 
-Source: [`ch/cg1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cg1.tex), label `cg:prop:obstructions`.
+Source: [`ch/cg1.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cg1.tex), label `cg:prop:obstructions`.
 
 <a id="thorin_density_from_a_signed_levy_measure_with_logarithmic_derivative_condition"></a>
 
 ### A signed L\'evy measure gives a Thorin density, which is nonnegative if and only if a logarithmic derivative inequality holds
 
-Volume II, Theorem 20.4.2, page 565 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Theorem 20.4.2, page 569 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10646,13 +11020,13 @@ Statement. Let $f$ be analytic and without zeros on $\operatorname{Re}s>\alpha_0
 
 Earlier editions: Theorem 27.4.2, page 986 (edition 1).
 
-Source: [`ch/cg2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cg2.tex), label `cg:thm:thorinfromlevy`.
+Source: [`ch/cg2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cg2.tex), label `cg:thm:thorinfromlevy`.
 
 <a id="zeros_on_one_vertical_line_give_lorentzian_thorin_densities_tending_to_point_masses"></a>
 
 ### Zeros on a vertical line give a Thorin density that is a sum of Lorentzians tending to point masses at the ordinates
 
-Volume II, Corollary 20.4.3, page 565 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Corollary 20.4.3, page 569 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10660,13 +11034,13 @@ Statement. Let $f$ be analytic and without zeros on $\operatorname{Re}s>\alpha_0
 
 Earlier editions: Corollary 27.4.3, page 986 (edition 1).
 
-Source: [`ch/cg2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cg2.tex), label `cg:cor:lorentz`.
+Source: [`ch/cg2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cg2.tex), label `cg:cor:lorentz`.
 
 <a id="thorin_density_of_the_tilted_uniform_law_is_positive_for_every_tilt"></a>
 
 ### The tilted uniform law has a strictly positive Thorin density for every positive tilt, a Lorentzian smoothing of the lattice 2 pi m
 
-Volume II, Theorem 20.4.4, page 566 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Theorem 20.4.4, page 570 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10674,13 +11048,13 @@ Statement. Let $\varphi_U(s)=(1-e^{-s})/s$ be the Laplace transform of the unifo
 
 Earlier editions: Theorem 27.4.4, page 987 (edition 1).
 
-Source: [`ch/cg2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cg2.tex), label `cg:thm:uniform`.
+Source: [`ch/cg2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cg2.tex), label `cg:thm:uniform`.
 
 <a id="shifted_zeta_is_the_mellin_transform_of_the_thorin_density_of_the_tilted_uniform_law"></a>
 
 ### The shifted zeta equals (2 pi) to the s times the Mellin transform of the positive Thorin density of the tilted uniform law
 
-Volume II, Theorem 20.4.5, page 567 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Theorem 20.4.5, page 571 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10688,13 +11062,13 @@ Statement. Let $g(s)=\frac1{e^s-1}-\frac1s$, let $\kappa_\delta(y)=\frac1\pi[\op
 
 Earlier editions: Theorem 27.4.5, page 988 (edition 1).
 
-Source: [`ch/cg2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cg2.tex), label `cg:thm:mellinthorin`.
+Source: [`ch/cg2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cg2.tex), label `cg:thm:mellinthorin`.
 
 <a id="gauss_damped_theta_kernel_has_finitely_many_real_zeros_and_no_ggc_reciprocal"></a>
 
 ### Kink theorem: the Gauss damped Riemann kernel has finitely many real zeros and infinitely many nonreal zeros
 
-Volume II, Theorem 20.5.1, page 570 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Theorem 20.5.1, page 574 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10702,13 +11076,13 @@ Statement. Let $\Phi_n(u)=(2\pi^2n^4e^{9u/2}-3\pi n^2e^{5u/2})\exp(-\pi n^2e^{2u
 
 Earlier editions: Theorem 27.5.1, page 991 (edition 1).
 
-Source: [`ch/cg3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cg3.tex), label `cg:thm:kink`.
+Source: [`ch/cg3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cg3.tex), label `cg:thm:kink`.
 
 <a id="modular_constraints_on_the_weights_for_a_laguerre_polya_damped_kernel"></a>
 
 ### Modular constraints: a Laguerre P\'olya damped kernel must have vanishing odd derivatives of the damped kernel at the origin
 
-Volume II, Corollary 20.5.2, page 571 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Corollary 20.5.2, page 575 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10716,7 +11090,7 @@ Statement. Let $\Phi_n(u)=(2\pi^2n^4e^{9u/2}-3\pi n^2e^{5u/2})\exp(-\pi n^2e^{2u
 
 Earlier editions: Corollary 27.5.2, page 992 (edition 1).
 
-Source: [`ch/cg3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/cg3.tex), label `cg:cor:modular`.
+Source: [`ch/cg3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/cg3.tex), label `cg:cor:modular`.
 
 ## Volume II, Chapter 21. Approximating clocks: Jensen, Euler product and boundary hitting times
 
@@ -10724,7 +11098,7 @@ Source: [`ch/cg3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/
 
 ### Jensen polynomial laws mu_d of the reciprocal xi function: convergence, existence if and only if RH, and existence up to degree 2e17
 
-Volume II, Proposition 21.1.1, page 576 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Proposition 21.1.1, page 580 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10732,13 +11106,13 @@ Statement. Let $\zeta$ be the Riemann zeta function, $\rho=\frac12+\delta+i\gamm
 
 Earlier editions: Proposition 24.6.1, page 866 (edition 1).
 
-Source: [`ch/ht2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ht2.tex), label `ht:prop:jensen`.
+Source: [`ch/ht2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ht2.tex), label `ht:prop:jensen`.
 
 <a id="b_spline_and_dirichlet_mean_form_of_the_density_of_a_sum_of_exponentials"></a>
 
 ### Density of a sum of independent exponentials as a Laplace transform of a B spline, the Dirichlet mean form
 
-Volume II, Proposition 21.2.1, page 580 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Proposition 21.2.1, page 584 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10746,13 +11120,13 @@ Statement. Let $0<\lambda_1<\dots<\lambda_N$, let $e_k$ be independent standard 
 
 Earlier editions: Proposition 24.7.1, page 871 (edition 1).
 
-Source: [`ch/ht2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ht2.tex), label `ht:prop:bspline`.
+Source: [`ch/ht2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ht2.tex), label `ht:prop:bspline`.
 
 <a id="sum_of_exponentials_as_a_linear_functional_of_the_gumbel_extremal_process"></a>
 
 ### A sum of exponentials is a linear functional of the Gumbel extremal process
 
-Volume II, Theorem 21.2.2, page 581 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Theorem 21.2.2, page 585 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10760,13 +11134,13 @@ Statement. Let $e_k$ be independent standard exponential variables and $G_1>G_2>
 
 Earlier editions: Theorem 24.7.2, page 872 (edition 1).
 
-Source: [`ch/ht2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ht2.tex), label `ht:thm:extremal`.
+Source: [`ch/ht2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ht2.tex), label `ht:thm:extremal`.
 
 <a id="truncated_euler_products_give_ggc_laws_and_first_passage_decomposition_at_the_mean_level"></a>
 
 ### Truncated Euler products give GGC laws Y_P, and first passage to the mean level decomposes as Y_P plus the first passage to the log of N_P
 
-Volume II, Proposition 21.3.1, page 584 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Proposition 21.3.1, page 588 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10774,13 +11148,13 @@ Statement. For $P\ge2$ let $\zeta_P(z)=\prod_{p\le P}(1-p^{-z})^{-1}$, fix $\alp
 
 Earlier editions: Proposition 24.8.1, page 875 (edition 1).
 
-Source: [`ch/ht2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ht2.tex), label `ht:thm:trunc`.
+Source: [`ch/ht2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ht2.tex), label `ht:thm:trunc`.
 
 <a id="one_prime_blocks_mobius_liouville_and_polya_gamma_laws"></a>
 
 ### One prime blocks, Möbius and Liouville factors and the Pólya Gamma law
 
-Volume II, Remark 21.3.2, page 585 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Remark 21.3.2, page 589 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10788,13 +11162,13 @@ Statement. Fix a prime $p$, write $\ell=\log p$, $q=p^{-\alpha}$ with $\alpha>0$
 
 Earlier editions: Remark 24.8.2, page 876 (edition 1).
 
-Source: [`ch/ht2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ht2.tex), label `ht:rem:blocks`.
+Source: [`ch/ht2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ht2.tex), label `ht:rem:blocks`.
 
 <a id="brownian_truncated_euler_product_identity_centred_at_one_half"></a>
 
 ### Brownian truncated Euler product identity for xi centred at one half
 
-Volume II, Theorem 21.3.3, page 586 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Theorem 21.3.3, page 590 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10802,13 +11176,13 @@ Statement. Let $\xi$ be the completed Riemann zeta function, $\gamma$ the zeros 
 
 Earlier editions: Theorem 24.8.3, page 878 (edition 1).
 
-Source: [`ch/ht2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ht2.tex), label `ht:thm:euler`.
+Source: [`ch/ht2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ht2.tex), label `ht:thm:euler`.
 
 <a id="brownian_truncated_euler_product_numerical_check"></a>
 
 ### Numerical check of the Brownian truncated Euler product identity
 
-Volume II, Table 21.4, page 588 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Table 21.4, page 592 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: computed.
 
@@ -10816,13 +11190,13 @@ Statement. For the Brownian truncated Euler product identity for $\xi(\frac12)/\
 
 Earlier editions: Table 24.8, page 880 (edition 1).
 
-Source: [`ch/ht2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ht2.tex), label `ht:tab:euler`.
+Source: [`ch/ht2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ht2.tex), label `ht:tab:euler`.
 
 <a id="universal_three_halves_stable_limit_of_the_euler_hitting_times"></a>
 
 ### The Euler hitting times converge after scaling to a spectrally positive stable law of index 3/2
 
-Volume II, Theorem 21.3.4, page 589 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Theorem 21.3.4, page 593 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10830,13 +11204,13 @@ Statement. Take $\alpha=\frac12$ in the truncated Euler product laws: $Y_P$ is t
 
 Earlier editions: Theorem 24.8.4, page 880 (edition 1).
 
-Source: [`ch/ht2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ht2.tex), label `ht:thm:32`.
+Source: [`ch/ht2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ht2.tex), label `ht:thm:32`.
 
 <a id="thorin_rigidity_of_ggc_factorisations_of_the_reciprocal_xi_law"></a>
 
 ### Thorin rigidity: any factorisation of the reciprocal xi law into two GGC laws forces RH and splits the zeros
 
-Volume II, Theorem 21.4.1, page 590 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Theorem 21.4.1, page 594 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10844,13 +11218,13 @@ Statement. Let $\zeta$ be the Riemann zeta function, $\rho=\frac12+\delta+i\gamm
 
 Earlier editions: Theorem 24.9.1, page 881 (edition 1).
 
-Source: [`ch/ht2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ht2.tex), label `ht:thm:rigid`.
+Source: [`ch/ht2.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ht2.tex), label `ht:thm:rigid`.
 
 <a id="small_time_enclosure_of_the_boundary_of_the_reciprocal_xi_law_independent_of_rh"></a>
 
 ### Small time enclosure of the inverse first passage boundary of the reciprocal xi law, independent of RH
 
-Volume II, Proposition 21.7.1, page 593 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Proposition 21.7.1, page 597 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10858,13 +11232,13 @@ Statement. Let $\mu$ be the reciprocal xi law of the book, with Laplace transfor
 
 Earlier editions: Proposition 24.12.1, page 884 (edition 1).
 
-Source: [`ch/ht3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ht3.tex), label `ht:prop:smallb`.
+Source: [`ch/ht3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ht3.tex), label `ht:prop:smallb`.
 
 <a id="first_order_response_of_the_laplace_transform_to_moving_a_zero_off_the_line"></a>
 
 ### Moving a pair of zeros off the line by delta multiplies the Laplace transform by 1+6 delta^2 s/gamma^4 to first order
 
-Volume II, Proposition 21.7.2, page 596 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Proposition 21.7.2, page 600 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10872,13 +11246,13 @@ Statement. Let $\mu$ be the reciprocal xi law, with Laplace transform $1/G$, $G(
 
 Earlier editions: Proposition 24.12.2, page 887 (edition 1).
 
-Source: [`ch/ht3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ht3.tex), label `ht:prop:resp`.
+Source: [`ch/ht3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ht3.tex), label `ht:prop:resp`.
 
 <a id="biane_pitman_yor_variable_gives_the_reciprocal_xi_law_as_a_harmonic_mean_of_cosh"></a>
 
 ### The reciprocal xi law as the reciprocal of an expected cosh under the size biased Biane Pitman Yor measure
 
-Volume II, Proposition 21.8.1, page 598 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Proposition 21.8.1, page 602 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10886,13 +11260,13 @@ Statement. Let $Y=\sqrt{2/\pi}(\max_ub_u-\min_ub_u)$ for a standard Brownian bri
 
 Earlier editions: Proposition 24.13.1, page 890 (edition 1).
 
-Source: [`ch/ht3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ht3.tex), label `ht:prop:bpy`.
+Source: [`ch/ht3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ht3.tex), label `ht:prop:bpy`.
 
 <a id="law_of_excursion_maximum_gives_the_biane_pitman_yor_identity_term_by_term"></a>
 
 ### The law of the maximum of a Brownian excursion gives the Biane, Pitman and Yor identity for xi term by term
 
-Volume II, Result 21.8.2, page 599 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Result 21.8.2, page 603 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10900,13 +11274,13 @@ Statement. Let $M$ be the maximum of a standard Brownian excursion, whose law is
 
 Earlier editions: Result 24.13.2, page 890 (edition 1).
 
-Source: [`ch/ht3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ht3.tex), label `ht:res:chung`.
+Source: [`ch/ht3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ht3.tex), label `ht:res:chung`.
 
 <a id="davenport_heilbronn_theta_function_is_positive_so_the_same_positive_structure_exists_without_rh"></a>
 
 ### The Davenport Heilbronn theta function is positive, giving a symmetric variable and a positive Polya kernel for a function violating RH
 
-Volume II, Proposition 21.8.3, page 600 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Proposition 21.8.3, page 604 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10914,13 +11288,13 @@ Statement. Let $a_n$ be the Davenport and Heilbronn coefficients, periodic modul
 
 Earlier editions: Proposition 24.13.3, page 891 (edition 1).
 
-Source: [`ch/ht3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ht3.tex), label `ht:prop:dhtheta`.
+Source: [`ch/ht3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ht3.tex), label `ht:prop:dhtheta`.
 
 <a id="wiener_gamma_representation_of_base_point_laws_and_rh_as_monotonicity_of_the_zero_counting_smoothing"></a>
 
 ### Wiener and Gamma representation of the base point laws, and RH as monotonicity of the smoothed zero counting functions N_alpha
 
-Volume II, Proposition 21.8.4, page 601 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Proposition 21.8.4, page 605 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10928,13 +11302,13 @@ Statement. For $\alpha>\frac12$ let $\mu^{(\alpha)}$ be the base point law with 
 
 Earlier editions: Proposition 24.13.4, page 893 (edition 1).
 
-Source: [`ch/ht3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ht3.tex), label `ht:prop:wg`.
+Source: [`ch/ht3.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ht3.tex), label `ht:prop:wg`.
 
 <a id="coefficient_sequence_of_xi_is_a_polya_frequency_sequence_iff_rh_and_unconditionally_log_concave"></a>
 
 ### The Taylor coefficients of xi(1/2+sqrt s) are a Polya frequency sequence if and only if RH, and unconditionally PF2
 
-Volume II, Theorem 21.10.1, page 604 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Theorem 21.10.1, page 608 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10942,13 +11316,13 @@ Statement. Let $\xi$ be Riemann's xi function, $F(s)=\xi(\frac12+\sqrt s)/\xi(\f
 
 Earlier editions: Theorem 24.16.1, page 902 (edition 1).
 
-Source: [`ch/ht5.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ht5.tex), label `ht:thm:coef`.
+Source: [`ch/ht5.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ht5.tex), label `ht:thm:coef`.
 
 <a id="three_term_sequence_is_pf_k_iff_the_angle_is_at_most_pi_over_k_plus_one"></a>
 
 ### A three term quadratic coefficient sequence is PF_k if and only if its angle is at most pi/(k+1)
 
-Volume II, Lemma 21.11.1, page 605 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Lemma 21.11.1, page 609 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10956,13 +11330,13 @@ Statement. A sequence is PF$_k$ if all minors of order at most $k$ of its Toepli
 
 Earlier editions: Lemma 24.17.1, page 904 (edition 1).
 
-Source: [`ch/ht5.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ht5.tex), label `ht:lem:three`.
+Source: [`ch/ht5.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ht5.tex), label `ht:lem:three`.
 
 <a id="angle_theorem_for_the_coefficients_of_xi_zeros_within_pi_over_k_plus_one_of_the_axis_give_pf_k"></a>
 
 ### Angle theorem: if every zero has angle at most pi/(k+1) then the coefficient sequence of xi is PF_k
 
-Volume II, Theorem 21.11.2, page 605 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Theorem 21.11.2, page 609 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10970,13 +11344,13 @@ Statement. Let $\xi$ be Riemann's xi function, $F(s)=\xi(\frac12+\sqrt s)/\xi(\f
 
 Earlier editions: Theorem 24.17.2, page 904 (edition 1).
 
-Source: [`ch/ht5.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ht5.tex), label `ht:thm:angle`.
+Source: [`ch/ht5.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ht5.tex), label `ht:thm:angle`.
 
 <a id="unconditional_pf_k_for_the_coefficients_of_xi_up_to_k_of_order_9e12"></a>
 
 ### Unconditional rung count: the coefficient sequence of xi is PF_k for every k up to about 9.4e12
 
-Volume II, Corollary 21.11.3, page 606 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Corollary 21.11.3, page 610 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -10984,7 +11358,7 @@ Statement. Let $\xi$ be Riemann's xi function, $F(s)=\xi(\frac12+\sqrt s)/\xi(\f
 
 Earlier editions: Corollary 24.17.3, page 904 (edition 1).
 
-Source: [`ch/ht5.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/ht5.tex), label `ht:cor:rungs`.
+Source: [`ch/ht5.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/ht5.tex), label `ht:cor:rungs`.
 
 ## Volume II, Chapter 23. Conditional certificates under a quasi Riemann hypothesis at 7/8
 
@@ -10992,7 +11366,7 @@ Source: [`ch/ht5.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/
 
 ### Consequences of a zero free half plane beyond 7/8: GGC basepoint and even part laws, imaginary zeros of the even and odd parts of xi, and a bound on the de Bruijn Newman constant
 
-Volume II, Theorem 23.1.1, page 627 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Theorem 23.1.1, page 631 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: conditional on $\zeta(s)\ne0$ for $\operatorname{Re}s>\frac78$ (announced in October 2026, not refereed).
 
@@ -11000,13 +11374,13 @@ Statement. Let $\xi(s)=\frac12s(s-1)\pi^{-s/2}\Gamma(\frac s2)\zeta(s)$ be Riema
 
 Earlier editions: Theorem 16.12.1, page 668 (edition 1).
 
-Source: [`ch/polya9.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/polya9.tex), label `pol:thm:qrh`.
+Source: [`ch/polya9.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/polya9.tex), label `pol:thm:qrh`.
 
 <a id="poles_of_the_reciprocal_of_xi_lie_in_a_thinner_parabola_under_q_7_8"></a>
 
 ### Under (Q_{7/8}) the poles of 1/xi(1/2+sqrt w) lie in a parabola with vertex at most 9/64, and the sliver of the local theorem becomes thinner
 
-Volume II, Proposition 23.1.2, page 629 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Proposition 23.1.2, page 633 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: conditional on The quasi Riemann hypothesis $(\mathrm Q_{7/8})$ of the book, which rests on the unrefereed half plane of OpenAI (2026).
 
@@ -11014,13 +11388,13 @@ Statement. Assume $(\mathrm Q_{7/8})$, which rests on the unrefereed half plane 
 
 Earlier editions: Proposition 16.12.2, page 670 (edition 1).
 
-Source: [`ch/polya9.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/polya9.tex), label `tx5:prop:sliver`.
+Source: [`ch/polya9.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/polya9.tex), label `tx5:prop:sliver`.
 
 <a id="gaussian_smoothed_mobius_sum_explicit_formula_and_growth_equivalent_to_sigma_max"></a>
 
 ### Gaussian smoothed Möbius sum: explicit formula over the zeros, with RH and the quasi Riemann hypothesis as growth exponents, and the trivial zero term as a finite range leading term only
 
-Volume II, Proposition 23.1.3, page 631 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Proposition 23.1.3, page 635 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -11028,13 +11402,13 @@ Statement. For $x>0$ let $M_{\rm g}(x)=\frac1{2\pi i}\int_{(2)}x^{v-2/3}\frac{e^
 
 Earlier editions: Proposition 16.12.3, page 671 (edition 1).
 
-Source: [`ch/polya9.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/polya9.tex), label `tx3:prop:signal`.
+Source: [`ch/polya9.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/polya9.tex), label `tx3:prop:signal`.
 
 <a id="mertens_function_is_o_of_x_to_7_8_plus_epsilon_and_mobius_series_converges_on_re_s_above_7_8_under_q_7_8"></a>
 
 ### Under (Q_{7/8}), M(x) is O(x^{7/8+epsilon}), the Möbius series converges to 1/zeta on Re s above 7/8, and the Möbius series of 1/zeta(1/2+sqrt s) converges on the parabola region H_{3/8}
 
-Volume II, Proposition 23.1.4, page 632 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Proposition 23.1.4, page 636 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: conditional on The quasi Riemann hypothesis $(\mathrm Q_{7/8})$ of the book, which rests on the unrefereed half plane of OpenAI (2026).
 
@@ -11042,13 +11416,13 @@ Statement. Assume $(\mathrm Q_{7/8})$, which rests on the unrefereed half plane 
 
 Earlier editions: Proposition 16.12.4, page 672 (edition 1).
 
-Source: [`ch/polya9.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/polya9.tex), label `tx5:prop:mertens`.
+Source: [`ch/polya9.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/polya9.tex), label `tx5:prop:mertens`.
 
 <a id="least_prime_in_a_progression_is_o_of_q_to_8_plus_epsilon_under_zero_free_half_plane_7_8_for_dirichlet_l_functions"></a>
 
 ### Least prime in a progression under the half plane 7/8 for every Dirichlet L function: psi(x;q,a) = x/phi(q) + O(x^{7/8} log^2(qx)) and the least prime is O(q^{8+epsilon})
 
-Volume II, Remark 23.1.5, page 632 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Remark 23.1.5, page 636 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: conditional on That no Dirichlet $L$ function vanishes in $\operatorname{Re}s>\frac78$, which is claimed by OpenAI (2026) and not refereed.
 
@@ -11056,13 +11430,13 @@ Statement. Assume, as OpenAI (2026) claims and without a refereed proof, that no
 
 Earlier editions: Remark 16.12.5, page 673 (edition 1).
 
-Source: [`ch/polya9.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/polya9.tex), label `tx5:rem:leastprime`.
+Source: [`ch/polya9.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/polya9.tex), label `tx5:rem:leastprime`.
 
 <a id="compensated_clock_positivity_on_every_line_under_a_zero_free_half_plane_by_pairing_zeros"></a>
 
 ### Compensated clock positivity on every line to the right of alpha zero under a zero free half plane, by pairing each zero with its mirror image
 
-Volume II, Theorem 23.1.8, page 634 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Theorem 23.1.8, page 638 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: conditional on $\zeta(s)\ne0$ for $\operatorname{Re}s>\alpha_0$, a fixed $\alpha_0$ with $\frac12\le\alpha_0<1$ (RH when $\alpha_0=\frac12$).
 
@@ -11070,13 +11444,13 @@ Statement. Let $\xi$ be Riemann's xi function and $D_\alpha(r)=\operatorname{Re}
 
 Earlier editions: Theorem 16.12.8, page 675 (edition 1).
 
-Source: [`ch/polya9.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/polya9.tex), label `pol:thm:qrhpair`.
+Source: [`ch/polya9.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/polya9.tex), label `pol:thm:qrhpair`.
 
 <a id="one_block_for_each_zero_compensated_reciprocal_of_xi"></a>
 
 ### One block for each zero, the Hadamard blocks of the compensated reciprocal of xi
 
-Volume II, Remark 23.1.9, page 635 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Remark 23.1.9, page 639 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -11084,13 +11458,13 @@ Statement. Let $\xi$ be Riemann's xi function and let $\frac12\le\alpha_0<1$, su
 
 Earlier editions: Remark 16.12.9, page 676 (edition 1).
 
-Source: [`ch/polya9.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/polya9.tex), label `pol:rem:blocks`.
+Source: [`ch/polya9.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/polya9.tex), label `pol:rem:blocks`.
 
 <a id="quasi_riemann_hypothesis_iff_positive_compensated_clock_on_every_line_to_its_right"></a>
 
 ### A quasi Riemann hypothesis at alpha zero is equivalent to the compensated clock condition on every line to its right
 
-Volume II, Corollary 23.1.10, page 636 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Corollary 23.1.10, page 640 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -11098,13 +11472,13 @@ Statement. Let $\xi$ be Riemann's xi function and, for $\alpha>\frac12$ and real
 
 Earlier editions: Corollary 16.12.10, page 676 (edition 1).
 
-Source: [`ch/polya9.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/polya9.tex), label `pol:cor:equiv`.
+Source: [`ch/polya9.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/polya9.tex), label `pol:cor:equiv`.
 
 <a id="compensated_reciprocal_of_xi_is_a_ggc_under_a_zero_free_half_plane_beyond_seven_eighths"></a>
 
 ### The compensated reciprocal of xi is a GGC with positive Thorin density at every basepoint above 7/8 under a zero free half plane
 
-Volume II, Corollary 23.1.11, page 636 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Corollary 23.1.11, page 640 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: conditional on $\zeta(s)\ne0$ for $\operatorname{Re}s>\frac78$ (announced in October 2026, not refereed).
 
@@ -11112,13 +11486,13 @@ Statement. Let $\xi$ be Riemann's xi function and $b_\alpha=\frac{\xi'}\xi(\alph
 
 Earlier editions: Corollary 16.12.11, page 677 (edition 1).
 
-Source: [`ch/polya9.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/polya9.tex), label `pol:cor:qrhggc`.
+Source: [`ch/polya9.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/polya9.tex), label `pol:cor:qrhggc`.
 
 <a id="basepoints_at_which_compensated_reciprocal_of_xi_is_a_ggc_form_the_closed_half_line_above_the_largest_zero_real_part"></a>
 
 ### GGC basepoints of the compensated reciprocal of xi form the closed half line from the largest real part of a zero
 
-Volume II, Result 23.1.4, page 636 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
+Volume II, Result 23.1.4, page 640 of Polson and Sokolov (2026), *Computing the Riemann Hypothesis*, edition 2. New in this book.
 
 Status: proved.
 
@@ -11126,12 +11500,12 @@ Statement. Let $\xi$ be Riemann's xi function and $\Theta=\sup\operatorname{Re}\
 
 Earlier editions: Result 16.12.4, page 676 (edition 1).
 
-Source: [`ch/polya9.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.0.0/ch/polya9.tex), label `pol:res:halfline`.
+Source: [`ch/polya9.tex`](https://github.com/VadimSokolov/computing_rh/blob/v2.1.0/ch/polya9.tex), label `pol:res:halfline`.
 
 ***
 
 <small>License: Text, figures and PDF: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Code: [MIT](https://opensource.org/license/mit).</small>
 
-<small>This page is generated from the book's repository ([main](https://github.com/VadimSokolov/computing_rh/tree/main)). The numbers and pages are those of the PDF, [version 2.0.0](https://github.com/VadimSokolov/computing_rh/releases/tag/v2.0.0).</small>
+<small>This page is generated from the book's repository ([main](https://github.com/VadimSokolov/computing_rh/tree/main)). The numbers and pages are those of the PDF, [version 2.1.0](https://github.com/VadimSokolov/computing_rh/releases/tag/v2.1.0).</small>
 
 <!-- Generated by bookrepo.py from book.yaml and results.yaml. Edit those files, not this one. -->
