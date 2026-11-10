@@ -21,6 +21,27 @@ $\kappa_6$ & $3.46017435362\times10^{-5}$ & $3.46017435362\times10^{-5}$ & $3.46
 \label{fm:tab:cum}
 \end{table}
 
+\begin{table}[htbp]
+\centering\small
+\begin{tabular}{@{}rll@{}}
+\toprule
+$2m$ & $\ell_{2m}$ & $\kappa_{2m}$\\
+\midrule
+$2$ & $-2.31049931154\times10^{-2}$ & $+4.62099862308\times10^{-2}$\\
+$4$ & $-1.85862996426\times10^{-5}$ & $-4.46071191423\times10^{-4}$\\
+$6$ & $-4.80579771337\times10^{-8}$ & $+3.46017435362\times10^{-5}$\\
+$8$ & $-1.65757920063\times10^{-10}$ & $-6.68335933695\times10^{-6}$\\
+$10$ & $-6.42732830123\times10^{-13}$ & $+2.33234889395\times10^{-6}$\\
+\bottomrule
+\end{tabular}
+\caption{Coefficients $\ell_{2m}$ of $\log\Xi(t)/\Xi(0)$ in $t^{2m}$ and cumulants $\kappa_{2m}=(-1)^m(2m)!\,\ell_{2m}$ of the P\'olya law, from the quadrature moments of $\Phi$. Computed.}
+\label{xi:tab:cumext}
+\end{table}
+
+\begin{remark}[The sign of $\ell_{2m}$ is unconditional]\label{xi:rem:cumsign}
+Without any hypothesis, $\ell_{2m}=-\frac1m\big[\sum\gamma^{-2m}+\sum\alpha^{-2m}\big]$, the first sum over the ordinates $\gamma>0$ of zeros on the critical line and the second over the zeros $\alpha$ of $\Xi$ off the real axis with $\re\alpha>0$. Every such $\alpha$ has $\re\alpha>1000$, since every zero below height $1000$ lies on the line \cite{PT21}, so $|\alpha^{-2m}|\le(\re\alpha)^{-2m}$ and the second sum is at most $1000^{-2(m-1)}\sum_{\gamma>1000}\gamma^{-2}\le9.7\cdot10^{-4}\cdot1000^{-2(m-1)}$. This is below $0.2\,\gamma_1^{-2m}$ for every $m\ge1$ (for $m=1$ the ratio is $0.19$), while the first sum is at least $\gamma_1^{-2m}$. Hence $\ell_{2m}<0$ and $(-1)^{m+1}\kappa_{2m}>0$ for every $m$, proved, and no table of signs can display a zero off the line. Only the identity $\ell_{2m}=-S_m/m$ with $S_m=\sum_{\gamma>0}\gamma^{-2m}$ is conditional on RH.
+\end{remark}
+
 The moment test of Section~\ref{fm:sec:momenttest} is sharper. For the P\'olya law the scaled moments $b_j=\E X^{2j}/(2j)!$ are the Taylor coefficients of $\Xi$, up to sign and the factor $\Xi(0)$:
 \[
 \frac{\Xi(t)}{\Xi(0)}=\sum_{j\ge0}(-1)^jb_jt^{2j} .
@@ -56,7 +77,7 @@ J_{d,n}(x)=\sum_{i=0}^d\binom di(n+i)!\,b_{n+i}\,x^i,
 \]
 the Jensen polynomial of degree $d$ and shift $n$ of the sequence $j!\,b_j$. P\'olya proved that RH holds if and only if every $J_{d,n}$ has only real zeros, and for $d=2$ this is \eqref{fm:eq:newton} with $j=n+1$. Griffin, Ono, Rolen and Zagier proved that for each $d$ all but finitely many of the $J_{d,n}$ have only real zeros, and that all of them do when $d\le8$ \cite{GORZ19}. Each degree is a necessary condition for the P\'olya law to be ferromagnetic, and none is known to fail. With $F(x)=\sum_{j\ge0}b_jx^j$, so that $F(-t^2)=\varphi_X(t)$, the polynomials $J_{d,n}$ with $n$ fixed are the Jensen polynomials of the derivative $F^{(n)}$, and all of them have only real zeros exactly when $F^{(n)}$ is in the Laguerre P\'olya class. For $n\ge1$ this says nothing about the zeros of $\varphi_X$: for the spin one law of Table~\ref{fm:tab:interval} with $q>\frac12$, $F(x)=q+(1-q)\cosh\sqrt x$ and $F'(x)=(1-q)\sinh\sqrt x/(2\sqrt x)$, whose zeros $-k^2\pi^2$ are real, so every $J_{d,n}$ with $n\ge1$ has only real zeros, while $\varphi_X(t)=q+(1-q)\cos t$ has no real zero at all. In the other direction, if $\xi$ had only finitely many zeros off the critical line, then $F$, which has order $\frac12$, would have only finitely many nonreal zeros, and $F^{(n)}$ would be in the Laguerre P\'olya class for every large $n$, by the theorem of Craven, Csordas and Smith on real entire functions of order less than two \cite{CCS87}.
 
-A necessary condition of a different kind comes from the correlation inequalities of Section~\ref{fm:sec:def}. Write $\Phi=e^{-F}$. Newman proved that $F'$ is convex on $[0,\infty)$ \cite{Newman91}; in his normalisation $\Xi(x/2)=4\int e^{ixt-V(t)}\,dt$, and $V(t)=F(2t)+\log2$. So the P\'olya law belongs to the class of Ellis, Monroe and Newman, and every ferromagnet whose single spins are independent copies of $X$ satisfies the Griffiths, Hurst and Sherman inequality \cite{EMN76}.
+A necessary condition of a different kind comes from the correlation inequalities of Section~\ref{fm:sec:def}. Write $\Phi=e^{-F}$. Newman proved that $F'$ is convex on $[0,\infty)$ \cite{Newman91}; in his normalisation $\Xi(x/2)=4\int e^{ixt-V(t)}\,dt$, and $V(t)=F(2t)+\log2$. So the P\'olya law belongs to the class of Ellis, Monroe and Newman, and every ferromagnet whose single spins are independent copies of $X$ satisfies the Griffiths, Hurst and Sherman inequality \cite{EMN76}. For the law $p$ itself the inequality of \cite{EMN76} for a single spin reads $K'''(h)\le0$ for $h\ge0$, with $K(h)=\log\E e^{hX}=\log\xi(\frac12+h)-\log\xi(\frac12)$, and this is Newman's theorem \cite{Newman91} (proved). The strict inequality for large $h$ is elementary. For $s=\frac12+h>1$, $K'''(h)=\frac2{s^3}+\frac2{(s-1)^3}+\frac18\psi''(\frac s2)-\sum_{n\ge2}\Lambda(n)(\log n)^2n^{-s}$, the prime sum is positive, and $\psi''(x)\le-x^{-2}$, so $K'''(h)<0$ as soon as $\frac2{s^3}+\frac2{(s-1)^3}<\frac1{2s^2}$, which holds for $s\ge9.570$, that is $h\ge9.07$ (proved). Near the origin $K'''(h)=\kappa_4h+O(h^3)$ with $\kappa_4=-4.46071191423\times10^{-4}$ (Table~\ref{fm:tab:cum}), and the values $K'''(1)=-4.40\times10^{-4}$ and $K'''(9)=-1.74\times10^{-3}$ are negative (computed). Lee Yang does not imply this inequality: the density proportional to $x^2e^{-x^2/2}$ has characteristic function $(1-t^2)e^{-t^2/2}$, with only real zeros, but $K(h)=\log(1+h^2)+h^2/2$ gives $K'''(2)=0.064>0$.
 
 \subsection{A mixture of uniform laws}\label{fm:sec:polyamix}
 
@@ -70,7 +91,7 @@ The mixture does not discretise well. Replacing $R$ by $J$ equally weighted atom
 
 \subsection{No component with finitely many zeros}\label{fm:sec:nosqrt}
 
-Sums of independent ferromagnetic variables are ferromagnetic (Section~\ref{fm:sec:closure}), so one might hope to reach or approximate the P\'olya law as such a sum of simple pieces. The growth of $L_X$ rules out most pieces.
+Sums of independent ferromagnetic variables are ferromagnetic (Section~\ref{fm:sec:closure}), so one might hope to reach or approximate the P\'olya law as such a sum of simple pieces.
 
 \begin{theorem}\label{fm:thm:nosqrt}
 Let $X$ be a symmetric random variable with $\E e^{sX}<\infty$ for every real $s$ and $\log\E e^{sX}=o(s^2)$ as $s\to\infty$, and let $X\overset d=D+R$ with $D$ and $R$ independent. Then $\log\E e^{sD}=o(s^2)$ as $|s|\to\infty$. In particular, if $D$ is ferromagnetic and not $0$, then $b=0$ in its Hadamard form \eqref{fm:eq:had}, and its characteristic function has infinitely many zeros. The P\'olya law satisfies the hypothesis, so it has no Gaussian component, and it is not a finite or convergent infinite sum of independent ferromagnetic variables of which one is not $0$ and has finitely many zeros.
@@ -84,7 +105,7 @@ The laws of Section~\ref{ch:fmapprox} that keep the first $K$ zeros of $\varphi_
 
 The simplest such splitting would be a Vi\`ete product $L_X(s)=\prod_j\cosh(a_js)$, which would write $X=\sum_ja_j\varepsilon_j$ as a sum of independent scaled fair signs, a member of the Griffiths Simon class with uncoupled spins. The ordinates would then split into arithmetic progressions, and three consecutive terms of a progression satisfy $\gamma-2\gamma'+\gamma''=0$. The hypothesis that the positive ordinates are linearly independent over the rationals, which Ingham used in his work on the Mertens conjecture \cite{Ingham42}, forbids such a relation. Under that hypothesis the P\'olya law is not a sum of independent scaled fair signs, and if it belongs to the Griffiths Simon class at all, the spins must be coupled. See Section~\ref{ch:fmopen}.
 
-Ingham's hypothesis is not needed for this conclusion. The next proposition uses only two facts about the first ordinates.
+Ingham's hypothesis is not needed for this conclusion.
 
 \begin{proposition}[proved]\label{fm:prop:indep}
 Let $X_n=\sum_i\lambda_{n,i}S_{n,i}+\sum_k\mu_{n,k}U_{n,k}+\sigma_nZ_n$ be finite sums of independent symmetric Ising spins $S\in\{\pm1\}$, independent uniform variables $U$ on $[-1,1]$ and an independent standard Gaussian $Z$, with nonnegative coefficients. Then $X_n$ does not converge in law to the P\'olya law $X$.
@@ -105,19 +126,60 @@ $M=\sum_in_iS_i$ takes values in $\{-K,\dots,K\}$ with the parity of $K$, so $e^
 \end{proof}
 
 \begin{theorem}\label{fm:thm:blocks}
-Let $X_n$ be finite sums of independent blocks $X_B$ as in Lemma~\ref{fm:lem:block}, each block with its own $\lambda$, couplings and integers, plus an independent Gaussian, and suppose every block has total weight $K\le K_0$. Then $X_n$ does not converge in law to the P\'olya law $X$ in the following two cases. (i) $K_0\le287$ (proved, with the ordinates in ball arithmetic \cite{Arb}). (ii) $K_0$ is arbitrary, provided that the set of ordinates contains no infinite arithmetic progression (conditional).
+Let $X_n$ be finite sums of independent blocks $X_B$ as in Lemma~\ref{fm:lem:block}, each block with its own $\lambda$, couplings and integers, plus an independent Gaussian, and suppose every block has total weight $K\le K_0$. Then $X_n$ does not converge in law to the P\'olya law $X$ in the following two cases. (i) $K_0\le287$ (proved, with the ordinates in ball arithmetic \cite{Arb}). (ii) $K_0$ is arbitrary (proved, using the theorem of Li and Radziwi\l\l\ \cite{LiRad15}).
 \end{theorem}
 
 \begin{proof}
 Suppose $X_n\to X$ in law. As in Proposition~\ref{fm:prop:indep}, $\varphi_n\to\varphi_X$ locally uniformly, and some block has first zero $y_{1,n}\to\gamma_1$. By Lemma~\ref{fm:lem:block} its period satisfies $2y_{1,n}\le P_n\le2K_0y_{1,n}$. Pass to a subsequence with $P_n\to P\in[2\gamma_1,2K_0\gamma_1]$. The block vanishes at $y_{1,n}+mP_n$ and at $P_n-y_{1,n}+mP_n$ for every integer $m\ge0$, so by Hurwitz's theorem $\varphi_X(\gamma_1+mP)=0$ for all $m\ge0$, and $\varphi_X(P-\gamma_1)=0$.
 
-(ii) The ordinates would contain the infinite progression $\gamma_1+mP$, $m\ge0$.
+(ii) The ordinates would contain the infinite progression $\gamma_1+mP$, $m\ge0$. This contradicts the theorem of Li and Radziwi\l\l\ \cite{LiRad15}: for every $\alpha>0$ and real $\beta$, at least one third of the numbers $\alpha n+\beta$ are not ordinates of zeros of $\zeta$ on the critical line.
 
 (i) The numbers $\gamma_c=P-\gamma_1\ge\gamma_1$ and $\gamma_a=P+\gamma_1\le(2K_0+1)\gamma_1\le575\gamma_1$ would be ordinates with $\gamma_a-\gamma_c=2\gamma_1$. Since $575\gamma_1<8127.5<\gamma_{8000}=8148.188$, both would lie among the first $8000$ ordinates. These were computed in ball arithmetic with radius below $10^{-34}$, and none of the $7993$ tests of $\gamma_a-\gamma_c=2\gamma_1$ with $\gamma_a\le\gamma_{8000}$ has a ball containing zero: the smallest value of $|\gamma_a-\gamma_c-2\gamma_1|$ is $6.05\times10^{-5}$, at $(a,c)=(7642,7610)$. This is a contradiction.
 \end{proof}
 
-% UNCHECKED: part (ii) rests on a published theorem excluding infinite arithmetic progressions of ordinates (Putnam 1954 and Li and Radziwill were named in the source note, neither read), so no citation is given.
-Theorem~\ref{fm:thm:blocks} excludes one shape of construction and nothing else. It does not say that a ferromagnetic approximation of the P\'olya law needs long range interaction. What it does show (proved for the stated $K_0$) is that independent clusters must have either incommensurate weights inside a cluster or total weights above $K_0$.
+Theorem~\ref{fm:thm:blocks} does not say that a ferromagnetic approximation of the P\'olya law needs long range interaction. What it does show (proved) is that independent clusters must have either incommensurate weights inside a cluster or total weights that are not bounded in $n$. Part (i) is subsumed by part (ii) and is kept as an independent computed check that does not use the theorem of Li and Radziwi\l\l.
+
+\begin{proposition}[proved]\label{fm:prop:indecomp}
+Let $W$ be a bounded symmetric random variable whose characteristic function vanishes at every point of an infinite arithmetic progression $\{\alpha n+\beta:n\ge0\}$, $\alpha>0$, for example a uniform, Ising or cosine power spin (Lemma~\ref{fm:lem:bspin}). Then for no $a>0$ and no probability measure $q$ is the law of $X$ equal to $\mathrm{law}(aW)*q$. Consequently, in any exact representation of the P\'olya law as the law of $\sum_ka_kW_k$ under a ferromagnetic Gibbs measure with such spins, every spin is coupled to at least one other spin.
+\end{proposition}
+
+\begin{proof}
+If $p=\mathrm{law}(aW)*q$, then $\varphi_X(t)=\E e^{itaW}\,\hat q(t)$, so $\varphi_X$ vanishes at every real $t=(\alpha n+\beta)/a$, $n\ge0$. Each is the ordinate of a zero of $\zeta$ on the critical line, which contradicts the theorem of Li and Radziwi\l\l\ \cite{LiRad15} quoted in the proof of Theorem~\ref{fm:thm:blocks}. For a uniform spin the progression is $\{\pi n/a\}$ and the theorem of Putnam \cite{Putnam54} that the ordinates contain no progression $\{d,2d,3d,\dots\}$ already suffices. For the last claim, an uncoupled spin $W_k$ is independent of the rest, so $p=\mathrm{law}(a_kW_k)*q$.
+\end{proof}
+
+This extends Proposition~\ref{fm:prop:indep}, which concerns approximating sequences, to arbitrary exact convolution factors. It is due to an unrefereed note of Polson (November 2026). It concerns exact representations only: a finite block with an independent tail has exact factors by construction, and Theorem~\ref{fm:thm:rowbound} below turns this into a bound.
+
+A ferromagnetic sum of uniforms is $X=\sum_ka_kV_k$ with $a_k>0$ and joint density proportional to $\exp(\sum_{k<l}J_{kl}v_kv_l)$ on $[-1,1]^m$, with $J_{kl}\ge0$; by Newman's theorem \cite{Newman74} it is ferromagnetic, and Theorem~\ref{fm:thm:closed} carries this to limits in law. The next result, again from the note of Polson, says that couplings which are too dense cannot produce the P\'olya law.
+
+\begin{lemma}[proved]\label{fm:lem:gaussspin}
+There is $\beta_0>0$ such that for $0\le\beta\le\beta_0$ the even measure $e^{-\beta v^2}\,dv$ on $[-1,1]$ has a characteristic function with only real zeros.
+\end{lemma}
+
+\begin{proof}
+Put $G_\beta(y)=\int_0^1e^{-\beta v^2}\cos(yv)\,dv$. Integrating by parts twice, $yG_\beta(y)=e^{-\beta}\sin y+R_\beta(y)$ with $|R_\beta(y)|\le C\beta e^{|\operatorname{Im}y|}/|y|$ for $|y|\ge1$. Off the discs of fixed small radius $r$ about the points $n\pi$, $|\sin y|\ge c_re^{|\operatorname{Im}y|}$, so for $|y|\ge R$ and $\beta\le\beta_0$ the remainder is smaller than the main term. By Rouch\'e, $G_\beta$ has no zero off those discs and exactly one zero in each disc with $|n|\pi\ge R$; since $G_\beta$ is real on $\R$ its zeros are symmetric about the real axis, so that zero is real. In $|y|\le R$ the function $G_\beta$ tends to $G_0=\sin y/y$ uniformly as $\beta\to0$, and $G_0$ has only the simple real zeros $n\pi$, so for small $\beta$ each small disc about $n\pi$ contains one zero, again real, and there is none elsewhere.
+\end{proof}
+
+\begin{theorem}[proved]\label{fm:thm:dense}
+Let $X_n=\sum_ka_{n,k}V_k$ be ferromagnetic sums of uniforms whose couplings satisfy $J_{n,kl}\ge2\varepsilon a_{n,k}a_{n,l}$ for all $k<l$, with one $\varepsilon>0$ and $\varepsilon\max_{n,k}a_{n,k}^2\le\beta_0$. Then $X_n$ does not converge in law to the P\'olya law $X$.
+\end{theorem}
+
+\begin{proof}
+Since $\sum_{k<l}2a_ka_lv_kv_l=x^2-\sum_ka_k^2v_k^2$ with $x=\sum_ka_kv_k$, the joint density of $X_n$ is $e^{\varepsilon x^2}\exp(\sum_{k<l}J'_{kl}v_kv_l)\prod_ke^{-\varepsilon a_k^2v_k^2}$ with $J'_{kl}=J_{kl}-2\varepsilon a_ka_l\ge0$. So the law of $X_n$ is $e^{\varepsilon x^2}$ times the law of a variable $Y_n=\sum_ka_kV'_k$, normalised, whose spins have the measures $e^{-\varepsilon a_k^2v^2}dv$ and the ferromagnetic couplings $J'$. By Lemma~\ref{fm:lem:gaussspin} and Newman's theorem \cite{Newman74}, $Y_n$ is ferromagnetic. If $X_n\to X$ in law, then, because $e^{-\varepsilon x^2}$ is bounded and continuous, $Y_n$ converges in law to the variable $Y$ with density proportional to $e^{-\varepsilon u^2}\Phi(u)$, which is ferromagnetic by Theorem~\ref{fm:thm:closed}. But this is one of the damped densities of Section~\ref{fm:sec:polyamix}, whose transform has nonreal zeros by Rodgers and Tao \cite{RodgersTao}. This is a contradiction.
+\end{proof}
+
+\begin{corollary}[proved]\label{fm:cor:longrange}
+Let $c>0$, $a_k=1/(2(k+c))$ for $k\ge0$, and let finite sums of uniforms with weights $a_k$ carry couplings $J_{kl}\ge J|k-l|^{-\alpha}$ for all pairs, with $J>0$ and $\alpha\le1$ (mean field is $\alpha=0$). Then these sums do not converge in law to the P\'olya law.
+\end{corollary}
+
+\begin{proof}
+For $k\ne l$, $J_{kl}/(a_ka_l)\ge4J(k+c)(l+c)|k-l|^{-1}\ge4J(k+c)(l+c)/(k+l+2c)\ge2Jc$, since $uv/(u+v)\ge c/2$ for $u,v\ge c$. Theorem~\ref{fm:thm:dense} applies with $\varepsilon=\min(Jc,4c^2\beta_0)$.
+\end{proof}
+
+So any realisation of the P\'olya law by uniform spins has $\inf_{k<l}J_{kl}/(a_ka_l)=0$ (the weights are bounded by the Ginibre inequality together with $\operatorname{Var}X_n\to\operatorname{Var}X$ of Theorem~\ref{fm:thm:closed}, so Theorem~\ref{fm:thm:dense} applies): the law cannot be tilted by a Gaussian of any positive variance and remain in the Lee Yang class, and cannot carry a uniformly positive mean field component in the direction of $X$ itself. Nearest neighbour chains and long range couplings with $\alpha>1$ are not excluded. The theorem uses the unconditional bound $\Lambda\ge0$ of Rodgers and Tao.
+
+\begin{remark}\label{fm:rem:realisations}
+(a) Theorem~\ref{fm:thm:dense} extends, with no restriction on the weights, to Ising spins, Gaussian spins and quartic spins $e^{-\alpha v^4-\beta v^2}$ ($\alpha>0$, $\beta$ real), whose Lee and Yang property survives every Gaussian damping: the proof of Theorem~\ref{fm:thm:dense} applies verbatim, the damped spins again being of Lee and Yang type. So every realisation of the P\'olya law by such spins has $\inf_{k<l}J_{kl}/(a_ka_l)=0$, given Theorem~\ref{fm:thm:closed} and the bound of Rodgers and Tao (proved under those hypotheses). (b) The P\'olya density is not the magnetisation density of any finite ferromagnet of Gaussian or quartic spins, with or without real fields (proved). Such a density extends to an entire function (integrate the last spin along a shifted line and use Morera's theorem), while $\Phi$ has a natural boundary on $|\im u|=\pi/4$, and finite Ising systems have atomic laws. So every realisation is an infinite volume limit with no mean field component. A mean field component (couplings $J_{kl}\ge2\varepsilon a_ka_l$ as in Theorem~\ref{fm:thm:dense}) with $\varepsilon<0.286$ is invisible in the $25$ zeros below height $90$, from the collision at $t=-1.144$ already in the book (computed).
+\end{remark}
 
 \subsection{Complements: blocks, harmonic sums and M\"obius inversion}\label{fm:sec:levelrem}
 
@@ -130,7 +192,7 @@ For $\theta,\gamma>0$ let $\mathcal B_{\theta,\gamma}$ be the positive variable 
 \end{proposition}
 
 \begin{proof}
-(i) Put $a=\sqrt s$. The function $2\log|z+ia|-2\log|z|$ is harmonic in the upper half plane, tends to $0$ at infinity, has an integrable logarithmic singularity at $0$ and boundary value $\log(1+s/w^2)$, so it is the Poisson integral of its boundary values. Evaluating at $\gamma+i\theta$ gives $\int_{\mathbb R}\log(1+s/w^2)\frac{\theta/\pi}{\theta^2+(w-\gamma)^2}\,dw=\log\frac{(\theta+a)^2+\gamma^2}{\theta^2+\gamma^2}$, which is the stated density folded onto $w>0$. (ii) The Cauchy densities converge to a unit mass at $\gamma$, and $(1+s/\gamma^2)^{-1}$ is the transform of $e/\gamma^2$. (iii) $1-\E e^{-s\mathcal B}=\frac{2\theta}{\theta^2+\gamma^2}\sqrt s+O(s)$, and Karamata's Tauberian theorem for regular variation of index $\frac12$ gives the tail. (iv) Pairing $\rho$ with $\bar\rho$ in Hadamard's product gives $\xi(\alpha+z)/\xi(\alpha)=\prod_{\gamma_\rho>0}\frac{(c_\rho+z)^2+\gamma_\rho^2}{c_\rho^2+\gamma_\rho^2}$ with $c_\rho=\alpha-\beta_\rho>0$; take $z=\sqrt s$ in the reciprocal. The partial sums increase, and since $\sum\gamma_\rho^{-2}<\infty$ the product of transforms converges absolutely, to a limit tending to $1$ as $s\downarrow0$, so the sum is almost surely finite and has the transform $\xi(\alpha)/\xi(\alpha+\sqrt s)$ of $T_\alpha$.
+(i) Put $a=\sqrt s$. The function $2\log|z+ia|-2\log|z|$ is harmonic in the upper half plane, tends to $0$ at infinity, has an integrable logarithmic singularity at $0$ and boundary value $\log(1+s/w^2)$, so it is the Poisson integral of its boundary values (this is the one zero case of Proposition~\ref{prop:struct}). Evaluating at $\gamma+i\theta$ gives $\int_{\mathbb R}\log(1+s/w^2)\frac{\theta/\pi}{\theta^2+(w-\gamma)^2}\,dw=\log\frac{(\theta+a)^2+\gamma^2}{\theta^2+\gamma^2}$, which is the stated density folded onto $w>0$. (ii) The Cauchy densities converge to a unit mass at $\gamma$, and $(1+s/\gamma^2)^{-1}$ is the transform of $e/\gamma^2$. (iii) $1-\E e^{-s\mathcal B}=\frac{2\theta}{\theta^2+\gamma^2}\sqrt s+O(s)$, and Karamata's Tauberian theorem for regular variation of index $\frac12$ gives the tail. (iv) Pairing $\rho$ with $\bar\rho$ in Hadamard's product gives $\xi(\alpha+z)/\xi(\alpha)=\prod_{\gamma_\rho>0}\frac{(c_\rho+z)^2+\gamma_\rho^2}{c_\rho^2+\gamma_\rho^2}$ with $c_\rho=\alpha-\beta_\rho>0$; take $z=\sqrt s$ in the reciprocal. The partial sums increase, and since $\sum\gamma_\rho^{-2}<\infty$ the product of transforms converges absolutely, to a limit tending to $1$ as $s\downarrow0$, so the sum is almost surely finite and has the transform $\xi(\alpha)/\xi(\alpha+\sqrt s)$ of $T_\alpha$.
 \end{proof}
 
 Compared with Remark~\ref{pol:rem:blocks}, the block there is $\mathcal B_{\theta,\gamma}$ multiplied by the factor $e^{b_\rho w}$ with $b_\rho=2c_\rho/(c_\rho^2+\gamma_\rho^2)$ (there $u=w^2/2$, here $s=w^2$). The compensated block is not a Laplace transform, and the uncompensated one is. The two statements do not conflict: the factors $e^{b_\rho w}$ multiply to $e^{b_\alpha w}$, and (iii) shows that the one half stable parts of the blocks add up to the stable factor $S_\alpha$ of Proposition~\ref{bp:prop:valpha}, since $\sum_\rho b_\rho=b_\alpha=(\xi'/\xi)(\alpha)$.
@@ -155,7 +217,7 @@ Let $X_1,X_2,\dots$ be independent copies of the P\'olya variable and $S=\sum_{n
 The product and the cumulants follow from independence. Under RH, $\log\E e^{zS}=\sum_\gamma\sum_n\log(1+z^2/(n\gamma)^2)=\sum_\gamma\log\frac{\sinh(\pi z/\gamma)}{\pi z/\gamma}$. Conversely, if $S$ is such a sum, $\E e^{zS}$ vanishes only on the imaginary axis, and it vanishes at every zero of $\xi(\frac12+z)$, the factor $n=1$.
 \end{proof}
 
-The zeros of $\E e^{zS}$ are the points $n(\rho-\frac12)$, so the theorem is Newman's criterion (Theorem~\ref{fm:thm:hadamard}) with the harmonic scaling: it is equivalent to RH for the same reason and with the same difficulty, and gives no new route. Any direct proof that $S$ is a uniform sum would have to produce the sizes $\pi/\gamma$, which are the zeros.
+The zeros of $\E e^{zS}$ are the points $n(\rho-\frac12)$, so the theorem is Newman's criterion (Theorem~\ref{fm:thm:hadamard}) with the harmonic scaling: it is equivalent to RH and gives no new route. Any direct proof that $S$ is a uniform sum would have to produce the sizes $\pi/\gamma$, which are the zeros.
 
 \begin{proposition}\label{fm:prop:mobius}
 Let $Y$ be symmetric with finite variance, $S_Y=\sum_{n\ge1}Y_n/n$ for independent copies $Y_n$, and let $S^{(k)}$ be independent copies of $S_Y$, independent of $Y$. With $S_\pm=\sum_{\mu(k)=\pm1}S^{(k)}/k$,
@@ -169,7 +231,7 @@ Status: proved, with no hypothesis on zeros. If moreover $Y$ has finite moments 
 Both sides are convergent sums since $\sum k^{-2}<\infty$. In terms of characteristic functions, $\varphi_Y\varphi_{S_-}=\prod_m\varphi_Y(t/m)^{[m=1]+\#\{k\mid m:\mu(k)=-1\}}$ and $\varphi_{S_+}=\prod_m\varphi_Y(t/m)^{\#\{k\mid m:\mu(k)=1\}}$. The exponents agree because $\sum_{k\mid m}\mu(k)=[m=1]$. The rearrangement is legitimate since $|1-\varphi_Y(t/m)|\le\operatorname{Var}Y\,t^2/(2m^2)$ and the multiplicities are at most the divisor function, with $\sum_md(m)m^{-2}<\infty$.
 \end{proof}
 
-This holds for every symmetric law with finite variance, in particular for $X$ and for the symmetric Davenport and Heilbronn law $U_{DH}$ of Proposition~\ref{ht:prop:dhtheta}. The M\"obius function enters as an exponent on transforms: the identity is a convolution identity between laws, and no factor with $\mu(k)=-1$ is a measure, so $X$ is not a signed sum of copies of $S$. Under RH, $S_\pm$ are sums of independent uniform spins of sizes $\pi/(k\gamma)$, by Theorem~\ref{fm:thm:harmonic}. For $U_{DH}$ the spin reading fails: the moment generating function of $S_{DH}$ vanishes at $n(\rho-\frac12)$ for the zero $\rho=0.8085\ldots+85.6993\ldots i$, which is not imaginary (the zero is computed), so $S_{DH}$ is not a uniform sum (proved).
+This holds in particular for $X$ and for the symmetric Davenport and Heilbronn law $U_{DH}$ of Proposition~\ref{ht:prop:dhtheta}. The M\"obius function enters as an exponent on transforms: the identity is a convolution identity between laws, and no factor with $\mu(k)=-1$ is a measure, so $X$ is not a signed sum of copies of $S$. Under RH, $S_\pm$ are sums of independent uniform spins of sizes $\pi/(k\gamma)$, by Theorem~\ref{fm:thm:harmonic}. For $U_{DH}$ the spin reading fails: the moment generating function of $S_{DH}$ vanishes at $n(\rho-\frac12)$ for the zero $\rho=0.8085\ldots+85.6993\ldots i$, which is not imaginary (the zero is computed), so $S_{DH}$ is not a uniform sum (proved).
 
 \begin{proposition}\label{fm:prop:weights}
 Let $c_j>0$, $\alpha_j\ge1$, and $Z=\sum_jc_jV^{(j)}_{\alpha_j}$ with independent terms, converging in law, with finite moment generating function $\prod_j\xi(\alpha_j+c_jz)/\xi(\alpha_j)$. This function has no zero on the imaginary axis. $Z$ is an Esscher tilt by a field $\theta$ of a ferromagnetic law if and only if RH holds and $(\alpha_j-\frac12)/c_j=\theta$ for every $j$, and then the family is finite. Status: proved.
@@ -216,3 +278,104 @@ $p_\alpha(y)=e^{(\alpha-\frac12)y}p(y)\xi(\frac12)/\xi(\alpha)$ with $p$ the eve
 \end{proof}
 
 This is the form of the functional equation $\xi(s)=\xi(1-s)$ that resembles a fluctuation relation of statistical mechanics, with the field $\theta=\alpha-\frac12$ conjugate to $y$; as an analogy this reading is heuristic.
+
+\subsubsection*{Divisor models and their couplings}
+
+The rest of this subsection collects results of an unrefereed note of Polson (November 2026) on independent and coupled sums of uniform spins whose weights are harmonic. Let $V_k$ be independent uniform on $[-1,1]$ and $X_K=\frac12\sum_{k\ge K}V_k/k$, with $\varphi_K(t)=\prod_{k\ge K}\operatorname{sinc}(t/2k)$. It is a limit of ferromagnetic sums with no coupling, so Theorem~\ref{fm:thm:closed} applies.
+
+\begin{proposition}[proved]\label{fm:prop:divisor}
+The zeros of $\varphi_K$ are real, at $t=\pm2\pi m$ with multiplicity $d_K(m)=\#\{k\ge K:k\mid m\}$, so with $x=T/2\pi$ the number of zeros in $(0,T]$ is $\sum_{m\le x}d_K(m)=x\log x+O_K(x)$, which matches the main term of the Riemann and von Mangoldt count $x\log x-x+O(\log T)$. For $K=1$ the coefficient of $x$ is $2\gamma-1$, and for $K=3$ it is $2\gamma-\frac52$. Moreover $\log\varphi_K(t)=-\sum_{j\ge1}S_j^{(K)}t^{2j}/j$ with $S_j^{(K)}=\zeta(2j)\big(\zeta(2j)-\sum_{k<K}k^{-2j}\big)/(2\pi)^{2j}$.
+\end{proposition}
+
+\begin{proof}
+$\operatorname{sinc}(t/2k)=\prod_{n\ge1}(1-t^2/4\pi^2n^2k^2)$, so the zeros are $2\pi nk$, and collecting $m=nk$ gives $d_K(m)$. Dirichlet's estimate $\sum_{m\le x}d(m)=x\log x+(2\gamma-1)x+O(\sqrt x)$, less the contribution $x/k$ of each excluded $k<K$, gives the count. The power sums are $\sum_{n,k\ge K}(2\pi nk)^{-2j}$.
+\end{proof}
+
+By Theorem~\ref{fm:thm:dual}(v), $S_1=\frac12\operatorname{Var}$ and $S_2=-\kappa_4/12$ for any law with such a transform; for the P\'olya law they are $S_1=0.0231049931$ and $S_2=3.71725993\times10^{-5}$ (computed, under RH the power sums of the ordinates). The models give
+
+\begin{center}\small
+\begin{tabular}{@{}lccc@{}}
+\toprule
+ & $S_1$ & $S_2$ & first zero\\
+\midrule
+P\'olya law & $0.0231050$ & $3.717\times10^{-5}$ & $14.1347$\\
+$X_1$ & $\pi^2/144=0.0685389$ & $7.516\times10^{-4}$ & $2\pi=6.2832$\\
+$X_2$ & $0.0268723$ & $5.717\times10^{-5}$ & $4\pi=12.5664$\\
+$X_3$ & $0.0164556$ & $1.377\times10^{-5}$ & $6\pi=18.8496$\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+so the zero density is right and the low zeros are not. Couplings can move zeros along the line and keep them real. Which starting points can reach $p$ is limited by the Griffiths inequalities.
+
+\begin{proposition}[proved]\label{fm:prop:gks}
+Fix weights $a_k=1/(2k)$, $k\ge K$, and let $X_{K,J}$ be a ferromagnetic deformation of $X_K$ with these weights, or a limit in law of such. Then $\operatorname{Var}X_{K,J}\ge\operatorname{Var}X_K$. Consequently no ferromagnetic deformation of $X_1$ or $X_2$ has law $p$.
+\end{proposition}
+
+\begin{proof}
+$\operatorname{Var}X_{K,J}=\sum_{j,k}a_ja_k\langle V_jV_k\rangle_J$. The uniform law is even, so Ginibre's form of the second Griffiths inequality \cite{Ginibre70} gives $\langle V_jV_k\rangle_J\ge\langle V_jV_k\rangle_0=\frac13\delta_{jk}$. Variances converge along limits in law by Theorem~\ref{fm:thm:closed}. Finally $\operatorname{Var}X_K=2S_1^{(K)}=0.137,\ 0.0537$ for $K=1,2$, above $\operatorname{Var}X=0.0462099862$ (Table~\ref{fm:tab:cum}).
+\end{proof}
+
+For $X_3$ there is no such obstruction: the couplings would have to raise the variance from $0.0329$ to $0.0462$.
+
+The weights $1/(2k)$ leave the linear term of the count at $2\gamma-\frac52$ for $K=3$. Shifting them removes it. For $c>0$ let $X^{(c)}=\frac12\sum_{k\ge0}V_k/(k+c)$, with zeros $2\pi n(k+c)$, $n\ge1$, $k\ge0$, again a limit of uncoupled ferromagnetic sums.
+
+\begin{proposition}[proved]\label{fm:prop:shiftcount}
+With $x=T/2\pi$, the number of zeros of $X^{(c)}$ in $(0,T]$ is $\sum_{k\ge0}\lfloor x/(k+c)\rfloor=x\log x+(\gamma-1-\psi(c))x+o(x)$.
+\end{proposition}
+
+\begin{proof}
+$\sum_{k+c\le x}x/(k+c)=x(\log x-\psi(c))+O(1)$ for the Hurwitz harmonic sum, and the fractional parts contribute $\sum_k\{x/(k+c)\}=x\int_1^\infty\{v\}v^{-2}dv+o(x)=(1-\gamma)x+o(x)$, as in the Dirichlet divisor problem.
+\end{proof}
+
+Matching the coefficient $-1$ of Riemann and von Mangoldt requires $\psi(c)=\gamma$, that is $c_0=2.2583969670859\ldots$ (computed), with first zero $2\pi c_0=14.18993$. A direct count gives $(N-x\log x)/x=-1.00064,\,-1.000035,\,-1.0000066$ at $x=10^4,10^5,10^6$ (computed). Nothing else is fitted, and the model stays close to the P\'olya law: the ratios $S_j/S_j(\Xi)$ for $j=1,\dots,5$ are $1.00049$, $0.997255$, $0.988344$, $0.977572$, $0.967067$; the counts of zeros agree to within one up to $T=200$; and the first $79$ zeros, paired in order, differ by $1.078$ on average and by at most $3.248$ (all computed). The fluctuations of the model are of divisor type, whereas $S(T)=O(\log T)$ for $\xi$, and coupling would have to suppress them (heuristic).
+
+By Proposition~\ref{fm:prop:gks}, which uses only evenness of the spins, couplings with the weights $1/(2(k+c))$ can only raise the variance. At $c_0$ the variance exceeds that of $p$ by $0.05\%$ (ratio $1.00049$ of $S_1$). The value that matches $S_1$ exactly is $c_1=2.259295$, with linear coefficient $-1.000498$, so a ferromagnetic deformation of $X^{(c)}$ with these weights needs $c\ge c_1$ (a necessary condition only).
+
+\begin{proposition}[proved]\label{fm:prop:polar}
+Let $Z^{(c)}(s)=\sum_{n\ge1,k\ge0}(2\pi n(k+c))^{-s}=(2\pi)^{-s}\zeta(s)\zeta(s,c)$ and $Z_\Xi(s)=\sum_{\gamma>0}\gamma^{-s}$, summed over all zeros $\frac12+i\gamma$ of $\zeta$ with $\gamma>0$. Then $Z^{(c)}$ and $Z_\Xi$ have the same principal part at $s=1$ if and only if $\psi(c)=\gamma$, namely $\frac1{2\pi}\big[(s-1)^{-2}-\log(2\pi)(s-1)^{-1}\big]$.
+\end{proposition}
+
+\begin{proof}
+For the model, $\zeta(s)=(s-1)^{-1}+\gamma+O(s-1)$, $\zeta(s,c)=(s-1)^{-1}-\psi(c)+O(s-1)$ and $(2\pi)^{-s}=(2\pi)^{-1}(1-(s-1)\log2\pi+\cdots)$ give $\frac1{2\pi}[(s-1)^{-2}+(\gamma-\psi(c)-\log2\pi)(s-1)^{-1}]$. For $\Xi$ write $Z_\Xi(s)=\int T^{-s}dN(T)$ with $N(T)=\frac T{2\pi}\log\frac T{2\pi}-\frac T{2\pi}+R(T)$ and $R(T)=O(\log T)$. The smooth part contributes $\frac1{2\pi}\int_A^\infty T^{-s}\log\frac T{2\pi}\,dT$, whose principal part is the displayed one for every $A$, and the remainder is analytic in $\re s>0$.
+\end{proof}
+
+Agreement at $s=2,4,\dots$ is then a matter of the fluctuation terms only, which is why matching the linear term alone gives $S_1$ to $0.05\%$ (heuristic). The constant term of the count, the $\frac78$ of Riemann and von Mangoldt, needs a second parameter, which the spins supply.
+
+\begin{lemma}[proved]\label{fm:lem:bspin}
+For $b>\frac12$ let $W$ have density proportional to $\cos(\pi w/2)^{2b-2}$ on $[-1,1]$. Then $\E e^{itW}=\Gamma(b)^2/\big(\Gamma(b-t/\pi)\Gamma(b+t/\pi)\big)$, with zeros only at $t=\pm\pi(n+b)$, $n\ge0$. So $W$ is a bounded single spin with real zeros; $b=1$ is the uniform spin and $b\to\frac12$ the Ising spin.
+\end{lemma}
+
+\begin{proof}
+With $\theta=\pi w$ this is the classical integral $\int_{-\pi}^{\pi}\cos(\theta/2)^\nu e^{ix\theta}\,d\theta=2\pi\Gamma(\nu+1)/\big(2^\nu\Gamma(1+\frac\nu2+x)\Gamma(1+\frac\nu2-x)\big)$, $\nu>-1$, with $\nu=2b-2$ and $x=t/\pi$, normalised at $t=0$. The zeros are the poles of the gamma factors.
+\end{proof}
+
+For $b\le1$ the potential $V(w)=(2-2b)\log\sec(\pi w/2)$ has $V'(w)=(1-b)\pi\tan(\pi w/2)$ convex on $[0,1)$, so these spins lie in the class of Ellis, Monroe and Newman \cite{EMN76}. The two shift model is $X^{(b,c)}=\frac12\sum_{k\ge0}W_k/(k+c)$ with independent spins $W_k$ of Lemma~\ref{fm:lem:bspin}. Its zeros are $2\pi(n+b)(k+c)$, $n,k\ge0$, and its zero zeta function is $(2\pi)^{-s}\zeta(s,b)\zeta(s,c)$, with principal part $\frac1{2\pi}[(s-1)^{-2}-(\psi(b)+\psi(c)+\log2\pi)(s-1)^{-1}]$ at $s=1$ and value $(\frac12-b)(\frac12-c)$ at $s=0$. Matching the count through its constant term, with the Riemann and von Mangoldt constant $\frac78$ (a theorem), requires $\psi(b)+\psi(c)=0$ and $(b-\frac12)(c-\frac12)=\frac78$, with solution $b=0.98533421138617$, $c=2.30288135365712$ (computed). For one shift the value at $0$ is $\frac12(c_0-\frac12)=0.87920$. The two shift model has first zero $14.2572$, and its ratios $S_j/S_j(\Xi)$, $j=1,\dots,5$, are $0.998258$, $0.985003$, $0.965014$, $0.943895$, $0.923897$ (computed). Its counting function stays within one of the true count up to $T=200$, and the mean distance of the first $79$ paired zeros is $1.045$ against $1.078$ for one shift. Since $S_1$ is now $0.17\%$ below $S_1(\Xi)$, Proposition~\ref{fm:prop:gks} no longer forbids a ferromagnetic deformation. A single constant nearest neighbour coupling $J$ on the first $60$ spins, fixed only by $S_1=S_1(\Xi)$, is $J=0.00332$ to first order in $J$ (computed). Theorem~\ref{fm:thm:dense} for the tilted cosine power spin would need Lemma~\ref{fm:lem:gaussspin} for $e^{-\beta w^2}\cos(\pi w/2)^{2b-2}$, which has not been proved, so for these spins the restriction on the geometry of couplings is open.
+
+\begin{proposition}[heuristic]\label{fm:prop:rate}
+Averaged over windows in $t$, $\frac1t\log|\varphi_K(t)|\to-\pi/4$ for every $K$, the decay rate of the gamma factor of $\Xi$.
+\end{proposition}
+
+With $v=t/2k$, $\log|\varphi_K(t)|$ is a Riemann sum for $\frac t2\int_0^\infty\log|\operatorname{sinc}v|\,v^{-2}dv=-\frac{\pi t}4$, since the integral is $-\pi/2$ by integration by parts and a contour shift. The error terms have not been written out, and averaging in a window replaces $\log|\sin|$ by its mean without proof. The mean of $\frac1t\log|\varphi_3|$ on $[100,120]$ is $-0.6739$, and $\int_0^\infty\log|\varphi_b(v)|v^{-2}dv=-1.5707963$ for $b=0.98533$ as for $b=1$ (computed), which is evidence and not proof.
+
+\begin{theorem}[proved]\label{fm:thm:rowbound}
+Let $X=Y+\sum_{k\ge L}a_kW_k$, where $Y$ has any law, the $W_k$ are independent of each other and of $Y$, $a_k=1/(2(k+c))$, and each $W_k$ is a cosine power spin with parameter $b$. Let $P_L(T)=\{2\pi(n+b)(k+c)\le T:n\ge0,\ k\ge L\}$, let $E(t)=\big|\frac12s(s-1)\pi^{-s/2}\Gamma(s/2)\big|$ at $s=\frac12+it$, so that $\Xi(t)/E(t)=\pm Z(t)$ with $Z$ Hardy's function, and let $\mathcal E_T(\varphi)=\sup_{0\le t\le T}|\Xi(t)-\Xi(0)\varphi(t)|/E(t)$. Then
+\[
+\mathcal E_T(\varphi_X)\ \ge\ \max_{t\in P_L(T)}|Z(t)| .
+\]
+The bound holds for every ferromagnetic coupling of the block $k<L$.
+\end{theorem}
+
+\begin{proof}
+$\varphi_X=\varphi_Y\prod_{k\ge L}\varphi_b(a_kt)$, and by Lemma~\ref{fm:lem:bspin} each factor $\varphi_b(a_kt)$ vanishes at $t=2\pi(n+b)(k+c)$. At those points the error is $|\Xi(t)|/E(t)=|Z(t)|$.
+\end{proof}
+
+The first tail point is $t^*_L=2\pi b(L+c)$. For the two shift model the maximum is $1.780$ for $L=10$ at $T=1.5t^*_L$ and $5.620$ for $L=24$ at the same $T=1.5t^*_L$ (computed). By Li and Radziwi\l\l\ at least a third of the points of each row are not zeros of $Z$, so the bound is positive once $P_L(T)$ contains a long enough part of a row.
+
+\begin{remark}[heuristic]\label{fm:rem:linear}
+A finite chain with independent tail $k\ge L$ approximates $\Xi$ in relative error below $\delta$ only if $|Z|<\delta$ on every tail row point $t\le T$. If $\delta$ is below the typical size of $|Z|$ there, this suggests $T\lesssim2\pi b(L+c)$, so that the number of coupled spins must grow at least linearly with the window.
+\end{remark}
+
+\begin{remark}[heuristic]\label{fm:rem:williamsj}
+Let $V_1,V_2$ be uniform on $[-1,1]$, and let $X_J=V_1+V_2$ under the joint density proportional to $e^{Jv_1v_2}$, $J\ge0$, a ferromagnetic law by Newman's theorem \cite{Newman74}. At $J=0$ the clock $T_{X_0}$ of Theorem~\ref{fm:thm:dual}(i) is $S_2/2$, so that $\frac12\E(\pi T_{X_0})^{s/2}=\xi(s)$ by the formula of Biane, Pitman and Yor (Section~\ref{ch:clock}). For $J>0$ the same formula with $T_{X_J}$, whose Laplace transform is $1/L_{X_J}(\sqrt u)$, with poles only at negative real $u$ for every $J$, defines a deformation $\xi_J$ of $\xi$. The note of Polson (November 2026) reports that the zeros of $\xi_J$ leave the critical line linearly in $J$ and that the functional equation fails at the same order, so that Lee Yang reality in the Laplace variable does not transfer across the logarithm: the functional equation comes from the modular symmetry of theta, which the coupling $Jv_1v_2$ breaks.
+\end{remark}

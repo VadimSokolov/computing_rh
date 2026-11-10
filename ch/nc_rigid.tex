@@ -1,0 +1,390 @@
+% Chapter nc_rigid: what the Euler product and the functional equation force (Volume II, after the Iwaniec chapter nc_iw). No \chapter command: the volume plan supplies the heading.
+% Sources: the authors' research rounds 3 to 5, misc/research/directions/round3/{A_bootstrap,B_truncated_euler,C_hankel,D_operator}.md, round4/{E_hamburger,H_search,G_selberg_degree1}.md, round5/{M1_reduction,M2_construct,M3_obstruction,F_theta_positivity}.md, each used as the sibling *_verify.md marks it, with the corrections of those files applied (the archimedean convention of the Beurling half, the weaker properties in the barrier, the one sided Landau argument).
+% Status words as in the rest of the book. New bibliography entries are in misc/research/directions/opus/merge7_rigid_bib.txt.
+
+Proposition~\ref{iw:prop:converse} reduces the quasi Riemann hypothesis at level $\alpha$ to nonnegativity of a one parameter family of explicit prime sums. This chapter asks what two structural facts about $\zeta$, the Euler product with a positive prime measure and the functional equation, can force on any function that has them, and where the forcing stops. The answers are rigidity theorems and obstructions found in the authors' own attacks on the criterion, and none of them gives a zero free half plane. The Euler product alone is defeated by an explicit Beurling system with a zero off the line (Section~\ref{rg:sec:euler}), the functional equation alone by Davenport and Heilbronn type functions, even with a positive theta kernel (Section~\ref{rg:sec:fe}). Together they determine $\zeta$ under a positivity or an analytic hypothesis and exclude every finite modification of $\zeta$ that keeps a positive Euler product (Section~\ref{rg:sec:both}); the routes through a comparison function are RH restated, or need a hypothesis that explicit objects violate (Section~\ref{rg:sec:stop}); the step from one level to a lower one is examined in Section~\ref{rg:sec:level}. Every result carries one of the status words proved, computed, conditional, heuristic or open, with certified reserved for ball arithmetic. The unrefereed zero free half plane $\re s>\frac78$ of \cite{OAI26a} is never used as a theorem. No priority is claimed for anything below.
+
+\section{The target and its one sign form}\label{rg:sec:target}
+
+Notation is that of Section~\ref{iw:sec:weil}: $\xi$ is the completed zeta function with zeros $\rho=\beta+i\gamma$, $\mathrm{QRH}(\alpha)$ says that no zero has $\beta>\alpha$ (Corollary~\ref{iw:cor:qrh}), and $W_\alpha$ is the functional of Theorem~\ref{iw:thm:weil}. Let $\phi_0(y)=(\sin y/y)^4$, $h=\widehat{\phi_0}=\frac\pi8\mathbf 1_{[-1,1]}^{*4}$ and $\Phi(z)=\int h(v)e^{zv}dv=2\pi(\sinh z/z)^4$, whose zeros are the points $i\pi k$, $k\ne0$. Put $M_\alpha=W_\alpha(\phi_0)$ and $g_\alpha(a)=W_\alpha(\phi_0\cos a\,\cdot)$, so that $W_\alpha(\phi_0(1\pm\cos a\,\cdot))=M_\alpha\pm g_\alpha(a)$. For $a>4$, \eqref{iw:eq:Wzero} gives, absolutely convergent,
+\begin{equation}\label{rg:eq:zeroside}
+g_\alpha(a)=\sum_\rho\re\Big[\Big(\frac{\sinh(\rho-\alpha)}{\rho-\alpha}\Big)^4e^{(\rho-\alpha)a}\Big]\qquad(\text{proved}).
+\end{equation}
+Proposition~\ref{iw:prop:converse} says that $\mathrm{QRH}(\alpha)$ holds if and only if $M_\alpha\pm g_\alpha(a)\ge0$ for all $a\ge5$. This is the common target: each attack below proves, refutes or reformulates a statement of this form for a function $F$ other than $\zeta$, with $\xi$ replaced by the completed function of $F$. One sharpening is used throughout.
+
+\begin{proposition}[one sign suffices]\label{rg:prop:onesign}
+For $\alpha>0$ the following are equivalent: (a) $\mathrm{QRH}(\alpha)$; (b) $M_\alpha+g_\alpha(a)\ge0$ for every $a\ge5$; (c) $M_\alpha-g_\alpha(a)\ge0$ for every $a\ge5$; (d) for every $\varepsilon>0$ there is $C_\varepsilon$ with $g_\alpha(a)\ge-C_\varepsilon e^{\varepsilon a}$ on $[5,\infty)$, or symmetrically with $g_\alpha(a)\le C_\varepsilon e^{\varepsilon a}$. Status: proved.
+\end{proposition}
+
+\begin{proof}
+(a) implies (b) and (c) by Theorem~\ref{iw:thm:weil}, and each implies (d). Assume (d) and put $f=g_\alpha+C_\varepsilon e^{\varepsilon a}\ge0$. By Step~3 of the proof of Proposition~\ref{iw:prop:converse}, $\mathcal G(z)=\int_5^\infty g_\alpha e^{-za}da$ continues meromorphically to $\re z>-2-\alpha$ with poles only at $z=\rho-\alpha$ and possibly $z=1-\alpha$, where the residues $\mp\Phi(1-\alpha)$ cancel; the transform of $f$ converges for $\re z>\max(1-\alpha,\varepsilon)$ by Chebyshev's bound $|g_\alpha(a)|\ll e^{(1-\alpha)a}$, and on the real axis $z>0$ it is singular only at $z=\varepsilon$, since $\zeta(\sigma)\ne0$ for $0<\sigma<1$. By Landau's theorem \cite{Widder41} the transform of a nonnegative function is singular at its abscissa of convergence, so $\mathcal G$ is holomorphic in $\re z>\varepsilon$. A zero with $\beta>\alpha+\varepsilon$ would give a pole at $\rho-\alpha$ with residue a nonzero multiple of $\Phi(\rho-\alpha)\ne0$. Hence $\mathrm{QRH}(\alpha+\varepsilon)$ for every $\varepsilon$. \qedhere
+\end{proof}
+
+This is Landau's oscillation theorem in smoothed form, used in Lemma~\ref{ht:lem:landau}; what is new is that the family of Proposition~\ref{iw:prop:converse} needs one sign instead of two. Two reformulations of the same family. Extend $g_\alpha$ evenly with $g_\alpha(0)=M_\alpha$. Under $\mathrm{QRH}(\alpha)$ every Toeplitz matrix $(g_\alpha((j-k)\eta))_{0\le j,k<N}$ is positive semidefinite, and conversely semidefiniteness for all $N$ and all $\eta$ in a nonempty interval gives $|g_\alpha(k\eta)|\le M_\alpha$ on a half line, hence $\mathrm{QRH}(\alpha)$ (proved, a reformulation). And $W_\alpha$ is a quadratic form $T_{\alpha,L}$ on $L^2(0,L)$ with $\mathrm{QRH}(\alpha)$ if and only if $T_{\alpha,L}\ge0$ for every $L$ (proved, the operator form of Proposition~\ref{iw:prop:converse}); passing from $\alpha$ to $\alpha+\delta$ multiplies its prime kernel by $e^{-\delta|u|}$, the prime side of the Cauchy semigroup (proved).
+
+\begin{proposition}[the Toeplitz form at level one]\label{rg:prop:toeplitz1}
+Let $\alpha>0$ be such that $\mathrm{QRH}(\alpha)$ holds, no zero lies on $\re s=\alpha$, and $\varrho_\alpha(y)=O(\log(2+|y|))$; all three hold at $\alpha=1$. For $h>0$ let $M_N(\alpha,h)=\big(g_\alpha(|j-k|h)\big)_{0\le j,k<N}$ with $g_\alpha(0)=M_\alpha$. Then $M_N(\alpha,h)$ is the Toeplitz matrix of the continuous symbol
+\[
+F_{\alpha,h}(\theta)=\frac{2\pi}h\sum_{m\in\mathbb Z}(\phi_0\varrho_\alpha)\Big(\frac{\theta+2\pi m}h\Big)\ge0;
+\]
+$\lambda_{\min}(M_N(\alpha,h))$ decreases to $\min F_{\alpha,h}$ as $N\to\infty$; and $\min F_{\alpha,h}=0$ if and only if $h=2/j$ for an integer $j\ge2$. At $\alpha=h=1$, for every $N\ge1$,
+\[
+\frac{4k_1}{(N+1)^2(N+2)^2}\le\lambda_{\min}(M_N(1,1))<\frac{126K_1}{N^4},
+\]
+where $k_1$ and $K_1$ are the minimum and the maximum of $F_{1,1}(\theta)/(1+\cos\theta)^2$ on the circle, both positive and finite. Status: proved.
+\end{proposition}
+
+\begin{proof}
+The Fourier coefficients of $F_{\alpha,h}$ are $g_\alpha(kh)$. Monotonicity in $N$ is interlacing, and the limit is the theorem of Grenander and Szeg\H o \cite{NCGrenanderSzego58}. If $\min F_{\alpha,h}=0$, every point $(\theta+2\pi m)/h$ lies in $\pi\mathbb Z\setminus\{0\}$, the zeros of $\phi_0$, which gives $2/h\in\mathbb Z$. At $h=1$ compare with $T_N((1+\cos\theta)^2)=\frac14SB_NS$ and bound $\sigma_{\min}(B_N)$ by writing $B_N=D^{\mathsf T}D$ and using $\sin x\ge2x/\pi$.
+\end{proof}
+
+Computed (reproduced): $k_1=4.2055\cdot10^{-3}$ and $K_1=1.15479\cdot10^{-2}$, and $N^4\lambda_{\min}(M_N(1,1))=0.4345,\,0.4750,\,0.4982,\,0.5111$ at $N=26,\,50,\,95,\,180$, approaching $125.14\,k_1=0.5263$. So at level one the margin of the $N\times N$ section is of exact order $N^{-4}$ at $h=1$, tends to zero exactly at the steps $h=2/j$, and for every other $h$ tends to a positive limit.
+
+\section{What the Euler product alone gives}\label{rg:sec:euler}
+
+An Euler product in Beurling's sense is a measure $\Pi\ge0$ on $(1,\infty)$ with generalised integers $N=\exp_*(\Pi)$, $\zeta_N(s)=\int u^{-s}dN=\exp\int u^{-s}d\Pi$ and prime measure $\Lambda=\log u\,d\Pi$.
+
+\begin{theorem}[the system $B_{\beta,\gamma}$]\label{rg:thm:beurling}
+Fix $\beta\in(0,1)$, $\gamma>0$, $\rho=\beta+i\gamma$, $T_a=\log4/(1-\beta)$, $T_b>T_a$ and a nonincreasing $\chi\in C^2$ with $\chi=1$ on $[0,T_a]$, $\chi=0$ on $[T_b,\infty)$. Put $q(t)=1-e^{-t}-2e^{-(1-\beta)t}\cos(\gamma t)(1-\chi(t))$, $d\Pi_B=q(\log u)\,du/\log u$ and $\Lambda_B=q(\log u)\,du$. Then:
+\begin{enumerate}
+\item[(a)] $q\ge0$, and $\frac14\le q\le2$ for $t\ge T_a$; so $\Lambda_B$ has density at most $2$, $N_B=\exp_*\Pi_B$ is a positive measure with density $\ll_\varepsilon u^\varepsilon$, and $|\mu_B|\le N_B$ for $\mu_B=\exp_*(-\Pi_B)$.
+\item[(b)] $\zeta_B(s)=\frac{s(s-\rho)(s-\bar\rho)}{s-1}e^{-E(s-\rho)-E(s-\bar\rho)}$ with $E$ entire: $\zeta_B$ is meromorphic, its only pole is a simple pole at $1$ with positive residue, and its zeros are exactly $0,\rho,\bar\rho$. So all zeros have real part at most $\beta$, and $\mathrm{QRH}_B(\beta-\varepsilon)$ fails for every $\varepsilon>0$.
+\item[(c)] $\zeta_B$ is bounded in vertical strips for $|t|\ge1$; $\int w(u/x)\,dN_B=c\,x\,\mathcal Mw(1)+O_{K,w}(x^{-K})$ for $w\in C^2_c$ and every $K$; and $\psi_B(x)-x=-2\re(x^\rho/\rho)+O(\log x)$.
+\item[(d)] For $a\ge T_b+4$ the criterion function is $g_{B,\alpha}(a)=\big(\frac{\sinh\alpha}\alpha\big)^4e^{-\alpha a}+2\re\big[\big(\frac{\sinh(\rho-\alpha)}{\rho-\alpha}\big)^4e^{(\rho-\alpha)a}\big]$, the analogue of \eqref{rg:eq:zeroside} over the zeros $0,\rho,\bar\rho$; at $\alpha=\beta$ it stays below $M_{B,\beta}$, and for $\alpha<\beta$ it grows like $e^{(\beta-\alpha)a}$.
+\end{enumerate}
+Status: proved.
+\end{theorem}
+
+\begin{proof}[Sketch]
+(a) For $t\ge T_a$, $2e^{-(1-\beta)t}\le\frac12$ and $1-e^{-t}\ge\frac34$. (b) $\log\zeta_B=\int_0^\infty e^{-(s-1)t}q(t)\,dt/t$; Frullani gives $\log\frac s{s-1}$ for $1-e^{-t}$, and the oscillating term gives $-J(s-\rho)-J(s-\bar\rho)$ with $J(w)=\int_0^\infty e^{-wt}(1-\chi)\,dt/t$, where $J(w)+\log w$ is entire. (c) Two integrations by parts, then Mellin inversion moved to $\re s=-K$, which crosses only $s=1$. (d) is the computation of the criterion with the zeros $0,\rho,\bar\rho$, and $\Phi(\rho-\alpha)\ne0$. \qedhere
+\end{proof}
+
+Over the whole range $a\ge5$ the criterion holds at level $\beta$ once the functional of $B$ is defined by its own explicit formula, with the terms of $\zeta_B'/\zeta_B$ at $\rho,\bar\rho$ in the place of the archimedean term (then $W^B_\beta(\phi)=(P_\beta*\phi)(0)+2\phi(\gamma)\ge0$ termwise); with $\psi_B$ alone it fails for small $\gamma$ although $\mathrm{QRH}_B(\beta)$ holds (computed). For $\beta=0.9$, $\gamma=14.134725$, $T_b=T_a+1$ and a quintic smoothstep $\chi$, the criterion at level $0.89$ first fails at $a=922.60$ (computed).
+
+\begin{corollary}[barrier]\label{rg:cor:barrier}
+Consider an argument for $\mathrm{QRH}(\alpha)$ for $\zeta$ that uses about the integers only: positivity of the prime measure and $|\mu|\le N$; growth of the zeta function of at most polynomial order in vertical strips; and type I asymptotics with a power saving error. It applies word for word to $B_{\beta,\gamma}$, which has all three properties a fortiori, and $\mathrm{QRH}(\alpha)$ fails for $B_{\beta,\gamma}$ for every $\alpha<\beta$. So no such argument proves $\mathrm{QRH}(\alpha)$ for any $\alpha<1$. Status: proved for the model; as a statement about arguments it is an informal obstruction, whose content depends on what ``uses'' admits.
+\end{corollary}
+
+The properties are stated in the weak form that $\zeta$ itself has ($\zeta$ is unbounded on $\re s=1$, and its type I error is a fixed power). The mechanism is classical: Beurling \cite{NCBeurling37}, Diamond, Montgomery and Vorhauer \cite{NCDMV06} for discrete systems with $N(x)=cx+O(x^\theta)$, $\theta<1$, and zeros approaching $\re s=1$, and \cite{Zhang07,BDV20,NCDiamondZhang16}. Truncating the Euler product does not help: for $\zeta_P=\prod_{p\le P}(1-p^{-s})^{-1}$ the criterion function built from the zero free completion $(s-1)\zeta_Pe^{E_1((s-1)\log P)}$ equals $g_\alpha(a)$ for $5\le a\le\log P-4$, so uniformity in $P$ is equivalent to $\mathrm{QRH}(\alpha)$ up to the endpoint (proved, a restatement). A nearly perfect counting function has the same defect: for $0<\delta\le\min(\frac14,\frac{1-\beta_0}2)$, $\rho_0=\beta_0+i\gamma_0$ and $Z(s)=\frac s{s-1}\frac{(s-\rho_0)(s-\bar\rho_0)}{(s-\rho_0+\delta)(s-\bar\rho_0+\delta)}$, the prime measure is $\big(1-\frac1x-2x^{\beta_0-1}\cos(\gamma_0\log x)(1-x^{-\delta})\big)dx\ge0$ and the counting function is exactly $Ax+2\re(Bx^{\rho_0-\delta}/(\rho_0-\delta))$, yet the zero at $\rho_0$ makes the criterion unbounded for $\alpha<\beta_0$ (proved; for $\beta_0=0.8$, $\gamma_0=10$, $\delta=0.1$ it first fails at $a=51.289$ for $\alpha=0.6$, computed). The remainder is only $x^{\beta_0-\delta}$, so this does not block an argument that needs $x^{\alpha-1/4}$ or better.
+
+\section{What the functional equation alone gives}\label{rg:sec:fe}
+
+Let $F$ be $\zeta$, $L(s,\chi_{-4})$, or the Davenport and Heilbronn function $f_{\mathrm{DH}}$ of Section~\ref{ht:sec:dh} (conductor $5$, odd, a zero at $\rho_{\mathrm{DH}}=0.808517182457+85.699348485378i$, see \cite{DH36,BSO07}); each has a completed function with $\Xi_F(s)=\Xi_F(1-s)$.
+
+\begin{proposition}[the dual sum is empty]\label{rg:prop:empty}
+For these three functions, every $\alpha>0$ and $a>4$, the criterion function of $F$ is the zero sum \eqref{rg:eq:zeroside} over its nontrivial zeros, and the term that the functional equation produces in the explicit formula, a Dirichlet series at the reflected point evaluated on a test function supported on positive logarithms, vanishes identically. Status: proved, Weil's explicit formula \cite{Weil52,IwaniecKowalski04} for this test function; confirmed to $10^{-8}$ for all three (computed).
+\end{proposition}
+
+So the functional equation with finite order gives no inequality on zeros: the identity holds for $f_{\mathrm{DH}}$, whose zero $\rho_{\mathrm{DH}}$ enters the criterion with weight $|\Phi(\rho_{\mathrm{DH}}-\alpha)|=5.52\cdot10^{-8}$ at $\alpha=\frac12$ (computed).
+
+\begin{remark}[one test function separates $\zeta$ from $f_{\mathrm{DH}}$]\label{rg:rem:separate}
+Let $\alpha=\frac34$, $\gamma_0=85.6993485$ (the ordinate of $\rho_{\mathrm{DH}}$), $w=X/8$, $f_0(z)=(z-\gamma_0)\big(\frac{\sin w(z-\gamma_0)}{w(z-\gamma_0)}\big)^4$ and $\phi(y)=\frac12(f_0(y)^2+f_0(-y)^2)\ge0$, so that $\widehat\phi$ is supported in $[-X,X]$ and the functional involves only $n\le e^X$. Since $f_0(\gamma_0)=0$, the zero $\rho_{\mathrm{DH}}$ contributes a negative term of size about $(\re\rho_{\mathrm{DH}}-\alpha)^2f_0'(\gamma_0)^2$ (the Weil square of Section~\ref{iw:sec:weil}). Then $W^{\mathrm{DH}}_\alpha(\phi)$ changes sign at $X^*=20.25$ (to about $0.01$): it is $+0.000372$ at $X=20$ and $-0.000211$ at $X=20.4$, while $W^\zeta_\alpha(\phi)$ is $+0.006588$ at $X=20$ and $+0.001575$ at $X=30$. So at every $X$ checked from $21$ to $40$ (the integers up to $30$, then $35$ and $40$) one nonnegative test function with $n\le e^X$ separates the two functions. On the family $\phi_0(1\pm\cos a\,y)$ of Proposition~\ref{iw:prop:converse} the first failure for $f_{\mathrm{DH}}$ is at $a^*=149.81$, by $\phi_0(1-\cos a\,y)$, caused by the zero $0.8695+240.405\,i$. Status: computed, conditional on the list of zeros of $f_{\mathrm{DH}}$ with $\beta>\frac34$ (found by the flow detection of Volume I, which is not a completeness proof).
+\end{remark}
+
+For a primitive character $\chi$ of parity $\mathfrak a\in\{0,1\}$ the criterion has the same shape with the kernel $-e^{-(\alpha+\mathfrak a)u}/(1-e^{-2u})$ in place of the pole and gamma kernels, and the sign matters:
+
+\begin{proposition}[criterion for $L(s,\chi)$]\label{rg:prop:dirichlet}
+Let $g^\chi_\alpha$ be the criterion function of $L(s,\chi)$ and $M^\chi_\alpha=W^\chi_\alpha(\phi_0)$. (a) $\mathrm{QRH}(\alpha)$ for $L(s,\chi)$ holds if and only if $g^\chi_\alpha\le M^\chi_\alpha$ on $[5,\infty)$. (b) If only $g^\chi_\alpha\ge-M^\chi_\alpha$ is assumed, then either $\mathrm{QRH}(\alpha)$ holds or $\sup\re\rho>\alpha$ is attained at a real zero $\beta_0$, which adds $+m(\sinh\delta_0/\delta_0)^4e^{\delta_0a}$, $\delta_0=\beta_0-\alpha$; this sign cannot exclude a Landau Siegel zero. (c) For $\chi\in\{\chi_{-4},\chi_{-3},\chi_5\}$, $L(\sigma,\chi)>0$ for all $\sigma>0$ and either sign alone is equivalent to $\mathrm{QRH}(\alpha)$. (d) By the classification of degree one functions \cite{NCKP99}, $\mathrm{QRH}(\alpha)$ for every function of degree one is equivalent to (a) for all primitive $\chi$. Status: proved.
+\end{proposition}
+
+Dirichlet series with the functional equation of $L(s,\chi_5)$ and coefficients as near to those of $\chi_5$ as one wishes can nevertheless have zeros to the right of $1$:
+
+\begin{theorem}[near misses at conductors $5$, $15$, $20$]\label{rg:thm:nearmiss}
+Put $F^{(5)}_\varepsilon=L(s,\chi_5)-\varepsilon\zeta(s)(1+5^{\frac12-s})$, $F^{(20)}_\varepsilon=(1+5^{\frac12-s})L(s,\chi_{-4})-\varepsilon L(s,\chi_{-20})$ and $F^{(15)}_\varepsilon=(1+5^{\frac12-s})L(s,\chi_{-3})-\varepsilon L(s,\chi_{-15})$. Each has real periodic coefficients and the functional equation of the type of $\chi_5$, $\chi_{-20}$, $\chi_{-15}$ respectively, and $\sup_n|a_\varepsilon(n)-\chi_5(n)|=\varepsilon(1+\sqrt5)$ for the first. For $\varepsilon\in(0,1)$, $F^{(5)}_\varepsilon$ has a real zero $\sigma_\varepsilon>1$ with $\sigma_\varepsilon-1\sim(1+5^{-1/2})\varepsilon/L(1,\chi_5)$, $L(1,\chi_5)=0.4304$; $F^{(20)}_\varepsilon$ has a real zero in $(1,\infty)$ for $\frac{1+\sqrt5}4<\varepsilon<1$ and $F^{(15)}_\varepsilon$ for $\frac{1+\sqrt5}6<\varepsilon<1$. As $\varepsilon\to0$ the criterion of $F^{(5)}_\varepsilon$ does not converge to that of $L(s,\chi_5)$, because the zero $\sigma_\varepsilon$ merges with the pole. Status: proved; the zeros of $F^{(20)}_\varepsilon$ and $F^{(15)}_\varepsilon$ at $\varepsilon=0.81$ and $0.54$ (at $1.018$ and $1.009$) are isolated by sign changes in ball arithmetic (certified).
+\end{theorem}
+
+A positive theta kernel does not repair this. Let $\chi$ be the even, primitive, nonreal character modulo $7$ with $\chi(3)=e^{2\pi i/3}$, with Gauss sum $\tau=2.37047-1.17510i$, let $\kappa=\tan(\frac12\arg\tau)=-0.234261$, $a(n)=\re\chi(n)+\kappa\,\im\chi(n)$, that is $a(n)=1,-0.297124,-0.702876,-0.702876,-0.297124,1,0$ for $n\equiv1,\dots,6,0\pmod 7$, and $f=\sum a(n)n^{-s}$.
+
+\begin{theorem}[conductor $7$ with a positive kernel]\label{rg:thm:cond7}
+$f$ is entire, $\Xi_f(s)=(7/\pi)^{s/2}\Gamma(\frac s2)f(s)$ satisfies $\Xi_f(s)=\Xi_f(1-s)$ (the gamma factor of $\zeta$), and $\Xi_f(\frac12+z)=\int K_f(u)e^{zu}du$ with the even kernel $K_f(u)=2e^{u/2}\sum_na(n)e^{-\pi n^2e^{2u}/7}\ge0.9024\cdot2e^{|u|/2}e^{-\pi e^{2|u|}/7}>0$. There is no Euler product ($a(2)a(3)=0.20884\ne a(6)=1$), $f$ has no zero with $\re s\ge1.47$, and in $0.505\le\re s\le1.6$, $0<\im s\le400$ exactly seven zeros, the rightmost $0.8727263+131.2069379i$. Status: proved for the kernel (the symmetry holds exactly when $(1-i\kappa)\tau/\sqrt7=1+i\kappa$, and the bound uses $\sum_{n\ge2}|a(n)|e^{-\pi(n^2-1)/7}=0.0975394<1$) and for the absence of zeros with $\re s\ge1.47$ (dominance, $\sum_{n\ge2}|a(n)|n^{-1.47}=0.92378<1$); computed for the seven zeros (argument principle, two independent codes, not certified).
+\end{theorem}
+
+So a function with the gamma factor of $\zeta$, a functional equation of conductor $7$ and a positive even theta kernel can have a zero at real part $0.8727$, and no argument that uses only these inputs gives $\mathrm{QRH}(\alpha)$ for $\alpha<0.8727$ (computed). The restriction to conductor $q>1$ is forced: a kernel of exactly the type of $\Phi$ from a Dirichlet series is a multiple of $\Phi$ by Hamburger's theorem \cite{NCHamburger21} (see \cite[Section~2.13]{Titchmarsh}), and from a positive measure by Theorem~\ref{rg:thm:A}.
+
+\begin{proposition}[the damped P\'olya kernel]\label{rg:prop:damped}
+For $\varepsilon>0$ let $H_{-\varepsilon}$ be the de Bruijn and Newman function of Section~\ref{sec:ch21:flow} at time $t=-\varepsilon$, with kernel $e^{-\varepsilon u^2}\Phi_{\rm dBN}(u)>0$, and $F_\varepsilon(s)=H_{-\varepsilon}(-i(2s-1))$. Then $F_\varepsilon$ is entire of order at most one, real and positive on $\mathbb R$, $F_\varepsilon(1-s)=F_\varepsilon(s)$, and its moment generating function
+\[
+F_\varepsilon(\tfrac12+\theta)=\int_0^\infty e^{-\varepsilon u^2}\Phi_{\rm dBN}(u)\cosh(2\theta u)\,du
+\]
+is entire. Let $\Theta_\varepsilon=\sup\re\rho$ over its zeros. For $\alpha\ge\frac12$ the function $F_\varepsilon(\alpha)/F_\varepsilon(\alpha+\sqrt s)$ is the Laplace transform of a generalised gamma convolution if and only if $\alpha\ge\Theta_\varepsilon$, if and only if $\re F_\varepsilon'/F_\varepsilon>0$ on $\re s>\alpha$; and $\Theta_\varepsilon>\frac12$ for every $\varepsilon>0$. Status: proved, from the theorems of Rodgers and Tao \cite{RodgersTao} and de Bruijn \cite{deBruijn}.
+\end{proposition}
+
+\begin{proof}
+If every zero of $H_{-\varepsilon}$ were real, de Bruijn's monotonicity would give $\Lambda\le-\varepsilon<0$, against Rodgers and Tao. The function $F_\varepsilon$ is positive on $\mathbb R$, so it has no real zeros, and a zero of $F_\varepsilon$ with $\re\rho=\frac12$ is a real zero of $H_{-\varepsilon}$. Hence some zero has $\re\rho\ne\frac12$, and by the symmetry some zero has $\re\rho>\frac12$. The dictionary of Theorem~\ref{iw:thm:dictionary} uses only the Hadamard product, the sign of $\re1/(s-\rho)$ and Lagarias's argument. Pairing $\rho$ with $1-\rho$ gives absolute convergence without the vertical strip that the convergence argument of Lemma~\ref{iw:lem:factor} uses. The bound $|H_{-\varepsilon}(x+iy)|\le H_0(iy)$ gives order one and zero drift.
+\end{proof}
+
+Computed (confirmed at $20$ digits by a second method, without interval arithmetic). At $\varepsilon=0.55$ the zero born from the pair of the $212$th and $213$th zeros is $z=830.671185594+1.04056078126\,i$, so $\re\rho=1.0202804$ and $\Theta_{0.55}>1$. At $\varepsilon=0.50$ it is $z=830.654640801+0.971215858\,i$, with $\re\rho=0.9856079$, so $\re\rho$ crosses $1$ between $\varepsilon=0.50$ and $0.55$. The box $[827.5,833.7]\times[-2.04,2.04]$ contains exactly two zeros (argument principle in floating point). From the Lehmer pair, at $\varepsilon=1.067\cdot10^{-3}$ the zero is $14010.1634285+0.0266814\,i$, so $\Theta_\varepsilon\ge0.51334$; the merge is at $\varepsilon_c=7.11205\cdot10^{-4}$, consistent with the bisection value of Section~\ref{sec:ch21:collisions}.
+
+Every finite set of strict inequalities in the Taylor coefficients that holds at $\varepsilon=0$ survives for small $\varepsilon$ (proved, by continuity of the Taylor coefficients). Computed at $\varepsilon=3$: the Tur\'an inequalities hold for $n\le29$ with margin at least $0.01369$, and the Jensen polynomials $J^{d,n}$ are hyperbolic for $2\le d\le16$ and $n+d\le37$ (exact Sturm counts). Every tower fails for every $\varepsilon>0$ (proved from the proposition: all Jensen polynomials hyperbolic, all Hankel matrices positive semidefinite, and the P\'olya density of class $\mathrm{PF}_\infty$ by Schoenberg \cite{Schoenberg51}, each by the classical criterion).
+
+So a positive even kernel with Gaussian moments of all orders and the exact functional equation of $\xi$ does not give $\mathrm{QRH}(\alpha)$ for any $\alpha<\Theta_\varepsilon$, and at $\varepsilon=0.55$ not even $\mathrm{QRH}(1)$, which for $\xi$ comes from the Euler product. This complements Proposition~\ref{rg:prop:FPolya}, where entireness excludes $F_{\beta,\gamma}$ but not this example. It does not decide Problem~\ref{rg:prob:cosh}: the Williams variable of $F_\varepsilon$ was not examined.
+
+\section{What both together force}\label{rg:sec:both}
+
+\begin{theorem}[functional equation and positive integers]\label{rg:thm:A}
+Let $N$ be a positive Borel measure on $[1,\infty)$ with $\int x^{-\sigma}dN<\infty$ for $\sigma>1$, $Z_N(s)=\int_{[1,\infty)}x^{-s}dN(x)$, such that $(s-1)Z_N(s)$ extends to an entire function of finite order and $\pi^{-s/2}\Gamma(\frac s2)Z_N(s)=\pi^{-(1-s)/2}\Gamma(\frac{1-s}2)Z_N(1-s)$. Then $N=R\sum_{n\ge1}\delta_n$ with $R$ the residue of $Z_N$ at $1$, and $Z_N=R\zeta$. In particular a Beurling system (positive prime measure, $N=\exp_*\Pi$, $N(\{1\})=1$) with the functional equation of $\zeta$ and, with finite order, no pole other than $s=1$ is $\zeta$. Status: proved.
+\end{theorem}
+
+\begin{proof}
+Step 1. For $\sigma>1$, $\pi^{-s/2}\Gamma(\frac s2)Z_N(s)=\int_0^\infty\omega(x)x^{s/2-1}dx$ with $\omega(x)=\int e^{-\pi\lambda^2x}dN(\lambda)$. The completed function is $O(|t|^{-2})$ in the strip by Phragm\'en and Lindel\"of, with residues $R$ at $1$ and $-R$ at $0$, and shifting Mellin inversion from $\sigma=c>1$ to $1-c$ gives $\theta(1/x)=\sqrt x\,\theta(x)$ for $\theta=R+2\omega$ (Hamburger's computation). Step 2. Let $\mu=R\delta_0+\nu$, with $\nu$ the measure $N$ together with its reflection on $(-\infty,-1]$; $\mu$ is even and tempered. Step 1 says $\langle\mu,\widehat{G_t}\rangle=\langle\mu,G_t\rangle$ for the Gaussians $G_t=e^{-\pi t\lambda^2}$, and differentiating in $t$ at $t=1$ shows that $\widehat\mu-\mu$ annihilates every even Hermite function, so $\widehat\mu=\mu$. Step 3. Let $w(x)=\big(\frac{\sin\pi x}{\pi x}\big)^2\frac1{1-x^2}$: $w(0)=1$, $w\le0$ for $|x|\ge1$ with equality exactly on $\mathbb Z\setminus\{0\}$, $|w|\ll(1+x^4)^{-1}$, and $\widehat w(\xi)=\big(1-|\xi|+\frac{\sin2\pi|\xi|}{2\pi}\big)\mathbf 1_{|\xi|\le1}\ge0$ (from $\widehat w+\widehat w''/4\pi^2=(1-|\xi|)_+$, Paley and Wiener, and $\widehat w'=-1+\cos2\pi\xi\le0$ on $[0,1]$ with $\widehat w(1)=0$). Applying $\widehat\mu=\mu$ to the Schwartz functions $w(x)\check\eta(x/L)$, with $\eta\in C_c^\infty$ even and $\int\eta=1$, and letting $L\to\infty$ (dominated convergence on the left, as $N[1,X]\ll X^2$ and $|w|\ll(1+x^4)^{-1}$ give $\int|w|\,d\mu<\infty$; uniform convergence on a compact set on the right) gives $\langle\mu,w\rangle=\langle\mu,\widehat w\rangle=R$, since $\nu$ lives on $|\lambda|\ge1$, so $\int w\,d\nu=0$; as $\nu\ge0$ and $w<0$ off $\mathbb Z$, $\nu$ is carried by $\mathbb Z\setminus\{0\}$. Step 4. Now $\mu=\sum_na_n\delta_n$ with $a_0=R$; its transform is $1$ periodic and equals $\mu$, so $a_n=R$ for all $n$. \qedhere
+\end{proof}
+
+The ingredients are classical, Hamburger \cite{NCHamburger21} and the one dimensional case of the linear programming bound of Cohn and Elkies \cite{NCCohnElkies03}; we have not checked the literature for the combination. Step 1 fails for $B_{\beta,\gamma}$ (no functional equation), Step 3 for $f_{\mathrm{DH}}$ (signed coefficients), and the analytic hypothesis fails for Example~\ref{rg:ex:Gb} below.
+
+\begin{theorem}[rigidity under finite surgery]\label{rg:thm:surgery}
+Let $F$ be meromorphic and real on $\mathbb R$, with (FE) the completed functional equation of $\zeta$; (EP) $F=\exp\int_{(0,\infty)}e^{-su}d\Pi_F$ for $\sigma>\sigma_1$ with a positive measure $\Pi_F$; (S) $F$ of finite order with finitely many poles, none of them real except a simple pole at $1$, and $F/\zeta$ with finitely many poles. Then $F=\zeta$. Status: proved. When the only pole of $F$ is a simple pole at $1$, Theorem~\ref{rg:thm:A} already gives the conclusion, since $\Pi_F\ge0$ makes $N=\exp_*\Pi_F$ positive; the nonreal poles of $F$ are what (S) adds.
+\end{theorem}
+
+\begin{proof}
+Let $\Pi_\zeta=\sum_{p,k}\frac1k\delta_{k\log p}$, $\nu=\Pi_F-\Pi_\zeta$, $R=F/\zeta$, so $\log R=\int e^{-su}d\nu$ and $R\to1$ uniformly in $t$ as $\sigma\to\infty$; (FE) gives $R(s)=R(1-s)$, so $|R|\le2$ outside a strip. With $P$ the monic polynomial of the poles of $R$ (zeros of $\zeta$ and nonreal poles of $F$), $RP$ is an entire quotient of finite order functions bounded by $C(1+|s|)^m$ off the strip, hence in it by Phragm\'en and Lindel\"of, so $R=\prod_{j\le m}(s-z_j)/(s-w_j)$ with $\{w_j\}$ among the zeros of $\zeta$ and the nonreal poles of $F$, $\{z_j\}$ disjoint from them. Frullani gives $\nu=E(u)\,du/u$, $E(u)=\sum_j(e^{w_ju}-e^{z_ju})$; since $\Pi_F\ge0$ and $\Pi_\zeta$ lives on a discrete set, $E\ge0$. Both multisets are invariant under $\lambda\mapsto1-\lambda$ and $\lambda\mapsto\bar\lambda$; if $m\ge1$ let $\sigma^*=\max\re\lambda\ge\frac12$. Then $E(u)e^{-\sigma^*u}=A(u)+o(1)$ with $A$ a real nonzero trigonometric polynomial, and $E\ge0$ with almost periodicity gives $A\ge0$ and a positive mean. The mean is the multiplicity of the real point $\sigma^*$ in $\{w_j\}$ minus that in $\{z_j\}$, so $\sigma^*$ is a real point of $\{w_j\}$; as $F$ has no real pole other than a simple pole at $1$, it is a real zero of $\zeta$ in $[\frac12,\infty)$, and there is none ($(1-2^{1-\sigma})\zeta(\sigma)=\sum(-1)^{n-1}n^{-\sigma}>0$ on $[\frac12,1)$). So $m=0$. \qedhere
+\end{proof}
+
+Each hypothesis is needed: without positivity, moving $\rho_1,\bar\rho_1,\rho_2,\bar\rho_2$ on the line to $\rho,\bar\rho,1-\rho,1-\bar\rho$, $\rho=\beta+i\gamma$, $\beta\in(\frac12,1)$, keeps (FE) and gives $E(u)=2e^{u/2}(\cos\gamma_1u+\cos\gamma_2u)-2(e^{\beta u}+e^{(1-\beta)u})\cos\gamma u$, negative on half of every period; without (FE) there is $B_{\beta,\gamma}$, without (EP) $f_{\mathrm{DH}}$, and without the restriction on real poles $F_{\beta,\gamma}$ of Theorem~\ref{rg:thm:Fbg} and $\zeta G$ of Example~\ref{rg:ex:Gb}. With infinitely many extra poles allowed the rigidity fails: for $T>0$, $\zeta(s)\coth^2(\pi(s-\frac12)/T)$ has the functional equation of $\zeta$ (the factor is even in $s-\frac12$), finite order, a simple pole at $1$, the positive prime measure $\Lambda_\zeta+\sum_{j\text{ odd}}\frac{8\pi}Te^{u_j/2}\delta_{u_j}$ with $u_j=2\pi j/T$ (from $\log\coth^2x=4\sum_{j\text{ odd}}e^{-2jx}/j$ for $\re x>0$), double zeros at the points $\frac12+i(k+\frac12)T$, $k\in\mathbb Z$, beyond those of $\zeta$, and at each point $\frac12+ikT$, $k\in\mathbb Z$, a pole of order two less the order of vanishing of $\zeta$ there, in particular a double pole at $\frac12$, where $\zeta(\frac12)\ne0$ (proved).
+
+\begin{proposition}[comparison principle]\label{rg:prop:comparison}
+Let $G=F/F_0$ be meromorphic with $G(\sigma)\to1$ as $\sigma\to\infty$ and $-G'/G=\int_{[0,\infty)}e^{-su}d\rho(u)$ for large $\re s$, with a positive measure $\rho\ne0$ (that is, $\Lambda_F-\Lambda_{F_0}=\rho\ge0$), and let $\sigma_\rho$ be the abscissa of convergence.
+\begin{enumerate}
+\item[(a)] If $\sigma_\rho>-\infty$ then $\sigma_\rho$ is the largest real pole $p^*$ of $G$ and $G$ has no zero or pole in $\re s>\sigma_\rho$, so $F$ and $F_0$ have the same zeros and poles there; if $\sigma_\rho=-\infty$, $G$ has none at all. No functional equation is used.
+\item[(b)] If $F$ and $F_0$ have the same completed functional equation, then $G(s)=G(1-s)$, $\sigma_\rho>-\infty$, $p^*\ge\frac12$, and all zeros and poles of $G$ lie in $1-p^*\le\re s\le p^*$; in particular if $G$ has no real pole, $G\equiv1$.
+\item[(c)] If $G$ is real on $\mathbb R$ with no nonreal pole on $\re s=p^*$, and $m$ is the order of the pole at $p^*$, then a zero of $G$ of multiplicity $n$ on $\re s=p^*$ forces $m\ge2n$.
+\end{enumerate}
+Status: proved.
+\end{proposition}
+
+\begin{proof}
+(a) Landau's theorem \cite{Widder41} makes the transform of $\rho$ singular at $\sigma_\rho$; it equals the meromorphic $-G'/G$ to the right, so $\sigma_\rho$ is a zero or a pole of $G$, and a zero of order $n$ would give $-G'/G(\sigma)\sim-n/(\sigma-\sigma_\rho)\to-\infty$, impossible for a positive measure. (b) If $\sigma_\rho=-\infty$ then $\log G(\sigma)=\int e^{-\sigma u}u^{-1}d\rho\to+\infty$ as $\sigma\to-\infty$ unless $\rho=0$, whereas $G(\sigma)=G(1-\sigma)\to1$; and $1-p^*$ is a pole by symmetry. (c) For a trigonometric polynomial $P(u)=\sum c_\omega e^{-i\omega u}\ge0$, $\sum c_\omega(-G'/G)(\sigma+i\omega)=\int e^{-\sigma u}P\,d\rho\ge0$; multiplying by $\sigma-p^*$ and letting $\sigma\downarrow p^*$ gives $c_0m\ge\sum_{\omega\ne0}c_\omega n(\omega)$, and the Fej\'er kernel gives $m\ge2n(\omega)$. \qedhere
+\end{proof}
+
+\begin{example}[positive primes and a zero right of $\frac34$]\label{rg:ex:Gb}
+For $a_1=0.16$, $a_2=0.065$, $A=229/3040$ let $G(s)=1+\frac A{(s-\frac12)^2-a_1}-\frac A{(s-\frac12)^2-a_2}$. Then $G(s)=G(1-s)$; its zeros are $0.85\pm0.1i$ and $0.15\pm0.1i$, its poles $0.9$, $0.1$, $0.75495$, $0.24505$, and its prime density $2e^{u/2}\sum_kc_ku^{2k}/(2k)!$, $c_k=a_1^k+a_2^k-2\re w^k\ge0$ with $w=0.1125+0.07i$, is positive. So $\zeta G$ has the exact functional equation of $\zeta$, a positive prime measure (that of $\zeta$ plus a positive continuous density) and a zero at $0.85+0.1i$, to the left of its real pole $0.9$ as (a) demands (proved; recomputed to $50$ digits).
+\end{example}
+
+\begin{proposition}[residue rigidity]\label{rg:prop:residue}
+Let $F_0=\exp\int e^{-su}u^{-1}d\Lambda_{F_0}$ for $\sigma>1$ with $0\le\Lambda_{F_0}\le\Lambda_\zeta$, and suppose $F_0$ has a pole at $1$. Then the pole is simple and $\mathrm{Res}_{s=1}F_0\le1$, with equality if and only if $F_0=\zeta$. Status: proved; no functional equation is used.
+\end{proposition}
+
+\begin{proof}
+$G=\zeta/F_0=\exp\sum r_nn^{-s}/\log n$ with $0\le r_n\le\Lambda(n)$, so $\sigma_\rho\le1$. If $\sigma_\rho=1$, Proposition~\ref{rg:prop:comparison}(a) makes $1$ a pole of $G$, but $\mathrm{ord}_1G=m-1\ge0$ for a pole of order $m$ of $F_0$. So $G$ is holomorphic and zero free at $1$, $m=1$, and $G(1)=1/\mathrm{Res}_1F_0=\exp\sum r_n/(n\log n)\ge1$ with equality if and only if every $r_n=0$. \qedhere
+\end{proof}
+
+A Beurling zeta function $X$ has the functional equation of $\zeta$ with conductor $Q$ if $Q^{s/2}\pi^{-s/2}\Gamma(\frac s2)X(s)$ is invariant under $s\mapsto1-s$ and $(s-1)X$ is entire of finite order.
+
+\begin{theorem}[positive primes and a conductor]\label{rg:thm:B}
+Let $X$ be a Beurling zeta function with the functional equation of $\zeta$ with conductor $Q$, vanishing at every nontrivial zero of $\zeta$ with multiplicity, so that $G=X/\zeta$ is entire. Then $Q\ge1$ and $G(s)=\int_{[0,\log Q]}e^{-su}dM(u)$ for a finite real measure $M$ with $M(\{0\})=1$ and $M(\{\log Q\})=\sqrt Q$. Let $\mathfrak M$ be the monoid generated by the points $e^u$, $u$ an atom of $M$. If only finitely many primes have a power in $\mathfrak M$ (for instance if $M$ has finitely many atoms, its continuous part being arbitrary), then $Q=1$ and $X=\zeta$. Status: proved.
+\end{theorem}
+
+\begin{proof}
+Step 0. $G(s)=Q^{\frac12-s}G(1-s)$ is entire of finite order; $N_X\ge0$ gives $|X|\le X(2)$ on $\sigma\ge2$, so $G$ is bounded there, bounded by $CQ^{\frac12-\sigma}$ on $\sigma\le-1$, and bounded between by Phragm\'en and Lindel\"of. If $Q\le1$, $G\equiv1$ and then $Q=1$. If $Q>1$, $t\mapsto G(2+it)$ is bounded and extends to an entire function of exponential type $\log Q$, so by Paley and Wiener $M$ lives on $[0,\log Q]$; $M(\{0\})=\lim G(\sigma)=1$, and the functional equation says that $M$ is the image of $\sqrt Qe^{-u}M$ under $u\mapsto\log Q-u$. Step 1. Split $M=M_a+M_c$ (atoms, continuous part); both inherit the symmetry, and $G_a=\int e^{-su}dM_a$ is not constant. In the Banach algebra of measures weighted by $e^{-\sigma_1u}$, $L=\sum_{k\ge1}(-1)^{k+1}(M-\delta_0)^{*k}/k$ has transform $\log G$ and $\Pi_X=\Pi_\zeta+L$; taking atomic parts is a contractive homomorphism, so $(\Pi_X)_a=\Pi_\zeta+L_a\ge0$ with $L_a$ carried by $\log\mathfrak M$. Step 2. Put $\nu=L_a+\sum_{p^k\in\mathfrak M}\frac1k\delta_{k\log p}\ge0$, with transform $\log G_a+\log E$, $E$ holomorphic and zero free on $\sigma>0$ because only finitely many primes occur. If the abscissa $\sigma_\nu>0$, Landau's theorem makes the transform singular at $\sigma_\nu$; if $G_a(\sigma_\nu)\ne0$ then $\log G_a+\log E$ continues it, and if $G_a(\sigma_\nu)=0$ the transform tends to $-\infty$, against $\nu\ge0$. So $\sigma_\nu\le0$, $G_a=\exp(\mathcal L\nu-\log E)\ne0$ on $\sigma>0$, and by symmetry on $\sigma<1$. Thus $G_a=e^{A+Bs}$, and $G_a(\sigma)\to1$ gives $G_a\equiv1$, against the atom $\sqrt Q$ at $\log Q$. \qedhere
+\end{proof}
+
+\begin{theorem}[quantitative form]\label{rg:thm:Bq}
+Let $M$, $G=\int e^{-su}dM$ and $X=\zeta G$ be as in Theorem~\ref{rg:thm:B} with $Q>1$, but with $\Pi_X$ a real measure and the atoms of $M$ involving finitely many primes. Let $n$ be the negative part of the atomic part of $\Pi_X$ on $\log\mathfrak M$, $\sigma_-$ the abscissa of convergence of $\int e^{-su}dn$ and $\sigma_*=\max(\sigma_-,0)$. Then every zero of $G_a$ lies in $1-\sigma_*\le\re s\le\sigma_*$, and $\sigma_-\ge\frac12$: the negative part of the prime measure is not $O(x^\theta)$ for any $\theta<\frac12$, so $\Pi_X\ge-C\Pi_\zeta$ is impossible. A zero added to $\zeta$ at real part $\beta>\frac12$ by a finite sum of point masses costs negative prime coefficients of order at least $x^\beta$; this is sharp for $X=\zeta(s)(1+Aq^{-s}+q^{1-2s})$. Status: proved (Steps 1 and 2 with $\nu=(\Pi_X)_a^+$).
+\end{theorem}
+
+\begin{proposition}[a nonnegative Euler product over $\mathbb F_5$ with zeros off the line]\label{rg:prop:fakes}
+Let $P_\pm(T)=1\mp5T+5T^2$ and $Z_\pm(T)=P_\pm(T)/((1-T)(1-5T))$. Then $Z_\pm$ is rational, satisfies the functional equation $Z_\pm(1/(5T))=Z_\pm(T)$ of genus one, and has an Euler product $Z_\pm(T)=\prod_{d\ge1}(1-T^d)^{-M_d}$ with integers $M_d\ge0$ for every $d$; hence the point counts $N_m=\sum_{d\mid m}dM_d$ and the divisor counts $A_n$ (the coefficients of $Z_\pm$) are nonnegative. The inverse roots are $\frac{\pm5\pm\sqrt5}2$, with $|\alpha|/\sqrt5=0.618034$ and $1.618034$, so $Z_\pm(5^{-s})$ has zeros at real parts
+\[
+\log_5\tfrac{5+\sqrt5}2=0.798994\quad\text{and}\quad0.201006.
+\]
+Status: proved.
+\end{proposition}
+
+\begin{proof}
+The functional equation is $P(1/(qT))=q^{-1}T^{-2}P(T)$ with $q=5$. Every power series in $1+T\mathbb Z[[T]]$ has a unique product expansion with integer exponents $M_d$, so integrality is automatic. For $d\le60$ the inequality $M_d\ge0$ is checked on the exact integer Newton sums. For $d\ge4$ write $S_d$ for the sum of the $d$th powers of the two inverse roots, so $|S_e|\le2(3.62)^e$, and note $dM_d\ge q^d-|S_d|-\sum_{e\le d/2}(q^e+1+|S_e|)$, which is positive for every $d\ge4$. The values of $A_n$ follow from the series.
+\end{proof}
+
+For the fake of trace $5$ one finds $M_d=1,5,25,110,500,2215,10000$ and $A_n=1,1,6,31,156,781,3906$, and for the fake of trace $-5$ one finds $M_d=11,0,55,110,748,2200,12320$ and $A_n=1,11,66,341,1716,8591,42966$ (computed).
+
+\begin{remark}
+The two functions violate Hasse's bound $|a|\le2\sqrt5$. What excludes them is geometric, the degrees of isogenies of Proposition~\ref{cm:prop:frob}, and not the Euler product. By Theorem~\ref{iw:thm:curves}(ii) they fail positivity of $W_\sigma$ at every level $\frac12\le\sigma<0.798994$ and satisfy it from $0.798994$ on. Computed: for $q=3$ and $g=2$, in the box $c_1\in[-12,12]$, $c_2\in[-30,30]$, $74$ of the $119$ numerators with all $|\alpha|<q$ pass $N_m,M_d,A_n\ge0$ up to degree $30$, and $17$ of these $74$ violate the Riemann hypothesis for the function (for example $c=(-3,3)$). So rationality, the functional equation and an Euler product with nonnegative integer exponents do not force the Riemann hypothesis for a formal zeta function. This is the function field counterpart of Theorem~\ref{rg:thm:A} and Corollary~\ref{rg:cor:barrier}. Status: computed.
+\end{remark}
+
+\section{Why each stops short of RH}\label{rg:sec:stop}
+
+\emph{The minorant equivalence.} The comparison principle suggests a route: find $F_0$ with the completed functional equation of $\zeta$, a pole at $1$, all zeros on the critical line, and $0\le\Lambda_{F_0}\le\Lambda_\zeta$ (a positive minorant); then $\zeta$ would share its zeros. It is not a reduction.
+
+\begin{theorem}[a minorant is transparent to the zeros of $\zeta$]\label{rg:thm:minorant}
+Let $F_0$ be meromorphic with the completed functional equation of $\zeta$, a pole at $1$ and $0\le\Lambda_{F_0}\le\Lambda_\zeta$, and let $G=\zeta/F_0$, $\rho=\Lambda_\zeta-\Lambda_{F_0}\ge0$. Then either $F_0=\zeta$, or $\frac12\le\sigma_\rho<1$, $G$ is holomorphic and zero free in $\re s>\sigma_\rho$ and $\re s<1-\sigma_\rho$, and $\sigma_\rho$ is a pole of $G$ and a zero of $F_0$ (of even order at least $2$ if $\sigma_\rho=\frac12$). So if $\sigma_\rho>\frac12$, $F_0$ has the real zero $\sigma_\rho\in(\frac12,1)$ whatever the zeros of $\zeta$ are; if $\sigma_\rho=\frac12$, the zeros of $F_0$ off the line are exactly those of $\zeta$, with multiplicity. Hence ``every zero of $F_0$ in $0<\re s<1$ has real part $\frac12$'' holds if and only if RH holds and $\sigma_\rho\in\{\frac12,-\infty\}$. Status: proved.
+\end{theorem}
+
+\begin{proof}
+Proposition~\ref{rg:prop:comparison}(a), (b) give all but $\sigma_\rho<1$ and the zero: $\rho\le\Lambda_\zeta$ gives $\sigma_\rho\le1$, and $\sigma_\rho=1$ would make $1$ a pole of $G$, so $F_0$ would be regular at $1$. Since $\zeta(\sigma_\rho)$ is finite and nonzero on $[\frac12,1)$, $\mathrm{ord}_{\sigma_\rho}F_0=-\mathrm{ord}_{\sigma_\rho}G>0$, and $G(\frac12+w)$ is even in $w$. \qedhere
+\end{proof}
+
+The reduction moves RH from $F_0$ to $\zeta$ and back and never creates it, whether or not an $F_0\ne\zeta$ exists; for $f_{\mathrm{DH}}$ and $B_{\beta,\gamma}$ the transfer passes their off line zeros to every minorant, as it must. Existence is limited by the earlier theorems: an $F_0$ with $(s-1)F_0$ entire of finite order is $\zeta$ (Theorem~\ref{rg:thm:A}, or Hamburger's theorem, which needs no positivity), so an $F_0\ne\zeta$ has infinitely many poles or infinite order, and its poles other than $1$ are zeros of $G$ in $1-\sigma_\rho\le\re s\le\sigma_\rho$; if $\rho$ lives on the powers of finitely many primes then $G\equiv1$. The candidate $L(s,\chi_5)L(s,\chi_8)/L(s,\chi_{40})$ has the functional equation of $\zeta$ but prime measure $\Lambda(n)[1-(1-\chi_5(n))(1-\chi_8(n))]$, equal to $-3\log3$ at $n=3$, and no pole at $1$.
+
+\emph{The family $F_{\beta,\gamma}$.} A zero off the line is compatible with positive minorant structure when $G$ has a real pole; the question is how far the pole must lie.
+
+\begin{theorem}[the explicit obstruction]\label{rg:thm:Fbg}
+For $\frac12<\beta<1$, $\gamma>0$ let $H_{\beta,\gamma}(s)=1+\gamma^2/(s-\beta)^2$ and $F_{\beta,\gamma}=\zeta H_{\beta,\gamma}H_{1-\beta,\gamma}$. It has exactly the completed functional equation of $\zeta$, prime measure $\Lambda_\zeta+r(u)\,du$ with $r(u)=2(e^{\beta u}+e^{(1-\beta)u})(1-\cos\gamma u)\ge0$ (positive minorant $\zeta$), zeros at $\beta\pm i\gamma$ and $1-\beta\pm i\gamma$, a simple pole at $1$ and double poles at $\beta$, $1-\beta$; here $\sigma_\rho=p^*=\beta$ and $m=2n$, the equality case of Proposition~\ref{rg:prop:comparison}(c). For $\frac12<\beta<p<1$ and every $\gamma>0$ there is also a symmetric $G$ with simple real poles, largest $p$, and a zero at $\beta+i\gamma$ (zeros $\frac12\pm c\pm i\gamma$, poles $\frac12\pm a,\frac12\pm b$ with $c=\beta-\frac12$, $a=p-\frac12$, $b=\max(2c^2-a^2,\,a^2/4)^{1/2}$, density $2e^{u/2}[\cosh au+\cosh bu-2\cosh cu\cos\gamma u]\ge0$ by the power mean inequality); $\beta=p$ occurs only with a pole of order at least $2$, and $\beta>p$ never. Status: proved.
+\end{theorem}
+
+So the hypothesis that $F/F_0$ has no real pole in $(\alpha,\infty)$ cannot be weakened to simple poles, nor to poles at a fixed distance to the right of the zeros: a minorant argument must exclude real poles of every order in $(\alpha,\infty)$. The entire core $G_{0.75,10}=\xi\cdot((s-\frac34)^2+100)((s-\frac14)^2+100)$ of $F_{0.75,10}$ keeps the zeros $\frac34\pm10i$ off the line below $\gamma_1$ and has hyperbolic Jensen polynomials at every degree tested, up to $140$, with interlacing margin $0.0743$ at degree $68$ against $0.0724$ for $\xi$ (Section~\ref{ht:sec:interlace}, computed), so an argument through Jensen polynomials of degree at most $140$ cannot exclude it (only shift $0$ was tested above degree $68$).
+
+\emph{The remainder of the theta kernel identity.} Corollary~\ref{iw:cor:residue} and $\int\phi_0(1\pm\cos a\,\cdot)=2\pi/3$ for $a\ge4$ give, for $\alpha>\frac12$ with no zero on $\re s=\alpha$, $W_\alpha(\phi_0(1\pm\cos a\,\cdot))=\frac23m(\alpha)+R^\pm_\alpha(a)$, with $m(\alpha)=\xi'(\alpha)/\xi(\alpha)>0$ (proved). For $\alpha>1$ and $a\ge8$, $R^\pm_\alpha=R_\Lambda+R_\Gamma+R_{\mathrm{pole}}$ with $R_\Lambda=\frac1\pi\sum_n\Lambda(n)n^{-\alpha}[h(0)-h(\log n)\mp\frac12h(\log n-a)]\ge0$ (the prime sum), $R_\Gamma\ge0$, $R_{\mathrm{pole}}\le0$, and $R_\Lambda$, $R_{\mathrm{pole}}$ are $\pm\frac{2/3}{\alpha-1}+O(1)$ as $\alpha\to1^+$ (proved). The kernel enters only through $\frac23m(\alpha)$ ($m(0.75)=0.0115513$, computed), and a bounded positive part never reduces the problem: if $W_\alpha=P+R$ with $0\le P\le C_P$ then $R$ is bounded below if and only if $\mathrm{QRH}(\alpha)$ holds (proved, from Proposition~\ref{rg:prop:onesign}). The Euler product controls $R^\pm_\alpha$ exactly for $\alpha>1$ and loses control at $\alpha=1$, where $R_\Lambda$ and $R_{\mathrm{pole}}$ diverge with opposite signs and their difference is the prime number theorem. An identity making both the positive part and the bound for the remainder automatic would give $\mathrm{QRH}(\alpha)$ for every object with both structures, and by Theorems~\ref{rg:thm:A} and~\ref{rg:thm:B} the only such object in the natural classes is $\zeta$; so no obstruction can refute such an identity, and none can be derived without proving $\mathrm{QRH}(\alpha)$ for $\zeta$.
+
+\section{The level step}\label{rg:sec:level}
+
+Notation as in Sections~\ref{rg:sec:target} and~\ref{rg:sec:stop}: $\mathcal C$ and $W_\alpha$ are those of Theorem~\ref{iw:thm:weil}, $\phi_0(y)=(\sin y/y)^4$, $\Phi(z)=2\pi(\sinh z/z)^4$, $M_\alpha=W_\alpha(\phi_0)$, $g_\alpha(a)=W_\alpha(\phi_0\cos a\,\cdot)$, $D_\alpha=\pi^{-1}\re\,\xi'/\xi(\alpha+iy)$ is the level $\alpha$ density, $v_\alpha=\pi D_\alpha$, $b_\alpha=v_\alpha(0)$, $P_h(y)=h/(\pi(h^2+y^2))$ and $\Theta=\sup\re\rho$. This section examines one step, from $\mathrm{QRH}(\alpha)$ to $\mathrm{QRH}(\alpha-\varepsilon)$ with $\varepsilon>0$. The set of levels at which the density $D_\alpha$ is positive and no zero lies to the right is $[\Theta,\infty)$, so openness of this set at every level of $(\frac12,1]$ is the Riemann hypothesis, a step at one level $\alpha$ says $\Theta\ne\alpha$, and pointwise steps on $(\alpha_*,1]$ give only $\Theta\le\alpha_*$: there is no limit level short of RH (proved). Nothing in this section gives a zero free half plane, the unrefereed $\frac78$ half plane is not used, and no priority is claimed for any statement. What the section does is state the step as one inequality and say precisely which inputs fail to give it.
+
+\subsection*{Deconvolution and the one inequality}
+
+\begin{lemma}[level shift]\label{rg:lem:shift}
+Let $0<\varepsilon<\alpha$, $\phi\in\mathcal C$, and define $T_\varepsilon\phi$ by $\widehat{T_\varepsilon\phi}(u)=e^{\varepsilon|u|}\widehat\phi(u)$. Then $T_\varepsilon\phi\in\mathcal C$ and $W_{\alpha-\varepsilon}(\phi)=W_\alpha(T_\varepsilon\phi)$. For $a>4$,
+\[T_\varepsilon(\phi_0\cos a\,\cdot)(y)=e^{\varepsilon a}\re\big[e^{iay}\phi_0(y-i\varepsilon)\big],\qquad |\sin(y-i\varepsilon)|^2=\sin^2y+\sinh^2\varepsilon,\]
+and $T_\varepsilon\phi_0(y)=-\frac{2\varepsilon}3y^{-2}+O(y^{-4})$ as $|y|\to\infty$. In particular $T_\varepsilon$ maps $\phi_0(1\pm\cos a\,\cdot)$ out of the nonnegative cone for every $\varepsilon>0$ and $a\ge5$. Status: proved.
+\end{lemma}
+
+\begin{proof}
+In \eqref{iw:eq:Wzero} the transform enters through $L_\phi(w)$, and $L_{T_\varepsilon\phi}(w)=L_\phi(w-\varepsilon)$. The closed form follows from $\widehat{\phi_0}(u\mp a)$ on the two half lines $\pm u>0$ and from $(2\pi)^{-1}\int e^{\varepsilon v}\widehat{\phi_0}(v)e^{iyv}\,dv=\phi_0(y-i\varepsilon)$. For the tail, integrate by parts twice: the derivative of $e^{\varepsilon|u|}\widehat{\phi_0}(u)$ jumps by $4\pi\varepsilon/3$ at $0$, and $\widehat{\phi_0}$ vanishes to third order at $\pm4$, so the oscillating part is $O(e^{\varepsilon a}y^{-4})$.
+\end{proof}
+
+On the prime side $T_\varepsilon$ is the twist $\Lambda(n)n^{-\alpha}\mapsto n^{\varepsilon}\Lambda(n)n^{-\alpha}$. For translations $\widehat{\tau_m\phi}(u)=\widehat\phi(u-\log m)$ one has $T_\varepsilon\tau_m=m^\varepsilon\tau_mT_\varepsilon$ on functions with transform supported in $u>0$, so the Hecke relations hold identically at every level (proved), and the Hecke algebra by itself does not see the level (heuristic).
+
+\begin{proposition}[the level step as one inequality]\label{rg:prop:step}
+Let $0<\varepsilon<\alpha$ and $F_{\alpha,\varepsilon}(a)=W_\alpha\big(\re[e^{ia\,\cdot}\phi_0(\cdot-i\varepsilon)]\big)$, so that $F_{\alpha,\varepsilon}(a)=e^{-\varepsilon a}g_{\alpha-\varepsilon}(a)$ for $a>4$ by Lemma~\ref{rg:lem:shift}. Let $g^{(2)}_\alpha$ be the criterion function of the window $\phi_0(\cdot/\sqrt2)$. The following are equivalent:
+\begin{enumerate}
+\item[(a)] $\mathrm{QRH}(\alpha-\varepsilon)$;
+\item[(b)] there is $C$ with $F_{\alpha,\varepsilon}(a)\le Ce^{-\varepsilon a}$ for all $a\ge5$ (or, equally, $F_{\alpha,\varepsilon}(a)\ge-Ce^{-\varepsilon a}$);
+\item[(c)] there is $C$ with $g_\alpha(a)\le Ce^{-\varepsilon a}$ and $g^{(2)}_\alpha(a)\le Ce^{-\varepsilon a}$ for all $a\ge5$.
+\end{enumerate}
+Under (a), $|g_\alpha(a)|\le e^{-\varepsilon a}\sum_\rho|(\sinh(\rho-\alpha)/(\rho-\alpha))^4|$. Status: proved.
+\end{proposition}
+
+\begin{proof}
+(a) and (b) are Proposition~\ref{rg:prop:onesign} at level $\alpha-\varepsilon$ read through Lemma~\ref{rg:lem:shift}; they do not use $\mathrm{QRH}(\alpha)$. (a) implies (c) by \eqref{rg:eq:zeroside}, which converges absolutely. For (c) implies (a), the function $Ce^{-\varepsilon a}-g_\alpha$ is nonnegative, and by Step 3 of Proposition~\ref{iw:prop:converse} its Laplace transform continues along the real segment $(-\varepsilon,\infty)$ without singularity ($\xi$ has no real zeros and the pole at $1-\alpha$ cancels). By Landau's theorem \cite{Widder41} it converges in $\re z>-\varepsilon$. A zero with $\beta>\alpha-\varepsilon$ would then need $\Phi(\rho-\alpha)=0$, that is $\beta=\alpha$ and $\gamma\in\pi\mathbb Z$, and the second window, with zeros at $\sqrt2\pi k$, removes these.
+\end{proof}
+
+The hypothesis $\mathrm{QRH}(\alpha)$ gives only boundedness, $|g_\alpha|\le M_\alpha$ (Bochner). The step asks that the level $\alpha$ measure, read through the complex shifted window $\phi_0(\cdot-i\varepsilon)$, decay from one side at the rate $\varepsilon$. In prime language this is the classical one sided smoothed bound $\psi(x)-x\ll x^{\alpha-\varepsilon}$; no prime development is made here.
+
+\begin{remark}[a proof of the criterion that uses only the zeros]\label{rg:rem:zeroonly}
+For $\re z$ large, $\int_5^\infty g_\alpha(a)e^{-za}\,da=\sum_\rho c_\rho\,e^{-5(z+\alpha-\rho)}/(z+\alpha-\rho)$ with $c_\rho=(\sinh(\rho-\alpha)/(\rho-\alpha))^4$, and the right side is meromorphic in $\mathbb C$ with poles only at the points $\rho-\alpha$ (the terms are $O(|\gamma|^{-5})$ on compact sets away from the poles). The residue at $\rho-\alpha$ is $c_\rho$ times the multiplicity, nonzero unless $\rho-\alpha\in i\pi\mathbb Z\setminus\{0\}$. So Proposition~\ref{iw:prop:converse} and Proposition~\ref{rg:prop:onesign} have proofs that use only the zeros, the rough strip $-1<\re\rho<2$ (from the theta series, $|\sum_{n\ge2}n^{-s}|\le\frac34$ for $\re s\ge2$) and, for one sign, the positivity $\xi(\sigma)=\int\Phi_{\mathrm P}(u)e^{(\sigma-\frac12)u}\,du>0$, which follows from the positivity of the P\'olya kernel $\Phi_{\mathrm P}$ and replaces $\zeta(\sigma)\ne0$ on $(0,1)$. No Euler product is used. For $F_{\beta,\gamma}$, whose P\'olya kernel is also positive (Proposition~\ref{rg:prop:FPolya}), the one sign argument breaks at the real poles $\beta$ and $1-\beta$. Status: proved.
+\end{remark}
+
+\subsection*{What positivity at a level cannot give}
+
+\begin{theorem}[what positivity at level $\alpha$ gives]\label{rg:thm:certificate}
+Let $\frac12<\alpha\le1$, $0<\varepsilon<\alpha-\frac12$, assume $\mathrm{QRH}(\alpha)$, and put $\phi_a^-=\phi_0(1-\cos a\,\cdot)$.
+\begin{enumerate}
+\item[(a)] With $\phi_1(z)=(\sin z/z)^2$ and $\Psi_\varepsilon(y)=|\phi_1(y-i\varepsilon)|^2$, $\Psi_\varepsilon$ is a nonnegative element of $\mathcal C$ and $|g_{\alpha-\varepsilon}(a)|\le e^{\varepsilon a}W_\alpha(\Psi_\varepsilon)$ for $a>4$.
+\item[(b)] For $a>4$, $\psi_j\in\mathcal C$ with $\psi_j\ge0$ and $c_j\ge0$, the function $h=T_\varepsilon\phi_a^--\sum_jc_j\psi_j$ satisfies $h(0)\le e^{4\varepsilon}-e^{\varepsilon a}(\sinh\varepsilon/\varepsilon)^4<0$.
+\item[(c)] For any $f_1,\dots,f_J\in\mathcal C$ with transforms supported in $[-U,U]$ there is a positive measure $D$ with $\int f_j\,dD=W_\alpha(f_j)$ for every $j$ and $\int T_\varepsilon\phi_a^-\,dD<0$ for arbitrarily large $a$.
+\end{enumerate}
+Status: proved.
+\end{theorem}
+
+\begin{proof}
+(a) $\Psi_\varepsilon\pm\re[e^{iay}\phi_0(y-i\varepsilon)]\ge0$, and Theorem~\ref{iw:thm:weil} applies. (b) $\widehat{\phi_0}\ge0$ gives $T_\varepsilon\phi_0(0)\le e^{4\varepsilon}$, and the oscillating term at $0$ is $e^{\varepsilon a}(\sinh\varepsilon/\varepsilon)^4$. (c) If $\mathrm{QRH}(\alpha-\varepsilon)$ fails take $D=D_\alpha$. Otherwise add $t$ times the level $\alpha$ measure of a fake pair $\beta_0\pm i\gamma_0$ with $\beta_0\in(\alpha-\varepsilon,\alpha)$ and subtract $t\nu$, $\nu$ band limited with spectrum in $[-U-1,U+1]$ that restores the $J$ moments. Then $D\ge0$ for small $t>0$ because $D_\alpha\ge c(1+y^2)^{-1}$ (a zero on the critical line exists), and by spectral disjointness for $a>U+5$ the pair contributes $-2e^{a\eta}|\phi_0(\gamma_0-i\eta)|\cos(a\gamma_0+\theta)+O(1)$ with $\eta=\beta_0-\alpha+\varepsilon$.
+\end{proof}
+
+Part (b) says that no certificate of the form ``positive combination of level $\alpha$ values plus an error that positivity makes nonnegative'' exists, the minimal error being of order $-e^{\varepsilon a}$. Part (c) says that no certificate from positivity and finitely many values exists; the failing input is uniformity in the frequency $a$. The cone $K_\varepsilon=\{\phi\ge0,\ T_\varepsilon\phi\ge0\}$ is never determining, since every function with a positive level $\alpha$ measure, including $F_{\beta,\gamma}$ of Theorem~\ref{rg:thm:passes}, is nonnegative on it.
+
+Computed. For $\zeta$ the bound (a) covers no $a\ge5$: the quantity
+\[a_*=\varepsilon^{-1}\log\big(W_{\alpha-\varepsilon}(\phi_0)/W_\alpha(\Psi_\varepsilon)\big)\]
+is $-2.30$, $-2.49$, $-2.96$, $-3.24$, $-6.16$ at $(\alpha,\varepsilon)=(1,0.1)$, $(1,0.15)$, $(1,0.25)$, $(0.9,0.15)$, $(0.75,0.15)$. A linear programme over $73$ functions with values from the primes up to $e^{18}$ gives a positive floating point lower bound for $W_{0.9}(\phi_a^-)$ from level $1$ ($\varepsilon=0.1$) up to $a=14.25$ and fails from $a=16.25$ (with $U=10$: up to $7.25$, and it fails at $8.25$). Beyond the data band the value approaches $W_{\alpha-\varepsilon}(\phi_0)-Ke^{\varepsilon a}W_\alpha(\phi_0)$ with $K\to(\sinh\varepsilon/\varepsilon)^4$. Status: computed.
+
+\begin{remark}[the Hecke cone detects the level and does not propagate it]\label{rg:rem:hecke}
+The cone of functions $\phi_0(\cdot-t)\,|\sum_{n\le N}c_nn^{-iy}|^2$ contains $\phi_0(1\pm\cos(y\log n))=\frac12\phi_0|1\pm n^{iy}|^2$, so with Proposition~\ref{iw:prop:converse} it detects $\mathrm{QRH}(\alpha)$ exactly, and the integers $a=\log n$ with $n\ge149$ suffice ($g_\alpha'=O(e^{(1-\alpha)a})$, $\log149=5.004$). Positivity on it does not pass to level $\alpha-\varepsilon$ by any Schur product argument: in the entries with $|\log(m/n)|>4$ the level $\alpha-\varepsilon$ Gram matrix $\big(g_{\alpha-\varepsilon}(\log(m/n))\big)$ is the entrywise product of $\big(\max(m/n,n/m)^\varepsilon\big)$ with $\big(F_{\alpha,\varepsilon}(|\log(m/n)|)\big)$, the level $\alpha$ data of the shifted window of Proposition~\ref{rg:prop:step}, and the multiplier is not positive semidefinite (the $2\times2$ minor is $1-r^{2\varepsilon}<0$ with $r=m/n$). This shows only that a Schur product argument gives nothing; the obstructions proper are Theorem~\ref{rg:thm:passes} and Proposition~\ref{rg:prop:class}. Status: proved.
+\end{remark}
+
+\begin{remark}[local Euler factors deconvolve without loss]\label{rg:rem:local}
+For $\sigma>0$, a prime $p$, $r=p^{-\sigma}$ and $P_r(\theta)=(1-r^2)/(1-2r\cos\theta+r^2)$,
+\begin{gather*}\re\Big[\frac{\log p\;p^{-s}}{1-p^{-s}}\Big]_{s=\sigma+iy}=\tfrac12\log p\,\big(P_r(y\log p)-1\big),\\ P_h*P_r(\cdot\log p)=P_{rp^{-h}}(\cdot\log p)\quad(h>0).\end{gather*}
+So the level $\sigma$ density of each Euler factor is, up to sign and a constant, a circle Poisson kernel of radius $p^{-\sigma}$, and the descent from $\sigma$ to $\sigma-\varepsilon$ replaces the radius by $p^{-\sigma+\varepsilon}<1$: of the same sign for every $\varepsilon<\sigma$, for every prime and every Beurling prime (the Fourier coefficients $r^{|k|}$ at the frequencies $k\log p$ are multiplied by $p^{-h|k|}$). The step is a statement about the sum over $p$ together with the gamma factor, not about any factor; for the sum, the deconvolution form is Theorem~\ref{tf:thm:deconv}. Status: proved.
+\end{remark}
+
+\subsection*{Obstructions}
+
+\begin{theorem}[a zero to the left of a positive level]\label{rg:thm:passes}
+Let $\frac12<\alpha\le1$ and suppose that $\zeta$ has no zero with real part at least $\alpha$ (true for $\alpha=1$). Put $m_\alpha=\min_{\mathbb R}D_\alpha>0$. Let $\frac12<\beta<\alpha$, $w=\alpha-\beta$, $w'=\alpha+\beta-1$ and
+\[0<\gamma<\gamma_0(\alpha,\beta)=\Big(\frac{\pi m_\alpha}{2(w^{-3}+w'^{-3})}\Big)^{1/2}.\]
+Then $F_{\beta,\gamma}$ of Theorem~\ref{rg:thm:Fbg} has the completed functional equation of $\zeta$ and the positive prime measure $\Lambda_\zeta+2(e^{\beta u}+e^{(1-\beta)u})(1-\cos\gamma u)\,du$. Its level $\alpha$ measure, with the poles counted, is
+\[D^F_\alpha=D_\alpha+\sum_{v\in\{w,w'\}}\big[P_v(y-\gamma)+P_v(y+\gamma)-2P_v(y)\big]\ \ge\ m_\alpha-\frac{2\gamma^2}\pi\big(w^{-3}+w'^{-3}\big)>0,\]
+so $W^F_\alpha(\phi)=\int\phi\,dD^F_\alpha\ge0$ for $\phi\ge0$ in $\mathcal C$; and $F_{\beta,\gamma}$ has the zeros $\beta\pm i\gamma$, so $\mathrm{QRH}(\alpha')$ fails for it at every $\alpha'<\beta$. At $\alpha=1$, $m_1=b_1/\pi=0.0073516$, attained at $y=0$ by Proposition~\ref{bp:prop:valpha}. Status: proved (unconditional at $\alpha=1$; at $\alpha<1$ under the stated hypothesis).
+\end{theorem}
+
+\begin{proof}
+For $R=H_{\beta,\gamma}H_{1-\beta,\gamma}$ one has $\re R'/R(\alpha+iy)=\pi[P_w(y-\gamma)+P_w(y+\gamma)-2P_w(y)]+(\text{the same with }w')$. The second difference is at least $-\gamma^2\sup|P_v''|=-2\gamma^2/(\pi v^3)$, and all zeros and poles of $\Xi_F$ lie to the left of $\alpha$.
+\end{proof}
+
+\begin{corollary}\label{rg:cor:nolimit}
+The inputs (a) the completed functional equation with the gamma factor of $\zeta$, (b) a positive prime measure, (c) a positive level $\alpha$ measure, give $\mathrm{QRH}(\alpha-\varepsilon)$ for no $\varepsilon>0$, not even with $\varepsilon(\alpha)\to0$, and give no limit level below $1$: take $\beta\in(\max(\frac12,\alpha-\varepsilon),\alpha)$ and $\gamma<\gamma_0$. Status: proved (at $\alpha<1$ under the hypothesis of Theorem~\ref{rg:thm:passes}).
+\end{corollary}
+
+Computed. $\gamma_0(1,\beta)$ is $0.0261$, $0.0132$, $0.00340$, $0.00056$ for $\beta=0.55$, $0.75$, $0.9$, $0.97$, and $\min D^F_1$ is positive at $0.9\gamma_0$ and negative ($-1.5\cdot10^{-3}$) at $1.1\gamma_0$, so the threshold is sharp. For $\beta=0.9$ and $\gamma=0.00306$ the criterion $W^F_{\alpha'}(\phi_0(1+\cos a\,\cdot))$ first fails at $a=20.5$ ($\alpha'=0.85$) and $a=11.75$ ($\alpha'=0.75$), while the minus family stays positive up to $a=80$ (one sign fails for $F$, as Remark~\ref{rg:rem:zeroonly} predicts). What excludes $F_{\beta,\gamma}$ is that it is not entire (double real poles), and the real poles are what defeat Remark~\ref{rg:rem:zeroonly}. The computed fact that $\zeta$ has no zero with $|\im s|<14$ also removes it, since $\gamma_0\le0.03$, but it does not remove modifications with many zeros (Problem~\ref{rg:prob:modif}). Status: computed.
+
+\begin{proposition}[no uniform step over a class]\label{rg:prop:class}
+Let $\mathfrak F$ be a class of functions $F$, each with a statement $\mathrm{QRH}_F(\alpha)$ (that $F$ has no zero with real part greater than $\alpha$), such that $\zeta\in\mathfrak F$ and, for every $\beta\in(\frac12,1)$, some $F_\beta\in\mathfrak F$ has a zero of real part $\beta$ and satisfies $\mathrm{QRH}_{F_\beta}(\alpha)$ for every $\alpha\ge\max(\beta,\Theta_\zeta)$. Let $\frac12<\alpha_1<1$. There is no function $\varepsilon:(\alpha_1,1]\to(0,\infty)$ with $\mathrm{QRH}_F(\alpha)\Rightarrow\mathrm{QRH}_F(\alpha-\varepsilon(\alpha))$ for all $F\in\mathfrak F$ and $\alpha\in(\alpha_1,1]$. Status: proved.
+\end{proposition}
+
+\begin{proof}
+Applied to $\zeta$ at $\alpha=1$ the step gives $\Theta_\zeta\le1-\varepsilon(1)<1$. For $\beta\in(\max(\Theta_\zeta,\alpha_1),1)$, $\mathrm{QRH}_{F_\beta}(\beta)$ holds, and the step at $\beta$ contradicts the zero at $\beta$.
+\end{proof}
+
+Instances: $F_{\beta,\gamma}$ with its positive continuous density on the prime side of the explicit formula, of Theorem~\ref{rg:thm:passes}, whose level $\alpha$ measure, zeros and poles counted, is the $D^F_\alpha$ given there; and the Beurling systems $B_{\beta,\gamma}$ of Theorem~\ref{rg:thm:beurling}. With Hamburger's theorem \cite{NCHamburger21} and Theorem~\ref{rg:thm:A}, a Dirichlet series over $\mathbb N$ with the functional equation, finitely many poles and finite order is $c\zeta$, so any valid step that uses only Hecke structure and the functional equation is a theorem about $\zeta$ alone.
+
+\begin{remark}[an entire control with every prime free property]\label{rg:rem:controlH}
+For $\frac12<b<1$ and consecutive ordinates $\gamma_k<\gamma_{k+1}$, let $R$ be the rational function with zeros $b\pm i\gamma_k$, $1-b\pm i\gamma_k$ and poles at $\frac12\pm i\gamma_k$, $\frac12\pm i\gamma_{k+1}$, and $\Xi_H=\xi R$. Then $\Xi_H$ is entire of order one, real, $\Xi_H(s)=\Xi_H(1-s)$, $R\to1$, it has the gamma factor of $\xi$, and its zeros include $b\pm i\gamma_k$. For $\gamma_k\ge4000$ and every $\alpha\in[1,3]$ its level $\alpha$ density is positive with $v^H_\alpha(\theta)>b^H_\alpha=v^H_\alpha(0)>0$. The zeros keep the symmetry $\rho\leftrightarrow1-\bar\rho$, so the window argument of Proposition~\ref{bp:prop:valpha} runs with at most one zero fewer per window, at a cost of at most $w(\alpha)/20\le w(3)/20=0.0107$ (with $w=0.04425,0.13100,0.21368$ at $\alpha=1,2,3$) against the margin $0.0209$; convexity on $|\theta|\le\theta_0(\alpha)$ is untouched; on $[\theta_0,2000]$ the perturbation $|\re R'/R(\alpha+i\theta)-R'/R(\alpha)|$ is at most $16/2000=0.008$ against the margin $0.018$; and $R'/R(\alpha)=O(\gamma_k^{-3})$. Both estimates rest on Proposition~\ref{bp:prop:valpha}. Taking $b>1-\varepsilon$ shows that positivity at every level in $[1,3]$, the functional equation, the gamma factor, entireness and the stable part give no $\varepsilon(1)>0$. Computed low instance ($k=1$, level $1$): $b=0.9$, $\min(v^H_1-b^H_1)=4.24\cdot10^{-7}$; $b=0.99$, $4.22\cdot10^{-7}$. With Theorem~\ref{rg:thm:passes} this shows that entireness alone, which excludes $F_{\beta,\gamma}$, does not suffice either; $H$ is not a Dirichlet series. Status: proved (for $\gamma_k\ge4000$), computed (low instance).
+\end{remark}
+
+\subsection*{The sine squared form and the Taylor radius}
+
+\begin{theorem}[the step as a Taylor radius]\label{rg:thm:taylor}
+Let $\frac12<\alpha\le1$, suppose that $\xi$ has no zero with real part at least $\alpha$, and put $\Lambda(\alpha)=\sup_{\theta\in\mathbb R,\,k\ge1}\big(|v_\alpha^{(k)}(\theta)|/(k!\,v_\alpha(\theta))\big)^{1/k}$. Then:
+\begin{enumerate}
+\item[(a)] for $\varepsilon>0$, $\mathrm{QRH}(\alpha-\varepsilon)$ holds if and only if $v_\alpha$ continues analytically to the strip $|\im\theta|<\varepsilon$, if and only if $|v_\alpha^{(k)}(\theta)|\le k!\,\varepsilon^{-k}v_\alpha(\theta)$ for all $k\ge1$ and $\theta\in\mathbb R$;
+\item[(b)] $\Lambda(\alpha)=1/(\alpha-\Theta)$;
+\item[(c)] RH holds if and only if $|v_1^{(k)}(\theta)|\le k!\,2^k\,v_1(\theta)$ for all $k\ge1$ and $\theta\in\mathbb R$.
+\end{enumerate}
+Status: proved.
+\end{theorem}
+
+\begin{proof}
+Write $v_\alpha=\frac12(F+F^*)$ with $F(\theta)=\xi'/\xi(\alpha+i\theta)$, which has poles at $\gamma+i(\alpha-\beta)$ with residue $-i$, and conjugate poles in the other half plane, so the strip of analyticity is exactly $|\im\theta|<\alpha-\Theta$. For the bound, $|\partial_x^k(w-ix)^{-1}|=k!(w^2+x^2)^{-(k+1)/2}\le k!\,w^{-k}\,w/(w^2+x^2)$, summed over the zeros; discs of radius $\varepsilon$ about real points cover the strip. The lower bound in (b) comes from the pole at $\gamma_\rho+i(\alpha-\beta_\rho)$, and (c) is (b) at $\alpha=1$ with $\Theta\ge\frac12$.
+\end{proof}
+
+Computed. $\max|v_1'|/v_1=1.9426$ on $[0.05,60]$, at $\theta=13.6475$ (the bound under RH is $2$); at $\theta=\gamma_1$, $(|v_1^{(k)}(\gamma_1)|/(k!\,v_1(\gamma_1)))^{1/k}$ is $1.9832$, $1.9916$, $1.9958$, $1.9979$, $1.99895$ for $k=2$, $4$, $8$, $16$, $32$ (Cauchy integral of $\xi'/\xi$ on a circle of radius $0.3$ with $160$ nodes; odd $k$ are small by symmetry). Status: computed.
+
+The deconvolution depth carried by the level $\alpha$ data is exactly $\alpha-\Theta$, so a descent lands on $\Theta$ in one step and cannot pass it, and an explicit $\varepsilon(\alpha)$ iterating to $\frac12$ exists if and only if $\Theta=\frac12$. Part (c) is an equivalent of RH, not a step, and it is prime free.
+
+\begin{remark}[the sine squared kernel drops out of the step]\label{rg:rem:sin2}
+In the L\'evy form $v_\alpha(\theta)=b_\alpha+\int_0^\infty2\sin^2(x\theta/2)\,\mu_\alpha(dx)$ (Propositions~\ref{bp:prop:levy} and~\ref{bp:prop:below}; on the zero side $\mu_\alpha=-\sum_\rho e^{-(\alpha-\rho)x}dx$ termwise), every positive $\theta$ average of the kernel stays away from zero: for a finite positive measure $w\ne w(\{0\})\delta_0$, $K_w(x)=\int2\sin^2(x\theta/2)\,w(d\theta)=w(\mathbb R)-\re\widehat w(x)$ has Ces\`aro mean $w(\mathbb R\setminus\{0\})>0$ as $x\to\infty$ (dominated convergence: $(1/X)\int_0^X\widehat w\to w(\{0\})$). The step needs the multiplier $e^{\varepsilon x}$ on $\mu_\alpha$ (Theorem~\ref{rg:thm:taylor}(a); formally the Harnack bounds control the oscillatory moments of $\mu_\alpha$ and $\sum_k\varepsilon^kx^k/k!=e^{\varepsilon x}$, but these moments do not converge absolutely), and the second order vanishing of $2\sin^2$ acts only at $x\to0$, where it handles the gamma factor and the stable part $b_\alpha$. Under $\mathrm{QRH}(\alpha)$, with no zero on $\re s\in\{\alpha,\alpha-\varepsilon\}$ and $v_{\alpha-\varepsilon}$ the signed density of Theorem~\ref{cm:thm:signed},
+\[v_\alpha=P_\varepsilon*v_{\alpha-\varepsilon}+\pi\sum_{\alpha-\varepsilon<\beta<\alpha}\big[P_{\alpha-\beta}+P_{2\varepsilon-(\alpha-\beta)}\big](\cdot-\gamma)\ \ge\ P_\varepsilon*v_{\alpha-\varepsilon}\]
+(zero by zero from $P_\varepsilon*P_b=P_{\varepsilon+b}$). Without $\mathrm{QRH}(\alpha)$ the inequality fails: a zero with $\beta>\alpha$ gives a negative difference at $\theta=\gamma$. Status: proved (the Ces\`aro limit and the identity); heuristic (the moment reading).
+\end{remark}
+
+\subsection*{Lee and Yang, and Williams}
+
+\begin{proposition}[the P\'olya law of $F_{\beta,\gamma}$]\label{rg:prop:FPolya}
+Let $\frac12<\beta<1$, $\gamma>0$, $\eta=\beta-\frac12$, $\xi_F=\xi H_{\beta,\gamma}H_{1-\beta,\gamma}$ and $\Xi_F(t)=\xi_F(\frac12+it)$. Then $\Xi_F=\Xi\,m$ with $m(t)=|1+\gamma^2/(it-\eta)^2|^2\ge0$ and $m(t)-1=\gamma^2(\gamma^2+2\eta^2-2t^2)/(t^2+\eta^2)^2$, and the kernel of $\Xi_F$ is $\Phi_F=\Phi_{\mathrm P}*(\delta_0+r)$ with
+\[r(u)=\frac{\gamma^2}{4\eta^3}e^{-\eta|u|}\big[\gamma^2(1+\eta|u|)+4\eta^3|u|\big]>0,\qquad\int r=m(0)-1.\]
+So $\Phi_F\ge\Phi_{\mathrm P}>0$ is even; the P\'olya variable of $F_{\beta,\gamma}$ is $X+R$ with $R$ independent of $X$, of law $(\delta_0+r(u)\,du)/m(0)$ and characteristic function $m(t)/m(0)$, which vanishes at $\pm\gamma\pm i\eta$; its moment generating function exists only for $|\re h|<\eta$, so $\Phi_F$ has no Gaussian moments and $\Xi_F$ is not entire; and $K_F(h)=\log\E e^{h(X+R)}$ has $K_F'''(h)\to+\infty$ as $h\uparrow\eta$, so the single spin GHS inequality fails near the pole. Status: proved.
+\end{proposition}
+
+\begin{proof}
+Use the conjugate symmetry of $(it\mp\eta)^2$ and the residue integrals $\int e^{-itu}(t^2+\eta^2)^{-2}dt=\frac\pi{2\eta^3}(1+\eta|u|)e^{-\eta|u|}$ and $\int t^2e^{-itu}(t^2+\eta^2)^{-2}dt=\frac\pi{2\eta}(1-\eta|u|)e^{-\eta|u|}$.
+\end{proof}
+
+The off line zeros of $F_{\beta,\gamma}$ come from an independent summand that is not of Lee and Yang type, with positivity, evenness and the functional equation all kept. The property that excludes $F_{\beta,\gamma}$ from every Lee and Yang argument is entireness of the moment generating function (Gaussian moments of all orders), the hypothesis of Theorem~\ref{cm:thm:stripXi} and of de Bruijn's strip theorem \cite{deBruijn}.
+
+\begin{remark}[single spin tests passed by Davenport and Heilbronn]\label{rg:rem:dhtests}
+The P\'olya laws of $\zeta$ and of the Davenport and Heilbronn function $f_{\mathrm{DH}}$ (kernel $2e^{3u/2}\sum_nc(n)n\exp(-\pi n^2e^{2u}/5)$) both have positive even kernels, Newman's convexity ($F'''\ge0$ for $F=-\log$ kernel, on $[0,2.5]$), the single spin GHS inequality $K'''(h)\le0$ ($h$ from $0.1$ to $40$), and alternating cumulants to order six ($\zeta$: $\kappa_2=0.0462099862308$, $\kappa_4=-4.46071191423\cdot10^{-4}$, $\kappa_6=3.460174\cdot10^{-5}$; $f_{\mathrm{DH}}$: $0.196139$, $-0.020982$, $0.014326$), yet $f_{\mathrm{DH}}$ has the zero $\rho_{\mathrm{DH}}$. So none of these properties can carry a proof that $\Phi_{\mathrm P}$ is of Lee and Yang type. As a remark on methods only: an argument that derives a descent for $\Phi_{\mathrm P}$ from forward deformation inequalities and properties that $f_{\mathrm{DH}}$ shares would apply to $f_{\mathrm{DH}}$, and since $f_{\mathrm{DH}}(s)\to1$ as $\re s\to\infty$ an iterated step would push its level below $\re\rho_{\mathrm{DH}}$ (compare Corollary~\ref{rg:cor:barrier}). With Proposition~\ref{rg:prop:FPolya}, entireness excludes $F_{\beta,\gamma}$ and not $f_{\mathrm{DH}}$. Status: computed (on grids; the tail of $F'''$ beyond $2.5$ for $f_{\mathrm{DH}}$ is heuristic).
+\end{remark}
+
+\section{Open problems}\label{rg:sec:open}
+
+\begin{problem}[is $\zeta$ the only admissible minorant]\label{rg:prob:minorant}
+Is there a meromorphic $G\not\equiv1$ with $G(s)=G(1-s)$, $-G'/G=\sum\rho_nn^{-s}$, $0\le\rho_n\le\Lambda(n)$, regular and nonzero at $s=1$? Equivalently, is there a positive minorant of $\zeta$ other than $\zeta$? Such a $G$ has $\frac12\le\sigma_\rho<1$, coefficients in $[0,1]$, infinitely many poles or infinite order, and infinitely many primes in the support of $\rho$. By Theorem~\ref{rg:thm:minorant} the answer does not bear on RH. Status: open.
+\end{problem}
+
+\begin{problem}[conductor larger than one]\label{rg:prob:conductor}
+Is there a Beurling zeta function with the functional equation of $\zeta$ of conductor $Q>1$, a positive theta kernel, a simple pole at $1$ and a zero off the line? By Theorems~\ref{rg:thm:A} and~\ref{rg:thm:B} it would have to miss zeros of $\zeta$ or have atoms involving infinitely many primes. Status: open.
+\end{problem}
+
+\begin{problem}[a rational modification of $\zeta$]\label{rg:prob:modif}
+Is there a rational $R$ with $R(s)=R(1-s)$, $R\to1$, finitely many zero quadruples and real pole pairs, such that $\zeta R$ has a positive prime measure, a positive level $\alpha$ measure, a zero in $(\alpha-\varepsilon,\alpha)$ and no zero with $|\im s|<14$? The function $F_{\beta,\gamma}$ needs $\gamma<0.03$ (Theorem~\ref{rg:thm:passes}); a heuristic count suggests that none exists, and a negative answer would still prove nothing about $\zeta$. Status: open.
+\end{problem}
+
+\begin{problem}[a Lee and Yang strip for the P\'olya kernel]\label{rg:prob:cosh}
+Does the transform of $\Phi_{\mathrm P}(x)/\cosh(ax)$ have all its zeros in $|\im t|\le\frac12$ for small $a>0$? Is there a positive even kernel with entire transform, a Williams variable of generalised gamma convolution type and a zero off the line, which would close the Williams route? Status: open.
+\end{problem}

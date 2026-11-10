@@ -79,7 +79,6 @@ R_j(x,dy)=\frac{M_j(x,dy)\,G_{j,n}(y)}{M_j(G_{j,n})(x)},
 \]
 satisfy $R_j(x,\cdot)\ge\epsilon^2R_j(y,\cdot)$ (the ratio of the densities of $R_j(x,\cdot)$ and $R_j(y,\cdot)$ is $\bigl[M_j(x,dz)/M_j(y,dz)\bigr]\cdot\bigl[M_j(G_{j,n})(y)/M_j(G_{j,n})(x)\bigr]$, and each factor is at least $\epsilon$), so $\varkappa_{k,n}\le(1-\epsilon^2)^{n-k}$, since $\mathcal P_{k,n}=R_{k+1}\cdots R_n$. Hence $S_n\le1+e^c(1-\epsilon^2)\epsilon^{-3}\le e^{c}\epsilon^{-3}$ for every $n$.
 
-The hypothesis is strong, and the kernels of the filter do not satisfy it.
 
 \begin{lemma}[Metropolis kernels are not ratio minorised]\label{cf:lem:nominor}
 Let $M$ be a Markov kernel on $E$, and suppose there are points $x,y$ and a measurable set $B$ with $M(y,B)>0=M(x,B)$. Then no $\epsilon>0$ satisfies $M(x',\cdot)\ge\epsilon M(y',\cdot)$ for all $x',y'$. This is the case for a random walk Metropolis kernel whose proposals have a density, at any $y$ with positive rejection probability ($B=\{y\}$, $x\ne y$), for its powers, and for componentwise Metropolis sweeps ($B=\{z:z_1=y_1\}$, $x_1\ne y_1$, when rejection of the first coordinate has positive probability at $y$).
@@ -89,7 +88,7 @@ Let $M$ be a Markov kernel on $E$, and suppose there are points $x,y$ and a meas
 $M(x,B)=0<\epsilon M(y,B)$. From $x$ the chain reaches the point $y$, or the hyperplane $z_1=y_1$, only by accepting a proposal that lands there, an event of probability zero, in one step and in $m$ steps; from $y$ a rejection keeps it in $B$ with positive probability.
 \end{proof}
 
-If $M_k$ has a density $m_k(x,z)$ with respect to a common reference measure with $\alpha_kh_k(z)\le m_k(x,z)\le\alpha_k'h_k(z)$ for all $x,z$, then $M_k(x,\cdot)\ge(\alpha_k/\alpha_k')M_k(y,\cdot)$; exact Gibbs sweeps are an example when the target density is bounded above and below on $\Theta_\varsigma$ (defined below). With $S_n\le e^c\epsilon^{-3}$, Remark~\ref{cf:rem:tail} gives $\mathbb P(\lvert\eta_n^N(f)-\eta_n(f)\rvert\ge x)\le2\exp(-\frac12Nx^2\epsilon^6e^{-2c})$ for every $n$. The number of steps does not enter the bound.
+If $M_k$ has a density $m_k(x,z)$ with respect to a common reference measure with $\alpha_kh_k(z)\le m_k(x,z)\le\alpha_k'h_k(z)$ for all $x,z$, then $M_k(x,\cdot)\ge(\alpha_k/\alpha_k')M_k(y,\cdot)$; exact Gibbs sweeps are an example when the target density is bounded above and below on $\Theta_\varsigma$ (defined below). With $S_n\le e^c\epsilon^{-3}$, Remark~\ref{cf:rem:tail} gives $\mathbb P(\lvert\eta_n^N(f)-\eta_n(f)\rvert\ge x)\le2\exp(-\frac12Nx^2\epsilon^6e^{-2c})$ for every $n$.
 
 \subsection{The Cauchy flow}
 
@@ -106,14 +105,14 @@ Without the minorisation, Theorem~\ref{cf:thm:conc} holds with its finite $S_n$,
 \end{corollary}
 
 \begin{proof}
-On $\Theta_\varsigma$ each term $|Q_{\theta_l-\sigma_j}(v)|$ is at most $1/(\pi\varsigma)$. The marginal likelihood after integrating out the background is $\exp(-\frac12r^\top\Sigma^{-1}r)$ with $\Sigma\succeq\varepsilon^2I$, so its logarithm lies between $-\|r\|^2/(2\varepsilon^2)$ and $0$, and $\|r\|^2$ is at most the sum in the display, since each entry of $r$ is at most $|y_l(v_i)|+K/(\pi\varsigma)$ in absolute value. A potential $L^{\Delta\lambda}$ then has $\sup/\inf\le e^{\Delta\lambda\,\Omega_\varsigma}\le e^c$ for $\Delta\lambda=1/n\le c/\Omega_\varsigma$. The rest is Theorem~\ref{cf:thm:conc}, Remark~\ref{cf:rem:tail} and the stability bounds.
+On $\Theta_\varsigma$ each term $|P_{\theta_l-\sigma_j}(v)|$ is at most $1/(\pi\varsigma)$. The marginal likelihood after integrating out the background is $\exp(-\frac12r^\top\Sigma^{-1}r)$ with $\Sigma\succeq\varepsilon^2I$, so its logarithm lies between $-\|r\|^2/(2\varepsilon^2)$ and $0$, and $\|r\|^2$ is at most the sum in the display, since each entry of $r$ is at most $|y_l(v_i)|+K/(\pi\varsigma)$ in absolute value. A potential $L^{\Delta\lambda}$ then has $\sup/\inf\le e^{\Delta\lambda\,\Omega_\varsigma}\le e^c$ for $\Delta\lambda=1/n\le c/\Omega_\varsigma$. The rest is Theorem~\ref{cf:thm:conc}, Remark~\ref{cf:rem:tail} and the stability bounds.
 \end{proof}
 
-Two remarks. The restriction to $\Theta_\varsigma$ is needed: when a candidate zero approaches a grid point $(\theta_l,v_i)$, that is, when $\sigma_j\to\theta_l$ with $\gamma_j\to v_i$, the term $Q_{\theta_l-\sigma_j}$ blows up, the likelihood tends to zero, and $\inf G=0$. It is the singularity that makes the deconvolution informative. Under $\mathrm{QRH}(\theta)$ the truncation is automatic for levels above $\theta+\varsigma$, provided the prior is restricted to $1-\theta\le\sigma_j\le\theta$; the sampler's prior is uniform on $(0,1)$. Second, the constants are explicit but pessimistic: $\Omega_\varsigma$ is of order $10^6$ for the grids of the source note (not recomputed here), and the minorisation constant enters as $\epsilon^6$. The theorem guarantees the $N^{-1/2}$ rate and exponential tails for the system it covers, not the constant observed.
+Two remarks. The restriction to $\Theta_\varsigma$ is needed: when a candidate zero approaches a grid point $(\theta_l,v_i)$, that is, when $\sigma_j\to\theta_l$ with $\gamma_j\to v_i$, the term $P_{\theta_l-\sigma_j}$ blows up, the likelihood tends to zero, and $\inf G=0$. It is the singularity that makes the deconvolution informative. Under $\mathrm{QRH}(\theta)$ the truncation is automatic for levels above $\theta+\varsigma$, provided the prior is restricted to $1-\theta\le\sigma_j\le\theta$; the sampler's prior is uniform on $(0,1)$. Second, the constants are explicit but pessimistic: $\Omega_\varsigma$ is of order $10^6$ for the grids of the source note (not recomputed here), and the minorisation constant enters as $\epsilon^6$.
 
 \subsection{The rate in practice}
 
-The source note reran the GBC initialised filter for $\zeta$ twelve times at each of $N\in\{250,500,1000,2000\}$ and measured the spread across runs of three posterior functionals for the zero at $84.7355$: the posterior means of $\sigma$ and of $\gamma$, and the posterior probability that $|\sigma-\frac12|>2\times10^{-4}$, which has oscillation one (Table~\ref{cf:tab:reps}, computed by the author, not rerun). The sampler is the systematic and adaptive one that Theorem~\ref{cf:thm:conc} does not cover.
+The source note reran the GBC initialised filter for $\zeta$ twelve times at each of $N\in\{250,500,1000,2000\}$ and measured the spread across runs of three posterior functionals for the zero at $84.7355$: the posterior means of $\sigma$ and of $\gamma$, and the posterior probability that $|\sigma-\frac12|>2\times10^{-4}$, which has oscillation one (Table~\ref{cf:tab:reps}, computed by the author, not rerun).
 
 \begin{table}[h]
 \centering
@@ -148,19 +147,19 @@ Theorem~\ref{cf:thm:conc} assumes a fixed schedule. The filter of Section~\ref{c
 
 \section{From $\mathfrak U_1$ to $\mathfrak U_{3/4}$}\label{cf:sec:u34}
 
-The level $\theta=\frac34$ is halfway between the two ends of the deconvolution and is the level of $\mathrm{QRH}(3/4)$. There are two ways to obtain $\mathfrak U_{3/4}$.
+The level $\theta=\frac34$ is halfway between the two ends of the deconvolution and is the level of $\mathrm{QRH}(3/4)$.
 
 \paragraph{Directly.} $\mathfrak U_{3/4}\bigl((0,V]\bigr)=\int_0^Vu_{3/4}(v)\,dv$ with $u_{3/4}(v)=\pi^{-1}\Re\,\xi'/\xi(\tfrac34+iv)$, evaluated to high precision. This forward computation needs no filter. On $[78,94]$, on a grid of spacing $0.02$, we find the following (computed).
 \begin{itemize}
 \item For $\zeta$, $u_{3/4}$ is positive on the grid, with minimum $0.0734$ at $v=90.68$ between the zeros $88.81$ and $92.49$, and $\mathfrak U_{3/4}\bigl((78,94]\bigr)=6.162$, close to the six zeros in the window spread by Cauchy kernels of scale $1/4$. Positivity for every $\theta>\frac12$ at these heights is Corollary~\ref{cor:dbeta:window}, not a consequence of the grid values.
-\item For Davenport and Heilbronn, $u_{3/4}$ has a negative spike of depth $-4.80$ at $v=85.70$, and the negative part of $\mathfrak U_{3/4}$ on the window has mass $0.578$. Its total increment is $8.763$. The spike comes from the zero $0.8085+85.699i$, whose real part exceeds $\frac34$: it contributes the negative Cauchy term $Q_{3/4-0.8085}$ of scale $0.0585$, partly cancelled by the positive terms (Theorem~\ref{cf:thm:negmass}).
+\item For Davenport and Heilbronn, $u_{3/4}$ has a negative spike of depth $-4.80$ at $v=85.70$, and the negative part of $\mathfrak U_{3/4}$ on the window has mass $0.578$. Its total increment is $8.763$. The spike comes from the zero $0.8085+85.699i$, whose real part exceeds $\frac34$: it contributes the negative Cauchy term $P_{3/4-0.8085}$ of scale $0.0585$, partly cancelled by the positive terms (Theorem~\ref{cf:thm:negmass}).
 \end{itemize}
 
 \paragraph{By the backward flow.} The test of the method is to predict $u_{3/4}$ from a fit to the two levels $\theta\in\{1,0.9\}$: fit the filter to these levels and push each posterior particle forward to $\theta=\frac34$ through the Hadamard sum \eqref{es:eq:lorentz},
 \[
-u_{3/4}(v\mid z)=\sum_jQ_{3/4-\sigma_j}(v-\gamma_j)+b_{3/4}(v\mid z),
+u_{3/4}(v\mid z)=\sum_jP_{3/4-\sigma_j}(v-\gamma_j)+b_{3/4}(v\mid z),
 \]
-with the background coefficients refitted given $z$ (to their conditional mean, so that the band below is the band of the conditional mean prediction and omits the uncertainty of those coefficients). The data are on lines to the right and the prediction is to the left. Since $Q_{3/4-\sigma}$ changes sign as $\sigma$ crosses $\frac34$, the prediction is only as good as the posterior for each $\sigma_j$ relative to $\frac34$ (compare Proposition~\ref{cf:prop:detect}).
+with the background coefficients refitted given $z$ (to their conditional mean, so that the band below is the band of the conditional mean prediction and omits the uncertainty of those coefficients). Since $P_{3/4-\sigma}$ changes sign as $\sigma$ crosses $\frac34$, the prediction is only as good as the posterior for each $\sigma_j$ relative to $\frac34$ (compare Proposition~\ref{cf:prop:detect}).
 
 The source note ran the GBC initialised filter of Section~\ref{cf:sec:gbc} with $N=1000$ particles (computed by the author, not rerun; the source's figure is not reproduced).
 \begin{itemize}

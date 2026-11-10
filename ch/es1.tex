@@ -2,7 +2,7 @@
 
 \subsection{The forward equation}
 
-Write $s=1+iv$ and, for a zero $\rho=\sigma_\rho+i\gamma_\rho$, $a_\rho=1-\sigma_\rho\in(0,1)$. Proposition~\ref{prop:struct} and the Hadamard product give, with the zeros paired as $\rho,\bar\rho$ so that the sum converges,
+Write $s=1+iv$. Proposition~\ref{prop:struct} and the Hadamard product give, with the zeros paired as $\rho,\bar\rho$ so that the sum converges,
 \begin{equation}\label{es:eq:lorentz}
 u_1(v)=\frac1\pi\Re\frac{\xi'}\xi(1+iv)=\frac1\pi\sum_\rho\frac{a_\rho}{a_\rho^2+(v-\gamma_\rho)^2}=\sum_\rho P_{a_\rho}(v-\gamma_\rho),
 \end{equation}
@@ -26,7 +26,7 @@ where the $1$ is the transform of $\delta_0$, the boundary value on $\Re s=1$ of
 \begin{equation}\label{es:eq:Ghat}
 \langle\widehat G,g\rangle=(1-\log\pi-\gamma_E)\,g(0)+\sum_{k\ge1}\Bigl[\frac{g(0)}{k+1}-\int_{\mathbb R}g(\omega)\,e^{-(2k+1)|\omega|}\,d\omega\Bigr].
 \end{equation}
-Away from the origin $\widehat G(\omega)=-e^{-3|\omega|}/(1-e^{-2|\omega|})=-1/(2|\omega|)+1+O(|\omega|)$, the transform of the growth $(2\pi)^{-1}\log|v|$ of $G$: a singularity that is not integrable, and \eqref{es:eq:Ghat} is its finite part regularisation. Multiplying \eqref{es:eq:spectrum} by $e^{|\omega|/2}$ multiplies the atom at $\pm\log n$ by $\sqrt n$.
+Away from the origin $\widehat G(\omega)=-e^{-3|\omega|}/(1-e^{-2|\omega|})=-1/(2|\omega|)+1+O(|\omega|)$, the transform of the growth $(2\pi)^{-1}\log|v|$ of $G$: a singularity that is not integrable, and \eqref{es:eq:Ghat} is its finite part regularisation.
 
 \begin{theorem}[the explicit formula is the deconvolution]\label{es:thm:explicit}
 For every $g\in C_c^\infty(\mathbb R)$, with the sum over $\rho$ absolutely convergent,
@@ -78,7 +78,7 @@ the series being alternating with decreasing terms. With $N\ge2/\pi$ this is the
 Identifying resolution at scale $\delta$ with frequency $\Omega=\pi/\delta$, Proposition~\ref{es:prop:resolution} suggests that a general density cannot be resolved at scale $\delta$ from data less accurate than about $\tfrac12e^{-\pi/2\delta}$, and, since in \eqref{es:eq:weil} a test function supported in $[-\Omega,\Omega]$ involves $\Lambda(n)$ only for $n\le e^\Omega$, that the primes to $e^{\pi/\delta}$ are the matching arithmetic input. Neither is a theorem: no loss function is fixed, no method is excluded, and both fail for measures with few atoms, as the computations below show.
 \end{remark}
 
-For $\delta=0.1$ the heuristic gives $\varepsilon\approx10^{-7}$ and primes to $e^{31}\approx10^{13}$; for $\delta=0.01$ it is $3\times10^{-69}$ and $10^{136}$. The EM computation of Chapter~\ref{chap:cx} reached $\delta\approx10^{-3}$ in the positions of well separated atoms from data accurate to $10^{-20}$, better than the heuristic allows for a general measure, because the target is not a general measure: a positive sum of a few atoms per unit length has far fewer degrees of freedom than a density, and the question is whether a method can use that.
+For $\delta=0.1$ the heuristic gives $\varepsilon\approx10^{-7}$ and primes to $e^{31}\approx10^{13}$; for $\delta=0.01$ it is $3\times10^{-69}$ and $10^{136}$. The EM computation of Chapter~\ref{chap:cx} reached $\delta\approx10^{-3}$ in the positions of well separated atoms from data accurate to $10^{-20}$, better than the heuristic allows for a general measure, because the target is not a general measure: a positive sum of a few atoms per unit length has far fewer degrees of freedom than a density.
 
 \section{Sparse recovery}\label{es:sec:sparse}
 
@@ -125,7 +125,7 @@ On the line, $|\phi|=e^{-(x-c)^2/2\ell^2}e^{-\ell^2\omega^2/2}$ and $|(v-\gamma)
 
 Some hypothesis $\omega\ell^2>a_\rho$ is needed, since otherwise the line $\Im v=\omega\ell^2$ does not reach the pole; $\omega\ell^2>1$ suffices. The settings of the computations below ($\omega_0\ell^2=500$ at height $200$, $20$ at height $3\times10^{12}$) satisfy it.
 
-The content is in the last display: the samples are a finite sum of damped complex exponentials in $j$, one per zero that the taper sees, plus a remainder, and the modulus of $z_\rho$ gives $a_\rho=1-\sigma_\rho$, its argument $\gamma_\rho-c$ modulo $2\pi/\Delta$. Nothing is assumed about the real parts; \eqref{es:eq:taperF} is \eqref{es:eq:lorentz} and nothing else.
+The content is in the last display: the samples are a finite sum of damped complex exponentials in $j$, one per zero that the taper sees, plus a remainder, and the modulus of $z_\rho$ gives $a_\rho=1-\sigma_\rho$, its argument $\gamma_\rho-c$ modulo $2\pi/\Delta$. Nothing is assumed about the real parts.
 
 \subsection{Prony and the matrix pencil}
 
@@ -164,7 +164,7 @@ $25$ & 28 & $4.1\times10^{-5}$ & $2.7\times10^{-9}$ & $4.0\times10^{-5}$ & $1.1\
 
 \noindent The eleven zeros within $10$ of the centre are placed to within $8\times10^{-10}$ in both coordinates; the error grows toward the edge of the taper as the amplitudes fall, as the heuristic error analysis predicts. The backward flow of Chapter~\ref{chap:cx} on the same data, with $4000$ accelerated EM steps and the certificate, placed the centroids to about $10^{-3}$: a gain of seven orders of magnitude at the centre, from the same $u_1$. The modulus of the tapered transform $F(\omega)$ follows the line $e^{-\omega/2}$, so that the signal falls by $e^{-20}$ over the frequencies used (the author's figure is not reproduced).
 
-The real parts are the new element. Every recovered pole has $|z_\rho|=e^{-\Delta a_\rho}$ with $a_\rho=0.5000000$ to the digits shown; the fit does not constrain the real parts. To make the point we added to $u_1$ the Lorentzians of a fictitious pair of zeros at $0.85\pm60.089i$ and $0.15\pm60.089i$, which is what a zero off the line and its reflection would contribute, and ran the pencil on a window centred at $60$. It returned two components at $\gamma=60.08900000$ and $60.08899905$ with $a=0.15000000$ and $0.84999991$, beside the genuine zeros $59.347044$ and $60.831779$ with $a=0.500000$. The pencil reads the real parts of the zeros off the level one data, to seven digits, without any assumption.
+The real parts are the new element. Every recovered pole has $|z_\rho|=e^{-\Delta a_\rho}$ with $a_\rho=0.5000000$ to the digits shown; the fit does not constrain the real parts. To make the point we added to $u_1$ the Lorentzians of a fictitious pair of zeros at $0.85\pm60.089i$ and $0.15\pm60.089i$, which is what a zero off the line and its reflection would contribute, and ran the pencil on a window centred at $60$. It returned two components at $\gamma=60.08900000$ and $60.08899905$ with $a=0.15000000$ and $0.84999991$, beside the genuine zeros $59.347044$ and $60.831779$ with $a=0.500000$.
 
 \section{Posterior concentration, and what it cannot do}\label{es:sec:posterior}
 
@@ -210,8 +210,8 @@ The theorem needs the bias below the noise, $\|b\|_2\le B\tau$ with $B$ of order
 The separation $s>0$ excludes two components at one ordinate, and so the pairs $\tfrac12\pm\delta$ that the functional equation imposes on zeros off the line: such a configuration is not an interior point of any $K_M$, and the rate $\tau$ of the theorem does not apply to it. Near the line the two poles of such a pair merge; Section~\ref{es:sec:singular} treats that singular case.
 \end{remark}
 
-Under its hypotheses the posterior for the zeros in a window, real parts included, contracts to the truth at the rate of the data accuracy: the Bayesian form of Theorem~\ref{es:thm:taper}. The hypotheses fail at the settings of the computations above (Remark~\ref{es:rem:settings}), so the errors of $10^{-10}$ to $10^{-7}$ that the pencil reaches from data with $\tau=10^{-16}$ are an observation, not an instance of the theorem. The constants depend on the separation of the poles, and this is not a technicality: the functional equation forces off line zeros into pairs whose poles merge at the line, where the rate for the real part of a pair is $\tau^{1/2}$, not $\tau$ (Theorem~\ref{es:thm:singular}).
+The hypotheses fail at the settings of the computations above (Remark~\ref{es:rem:settings}), so the errors of $10^{-10}$ to $10^{-7}$ that the pencil reaches from data with $\tau=10^{-16}$ are an observation, not an instance of the theorem. The constants depend on the separation of the poles, and this is not a technicality: the functional equation forces off line zeros into pairs whose poles merge at the line, where the rate for the real part of a pair is $\tau^{1/2}$, not $\tau$ (Theorem~\ref{es:thm:singular}).
 
-The theorem concentrates the posterior at $\vartheta^0$, whatever $\vartheta^0$ is: in the limit of exact data the data decide the real parts of finitely many zeros to any finite precision, but the theorem does not say what they decide. If the hypothesis holds in the window, the posterior probability that its zeros lie within $\varepsilon$ of the line tends to one; if not, it tends to zero; consistency is a statement about the mechanism, not about the parameter. A proof would need, first, $\varepsilon=0$, which a posterior at a positive noise level does not give (sign changes of $Z$ with a count of zeros prove $\sigma=\tfrac12$ exactly for the zeros they cover), and second, all windows at once, the obstacle that the verification to height $3\times10^{12}$ also meets: a finite computation settles finitely many zeros. Nor is there a loophole in the limit $\tau\to0$: the data $u_1$ are not random, the noise is a modelling device, and the limiting posterior is the point mass at the true zeros, where the problem started. Posterior concentration describes what the pencil computation does; the step from it to a theorem about the parameter is one no statistical argument can make.
+The theorem concentrates the posterior at $\vartheta^0$, whatever $\vartheta^0$ is: in the limit of exact data the data decide the real parts of finitely many zeros to any finite precision, but the theorem does not say what they decide. If the hypothesis holds in the window, the posterior probability that its zeros lie within $\varepsilon$ of the line tends to one; if not, it tends to zero; consistency is a statement about the mechanism, not about the parameter. A proof would need, first, $\varepsilon=0$, which a posterior at a positive noise level does not give (sign changes of $Z$ with a count of zeros prove $\sigma=\tfrac12$ exactly for the zeros they cover), and second, all windows at once, the obstacle that the verification to height $3\times10^{12}$ also meets: a finite computation settles finitely many zeros. Nor is there a loophole in the limit $\tau\to0$: the data $u_1$ are not random, the noise is a modelling device, and the limiting posterior is the point mass at the true zeros, where the problem started.
 
 What the theorem adds is a precise sense in which $\mathfrak U_{1/2}$ is recoverable: under its hypotheses the atomic model is identifiable from level one data on a window without aliasing, the posterior contracts at the rate of the data accuracy, and the real parts are recovered with the ordinates. That is the sparse answer to the deconvolution, and it is as far as the data go.

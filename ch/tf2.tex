@@ -23,6 +23,35 @@ over all zeros with multiplicity (Proposition~\ref{prop:struct}). A zero with $\
 
 Part (a) is the semigroup of Remark~\ref{cp:rem:semigroups}, and (b) is its converse (a rightmost zero need not exist).
 
+
+\begin{proposition}[defect formula]\label{tf:prop:defect}
+Let $a>0$, $\varepsilon_0\ge\tfrac12$ and $\varepsilon_1=\varepsilon_0-a\ge0$, and suppose no zero has $\beta-\tfrac12=\varepsilon_1$. Then $P_a*\rho_{\varepsilon_1}$ is a function and
+\[
+\rho_{\varepsilon_0}-P_a*\rho_{\varepsilon_1}=\sum_{\varepsilon_1<\beta-\frac12<\varepsilon_0}\Bigl[P_{\varepsilon_0-(\beta-\frac12)}(\cdot-\gamma)+P_{2a-(\varepsilon_0-(\beta-\frac12))}(\cdot-\gamma)\Bigr]\ \ge0,
+\]
+where the two widths of each term add up to $2a$. Status: proved.
+\end{proposition}
+
+\begin{proof}
+Write $b=\beta-\tfrac12<\tfrac12\le\varepsilon_0$ and use~\eqref{tf:eq:poissonform}. A zero with $b<\varepsilon_1$ contributes $P_{\varepsilon_1-b}$ to $\rho_{\varepsilon_1}$, and $P_a*P_{\varepsilon_1-b}=P_{\varepsilon_0-b}$, the same as to $\rho_{\varepsilon_0}$. A zero with $\varepsilon_1<b<\varepsilon_0$ contributes $P_{\varepsilon_0-b}$ to $\rho_{\varepsilon_0}$ and $-P_{b-\varepsilon_1}$ to $\rho_{\varepsilon_1}$, and $P_a*(-P_{b-\varepsilon_1})=-P_{a+b-\varepsilon_1}$, so the difference is $P_{\varepsilon_0-b}+P_{a+b-\varepsilon_1}$ with widths adding to $\varepsilon_0-\varepsilon_1+a=2a$. The convolution passes through the sum by Tonelli: $P_a*|P_c|=P_{a+|c|}$, and $\sum_\rho P_{a+|c_\rho|}(\theta-\gamma)$ converges because the widths lie in $[a,a+\varepsilon_0+\tfrac12]$ and the zeros are counted by the Riemann von Mangoldt formula.
+\end{proof}
+
+The identity is the pointwise form of the mass deficit of Proposition~\ref{cx:prop:deficit}. An off line zero shows up as a pair of positive Cauchy bumps of total width $2a$ that the forward model $P_a*\rho_{\varepsilon_1}$ cannot explain. The proposition is from an unrefereed note of Polson (November 2026).
+
+\begin{proposition}[a local bound from the verified height]\label{tf:prop:local}
+Let $H=3\cdot10^{12}$, so that every zero with $|\gamma|\le H$ has $\beta=\tfrac12$ (Platt and Trudgian \cite{PT21}), let $0<a<\tfrac12$, and suppose no zero has $\beta=1-a$. For $|\theta|\le H/2$,
+\[
+0\le\rho_{1/2}(\theta)-\bigl(P_a*\rho_{1/2-a}\bigr)(\theta)\le\frac{8a}\pi\sum_{|\gamma|>H}\frac1{\gamma^2}\le7.54\times10^{-12}\,a .
+\]
+Status: proved; the numerical constant is computed from the bound for $N(T)$ of \cite{HSW22}, and the error terms of that bound change only its sixth digit.
+\end{proposition}
+
+\begin{proof}
+By Proposition~\ref{tf:prop:defect} with $\varepsilon_0=\tfrac12$ and $\varepsilon_1=\tfrac12-a>0$ only zeros with $|\gamma|>H$ contribute, since the zeros with $|\gamma|\le H$ have $b=0<\varepsilon_1$. Each contributes at most $2a/(\pi(\theta-\gamma)^2)\le8a/(\pi\gamma^2)$, because the widths add up to $2a$, $P_c(x)\le c/(\pi x^2)$ and $|\theta-\gamma|\ge|\gamma|/2$. The tail sum follows from the Riemann von Mangoldt formula with the explicit bound of \cite{HSW22}.
+\end{proof}
+
+It is a statement about the true function and not a certificate for the deconvolution of the data, which is a global object, and it gives no zero free region. Positivity of $\rho_{1/2}$ is already Theorem~\ref{tf:thm:poisson}(a); global positivity of the deconvolution is the Riemann hypothesis (Theorem~\ref{tf:thm:deconv}(b)).
+
 \begin{theorem}[Deconvolution form of RH]\label{tf:thm:deconv}
 Let $\varepsilon_0>\beta-\tfrac12$ for every zero (for instance $\varepsilon_0\ge\tfrac12$), and let $0\le\varepsilon_1<\varepsilon_0$.
 \begin{enumerate}
@@ -32,10 +61,58 @@ Let $\varepsilon_0>\beta-\tfrac12$ for every zero (for instance $\varepsilon_0\g
 \end{theorem}
 
 \begin{proof}
-If every zero has $\beta-\tfrac12<\varepsilon_1$, Theorem~\ref{tf:thm:poisson}(a) gives $\nu=\rho_{\varepsilon_1}\,d\theta$. If every zero has $\beta-\tfrac12\le\varepsilon_1$ with equality for some, write $\rho_{\varepsilon_0}=P_{\varepsilon_0-\varepsilon}*\rho_\varepsilon$ for $\varepsilon_1<\varepsilon<\varepsilon_0$ and let $\varepsilon\downarrow\varepsilon_1$: by~\eqref{tf:eq:poissonform} the terms of the zeros with $\beta-\tfrac12<\varepsilon_1$ converge to Cauchy densities and those with $\beta-\tfrac12=\varepsilon_1$ to point masses at their ordinates, and the sum over the zeros passes to the limit by the domination of the discussion after Remark~\ref{rem:ch2:oneline}, so $\rho_\varepsilon\,d\theta$ converges vaguely to a positive measure $\nu$, the sum of these limits. Then $P_{\varepsilon_0-\varepsilon_1}*\nu=\rho_{\varepsilon_0}$ term by term, because $P_{\varepsilon_0-\varepsilon_1}*P_{\varepsilon_1-(\beta-\frac12)}=P_{\varepsilon_0-(\beta-\frac12)}$ and $P_{\varepsilon_0-\varepsilon_1}*\delta_\gamma=P_{\varepsilon_0-(\beta-\frac12)}(\cdot-\gamma)$ when $\beta-\tfrac12=\varepsilon_1$, all terms being positive; in particular $\int(1+x^2)^{-1}\nu(dx)<\infty$. Conversely, suppose $\nu$ exists and some zero has $\beta-\tfrac12>\varepsilon_1$. The Poisson integral $u(\theta,\varepsilon)=(P_{\varepsilon-\varepsilon_1}*\nu)(\theta)$ is harmonic on $\{\varepsilon>\varepsilon_1\}$, and for $\varepsilon>\varepsilon_0$ it equals $P_{\varepsilon-\varepsilon_0}*\rho_{\varepsilon_0}=\rho_\varepsilon(\theta)$ by Theorem~\ref{tf:thm:poisson}(a). On the connected set $\{\varepsilon>\varepsilon_1\}$ minus the zeros, $u-\rho_\varepsilon$ is harmonic and vanishes for $\varepsilon>\varepsilon_0$, so $u=\rho_\varepsilon$ there. Then $\rho_\varepsilon(\theta)$ is bounded near a zero with $\beta-\tfrac12>\varepsilon_1$, which contradicts the pole of $\xi'/\xi$. For uniqueness, let $\nu$ and $\nu'$ both qualify and put $\sigma=\nu-\nu'$, a signed measure with $\int(1+x^2)^{-1}|\sigma|(dx)<\infty$. For $\varepsilon>\varepsilon_0$ the Poisson integrals of $\nu$ and $\nu'$ at height $\varepsilon-\varepsilon_1$ both equal $P_{\varepsilon-\varepsilon_0}*\rho_{\varepsilon_0}$, so the harmonic function $(P_{\varepsilon-\varepsilon_1}*\sigma)(\theta)$ on $\{\varepsilon>\varepsilon_1\}$ vanishes for $\varepsilon>\varepsilon_0$, hence everywhere by real analyticity, and letting $\varepsilon\downarrow\varepsilon_1$ gives $\sigma=0$, since such a Poisson integral converges vaguely to $\sigma$. Part (b) is the case $\varepsilon_1=0$: $\beta-\tfrac12\le0$ for every zero means $\beta=\tfrac12$ for every zero by the symmetry $\rho\mapsto1-\rho$, and~\eqref{tf:eq:poissonform} at $\beta=\tfrac12$ gives $\mu$.
+If every zero has $\beta-\tfrac12<\varepsilon_1$, Theorem~\ref{tf:thm:poisson}(a) gives $\nu=\rho_{\varepsilon_1}\,d\theta$. If every zero has $\beta-\tfrac12\le\varepsilon_1$ with equality for some, write $\rho_{\varepsilon_0}=P_{\varepsilon_0-\varepsilon}*\rho_\varepsilon$ for $\varepsilon_1<\varepsilon<\varepsilon_0$ and let $\varepsilon\downarrow\varepsilon_1$: by~\eqref{tf:eq:poissonform} the terms of the zeros with $\beta-\tfrac12<\varepsilon_1$ converge to Cauchy densities and those with $\beta-\tfrac12=\varepsilon_1$ to point masses at their ordinates, and the sum over the zeros passes to the limit by the domination of the discussion after Remark~\ref{rem:ch2:oneline}, so $\rho_\varepsilon\,d\theta$ converges vaguely to a positive measure $\nu$, the sum of these limits. Then $P_{\varepsilon_0-\varepsilon_1}*\nu=\rho_{\varepsilon_0}$ term by term, because $P_{\varepsilon_0-\varepsilon_1}*P_{\varepsilon_1-(\beta-\frac12)}=P_{\varepsilon_0-(\beta-\frac12)}$ and $P_{\varepsilon_0-\varepsilon_1}*\delta_\gamma=P_{\varepsilon_0-(\beta-\frac12)}(\cdot-\gamma)$ when $\beta-\tfrac12=\varepsilon_1$, all terms being positive; in particular $\int(1+x^2)^{-1}\nu(dx)<\infty$. Conversely, suppose $\nu$ exists and some zero has $\beta-\tfrac12>\varepsilon_1$. The Poisson integral $u(\theta,\varepsilon)=(P_{\varepsilon-\varepsilon_1}*\nu)(\theta)$ is harmonic on $\{\varepsilon>\varepsilon_1\}$, and for $\varepsilon>\varepsilon_0$ it equals $P_{\varepsilon-\varepsilon_0}*\rho_{\varepsilon_0}=\rho_\varepsilon(\theta)$ by Theorem~\ref{tf:thm:poisson}(a). On the connected set $\{\varepsilon>\varepsilon_1\}$ minus the zeros, $u-\rho_\varepsilon$ is harmonic and vanishes for $\varepsilon>\varepsilon_0$, so $u=\rho_\varepsilon$ there. Then $\rho_\varepsilon(\theta)$ is bounded near a zero with $\beta-\tfrac12>\varepsilon_1$, which contradicts the pole of $\xi'/\xi$. Uniqueness is Proposition~\ref{cd:prop:unique} with $a=\varepsilon_0-\varepsilon_1$. Part (b) is the case $\varepsilon_1=0$: $\beta-\tfrac12\le0$ for every zero means $\beta=\tfrac12$ for every zero by the symmetry $\rho\mapsto1-\rho$, and~\eqref{tf:eq:poissonform} at $\beta=\tfrac12$ gives $\mu$.
 \end{proof}
 
-The \emph{if} direction of (b), and the atoms at a boundary line in (a), are Theorem~\ref{thm:poisson}, Proposition~\ref{prop:struct} and Theorem~\ref{cp:thm:transfer}; what this chapter adds is the \emph{only if} direction and the uniqueness. Theorem~\ref{tf:thm:deconv} makes the obstruction of Section~\ref{ag:sec:exactly} exact: $\sigma_{\max}-\tfrac12$ is the depth to which the Thorin density at a basepoint beyond the zeros can be deconvolved into a positive measure. Two remarks qualify it. First, positivity of $\rho_{\varepsilon_1}$ is necessary for deconvolvability to $\varepsilon_1$ but not sufficient: below $\sigma_{\max}-\tfrac12$ the function $\rho_{\varepsilon_1}$ may well be positive (Remark~\ref{rem:ch2:oneline} and Section~\ref{tf:sec:window}), and still $P_{\varepsilon_0-\varepsilon_1}*\rho_{\varepsilon_1}\ne\rho_{\varepsilon_0}$. Second, the deconvolution is unbounded. On the Fourier side $\widehat{P_a}(x)=e^{-a|x|}$, and in the explicit formula the frequency $x=\log n$ carries the weight $\Lambda(n)n^{-\alpha}$ at basepoint $\alpha$; deconvolving by $P_a$ multiplies it by $n^{a}$, so the prime sums converge absolutely only for $\alpha>1$, and below the basepoint one they need cancellation, which is a zero free region (Proposition~\ref{bp:prop:below}).
+The \emph{if} direction of (b), and the atoms at a boundary line in (a), are Theorem~\ref{thm:poisson}, Proposition~\ref{prop:struct} and Theorem~\ref{cp:thm:transfer}; what this chapter adds is the \emph{only if} direction. Theorem~\ref{tf:thm:deconv} makes the obstruction of Section~\ref{ag:sec:exactly} exact: $\sigma_{\max}-\tfrac12$ is the depth to which the Thorin density at a basepoint beyond the zeros can be deconvolved into a positive measure. Two remarks qualify it. First, positivity of $\rho_{\varepsilon_1}$ is necessary for deconvolvability to $\varepsilon_1$ but not sufficient: below $\sigma_{\max}-\tfrac12$ the function $\rho_{\varepsilon_1}$ may well be positive (Remark~\ref{rem:ch2:oneline} and Section~\ref{tf:sec:window}), and still $P_{\varepsilon_0-\varepsilon_1}*\rho_{\varepsilon_1}\ne\rho_{\varepsilon_0}$. Second, deconvolving by $P_a$ multiplies the weight $\Lambda(n)n^{-\alpha}$ of the frequency $\log n$ by $n^{a}$, so below basepoint one the prime sums need cancellation (Proposition~\ref{bp:prop:below}; the deconvolution is unbounded by Proposition~\ref{cd:prop:range}(b)).
+
+\subsection{Rigidity on a window}\label{tf:sec:rigid}
+
+The deconvolution of Theorem~\ref{tf:thm:deconv} is rigid: it cannot be matched on one window without being matched everywhere. The results of this subsection are from an unrefereed note of Polson (November 2026). They are the analytic continuation step of the proof of Theorem~\ref{tf:thm:deconv} applied on a window, and they are proved. Let $\varepsilon_0>\beta-\tfrac12$ for every zero and $0\le\varepsilon_1<\varepsilon_0$ be as there, and put $c=\varepsilon_0-\varepsilon_1$. No zero lies on the line $\re s=\tfrac12+\varepsilon_0$, so $\rho_{\varepsilon_0}$ is real analytic on $\R$. For $C>0$ let
+\[
+\mathcal M_C=\bigl\{\mu\ge0\text{ on }\R:\ \mu((-T,T))\le C(1+T)\log(2+T)\ \text{for all }T>0\bigr\}.
+\]
+By the Riemann von Mangoldt formula the measures $\rho_\varepsilon\,d\theta$ for $\varepsilon_1\le\varepsilon\le\varepsilon_0$ and the measure $\nu$ of Theorem~\ref{tf:thm:deconv}(a) lie in $\mathcal M_C$ once $C$ is large enough; fix such a $C$.
+
+\begin{lemma}[Compactness]\label{tf:lem:compact}
+$\mathcal M_C$ is compact for vague convergence. If $\mu_n\to\mu$ vaguely in $\mathcal M_C$, then $P_c*\mu_n\to P_c*\mu$ uniformly on compact sets, for every $c>0$.
+\end{lemma}
+
+\begin{proof}
+The masses of bounded intervals are uniformly bounded, so Helly's selection theorem gives vague sequential compactness, and the defining inequalities pass to vague limits on open intervals by lower semicontinuity. For $\theta$ in a compact set $K$, $P_c(\theta-x)\le c_K/(1+x^2)$, and summing over the dyadic ranges $2^kR\le|x|<2^{k+1}R$ shows that $\int_{|x|>R}(1+x^2)^{-1}d\mu\le C'\log R/R$ uniformly over $\mathcal M_C$. On $|x|\le R$, with $\mu(\{\pm R\})=0$, the integrand is continuous and the measures converge vaguely. Equicontinuity of $\theta\mapsto P_c(\theta-x)$ gives uniform convergence on $K$.
+\end{proof}
+
+\begin{theorem}[Window rigidity]\label{tf:thm:rigid}
+Let $W$ be a nonempty open interval and
+\[
+D_W(c)=\inf_{\mu\in\mathcal M_C}\ \sup_{\theta\in W}\bigl|(P_c*\mu)(\theta)-\rho_{\varepsilon_0}(\theta)\bigr|.
+\]
+The infimum is attained, and $D_W(c)=0$ if and only if $\beta-\tfrac12\le\varepsilon_1$ for every zero.
+\end{theorem}
+
+\begin{proof}
+Attainment follows from Lemma~\ref{tf:lem:compact}: extract a vague limit of a minimising sequence in $\mathcal M_C$ and use uniform convergence on the compact closure of $W$. If $\beta-\tfrac12\le\varepsilon_1$ for every zero, the measure $\nu$ of Theorem~\ref{tf:thm:deconv}(a) gives $D_W(c)=0$. Conversely let $D_W(c)=0$, attained at $\mu$. Then $P_c*\mu=\rho_{\varepsilon_0}$ on $W$. The left side is the restriction to the line $a=c$ of the harmonic function $(a,\theta)\mapsto P_a*\mu$, hence real analytic in $\theta$, and so is the right side, so the two agree on $\R$. By Theorem~\ref{tf:thm:deconv}(a), $\beta-\tfrac12\le\varepsilon_1$ for every zero.
+\end{proof}
+
+\begin{corollary}[RH from any window]\label{tf:cor:window}
+Let $\varepsilon_0\ge\tfrac12$ and let $W$ be any open interval. Then RH holds if and only if $D_W(\varepsilon_0)=0$, the case $\varepsilon_1=0$. In particular, if RH fails, the positive deconvolution to the critical line misfits the data on every window, however far the window lies from the offending zero.
+\end{corollary}
+
+\begin{remark}[Why this is not yet a proof]\label{tf:rem:window}
+Rigidity is qualitative. If $\rho_0=\beta_0+i\gamma_0$ is an off line zero, the misfit on a window at height $Y$ is positive but can be astronomically small, since it is transmitted by analytic continuation across the distance $|\gamma_0-Y|$ (Corollary~\ref{tf:cor:hidden} makes this precise for one quadruple). An effective version, $D_W\ge\delta(\beta_0-\tfrac12,|\gamma_0-Y|)$ with explicit $\delta$, together with a computation showing $D_W<\delta$, would exclude off line zeros up to a given height. Heuristically such a window exclusion test cannot reach every height without further structure.
+\end{remark}
+
+\begin{theorem}[Stability of positive deconvolutions]\label{tf:thm:stab}
+Let $\beta-\tfrac12\le\varepsilon_1$ for every zero, let $\mu_n\in\mathcal M_C$, and let $\sup_{\theta\in W}|P_c*\mu_n-\rho_{\varepsilon_0}|\to0$ on some open interval $W$. Then $\mu_n\to\nu$ vaguely, where $\nu$ is the measure of Theorem~\ref{tf:thm:deconv}(a).
+\end{theorem}
+
+\begin{proof}
+Every subsequence has a further subsequence converging vaguely to some $\mu\in\mathcal M_C$ (Lemma~\ref{tf:lem:compact}), and then $P_c*\mu=\rho_{\varepsilon_0}$ on $W$. As in Theorem~\ref{tf:thm:rigid} this extends to $\R$, and the uniqueness in Theorem~\ref{tf:thm:deconv}(a) gives $\mu=\nu$.
+\end{proof}
+
+So any algorithm that produces positive measures in $\mathcal M_C$ whose blurred version fits the data on some window, EM included, converges to the Thorin measure. This is a consistency statement under exact data and the exact far field; in the computations of Section~\ref{cx:sec:blind} the far field is modelled, the hypotheses fail, and the theorem is a guide and not a guarantee.
+
+\subsection{The smoothed prime sums at a basepoint}
 
 \begin{proposition}[The smoothed prime sums at a basepoint]\label{tf:prop:mellin}
 Let $\chi$ be a primitive nonprincipal character, $N>0$, and $s=\alpha+ib$ such that $s-k$ is not a zero of $L(s,\chi)$ for any integer $k\ge0$. Put
@@ -81,4 +158,4 @@ $0.6$ & $1.23\times10^{0}$ & $9.78\times10^{-1}$ & $7.69\times10^{-1}$ & $6.93\t
 
 The identity~\eqref{tf:eq:mellin} itself was checked in the $56$ cases of the table: $E(N,s)$ and the right side, built from the zeros of $L(s,\chi_4)$ of height below $62$, the trivial zeros $-1,-3,\dots,-15$ and the terms $m\le9$, agree to $5.4\times10^{-14}$ in absolute value.
 
-The book's route through basepoints, positivity at every height for $\alpha\ge1$ (Section~\ref{cp:sec:three}), stops at $\alpha=1$, the edge of the known zero free half plane; the cost exponent and the zero free half plane are two faces of one fact (Proposition~\ref{bp:prop:below}), not cause and effect.
+The book's route through basepoints, positivity at every height for $\alpha\ge1$ (Section~\ref{cp:sec:three}), stops at $\alpha=1$, the edge of the known zero free half plane (Proposition~\ref{bp:prop:below}).

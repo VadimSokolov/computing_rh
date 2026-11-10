@@ -1,11 +1,11 @@
 % ch/ht3.tex: curved boundaries, Yor's function, the Davenport Heilbronn test. Numbers are those of misc/reviews/nick-hitting_times/checks-G2.md.
 \section{Curved boundaries: the Roberts and Shortland view}\label{ht:sec:rs}
 
-Roberts and Shortland \cite{RS95} compute the law of the first time a Brownian motion crosses a curved, time dependent boundary, the problem behind barrier options with time dependent coefficients. Their question runs from boundary to law; ours runs the other way: for a law $\nu$ on $(0,\infty)$, find $b$ such that
+Roberts and Shortland \cite{RS95} compute the law of the first time a Brownian motion crosses a curved, time dependent boundary. Their question runs from boundary to law; ours runs the other way: for a law $\nu$ on $(0,\infty)$, find $b$ such that
 \[
 \tau_b=\inf\{t>0: W_t\ge b(t)\},\qquad W_0=0,
 \]
-has law $\nu$. This is the inverse first passage problem. Under mild conditions on $\nu$ it has a unique solution, in a suitable viscosity sense \cite{Anulova80,CCCS11}. So $\mu$ has a boundary whether or not RH holds, and the question is whether its shape sees the zeros. The boundary of $\mu$ is computed in Sections~\ref{ch:boundaries}, \ref{ch:bphit} and \ref{ch:bpeta}; here we add the enclosure at small times, the validation of the solver, and the effect of moving a zero. The two ends of the boundary are fixed by quantities independent of RH (Proposition~\ref{ht:prop:smallb} and the slope at infinity); the boundary in between is computed to about $2\cdot10^{-4}$; and moving a zero off the line changes it, to first order and heuristically, by $\delta^2/\gamma^4$ times a profile independent of the zero (Remark~\ref{ht:rem:resp}).
+has law $\nu$. This is the inverse first passage problem. Under mild conditions on $\nu$ it has a unique solution, in a suitable viscosity sense \cite{Anulova80,CCCS11}. So $\mu$ has a boundary whether or not RH holds, and the question is whether its shape sees the zeros. The boundary of $\mu$ is computed in Sections~\ref{ch:boundaries}, \ref{ch:bphit} and \ref{ch:bpeta}; here we add the enclosure at small times, the validation of the solver, and the effect of moving a zero.
 
 \subsection{The small time end}
 
@@ -37,7 +37,7 @@ a nonlinear Volterra equation of the first kind for $b$ \cite{Peskir02}. We solv
 \begin{enumerate}
 \item On the linear boundary $b(t)=1-t/2$, whose crossing law is known in closed form, it recovers $b$ to $10^{-6}$ for $t\ge0.05$; the start of the recursion carries a transient of a few $10^{-3}$ that does not reach the range of interest.
 \item Halving the step from $4\cdot10^{-5}$ to $2\cdot10^{-5}$ changes the boundary of $\mu$ by at most $1.5\cdot10^{-4}$ on $[0.0045,0.12]$, at most $8\cdot10^{-5}$ for $t\ge0.006$, and at most $2.2\cdot10^{-5}$ for $t\ge0.01$.
-\item The computed boundary is decreasing, and at every grid point it lies inside the enclosure of Proposition~\ref{ht:prop:smallb}, whose width is $0.004$ at $t=0.0045$ and $0.015$ at $t=0.01$. Figure~\ref{ht:fig:ifpt}(b) compares the boundary at small times with the asymptote $\log(1/t)/(2\sqrt2)$ of Proposition~\ref{ht:prop:smallb}.
+\item The computed boundary is decreasing, and at every grid point it lies inside the enclosure of Proposition~\ref{ht:prop:smallb}, whose width is $0.004$ at $t=0.0045$ and $0.015$ at $t=0.01$. See Figure~\ref{ht:fig:ifpt}(b).
 \end{enumerate}
 The interval $[0.0045,0.12]$ carries all but about $2\cdot10^{-9}$ of the mass of $\mu$, whose mean is $0.0231$.
 
@@ -89,7 +89,7 @@ b_{\mathrm{toy}}(t)-b_{\mathrm{GGC}}(t)\approx\frac{6\delta^2}{\gamma^4}\,K(t),
 where $K$ is the linear response of the boundary to a shift of the law, a profile that does not depend on $\gamma$ or $\delta$. Linearity, the universality of $K$ and the size of the neglected terms are assumed, not proved. Status: heuristic, checked numerically (Table~\ref{ht:tab:resp}).
 \end{remark}
 
-The step from the law to the boundary is not proved. We computed $K$ directly by solving for the law of $\tau-\Delta$ with $\Delta=2\cdot10^{-6}$; it is $-72$, $-29$, $-13$, $-11$ at $t=0.01,0.02,0.05,0.08$, and it is linear in $\Delta$ to four digits (the values at $\Delta=2\cdot10^{-6}$ and $4\cdot10^{-6}$ agree to $10^{-2}$). Table~\ref{ht:tab:resp} compares it with the normalised differences $(b_{\mathrm{toy}}-b_{\mathrm{GGC}})\gamma^4/6\delta^2$, and Figure~\ref{ht:fig:ifpt}(c) shows the collapse. At $t=0.02$ the three heights agree with $K$ to $3\%$, $2\%$ and $0.5\%$. At small times the agreement sets in only once $t$ exceeds a multiple of $1/\gamma$, where the relevant $s$ are below $\gamma^2$.
+We computed $K$ directly by solving for the law of $\tau-\Delta$ with $\Delta=2\cdot10^{-6}$; it is $-72$, $-29$, $-13$, $-11$ at $t=0.01,0.02,0.05,0.08$, and it is linear in $\Delta$ to four digits (the values at $\Delta=2\cdot10^{-6}$ and $4\cdot10^{-6}$ agree to $10^{-2}$). Table~\ref{ht:tab:resp} compares it with the normalised differences $(b_{\mathrm{toy}}-b_{\mathrm{GGC}})\gamma^4/6\delta^2$, and Figure~\ref{ht:fig:ifpt}(c) shows the collapse. At $t=0.02$ the three heights agree with $K$ to $3\%$, $2\%$ and $0.5\%$. At small times the agreement sets in only once $t$ exceeds a multiple of $1/\gamma$, where the relevant $s$ are below $\gamma^2$.
 
 \begin{table}[ht]
 \centering\footnotesize
@@ -119,7 +119,7 @@ The Roberts and Shortland view is a faithful and cheap encoding of $\mu$: the bo
 
 \section{Marc Yor's probabilistic Riemann function}\label{ht:sec:yor}
 
-Four papers of Marc Yor and his coauthors bear on $\mu$: Biane, Pitman and Yor on Brownian laws whose Mellin transform is $\xi$ \cite{BPY01}; Pitman and Yor on the hyperbolic laws \cite{PitmanYor03}; James, Roynette and Yor on GGCs, Thorin measures and Dirichlet means \cite{JRY}; and Nikeghbali and Yor on the Barnes $G$ function \cite{NY09}. Section~\ref{ch:biane} and \eqref{bp:eq:bpy} already use the first; this section adds the harmonic mean form, the Davenport Heilbronn counterpart and the Wiener and Gamma coupling.
+Four papers of Marc Yor and his coauthors bear on $\mu$: Biane, Pitman and Yor on Brownian laws whose Mellin transform is $\xi$ \cite{BPY01}; Pitman and Yor on the hyperbolic laws \cite{PitmanYor03}; James, Roynette and Yor on GGCs, Thorin measures and Dirichlet means \cite{JRY}; and Nikeghbali and Yor on the Barnes $G$ function \cite{NY09}. Section~\ref{ch:biane} and \eqref{bp:eq:bpy} already use the first.
 
 \subsection{The Biane, Pitman and Yor variable}
 Let $b$ be a standard Brownian bridge and $Y=\sqrt{2/\pi}\,(\max_ub_u-\min_ub_u)$. Biane, Pitman and Yor prove \cite[(4), (5)]{BPY01} % UNCHECKED: equation numbers of BPY01 not verified
@@ -142,7 +142,7 @@ where, given $U$, $T$ is the exit time of a standard Brownian motion from $(-|U|
 From $\E Y^s=2\xi(s)$, $\E^*e^{wU}=\E\,Y^{1/2+w}/\E\,Y^{1/2}=\xi(\frac12+w)/\xi(\frac12)$. Taking $g(y)=y^{-1/2}f(\log y)$ in the size bias identity gives $\E\,Y^{1/2}f(-\log Y)=\E\,Y^{1/2}f(\log Y)$, so $U$ is symmetric under $\mathbb P^*$ and $\E^*e^{wU}=\E^*\cosh(wU)$. Putting $w=iz$ gives $\E^*e^{izU}=\Xi(z)/\Xi(0)=\int_{\mathbb R}\Phi(u)e^{izu}\mathrm du/\Xi(0)$, which identifies the density of $U$ (this is \eqref{eq:ch2:mgf}). Finally $\E e^{-sT}=1/\cosh(a\sqrt{2s})$ for exit from $(-a,a)$, and $a=|U|/\sqrt2$.
 \end{proof}
 
-So the harmonic mean route of Section~\ref{ht:sec:families} has an explicit Brownian mixing variable: the logarithm of the normalised range of a Brownian bridge, size biased by its square root. Each conditional exit time is a GGC, and $\mu$ is one exactly when the harmonic mean over $U$ preserves that property, which is RH. The problem is restated in Brownian language, not changed.
+So the harmonic mean route of Section~\ref{ht:sec:families} has an explicit Brownian mixing variable: the logarithm of the normalised range of a Brownian bridge, size biased by its square root. Each conditional exit time is a GGC, and $\mu$ is one exactly when the harmonic mean over $U$ preserves that property, which is RH.
 
 \begin{remark}\label{ht:rem:chung}
 \begin{resultpar}\label{ht:res:chung}Let $M$ be the maximum of a standard Brownian excursion. Its law is explicit \cite{Chung76,Kennedy76}:
@@ -155,7 +155,7 @@ and $Y\overset{d}{=}\sqrt{2/\pi}\,M$, because the range of a Brownian bridge has
 \E(Y-y)^+&=2y\,\psi(y^2),\\
 f_Y(y)&=2\Phi(\log y)\,y^{-3/2},
 \end{align*}
-where $f_Y$ is the density of $Y$ and $\Phi$ the kernel of \eqref{eq:ch2:Phi}. The first is the formula above at $m=\sqrt{\pi/2}\,y$. It equals $-\frac{d}{dy}\big(2y\psi(y^2)\big)$, and both sides of the second tend to $0$ as $y\to\infty$, which gives the second. The third is $-\frac{d}{dy}$ of the first, compared term by term with \eqref{eq:ch2:Phi} at $u=\log y$. Hence $\E Y^s=2\int_{\R}\Phi(u)e^{(s-\frac12)u}\,\mathrm du=2\xi(s)$ for every complex $s$: the identity of Biane, Pitman and Yor follows from the law of $M$, term by term. With $y=e^u$ and $\E Y=2\xi(1)=1$, the second line gives the folded kernel of \eqref{mi:eq:riemannt} as
+where $f_Y$ is the density of $Y$ and $\Phi$ the kernel of \eqref{eq:ch2:Phi}. The first is the formula above at $m=\sqrt{\pi/2}\,y$. It equals $-\frac{d}{dy}\big(2y\psi(y^2)\big)$, and both sides of the second tend to $0$ as $y\to\infty$, which gives the second. The third is $-\frac{d}{dy}$ of the first, compared term by term with \eqref{eq:ch2:Phi} at $u=\log y$. Hence $\E Y^s=2\int_{\R}\Phi(u)e^{(s-\frac12)u}\,\mathrm du=2\xi(s)$ for every complex $s$. With $y=e^u$ and $\E Y=2\xi(1)=1$, the second line gives the folded kernel of \eqref{mi:eq:riemannt} as
 \[
 k(u)=e^{-u/2}-2e^{u/2}\psi(e^{2u})=e^{-u/2}\,\E\min(Y,e^u),\qquad u\in\R.
 \]
@@ -164,6 +164,12 @@ Its evenness is the size bias identity with $g(y)=\min(1,e^u/y)$, and the kink i
 \mathbb P\big(M>\sqrt{\pi/2}\big)=\mathbb P(Y>1)=\tfrac12-\psi(1)=0.456783
 \]
 (computed). Status: proved. This remark is based on \cite{P26excursion}.\end{resultpar}
+
+\begin{resultpar}In Kolmogorov's language, let $K=\sup_{0\le x\le1}|B_x|$ for a Brownian bridge $B$, with $\mathbb P(K\le x)=\sum_{n\in\mathbb Z}(-1)^ne^{-2n^2x^2}$. Then $K^2\overset d=\frac12\sum_{n\ge1}\varepsilon_n/n^2$ with $\varepsilon_n$ independent standard exponential variables, and $K\overset d=M/V$ with $V$ uniform on $[1,2]$ and independent of $M$, so that
+\[
+\E\big[(\sqrt{2/\pi}\,K)^s\big]=2\xi(s)\,\frac{1-2^{1-s}}{s-1}.
+\]
+The factor $(1-2^{1-s})/(s-1)=\E V^{-s}$ has no zero in the open strip $0<\re s<1$, so the zeros of this transform there are those of $\xi$, and RH says that they lie on $\re s=\frac12$, an equivalent restatement and not a test. The identity is Proposition~\ref{prop:wigfree:s1} written for $K$, where it appears as $J\overset d=V^{-2}S_2$. Status: proved. The formulation is from an unrefereed note of Polson (November 2026).\end{resultpar}
 \end{remark}
 
 \subsection{Davenport and Heilbronn have the same structure}
@@ -210,7 +216,7 @@ On one gamma process $\gamma$, set $X_\alpha=\int_0^\infty h_\alpha(u)\,\mathrm 
 The representation is Theorem~\ref{thm:poisson} together with the Wiener and Gamma characterisation. The equivalence is Lagarias's criterion: each zero with $\beta<\alpha$ contributes a positive Poisson kernel, and a zero with $\beta>\alpha$ contributes a negative kernel of height $1/(\pi(\beta-\alpha))$ at $t=\gamma$, which dominates all other terms as $\alpha\uparrow\beta$, so $N_\alpha$ fails to be monotone for some $\alpha$ close to $\beta$. Under RH the kernels tend to unit atoms at the $\gamma_n$. The part of $\mathrm dN_\alpha$ on $(0,\gamma_1/2)$ has mass $O(\alpha-\frac12)$ and contributes a variable whose transform is $\exp(-O(\alpha-\frac12)\sqrt s)$, which tends to $1$; on the rest the kernels $h_\alpha$ converge in $L^1(\mathrm du)$ to $h$ (this needs $N_\alpha-N=O(\log t)$ on the tail, which we have not written out), and the Wiener and Gamma integrals converge in probability.
 \end{proof}
 
-Figure~\ref{ht:fig:yor} shows, against $\alpha=1,0.75,0.6,0.55$, the minimum of $N_\alpha'$ on $[0,50]$ and the value $N_\alpha(50)$. The densities are positive, with minima $0.0074$, $0.0037$, $0.0015$, $0.0007$ (all at $t=0$), and $N_\alpha(50)=9.72$, $9.78$, $9.88$, $9.94$ approaches $N(50)=10$ (computed). The coupling gives a pathwise picture of the base point descent under RH: all the laws $\mu^{(\alpha)}$ are functionals of one gamma process, and an off line zero would appear as a point where $N_\alpha$ stops being monotone as $\alpha$ passes $\beta$. Like Proposition~\ref{ht:prop:bpy}, this reformulates RH.
+In Figure~\ref{ht:fig:yor} the densities are positive, with minima $0.0074$, $0.0037$, $0.0015$, $0.0007$ (all at $t=0$), and $N_\alpha(50)=9.72$, $9.78$, $9.88$, $9.94$ approaches $N(50)=10$ (computed). The coupling gives a pathwise picture of the base point descent under RH: all the laws $\mu^{(\alpha)}$ are functionals of one gamma process, and an off line zero would appear as a point where $N_\alpha$ stops being monotone as $\alpha$ passes $\beta$. Like Proposition~\ref{ht:prop:bpy}, this reformulates RH.
 
 \begin{figure}[ht]
 \centering
@@ -227,7 +233,3 @@ Nikeghbali and Yor \cite{NY09} express the Barnes $G$ function, and through it t
 
 \subsection{Assessment}
 Yor's work supplies three usable things: a Brownian meaning for P\'olya's kernel and hence for the harmonic mean form of $\mu$ (Proposition~\ref{ht:prop:bpy}), exactly solvable models of $\mu$ and of its failure modes in the hyperbolic laws, and a pathwise coupling of the base point laws through the Wiener and Gamma representation (Proposition~\ref{ht:prop:wg}). It does not supply the arithmetic. Proposition~\ref{ht:prop:dhtheta} shows that the positivity and symmetry behind the Biane, Pitman and Yor variable hold for Davenport and Heilbronn too, so they cannot imply RH; only the Brownian interpretation of $\theta$ might separate the two.
-
-\section{The Davenport Heilbronn test}\label{ht:sec:dh}
-
-Every proposed argument must fail for the Davenport Heilbronn function $f_{DH}$ \cite{DH36}, which has the functional equation $\xi_{DH}(s)=\xi_{DH}(1-s)$ with $\xi_{DH}(s)=(5/\pi)^{s/2}\Gamma(\frac{s+1}2)f_{DH}(s)$, no Euler product, and zeros off the line; the zero at $0.808517182456637+85.6993484853776\,i$ is classical \cite{Spira94} (see Section~\ref{mi:sec:quasi} for the function and its zeros). We confirmed it by the argument principle (one zero in the box $[0.78,0.84]\times[85.67,85.73]$, at two step sizes). Its reciprocal law passes every positivity test we can compute: the Taylor coefficients of $\xi_{DH}(\frac12+\sqrt s)/\xi_{DH}(\frac12)$ have all contiguous Toeplitz minors positive up to order $10$ over the first $100$ indices (computed; the check ran to order $14$ and index $119$ at two precisions, which agree to $80$ digits, not an interval proof), indistinguishable from those of $\xi$, as the angle theorem predicts (Section~\ref{ht:sec:angle}). For hitting times the test rules out the de Bruijn and Newman route and the harmonic mean route unless the Euler product enters them, and it rules out any argument that uses only an archimedean factor of this growth and the functional equation.

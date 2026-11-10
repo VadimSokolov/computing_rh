@@ -30,7 +30,7 @@ so $A\in\R^{(2M+1)\times(2N+1)}$ and $(Ax)_i$ is the midpoint rule for the densi
 
 \begin{enumerate}
 \item[(a)] Every entry is positive, so $A$ maps the orthant into the orthant and $y=Ax$ is a positive linear inverse problem in the sense of Vardi and Lee \cite{VardiLee93}.
-\item[(b)] $A_{ij}$ depends only on $i-j$: $A$ is the restriction to $|i|\le M$, $|j|\le N$ of the symmetric Toeplitz operator with kernel $k_m=hP_{1-\theta'}(mh)$, $m\in\mathbb Z$. Hence $Ax$ and $A^{\mathsf T}r$ are restricted convolutions with $k$, computed by FFT after circulant embedding in length $L\ge2(2N+1)$ at cost $O(L\log L)$ per product, which makes the full range feasible; the dense form has $(2M+1)(2N+1)$ entries, $4001\times4801$ for the window runs below.
+\item[(b)] $A_{ij}$ depends only on $i-j$: $A$ is the restriction to $|i|\le M$, $|j|\le N$ of the symmetric Toeplitz operator with kernel $k_m=hP_{1-\theta'}(mh)$, $m\in\mathbb Z$. Hence $Ax$ and $A^{\mathsf T}r$ are restricted convolutions with $k$, computed by FFT after circulant embedding in length $L\ge2(2N+1)$ at cost $O(L\log L)$ per product; the dense form has $(2M+1)(2N+1)$ entries, $4001\times4801$ for the window runs below.
 \item[(c)] The column sums $c_j=\sum_{|i|\le M}A_{ij}=h\sum_{|i|\le M}P_{1-\theta'}((i-j)h)$ equal $1$ up to the discretisation error and the Cauchy tail outside the data window: for $|w_j|<V$,
 \[
 \begin{split}c_j&=1+O\bigl(e^{-2\pi(1-\theta')/h}\bigr)-\frac{1-\theta'}{\pi}\Bigl(\frac1{V-w_j}+\frac1{V+w_j}\Bigr)\\&\quad+O\bigl(h(V-|w_j|)^{-2}+(V-|w_j|)^{-3}\bigr),\end{split}
@@ -101,7 +101,7 @@ Write $f(x)=-\ell(x)=\sum_i\bigl((Ax)_i-y_i\log(Ax)_i\bigr)$, convex on the orth
 \begin{equation}\label{cx:eq:em}
 x_j^{+}=x_j\,\frac{1}{c_j}\sum_iA_{ij}\frac{y_i}{(Ax)_i}=x_j\Bigl(1-\frac{\partial_jf(x)}{c_j}\Bigr).
 \end{equation}
-The bound of Theorem~\ref{cx:thm:emrate} below and the Jacobian of Theorem~\ref{cx:thm:linear} are classical for EM with a Poisson likelihood \cite{VardiLee93,CT84}; the proofs are given to fix the constants and the hypotheses. Three readings of \eqref{cx:eq:em} are useful.
+The bound of Theorem~\ref{cx:thm:emrate} below and the Jacobian of Theorem~\ref{cx:thm:linear} are classical for EM with a Poisson likelihood \cite{VardiLee93,CT84}. Three readings of \eqref{cx:eq:em} are useful.
 
 It is an MM algorithm. Jensen's inequality for $-\log(Ax)_i$, with weights proportional to $A_{ij}x_j^{(k)}$, majorises $f$ at $x^{(k)}$ by a separable surrogate, and \eqref{cx:eq:em} is the exact minimiser of the surrogate. Hence $f(x^{(k+1)})\le f(x^{(k)})$, with equality only at a fixed point, and every fixed point with $x>0$ is a minimiser of the convex $f$.
 
@@ -109,7 +109,7 @@ It is related to mirror descent. With the entropy mirror map, the mirror descent
 \[
 x_j^{+}=x_j\exp(-\eta\,\partial_jf(x));
 \]
-\eqref{cx:eq:em} is its first order expansion with $\eta=1/c_j$. In the language of relative smoothness \cite{BBT17}, $f$ is $\|y\|_1$ smooth relative to the Burg entropy $-\sum_j\log x_j$ (constant unchecked), which places EM near the Bregman proximal methods and their sublinear guarantees, though EM is not literally the Burg Bregman step. A direct argument gives the rate with an explicit constant.
+\eqref{cx:eq:em} is its first order expansion with $\eta=1/c_j$. In the language of relative smoothness \cite{BBT17}, $f$ is $\|y\|_1$ smooth relative to the Burg entropy $-\sum_j\log x_j$ (constant unchecked), which places EM near the Bregman proximal methods and their sublinear guarantees, though EM is not literally the Burg Bregman step.
 
 \begin{theorem}[rate of EM in the consistent case]\label{cx:thm:emrate}
 Normalise the columns so that $c_j=1$, and suppose the problem is consistent: $y=Ax^*$ for some $x^*\ge0$. Then for every $x^{(0)}>0$ and $k\ge1$ the EM iterates satisfy
@@ -224,7 +224,68 @@ and $\kappa=0$.
 (1) Part (b) is qualitative: it gives no lower bound for $\liminf R_h^*$ in terms of the distance of the zero from the line $\Re s=\theta'$, which is why the residual is a diagnostic and not a certificate. (2) The residual must not be divided by the length $2V$ of the data window: a defect confined to bounded heights costs a bounded total residual, which the division sends to $0$. For instance, with $0<b<a$, $0<\epsilon<\pi b$ and data $y=1-\epsilon P_b>0$, the measure $dv$ has bounded total residual, so the normalised residual tends to $0$, yet no $\mu\ge0$, $\kappa\ge0$ satisfy $P_a*\mu+\kappa=y$: away from $\omega=0$ the Fourier transform of $\mu$ would be $-\epsilon e^{(a-b)|\omega|}$, which is not tempered. (3) Without the second growth condition in (a), the argument does not exclude a constant $\kappa>0$ in \eqref{cx:eq:limiteq}, left by mass beyond the data window; then $\mu=\mathfrak U_{\theta'}-\kappa\,dv$, a positive measure whenever $\kappa\le\inf u_{\theta'}$, so uniqueness of the continuous equation alone does not identify the limit.
 \end{remark}
 
-Where the exact backward flow fails to be a measure, EM does not diverge: it returns a positive measure whose residual stays bounded away from zero, which is what one wants from a diagnostic.
+\begin{proposition}[Curvature of the logarithm under RH]\label{cx:prop:curv}
+Assume RH, let $h>0$ and $u_{1/2+h}(v)=\sum_\gamma P_h(v-\gamma)$, the sum over the ordinates of all zeros with multiplicity. Then $u_{1/2+h}>0$ and
+\[
+\Bigl|\frac{d}{dv}\log u_{1/2+h}\Bigr|\le\frac1h,\qquad-\frac2{h^2}\le\frac{d^2}{dv^2}\log u_{1/2+h}\le\frac9{8h^2}\qquad\text{on }\R,
+\]
+and each bound is sharp over positive Cauchy mixtures of width $h$.
+\end{proposition}
+
+\begin{proof}
+All widths equal $h$. Write $u=\sum_kP_h(\cdot-c_k)$, $\ell_k=\log P_h(\cdot-c_k)$ and $w_k=P_h(\cdot-c_k)/u$. For one kernel at $t=v-c_k$, $|\ell_k'|=2|t|/(h^2+t^2)\le1/h$, with equality at $|t|=h$, and $\ell_k''=-2(h^2-t^2)/(h^2+t^2)^2\ge-2/h^2$, with equality at $t=0$. The first bound is \eqref{cx:eq:loglip}, or the average $(\log u)'=\sum_kw_k\ell_k'$. Next $(\log u)''=\sum_kw_k\ell_k''+\bigl(\sum_kw_k\ell_k'^2-(\sum_kw_k\ell_k')^2\bigr)\ge\sum_kw_k\ell_k''\ge-2/h^2$, the bracket being a variance. For the upper bound $(\log u)''\le u''/u\le\max_tP_h''(t)/P_h(t)=\max_t(6t^2-2h^2)/(h^2+t^2)^2=9/(8h^2)$, attained at $t^2=\tfrac53h^2$. This is not attained by one isolated zero, where $(\log P_h)''$ has maximum only $1/(4h^2)$ at $t^2=3h^2$, but by an isolated pair at distance $2h\sqrt{5/3}$: at the midpoint $u'=0$ and $(\log u)''=u''/u=9/(8h^2)$.
+\end{proof}
+
+The first bound holds for every positive Cauchy mixture, as in \eqref{cx:eq:loglip}; the curvature bounds are from an unrefereed note of Polson (November 2026). Positivity of $u_{1/2+h}$ for all $h>0$ is already equivalent to RH (Lagarias \cite{Lagarias}, Remark~\ref{rem:ch2:oneline}), so the bounds add no criterion. They add explicit constants for an estimator. For samples $\vartheta_i=\log u_{1/2+h}(v_i)$ on a grid of spacing $\Delta$ they are the two linear constraints $|\vartheta_{i+1}-\vartheta_i|\le\Delta/h$ and $\vartheta_{i+1}-2\vartheta_i+\vartheta_{i-1}\ge-2\Delta^2/h^2$, with the width $h$ known, which in the log parametrisation of Padilla, Polson and Scott \cite{PadillaPolsonScott18} would replace a tuning parameter (heuristic; no estimator is tested here). Both constraints blow up as $h\to0$, so they cannot fit the atomic measure at level $\tfrac12$.
+
+Where the exact backward flow fails to be a measure, EM does not diverge: it returns a positive measure whose residual stays bounded away from zero.
+
+\subsection{Duality, optimality gap and window certificates}\label{cx:sec:dual}
+
+The results of this subsection are from an unrefereed note of Polson (November 2026). Let $y_j>0$ be the data, $A\ge0$ the matrix of the grid problem, $b_j>0$ a fixed far field, $\mu=Ax+b$, and $\operatorname{KL}_{\min}=\min_{x\ge0}\sum_j\bigl(y_j\log\frac{y_j}{\mu_j}-y_j+\mu_j\bigr)$.
+
+\begin{theorem}[Duality for the grid problem]\label{cx:thm:dual}
+Then
+\[
+\operatorname{KL}_{\min}=\max\Bigl\{\sum_jy_j\log(1-\varphi_j)+\sum_j\varphi_jb_j:\ \varphi_j<1,\ A^\top\varphi\ge0\Bigr\}.
+\]
+The maximum is attained at $\varphi^*=1-y/\hat\mu$, the relative residual of any minimiser $\hat x$, $\hat\mu=A\hat x+b$, and the optimality conditions are $A^\top\varphi^*\ge0$, $\hat x\ge0$, $\hat x^\top A^\top\varphi^*=0$. The last is the fixed point condition of the EM iteration (the far field held fixed): an EM fixed point satisfies it, and is optimal exactly when it also satisfies $A^\top\varphi^*\ge0$. Finally $\operatorname{KL}_{\min}>0$ if and only if some $\varphi$ with $A^\top\varphi\ge0$ has $\langle\varphi,y-b\rangle<0$ (proved).
+\end{theorem}
+
+\begin{proof}
+Introduce $\mu$ as a variable with the constraint $\mu=Ax+b$ and multiplier $\varphi$. The Lagrangian $\sum_j(\mu_j-y_j\log\mu_j)+\varphi^\top(Ax+b-\mu)$ is minimised over $\mu_j$ at $\mu_j=y_j/(1-\varphi_j)$, which requires $\varphi_j<1$. Over $x\ge0$ the infimum is $0$ if $A^\top\varphi\ge0$ and $-\infty$ otherwise. The dual function is $\sum_j(y_j+y_j\log(1-\varphi_j)-y_j\log y_j)+\varphi^\top b$. The problem is convex with affine constraints and a feasible point $x>0$, so strong duality holds, and adding $\sum_j(y_j\log y_j-y_j)$ gives the identity. Stationarity in $\mu$ gives $\varphi^*=1-y/\hat\mu$ and complementary slackness is $\hat x^\top A^\top\varphi^*=0$. The EM update $x_i\leftarrow x_i(A^\top(y/\mu))_i/(A^\top\mathbf 1)_i$ fixes $x_i>0$ exactly when $(A^\top\varphi^*)_i=(A^\top\mathbf 1)_i-(A^\top(y/\mu))_i=0$, and keeps $x_i=0$ whatever the sign of $(A^\top\varphi^*)_i$, which is why a fixed point need not satisfy $A^\top\varphi^*\ge0$. For the last statement, if $y=Ax^\dagger+b$ with $x^\dagger\ge0$, then by $\log(1-t)\le-t$ the dual objective is at most $-\langle\varphi,Ax^\dagger\rangle\le0$, so $\operatorname{KL}_{\min}=0$. If $\langle\varphi,y-b\rangle<0$ for a feasible $\varphi$, the dual objective at $t\varphi$ is $-t\langle\varphi,y-b\rangle+O(t^2)>0$ for small $t>0$. If no such $\varphi$ exists, then $y-b$ lies in the cone $A\R^I_+$, which is finitely generated and so closed, by Farkas's lemma, say $y-b=Ax^\dagger$ with $x^\dagger\ge0$, and $\operatorname{KL}_{\min}=0$ by the first case.
+\end{proof}
+
+The cone $\{A^\top\varphi\ge0\}$ is a grid discretisation of $\{\varphi:P_a*\varphi\ge0\}$, whose elements play the role of the positive test functions in Weil's criterion (Theorem~\ref{cm:thm:weil}), with positivity of $P_a*\varphi$ in place of $h=g*\tilde g$. So on the grid the EM residual at the minimiser is the optimal certificate of this kind and the misfit is its value; this is a duality of the kind studied by Polson and Scott \cite{PolsonScott16}. At the EM solution the primal and dual values agree to $10^{-10}$ with the residual certificate feasible to a relative $10^{-4}$ (computed). That is not a duality gap, since the dual point is slightly infeasible; the bound below, which includes the infeasibility, is the quantity to report.
+
+\begin{proposition}[Optimality gap]\label{cx:prop:cert}
+Let $f(x)=\sum_jw_j(\mu_j-y_j\log\mu_j)$ with weights $w_j>0$, $\mu=Ax+b$, $A$ with positive entries, $s=A^\top w$, and for $x\ge0$ let $\delta(x)=\max\bigl(0,-\min_i\partial_if(x)/s_i\bigr)$. Then
+\[
+0\le f(x)-\min f\le\sum_ix_i\,\partial_if(x)+\delta(x)\sum_jw_jy_j.
+\]
+\end{proposition}
+
+\begin{proof}
+Let $x^*$ be a minimiser and $\mu^*=Ax^*+b$. Convexity gives $f(x)-f(x^*)\le\nabla f(x)^\top x-\nabla f(x)^\top x^*$, and $\nabla f(x)^\top x^*\ge-\delta(x)s^\top x^*$ because $x^*\ge0$. Complementary slackness at $x^*$ reads $\sum_jw_j(Ax^*)_j(1-y_j/\mu^*_j)=0$, so $s^\top x^*=\sum_jw_jy_j(Ax^*)_j/\mu^*_j\le\sum_jw_jy_j$, because $(Ax^*)_j\le\mu^*_j$.
+\end{proof}
+
+At an EM fixed point the first term vanishes and the bound is the dual infeasibility of Theorem~\ref{cx:thm:dual} times the total data mass. It needs no knowledge of the minimiser and can be evaluated at any iterate of any algorithm, in exact arithmetic; in floating point it is computed. On the level one data on $10\le v\le60$ with grid step $0.02$, plain EM with $20201$ products has the bound $6.3\times10^{-5}$ at width $\tfrac14$ and $3.6\times10^{-3}$ at width $\tfrac12$, and Nesterov momentum with fewer products has a bound smaller by factors of about $400$ and $10$ (computed).
+
+\begin{proposition}[Window certificates]\label{cx:prop:wcert}
+Let $\tfrac12\le\theta'<1$, $a=1-\theta'$, let $v_1,\dots,v_J$ lie in a window $W$, and let $\varphi\in\R^J$ satisfy $\sum_j|\varphi_j|\le1$ and $\sum_j\varphi_jP_a(v_j-t)\ge0$ for every real $t$. Then for every positive measure $\mu$
+\[
+\max_j\bigl|(P_a*\mu)(v_j)-u_1(v_j)\bigr|\ge-\sum_j\varphi_ju_1(v_j),
+\]
+so the window misfit of Theorem~\ref{tf:thm:rigid} is at least the right side. If $\zeta$ has no zeros in $\Re s>\theta'$, the right side is at most $0$ for every such $\varphi$ (proved). The converse, that a zero with real part above $\theta'$ yields a positive right side for some finite set of points in $W$, is open.
+\end{proposition}
+
+\begin{proof}
+$\sum_j\varphi_j\bigl((P_a*\mu)(v_j)-u_1(v_j)\bigr)=\int\bigl(\sum_j\varphi_jP_a(v_j-t)\bigr)d\mu(t)-\sum_j\varphi_ju_1(v_j)$, the integral is nonnegative, and the left side is at most $\sum_j|\varphi_j|$ times the maximum. For the last statement take $\mu=\mathfrak U_{\theta'}$, for which the misfit is $0$.
+\end{proof}
+
+The best certificate on given points solves a linear program: maximise $-\sum_j\varphi_ju_1(v_j)$ subject to $\|\varphi\|_1\le1$ and $P_a*\varphi\ge0$. Two features matter in practice. First, at $\theta'=\tfrac12$ and under RH, $\sum_j\varphi_ju_1(v_j)=\sum_\gamma(P_a*\varphi)(\gamma)$, so a nearly optimal certificate makes $P_a*\varphi$ vanish at the zeros. These are double roots of a nonnegative function, and imposing the cone constraint on a fixed grid lets the solver put a sign change on each side of a zero, between grid points: a first attempt of this kind returned a positive bound of $8.3\times10^{-5}$ for the true data, which would contradict RH, and was an artefact. The constraint must instead be imposed by cutting planes at the exact local minima of $P_a*\varphi$, and then the optimum for the true data is $0$ (computed). Second, the computed $\varphi$ is made feasible by the shift $\varphi+\delta\mathbf 1/J$, with $\delta=\max_t\bigl(-(P_a*\varphi)(t)/(P_a*\mathbf 1/J)(t)\bigr)$ evaluated on a fine grid and on a logarithmic grid out to $2\times10^6$, and the bound is renormalised. Feasibility is therefore checked on samples, in floating point, and the bounds are computed and not certified; a certified version would need ball arithmetic.
+
+We planted a zero $\beta+i\gamma$ with its images under the functional equation in the level one data on $W=[30,34]$ with $41$ points. For $\beta=0.6$ and $\gamma$ between $32$ and $34$ the computed bounds on the misfit were between $5.7\times10^{-3}$ and $1.9\times10^{-2}$, so such a zero is detected. For $\beta=0.51$ the bound was positive at two of the four positions inside the window, by up to $2\times10^{-6}$, and $0$ at the other two. Certificates from sample points are local: they can exclude an off line zero near the window, and by Corollary~\ref{tf:cor:hidden} and Proposition~\ref{tf:prop:ceiling} they say nothing about zeros a few units away.
 
 \section{Acceleration}\label{cx:sec:accel}
 
@@ -293,13 +354,68 @@ The same code run to height $1450$, with $h=0.025$, the unknown on $[-1490,1490]
 
 The source reports $1375$ seconds for $u_1$ on $[0,1450]$ at spacing $0.025$ ($58{,}000$ points) against $151$ seconds for the inversion; with the evaluator of this book (\texttt{python-flint}, $128$ bits, eight processes) the data took about ten seconds and the inversion a few hundred. Which layer dominates at height $1450$ depends on the evaluator; what does not is that the data layer grows like $T^{1+\varepsilon}$ and the inversion like $n\log n$.
 
+\subsection{Blind windows at large heights}\label{cx:sec:blind}
+
+The computations of this subsection are from an unrefereed note of Polson (November 2026) and are computed. They locate zeros. They do not show that the zeros lie on the line, and the window at $10^{13}$ lies above the height $3\times10^{12}$ to which RH is verified \cite{PT21}.
+
+The level one data $u_1$ are evaluated from $\zeta$ and $\zeta'$ on $\Re s=1$ alone, as in Section~\ref{cx:sec:accel}, so no zero is used as input and the heights are not limited by a table of zeros. For a window $[T,T+30]$ the unknown lives on a support $S=[T-15,T+45]$, the zeros outside $S$ are modelled by the Riemann von Mangoldt density, the iteration is the accelerated EM of Section~\ref{cx:sec:accel} at $\theta'=\tfrac12$ with $120000$ Nesterov iterations, and only afterwards are the atoms compared with the zeros found independently from sign changes of the Hardy function $Z$. The zeros are read from the EM solution as the centroid of the mass within $0.2$ of each peak, for the isolated ones, those with both neighbours at least $0.3$ away, and the count is the sum of the rounded cluster masses in $[T+3,T+27]$. Near $T=10^4$ the number of sign changes of $Z$ in $S$ agreed with the Riemann von Mangoldt count $70$. Table~\ref{cx:tab:heights} gives the larger heights.
+
+\begin{table}[htbp]
+\centering\footnotesize
+\begin{tabular}{@{}lccc@{}}
+\toprule
+height $T$ & $10^6$ & $10^8$ & $10^9$\\
+\midrule
+zeros in $[T+3,T+27]$ & 46 & 63 & 72\\
+mean gap & 0.51 & 0.38 & 0.34\\
+count from EM masses & 46 & 62 & 71\\
+count from atom stage & 46 & 62 & 72\\
+isolated zeros, location error, median & $0.0005$ & $0.0007$ & $0.0032$\\
+isolated zeros, location error, max & $0.0015$ & $0.0041$ & $0.016$\\
+masses of isolated atoms & 1.005 to 1.025 & 1.008 to 1.061 & 1.008 to 1.14\\
+fit error & $4.3\times10^{-5}$ & $3.4\times10^{-5}$ & $3.4\times10^{-5}$\\
+\bottomrule
+\end{tabular}
+\caption{Blind recovery of zeros from $\zeta$ on $\Re s=1$, $120000$ iterations, computed. The independent zeros are the sign changes of $Z$ on a step of $0.004$.}
+\label{cx:tab:heights}
+\end{table}
+
+The count is right to within one at every height: one zero is missed at $10^8$ (the EM masses and the atom stage both count $62$ against $63$, the missed zero lying next to the closest pair of the window, at gap $0.023$), and the EM count is one short at $10^9$. The mean gap falls like $2\pi/\log(T/2\pi)$, so more zeros sit in pairs that the EM stage does not separate, and their neighbours inherit the error. For heights $10^{10}$ to $10^{13}$ the cost of $\zeta(1+iy)$ grows like $\sqrt y$, so the window is short, $[T,T+8]$ with $81$ values of $u_1$ and zeros reported in $[T+2,T+6]$ (Table~\ref{cx:tab:high}). At $10^{13}$ the mean gap is $0.22$, less than half the blur $a=\tfrac12$, and the atom stage still matches the zeros one to one except for one spurious atom at $10^{12}$ and at $10^{13}$.
+
+\begin{table}[htbp]
+\centering\footnotesize
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+height $T$ & $10^{10}$ & $10^{11}$ & $10^{12}$ & $10^{13}$\\
+\midrule
+zeros in $[T+2,T+6]$ & 13 & 15 & 17 & 18\\
+mean gap & 0.30 & 0.27 & 0.24 & 0.22\\
+zeros matched, of atoms found & 13 of 13 & 15 of 15 & 17 of 18 & 18 of 19\\
+atom location error, median & 0.010 & 0.011 & 0.015 & 0.021\\
+atom location error, max & 0.038 & 0.050 & 0.089 & 0.090\\
+\bottomrule
+\end{tabular}
+\caption{Blind descent on the short window $[T,T+8]$ followed by the atom stage, computed.}
+\label{cx:tab:high}
+\end{table}
+
+Three caveats. First, the far field is the smooth Riemann von Mangoldt density and not the true level $\tfrac12$ measure outside $S$, so the model class excludes the truth and the fit error plateaus near $3\times10^{-5}$ to $4\times10^{-5}$; the hypotheses of Theorem~\ref{tf:thm:stab} fail and it is a guide, not a guarantee. An earlier quadrature of the far field lost mass at $T\ge10^8$, and the rows above are from the corrected far field, computed after the substitution $\theta=\arctan(2u)$ that makes the integrand bounded. Second, a pair at gap $\delta$ cannot be excluded as a three atom cluster below $\delta\approx a(16\eta/5)^{1/4}$ for data of relative accuracy $\eta$ (Proposition~\ref{cd:prop:cluster}); in these computations the optimiser, not the data error, set the resolution of close pairs (computed). Third, the atom stage assumes the count is known, which for $\zeta$ means that the zeros are simple, a conjecture (Proposition~\ref{cx:prop:atoms}).
+
+\subsection{Recovering the zeros of $L(s,\Delta)$ from $\tau(p)$}\label{cx:sec:tau}
+
+The computations of this subsection are from an unrefereed note of Polson (November 2026) and are computed. They locate zeros under the assumption that the unknown is a measure on the critical line, and they show nothing about whether the zeros lie there. Section~\ref{cx:sec:blind} recovers the zeros of $\zeta$ from $\zeta$ on $\re s=1$. Here the data are the Thorin density of Ramanujan's $\Delta$ at the centred level $\beta=\alpha-\frac{11}2=2$ of Section~\ref{dl:sec:hecke} (the level $\alpha=7.5$ of Section~\ref{dl:sec:minorigin}), computed from the Hecke eigenvalues $\tau(p)$, $p\le2\cdot10^5$, and the Gamma factor alone, through the weights $2\cos(m\theta_p)\log p$ of equation~\eqref{dl:eq:primes}, so that no zero is used as input. With $a=\beta-\frac12$ and $P_a(x)=a/(a^2+x^2)$ the data are, under GRH, $S(t)=\sum_{\gamma>0}w_\gamma[P_a(t-\gamma)+P_a(t+\gamma)-2P_a(\gamma)]$ with multiplicities $w_\gamma$ (Theorem~\ref{iw:thm:dictionary}). We solve for $w\ge0$ by nonnegative least squares on a grid of step $0.05$ in $[0.25,100]$, from data at step $0.02$ on $0<t\le60$, with an optional mass penalty $\lambda\sum w$, and sum the masses over connected clusters.
+
+The data computed from the primes agree with the exact values (from the Mellin integral of $\Lambda$) to $2.4\cdot10^{-8}$. Without penalty, all $27$ ordinates of $L(s,\Delta)$ below $60$ are found, with location error at most $0.093$, masses in $[0.66,1.22]$, and a comb of spurious mass totalling $10$. With $\lambda=10^{-4}$ all $27$ are found to within $0.041$, with masses in $[0.94,1.07]$ and spurious mass $0.16$ (mass farther than $0.6$ from every ordinate, below height $58$). Section~\ref{cd:sec:atomic} treats finite atomic sources and their stability.
+
+A resolution rule is suggested by the Fourier picture: the kernel $P_a$ multiplies frequency $\omega$ by $\pi e^{-a|\omega|}$, separating two atoms at distance $\delta$ needs frequencies near $\pi/\delta$, and a data error $\varepsilon$ is amplified by roughly $e^{\pi a/\delta}$. Recovery should then succeed when $\varepsilon\,e^{\pi a/\delta_{\min}}\lesssim10^{-2}$, where $\delta_{\min}$ is the smallest gap in the window, $0.917$ below height $60$, between $48.36$ and $49.28$ (Table~\ref{dl:tab:hier}). Then $e^{\pi a/\delta_{\min}}=5.5$, $31$, $171$ and $5200$ for $a=0.5$, $1$, $1.5$ and $2.5$. Synthetic data from the $78$ ordinates below $120$ with Gaussian noise, recovered by the same penalised solver, broke down where $\varepsilon e^{\pi a/\delta_{\min}}$ lay between $0.03$ and $0.5$, in line with the rule. For the prime data ($a=1.5$, $\varepsilon=2.4\cdot10^{-8}$) the product is $4\cdot10^{-6}$, so the residual error $0.041$ is the bias of the penalty and the grid and not noise. The rule is heuristic.
+
 \subsection{What the accelerated iteration computes}
 
 Restart falls back to EM, so accepted steps never increase $f$; if the accelerated iterates converge to a positive limit, the limit is an EM fixed point with positive coordinates, hence a minimiser of $f$, and in every run the accelerated iteration reached the same object as EM, the reverse $I$ projection of Proposition~\ref{cx:prop:what}, hence $\mathfrak U_{\theta'}$ when it exists. Convergence and the observed rate are not proved. What changes is the path. Su, Boyd and Cand\`es \cite{SBC16} showed that Nesterov's sequence is a discretisation of the damped second order equation $\ddot z+(3/t)\dot z+\nabla f=0$, a Euclidean analogue of the accelerated flow here. With noisy data, where the EM iteration count acts as a regularisation parameter in the manner of Landweber iteration, acceleration reaches the overfitting regime correspondingly sooner, and the restart rule becomes the stopping rule.
 
 \section{Von Neumann's Monte Carlo inversion}\label{cx:sec:vnmc}
 
-Before Markov chain Monte Carlo there was von Neumann's Monte Carlo, invented with Ulam at Los Alamos to invert matrices by random walks and written up by Forsythe and Leibler \cite{FL50}. It applies to the backward flow directly; why it fails there and the Bayesian inversion succeeds is instructive.
+Before Markov chain Monte Carlo there was von Neumann's Monte Carlo, invented with Ulam at Los Alamos to invert matrices by random walks and written up by Forsythe and Leibler \cite{FL50}. It applies to the backward flow directly.
 
 \subsection{The von Neumann and Ulam estimator}
 
@@ -327,7 +443,7 @@ Let $H=I-A$ be a section with $\lambda=\rho(|H|)>1$ and Perron vector $w>0$ (all
 so $Qw^{(2)}\ge\lambda^2w^{(2)}$ and $Q^mw^{(2)}\ge\lambda^{2m}w^{(2)}$. As $g\ge c\,w^{(2)}$ for some $c>0$, the series diverges. (The same argument without squares shows that the estimator is not even integrable: $E|\widehat x_j|=\sum_k(|H|^ky)_j=\infty$.)
 \end{proof}
 
-All grids of this chapter are in the first case ($t=0.0127$ for $h=0.02$ and $\theta'=\tfrac12$). So the oldest Monte Carlo inversion exists on paper and is useless in practice, and the reason is sign: $I-A$ has entries of both signs, and the cancellation the Neumann series relies on is what a sample cannot reproduce. This is the usual fate of von Neumann and Ulam on ill conditioned systems, and the condition number here is of order $e^{(1-\theta')\pi/h}$.
+All grids of this chapter are in the first case ($t=0.0127$ for $h=0.02$ and $\theta'=\tfrac12$). So the oldest Monte Carlo inversion exists on paper and is useless in practice, and the reason is sign: $I-A$ has entries of both signs, and the cancellation the Neumann series relies on is what a sample cannot reproduce.
 
 \subsection{The positive walk}
 
@@ -347,7 +463,7 @@ Von Neumann's alternating projection theorem is, through Csisz\'ar and Tusn\'ady
 
 \section[Cauchy as a scale mixture]{The Cauchy kernel as a scale mixture of normals}\label{cx:sec:mixture}
 
-The Cauchy law is a scale mixture of normals, a fact used for robust regression since Andrews and Mallows \cite{AndrewsMallows74} and in Bayesian computation since Carlin and Polson \cite{CP91}. Here the mixture has a probabilistic meaning that ties the chapter to the hitting time chapters.
+The Cauchy law is a scale mixture of normals, a fact used for robust regression since Andrews and Mallows \cite{AndrewsMallows74} and in Bayesian computation since Carlin and Polson \cite{CP91}.
 
 \begin{proposition}[subordination]\label{cx:prop:subord}
 Let $B$ be a standard Brownian motion and $T_a$ the first passage time of an independent Brownian motion to level $a>0$, with density $\ell_a(t)=a(2\pi)^{-1/2}t^{-3/2}e^{-a^2/(2t)}$. Then $\gamma+B(T_a)$ has the Cauchy law of centre $\gamma$ and scale $a$, that is
@@ -371,6 +487,14 @@ Formula \eqref{cx:eq:heattrace} connects the Thorin measure to the heat trace of
 \]
 the Fourier transform of the zero measure multiplied by the subordinated Gaussian. It also explains why the backward Cauchy flow is less ill posed than a backward heat flow: the forward multiplier $e^{-(1-\theta')|\omega|}=\int_0^\infty e^{-t\omega^2/2}\ell_{1-\theta'}(t)\,dt$ is an average of heat multipliers, carried for large $|\omega|$ by small $t$, where $\ell_a(t)$ behaves like $e^{-a^2/(2t)}$. The backward multiplier is the reciprocal of this average, not the average of the reciprocals $e^{t\omega^2/2}$ (whose integral against $\ell_a$ diverges for every $\omega\ne0$, as $\ell_a(t)\sim a(2\pi)^{-1/2}t^{-3/2}$ at infinity), so it grows exponentially and not like a Gaussian.
 
+\begin{proposition}[the inverse does not pass through the mixture]\label{cx:prop:noinverse}
+There is no positive measure $\mu$ on $[0,\infty)$ with $\int_0^\infty e^{v\omega^2/2}\mu(dv)=e^{a|\omega|}$ for all real $\omega$, for any $a>0$. Consequently the Cauchy deconvolution is not a mixture of backward heat steps (proved; from an unrefereed note of Polson (November 2026)).
+\end{proposition}
+
+\begin{proof}
+Put $s=\omega^2/2$. If the identity held, the left side $\int e^{vs}\mu(dv)$ would be finite for every $s\ge0$, and as the Laplace transform of a positive measure evaluated at $-s$ it is log convex in $s$ by H\"older's inequality. The right side is $e^{a\sqrt{2s}}$, whose logarithm $a\sqrt{2s}$ is strictly concave. A function whose logarithm is both convex and strictly concave does not exist, since a convex and concave function is affine and $a\sqrt{2s}$ is not.
+\end{proof}
+
 \subsection{Data augmentation with latent times}
 
 The mixture gives the Bayesian inversion a conditionally Gaussian structure. Augment the complete data of Chapter~\ref{chap:lo}: each unit of mass observed at $v_i$ (a pseudo count, as above) carries one latent time $t_i$ with prior $\ell_a$, $a=1-\theta'$, and given $t_i$ and its source $w_j$ its displacement is $N(0,t_i)$. Then
@@ -382,8 +506,97 @@ an inverse gamma law with shape $1$ and scale $\tfrac12(a^2+(v_i-w_j)^2)$, expli
 \[
 x_j\,\exp\bigl(-(v_i-w_j)^2/(2t_i)\bigr),
 \]
-normalised over $j$, and given the allocations the $x_j$ are gamma as before. The three block Gibbs sampler alternates these steps; the allocation step is dense, since each observation is allocated among all the sources, so a sweep costs of the order of $(2M+1)(2N+1)$ operations. This is the Carlin and Polson augmentation \cite{CP91} applied to the forward map rather than to an error law, and it is the Monte Carlo inversion of Chapter~\ref{chap:lo} with one extra block.
+normalised over $j$, and given the allocations the $x_j$ are gamma as before. The three block Gibbs sampler alternates these steps; the allocation step is dense, so a sweep costs of the order of $(2M+1)(2N+1)$ operations. This is the Carlin and Polson augmentation \cite{CP91} applied to the forward map rather than to an error law, and it is the Monte Carlo inversion of Chapter~\ref{chap:lo} with one extra block.
+
+\subsection{Free atom locations: IRLS and the rate one half}\label{cx:sec:irls}
+
+The rest of this section is from an unrefereed note of Polson (November 2026),. Take the unknown to be a measure with free atoms, $f=\sum_jm_j\delta_{\gamma_j}$, and the data a sample $v_1,\dots,v_n$ from the density proportional to the blurred measure on a window (or the density itself on a grid). The complete data model is $s_i\sim f/|f|$, $\lambda_i\sim\mathrm{Ga}(\tfrac12,\epsilon^2/2)$ with $\epsilon^2/2$ a rate, and $v_i\mid s_i,\lambda_i\sim N(s_i,1/\lambda_i)$, and integrating out $\lambda_i$ returns the Cauchy law of scale $\epsilon$ (Proposition~\ref{cx:prop:subord}, with $\lambda_i=1/T_\epsilon$). The two conditionals already used above carry over: $\lambda_i\mid s_i,v_i$ is exponential with rate $((v_i-s_i)^2+\epsilon^2)/2$, and the allocation of $v_i$ to the atoms is multinomial with Gaussian weights $m_j\exp(-\lambda_i(v_i-\gamma_j)^2/2)$. Two more are new and elementary (proved). With $I_j=\{i:s_i=\gamma_j\}$ and a flat prior, $\gamma_j\mid\lambda,t,s\sim N\bigl(\sum_{I_j}\lambda_iv_i/\sum_{I_j}\lambda_i,\,1/\sum_{I_j}\lambda_i\bigr)$, since the log likelihood in $\gamma_j$ is the quadratic $-\tfrac12\sum_{I_j}\lambda_i(v_i-\gamma_j)^2$; and with $n_j=|I_j|$ and the uniform prior the proportions of mass are Dirichlet with parameters $n_j+1$. Every block is a standard law, so the sampler needs no griddy step, and the masses are proportions to be rescaled by the total mass of the window.
+
+\begin{corollary}[EM is iteratively reweighted least squares]\label{cx:cor:irls}
+In the atom model, taking conditional expectations of $\lambda$ and $s$ gives the EM iteration (proved)
+\begin{gather*}
+r_{ij}=\frac{m_jP_\epsilon(v_i-\gamma_j)}{\sum_km_kP_\epsilon(v_i-\gamma_k)},\qquad w_{ij}=\frac1{(v_i-\gamma_j)^2+\epsilon^2},\\
+m_j\leftarrow\frac1n\sum_ir_{ij},\qquad\gamma_j\leftarrow\frac{\sum_ir_{ij}w_{ij}v_i}{\sum_ir_{ij}w_{ij}}.
+\end{gather*}
+For function data $y$ on a grid of spacing $h$ the sums $\sum_i$ become $\sum_kh\,y(v_k)$, the factor $1/n$ is dropped, and the iteration is deterministic.
+\end{corollary}
+
+\begin{proof}
+The E step replaces $\lambda_i$ by its conditional mean $2/((v_i-\gamma_j)^2+\epsilon^2)$ given the allocation $j$; the factor two cancels in the ratio. The M step for $\gamma_j$ maximises the expected complete data log likelihood, the weighted quadratic above with $\lambda_i$ replaced by its mean and the allocations by the responsibilities.
+\end{proof}
+
+The location step is the Cauchy weighted mean of the EM of Dempster, Laird and Rubin for the $t$ distribution with one degree of freedom, and the mass step is that of Vardi and Lee \cite{VardiLee93}. A datum at distance $d$ from its atom carries weight $1/(d^2+\epsilon^2)$: data within $\epsilon$ of the atom locate it, and the Cauchy tail at distance $d\gg\epsilon$ is nearly ignored. The conditional mean of $\lambda$ at a datum sitting on its atom is $2/\epsilon^2$, twice the prior mean $1/\epsilon^2$, and it averages back to $1/\epsilon^2$ over the data.
+
+\begin{proposition}[the rate is one half]\label{cx:prop:ratehalf}
+For one atom, function data $y=P_\epsilon(\cdot-\gamma_0)$ on the whole line, $\epsilon$ known and the mass fixed, the EM map $M(\gamma)=\int y\,w_\gamma\,t\,dt\big/\int y\,w_\gamma\,dt$, $w_\gamma(t)=1/((t-\gamma)^2+\epsilon^2)$, is affine, $M(\gamma)-\gamma_0=\tfrac12(\gamma-\gamma_0)$, so every step halves the error exactly, for every $\epsilon$ (proved).
+\end{proposition}
+
+\begin{proof}
+Take $\gamma_0=0$. Then $w_\gamma=(\pi/\epsilon)P_\epsilon(\cdot-\gamma)$, and the product $P_\epsilon(t)P_\epsilon(t-\gamma)$ is symmetric about $t=\gamma/2$, so the weighted mean of $t$ against it is $\gamma/2$.
+\end{proof}
+
+The number is the fraction of missing information of the Cauchy location problem: the observed information is $1/(2\epsilon^2)$, the complete data information given the precisions is $\E[\lambda]=1/\epsilon^2$, and the fraction missing is $1-\tfrac12=\tfrac12$. For a sample, several atoms or a window the rate is near one half and not exactly one half, the overlap of neighbouring Cauchy tails at the closest pair of ordinates in the window below being of order $(\epsilon/d)^2$, about half a percent at $\epsilon=0.1$. The Nesterov acceleration of Section~\ref{cx:sec:accel}, needed for the grid EM whose rate is close to one (Theorem~\ref{cx:thm:emrate}), is not needed here.
+
+For the asymptotic constants of the sampler (heuristic, not proved here): the posterior standard deviation of the location of an isolated atom with $n_j$ allocated data is about $\sqrt2\,\epsilon/\sqrt{n_j}$ to first order, the Fisher information being $1/(2\epsilon^2)$; and the lag one autocorrelation of the two block chain in the location tends to $\tfrac12$ as $n_j\to\infty$, the lag $k$ autocorrelation being approximately $2^{-k}$. The equality of the chain rate with the fraction of missing information is exact only when the joint posterior is Gaussian, which here holds as $n_j\to\infty$. Computed on a single Cauchy location with a flat prior, $30000$ sweeps and four to twelve data sets, lag one was $0.45$ to $0.58$ at $n=267$ but $0.41$ to $0.63$ at $n=20$ and $0.09$ to $0.51$ at $n=5$, and lag five $0.013$ to $0.071$ at $n=267$ against $0.031$.
+
+\begin{proposition}[Atoms of known count]\label{cx:prop:atoms}
+Let $z_1<\dots<z_n$, $m_k>0$, $a>0$, and let $v_1,\dots,v_J$ be distinct with $J\ge4n-1$. The map $F(z,m)=\bigl(\sum_km_kP_a(v_j-z_k)\bigr)_{j\le J}$ has an injective derivative at $(z,m)$. Hence $(z,m)$ is locally determined by the data, Gauss Newton converges locally quadratically for exact data, and the fitted atoms are locally Lipschitz in the data (proved).
+\end{proposition}
+
+\begin{proof}
+The columns of the derivative are $P_a(v_j-z_k)$ and $-m_kP_a'(v_j-z_k)$. Suppose $\sum_k\bigl(\alpha_kP_a(v-z_k)+\beta_kP_a'(v-z_k)\bigr)$ vanishes at the $v_j$. Over the common denominator $\prod_k((v-z_k)^2+a^2)^2$ the numerator has degree at most $4n-2$, so it vanishes identically. Its Fourier transform is $e^{-a|\omega|}\sum_k(\alpha_k+i\omega\beta_k)e^{-i\omega z_k}$, and the functions $e^{-i\omega z_k}$ and $\omega e^{-i\omega z_k}$ with distinct $z_k$ are linearly independent, so $\alpha=\beta=0$. Since $m_k>0$, the columns themselves are independent.
+\end{proof}
+
+With the count known, the pair at any gap is therefore locally identifiable, with constants that deteriorate as the gap closes, whereas without the count a pair cannot be told from a three atom cluster below the gap of Proposition~\ref{cd:prop:cluster}. For $\zeta$ the count is the statement that the zeros are simple, which is a conjecture.
+
+\subsubsection*{Numbers on a window}
+
+Take the window $[40,80]$, which holds fifteen ordinates, and let the data be synthetic: the density of $\mathfrak U_\alpha$ built from those fifteen ordinates alone, $\sum P_{\alpha-1/2}(\cdot-\gamma)$, with the target $\mathfrak U_{1/2}$ the counting measure of the ordinates. This is a recovery test with a known answer and not a computation from the primes, which for $\alpha<1$ would need the zeros outside the window. Table~\ref{cx:tab:atoms} gives the EM of Corollary~\ref{cx:cor:irls} (computed), unnormalised masses, grid spacing $0.005$, started at the local maxima.
+
+\begin{table}[h]
+\centering\footnotesize
+\begin{tabular}{@{}lccccc@{}}
+\toprule
+$\alpha$ & $\epsilon$ & iterations & interior error & edge errors & masses \\
+\midrule
+$0.6$ & $0.1$ & $26$ & $4.3\cdot10^{-5}$ & $7.3\cdot10^{-4}$, $1.38\cdot10^{-3}$ & $0.950$ to $0.997$ \\
+$0.55$ & $0.05$ & $26$ & $7.4\cdot10^{-6}$ & $9.2\cdot10^{-5}$, $1.77\cdot10^{-4}$ & $0.975$ to $0.998$ \\
+\bottomrule
+\end{tabular}
+\caption{EM on synthetic function data (recovery test, known answer). Interior error is $\max|\hat\gamma-\gamma|$ over the thirteen ordinates in $[43,78]$, the edge errors are at the atoms $40.92$ and $79.34$, where mass leaks out of the window, the shortfall at distance $d$ from an edge being $\tfrac1\pi\arctan(\epsilon/d)$. At $\alpha=0.6$ the pair $59.35$, $60.83$ has errors $3\cdot10^{-8}$ and $1.3\cdot10^{-7}$; the closest pair, $75.70$ and $77.14$ ($1.44$ apart), has $2.4\cdot10^{-5}$ and $4.3\cdot10^{-5}$, the interior maximum.}\label{cx:tab:atoms}
+\end{table}
+
+
+\subsubsection*{A planted pair: atom model and grid model}
+
+The atom model fits the hypothesis that the target is a counting measure on the line; the grid model assumes only a positive measure, and by Theorem~\ref{tf:thm:deconv}(a) the grid descent from $\alpha=0.6$ to $0.55$ (so $\varepsilon_1=0.05$) has a positive solution if and only if every zero satisfies $\beta-\tfrac12\le0.05$. Plant a pair $\tfrac12\pm\delta$ at ordinate $62$, between $60.83$ and $65.11$. Table~\ref{cx:tab:planted} compares them (computed, synthetic data under the assumption that the other zeros are on the line).
+
+\begin{table}[h]
+\centering\footnotesize
+\begin{tabular}{@{}lccc@{}}
+\toprule
+$\delta/\epsilon$ & atom misfit & $(\delta/\epsilon)^2$ & grid misfit \\
+\midrule
+$0.25$ & $6.48\cdot10^{-2}$ & $0.0625$ & $5.8\cdot10^{-4}$ \\
+$0.5$ & $2.50\cdot10^{-1}$ & $0.25$ & $7.4\cdot10^{-3}$ \\
+$0.75$ & $5.61\cdot10^{-1}$ & $0.5625$ & $2.71\cdot10^{-1}$ \\
+\bottomrule
+\end{tabular}
+\caption{A planted pair at $\tfrac12\pm\delta$, ordinate $62$, in the density of $\mathfrak U_{0.6}$, $\epsilon=0.1$. Atom misfit: $\max|y-\mathrm{fit}|/\max y$ on $[60,64]$ for the EM of Corollary~\ref{cx:cor:irls} with two atoms near $62$. Grid misfit: Vardi and Lee's EM from $0.6$ to $0.55$, data spacing $0.01$, grid spacing $0.02$, $3000$ iterations. The first grid value depends on the iteration count.}\label{cx:tab:planted}
+\end{table}
+
+The atom model collapses its two atoms to one, since a real location cannot absorb the pair, and sees every $\delta>0$ with a misfit of order $(\delta/\epsilon)^2$. The grid misfit stays small while the pair is not to the right of the level $0.55$ (at $\delta/\epsilon=0.5$ the pair lies exactly on it, where $\nu$ carries point masses) and jumps by a factor of about thirty seven once it is, at $\delta/\epsilon=0.75$, where no positive $\nu$ exists by Theorem~\ref{tf:thm:deconv}(a). The data are synthetic and the level is chosen, so this illustrates the theorem and is not a test of RH.
+
+\begin{proposition}[conditional precision at a pair]\label{cx:prop:prec}
+Let the data near an atom be the pair $P_{\epsilon-\delta}+P_{\epsilon+\delta}$ (each normalised), $0\le\delta<\epsilon$, fitted by one atom of scale $\epsilon$. The mean conditional precision $\E[\lambda]$ over the data exceeds its model value $1/\epsilon^2$ by the factor $1/(1-(\delta/2\epsilon)^2)$ (proved).
+\end{proposition}
+
+\begin{proof}
+$\int P_a(t)\frac2{t^2+\epsilon^2}\,dt=\frac{2a}\pi\int\frac{dt}{(t^2+a^2)(t^2+\epsilon^2)}=\frac2{\epsilon(a+\epsilon)}$, and averaging $a=\epsilon\mp\delta$ gives $\frac1\epsilon\bigl[\frac1{2\epsilon-\delta}+\frac1{2\epsilon+\delta}\bigr]=\frac4{4\epsilon^2-\delta^2}$.
+\end{proof}
+
+The factors $1.016$, $1.067$, $1.164$ at $\delta/\epsilon=\tfrac14,\tfrac12,\tfrac34$ were reproduced numerically (computed). The excess is about $(\delta/\epsilon)^2/4$, so the relative misfit of Table~\ref{cx:tab:planted} is about four times the precision excess (3.4 to 4.1), both of order $(\delta/\epsilon)^2$. A pair off the line therefore shows in the Gaussian steps as an excess of conditional precision, not as a sign. Neither number is a detection power without a noise model.
 
 \subsection{Does the mixture help?}
 
-For the complexity classification, no. The marginal posterior in $x$ is the log concave law of Theorem~\ref{cx:thm:logconcave} with or without the latent times, and the augmented posterior in $(x,t)$ is not jointly log concave, the inverse gamma factors being log convex in $t$ on part of their range; the random walk guarantee applies to the marginal, which is what one samples. For the data layer, no: the latent times do not touch the evaluation of $\zeta$. For the sampler, yes in the usual way: the conditionally Gaussian blocks mix well, and each conditional is a standard law. For understanding, yes: \eqref{cx:eq:heattrace} says that the Thorin semigroup is Brownian motion run to a first passage time, that the levels $\theta$ index the level of the barrier, and that RH is the statement that one barrier, at distance $\theta-\tfrac12$, serves every zero. The backward flow is the un stopping of that Brownian motion, and its ill posedness is the usual one for the backward heat equation, tamed by the first passage mixture to an exponential rather than Gaussian amplification.
+For the complexity classification, no. The marginal posterior in $x$ is the log concave law of Theorem~\ref{cx:thm:logconcave} with or without the latent times, and the augmented posterior in $(x,t)$ is not jointly log concave, the inverse gamma factors being log convex in $t$ on part of their range; the random walk guarantee applies to the marginal, which is what one samples. For the data layer, no: the latent times do not touch the evaluation of $\zeta$. For the sampler, no (Section~\ref{cx:sec:latent}). For understanding, yes: \eqref{cx:eq:heattrace} says that the Thorin semigroup is Brownian motion run to a first passage time, that the levels $\theta$ index the level of the barrier, and that RH is the statement that one barrier, at distance $\theta-\tfrac12$, serves every zero. The backward flow is the un stopping of that Brownian motion, and its ill posedness is the usual one for the backward heat equation, tamed by the first passage mixture to an exponential rather than Gaussian amplification.

@@ -1,0 +1,108 @@
+\section{Does the $2\sin^2$ lemma add anything?}\label{qrh:sec:sin2}
+
+The lemma \eqref{eq:sin2} is an identity: integrated against any real measure $L$ with $\int\min(x,x^2)|L|(dx)<\infty$, it turns a L\'evy representation into a Thorin representation whose density is $(2\pi\sqrt z)^{-1}[c+\int2\sin^2(x\sqrt z/2)\,xL(dx)]$. Positivity of the Thorin density follows when $xL$ is positive. For $\xi$ at a basepoint $\alpha$ the canonical measure is never positive.
+
+\begin{proposition}[the canonical measure is signed]\label{qrh:prop:signed}
+For every $\alpha>\frac12$, the continuous part of the canonical measure $x\Pi_\alpha(dx)$ of Section~\ref{ch:basepoint},
+\[
+\Bigl(\frac{e^{-(\alpha+2)x}}{1-e^{-2x}}-e^{-(\alpha-1)x}\Bigr)dx=e^{-(\alpha-1)x}\Bigl(\frac{e^{-3x}}{1-e^{-2x}}-1\Bigr)dx,
+\]
+is positive on $(0,x_0)$ and negative on $(x_0,\infty)$, where $x_0=0.281199574323\ldots$ is the root of $e^{-3x}+e^{-2x}=1$. Since $x_0<\log2$ and the atoms of $x\Pi_\alpha$ sit at $\log n$, $n\ge2$, the measure $x\Pi_\alpha$ is negative on $(x_0,\log2)$ for every $\alpha$, and the sufficient condition $xL\ge0$ of the $2\sin^2$ lemma holds at no basepoint.
+\end{proposition}
+
+\begin{proof}
+The factor $g(x)=e^{-3x}/(1-e^{-2x})$ decreases strictly from $+\infty$ to $0$ on $(0,\infty)$, since its numerator decreases and its denominator increases, so $g-1$ has exactly one zero $x_0$, where $e^{-3x_0}=1-e^{-2x_0}$. At $x=\log2$, $g=\frac18/\frac34=\frac16<1$, so $x_0<\log2$. On $(x_0,\log2)$ there are no prime powers, so the measure there is its continuous part, which is negative.
+\end{proof}
+
+So positivity is always a domination question: the pole piece against the archimedean and prime pieces, as in \eqref{bp:eq:excess}, where for $\alpha>1$ the negative contribution is the single term $-q_{\alpha-1}(\theta)$. This is why the book proves the minimum at the origin above level one with the primes or the zeros (Propositions~\ref{bp:prop:v1min} and~\ref{bp:prop:valpha}), never with the lemma alone. Below level one the prime piece and the pole piece each diverge and only their compensated difference has a meaning, and its convergence at $\alpha$ is the bound $\psi(y)-y=O(y^{\Theta+\delta})$ with $\Theta<\alpha$ (Proposition~\ref{bp:prop:below}), which is the half plane itself.
+
+Now compare the argument of \cite{OAI26a,OAI26b}, whose analytic output is the continuation of $1/L_F$ (Proposition~\ref{qrh:prop:cont}). The lemma acts on $\log L$, through the von Mangoldt function, and on the shifted reciprocal $\xi(\alpha)/\xi(\alpha+\sqrt u)$ only through its logarithm. The two meet at one point: a half plane for $1/L$ is the same as a half plane for $\log L$, and through it the bound of Step~1 becomes the convergence statement of Corollary~\ref{qrh:cor:thorin}(iv). We conclude, as a matter of fact about the arguments as we read them and not as a theorem, that the lemma adds nothing to the proof: it supplies the Thorin reading of what the proof gives, and no step of Steps~1 to~5 has a counterpart in the lemma. In the other direction a statement of the form ``the compensated density is positive on every line to the right of $\theta$'' is equivalent to $(\mathrm Q_\theta)$ (Corollary~\ref{pol:cor:equiv}), so a proof of positivity through the lemma would be a proof of a half plane, and would have to contain an estimate of the strength of \eqref{qrh:eq:ms} in some form. Whether the smoothed M\"obius signal $f_\eta$ has a Thorin reading of its own is Problem~\ref{qrh:prob:signal}.
+
+
+
+\section{From $\theta$ to $\frac12$: the descent in level}\label{qrh:sec:descent}
+
+In the language of Section~\ref{ov1:sec:path} the descent is the monotone family $\theta'\mapsto u_{\theta'}$, $\theta'\in(\frac12,1]$, and RH is the persistence of positivity, equivalently of the minimum at the origin, from $\theta'=1$ down to $\frac12$. Corollary~\ref{qrh:cor:thorin} says that $(\mathrm Q_\theta)$ is exactly this persistence on $(\theta,1]$. The remaining step has four readings, each a restatement and not a reduction.
+
+\paragraph{As a half plane} The step from $\theta$ to any $\theta_1<\theta$ is $(\mathrm Q_{\theta_1})$. A family of half planes descending to $\frac12$ is RH; there is no intermediate statement of positivity type between two levels, because positivity on a single line is weaker than the half plane and is not known to imply it (Remark~\ref{rem:ch2:oneline}).
+
+\paragraph{As a deconvolution} Under $(\mathrm Q_\theta)$ the densities at levels above $\theta$ form a Cauchy semigroup of positive measures, $u_{\theta'+a}=P_a*u_{\theta'}$ (Theorem~\ref{tf:thm:poisson}(a)), and by Theorem~\ref{tf:thm:deconv} RH is the statement that $u_{\theta_0}$, for any $\theta_0>\theta$, is the Cauchy smoothing at width $\theta_0-\frac12$ of a positive measure. The hypothesis shortens the width to be undone from $\frac12$ to $\theta-\frac12$, and the condition number of the discretised inverse, of order $e^{\pi w/h}$ for width $w$ at grid step $h$ (Section~\ref{cx:sec:problem}), from $e^{31.4}$ to $e^{23.6}$ at $h=0.05$ for $\theta=\frac78$ (computed); it is still exponential in $1/h$, and the residual of the backward flow at levels below $\theta$ remains a diagnostic, not a certificate (Section~\ref{cx:sec:level78}). The deconvolution from level one to $\frac78$ that the hypothesis makes a Thorin measure has condition number $e^{7.85}$ at the same step (computed), in agreement with Section~\ref{cx:sec:level78}.
+
+\paragraph{As a monotone ratio} Theorem~\ref{thm:dbeta:comp} gives $v_\alpha(\theta)/(\alpha-\frac12)\ge v_{\alpha'}(\theta)/(\alpha'-\frac12)$ whenever the zeros near height $\theta$ that lie further than $(\alpha-\frac12)/\sqrt2$ from the line are well separated from $\theta$. Under $(\mathrm Q_\theta)$ every zero has $\delta=\beta-\frac12\le\theta-\frac12$, so by Lemma~\ref{lem:dbeta:comp}(b) the hypothesis holds at every height for $\alpha\ge\frac12+\sqrt2(\theta-\frac12)$: for $\theta=\frac78$ this is $\alpha\ge1.0303$ (computed), above level one, where the comparison is already unconditional. So the hypothesis does not extend the comparison into the strip.
+
+\paragraph{Below the announced level} Bondesson's closure gives RH from GGC basepoint laws along a sequence $\alpha_n\downarrow\frac12$ (Corollary~\ref{cor:weak:closure}); $(\mathrm Q_{7/8})$ supplies them for $\alpha\ge\frac78$ only, and the open strip is $\frac12<\alpha<\frac78$. The even part laws and the accounting theorem need no zero to the right of $\alpha$, but below $\frac78$ the term $2N(\alpha,T)$ of Theorem~\ref{pol:thm:accounting} remains and is controlled only by density estimates.
+
+\paragraph{As a condition on ordinates} Theorem~\ref{cx:thm:lbl} reduces the minimum at the origin at every level in $[\theta,1]$, given $(\mathrm Q_\theta)$, to one inequality $W(v)\ge w^*$ on the ordinates alone, with no level in it, certified on $[13.5,1418.9]$. The level drops out because the pairing bound and the orbit bound both scale linearly in $2\theta'-1$.
+
+In each reading the step from $\theta$ to $\frac12$ is a zero free half plane for every $\theta_1>\frac12$, uniform in the height. The descent in level is therefore the right frame for the announcement, since the announcement is literally its first step, and the wrong frame for hoping that the announcement makes the rest easier: nothing in the programme turns a half plane at $\theta$ into one at a smaller $\theta_1$.
+
+\section{The hexagonal theta kernel and Patterson's series}\label{qrh:sec:hex}
+
+This section records what the Vere-Jones and Thorin language can say about the cubic theta function of the manuscripts, and where it stops. The material is from an unrefereed note of Polson (November 2026), in the form checked here, with no claim of priority. Write $K=\mathbb Q(\sqrt{-3})$, $\omega=e^{2\pi i/3}$, $N(a+b\omega)=a^2-ab+b^2$, $\mu_K$ for the M\"obius function of the ideals of $\mathbb Z[\omega]$ and $\theta_K(y)=\sum_{c\in\mathbb Z[\omega]}e^{-yN(c)}$, the theta function of the hexagonal lattice.
+
+\paragraph{The hexagonal kernel} Every nonzero ideal has six generators, so $(\theta_K(y)-1)/6=\sum_{\mathfrak a\ne0}e^{-yN\mathfrak a}$ has Dirichlet series $\zeta_K(s)=\zeta(s)L(s,\chi_{-3})$, and M\"obius inversion over ideals gives, for $\re x>0$ (proved; computed at $x=0.8$ to 39 digits),
+\begin{equation}\label{qrh:eq:vjhex}
+e^{-x}=\frac16\sum_{\mathfrak a}\mu_K(\mathfrak a)\big(\theta_K(N\mathfrak a\,x)-1\big).
+\end{equation}
+Poisson summation on the lattice, of covolume $\sqrt3/2$ with dual lattice of norms $\frac43N(\cdot)$, gives (proved; computed at $y=0.3$ to 39 digits)
+\begin{equation}\label{qrh:eq:hexjacobi}
+\theta_K(y)=\frac{2\pi}{\sqrt3\,y}\,\theta_K\Big(\frac{4\pi^2}{3y}\Big).
+\end{equation}
+Applying \eqref{qrh:eq:vjhex} to each term of $1/\zeta_K(\frac12+\sqrt\lambda)=\sum_{\mathfrak b}\mu_K(\mathfrak b)N\mathfrak b^{-1/2}e^{-\sqrt\lambda\log N\mathfrak b}$, and noting that the term $\mathfrak b=(1)$ is the constant $1$ (the argument $x=0$ is not allowed in \eqref{qrh:eq:vjhex}), gives, for $\re\sqrt\lambda>\frac12$ (proved),
+\begin{equation}\label{qrh:eq:vjKhex}
+\frac1{\zeta_K(\frac12+\sqrt\lambda)}=1+\frac16\sum_{\mathfrak b\ne(1)}\sum_{\mathfrak a}\mu_K(\mathfrak b)\mu_K(\mathfrak a)\,N\mathfrak b^{-1/2}\Big(\theta_K\big(N\mathfrak a\sqrt\lambda\log N\mathfrak b\big)-1\Big).
+\end{equation}
+The transformation \eqref{qrh:eq:hexjacobi} sends $y=N\mathfrak a\sqrt\lambda\log N\mathfrak b$ to $4\pi^2/(3y)$, that is $\lambda\mapsto16\pi^4/(9N\mathfrak a^4(\log N\mathfrak b)^4\lambda)$. The constant depends on $(\mathfrak a,\mathfrak b)$, so this is an inversion of $\lambda$ term by term and not of the mixture; and it acts on $\theta_K$, not on the kernel $\theta_K-1$, since $\theta_K(y)-1=\frac{2\pi}{\sqrt3y}(\theta_K(y')-1)+\frac{2\pi}{\sqrt3y}-1$ with $y'=4\pi^2/(3y)$.
+
+\paragraph{Patterson's series} Following Patterson \cite{NCPatterson77}, let $g_3(r,c)=\sum_{d\bmod c}(d/c)_3\,e(rd/c)$ for $c\equiv1\pmod3$, $\tilde g_3=g_3N(c)^{-1/2}$, and $\psi(r,s)=\sum_cg_3(r,c)N(c)^{-s}$, absolutely convergent for $\re s>\frac32$. In the variable $w=s-\frac12$ the series $\tilde\psi(r,w)=\sum_c\tilde g_3(r,c)N(c)^{-w}$ converges absolutely for $\re w>1$. Conditional on the citation of Patterson (not checked against the source): $\psi(r,\cdot)$ continues meromorphically, with a simple pole at $s=\frac43$, that is $w=\frac56$, and with residue proportional to $\overline{\tilde g_3(r)}N(r)^{-1/6}$; and the completed series, with the gamma factors $\Gamma(s-\frac13)\Gamma(s-\frac23)$ and the factor $\zeta_\varpi(3s-2)$, $\zeta_\varpi(s)=(1-3^{-s})\zeta_K(s)$, $\varpi=\sqrt{-3}$, satisfies a functional equation $s\leftrightarrow2-s$ which expresses $F(r,s)$ through $F(\nu\varpi^br,2-s)$ for sixth roots of unity $\nu$ and finitely many $b$, so it is an equation for a finite vector of series and does not close on one of them. For $r=1$ the sum of $\tilde g_3(1,c)$ over squarefree $c$ with $N(c)\le X$, divided by $X^{5/6}$, is $0.3560$, $0.3559$, $0.3552$ at $X=3\cdot10^4$, $10^5$, $2\cdot10^5$, and a smoothed fit gives the residue at $w=\frac56$ as about $0.296$ (computed). The dependence on $r$ was checked by the ratio of smoothed sums to the case $r=1$: at norm $7$ it is $0.6465+0.3230i$ against $\overline{\tilde g_3(r)}N(r)^{-1/6}=0.6478+0.3211i$, at norm $13$ it is $0.1597-0.6347i$ against $0.1647-0.6310i$ (computed). The pole is unconditional, over all squarefree moduli; it is a different statement from the bias of the cubic Gauss sums over primes, conjectured by Patterson, which Dunn and Radziwi\l\l\ prove conditionally on GRH \cite{NCDunnRadziwill24}. % UNCHECKED: the statement of Dunn and Radziwill is quoted from memory of the abstract; the bibliography entry itself is verified.
+The sums $B_h(X)$ of Step~3 above carry the phase $\overline{\alpha(n)}$ and the twist $\chi_n(h)$, so they are twisted relatives of $\tilde\psi(r,\cdot)$ and not among them.
+
+\begin{remark}[the Kubota transformation does not reach the Thorin measure]\label{qrh:rem:kubota}
+Let $\Lambda_r(w)$ be the completed series $F(r,w+\frac12)$. The transformation law is linear: it relates the vector of series at $w$ to the vector at $1-w$, and the series have no Euler product, so there is no logarithm with prime coefficients on which a Thorin measure could be read. The Thorin form of the reciprocal fails in two ways (status: the pole is conditional on Patterson's theorem, the zeros are computed, the consequences proved). First, for $r$ with nonzero residue, at $\alpha<\frac56$ the function $1/\Lambda_r(\alpha+\sqrt\lambda)$ vanishes at $\lambda=(\frac56-\alpha)^2>0$ because of the pole at $w=\frac56$, and a Laplace transform of a positive measure has no zero on the positive axis (a zero of $\Lambda_1$ is a pole of the reciprocal, so the criterion is holomorphy of the reciprocal off $(-\infty,0]$), so it is not a generalised gamma convolution transform at any such level. Second, for $r=1$ the zeros $w=0.8841+147.1509i$ and $w=0.8449+34.0409i$ of $\Lambda_1$ (computed; stable under halving the truncation, with the gamma and $\zeta_\varpi$ factors finite and nonzero there) exceed $\frac56$ in real part, so by the same criterion there is no such representation at any level $\alpha<0.8841$; larger real parts may occur higher (heuristic). Nothing here lowers a level: the quoted route to a half plane is a bound on a M\"obius sum, which gives holomorphy of the reciprocal and, by the theorem that positivity at a level is a zero free half plane (Theorem~\ref{cx:thm:positivity}), positivity above the half plane, and this is the passage between the linear side and the Thorin side that the manuscripts' argument provides.
+\end{remark}
+
+\paragraph{Is there a path from this material?} No. The unconditional content of the Vere-Jones material consists of exact identities that change how the Thorin measure is written, not what it is, and the verdict of Section~\ref{qrh:sec:descent} stands. A hyperbolic secant decomposition of the level $1$ measure as a M\"obius series (the inversion of the $\chi_4$ series by $\mu\chi_4$, Section~\ref{bsy:sec:mirror}) of positive secant smoothings of the zeros has a first term with prime weights $\Lambda(n)/(n+1)$ and the pole flattened to a constant (Proposition~\ref{bsy:prop:levelser}(d)), but its terms grow like $e^{(1/2-a)|\omega|}$ as the damping $a$ drops below $\frac12$, and positivity of the whole series at damping $a$ is again the absence of zeros to the right of $\frac12+a$: it is the same statement (heuristic).
+
+\section{Open problems}\label{qrh:sec:open}
+
+\begin{problem}[the minimum at the origin for $\chi_4$ and $\chi_{12}$ under the half plane]\label{qrh:prob:chi4}
+Assume $(\mathrm Q_{7/8})$ for $L(s,\chi_4)$ and $L(s,\chi_{12})$. Prove $v_\alpha(\theta)>b_\alpha$ for every $\alpha\in(\frac78,1)$ and every $\theta\ne0$, in the notation of Theorem~\ref{thm:dbeta:minall}. The window argument of part~(v) there, with the counting formula of \cite{BMOR21}, should apply above the verified heights; below them the zeros are on the line \cite{Platt16} and the convexity argument of part~(ii) needs a margin like that of Table~\ref{tab:dbeta:minall} at $\alpha<1$.
+\end{problem}
+
+\begin{problem}[a Thorin reading of the signal]\label{qrh:prob:signal}
+The signal of Proposition~\ref{qrh:prop:cont} is the inverse Mellin transform of $e^{(s-5/6)^2}H_\eta(s)/L_F^S(s,\eta)$, and its zeta analogue $M_{\mathrm g}$ is computed in Section~\ref{tx3:sec:signal}. Is there a choice of the weight for which the signal is the density of a law whose infinite divisibility, or GGC property, is equivalent to the absence of zeros to the right of a given line, as Theorem~\ref{thm:poisson} is for the shifted clock? Such a reading would place the direct and the principal estimates of the proof inside the programme.
+\end{problem}
+
+\begin{problem}[the exponent of the cubic theta method]\label{qrh:prob:exponent}
+Proposition~\ref{qrh:prop:balance} shows that the step from the mean square to the M\"obius bound with the trivial bound for the difference of the rows, cannot pass $\frac67$. Is there a corresponding lower bound for the full method of \cite{OAI26a}, independent of the parametrisation of \cite{Liu26a}, and is it above $\frac34$? In particular, can any argument that bounds the M\"obius function through a mean square over a family of twists of fixed order $k$ give an exponent below $\frac{2k-1}{2k}$?
+\end{problem}
+
+\begin{problem}[a certificate of the half plane to a height]\label{qrh:prob:cert}
+Theorem~\ref{cx:thm:certified} certifies positivity of $u_{7/8}$ up to height $1420$ with no hypothesis; part~(iii) there, $N(\frac34,T^*)=0$, excludes zeros with $\re s>\frac34$ up to $T^*=1419.9$. Combine the mass deficit of Proposition~\ref{cx:prop:deficit} with the zero detector of \cite{OAI26a} to give an independent certified check of the absence of zeros with $\re s>\frac78$ up to a height beyond the verification of RH \cite{PT21}. This would test the manuscripts, not prove them.
+\end{problem}
+
+\begin{problem}[positivity on one line]\label{qrh:prob:oneline}
+Does positivity of $u_\theta$ on the single line $\re s=\theta$, for one $\theta\in(\frac12,1)$, imply $(\mathrm Q_\theta)$ for $\zeta$? Remark~\ref{rem:ch2:oneline} shows that it does not for general entire functions of the shape of $\xi$. A positive answer for $\zeta$ would make the descent a question about one line at a time.
+\end{problem}
+
+\begin{problem}[the level one measure from the Euler product]\label{qrh:prob:levelone}
+Give a representation of the Thorin measure at level $1$ directly from the Euler product and the $2\sin^2$ lemma, without the zeros, and prove that its Lorentzian decomposition has all half widths equal to $\frac12$. This is the Riemann Hypothesis, stated at a level where the measure is known to be positive and the question is the shape of a known measure.
+\end{problem}
+
+\begin{problem}[the measures below the announced half plane]\label{qrh:prob:weak}
+Assume the Riemann Hypothesis. The Thorin measure at level $\alpha$ is absolutely continuous and the limit as $\alpha\downarrow\frac12$, the sum of point masses at $\gamma^2$, is atomic, so total variation is useless. Quantify the approach in a weak metric for $\frac12<\alpha<\frac78$, tracking the atom at $-(1-\alpha)^2$ that the pole of $\zeta$ detaches and the sharpening of the peaks, and make the small $x$ threshold of the density statement explicit.
+\end{problem}
+
+\begin{problem}[truncated Thorin measures]\label{qrh:prob:trunc}
+The truncated Thorin measures express the zeros as the distributional limit of a centred sum of $\sin^2$ terms over prime powers. Find the rate, decide whether a Gaussian or Fej\'er smoothing in $t$ gives a positivity statement testable from the primes (name the functional), and prove the damped Weil inequality of the earlier chapters for $\alpha$ in some interval $(1-\eta,1]$ from the $2\sin^2$ structure and not from the zeros. A proof for an interval $(1-\eta,1]$ is a zero free half plane, so it is open for every $\eta>0$.
+\end{problem}
+
+\begin{problem}[the regularised prime side between $\frac78$ and $1$]\label{qrh:prob:reg}
+For $\alpha\in(\frac78,1)$ the Euler side is a divergent Dirichlet series, and if the announced half plane holds (conditional on $(\mathrm Q_{7/8})$) the zero side is positive. The identity continued to this range then says that the regularised prime side (the stable part minus the $\sin^2$ defects plus the pole and archimedean kernels) is a positive measure. Make the regularisation explicit in terms of the M\"obius sums over $K$ that the manuscripts control, and extract a lower bound for the Thorin density away from the zeros.
+\end{problem}
+
+\begin{problem}[positive mixtures of toy reciprocals]\label{qrh:prob:mixture}
+Determine whether $1/\xi(\frac12+\sqrt\lambda)$ is a positive mixture of toy reciprocal Xi functions that include their own gamma factor, that is of one prime completed $L$ functions with super exponential decay; a positive answer would force the Riemann Hypothesis. Separately, the hyperbolic secant decomposition expresses the damped Weil functional at damping $a$ as a M\"obius series of damped functionals; at $a=\frac12$ the first term has prime weights $\Lambda(n)/(n+1)$ and the pole flattened to a constant (Proposition~\ref{bsy:prop:levelser}(d)). Study its positivity alone as $a$ decreases below $\frac12$, where $\operatorname{sech}(a\omega)\cosh(\omega/2)$ grows like $e^{(1/2-a)|\omega|}$, and whether the terms with $m\ge2$ can be controlled from the primes.
+\end{problem}
+
+\paragraph{Does this give a path to RH?} No. If the announced half plane stands, the Thorin programme gains a starting level of $\frac78$ in place of $1$, with every positivity statement of the book moved down accordingly (Corollary~\ref{qrh:cor:thorin}), and nothing below $\frac78$. The argument of \cite{OAI26a} works with smoothed M\"obius sums, sextic twists and the cubic theta function, not with Thorin measures; the $2\sin^2$ lemma only translates its conclusion. The step from $\frac78$ to $\frac12$ is, in every form the programme gives it, a family of zero free half planes uniform in the height.

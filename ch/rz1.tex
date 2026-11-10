@@ -116,6 +116,42 @@ The first is the geometric series $e^{-x}/(1+e^{-2x})$. Since $\chi_4$ is comple
 \end{proof}
 
 
+The next three statements are from an unrefereed note of Polson (November 2026), in the corrected form given here. Write $\mathrm{HS}_b(x)=(2b)^{-1}\sech(\pi x/2b)$ for the hyperbolic secant density, whose characteristic function is $\sech(b\omega)$, and $P_a(x)=a/(\pi(a^2+x^2))$.
+
+\begin{proposition}[Cauchy as a M\"obius mixture of hyperbolic secant laws]\label{rz:prop:cauchyhs}
+For $a>0$ and every real $x$, and for $z\in\C$ with $z\ne\pm iN$, $N$ odd,
+\[
+P_a(x)=\frac12\sum_{m\ge1}\mu(m)\chi_4(m)\,\mathrm{HS}_{am}(x),\qquad
+\frac1{1+z^2}=\frac\pi4\sum_{m\ge1}\frac{\mu(m)\chi_4(m)}m\,\sech\Big(\frac{\pi z}{2m}\Big),
+\]
+the two being equivalent through $z=x/a$. The series converge conditionally, not absolutely: the total variation of the right side is infinite, the weights have the value $\frac12/\beta(0)=1$, where $\beta=L(\cdot,\chi_4)$, only as the continuation of $\frac12\sum_m\mu(m)\chi_4(m)m^{-s}$ to $s=0$ (they are not Abel summable, by the argument of Proposition~\ref{rz:prop:mobsigns}), and $\sum\mu(m)\chi_4(m)$ itself diverges. Status: proved, and computed (both sides agree to $10^{-14}$ at $z=0.7$ and $2$).
+\end{proposition}
+
+\begin{proof}
+Since $\sech$ is analytic on $|w|<\pi/2$, the right side is analytic in $|z|<1$ once the term $\frac\pi4\sum_m\mu(m)\chi_4(m)/m=\frac\pi4/\beta(1)=1$ (convergent by the prime number theorem for $\chi_4$) is split off, because $\sech(\pi z/2m)-1=O(|z|^2m^{-2})$ locally uniformly and so the remaining series converges locally uniformly. Its Taylor coefficients may then be taken termwise: for $j\ge1$ the coefficient of $z^{2j}$ is $\frac\pi4(\pi/2)^{2j}\frac{E_{2j}}{(2j)!}\frac1{\beta(2j+1)}$ with $E_{2j}$ the Euler numbers, and this equals $(-1)^j$ by the classical evaluation $\beta(2j+1)=(-1)^jE_{2j}\pi^{2j+1}/(4^{j+1}(2j)!)$. The same locally uniform convergence away from the poles $\pm iN$ ($N$ odd, the poles of the terms with $m\mid N$) gives the continuation. The first identity is the second with $\frac12\mathrm{HS}_{am}(x)=\frac1{4am}\sech(\pi x/2am)$.
+\end{proof}
+
+\begin{proposition}[Cyclotomic kernels]\label{rz:prop:cyclo}
+For $N=3,4,6$ put $f_N(z)=1/(2\cosh z-2\cos(2\pi/N))=q/\Phi_N(q)$, $q=e^{-z}$, so $f_4=\frac12\sech$. Then $f_3=\sum_k\chi_{-3}(k)e^{-kz}$, $f_4=\sum_k\chi_4(k)e^{-kz}$ and $f_6=\sum_k\varepsilon_ke^{-kz}$ with Dirichlet series $L(s,\chi_{-3})(1+2^{1-s})$, and for $\re x>0$, absolutely,
+\begin{align*}
+e^{-x}&=\sum_{m\ge1}\mu(m)\chi_{-3}(m)f_3(mx)=\sum_{m\ge1}\mu(m)\chi_4(m)f_4(mx)\\
+&=\sum_{m\ge1}b_mf_6(mx),\qquad\sum_mb_mm^{-s}=\frac1{(1+2^{1-s})L(s,\chi_{-3})}.
+\end{align*}
+Moreover $f_N(\sqrt\lambda)/f_N(0)=\prod_{j\ge1,\ j\equiv\pm1\,(N)}(1+\lambda/(2\pi j/N)^2)^{-1}$, so each normalised kernel is a generalised gamma convolution with a Thorin measure that is a lattice in the chart $\theta=\sqrt z$. Status: proved.
+\end{proposition}
+
+\begin{proof}
+Each identity is Dirichlet inversion: $\sum_mb_m\sum_ka_ke^{-mkx}=\sum_re^{-rx}(b*a)(r)=e^{-x}$, rearranged absolutely because $|b_m|\le m\,\tau(m)$ and $f_N(mx)=O(e^{-m\re x})$. The product is Hadamard's: $\cosh w-\cos(2\pi/N)$ is even and entire of order one with zeros $w=\pm2\pi ij/N$, $j\equiv\pm1\pmod N$, and the ratio is $1$ at $w=0$.
+\end{proof}
+
+\begin{proposition}[The M\"obius signs are forced]\label{rz:prop:mobsigns}
+There is no positive measure $\rho$ on $(0,\infty)$ with $e^{-x}=\int f_N(tx)\,\rho(dt)$ for all $x>0$, for $N=3,4,6$ (equivalently with $\sech$ in place of $f_4$), and none with $1/(1+z^2)=\int\sech(tz)\,\rho(dt)$ for all $z>0$. Nor, under the Riemann Hypothesis, is $\sum_{\gamma>0}\delta_{\gamma^2}$ (the Thorin measure of $\xi(\frac12)/\xi(\frac12+\sqrt\lambda)$) a positive mixture of the lattices of Proposition~\ref{rz:prop:cyclo}. Status: proved, with the first zero of $\beta$ computed.
+\end{proposition}
+
+\begin{proof}
+Let $D_N$ be the Dirichlet series of $f_N$ ($D_4=\beta$), so that $\int_0^\infty y^{\sigma-1}f_N(y)\,dy=\Gamma(\sigma)D_N(\sigma)$ with $D_N(\sigma)>0$. If $e^{-x}=\int f_N(tx)\rho(dt)$, Tonelli gives $\Gamma(\sigma)=M(\sigma)\Gamma(\sigma)D_N(\sigma)$ with $M(\sigma)=\int t^{-\sigma}\rho(dt)$, finite for every $\sigma>0$, so $M$ is holomorphic on $\re s>0$ and $M(s)D_N(s)=1$ there by continuation. This is impossible at a zero of $D_N$ in $\re s>0$: for $\beta$ there is one at $\frac12+6.0209\ldots i$ (computed), and for $L(s,\chi_{-3})$ and $(1+2^{1-s})L(s,\chi_{-3})$ the zero of $L(s,\chi_{-3})$ at $\frac12+8.0397\ldots i$ (computed) serves, the factor $1+2^{1-s}$ being entire. For $\sech$ and $1/(1+z^2)$, whose Mellin transform is $(\pi/2)/\sin(\pi s/2)$ on $0<\re s<2$, the same argument gives that $M(s)=\pi/(4\sin(\pi s/2)\Gamma(s)\beta(s))$ would be holomorphic on $0<\re s<2$ while it has a pole at that zero of $\beta$. For the Thorin measure: a positive mixture charging the atom $\gamma_1^2$, $\gamma_1=14.1347\ldots$, uses a lattice with an atom $j_0s=\gamma_1$ and so also the atoms $(j/j_0)\gamma_1$ for every admissible $j$; take $j=3j_0$ for $N=4$, $2j_0$ for $N=3$ and $5j_0$ for $N=6$, all admissible, giving ordinates $3\gamma_1=42.404$, $2\gamma_1=28.269$, $5\gamma_1=70.674$, which lie strictly between consecutive zeros ($40.919$ and $43.327$; $25.011$ and $30.425$; $69.546$ and $72.067$), so are not zero ordinates, and positive weights cannot cancel them.
+\end{proof}
+
 \begin{lemma}\label{rz:lem:sech}
 For $\lambda>0$, $\sech(\lambda\sqs)=\prod_{k\ge0}\bigl(1+s/\tau_k\bigr)^{-1}$ with $\tau_k=\bigl((k+\frac12)\pi/\lambda\bigr)^2$, written $\tau_k(\lambda)$ when the dependence on $\lambda$ matters. It is the Laplace transform of $T_\lambda=\sum_k\tau_k^{-1}e_k$ with $e_k$ independent standard exponentials, the exit time of $\sqrt2B$ from $(-\lambda,\lambda)$, and it is a GGC with atomic Thorin measure $\sum_k\delta_{\tau_k}$; see \cite{BPY01} and Table~\ref{tab:ch3:cat}.
 \end{lemma}

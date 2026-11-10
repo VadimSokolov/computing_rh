@@ -155,22 +155,6 @@ For a real character the arithmetic part of $v_\alpha(b)$ is
 \]
 absolutely convergent for $\alpha>1$. At $\alpha=1$ it converges conditionally for nonprincipal $\chi$, and for $\xi_F$ the prime sum diverges and converges only together with the density $-e^x$ of~\eqref{gl:eq:nuF}, as in Proposition~\ref{bp:prop:sin2}.
 
-\begin{lemma}\label{gl:lem:pair}
-For $c\in\C$ with $\Re c>0$ and $w>0$,
-\[
-\frac1\pi\int_{-\infty}^{\infty}\log\Big(1+\frac{w^2}{b^2}\Big)\,\Re\frac1{c+ib}\,db=2\log\Big|1+\frac wc\Big| .
-\]
-For $\Re c<0$ the right side is replaced by $-2\log|1-w/c|$.
-\end{lemma}
-
-\begin{proof}
-Write $\log(1+w^2/b^2)=\int_0^w2w'(b^2+w'^2)^{-1}dw'$. For $w'>0$ the function $b\mapsto(c+ib)^{-1}(b^2+w'^2)^{-1}$ is rational and $O(|b|^{-3})$, with poles at $ic$, $iw'$ and $-iw'$. If $\Re c>0$ the pole $ic$ lies in the upper half plane, and closing the contour in the lower half plane picks up only $-iw'$, so that $\int_{-\infty}^\infty db/((c+ib)(b^2+w'^2))=-2\pi i/((c+w')(-2iw'))=\pi/(w'(c+w'))$. Since $|\Re(c+ib)^{-1}|\le|\Re c|^{-1}$ and $\int_{-\infty}^\infty2w'(b^2+w'^2)^{-1}db=2\pi$, Fubini applies, and taking real parts,
-\[
-\frac1\pi\int_{-\infty}^\infty\log\Big(1+\frac{w^2}{b^2}\Big)\Re\frac1{c+ib}\,db=\Re\int_0^w\frac{2\,dw'}{c+w'}=2\log\Big|\frac{c+w}c\Big| .
-\]
-If $\Re c<0$ the same computation, closing in the upper half plane, gives $-2\log|(c-w)/c|$.
-\end{proof}
-
 Zeros $\rho=\beta+i\gamma$ are counted with multiplicity. Say that $f$ has the \emph{Thorin property at the basepoint} $\alpha>\tfrac12$ if $f(\alpha)\ne0$ and $u\mapsto f(\alpha)/f(\alpha+\sqrt u)$ is the Laplace transform of a GGC.
 
 \begin{theorem}[The basepoint family of the lemma]\label{gl:thm:sinsq}
@@ -191,17 +175,9 @@ the Poisson smoothing at height $\varepsilon$ of the zero counting measure. As $
 \end{theorem}
 
 \begin{proof}
-(a) By Hadamard's factorisation $f(s)=e^{A+Bs}\prod_\rho(1-s/\rho)e^{s/\rho}$ and the functional equation, $\Re(f'/f)(s)=\sum_\rho\Re(s-\rho)^{-1}$, absolutely convergent, for all $s$ off the zeros, and $\Re B=-\sum_\rho\Re\rho^{-1}$~\cite[Ch.~12]{Davenport}. Each term of the sum is positive when $\Re s>\beta$, which gives the formula for $v_\alpha$ and its positivity. For a zero $\rho$ put $\omega_\rho=\alpha-\rho$, so that $\Re\omega_\rho=\alpha-\beta>0$ and the term of $\rho$ in $v_\alpha(b)$ is $\Re(\omega_\rho+ib)^{-1}$, and for $w>0$ put
-\[
-I_\rho=\frac1\pi\int_0^\infty\log\Big(1+\frac{w^2}{b^2}\Big)\Re\frac1{\omega_\rho+ib}\,db\ \ge0 .
-\]
-Since $\Re(\omega_{\bar\rho}+ib)^{-1}=\Re(\omega_\rho-ib)^{-1}$, the substitution $b\mapsto-b$ and Lemma~\ref{gl:lem:pair} give $I_\rho+I_{\bar\rho}=2\log|1+w/\omega_\rho|$, and $|1+w/\omega_{\bar\rho}|=|1+w/\omega_\rho|$. As $f$ is real on the real axis, $\rho\mapsto\bar\rho$ permutes the zeros, and the terms being nonnegative we may sum:
-\[
-\int_0^\infty\log\Big(1+\frac{w^2}{b^2}\Big)\frac{v_\alpha(b)}\pi\,db=\sum_\rho I_\rho=\sum_\rho\log\Big|1+\frac w{\omega_\rho}\Big| .
-\]
-On the other side the Hadamard product gives $f(\alpha+w)/f(\alpha)=e^{Bw}\prod_\rho(1+w/\omega_\rho)e^{w/\rho}$, an absolutely convergent product, and the left side is positive because $f$ is real and has no zero on $[\alpha,\infty)$. Taking logarithms and using $\Re B=-\sum_\rho\Re\rho^{-1}$ gives $\log f(\alpha+w)/f(\alpha)=\sum_\rho\log|1+w/\omega_\rho|$, the series converging absolutely. With $u=w^2$ this is~\eqref{gl:eq:sinsq-thorin} with density $v_\alpha/\pi$. In the variable $t=b^2$ the exponent is $\int_0^\infty\log(1+u/t)\,U_\alpha(dt)$ and it is finite; this is equivalent to the integrability conditions on a Thorin measure stated with~\eqref{gl:eq:ggc}, so $U_\alpha$ is a Thorin measure with no drift.
+(a) By Hadamard's factorisation $f(s)=e^{A+Bs}\prod_\rho(1-s/\rho)e^{s/\rho}$ and the functional equation, $\Re(f'/f)(s)=\sum_\rho\Re(s-\rho)^{-1}$, absolutely convergent, for all $s$ off the zeros, and $\Re B=-\sum_\rho\Re\rho^{-1}$~\cite[Ch.~12]{Davenport}. Each term of the sum is positive when $\Re s>\beta$, which gives the formula for $v_\alpha$ and its positivity. The rest is the proof of Theorem~\ref{rz:thm:threshold}, which uses only the Hadamard product of an entire function of order one, the functional equation and reality on the real axis, and so applies to $f$. Put $\omega_\rho=\alpha-\rho$, so that $\Re\omega_\rho=\alpha-\beta>0$. The conjugate pair $\rho,\bar\rho$ contributes $\log|1+w/\omega_\rho|^2$ to $\log f(\alpha+w)/f(\alpha)$ and the density $\Re(\omega_\rho+ib)^{-1}+\Re(\omega_{\bar\rho}+ib)^{-1}$ to $v_\alpha(b)$, and the two agree through $\log(1+w^2/b^2)=\int_0^w2w'(b^2+w'^2)^{-1}dw'$ and the residue at $-iw'$ (the identity is that of one pair in the proof of Theorem~\ref{rz:thm:threshold}, whose computation also holds at $\gamma=0$; a real zero, with $\bar\rho=\rho$, contributes half of it, $\log(1+w/\omega_\rho)$ and $\Re(\omega_\rho+ib)^{-1}$). The terms are nonnegative, so by Tonelli they sum, and with $\Re B=-\sum_\rho\Re\rho^{-1}$ the Hadamard product $f(\alpha+w)/f(\alpha)=e^{Bw}\prod_\rho(1+w/\omega_\rho)e^{w/\rho}$ gives~\eqref{gl:eq:sinsq-thorin} with $u=w^2$ and density $v_\alpha/\pi$. In the variable $t=b^2$ the exponent is $\int_0^\infty\log(1+u/t)\,U_\alpha(dt)<\infty$, which is the integrability condition on a Thorin measure stated with~\eqref{gl:eq:ggc}, so $U_\alpha$ is a Thorin measure with no drift.
 
-(b) Let $\rho$ be a zero with $\beta>\alpha$ and put $u_\rho=(\rho-\alpha)^2$. Since $\Re(\rho-\alpha)=\beta-\alpha>0$, the principal square root of $u_\rho$ is $\rho-\alpha$, and $u_\rho\notin(-\infty,0]$, because otherwise $\rho-\alpha$ would be purely imaginary. The function $f(\alpha+\sqrt u)$ is analytic on $\C\setminus(-\infty,0]$ and vanishes at $u_\rho$, so $f(\alpha)/f(\alpha+\sqrt u)$ has a pole there. If $f$ had the Thorin property at $\alpha$, this function would coincide on $u>0$, hence on $\C\setminus(-\infty,0]$, with a GGC transform, which is analytic there by~\ref{gl:G1}: a contradiction. If every zero lies on the critical line, then $\beta=\tfrac12<\alpha$ for every $\alpha>\tfrac12$ and (a) gives the Thorin property at every basepoint $\alpha>\tfrac12$. If some zero is off the line, the functional equation gives one with $\beta>\tfrac12$, and the property fails at every $\alpha\in(\tfrac12,\beta)$, by the argument above where $f(\alpha)\neq0$ and by definition where $f(\alpha)=0$.
+(b) This is the first step of the proof of Theorem~\ref{rz:thm:threshold}. Let $\rho$ be a zero with $\beta>\alpha$ and $u_\rho=(\rho-\alpha)^2\notin(-\infty,0]$, whose principal square root is $\rho-\alpha$ because $\Re(\rho-\alpha)>0$, so $\rho-\alpha$ is not purely imaginary. Then $f(\alpha)/f(\alpha+\sqrt u)$ has a pole at $u_\rho$, whereas a GGC transform is analytic on $\C\setminus(-\infty,0]$ by~\ref{gl:G1}. If every zero lies on the critical line, then $\beta=\tfrac12<\alpha$ for every $\alpha>\tfrac12$ and (a) gives the Thorin property at every basepoint $\alpha>\tfrac12$. If some zero is off the line, the functional equation gives one with $\beta>\tfrac12$, and the property fails at every $\alpha\in(\tfrac12,\beta)$, by the argument above where $f(\alpha)\neq0$ and by definition where $f(\alpha)=0$.
 
 (c) Under GRH every zero is $\tfrac12\pm i\gamma$ with $\gamma>0$, since $f(\tfrac12)\ne0$, and (a) applies for every $\alpha>\tfrac12$; with $\alpha-\beta=\varepsilon$ the two zeros $\tfrac12\pm i\gamma$ contribute $P_\varepsilon(b-\gamma)+P_\varepsilon(b+\gamma)$. Let $h$ be continuous with compact support in $[0,R]$ and let $0<\varepsilon\le1$. For $\gamma\le R+1$ the integral of $h$ against $P_\varepsilon(b-\gamma)+P_\varepsilon(b+\gamma)$ over $[0,\infty)$ tends to $h(\gamma)$, because $\gamma>0$ is a point of continuity of $h$ extended by zero and $\int_0^\infty P_\varepsilon(b+\gamma)\,db\le\varepsilon/(\pi\gamma)$. For $\gamma>R+1$ and $b\in[0,R]$ one has $|b\mp\gamma|\ge\gamma-R\ge\gamma/(R+1)$, so the integral is at most $2R\|h\|_\infty(R+1)^2\varepsilon/(\pi\gamma^2)$. The zeros with $\gamma>R+1$ therefore contribute at most a constant times $\varepsilon\sum_\gamma\gamma^{-2}$, which tends to $0$, and the finitely many others give $\sum_{\gamma>0}h(\gamma)$ in the limit, so $\int h\,(v_\alpha/\pi)\,db\to\sum_{\gamma>0}h(\gamma)$. Under $b\mapsto b^2$ this is the convergence of $U_\alpha$ to $\sum_\gamma\delta_{\gamma^2}$.
 \end{proof}
@@ -218,23 +194,7 @@ Reaching the centre means running the Poisson smoothing backwards from $\alpha$ 
 
 \emph{Numerical check for $\chi_4$.} A computation checks the lemma for $\chi_4$ at $30$ digits. At $\alpha=2$, with the prime powers up to $N$ and the integral over $b$ done term by term (each prime term is the kernel identity), the integral in~\eqref{gl:eq:sinsq-thorin} differs from $\log\xi(\alpha+w,\chi_4)/\xi(\alpha,\chi_4)$ by $-4.4\times10^{-8}$, $-1.2\times10^{-9}$ and $6.2\times10^{-11}$ for $N=10^4$, $10^5$ and $10^6$ at $w=1$ and $w=3$; this difference is the tail of the prime sum beyond $N$. The prime side of~\eqref{gl:eq:Malpha}, over the prime powers up to $2\times10^6$, agrees with $v_\alpha(b)/\pi$ computed directly from $\xi'/\xi$ to $9.4\times10^{-11}$ at $\alpha=2$ and to $1.9\times10^{-7}$ at $\alpha=\tfrac32$. The zero side, the sum of part~(a) over the $203$ zeros of $L(s,\chi_4)$ below height $300$ found numerically, with the tail beyond height $300$ taken from the smooth zero density, differs from the direct value by $1.1\times10^{-6}$ to $1.7\times10^{-6}$ at $\alpha=\tfrac32$ and $2$ for $0\le b\le50$; once the tail is anchored to the exact zero count at the cut, as in~\eqref{gl:eq:anchored}, the difference falls to between $9.7\times10^{-9}$ and $1.7\times10^{-8}$, far inside the enclosure of $1.6\times10^{-5}$ to $2.7\times10^{-5}$ that the explicit bound for the zero count used in the proof of Theorem~\ref{thm:dbeta:minall}(v) guarantees.
 
-On the lines $\alpha=1,\tfrac34,\tfrac35,\tfrac{11}{20}$ the minimum of $v_\alpha(b)$ over $0\le b\le150$, on grids of step $0.1$ and $0.005$, is at $b=0$ (Table~\ref{gl:tab:sinsqmin}), where $v_\alpha(0)=b_\alpha=(\xi'/\xi)(\alpha,\chi_4)$.
-
-\begin{table}[htbp]
-\centering\small
-\begin{tabular}{cccc}
-\toprule
-$\alpha$ & $v_\alpha(0)=b_\alpha$ & $2(\alpha-\tfrac12)\,p_1(\chi_4)$ & ratio\\
-\midrule
-$1$ & $0.0777839900$ & $0.0780148250$ & $0.99704$\\
-$\tfrac34$ & $0.0389784293$ & $0.0390074125$ & $0.99926$\\
-$\tfrac35$ & $0.0156011077$ & $0.0156029650$ & $0.99988$\\
-$\tfrac{11}{20}$ & $0.0078012503$ & $0.0078014825$ & $0.99997$\\
-\bottomrule
-\end{tabular}
-\caption{The minimum of $v_\alpha(b)$ over $0\le b\le150$ for $\chi_4$, always at $b=0$, against the bound $2(\alpha-\tfrac12)\,p_1(\chi_4)=(\alpha-\tfrac12)V_f$ of Theorem~\ref{thm:dbeta:minall}(i), with $V_f=2p_1(\chi_4)=0.1560296499$. Computed.}
-\label{gl:tab:sinsqmin}
-\end{table}
+The minimum of $v_\alpha(b)$ for $\chi_4$ on the lines $\alpha=1,\tfrac34,\tfrac35,\tfrac{11}{20}$ is at $b=0$ (Table~\ref{gl:tab:sinsqmin} in Section~\ref{sec:dbeta:levy}).
 
 For $\alpha=2$ and $\tfrac32$ every zero of $L(s,\chi_4)$ has real part below $1<\alpha$, so Proposition~\ref{gl:prop:sinsq} and part~(a) of Theorem~\ref{gl:thm:sinsq} hold with no hypothesis, and the comparisons above are identities up to truncation: they test the quadrature, the truncation of the prime sums, the zero list and its tail, and the code, not the theorem and not GRH. The grid of the table is a finite test of the function $v_\alpha$, consistent with GRH; part~(ii) of Theorem~\ref{thm:dbeta:minall} turns it into a theorem for $0<|b|\le2.5\times10^7-1.21$, using the verification of GRH for $\chi_4$ to height $2.5\times10^7$~\cite{Platt16}, and for $\alpha<1$ the function $v_\alpha/\pi$ is the Thorin density of $\xi(\alpha,\chi_4)/\xi(\alpha+\sqrt u,\chi_4)$ only if no zero lies to the right of $\alpha$, which is known below that height and open above it. The lemma's output is not computable from the primes alone in practice for $\alpha\le1$: the plain prime sum at $b=0$ over the prime powers up to $2\times10^6$ differs from $v_\alpha(0)$ by $0.17$, $12$, $260$ and $1100$ percent of the value at $\alpha=1,\tfrac34,\tfrac35,\tfrac{11}{20}$, so the minima of the table come from the zeros and the direct values of $\xi'/\xi$, not from the primes.
 

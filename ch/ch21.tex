@@ -1,6 +1,6 @@
 \section{The de Bruijn Newman flow from the P\'olya density}\label{ch:dbn}
 
-The de Bruijn Newman flow reads RH from a deformation of the P\'olya kernel: multiplying the kernel by a Gaussian factor turns $\Xi$ into a family of entire functions $H_t$ that evolve by the backward heat equation, and RH is the statement that no two zeros collide at positive time. The P\'olya route computes $H_t$ at the cost of $\Xi$. This chapter follows zeros backward to their collisions, reads the collisions through the Hankel test, brackets the collision times by Laguerre's quantity and Biane's theorem, compares them with the lower bounds for $\Lambda$ of Csordas, Smith and Varga, and then turns to the tilted clock, the Laguerre expressions along the flow and the forward persistence of real zeros.
+The de Bruijn Newman flow reads RH from a deformation of the P\'olya kernel: multiplying the kernel by a Gaussian factor turns $\Xi$ into a family of entire functions $H_t$ that evolve by the backward heat equation, and RH is the statement that no two zeros collide at positive time. This chapter follows zeros backward to their collisions, reads the collisions through the Hankel test, brackets the collision times by Laguerre's quantity and Biane's theorem, compares them with the lower bounds for $\Lambda$ of Csordas, Smith and Varga, and then turns to the tilted clock, the Laguerre expressions along the flow and the forward persistence of real zeros.
 
 \subsection{The flow, the motion of its zeros and its Thorin form}\label{sec:ch21:flow}
 
@@ -15,13 +15,13 @@ so that $H_0(z)=\frac18\Xi(z/2)$. If $v=2u$ denotes the variable of \eqref{eq:ch
 \]
 so the flow multiplies the kernel of \eqref{eq:ch2:Phi} by $e^{tv^2/4}$, and a zero $z$ of $H_t$ corresponds to the ordinate $\theta=z/2$.
 
-De Bruijn showed that $H_t$ has only real zeros for $t\ge\frac12$ and that the property persists forward in time \cite{deBruijn}. Newman showed that there is a constant $\Lambda>-\infty$, at most $\frac12$ by de Bruijn's theorem, such that $H_t$ has only real zeros exactly for $t\ge\Lambda$, and conjectured $\Lambda\ge0$ \cite{Newman1976}, which Rodgers and Tao proved \cite{RodgersTao}. Ki, Kim and Lee sharpened de Bruijn's bound to $\Lambda<\frac12$ \cite{KKL09}, the Polymath project proved $\Lambda\le0.22$ \cite{Polymath}, and Platt and Trudgian improved this to $\Lambda\le0.2$ \cite{PT21}. De Bruijn's bound comes from a theorem about strips: if the zeros of $H_0$ lie in $|\im z|\le\Delta$, then $H_t$ has only real zeros for $t\ge\Delta^2/2$ \cite[Theorem 13]{deBruijn}, and the critical strip gives $\Delta=1$. A zero free half plane $\re s>\alpha$ gives $\Delta=2\alpha-1$, hence $\Lambda\le2(\alpha-\frac12)^2$, which improves $0.2$ only if $\alpha<\frac12+\sqrt{0.1}\approx0.816$. RH is the inequality $\Lambda\le0$, so by the theorem of Rodgers and Tao it is equivalent to $\Lambda=0$.
+De Bruijn showed that $H_t$ has only real zeros for $t\ge\frac12$ and that the property persists forward in time \cite{deBruijn}. Newman showed that there is a constant $\Lambda>-\infty$, at most $\frac12$ by de Bruijn's theorem, such that $H_t$ has only real zeros exactly for $t\ge\Lambda$, and conjectured $\Lambda\ge0$ \cite{Newman1976}, which Rodgers and Tao proved \cite{RodgersTao}. The best bound is $\Lambda\le0.2$ \cite{PT21} (Table~\ref{tab:ch21:hist}). De Bruijn's bound comes from a theorem about strips: if the zeros of $H_0$ lie in $|\im z|\le\Delta$, then $H_t$ has only real zeros for $t\ge\Delta^2/2$ \cite[Theorem 13]{deBruijn}, and the critical strip gives $\Delta=1$. A zero free half plane $\re s>\alpha$ gives $\Delta=2\alpha-1$, hence $\Lambda\le2(\alpha-\frac12)^2$, which improves $0.2$ only if $\alpha<\frac12+\sqrt{0.1}\approx0.816$. RH is the inequality $\Lambda\le0$, so by the theorem of Rodgers and Tao it is equivalent to $\Lambda=0$.
 
 While the zeros are simple they move according to
 \[
 \frac{dz_k}{dt}=2\sum_{j\ne k}\frac1{z_k-z_j},
 \]
-the sum running over all other zeros, positive and negative, with $z_j$ and $-z_j$ taken together. Differentiating $H_t(z_k(t))=0$ in $t$ and using the backward heat equation $\partial_tH_t=-\partial_z^2H_t$ gives $dz_k/dt=\partial_z^2H_t/\partial_zH_t$ at $z_k$, and the Hadamard product of the even function $H_t$ turns this into the display (Exercise~\ref{ex:ch21:motion}). The equation is the gradient flow of unit charges on the line with logarithmic interaction, so forward in time the zeros repel each other and spread. Backward in time neighbouring zeros approach each other, and a close pair collides and then leaves the real axis as a conjugate pair. A pair at distance $D$ that is isolated from the other zeros obeys $dD/dt\approx4/D$, so $D^2\approx D_0^2+8t$ with $D_0=D(0)$, and the pair collides at $t\approx-D_0^2/8$. RH is the statement that no two zeros collide at a positive time. Numerically the flow makes the first zeros more regular: unfolding the first 120 zeros of $H_t$ by $\vartheta(z/2)/\pi$, the variance of the unfolded gaps is $0.1240$, $0.1165$, $0.1096$ and $0.0975$ at $t=0$, $0.05$, $0.1$ and $0.2$, and the smallest gap is $0.3868$, $0.4092$, $0.4300$ and $0.4678$, always between the 34th and 35th zeros (computed; \cite{P26path}). This is an observation about these zeros and not a consequence of the repulsion: for the uniform law on $[-1,1]$, whose transform $\sin\theta/\theta$ has the equally spaced zeros $k\pi$, the first order velocity of Remark~\ref{fm:rem:firstorder} at the $k$th zero is $-2/(k\pi)$, so gaps that start equal become unequal.
+the sum running over all other zeros, positive and negative, with $z_j$ and $-z_j$ taken together. Differentiating $H_t(z_k(t))=0$ in $t$ and using the backward heat equation $\partial_tH_t=-\partial_z^2H_t$ gives $dz_k/dt=\partial_z^2H_t/\partial_zH_t$ at $z_k$, and the Hadamard product of the even function $H_t$ turns this into the display (Exercise~\ref{ex:ch21:motion}). The equation is the gradient flow of unit charges on the line with logarithmic interaction, so forward in time the zeros repel each other and spread. Backward in time neighbouring zeros approach each other, and a close pair collides and then leaves the real axis as a conjugate pair. A pair at distance $D$ that is isolated from the other zeros obeys $dD/dt\approx4/D$, so $D^2\approx D_0^2+8t$ with $D_0=D(0)$, and the pair collides at $t\approx-D_0^2/8$. Numerically the flow makes the first zeros more regular: unfolding the first 120 zeros of $H_t$ by $\vartheta(z/2)/\pi$, the variance of the unfolded gaps is $0.1240$, $0.1165$, $0.1096$ and $0.0975$ at $t=0$, $0.05$, $0.1$ and $0.2$, and the smallest gap is $0.3868$, $0.4092$, $0.4300$ and $0.4678$, always between the 34th and 35th zeros (computed; \cite{P26path}). This is an observation about these zeros and not a consequence of the repulsion: for the uniform law on $[-1,1]$, whose transform $\sin\theta/\theta$ has the equally spaced zeros $k\pi$, the first order velocity of Remark~\ref{fm:rem:firstorder} at the $k$th zero is $-2/(k\pi)$, so gaps that start equal become unequal.
 
 At $t=0$ the velocity has a closed form through Hardy's function $Z$ of Section~\ref{ch:classical} \cite{P26pg3}.
 
@@ -47,7 +47,7 @@ Each zero $z$ of $H_t$ gives the zero $\frac12+iz/2$ of $\xi_t$, and for every $
 
 \subsection{Two collisions computed from the P\'olya kernel}\label{sec:ch21:collisions}
 
-The P\'olya route evaluates $H_t$ at any $t$ by multiplying the node values $\Phi(v_j)$ by $e^{tv_j^2/4}$ and summing; the factor is entire, so the error analysis of Section~\ref{ch:polya} carries over. Among the $79$ zeros below height $200$ the closest pair is $\gamma_{71}=184.8745$, $\gamma_{72}=185.5988$, at distance $0.7243$ in $\theta$, that is $D_0=1.4486$ in $z$. We follow the pair by the sign changes of $H_t(2\theta)$ on a grid and refine each zero by Newton's method (Table~\ref{tab:ch21:traj}).
+The P\'olya route evaluates $H_t$ at any $t$ by multiplying the node values $\Phi(v_j)$ by $e^{tv_j^2/4}$ and summing; the factor is entire, so the error analysis of Section~\ref{ch:polya} carries over. Among the $79$ zeros below height $200$ the closest pair is $\gamma_{71}=184.8745$, $\gamma_{72}=185.5988$, at distance $0.7243$ in $\theta$, that is $D_0=1.4486$ in $z$. We follow the pair (Table~\ref{tab:ch21:traj}).
 
 \begin{table}[htbp]
 \centering\small
@@ -73,7 +73,7 @@ Bisection on $t$ for the disappearance of the two sign changes gives the collisi
 \[
 t_*=-0.2880,
 \]
-with a grid error of at most $6.1\times10^{-5}$. Near a collision the term $4/D$ dominates the motion of the pair, so $D^2\approx8(t-t_*)$ and the gap in $\theta$ is about $\sqrt{2(t-t_*)}$; on a grid of step $h$ the sign changes therefore vanish at a time at most $h^2/2$ above $t_*$. The isolated pair estimate is $-D_0^2/8=-0.262$: the neighbouring zeros, which the estimate ignores, delay the collision. Since nonreal zeros persist backward in time, $H_t$ has nonreal zeros for every $t$ below the collision time, so $\Lambda\ge t_*\approx-0.288$.
+with a grid error of at most $6.1\times10^{-5}$; the collision is certified to lie below $-0.287979837008$, and the pair law puts it in $[-0.28803,-0.287979]$ (Proposition~\ref{cp:prop:gas}). Near a collision the term $4/D$ dominates the motion of the pair, so $D^2\approx8(t-t_*)$ and the gap in $\theta$ is about $\sqrt{2(t-t_*)}$; on a grid of step $h$ the sign changes therefore vanish at a time at most $h^2/2$ above $t_*$. The isolated pair estimate is $-D_0^2/8=-0.262$: the neighbouring zeros, which the estimate ignores, delay the collision. Since nonreal zeros persist backward in time, $H_t$ has nonreal zeros for every $t$ below the collision time, so $\Lambda\ge t_*\approx-0.288$.
 
 Lehmer's pair near height $7005$, $\gamma_{6709}=7005.0629$ and $\gamma_{6710}=7005.1006$ (Section~\ref{sec:ch5:lehmer}), is much closer: $D_0=2\times0.0377=0.0754$, and its isolated pair estimate is $-D_0^2/8=-7.1\times10^{-4}$. The tilted P\'olya route evaluates $H_t$ at that height at the same cost as $\Xi$. With the parameters of Section~\ref{sec:ch5:lehmer} we track the two sign changes of the pair on a grid of step $0.0025$ in $\theta$ over $[7005.03,7005.13]$. Both sign changes are present at $t=0$ and absent at $t=-0.004$, and twelve bisection steps on this interval give $-7.10\times10^{-4}$, which by the argument above lies above the collision time by at most $0.0025^2/2\approx3\times10^{-6}$. Newton's method for the double zero, $H_t(2\theta)=\partial_\theta H_t(2\theta)=0$ in the unknowns $\theta$ and $t$, started from this value, gives
 \[
@@ -89,7 +89,7 @@ The Stieltjes moment test of Section~\ref{ch:heat} (Table~\ref{tab:ch12:jacobi})
 \[
 G_t(u)=\frac{H_t(2i\sqrt u)}{H_t(0)}=\sum_{k\ge0}\frac{M_k(t)\,u^k}{(2k)!\,M_0(t)},\qquad M_k(t)=\int_{\mathbb R}v^{2k}e^{tv^2/4}\Phi(v)\,dv,
 \]
-and $G_0$ is the function $G$ of Section~\ref{ch:heat}. Write $\pm\theta_j(t)$ for the zeros of $\theta\mapsto H_t(2\theta)$, so that $\theta_j(0)=\gamma_j$ while the zeros are on the line. Since $H_t$ is even and entire of order one, $G_t$ has order $\frac12$ and $G_t(u)=\prod_j(1+u/a_j(t))$ with $a_j(t)=\theta_j(t)^2$, so the Newton identities turn the $M_k(t)$ into the moments $m_n(t)=\sum_ja_j(t)^{-n-1}$, exactly as at $t=0$. If every $\theta_j(t)$ is real, the $m_n(t)$ are the moments of the positive measure $\nu_t=\sum_ja_j(t)^{-1}\delta_{1/a_j(t)}$, and every Hankel matrix $\mathcal H_N(t)=[m_{i+j}(t)]_{i,j<N}$ is positive definite. The converse is proved as at $t=0$: if every $\mathcal H_N(t)$ is positive definite, every $a_j(t)$ is real, and it is positive because $H_t$ has no zeros on the imaginary axis: $H_t(iy)=\int_0^\infty e^{tu^2}\Phi_{\rm dBN}(u)\cosh(yu)\,du>0$, the kernel \eqref{eq:ch2:Phi} being strictly positive. So all $\mathcal H_N(t)$ are positive definite exactly when $H_t$ has only real zeros. The Cholesky factor gives the Jacobi matrix $J_N(t)$, whose eigenvalues return the lowest zeros of $H_t$ as $J_N$ returns the $\gamma_j$ at $t=0$ (Table~\ref{tab:ch21:flowzeros}).
+and $G_0$ is the function $G$ of Section~\ref{ch:heat}. Write $\pm\theta_j(t)$ for the zeros of $\theta\mapsto H_t(2\theta)$, so that $\theta_j(0)=\gamma_j$ while the zeros are on the line. Since $H_t$ is even and entire of order one, $G_t$ has order $\frac12$ and $G_t(u)=\prod_j(1+u/a_j(t))$ with $a_j(t)=\theta_j(t)^2$, so the Newton identities turn the $M_k(t)$ into the moments $m_n(t)=\sum_ja_j(t)^{-n-1}$, exactly as at $t=0$. If every $\theta_j(t)$ is real, the $m_n(t)$ are the moments of the positive measure $\nu_t=\sum_ja_j(t)^{-1}\delta_{1/a_j(t)}$, and every Hankel matrix $\mathcal H_N(t)=[m_{i+j}(t)]_{i,j<N}$ is positive definite. The converse is proved as at $t=0$: if every $\mathcal H_N(t)$ is positive definite, every $a_j(t)$ is real, and it is positive because $H_t$ has no zeros on the imaginary axis: $H_t(iy)=\int_0^\infty e^{tu^2}\Phi_{\rm dBN}(u)\cosh(yu)\,du>0$, the kernel \eqref{eq:ch2:Phi} being strictly positive. The Cholesky factor gives the Jacobi matrix $J_N(t)$, whose eigenvalues return the lowest zeros of $H_t$ as $J_N$ returns the $\gamma_j$ at $t=0$ (Table~\ref{tab:ch21:flowzeros}).
 
 \begin{table}[htbp]
 \centering\small
@@ -176,6 +176,8 @@ $-20$ & $(2,3)$ & $29.967\pm2.178i$ & $1$ & $9$ & $5$ & $5$ & $(3,3)$ & $(8,8)$\
 \caption{The Hankel test further back along the flow. At each time: the lowest conjugate pair, labelled $(k,k+1)$ by the zeros $\gamma_k$, $\gamma_{k+1}$ it starts from, and its position $\theta$; the number of real zeros below it; the number of collisions so far among $\gamma_1,\dots,\gamma_{24}$, the zeros that start below $\theta=88$; the least orders $n_{\rm fail}(t)$ and $n'_{\rm fail}(t)$ up to $30$ at which $\mathcal H_N(t)$ and $\mathcal H'_N(t)$ are not positive definite; and the numbers $\iota_N(t)$ and $\iota'_N(t)$ of their negative eigenvalues at $N=10$ and $30$.}
 \label{tab:ch21:nfaillong}
 \end{table}
+
+Jensen polynomials of $H_t$ give a finite order test from the same moments, and a much weaker one. Let $a_k(t)$ be the Taylor coefficients of $H_t(2i\sqrt s)$ in $s$, put $g_t(k)=k!\,a_k(t)$ and $J_t^{d,n}(X)=\sum_{j=0}^d\binom dj g_t(n+j)X^j$, and let $t^*(d,n)$ be the supremum of the times at which $J_t^{d,n}$ has a nonreal zero. For $t\ge\Lambda$ the function $H_t(2i\sqrt s)$ has order $\frac12$ in $s$ and only negative zeros, so every $J_t^{d,n}$ is hyperbolic by the theorem of Jensen and P\'olya, and for $t<\Lambda$ some $J_t^{d,n}$ is not, by P\'olya's criterion. Hence $\Lambda=\sup_{d,n}t^*(d,n)$ (proved), every computed $t^*(d,n)$ is a lower bound for $\Lambda$, and an upper bound needs every degree. At shift $0$ bisection finds $t^*(10,0)=-92.12$, $t^*(20,0)=-37.57$ and $t^*(40,0)=-20.28$ (computed at $110$ digits, not certified); at each of these times the second and third smallest zeros in absolute value of $J_t^{d,0}$, for $d=40$ the fourth and fifth, meet and leave the axis. These coalescences lie far below the collision times of $H_t$: at $t=-15$, when nine of the pairs among $\gamma_1,\dots,\gamma_{24}$ have collided, the lowest conjugate pair of $H_t$ is at $\theta=28.202\pm1.166i$, above one real zero, and the Hankel matrix of order $6$ is not positive definite (Table~\ref{tab:ch21:nfaillong}), the polynomials $J_t^{10,0}$, $J_t^{20,0}$ and $J_t^{40,0}$ are all hyperbolic (computed). Degree two at every shift, that is the Tur\'an inequalities, gave Csordas, Norfolk and Varga $\Lambda>-50$ in 1988 (Table~\ref{tab:ch21:hist}), more than shift $0$ gives up to degree $10$. Raw Jensen data also need high precision: with coefficients to $60$ digits a spurious nonreal pair of $J_t^{60,0}$ appears near $t=-0.12$, and it is gone at $110$ digits. The Jensen critical times are from an unrefereed note of Polson (November 2026) and were recomputed here at degrees $10$, $20$ and $40$.
 
 \subsection{Biane's theorem and Laguerre's quantity}\label{sec:wigbiane:biane}
 
@@ -525,7 +527,7 @@ where the prime restricts the sum to nonzero integers $j$, of either sign. The p
 \]
 The leading term is the isolated pair collision time $-D_0^2/8$ with $D_0=\Delta_k$. The binomial series of $(1-x)^{4/5}$ has only negative coefficients after the constant term, so every further term is negative and decreases in $g_k$, and so does $\Lambda_k$.
 
-For the closest pair below height $200$, $\Delta_{71}=1.44863$ and, from the first $1700$ zeros, $g_{71}=0.33734$, so $\Delta^2g=0.708<\frac45$: the pair is a Lehmer pair in this sense, and it gives $\Lambda_{71}=-0.3048$. The omitted zeros above height $2197$ increase $g$ by less than $10^{-3}$, which lowers $\Lambda_{71}$ by less than $3\times10^{-4}$, so with the tail the bound is $-0.305$. The theorem is proved, but this evaluation of it is a floating point computation with zeros computed by \texttt{mpmath} \cite{mpmath}. The bound lies below the computed collision time $-0.288$, as expected. The theorem itself does not order the bound and the collision time: its proof, by contradiction, assumes that $H_t$ has only real zeros for $\Lambda_k\le t\le0$, which fails for every $t<0$ because $\Lambda\ge0$.
+For the closest pair below height $200$, $\Delta_{71}=1.44863$ and, from the first $1700$ zeros, $g_{71}=0.33734$, so $\Delta^2g=0.708<\frac45$, and it gives $\Lambda_{71}=-0.3048$. The omitted zeros above height $2197$ increase $g$ by less than $10^{-3}$, which lowers $\Lambda_{71}$ by less than $3\times10^{-4}$, so with the tail the bound is $-0.305$. The theorem is proved, but this evaluation of it is a floating point computation with zeros computed by \texttt{mpmath} \cite{mpmath}. The bound lies below the computed collision time $-0.288$, as expected. The theorem itself does not order the bound and the collision time: its proof, by contradiction, assumes that $H_t$ has only real zeros for $\Lambda_k\le t\le0$, which fails for every $t<0$ because $\Lambda\ge0$.
 
 Table~\ref{tab:ch21:hist} lists the published bounds. The last four lower bounds before 2020, among them that of Csordas, Odlyzko, Smith and Varga \cite{COSV93}, came from this theorem applied to Lehmer pairs of increasingly high quality, found at heights far greater than $7005$. Rodgers and Tao proved $\Lambda\ge0$ by a different argument, showing that $\Lambda<0$ would force the zeros into a local equilibrium incompatible with Montgomery's pair correlation estimates \cite{Montgomery73}.
 
@@ -565,7 +567,7 @@ the sum running over all the other zeros $\rho$ (conjugate pairs, if any, give a
 \begin{equation}\label{nw:eq:gap}
 \frac{d(g^2)}{dt}=4\,\mathrm{Def}.
 \end{equation}
-For an isolated pair $S_{a,b}=0$ and $\mathrm{Def}=2$, which is the law $g^2=g(0)^2+8t$ of Section~\ref{sec:ch21:flow}. For real zeros $S_{a,b}>0$, and $2xy\le x^2+y^2$ gives $S_{a,b}\le g_k/2$ with the $g_k$ of Csordas, Smith and Varga (computed here from the zeros of $H_t$) in Section~\ref{sec:ch21:bounds}, so $\mathrm{Def}\ge2-\Delta_k^2g_k/2$. A regular lattice of gap $g$ shields exactly: each side contributes $\sum_{m\ge1}1/(m(m+1))=1$, the factor $2$ being what the other zeros must supply. On each side number the exterior gaps outward from the pair, write them $g(1+\varepsilon_m)$ with $\varepsilon_m>-1$, and put $D_0=0$, $D_m=\sum_{j\le m}\varepsilon_j$. The $m$th exterior zero on that side is at distance $g(m+D_m)$ from the nearer end of the pair.
+For an isolated pair $S_{a,b}=0$ and $\mathrm{Def}=2$, which is the law $g^2=g(0)^2+8t$ of Section~\ref{sec:ch21:flow}. For real zeros $S_{a,b}>0$, and $2xy\le x^2+y^2$ gives $S_{a,b}\le g_k/2$ with the $g_k$ of Csordas, Smith and Varga (computed here from the zeros of $H_t$) in Section~\ref{sec:ch21:bounds}, so $\mathrm{Def}\ge2-\Delta_k^2g_k/2$. A regular lattice of gap $g$ shields exactly: each side contributes $\sum_{m\ge1}1/(m(m+1))=1$. On each side number the exterior gaps outward from the pair, write them $g(1+\varepsilon_m)$ with $\varepsilon_m>-1$, and put $D_0=0$, $D_m=\sum_{j\le m}\varepsilon_j$. The $m$th exterior zero on that side is at distance $g(m+D_m)$ from the nearer end of the pair.
 
 \begin{theorem}[Newton]\label{nw:thm:shield}
 On one side, for every $N\ge1$,
@@ -592,6 +594,157 @@ and by (c) the constant $j^{-2}$ is optimal to first order. (e) If the configura
 \end{proof}
 
 Part (e) says nothing about $H_t$: its mean gap at height $T$ is of order $1/\log T$, so there is no smallest gap. Being minimal among the neighbours is not enough either: take $g=1$ and exterior zeros at distances $1$, $1.01$, $1.02$ from the pair on both sides, so that the nearest exterior gaps equal $g$ and the next ones are $0.01$. Then $g^2S_{a,b}\ge1+\frac{20000}{20301}+\frac{20000}{20604}=\frac{340039}{115039}>2$, so $\mathrm{Def}<0$ and this gap shrinks forward. Finally, \eqref{nw:eq:gap} integrates to an identity, $4\int\mathrm{Def}\,dt=\Delta(g^2)$, so a bound on the shielding budget that already contains the moving gap is circular; an estimate has to bound $\mathrm{Def}$ from the exterior zeros alone.
+
+\subsection{The zero gas along the flow}\label{cp:sec:gas}
+
+In the variable $z=2\gamma$ of Section~\ref{sec:ch21:flow} (five of the zeros at four times in Table~\ref{tab:ch21:flowzeros}) we integrated the equation of motion for the first $600$ zeros, heights up to $939.02$, with a frozen tail for the omitted zeros (the zeros $601$ to $1700$ held at their positions at $t=0$ and a continuum of density $\frac1{4\pi}\log(z/4\pi)$ beyond them, whose drift on $z_k$ is $-4z_k\sum_{j>600}z_j^{-2}$ to leading order), backward from $t=0$ until the first gap fell below $0.02$ and forward to $t=0.3$. Along the trajectory we recorded the minimum normalised gap $s_{\min}(t)=\min_k(z_{k+1}-z_k)\frac1{4\pi}\log(z_{k+1}/4\pi)$ and the Csordas, Smith and Varga quantity $\min_k\Delta_k^2g_k$ of Section~\ref{sec:ch21:bounds} over the first $400$ pairs, where the sum $g_k$ runs over all the other zeros of the model, the frozen tail and the continuum included.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=\textwidth]{fig/cp_flow.pdf}
+\caption{Left: the minimum normalised gap and $\min_k\Delta_k^2g_k$ along the flow, both monotone on the computed range; the second crosses the Lehmer threshold $\frac45$ near $t=0.17$. Right: $D^2$ for the closest pair below height $200$, at ordinates $184.87$ and $185.60$, against the isolated pair law $D_0^2+8t$.}
+\label{cp:fig:flow}
+\end{figure}
+
+\begin{proposition}[Computed; the upper end of (iii) certified]\label{cp:prop:gas}
+(i) The backward integration stops at $t=-0.0493$, when the pair at ordinates $750.656$ and $750.966$, the $453$rd and $454$th zeros, collides; the isolated pair estimate is $-D_0^2/8=-0.048$. (ii) At the $171$ times sampled in $[-0.049,0.30]$ both $s_{\min}(t)$ and $\min_k\Delta_k^2g_k$ are strictly increasing, from $0.0076$ to $0.502$ and from $0.035$ to $0.977$; at $t=0$ the minimiser of $\Delta_k^2g_k$ is the pair at $564.16$ and $564.51$, with value $0.238$. (iii) For the pair near $185$, the pair $(\gamma_{71},\gamma_{72})$ of Section~\ref{sec:ch21:collisions}, certified signs of $\xi_t(\frac12+i\theta)$ in Arb at $640$ bits (the trapezoid sum of Section~\ref{sec:ch4:trapezoid} with an enclosure of its discretisation error) at $131$ points of $[184.6,185.9]$, with bisection in $t$ on the number of sign changes, show that the pair is still real at $t=-0.287979$, and with the pair law below place the collision in $[-0.28803,-0.287979]$, in agreement with the value $-0.2880$ of Section~\ref{sec:ch21:collisions} and inside the bracket of Section~\ref{sec:wigbiane:brackets}. Newton's method on the same sum puts the double zero at $z_*=370.78087$, $t_*=-0.287979837009$; a Krawczyk test certifies a real double zero of the trapezoid sum itself in a box of half width $2^{-400}$ about this point (a statement about the sum, not about $H_t$), and at $t=t_*+1.2\times10^{-12}$ the signs $+,-,+$ of $H_t$ at $z_*-4\times10^{-6}$, $z_*$ and $z_*+4\times10^{-6}$ show that the pair is still real, which certifies that the collision lies below $-0.287979837008$: the upper end of the bracket is certified and the lower end is not. The extrapolation of the integrated $D^2$ was $7\%$ early and the isolated pair estimate $-0.262$ was $9\%$ late.
+\end{proposition}
+
+The bracket in (iii) rests on the pair law of Section~\ref{sec:ch21:collisions}, so sign changes on a grid of step $0.01$ in $\theta$ vanish at most $5\times10^{-5}$ above $t_*$. At $t=-0.287981$ the grid finds none, which does not exclude two real zeros less than $0.01$ apart, and the lower end rests on the pair law, an asymptotic statement and not an enclosure.
+
+The question is whether a gap functional, monotone as in (ii), can carry a positive lower bound from $t>0$ down to $t=0$ uniformly in the height; the data suggest not. Both are minimised at Lehmer pairs, whose normalised gaps are expected, on the GUE conjecture, to be arbitrarily small at large height, so their infimum over all heights would be zero at $t=0$. A Lyapunov functional for RH must be global, insensitive to individual close pairs, in the manner of the pair correlation that Rodgers and Tao used to prove the reverse inequality \cite{RodgersTao}; we did not find a candidate. Two rigorous companions of the data are in Sections~\ref{nw:sec:shield} and \ref{sec:ft:persist}: an exact formula for the drift of a gap, and a proof that no bound through the absolute value of the integrand gives a step uniform in the height \cite{Newton26}.
+
+\subsection{Complex zeros as interacting particles}\label{xi:sec:particles}
+
+This subsection records exact closed forms for the motion of non real zeros, from an unrefereed note of Polson (November 2026); the statuses and constants are corrected here. The equations of motion are those of Proposition~\ref{prop:ch21:velocity}, due to Csordas, Smith and Varga \cite{CSV94}, and the regular lattice that shields exactly is Theorem~\ref{nw:thm:shield}. De Bruijn's strip theorem is \cite[Theorem 13]{deBruijn}, Theorem~\ref{cp:thm:phase}, and is not reproved. Here the variable is the ordinate $\theta=z/2$, and the time is $\lambda=t/4$, so that $\partial_\lambda H=-\partial_\theta^2H$ and the zeros move by $d\theta_j/d\lambda=2\sum_{k\ne j}(\theta_j-\theta_k)^{-1}$. A zero $\rho=\beta+i\gamma$ of $\zeta$ is a particle at $\theta=\gamma-i(\beta-\frac12)$, at height $b=|\beta-\frac12|\le\frac12$. In standard time the quantities below are multiplied by $4$.
+
+\begin{proposition}[Height of one quadruple]\label{xi:prop:bdot}
+Let $x+ib$, $b>0$, be a non real zero, the others being its quadruple $\pm(x\pm ib)$ and real pairs $\pm\gamma$. Then
+\begin{equation}\label{xi:eq:bdot}
+\frac{db}{d\lambda}=-\frac1b-\frac b{b^2+x^2}-4b\sum_\gamma\frac{b^2+\gamma^2+x^2}{\big(b^2+(\gamma-x)^2\big)\big(b^2+(\gamma+x)^2\big)}\ <0
+\end{equation}
+(proved).
+\end{proposition}
+
+\begin{proof}
+Take the imaginary part of the equation of motion. The three partners in the quadruple contribute $-b^{-1}-b(b^2+x^2)^{-1}$, and each real pair contributes the displayed term, whose numerator and denominator are positive.
+\end{proof}
+
+Real zeros therefore accelerate the collapse of a complex quadruple. For $G(\lambda,\theta)=\partial_\theta\log H_\lambda=\sum_k(\theta-\theta_k)^{-1}$, the Stieltjes transform of the zero counting measure, a direct computation from $\partial_\lambda H=-\partial_\theta^2H$ gives the complex Burgers equation $\partial_\lambda G+2G\,\partial_\theta G+\partial_\theta^2G=0$ (proved). If all zeros are real then $\im G<0$ for $\im\theta>0$, so $-G$ is a Herglotz function, and RH is the statement that this property, which holds for $\lambda>\Lambda/4$, survives to $\lambda=0$. This is a reformulation and not progress.
+
+\emph{A regular real background.} Fix a quadruple at large ordinate $x$ and place the real zeros at $\theta=x+ks$, $k\ne0$. Each real zero then contributes about $-2b/(b^2+u^2)$ at offset $u=ks$. Using $\sum_{k\in\mathbb Z}(a^2+k^2)^{-1}=(\pi/a)\coth(\pi a)$ with $a=b/s$ and dropping the term $b/(b^2+x^2)=O(b/x^2)$, \eqref{xi:eq:bdot} becomes
+\begin{equation}\label{xi:eq:coth}
+\frac{db}{d\lambda}=\frac1b-\frac{2\pi}s\coth\frac{\pi b}s<0,
+\end{equation}
+and the time for the quadruple to reach the axis is
+\begin{equation}\label{xi:eq:merge}
+T(b_0,s)=\frac{s^2}{\pi^2}\int_0^{\beta_0}\frac{d\beta}{2\coth\beta-1/\beta},\qquad\beta_0=\frac{\pi b_0}s,
+\end{equation}
+which is $b_0^2/2$ for small $\beta_0$ and $sb_0/(2\pi)$ for large $\beta_0$. With the mean spacing $s=2\pi/\log(\gamma/2\pi)$ of the ordinates at height $\gamma$, the large $\beta_0$ value is $b_0/\log(\gamma/2\pi)$, or $4b_0/\log(\gamma/2\pi)$ in standard time (proved for the model, computed in the table).
+
+\begin{table}[htbp]
+\centering\small
+\begin{tabular}{@{}rrrr@{}}
+\toprule
+height $\gamma$ & $s$ & $4T$ at $b_0=\frac12$ & $4T$ at $b_0=\frac14$\\
+\midrule
+$10^2$ & $2.271$ & $0.435$ & $0.120$\\
+$10^6$ & $0.525$ & $0.183$ & $0.078$\\
+$10^{12}$ & $0.244$ & $0.086$ & $0.043$\\
+\bottomrule
+\end{tabular}
+\caption{Merge times $4T(b_0,s)$ from \eqref{xi:eq:merge} in standard time, for one quadruple in an equally spaced real background of spacing $s=2\pi/\log(\gamma/2\pi)$. Computed.}
+\label{xi:tab:merge}
+\end{table}
+
+\begin{remark}[Heuristic, not a bound]\label{xi:rem:frozen}
+The merge times fall with the height, so in this model the binding configurations sit at low height, where the zeros are verified real. This is not a proof: the neighbours are held fixed, the model has one quadruple in an otherwise real background, and the regime $b\sim s$ decides the answer. The best known bound on $\Lambda$ is $\Lambda\le0.2$ of Platt and Trudgian \cite{PT21}; it comes from the strip theorem and the verification height, not from this model.
+\end{remark}
+
+\emph{Two quadruples.} A deeper quadruple pushes a shallower one away from the axis, but the extreme zero is what de Bruijn's theorem uses, and for two quadruples the flow is exactly solvable.
+
+\begin{proposition}[Two imaginary quadruples]\label{xi:prop:quartic}
+Let the zeros be $\pm ib_1,\pm ib_2$, so $H=\theta^4+p\theta^2+q$ with $p=b_1^2+b_2^2$, $q=b_1^2b_2^2$. Then $\dot p=-12$ and $\dot q=-2p$, so $p=p_0-12\lambda$, $q=q_0-2p_0\lambda+12\lambda^2$, and the discriminant in $w=\theta^2$ is $p^2-4q=(p_0^2-4q_0)-16p_0\lambda+96\lambda^2$ (proved).
+\end{proposition}
+
+\begin{proof}
+$-\partial_\theta^2H=-12\theta^2-2p$.
+\end{proof}
+
+\begin{table}[htbp]
+\centering\small
+\begin{tabular}{@{}rrrrr@{}}
+\toprule
+$b_1$ & $b_2$ & all real at & $b_2^2/2$ & isolated $b_1$\\
+\midrule
+$0.10$ & $0.50$ & $0.0378$ & $0.1250$ & $0.0050$\\
+$0.30$ & $0.50$ & $0.0515$ & $0.1250$ & $0.0450$\\
+$0.40$ & $0.50$ & $0.0671$ & $0.1250$ & $0.0800$\\
+$0.45$ & $0.50$ & $0.0751$ & $0.1250$ & $0.1013$\\
+$0.49$ & $0.50$ & $0.0817$ & $0.1250$ & $0.1201$\\
+$0.20$ & $0.30$ & $0.0204$ & $0.0450$ & $0.0200$\\
+\bottomrule
+\end{tabular}
+\caption{First time after which the four zeros of Proposition~\ref{xi:prop:quartic} are all real (the discriminant is nonnegative, $p\le0$, $q\ge0$), against the bound $b_2^2/2$ for the extreme zero and the time $b_1^2/2$ of an isolated pair. Computed. The first, second and last rows exceed the isolated time.}
+\label{xi:tab:twoquad}
+\end{table}
+
+All entries lie below $b_2^2/2$, in line with de Bruijn's theorem. The all real time includes the deeper pair, so it is not the collapse time of the shallower member, and the column does not show whether a cluster accelerates that collapse. For $b_1=0.49$, $b_2=0.5$ the first root of the discriminant is at $\lambda\approx1.3\cdot10^{-5}$ (computed).
+
+\emph{Dilution.} A complex neighbour at height $b_2\le B$ pulls the extreme zero less than a real one. In the equally spaced model with extreme zero at height $B$ and sites $\theta=x+ks$, replace the real background by complex pairs with matching zero counts, so that a pair occupies two sites and pairs are spaced $2s$.
+
+\begin{proposition}[Dilution at the maximal height]\label{xi:prop:dilution}
+If every pair sits at height $B$, the background pull on the extreme zero is exactly half of the all real pull, and
+\[
+\frac{dB}{d\lambda}=-\frac\pi s\coth\frac{\pi B}s\le-\frac\pi s ,
+\]
+so the extreme zero reaches the axis by $\lambda=B_0s/\pi$, which is $8B_0/\log(\gamma/2\pi)$ in standard time (proved in the model).
+\end{proposition}
+
+\begin{proof}
+The same side member of a pair, at height $B$, contributes $-2(B-B)/|\cdot|^2=0$, and the mirror contributes $B/((ks)^2+B^2)$ at $\theta=x+2ks$, exactly half of the $2B/((ks)^2+B^2)$ of a real zero at $ks$. Summing gives the pull $(\pi/s)\coth(\pi B/s)-1/B$, and adding the self interaction $-1/B$ the reciprocal terms cancel. Since $\coth\ge1$, the time is at most $B_0s/\pi$.
+\end{proof}
+
+For uniform pairs at height $b<B$ the ratio of the background pull to the all real pull is computed in the table and stays at or above one half, with the minimum at $b=B$; the general inequality for an arbitrary complex background is not proved.
+
+\begin{table}[htbp]
+\centering\small
+\begin{tabular}{@{}rccccc@{}}
+\toprule
+$B/s$ & $b/B=0$ & $0.25$ & $0.5$ & $0.75$ & $1$\\
+\midrule
+$0.5$ & $0.555$ & $0.551$ & $0.540$ & $0.523$ & $0.500$\\
+$1$ & $0.662$ & $0.650$ & $0.617$ & $0.565$ & $0.500$\\
+$2$ & $0.815$ & $0.797$ & $0.738$ & $0.636$ & $0.500$\\
+$4$ & $0.914$ & $0.902$ & $0.858$ & $0.740$ & $0.500$\\
+$8$ & $0.959$ & $0.953$ & $0.931$ & $0.854$ & $0.500$\\
+\bottomrule
+\end{tabular}
+\caption{Ratio of the background pull on the extreme zero to its all real value, for a uniform background of complex pairs at height $b$. Computed.}
+\label{xi:tab:dilution}
+\end{table}
+
+\begin{remark}[The height cut cannot be removed]\label{xi:rem:nogo}
+Heuristic. Every bound of this kind has the form $\Lambda\le f(T)$ for a height $T$ below which the zeros are known to be real, and $f(T)\to0$ only as $T\to\infty$. Without a height cut one gets de Bruijn's bound and nothing better, since every merge time is at most the isolated value of Theorem~\ref{cp:thm:phase}. The verification height therefore carries the strength of the bound, and $T\to\infty$, which is what $\Lambda\le0$ requires, is the hypothesis itself. Making each step of the model rigorous could improve the numerical bound on $\Lambda$ and could not prove RH.
+\end{remark}
+
+\subsection{What the counting function determines}\label{xi:sec:counting}
+
+Let $\gamma$ run over the ordinates of the zeros of $\zeta$ in the upper half plane, with multiplicity. Under RH, $\sum_{\gamma>0}e^{-\gamma|x|}$ is $|x|$ times the L\'evy density of Remark~\ref{xi:rem:eggc}, but the asymptotic below needs no hypothesis.
+
+\begin{proposition}[Small $x$ behaviour]\label{xi:prop:levyasym}
+As $x\downarrow0$,
+\[
+\sum_{\gamma>0}e^{-\gamma x}=\frac1{2\pi x}\log\frac1{2\pi e^{\gamma_{\mathrm E}}x}+O(1)
+\]
+(proved).
+\end{proposition}
+
+\begin{proof}
+Write $\sum_\gamma e^{-\gamma x}=x\int_0^\infty N(t)e^{-tx}dt$ with $N(t)=\frac t{2\pi}\log\frac t{2\pi e}+R(t)$, where the Riemann and von Mangoldt formula gives $R(t)=\frac78+S(t)+O(1/t)$ for $t\ge2$, and $R$ is bounded on $[0,2]$. By Littlewood, $\int_0^TS(t)\,dt=O(\log T)$ for the argument $S$ of $\zeta$ on the critical line, so $\int_0^TR(t)\,dt=\frac78T+O(\log T)$ and $x\int_0^\infty R(t)e^{-tx}dt=\frac78+O(x\log(1/x))=O(1)$. For the main term, $\int_0^\infty t\log t\,e^{-tx}dt=(1-\gamma_{\mathrm E}-\log x)/x^2$ and $\int_0^\infty te^{-tx}dt=x^{-2}$ give $x\int_0^\infty\frac t{2\pi}\log\frac t{2\pi e}\,e^{-tx}dt=\frac1{2\pi x}\log\frac1{2\pi e^{\gamma_{\mathrm E}}x}$.
+\end{proof}
+
+The error is $O(1)$ and not $O(1/x)$, so the constant $2\pi e^{\gamma_{\mathrm E}}$ inside the logarithm is determined by the main term only up to that remainder. Computed with $300$ zeros and the Riemann and von Mangoldt tail, the sum is $2.6860$ at $x=0.05$ and $6.6432$ at $x=0.03$, against the main term $1.8482$ and $5.7904$, so the ratio of the sum to the main term is $1.453$ and $1.147$. The difference is $0.838$ and $0.853$, close to the constant term of the Riemann and von Mangoldt formula, and the ratio is far from $1$ only because the main term is small at these $x$.
 
 \subsection{The Thorin atoms of the tilted clock}\label{sec:xg:tilt}
 
@@ -648,13 +801,21 @@ At $t=0$ the $a_j$ are $\gamma_j^2$, the Thorin atoms of $T$ if RH holds (Propos
 \[
 \frac d{dt}\E T_t=\frac{M_0(t)M_2(t)-M_1(t)^2}{8M_0(t)^2}>0
 \]
-by the Cauchy Schwarz inequality, at every $t$ at which $T_t$ exists \cite{P26pg3}.\end{resultpar} The atoms need not all decrease. \begin{resultpar}\label{res:ch21:coupling}Take the common coupling $T_t=\sum_jE_j/a_j(t)$ with the same independent standard exponential variables $E_j$ for every $t$, which exists for $t\ge0.2$ because every zero is real there \cite{PT21}. The equation of motion gives $\dot z_{64}(0.2)=+0.26897$ and $\dot z_{92}(0.2)=+0.13385$, the only two rising zeros among the first $100$, so $a_{64}$ and $a_{92}$ increase (computed, not certified: Gauss Hermite quadrature in double precision, the two velocities unchanged to $3\times10^{-17}$ between $60$ and $90$ nodes). Put $b_j(t)=1/a_j(t)$ and choose $h>0$ so small that $c=b_{64}(0.2+h)-b_{64}(0.2)<0$. Then $T_{0.2+h}-T_{0.2}=cE_{64}+Y$ with $Y=\sum_{j\ne64}\big(b_j(0.2+h)-b_j(0.2)\big)E_j$, which converges absolutely almost surely, since $|Y|\le T_{0.2+h}+T_{0.2}$, and is independent of $E_{64}$. Given any value of $Y$, the unbounded variable $E_{64}$ makes $cE_{64}+Y<0$ with positive probability, so $T_{0.2+h}<T_{0.2}$ with positive probability, and this coupling is not almost surely monotone on any right neighbourhood of $t=0.2$ (computed). At $t=0$ the same argument with $\dot z_{35}(0)>0$ of Proposition~\ref{prop:ch21:velocity} (certified) gives the statement on every right neighbourhood of $0$, conditional on RH, which the coupling at $t=0$ needs.\end{resultpar} The increase of the mean therefore does not come from monotone atoms.
+by the Cauchy Schwarz inequality, at every $t$ at which $T_t$ exists \cite{P26pg3}.\end{resultpar} The atoms need not all decrease. \begin{resultpar}\label{res:ch21:coupling}Take the common coupling $T_t=\sum_jE_j/a_j(t)$ with the same independent standard exponential variables $E_j$ for every $t$, which exists for $t\ge0.2$ because every zero is real there \cite{PT21}. The equation of motion gives $\dot z_{64}(0.2)=+0.26897$ and $\dot z_{92}(0.2)=+0.13385$, the only two rising zeros among the first $100$, so $a_{64}$ and $a_{92}$ increase (computed, not certified: Gauss Hermite quadrature in double precision, the two velocities unchanged to $3\times10^{-17}$ between $60$ and $90$ nodes). Put $b_j(t)=1/a_j(t)$ and choose $h>0$ so small that $c=b_{64}(0.2+h)-b_{64}(0.2)<0$. Then $T_{0.2+h}-T_{0.2}=cE_{64}+Y$ with $Y=\sum_{j\ne64}\big(b_j(0.2+h)-b_j(0.2)\big)E_j$, which converges absolutely almost surely, since $|Y|\le T_{0.2+h}+T_{0.2}$, and is independent of $E_{64}$. Given any value of $Y$, the unbounded variable $E_{64}$ makes $cE_{64}+Y<0$ with positive probability, so $T_{0.2+h}<T_{0.2}$ with positive probability, and this coupling is not almost surely monotone on any right neighbourhood of $t=0.2$ (computed). At $t=0$ the same argument with $\dot z_{35}(0)>0$ of Proposition~\ref{prop:ch21:velocity} (certified) gives the statement on every right neighbourhood of $0$, conditional on RH, which the coupling at $t=0$ needs.\end{resultpar}
 
 \begin{problem}\label{prob:ch21:order}
 Is the tilted clock stochastically increasing in $t$ on $t\ge\Lambda$ (so, unconditionally, on $t\ge0.2$), that is, is $P(T_t\le x)$, whose Laplace transform in $x$ is $R_t(u)/u$, nonincreasing in $t$ for every $x>0$? The failure of the coupling above does not decide it, since another coupling may be monotone, and an increasing mean is necessary but not sufficient.
 \end{problem}
 
-For large $t$ the tilt concentrates the kernel. Under the probability density proportional to $e^{tu^2}\Phi_{\rm dBN}(u)$ on $(0,\infty)$, with expectation $\E_t$, we have $1/R_t(s)=\E_t\cosh(2\sqs\,u)$ and $H_t(z)/H_t(0)=\E_t\cos(zu)$.
+Under the probability density proportional to $e^{tu^2}\Phi_{\rm dBN}(u)$ on $(0,\infty)$, with expectation $\E_t$ and variance $\operatorname{Var}_t$, we have $1/R_t(s)=\E_t\cosh(2\sqs\,u)$ and $H_t(z)/H_t(0)=\E_t\cos(zu)$.
+
+\begin{proposition}\label{prop:ch21:ltorder}For every $s>0$ the function $t\mapsto R_t(s)$ is strictly decreasing on $\R$, and, at every $t$ at which $T_t$ exists, $\frac d{dt}\E T_t=2\operatorname{Var}_t(u^2)>0$. Hence for $t\ge\Lambda$ (so, unconditionally, for $t\ge0.2$) the tilted clock $T_t$ is strictly increasing in $t$ in the Laplace transform order: $\E e^{-sT_t}$ decreases in $t$ for every $s>0$.\end{proposition}
+
+\begin{proof}Write $g_s(u)=\cosh(2\sqs\,u)$, so that $1/R_t(s)=\E_tg_s(u)$. Differentiating the normalised exponential family in $t$ gives $\frac d{dt}\E_tg_s(u)=\operatorname{Cov}_t\big(g_s(u),u^2\big)$. Both $g_s$ and $u^2$ are strictly increasing on $(0,\infty)$ and the law is not degenerate, so Chebyshev's association inequality makes the covariance strictly positive, and $R_t(s)$ strictly decreases. From $g_s(u)=1+2su^2+O(s^2)$ we get $\E T_t=2\E_tu^2$, whose derivative is $2\operatorname{Var}_t(u^2)$, in agreement with Result~\ref{res:ch21:meanup}. Status: proved.\end{proof}
+
+The order is strictly between the two in Problem~\ref{prob:ch21:order}: stochastic order implies the Laplace transform order, which implies the order of the means. So the proposition is a partial answer. The argument is from an unrefereed note of Polson (November 2026), whose flow parameter is a quarter of the $t$ used here, its $H_t(z)$ being $4H_{4t}(2z)$ in the notation above, so that its de Bruijn Newman constant is $\Lambda/4$.
+
+For large $t$ the tilt concentrates the kernel.
 
 \begin{proposition}\label{xg:prop:large}
 As $t\to\infty$ let $u_t$ be the mode of $e^{tu^2}\Phi_{\rm dBN}(u)$, so that $e^{4u_t}\sim tu_t/(2\pi)$. Then
@@ -799,7 +960,7 @@ Assume $B(X)$. Then for every $\lambda\in[0,0.2]$ every zero of $H_\lambda$ with
 \end{proposition}
 
 \begin{proof}
-Fix $i$. By (B2) and Rouch\'e's theorem, $H_t$ has no zero on $\partial Q_i$ and the same number $N_i$ of zeros in $Q_i$ for all $t\in[t_i,t_{i+1}]$. At $t_i$ a sign change is a real zero of odd multiplicity, so by (B1) the $N_i$ zeros are real and simple. Let $A$ be the set of $t\in[t_i,t_{i+1}]$ at which the $N_i$ zeros in $Q_i$ are real and simple. It contains $t_i$, and it is open in $[t_i,t_{i+1}]$, since a simple real zero persists as a simple zero, real by symmetry. Let $\tau$ be the supremum of the $t$ with $[t_i,t]\subset A$ and take $t'_k\uparrow\tau$ in $A$: the zeros of $H_\tau$ in $Q_i$ are limits of real zeros (Hurwitz's theorem, with no zero on the boundary), hence real, and two of them cannot coincide, since the $N_i$ distinct real zeros of $H_{t'_k}$ near the common point would contradict Lemma~\ref{ft:lem:split}; so there are $N_i$ distinct real zeros, all simple, and $\tau\in A$. As $A$ is open, $\tau=t_{i+1}$, so $A=[t_i,t_{i+1}]$, and every zero of $H_t$ in $Q_i$ is real and simple for $t\in[t_i,t_{i+1}]$. The same holds for the mirror image $-Q_i$.
+Fix $i$. By (B2) and Rouch\'e's theorem, $H_t$ has no zero on $\partial Q_i$ and the same number $N_i$ of zeros in $Q_i$ for all $t\in[t_i,t_{i+1}]$. At $t_i$ a sign change is a real zero of odd multiplicity, so by (B1) the $N_i$ zeros are real and simple. Let $A$ be the set of $t\in[t_i,t_{i+1}]$ at which the $N_i$ zeros in $Q_i$ are real and simple. It contains $t_i$, and it is open in $[t_i,t_{i+1}]$, since a simple real zero persists as a simple zero, real by symmetry. Let $\tau$ be the supremum of the $t$ with $[t_i,t]\subset A$ and take $t'_k\uparrow\tau$ in $A$: the zeros of $H_\tau$ in $Q_i$ are limits of real zeros (Hurwitz's theorem, with no zero on the boundary), hence real, and two of them cannot coincide, since the $N_i$ distinct real zeros of $H_{t'_k}$ near the common point would contradict Lemma~\ref{ft:lem:split}; so there are $N_i$ distinct real zeros, all simple, and $\tau\in A$. As $A$ is open, $\tau=t_{i+1}$, so $A=[t_i,t_{i+1}]$. The same holds for the mirror image $-Q_i$.
 
 Now let $\lambda\in[0,0.2]$ and suppose $H_\lambda$ has a nonreal zero $z_0$ with $|\re z_0|\le X$. By de Bruijn's strip theorem \cite[Theorem 13]{deBruijn}, the zeros of $H_t$ satisfy $|\im z|\le\sqrt{1-2t}$ for $0\le t\le\frac12$ (and $|\im z|<1$ at $t=0$), so no zero meets the lines $\im z=\pm1$ and every zero of $H_\tau$ with $|\re z|\le X$ lies in the compact set $K=\{|\re z|\le X,\ |\im z|\le1\}$. Let $F$ be the set of $\tau\in[0,\lambda]$ at which $H_\tau$ has a nonreal zero in $K$; then $\lambda\in F$. For $\tau\in[t_i,t_{i+1}]$ the first part shows that such a zero has $|\re z|<u_i<X$ (otherwise it would lie in $Q_i$ or $-Q_i$), and $|\im z|<1$, so it is an interior point of $K$ and $F$ is open in $[0,\lambda]$ by Hurwitz's theorem. If $\tau_k\downarrow\tau$ with $\tau_k\in F$, a limit point of the nonreal zeros is a zero of $H_\tau$ in $K$, and it is nonreal by the case $s>0$ of Lemma~\ref{ft:lem:split}. Hence $\tau_0=\inf\{\tau:[\tau,\lambda]\subset F\}$ lies in $F$, openness forces $\tau_0=0$, and $0\in F$ gives a nonreal zero of $H_0$ with $|\re z|\le X$; by (B0) it has $|\re z|>u_0$, so it lies in $\pm Q_0$, against the first part. Hence every zero of $H_\lambda$ with $|\re z|\le X$ is real. The constants in $B(X)$ do not change if $X$ is replaced by $X'\in(X,\min_iv_i)$, so the same holds for $|\re z|\le X'$. For simplicity at $\lambda=0$ use (B0) and the first part. For $\lambda>0$, a real zero $c$ of multiplicity $m\ge2$ with $|c|\le X$ would by Lemma~\ref{ft:lem:split} have at least $m-1\ge1$ nonreal zeros of $H_t$ near $c$ for $t<\lambda$ close to $\lambda$, with $|\re z|\le X'$, which is impossible.
 \end{proof}

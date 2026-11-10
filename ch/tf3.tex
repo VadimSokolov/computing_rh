@@ -34,7 +34,7 @@ At first order the test at $\gamma^*$ sees the quadruple exactly when
 \[
 \delta<\delta_c(\gamma^*)=\sqrt{2/\mathcal L_0(\gamma^*)},
 \]
-with $\mathcal L_0(\gamma^*)$ the contribution of the other zeros to $\mathcal L_\Xi(\gamma^*)$; this is the local visibility condition of Section~\ref{sec:ch13:visibility}, written with Laguerre's quantity. In (i) $\mathcal L_0$ omits the replaced zero; with neighbours at the mean spacing $\Delta=2\pi/\log(h/2\pi)$ this gives $\mathcal L_0=\pi^2/(3\Delta^2)$ and $\delta_c=(\sqrt6/\pi)\Delta=0.780\,\Delta$. In (ii), midway between two on line zeros, $\mathcal L_0=\pi^2/\Delta^2$ and $\delta_c=(\sqrt2/\pi)\Delta=0.450\,\Delta$. In (iii) the two zeros at $\gamma^*\pm\tfrac12\Delta$ are removed from the lattice of (ii), $\mathcal L_0=(\pi^2-8)/\Delta^2$ and $\delta_c=\sqrt{2/(\pi^2-8)}\,\Delta=1.034\,\Delta$. A distance $\delta_c=c\Delta$ is below $\tfrac12$ exactly when $h>2\pi e^{4\pi c}$, that is above $2\pi e^{4\sqrt6}=1.131\times10^5$ in (i), above $2\pi e^{4\sqrt2}=1799$ in (ii) and above $2.8\times10^{6}$ in (iii). Table~\ref{tf:tab:deltac} replaces the lattice by the actual zeros.
+with $\mathcal L_0(\gamma^*)$ the contribution of the other zeros to $\mathcal L_\Xi(\gamma^*)$; this is the local visibility condition of Section~\ref{sec:ch13:visibility}, written with Laguerre's quantity. In (i) $\mathcal L_0$ omits the replaced zero, and with neighbours at the mean spacing $\Delta=2\pi/\log(h/2\pi)$ the same derivation gives $\delta_c=(\sqrt6/\pi)\Delta=0.780\,\Delta$. In (ii), midway between two on line zeros, $\mathcal L_0=\pi^2/\Delta^2$ and $\delta_c=(\sqrt2/\pi)\Delta=0.450\,\Delta$. In (iii) the two zeros at $\gamma^*\pm\tfrac12\Delta$ are removed from the lattice of (ii), $\mathcal L_0=(\pi^2-8)/\Delta^2$ and $\delta_c=\sqrt{2/(\pi^2-8)}\,\Delta=1.034\,\Delta$. A distance $\delta_c=c\Delta$ is below $\tfrac12$ exactly when $h>2\pi e^{4\pi c}$, that is above $2\pi e^{4\sqrt6}=1.131\times10^5$ in (i), above $2\pi e^{4\sqrt2}=1799$ in (ii) and above $2.8\times10^{6}$ in (iii). Table~\ref{tf:tab:deltac} replaces the lattice by the actual zeros.
 
 % CHECK: Table tf:tab:deltac: the count preserving block (iii) is new and has no value in the chapter source.
 \begin{table}[htbp]
@@ -150,4 +150,87 @@ $10^{22}$ & $12.2$ & $9$ & $12$ & $7$\\
 \label{tf:tab:levels}
 \end{table}
 
-The count preserving lattice has the larger $\delta_c=1.034\,\Delta$, which stays above $\tfrac12$ up to $h=2.8\times10^6$, so it uses fewer levels (Table~\ref{tf:tab:levels}), and at $10^5$ the $\delta_c=0.506$ of the replacement lattice already covers every distance. At the height $3\times10^{12}$ to which RH has been verified~\cite{PT21} the three models use between three and six levels. The corollary is a statement about a model with a single quadruple and regularly spaced neighbours, and about tests at the ordinate: a test that looks for negative values anywhere in the window can see more (Section~\ref{sec:ch13:visibility}, Exercise~\ref{ex:ch15:beside}), and for it no lower bound is proved here. Turning it into a certificate for the actual zeros is Problem~\ref{tf:prob:levels}.
+The count preserving lattice has the larger $\delta_c=1.034\,\Delta$, so it uses fewer levels (Table~\ref{tf:tab:levels}), and at $10^5$ the $\delta_c=0.506$ of the replacement lattice already covers every distance. At the height $3\times10^{12}$ to which RH has been verified~\cite{PT21} the three models use between three and six levels. The corollary is a statement about a model with a single quadruple and regularly spaced neighbours, and about tests at the ordinate: a test that looks for negative values anywhere in the window can see more (Section~\ref{sec:ch13:visibility}, Exercise~\ref{ex:ch15:beside}), and for it no lower bound is proved here. Turning it into a certificate for the actual zeros is Problem~\ref{tf:prob:levels}.
+
+\subsection{Exponential hiding and the ceiling on certificates}\label{tf:sec:hiding}
+
+The results of this subsection are from an unrefereed note of Polson (November 2026). They concern the model of Corollary~\ref{tf:cor:levels}: a single off line quadruple and every other zero on the line. Nothing here says that $\xi$ has such zeros. Take $\varepsilon_0\ge\tfrac12$ and the deconvolution to the critical line, so that the width is $c=\varepsilon_0$ and the misfit of Theorem~\ref{tf:thm:rigid} is $D_W(\varepsilon_0)$. For $0<a<1$ put
+\[
+H_a(t)=\frac{\sin\pi a}{2\varepsilon_0\bigl(\cosh(\pi t/\varepsilon_0)+\cos\pi a\bigr)},
+\]
+a positive density of mass $a$ whose Fourier transform is $\sinh(a\varepsilon_0\omega)/\sinh(\varepsilon_0\omega)$ (integrate $e^{i\omega t}/(\cosh(\pi t/\varepsilon_0)+\cos\pi a)$ around the rectangle of height $2i\varepsilon_0$, whose only poles are at $t=i\varepsilon_0(1\pm a)$).
+
+\begin{theorem}[Hyperbolic splitting]\label{tf:thm:split}
+For $0<h<\varepsilon_0$ and $r=h/\varepsilon_0$,
+\[
+P_h=P_{\varepsilon_0}*H_r+H_{1-r}.
+\]
+Both terms are positive, and for $e^{\pi|u|/\varepsilon_0}>2$
+\[
+H_{1-r}(u)=\frac{\sin\pi r}{2\varepsilon_0\bigl(\cosh(\pi u/\varepsilon_0)-\cos\pi r\bigr)}\le\frac{\sin\pi r}{\varepsilon_0}\,\frac{e^{-\pi|u|/\varepsilon_0}}{1-2e^{-\pi|u|/\varepsilon_0}}.
+\]
+\end{theorem}
+
+\begin{proof}
+For $\omega>0$, $e^{-\varepsilon_0\omega}\sinh(h\omega)+\sinh((\varepsilon_0-h)\omega)=\tfrac12\bigl(e^{(\varepsilon_0-h)\omega}-e^{-(\varepsilon_0+h)\omega}\bigr)=e^{-h\omega}\sinh(\varepsilon_0\omega)$. Divide by $\sinh(\varepsilon_0\omega)$ and use evenness for $\omega<0$. The bound uses $2\cosh x-2\cos\pi r\ge e^x-2$.
+\end{proof}
+
+\begin{corollary}[Off line zeros are exponentially hidden at fixed depth]\label{tf:cor:hidden}
+Suppose the only zeros off the line are $\rho_0=\beta_0+i\gamma_0$ and its images under $\rho\mapsto\bar\rho,1-\rho$, with $\kappa=\beta_0-\tfrac12\in(0,\varepsilon_0)$, and let $W$ be a window at distance at least $D$ from $\pm\gamma_0$, with $e^{\pi D/\varepsilon_0}>2$. Then
+\[
+D_W(\varepsilon_0)\le\frac{2\sin(\pi\kappa/\varepsilon_0)}{\varepsilon_0}\,\frac{e^{-\pi D/\varepsilon_0}}{1-2e^{-\pi D/\varepsilon_0}}.
+\]
+At $\varepsilon_0=\tfrac12$ this is $4\sin(2\pi\kappa)\,e^{-2\pi D}\bigl(1+O(e^{-2\pi D})\bigr)$, so a window five units away from the quadruple has misfit below $10^{-13}$ (proved for this model).
+\end{corollary}
+
+\begin{proof}
+The zeros $\rho_0,\bar\rho_0$ contribute $P_h(\theta\mp\gamma_0)$ with $h=\varepsilon_0-\kappa$, and their images $P_{\varepsilon_0+\kappa}(\theta\mp\gamma_0)$. Use the positive measure $\mu=\sum_{\gamma\ {\rm on}}\delta_\gamma+H_r(\cdot-\gamma_0)+H_r(\cdot+\gamma_0)+P_\kappa(\cdot-\gamma_0)+P_\kappa(\cdot+\gamma_0)$, with $r=h/\varepsilon_0$. By Theorem~\ref{tf:thm:split} and $P_{\varepsilon_0}*P_\kappa=P_{\varepsilon_0+\kappa}$, $\rho_{\varepsilon_0}-P_{\varepsilon_0}*\mu=H_{1-r}(\cdot-\gamma_0)+H_{1-r}(\cdot+\gamma_0)$, which on $W$ is at most twice the bound of the theorem at $u=D$, and $\sin\pi r=\sin(\pi\kappa/\varepsilon_0)$. The measure $\mu$ lies in $\mathcal M_C$ after enlarging $C$. At $\varepsilon_0=\tfrac12$ and $D=5$, $4e^{-10\pi}<10^{-13}$.
+\end{proof}
+
+The bound depends on the depth, and not monotonically. For $\varepsilon_0\gg\kappa$ it is about $(2\pi\kappa/\varepsilon_0^2)e^{-\pi D/\varepsilon_0}$, exponentially small in $D$ at fixed depth, but the leading term has its largest value over the depth, attained near $\varepsilon_0=\pi D/2$, is about $8\kappa e^{-2}/(\pi D^2)$, which decays only like $D^{-2}$. So the bound shows that shallow data, at $\varepsilon_0=\tfrac12$, are blind to a far off line quadruple, and does not show it for deep data.
+
+Lower bounds on the misfit come from certificates, as in the proof of Proposition~\ref{cx:prop:wcert}, which applies at any depth: points $y_1,\dots,y_J\in W$ and $\varphi\in\R^J$ with $\sum_j|\varphi_j|\le1$ and $u(\varepsilon_0,x)=\sum_j\varphi_jP_{\varepsilon_0}(y_j-x)\ge0$ for all real $x$, which give $D_W(\varepsilon_0)\ge-\sum_j\varphi_j\rho_{\varepsilon_0}(y_j)$. The functional equation limits them: an off line zero never comes alone.
+
+\begin{proposition}[Ceiling on certificates]\label{tf:prop:ceiling}
+In the model of Corollary~\ref{tf:cor:hidden}, every certificate with points in a window at distance at least $D$ from $\pm\gamma_0$ satisfies
+\[
+-\sum_j\varphi_j\rho_{\varepsilon_0}(y_j)\le\frac{12\,\kappa^2}{\pi\bigl((\varepsilon_0-\kappa)^2+D^2\bigr)^{3/2}}.
+\]
+\end{proposition}
+
+\begin{proof}
+Put $u(s,x)=\sum_j\varphi_jP_s(y_j-x)$, harmonic in $s>0$, with $u(\varepsilon_0,\cdot)\ge0$. The quadruple contributes $P_{\varepsilon_0-\kappa}$ and $P_{\varepsilon_0+\kappa}$ at $\pm\gamma_0$, so $\sum_j\varphi_j\rho_{\varepsilon_0}(y_j)=\sum_{\gamma\ {\rm on}}u(\varepsilon_0,\gamma)+\sum_\pm\bigl(u(\varepsilon_0-\kappa,\pm\gamma_0)+u(\varepsilon_0+\kappa,\pm\gamma_0)\bigr)$. The first sum is nonnegative. For each sign $u(\varepsilon_0-\kappa)+u(\varepsilon_0+\kappa)=2u(\varepsilon_0)+\kappa^2\partial_s^2u(\xi)$ for some $\xi\in(\varepsilon_0-\kappa,\varepsilon_0+\kappa)$, and $2u(\varepsilon_0)\ge0$. Harmonicity gives $\partial_s^2u=-\partial_x^2u$, and $|\partial_x^2P_s(t)|=2s|3t^2-s^2|/(\pi(s^2+t^2)^3)\le6/(\pi(s^2+t^2)^{3/2})$. With $\sum_j|\varphi_j|\le1$, $|t|\ge D$ and $s\ge\varepsilon_0-\kappa$, each sign contributes at most $6\kappa^2/(\pi((\varepsilon_0-\kappa)^2+D^2)^{3/2})$.
+\end{proof}
+
+So the image $1-\bar\rho_0$ cancels the first order effect of an off line zero, and a lower bound from certificates is of order $\kappa^2D^{-3}$ at every depth, not $\kappa D^{-2}$. The order is the right one in $\kappa$ and along the diagonal $D=\varepsilon_0$, in the model: for the data $P_{\varepsilon_0-\kappa}+P_{\varepsilon_0+\kappa}$ with no other zeros, a window $[D,D+4]$ and $41$ points, a floating point linear program attains between $0.9$ and $1.3$ per cent of the one sided ceiling $6\kappa^2/(\pi((\varepsilon_0-\kappa)^2+D^2)^{3/2})$ at $D=\varepsilon_0$, uniformly in $\varepsilon_0$ and $\kappa$ (computed, Table~\ref{tf:tab:ceiling}). The horizon scales with the depth: at $D=1.5\,\varepsilon_0$ the attained fraction falls to about $3\times10^{-5}$, and at $D=2\,\varepsilon_0$ no certificate exists (computed).
+
+\begin{table}[htbp]
+\centering\footnotesize
+\begin{tabular}{@{}cc|ccc@{}}
+\toprule
+$\varepsilon_0$ & $D$ & $\kappa=0.05$ & $\kappa=0.1$ & $\kappa=0.2$\\
+\midrule
+$1$ & $1$ & 1.2 & 1.1 & 0.9\\
+$2$ & $2$ & 1.2 & 1.2 & 1.1\\
+$4$ & $4$ & 1.3 & 1.2 & 1.2\\
+$8$ & $8$ & 1.0 & 0.9 & 0.9\\
+\bottomrule
+\end{tabular}
+\caption{Computed lower bound on the misfit as a percentage of the one sided ceiling of Proposition~\ref{tf:prop:ceiling}, for a single off line zero and its image with no other zeros. Floating point linear program, not interval verified.}
+\label{tf:tab:ceiling}
+\end{table}
+
+The second limitation is the other zeros. Every zero on the line costs the certificate $u(\varepsilon_0,\gamma)\ge0$, and the total cost is governed by the mass $m=\sum_j\varphi_j=\int u(\varepsilon_0,x)\,dx\ge0$.
+
+\begin{lemma}[Clutter]\label{tf:lem:clutter}
+If the zeros on the line include the lattice $\{x_0+ks:k\in\mathbb Z\}$, then every certificate satisfies
+\[
+\sum_{\gamma\ {\rm on}}u(\varepsilon_0,\gamma)\ge\frac ms-\frac2s\,\frac1{e^{2\pi\varepsilon_0/s}-1}.
+\]
+\end{lemma}
+
+\begin{proof}
+By Poisson summation $\sum_ku(\varepsilon_0,x_0+ks)=\frac1s\sum_j\hat u(2\pi j/s)e^{2\pi ijx_0/s}$, where $\hat u(\omega)=e^{-\varepsilon_0|\omega|}\hat\varphi(\omega)$, $\hat u(0)=m$ and $|\hat\varphi|\le\sum_j|\varphi_j|\le1$. The terms with $j\ne0$ sum to at most $2/(e^{2\pi\varepsilon_0/s}-1)$ in modulus. The other zeros contribute nonnegative terms.
+\end{proof}
+
+A certificate is therefore useful only if its gain per unit mass exceeds the density of zeros, up to an exponentially small ripple. The density of zeros at height $T$ is $\log(T/2\pi)/2\pi$, already $0.25$ at $T=30$. In the model above the optimal certificates have gain per unit mass $0.09$, $0.014$, $0.002$ and $0.00025$ at $D=\varepsilon_0=0.25$, $0.5$, $1$ and $2$ (computed, four runs), within a third of $0.15\,\kappa^2\varepsilon_0^{-3}$ for $\kappa=0.1$. On $\zeta$ data a planted zero at $\beta=0.6$ and $D=\tfrac12$ gave computed bounds of $1.6\times10^{-5}$ at $\varepsilon_0=\tfrac12$ and $1.2\times10^{-7}$ at $\varepsilon_0=1$. The evidence on the deep level question is thus negative for certificates (heuristic: the ceiling and the clutter bound are proved, the comparison of gain per unit mass with the density of zeros is computed in the model, and the deep runs on $\zeta$ data at $\varepsilon_0=2$ and $4$ returned no positive certificate, some of them with solver failures). Window certification, at any depth, appears to be a local method.

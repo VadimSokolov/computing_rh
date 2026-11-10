@@ -1,0 +1,29 @@
+\section{Is this a path to RH?}\label{lo:sec:path}
+
+No; the chapter produces several objects that look like handles, and we say precisely why they are not.
+
+The nonvanishing of $\zeta$ on $\Re s=1$ is equivalent to the absence of atoms: $\mathfrak U_1$ has no atoms, and then has a continuous density, if and only if $\zeta(1+it)\ne0$ for every real $t$. Indeed a zero $1+i\gamma_0$ would contribute the atom $\mathrm{Cauchy}(\gamma_0,0)=\delta_{\gamma_0}$, which the other terms, all positive, cannot cancel, and if every width $1-\sigma_\rho$ is positive the proof of Theorem~\ref{lo:thm:density} gives a continuous density. Everything to the left of the line enters only through the backward flow.
+
+The backward flow is a deconvolution by $e^{(1-\theta')|\omega|}$. Its convergence at level $\theta'$ is the zero free half plane $\Re s>\theta'$ (Theorem~\ref{lo:thm:dichotomy} and the paragraph after its proof), a dictionary with the classical error term of the prime number theorem in which nothing is gained.
+
+The Bayesian inversion is a numerical method. These are tools for computation and verification, not for proof.
+
+The question that remains is Problem~\ref{lv:prob:down}, now sharpened: find a property of the explicit measure \eqref{lo:eq:u1}, visible from the primes, that is preserved by the backward Poisson flow and forces it to remain a measure. Positivity is not such a property, since it is not preserved backward. We do not know one.
+
+\section{Open problems}\label{lo:sec:open}
+
+\begin{problem}\label{lo:prob:sampler}
+Implement the data augmentation sampler of Section~\ref{lo:sec:bayes} for the real $u_1$ and compare its posterior spread at $\theta'=0.75$ and $\theta'=0.5$ with the EM point estimate; then build the GBC inversion with the EM reconstruction as an input feature and zero positions as continuous outputs, and calibrate its quantiles on held out simulations.
+\end{problem}
+
+\begin{problem}\label{lo:prob:selberg}
+Characterise, without reference to zeros, the functions of the form \eqref{lo:eq:u1}: which densities $\frac1\pi[g(v)-\lim_X(\sum_{n\le X}a_n\cos(v\log n)-\sin(v\log X)/v)]$ with $a_n\ge0$ supported on prime powers are Thorin densities at level one of a function $\Xi(1)/\Xi(1+\sqrt s)$ with $\Xi$ in the Selberg class? The Thorin conditions constrain the growth and the integrability near $u=0$ but say nothing about the arithmetic of the $a_n$. (The wording is the author's; the Selberg class needs the completed function, the gamma factors, the conductor and the poles to be specified, and the sign of the coefficients of $-L'/L$.)
+\end{problem}
+
+\begin{problem}\label{lo:prob:rate}
+Quantify the backward flow. For $\theta'\in(\theta_0,1)$ give the rate of locally uniform convergence of $B_{\theta',\Omega}\mathfrak U_1$ to $\mathfrak U_{\theta'}$ in terms of $\Omega$ and $\theta'-\theta_0$, and give the matching lower bound in case (ii): with $\sigma_{\max}=\sup\sigma_\rho>\theta'$ attained by a zero, show that $\sup_{|v|\le V}|B_{\theta',\Omega}\mathfrak U_1(v)|$ grows like $e^{(\sigma_{\max}-\theta')\Omega}$ up to polynomial factors. For one zero with $d=\sigma-\theta'>0$ the Fej\'er inverse at distance $t$ from its ordinate is $(\pi\Omega)^{-1}\Re[(e^{z\Omega}-1-z\Omega)/z^2]$ with $z=d+it$, which at $t=0$ is asymptotic to $e^{d\Omega}/(\pi d^2\Omega)$; with infinitely many zeros the supremum need not be attained and the cancellations among them are part of the problem.
+\end{problem}
+
+\begin{problem}\label{lo:prob:delta}
+Replace the GUE prior by a prior that allows a fraction of zeros off the line, for instance pairs at $\tfrac12\pm\delta+i\gamma$ with $\delta$ drawn from a prior on $[0,\tfrac12)$, and train the quantile network to report the posterior of $\delta$ for each detected zero. The posterior of $\delta$ at the real $u_1$ is then a window by window numerical diagnostic at the resolution the data allow; being conditional on the prior, it is not a certificate.
+\end{problem}

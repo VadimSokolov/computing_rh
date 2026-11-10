@@ -1,4 +1,93 @@
 % Opening of the old chapter c04, its \chapter command removed; generated
 \label{chap:hcm}
 
-Sections~\ref{ch:boschA} and \ref{ch:boschB} bring in Bosch's theorem on powers of the half Cauchy law. The first explains why his result cannot be transferred as an input, and the second transfers his method instead and proves a threshold theorem for powers of the reciprocal Xi function, in which the angle of the zeros replaces Bosch's drift parameter and RH is the extreme case.
+Sections~\ref{ch:boschA} and \ref{ch:boschB} bring in Bosch's theorem on powers of the half Cauchy law. The first explains why his result cannot be transferred as an input, and the second transfers his method instead and proves a threshold theorem for powers of the reciprocal Xi function, in which the angle of the zeros replaces Bosch's drift parameter and RH is the extreme case. Section~\ref{xi:sec:cmq}, which comes first, collects what the density of the partner, its positivity and complete monotonicity, can and cannot say about the zeros.
+
+\section{The density of the partner: positivity, complete monotonicity and the HCM question}\label{xi:sec:cmq}\label{xi:sec:density}
+
+Let $p$ be the even density of $Y=Z\sqrt{2T}$, with characteristic function $\psi(t)=\xi(\frac12)/\xi(\frac12-t)$. It exists with no hypothesis (Theorem~\ref{thm:ch12:idsd}), and it decays exponentially because $\psi$ is analytic in a strip about the real axis. A zero of $\xi$ off the critical line does not put a pole of $\psi$ on the real axis, since $\xi>0$ there, so $\psi$ is positive on $\R$ whether or not RH holds. The material is from an unrefereed note of Polson (November 2026), with the statuses corrected here.
+
+\begin{proposition}[Signed Laplace mixture]\label{xi:prop:mixture}
+Let $\alpha_1,\dots,\alpha_n$ be distinct with $\re\alpha_j>0$ and $\alpha_j^2\ne\alpha_m^2$ for $j\ne m$, and let $\psi(t)=\prod_j(1+t^2/\alpha_j^2)^{-1}$. Then
+\begin{equation}\label{xi:eq:mixture}
+\psi(t)=\sum_jC_j\frac{\alpha_j^2}{\alpha_j^2+t^2},\qquad C_j=\prod_{m\ne j}\frac{\alpha_m^2}{\alpha_m^2-\alpha_j^2},\qquad\sum_jC_j=1,
+\end{equation}
+and the inverse Fourier transform of $\psi$ is the signed Laplace mixture $p(x)=\sum_jC_j\frac{\alpha_j}2e^{-\alpha_j|x|}$ (proved).
+\end{proposition}
+
+\begin{proof}
+Partial fractions in $t^2$ give $\psi=\sum_jA_j/(\alpha_j^2+t^2)$ with $A_j=\prod_m\alpha_m^2\big/\prod_{m\ne j}(\alpha_m^2-\alpha_j^2)$. Write $A_j=C_j\alpha_j^2$ and put $t=0$ to get $\sum_jC_j=1$. Inverting term by term gives the density.
+\end{proof}
+
+For the full law the series over all zeros is not available at every $x$, so the proposition is a statement about finite truncations.
+
+\begin{theorem}[The lowest zero]\label{xi:thm:landau}
+Put $\sigma=\sup\{a\ge0:\int_\R p(x)e^{a|x|}dx<\infty\}$. Then $0<\sigma<\infty$, $\Xi$ has no zero with $|\re z|<\sigma$, and $\Xi(\sigma)=0$. Hence $\zeta$ has a zero $\frac12+i\sigma$ on the critical line and no zero of ordinate of modulus below $\sigma$ (proved, unconditionally).
+\end{theorem}
+
+\begin{proof}
+Let $f(s)=\int_0^\infty p(x)e^{-sx}dx$, with abscissa of convergence $-\sigma$ by definition of $\sigma$; $\sigma>0$ because $p$ decays exponentially. As $p$ is even, the bilateral transform is $M(z)=f(z)+f(-z)$, analytic on $|\re z|<\sigma$ and equal there to $\psi(-iz)=\Xi(0)/\Xi(z)$. By Landau's theorem for Laplace transforms of nonnegative functions, $s=-\sigma$ is a singularity of $f$ if $\sigma<\infty$, so $f(-z)$ is singular at $z=\sigma$ while $f(z)$ is analytic there, and $M$ is singular at $z=\sigma$. Now $M$ is singular only at zeros of $\Xi$, and $\sigma<\infty$ because $M=\Xi(0)/\Xi$ is not entire. A zero $\rho=\beta+i\gamma$ of $\zeta$ corresponds to the zero $\alpha=\gamma+i(\frac12-\beta)$ of $\Xi$, so $\re\alpha=\gamma$, and $\Xi(\sigma)=0$ with $\sigma$ real exhibits a zero of ordinate $\sigma$ with $\im\alpha=0$.
+\end{proof}
+
+Because the existence of $p$ is unconditional, Theorem~\ref{xi:thm:landau} is an unconditional statement about the lowest zero, which is known numerically (Platt and Trudgian \cite{PT21} verified the line to height $3\cdot10^{12}$). The proof shows what positivity of $p$ sees: an exponential decay rate, hence the singularity of $\psi$ nearest to the real axis.
+
+\begin{lemma}[Tail of the mixture]\label{xi:lem:tail}
+In the setting of Proposition~\ref{xi:prop:mixture}, suppose $\alpha_1=\gamma_1>0$ is real, the nonreal $\alpha_m$ occur in conjugate pairs, and $\re\alpha_m>\gamma_1$ for $m\ne1$. Then $C_1>0$ and $p(x)\sim C_1\frac{\gamma_1}2e^{-\gamma_1x}>0$ as $x\to\infty$ (proved).
+\end{lemma}
+
+\begin{proof}
+A real $\alpha_m>\gamma_1$ contributes the positive factor $\alpha_m^2/(\alpha_m^2-\gamma_1^2)$ to $C_1$, and a conjugate pair contributes $|\alpha|^4/|\alpha^2-\gamma_1^2|^2>0$. The remaining terms decay strictly faster.
+\end{proof}
+
+If the lowest pair is displaced to $\gamma_1\pm ic$, the same computation gives a first term of the form $Ke^{-\gamma_1x}\sin(cx)$ with $K>0$, with its first sign change at $x=\pi/c$ (computed, in agreement with Table~\ref{xi:tab:density}).
+
+\begin{table}[htbp]
+\centering\small
+\begin{tabular}{@{}llll@{}}
+\toprule
+displaced zero & offset $c$ & first $x$ with $p(x)<0$ & $\pi/c$\\
+\midrule
+$k=1$ & $0.50$ & $6.8$ & $6.3$\\
+$k=1$ & $0.25$ & $13.0$ & $12.6$\\
+$k=2$ & $0.49$ & none on $(0,100]$ & \\
+\bottomrule
+\end{tabular}
+\caption{Sign of the exact signed mixture of Proposition~\ref{xi:prop:mixture} for a finite model of $60$ ordinates in which the $k$th ordinate $\gamma_k$ is displaced to $\gamma_k\pm ic$ and the others are the true ordinates, on a grid of step $0.1$. Computed.}
+\label{xi:tab:density}
+\end{table}
+
+The table shows that in these models a displaced lowest pair destroys positivity at about $\pi/c$ while a displaced second pair does not, on this grid. It does not show that positivity of $p$ carries no information about higher zeros: Theorem~\ref{xi:thm:landau} extracts only the rightmost singularity of a Laplace transform, and Lemma~\ref{xi:lem:tail} is a tail asymptotic and not a sign statement for all $x$.
+
+Complete monotonicity is a different condition. Write $\mathcal Q(x)=\sum_je^{-\alpha_jx}$ for $x>0$, over the zeros $\alpha_j$ of $\Xi$ with $\re\alpha_j>0$, with multiplicity. Under RH, $\mathcal Q(x)=|x|k(x)$ for the L\'evy density $k$ of Remark~\ref{xi:rem:eggc}, and $\mathcal Q$ is completely monotone termwise, with $(-1)^n\mathcal Q^{(n)}(x)=\sum_j\alpha_j^ne^{-\alpha_jx}\ge0$.
+
+\begin{proposition}[Complete monotonicity of $\mathcal Q$]\label{xi:prop:sharp}
+If $\Xi$ has a zero $\alpha_0$ with $\im\alpha_0\ne0$, then $\mathcal Q$ is not completely monotone on $(0,\infty)$ (proved).
+\end{proposition}
+
+\begin{proof}
+If $\mathcal Q$ were completely monotone, Bernstein's theorem would give a positive measure $m$ on $[0,\infty)$ with $\mathcal Q(x)=\int e^{-xs}m(ds)$. The Laplace transform of $x\mapsto\mathcal Q(x+1)$ is then $\int e^{-u}(s+u)^{-1}m(du)$, which is analytic on $\mathbb C\setminus(-\infty,0]$. On the other hand, it equals $\sum_je^{-\alpha_j}/(s+\alpha_j)$ for $\re s>0$, and this sum converges locally uniformly off the points $-\alpha_j$, so it continues meromorphically with a pole at $-\alpha_0$ whose residue is $e^{-\alpha_0}$ times the multiplicity, which is nonzero. Since $-\alpha_0\notin(-\infty,0]$ when $\alpha_0$ is nonreal, the two continuations disagree, a contradiction.
+\end{proof}
+
+\begin{remark}[Where a displaced pair becomes visible]\label{xi:rem:scaling}
+Heuristic. The weight $\gamma^ne^{-\gamma x}$ in $(-1)^n\mathcal Q^{(n)}(x)$ is largest at $\gamma_*=n/x$ and has width about $\gamma_*/\sqrt n$, so a competitor at distance $\delta$ from $\gamma_*$ is damped by about $\exp(-n\delta^2/2\gamma_*^2)$. For $x\approx n/\gamma_0$ a displaced pair $\gamma_0\pm ic$ contributes $2|\alpha_0|^ne^{-\gamma_0x}\cos(n\arg\alpha_0-cx)$, which is negative where the phase is right, and the phases are spaced $2\pi/c$ apart. This suggests that the pair dominates once $n\gtrsim\gamma_0^2/\delta^2$ and that the window $|x-n/\gamma_0|\lesssim\sqrt n/\gamma_0$ contains a good phase once $n\gtrsim(\pi\gamma_0/c)^2$. The arguments are approximations, not proofs. Computed with $60$ zeros at $60$ digits, for $\gamma_5=32.935$ and $c=0.25$ the first violation found is at $n=10^4$, $x=291.1$, with normalised value $-0.99994$. This is far below $(\pi\gamma_0/c)^2\approx1.7\cdot10^5$ and far above $\pi\gamma_0/c\approx414$, so the scaling is not confirmed by it, and the data on the dependence on $\delta$ are consistent with the prediction without testing it. In this computation the test reads the zeros it tests, so it is not an independent check of any zero.
+\end{remark}
+
+\begin{remark}[Two non nested hierarchies]\label{xi:rem:rungs}
+The rung $n=0$ of complete monotonicity of $\mathcal Q$ is $\mathcal Q\ge0$, nonnegativity of the L\'evy density up to the factor $|x|$, which is infinite divisibility with a nonnegative L\'evy measure. Positive definiteness of $\psi$ is $p\ge0$, a different condition on a different function, and the two hierarchies are not nested. The derivative order $n$ localises $\mathcal Q$ at the ordinate $\gamma=n/x$, whereas the book localises the Thorin density in the variable $\theta$ (Theorem~\ref{thm:poisson} and Remark~\ref{rem:ch2:oneline}).
+\end{remark}
+
+For finite truncations $p$ is a signed Laplace mixture with alternating weights (Proposition~\ref{xi:prop:mixture}), and one might hope that the alternation is cosmetic, so that $p$ is a positive mixture of exponentials, that is completely monotone on $(0,\infty)$. It is not.
+
+\begin{proposition}\label{xi:prop:notCM}
+$p$ is not completely monotone on $(0,\infty)$ (proved).
+\end{proposition}
+
+\begin{proof}
+The characteristic function $\psi$ is positive and decays faster than any power, because $\xi(\frac12+t)$ grows like $\exp(\frac t2\log t)$. So $p$ is $C^\infty$ and even, and $p''(0)=-\frac1{2\pi}\int_\R t^2\psi(t)\,dt<0$. Hence $p''<0$ on a neighbourhood of $0$, whereas a completely monotone function has $p''\ge0$.
+\end{proof}
+
+The reason is the cusp: each Laplace factor has a cusp at the origin, and an infinite convolution smooths it away. This does not bear on hyperbolic complete monotonicity, which does not imply complete monotonicity, since the gamma densities $x^{\beta-1}e^{-x}$ are HCM for every $\beta>0$ and are not completely monotone for $\beta>1$.
+
+\begin{problem}[HCM of the partner]\label{xi:prob:hcm}
+Is the density of $|Y|$, that is $2p$ on $(0,\infty)$, hyperbolically completely monotone? Known: no finite truncation $\sum_{j\le N}L_j/\gamma_j$ with $N\ge2$ of the sum of Laplace variables has an HCM density (the proof of Theorem~\ref{ht:thm:nohcm}(i), which uses only distinct real rates and nonzero coefficients; proved), and the density of the clock $T$ is not HCM (computed, Theorem~\ref{ht:thm:nohcm}(ii); proved under the hypotheses of Theorem~\ref{bs:thm:nb}). For $|Y|$ itself the question is open. Since an HCM density extends to $\cut$ with no zero there, a necessary condition is that the entire density of Section~\ref{ch:boschA} has no zero in $\re z>0$. That is a zero search and not a derivative ladder; the closed form of Remark~\ref{xi:rem:exact} accelerates the ladder only for finite truncations, which are known to fail.
+\end{problem}

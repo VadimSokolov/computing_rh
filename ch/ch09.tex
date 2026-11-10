@@ -5,7 +5,7 @@ Turing's method certifies the count $N(T)$ without evaluating $\zeta$ off the cr
 
 \subsection{The cumulative Thorin mass as a smoothed counting function}\label{sec:ch9:mass}
 
-Recall that $M_\varepsilon(\theta)=\mu_\varepsilon((0,\theta^2])=\pi^{-1}\arg\xi(\tfrac12+\varepsilon+i\theta)$, with the argument continued along the line $\re s=\tfrac12+\varepsilon$ from $\theta=0$, where $\xi>0$ (Sections~\ref{sec:ch6:consequences} and \ref{ch:distances}). Since $\xi(s)=\tfrac12s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$, the mass splits as
+Recall that the cumulative Thorin mass $M_\varepsilon(\theta)$ is $\pi^{-1}$ times an argument of $\xi$ along the line $\re s=\tfrac12+\varepsilon$ (Sections~\ref{sec:ch6:consequences} and \ref{ch:distances}). Since $\xi(s)=\tfrac12s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$, the mass splits as
 \[
 M_\varepsilon(\theta)=N^{\rm sm}_\varepsilon(\theta)+S_\varepsilon(\theta),\qquad S_\varepsilon(\theta)=\frac1\pi\arg\zeta\Big(\frac12+\varepsilon+i\theta\Big),
 \]
@@ -64,7 +64,7 @@ Zero density estimates such as Ingham's \cite{Ingham40} bound the number $N(\sig
 
 \subsection{The count and the zero density below height 200}\label{sec:ch9:count}
 
-The right side of the identity is an integer, so a computation of the left side with error below one half determines it, provided no winding of the argument is missed. We follow the argument on a grid, summing the principal values of the arguments of quotients of successive values of $\xi$, with steps $\varepsilon/8$ ($\varepsilon/4$ at $\varepsilon=0.005$) up the vertical side from $\theta=0$ and $4000$ steps along the horizontal segment. A certificate would need, besides ball arithmetic at the grid points, a bound on the change of the argument between them. We do not supply that bound, and the conclusions below are computed, not certified.
+The right side of the identity is an integer, so a computation of the left side with error below one half determines it, provided no winding of the argument is missed. We follow the argument on a grid, summing the principal values of the arguments of quotients of successive values of $\xi$, with steps $\varepsilon/8$ ($\varepsilon/4$ at $\varepsilon=0.005$) up the vertical side from $\theta=0$ and $4000$ steps along the horizontal segment. A certificate would need a bound on the change of the argument between grid points, which we do not supply: the conclusions below are computed, not certified.
 
 Table~\ref{tab:zerodensity} gives the identity at $T=200$, evaluated by the P\'olya route. Every row returns $79$ to within $6\times10^{-13}$. The row $\varepsilon=\tfrac12$ gives $N(200)=79$, and with the $79$ sign changes of $\Xi$ on $(0,200)$ (Section~\ref{sec:ch4:height200}) this places every zero below height $200$ on the line. Independently of the sign changes, the rows $\varepsilon<\tfrac12$ give $\nu(\tfrac12+\varepsilon,200)=0$ for every $\varepsilon\ge0.005$, since $\nu$ is nonincreasing in $\sigma$, so that by the functional equation no zero below height $200$ lies farther than $0.005$ from the line.
 
@@ -89,3 +89,14 @@ $\varepsilon$ & $M_\varepsilon(200)$ & $\tau_\varepsilon(200)$ & $M_\varepsilon+
 \end{table}
 
 The identity also gives the mass defect of Proposition~\ref{prop:mass} exactly. If $T$ is not an ordinate and every zero with ordinate in $(0,T]$ lies on the line, then $\nu(\tfrac12+\varepsilon,T)=0$ and $M_\varepsilon(T)=N(T)-\tau_\varepsilon(T)$ for every $\varepsilon>0$. With that proposition and Remark~\ref{rem:ch7:cubic} this gives $\tau_\varepsilon(T)=(\varepsilon/\pi)\,\Xi'(T)/\Xi(T)+O(\varepsilon^3)$. At $T=200$ the first order term is $-0.3981063\,\varepsilon$, minus the mass defect found in Section~\ref{sec:ch7:cumulative}, and for $\varepsilon\le0.1$ the column $\tau_\varepsilon(200)$ of Table~\ref{tab:zerodensity} exceeds it by about $0.043\,\varepsilon^3$.
+
+\subsection{The zero count at height 1000}\label{sec:ch5:count}
+
+At $T=1000$ the count $N(T)=M_{1/2}(T)+\tau_{1/2}(T)$ of Proposition~\ref{prop:zerodensity} is computed, with $M_{1/2}(T)=\pi^{-1}\arg\xi(1+iT)$ the cumulative Thorin mass at the basepoint one. With the tilted route ($\delta=0.1$, $200$ bits, step $0.004$ and truncation $|x|\le4.2$, that is $2101$ nodes), $10000$ steps of $0.1$ along $\re s=1$ and $2000$ steps along the segment, we find
+\[
+M_{1/2}(1000)=648.7562315041018,\qquad \tau_{1/2}(1000)=0.2437684958980,
+\]
+\[
+M_{1/2}(1000)+\tau_{1/2}(1000)=648.9999999999999,
+\]
+so $N(1000)=649$, with a largest argument increment of $0.43$ radians. The computation took $77.5$ seconds; \texttt{mpmath}'s \texttt{nzeros} returns $649$ in $0.017$ seconds. As in the count below height $200$ the result is computed, not certified; an enclosure of $\xi$ between consecutive sample points $s_k$ and $s_{k+1}$, for instance a check that $\re\,\xi(s)/\xi(s_k)>0$ on a ball containing the segment between them, together with the analytic error bounds of Section~\ref{ch:polya}, would certify it.

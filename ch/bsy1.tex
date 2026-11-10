@@ -58,23 +58,14 @@ The theorem is the Riesz decomposition of the subharmonic function $\log|h_\thet
 The second is the form at $\theta=\frac78$, $t_0=0$, where $h_{7/8}(1)=\frac1{2-2\theta}=4$: the Cauchy average of $\log|\zeta(\frac78+i\tau)|$ at scale $\frac18$ equals $\log4$ if and only if $\mathrm{QRH}(\frac78)$ holds. That equivalence is unconditional; that the average does equal $\log4$ is conditional on $\mathrm{QRH}(\frac78)$, announced and not refereed (Section~\ref{lv:sec:qrh}). Table~\ref{bsy:tab:defects} lists the defects computed at the levels $\frac12$, $\frac34$ and $\frac78$.
 
 \begin{remark}[local versus global]\label{bsy:rem:local}
-A zero at height $\gamma$ with $\beta=\theta+\delta$ contributes about $2\delta(1-\theta)/\gamma^2$ to $D_\theta(0)$. That is below $10^{-25}$ beyond the verified height $3\times10^{12}$ \cite{PT21}, so the global criterion is numerically blind: summed over all possible zeros above that height, $D_\theta(0)$ is below $7.4\times10^{-13}$ at $\theta=\frac12$, $1.85\times10^{-13}$ at $\theta=\frac34$ and $4.7\times10^{-14}$ at $\theta=\frac78$ (computed from the zero counting bound of Hasanalizade, Shen and Wong \cite{HSW22}; the last bound is $4.62\times10^{-14}$ to three digits). Centred at $t_0=\gamma$, the same zero contributes $\log\frac{1-\theta+\delta}{1-\theta-\delta}\approx\frac{2\delta}{1-\theta}$, which is of order $\delta$ itself. For the Davenport and Heilbronn function at $\theta=\frac34$ the zero $0.8085\ldots+85.6993\ldots i$ gives $\log\frac{0.308517}{0.191483}=0.4770$ at its own height (as computed in Table~\ref{bsy:tab:cm}) and about $4\times10^{-6}$ seen from $t_0=0$. So the kernel should be centred where the zeros are. Computing $D_{7/8}(t_0)$ on a grid of heights is a practical local test of $\mathrm{QRH}(\frac78)$ at those heights, and the generative screen of Section~\ref{cf:sec:gbc} tells where to centre it; being local, it is not a proof.
+A zero at height $\gamma$ with $\beta=\theta+\delta$ contributes about $2\delta(1-\theta)/\gamma^2$ to $D_\theta(0)$. That is below $10^{-25}$ beyond the verified height $3\times10^{12}$ \cite{PT21}, so the global criterion is numerically blind: summed over all possible zeros above that height, $D_\theta(0)$ is below $7.4\times10^{-13}$ at $\theta=\frac12$, $1.85\times10^{-13}$ at $\theta=\frac34$ and $4.7\times10^{-14}$ at $\theta=\frac78$ (computed from the zero counting bound of Hasanalizade, Shen and Wong \cite{HSW22}; the last bound is $4.62\times10^{-14}$ to three digits). Centred at $t_0=\gamma$, the same zero contributes $\log\frac{1-\theta+\delta}{1-\theta-\delta}\approx\frac{2\delta}{1-\theta}$, which is of order $\delta$ itself. For the Davenport and Heilbronn function at $\theta=\frac34$ the zero $0.8085\ldots+85.6993\ldots i$ gives $\log\frac{0.308517}{0.191483}=0.4770$ at its own height (as computed in Table~\ref{bsy:tab:cm}) and about $4\times10^{-6}$ seen from $t_0=0$. Computing $D_{7/8}(t_0)$ on a grid of heights is a practical local test of $\mathrm{QRH}(\frac78)$ at those heights, and the generative screen of Section~\ref{cf:sec:gbc} tells where to centre it; being local, it is not a proof.
 \end{remark}
 
 \section{The dictionary: one derivative in \texorpdfstring{$\sigma$}{sigma}}\label{bsy:sec:dictionary}
 
 Differentiating \eqref{bsy:eq:riesz} in $\sigma$ gives the Thorin statement in two steps: the transport of $\mathfrak U_{1/2}$ to $\mathfrak U_\sigma$, and the archimedean term.
 
-\begin{theorem}[transport]\label{bsy:thm:transport}
-For $\sigma>\frac12$,
-\[
-m_\sigma=P_{\sigma-1/2}*\mathfrak U_{1/2}+\sum_{\beta>1/2}\bigl[P_{\sigma-\beta}+P_{\sigma-1+\beta}\bigr](\cdot-\gamma).
-\]
-\end{theorem}
-
-\begin{proof}
-The formula is \eqref{bsy:eq:had} split into zeros on the line and zeros off it, a zero $\rho$ with $\beta>\frac12$ being paired with $1-\bar\rho$ at the same height $\gamma$.
-\end{proof}
+The transport of $\mathfrak U_{1/2}$ to $\mathfrak U_\sigma$ is Proposition~\ref{cf:prop:transport}, with $m_\sigma=u_\sigma$ and the signed $P_a$: $m_\sigma=P_{\sigma-1/2}*\mathfrak U_{1/2}+\sum_{\beta>1/2}[P_{\sigma-\beta}+P_{\sigma-1+\beta}](\cdot-\gamma)$.
 
 \begin{remark}[zero by zero]
 A zero on the line enters \eqref{bsy:eq:riesz} through the logarithmic singularity of the boundary values, whose Poisson extension has $\sigma$ derivative $\pi P_{\sigma-1/2}(\cdot-\gamma)$. A pair $\rho,1-\bar\rho$ off the line enters through two terms. The Poisson extension of $\log|(\cdot-\rho)(\cdot-1+\bar\rho)|$ from the line is $2\log|s-1+\bar\rho|$, with $\sigma$ derivative $2\pi P_{\sigma-1+\beta}$. The Green term $-G_{1/2}(s,\rho)$ has $\sigma$ derivative $\pi(P_{\sigma-\beta}-P_{\sigma-1+\beta})$. The sum is $\pi(P_{\sigma-\beta}+P_{\sigma-1+\beta})$. The derivatives are direct: $\partial_\sigma\log|\sigma+it-c|=\Re(s-c)^{-1}=\pi P_{\sigma-\Re c}(t-\Im c)$, and $2\log|s-1+\bar\rho|$ is harmonic on $\{\Re s>\frac12\}$ (its singularity $1-\bar\rho$ lies to the left of the line) with the right boundary values.
@@ -88,14 +79,14 @@ analytic and zero free on $\{\Re s>0\}$. With $a_\sigma(t)=\pi^{-1}\Re\,(C'/C)(\
 \begin{equation}\label{bsy:eq:dict}
 m_\sigma(t)=\frac1\pi\,\partial_\sigma\bigl(P_{\sigma-1/2}*\log|\zeta(\tfrac12+i\,\cdot)|\bigr)(t)+a_\sigma(t)+\sum_{\beta>1/2}\bigl[P_{\sigma-\beta}-P_{\sigma-1+\beta}\bigr](t-\gamma),
 \end{equation}
-equivalently, by Theorem~\ref{bsy:thm:transport}, $\frac1\pi\partial_\sigma(P_{\sigma-1/2}*\log|\zeta(\frac12+i\cdot)|)=P_{\sigma-1/2}*\mathfrak U_{1/2}+\sum_{\beta>1/2}2P_{\sigma-1+\beta}(\cdot-\gamma)-a_\sigma$. The term $a_\sigma$ cannot be absorbed into the Poisson integral: $\log|C(\frac12+it)|=-\frac\pi4|t|+O(\log|t|)$, whose Cauchy average diverges, which is why the criterion is stated for $\zeta$ and not for $\xi$.
+equivalently, by Proposition~\ref{cf:prop:transport}, $\frac1\pi\partial_\sigma(P_{\sigma-1/2}*\log|\zeta(\frac12+i\cdot)|)=P_{\sigma-1/2}*\mathfrak U_{1/2}+\sum_{\beta>1/2}2P_{\sigma-1+\beta}(\cdot-\gamma)-a_\sigma$. The term $a_\sigma$ cannot be absorbed into the Poisson integral: $\log|C(\frac12+it)|=-\frac\pi4|t|+O(\log|t|)$, whose Cauchy average diverges, which is why the criterion is stated for $\zeta$ and not for $\xi$.
 
 \begin{proof}
 On $\{\Re s>\frac12\}$, $\log|\xi|=\log|h_{1/2}|+\log|C|$, so $\pi m_\sigma=\partial_\sigma\log|h_{1/2}|+\pi a_\sigma$ by Lemma~\ref{bsy:lem:cr}. Differentiate \eqref{bsy:eq:riesz}: the Poisson integral is harmonic, and by the derivative of the preceding remark,
 \[
 \partial_\sigma G_{1/2}(s,\rho)=\partial_\sigma\log|s-1+\bar\rho|-\partial_\sigma\log|s-\rho|=\pi\bigl[P_{\sigma-1+\beta}-P_{\sigma-\beta}\bigr](t-\gamma),
 \]
-the differentiated series converging locally uniformly off the zeros. This gives \eqref{bsy:eq:dict}; the second form follows by substituting Theorem~\ref{bsy:thm:transport}. The asymptotics of $\log|C|$ are Stirling's formula.
+the differentiated series converging locally uniformly off the zeros. This gives \eqref{bsy:eq:dict}; the second form follows by substituting Proposition~\ref{cf:prop:transport}. The asymptotics of $\log|C|$ are Stirling's formula.
 \end{proof}
 
 \begin{table}[h]
@@ -122,7 +113,7 @@ The following are equivalent: (i) RH; (ii) $D_{1/2}(t_0)=0$ for some $t_0$; (iii
 \noindent (i)$\Leftrightarrow$(ii) is Theorem~\ref{bsy:thm:bsy}. Statement (iii) and its form for $\mathrm{QRH}(\theta)$ are Lagarias's argument (Remark~\ref{rem:ch2:oneline}); (iv) is Theorem~\ref{tf:thm:deconv}(a).
 
 \begin{proof}
-Let $\rho_0$ be a zero with $\beta_0>\theta$. By \eqref{bsy:eq:had}, $m_\sigma(\gamma_0)\to-\infty$ as $\sigma\uparrow\beta_0$, because the term of $\rho_0$ is $P_{\sigma-\beta_0}(0)=1/(\pi(\sigma-\beta_0))$ and the other terms stay bounded near $\gamma_0$; so $m_\sigma$ is negative on a neighbourhood of $\gamma_0$ for $\sigma\in(\theta,\beta_0)$ close to $\beta_0$, and $\mathfrak U_\sigma$ is not positive. This gives (iii)$\Rightarrow$(i), and its form for $\mathrm{QRH}(\theta)$. Conversely, under $\mathrm{QRH}(\theta)$ every term of \eqref{bsy:eq:had} with $\sigma>\theta$ is positive. For (iv), if $\mathrm{RH}$ holds, Theorem~\ref{bsy:thm:transport} at $\sigma=1$ gives $\nu=\mathfrak U_{1/2}$. Conversely a positive $\nu$ makes $P_{\sigma-1/2}*\nu$ a positive harmonic function on $\{\sigma>\frac12\}$ equal to $m_\sigma$ for $\sigma\ge1$ (the two agree at $\sigma=1$ and are harmonic with the growth of Poisson integrals; this is the argument of Theorem~\ref{tf:thm:deconv}(a)). By unique continuation they agree off the zeros, which is impossible near a zero with $\beta>\frac12$, where $m_\sigma$ is unbounded of both signs. So RH holds, and then $P_{\sigma-1/2}*\nu=P_{\sigma-1/2}*\mathfrak U_{1/2}$ gives $\nu=\mathfrak U_{1/2}$.
+(iii)$\Rightarrow$(i), and its form for $\mathrm{QRH}(\theta)$, is the pole argument of Theorem~\ref{cx:thm:positivity}: for a zero with $\beta_0>\theta$, $m_\sigma(\gamma_0)\to-\infty$ as $\sigma\uparrow\beta_0$ by \eqref{bsy:eq:had}. Conversely, under $\mathrm{QRH}(\theta)$ every term of \eqref{bsy:eq:had} with $\sigma>\theta$ is positive. For (iv), if $\mathrm{RH}$ holds, Proposition~\ref{cf:prop:transport} at $\sigma=1$ gives $\nu=\mathfrak U_{1/2}$. Conversely a positive $\nu$ makes $P_{\sigma-1/2}*\nu$ a positive harmonic function on $\{\sigma>\frac12\}$ equal to $m_\sigma$ for $\sigma\ge1$ (the two agree at $\sigma=1$ and are harmonic with the growth of Poisson integrals; this is the argument of Theorem~\ref{tf:thm:deconv}(a)). By unique continuation they agree off the zeros, which is impossible near a zero with $\beta>\frac12$, where $m_\sigma$ is unbounded of both signs. So RH holds, and then $P_{\sigma-1/2}*\nu=P_{\sigma-1/2}*\mathfrak U_{1/2}$ gives $\nu=\mathfrak U_{1/2}$.
 \end{proof}
 
 \section[The 2 sin squared lemma, EGGC and Davenport and Heilbronn]{The 2 \texorpdfstring{$\sin^2$}{sin squared} lemma, the extended gamma convolution and the Davenport and Heilbronn trace}\label{bsy:sec:sin2}
@@ -204,7 +195,7 @@ Figure~\ref{bsy:fig:dhlevy} shows $K_{\mathrm{DH}}$ computed two ways. One is th
 K_{\mathrm{DH}}(u)=\frac1\pi\Re\bigl[e^{i\alpha u}A(u)\bigr]+\frac1\pi\int_0^\alpha\frac{\Lambda'}{\Lambda}\Bigl(\tfrac12+v\Bigr)\sin(vu)\,dv,\]\[
 A(u)=\int_0^\infty\frac{\Lambda'}{\Lambda}(c+it)\,e^{-tu}\,dt,
 \]
-with $c=3$, $\alpha=c-\frac12$, and $f'/f$ expanded as a Dirichlet series. It follows from the residue theorem on the rectangles $1-c\le\Re s\le c$, $0\le\Im s\le T$, with $T\to\infty$ through heights away from the zeros, the functional equation and the reality of $\Lambda'/\Lambda$ on the real axis. The two computations agree to a relative error of $4\times10^{-13}$ for $0.1\le u\le0.5$ and $10^{-9}$ for $0.1\le u\le2$, at the sampled points (computed, floating point), and the off line terms of the zeros below height $300$ stay below $0.02$ percent of $K_{\mathrm{DH}}$ there; the share reaches $4$ percent only at $u=0.01$, outside the sampled range, where the zero sum cut at height $300$ has not converged. So the $2\sin^2$ L\'evy density can stay positive with zeros off the line: RH is the EGGC property, which infinite divisibility alone does not see.
+with $c=3$, $\alpha=c-\frac12$, and $f'/f$ expanded as a Dirichlet series. It follows from the residue theorem on the rectangles $1-c\le\Re s\le c$, $0\le\Im s\le T$, with $T\to\infty$ through heights away from the zeros, the functional equation and the reality of $\Lambda'/\Lambda$ on the real axis. The two computations agree to a relative error of $4\times10^{-13}$ for $0.1\le u\le0.5$ and $10^{-9}$ for $0.1\le u\le2$, at the sampled points (computed, floating point), and the off line terms of the zeros below height $300$ stay below $0.02$ percent of $K_{\mathrm{DH}}$ there; the share reaches $4$ percent only at $u=0.01$, outside the sampled range, where the zero sum cut at height $300$ has not converged.
 
 \begin{figure}[h]
 \centering
@@ -212,7 +203,7 @@ with $c=3$, $\alpha=c-\frac12$, and $f'/f$ expanded as a Dirichlet series. It fo
 \caption{The Davenport and Heilbronn L\'evy density. Left: $K_{\mathrm{DH}}$ by the explicit formula and by the sum over zeros, with the off line terms in absolute value. Right: $K_{\mathrm{DH}}(u)e^{\gamma_1u}-1$ on a logarithmic scale; the quantity $K_{\mathrm{DH}}(u)e^{\gamma_1u}$ tends to $1$, from above for large $u$ since the first zero is simple and the second lies on the line. Beyond $u=9$ the right panel shows rounding noise.}\label{bsy:fig:dhlevy}
 \end{figure}
 
-Positivity of the trace is not automatic for Dirichlet series with a functional equation.
+
 
 \begin{remark}[a negative trace]\label{bsy:rem:negW}
 {\emergencystretch=8em Let $B(s)=L(s,\chi_4)$, $\Lambda_B(s)=(4/\pi)^{s/2}\Gamma(\frac{s+1}2)B(s)$, let $p<q<2p$ be odd primes, and put $a=\frac12\log(pq)$, $b=\frac12\log(p/q)$ and $P(s)=1+2\sqrt p\,p^{-s}+2\sqrt q\,q^{-s}+\sqrt{pq}\,(pq)^{-s}$. Then
@@ -224,9 +215,81 @@ which is entire of order one, real and positive on $\mathbb R$, and invariant un
 
 \noindent The primitive version of the question stays open (Open problem~\ref{bsy:op:dh}).
 
+\subsection{Mirror pairs, the exit time and the level series}\label{bsy:sec:mirror}
+
+This subsection records, in the form the book uses, a construction from an unrefereed note of Polson (November 2026), corrected in refereeing. It concerns the first term of the Vere-Jones expansion (Proposition~\ref{rz:prop:lvj}). Write $P_b(x)=b/(\pi(b^2+x^2))$, so that $\widehat{P_b}(\omega)=e^{-b|\omega|}$ and $\mathfrak U_\sigma=\sum_\rho P_{\sigma-\beta}(\cdot-\gamma)$ for $\sigma>\beta$ (the terms $1/s+1/(s-1)$ appear in the prime side expression of $\pi m_\sigma$, the density of Section~\ref{bsy:sec:thorin}, and play no role below except where stated), let $\mathrm{HS}_b$ be the hyperbolic secant law with density $(2b)^{-1}\sech(\pi x/2b)$ and characteristic function $\sech(b\omega)$, and let $\chi_4$ be the nontrivial character modulo $4$; sums over odd $j$ run over the positive odd integers.
+
+\begin{lemma}\label{bsy:lem:hs}
+For $b>0$, $\mathrm{HS}_b=2\sum_{j\ \mathrm{odd}}\chi_4(j)P_{jb}$, conditionally convergent. Proved.
+\end{lemma}
+
+\begin{proof}
+The first identity of Proposition~\ref{rz:prop:lvj} with $x=b|\omega|$ gives $\sech(b\omega)=2\sum_{j\ \mathrm{odd}}\chi_4(j)e^{-jb|\omega|}$.
+\end{proof}
+
+For $a>0$ put $W_a=\tfrac12\sum_{j\ \mathrm{odd}}\chi_4(j)\,\mathfrak U_{1/2+ja}$ (Abel sum). By Lemma~\ref{bsy:lem:hs} a zero $\frac12+i\gamma$ contributes the kernel $\frac14\mathrm{HS}_a(\cdot-\gamma)$.
+
+\begin{proposition}[the level series]\label{bsy:prop:levelser}
+(a) Assume RH. For every $a>0$ and every $t$, with $r=e^{-\varepsilon a}$, the series $\tfrac12\sum_{j\ \mathrm{odd}}\chi_4(j)r^j\,\mathfrak U_{1/2+ja}(t)$ converges absolutely for $\varepsilon>0$, and as $\varepsilon\downarrow0$ it tends to $W_a(t)=\frac14\sum_\gamma\mathrm{HS}_a(t-\gamma)$. In particular $W_{1/2}=\tfrac12(\mathfrak U_1-\mathfrak U_2+\mathfrak U_3-\cdots)$ is a positive measure. Proved.
+
+(b) For $\alpha\ge1$ every $\mathfrak U_\alpha$ is a positive measure with no hypothesis, and for $\alpha>1$ it is given by the absolutely convergent prime side; the terms $\mathfrak U_{1/2+ja}$ with $\frac12+ja<1$ are known to be positive only under RH. Proved.
+
+(c) At $a=\frac12$ the partial sum with $2N+1$ terms is positive with no hypothesis: for a zero on the line its kernel is $\frac14\mathrm{HS}_{1/2}*(\delta_0+P_{2N+1})$, and for a mirror pair with $c<\frac12$ it is $\frac12M_{1/2,c}*(\delta_0+P_{2N+1})$ in the notation of Proposition~\ref{bsy:prop:meixner2}. This positivity is the nonvanishing of $\zeta$ on $\Re s=1$ and carries no further information. The partial sums with an even number of terms have kernel $\frac14\mathrm{HS}_{1/2}*(\delta_0-P_{2N})$ of mass zero and take negative values: $\pi(\mathfrak U_1-\mathfrak U_2)$ equals $-0.19$, $0.68$, $-0.53$, $-0.70$, $0.48$ at $t=17,50,100,200,300$, while $\pi(\mathfrak U_1-\mathfrak U_2+\mathfrak U_3)$ equals $0.233$, $1.797$, $0.802$, $0.893$, $2.366$ there (computed). Proved for the odd sums, computed for the even sums.
+
+(d) The pole terms $1/s+1/(s-1)$ of $\xi'/\xi$ contribute $P_{k-1}+P_k$ to $\mathfrak U_k$, and at $a=\frac12$ the Abel sum telescopes, $\sum_{k\ge1}(-1)^{k-1}(P_{k-1}+P_k)=P_0=\delta_0$. So the pole is flattened to the term $\frac12\delta_0$ in $W_{1/2}$, a constant $\frac12$ in its Fourier transform, and not removed. Proved.
+\end{proposition}
+
+\begin{proof}
+(a) Let $K_r=\sum_{j\ \mathrm{odd}}\chi_4(j)r^jP_{jb}$ with $b=a$. Its transform is $\frac12\sech(a(|\omega|+\varepsilon))$, and two integrations by parts, the kink at $0$ having size $O(\varepsilon)$, give $|K_r(x)|\le C/(1+x^2)$ uniformly in $\varepsilon\in(0,1]$. For $r<1$ the double sum over $j$ and $\gamma$ converges absolutely, since under RH $\sum_\gamma P_{ja}(t-\gamma)=\pi^{-1}\Re(\xi'/\xi)(\frac12+ja+it)=O(\log(j+|t|))$. Dominated convergence over $\gamma$, with $\sum_\gamma(1+(t-\gamma)^2)^{-1}<\infty$, gives the limit. (b) A zero has $\beta<1$, so each term $P_{\alpha-\beta}$ is positive for $\alpha\ge1$. (c) The partial sum of $\sum_k(-1)^kP_{1/2+k-c}+P_{1/2+k+c}$ over $0\le k\le2N$ has transform $2\cosh(c\omega)\,\tfrac12\sech(\omega/2)(1+e^{-(2N+1)|\omega|})$, and similarly with $c=0$ and with $-e^{-2N|\omega|}$ for an even number of terms. (d) Direct.
+\end{proof}
+
+The Abel summation is needed only for one piece. Write $\pi\mathfrak U_k$ as a smooth part minus the prime part: the double sum over $k\ge2$ and $n$ of $\Lambda(n)n^{-k}$ is absolutely convergent, with $\sum_n\Lambda(n)/(n(n-1))<\infty$, and only the Gamma term, of size $\frac12\log(k/2\pi)$, which does not tend to $0$, needs Abel summation. So the series gains nothing computationally: the prime weights after summing are those of level one, $\Lambda(n)/(n+1)$.
+
+\begin{proposition}[kernel of a mirror pair]\label{bsy:prop:meixner2}
+Let $0\le c<a$ and let $\rho=\frac12\pm c+i\gamma$ be a mirror pair. Its contribution to $W_a$ is $\frac12M_{a,c}(\cdot-\gamma)$ with
+\begin{equation}\label{bsy:eq:meixner2}
+M_{a,c}(x)=\frac{\cos(\pi c/2a)\cosh(\pi x/2a)}{a\bigl(\cosh(\pi x/a)+\cos(\pi c/a)\bigr)},\qquad \int M_{a,c}=1,\qquad \widehat M_{a,c}(\omega)=\frac{\cosh(c\omega)}{\cosh(a\omega)},
+\end{equation}
+a probability density, equal to $\mathrm{HS}_a$ for $c=0$ and equal to $\frac12[\mathrm{HS}_a(x+ic)+\mathrm{HS}_a(x-ic)]$. Each zero of the pair alone contributes a kernel with transform $\frac14e^{\pm c|\omega|}\sech(a\omega)$; the one with the plus sign has positive derivative at $0^+$, so it is not a positive kernel, and positivity is restored by the mirror partner. Proved; the closed form was checked numerically to twelve digits.
+\end{proposition}
+
+\begin{proof}
+By Lemma~\ref{bsy:lem:hs} the sum $\sum_j\chi_4(j)P_{ja\mp c}$ has transform $\frac12e^{\pm c|\omega|}\sech(a\omega)$, so the pair gives $\frac12\cdot\frac{\cosh(c\omega)}{\cosh(a\omega)}$ after the factor $\frac12$ in $W_a$.
+\end{proof}
+
+The kernel is the law of $B_\tau$, with $B$ a Brownian motion independent of $\tau$ and $\tau$ the exit time of a Brownian motion from $(-a,a)$ started at $c$, whose Laplace transform is $\cosh(c\sqrt{2u})/\cosh(a\sqrt{2u})$. It explains the arithmetic below: for $a=3c$ the starting point is a third of the way to the boundary.
+
+\begin{theorem}[Thorin class of a mirror pair kernel]\label{bsy:thm:dichotomy}
+Let $0<c<a$ (the case $c=0$ is stated at the end). The kernel $M_{a,c}$ is infinitely divisible with the positive L\'evy density
+\begin{equation}\label{bsy:eq:meixnerlevy}
+\nu_{a,c}(x)=\frac1{|x|}\sum_{k\ge1}\Bigl[e^{-(2k-1)\pi|x|/2a}-e^{-(2k-1)\pi|x|/2c}\Bigr]>0,
+\end{equation}
+and $|x|\nu_{a,c}(x)$ is the Laplace transform in $|x|$ of the signed measure $\sum_k\delta_{(2k-1)\pi/2a}-\sum_k\delta_{(2k-1)\pi/2c}$. The kernel is in the Thorin class on the line if and only if $a/c$ is an odd integer. Then the negative atoms cancel exactly, for example $\cosh(c\omega)/\cosh(3c\omega)=1/(2\cosh(2c\omega)-1)$. For $c=0$ the kernel is $\mathrm{HS}_a$, which is in the class. All proved.
+\end{theorem}
+
+\begin{proof}
+$\cosh(c\omega)/\cosh(a\omega)=\prod_k(1+\omega^2/\theta_k(c))/(1+\omega^2/\theta_k(a))$ with $\theta_k(b)=(2k-1)^2\pi^2/4b^2$, and $(1+\omega^2/\theta)^{-1}$ is the characteristic function of the symmetric Laplace law with L\'evy density $e^{-\sqrt\theta|x|}/|x|$; the numerator factors contribute the same with negative sign. Summing gives \eqref{bsy:eq:meixnerlevy}, positive because $x\mapsto e^{-(2k-1)\pi|x|/2b}$ increases with $b$ and $c<a$. By uniqueness of the Laplace transform of a signed measure, the Thorin measure is the signed measure above. Write $a/c=r/s$ in lowest terms if rational. The negative atom $(2k-1)\pi/2c$ equals the positive atom $(2m-1)\pi/2a$ if and only if $(2k-1)r=(2m-1)s$. For $k=1$ this needs $s\mid r$, hence $s=1$ and $r$ odd, and then every negative atom is cancelled, since $(2k-1)r$ is odd. If $a/c$ is irrational no atom is cancelled, and if $s>1$ the atom at $\pi/2c$ is not.
+\end{proof}
+
+The negative atoms lie at $(2k-1)\pi/2c$ among the positive ones at $(2k-1)\pi/2a$; they do not interlace them in general. This is the same dichotomy as at the level of $1/\xi$, now for each pair and each damping.
+
+\begin{corollary}[a reformulation of RH]\label{bsy:cor:reform}
+Let $a_1,a_2\ge\frac12$ have irrational ratio. Then RH holds if and only if, at both dampings, every kernel $M_{a_i,c}$ of the mirror pairs of $W_{a_i}$ is in the Thorin class. Proved, and a reformulation, not a route.
+\end{corollary}
+
+\begin{proof}
+All $c<\frac12\le a_i$, so the kernels are defined with no hypothesis. If RH holds every $c=0$. Conversely a pair with $c>0$ that passes at both dampings makes $a_1/c$ and $a_2/c$ odd integers, so $a_1/a_2$ is rational.
+\end{proof}
+
+A single damping does not suffice, since $c=a/(2n+1)$ passes. The corollary is tautological in content: $M_{a,c}$ is a function of $c$ alone, so the statement is that every $c$ is $0$. The L\'evy density and the Thorin measure of $W_a$ itself are not the sums of those of the kernels, since $W_a$ is a mixture and not a convolution.
+
+\begin{remark}[Beurling systems have no positive Thorin density]\label{bsy:rem:beurling}
+Let $\mathcal P$ be a Beurling generalised prime system (Zhang \cite{Zhang07}; Broucke, Debruyne and Vindas \cite{BDV20}), with zeta function $\zeta_{\mathcal P}$ having an Euler product, a simple pole at $1$ and von Mangoldt function $\Lambda_{\mathcal P}$, and let $\alpha>1$. Without the Gamma factor of $\xi$ the reciprocal is not a Laplace transform of a probability law, so $\mathcal P$ gives no positive Thorin measure at any level $\alpha>1$. Proved, by two arguments. First, $\zeta_{\mathcal P}(\alpha)/\zeta_{\mathcal P}(\alpha+y)$ increases from $1$ to $\zeta_{\mathcal P}(\alpha)$ as $y\uparrow\infty$, since $\zeta_{\mathcal P}$ decreases on the real axis, whereas a Laplace transform of a probability law decreases. Second, inserting the pole factor does not help: the Thorin density is then $\frac{\alpha-1}{(\alpha-1)^2+t^2}-f(t)$ with $f(t)=\sum_n\Lambda_{\mathcal P}(n)n^{-\alpha}\cos(t\log n)$, which is uniformly almost periodic with mean zero and not zero, so $f(t_j)>s/2>0$ along a sequence $t_j\to\infty$ where the first term tends to $0$, and the density is negative at arbitrarily large $t$. On the integers the density is negative on $47.7$ percent of $[0,400]$ at $\alpha=2$, with minimum $-0.417$ near $t=371.5$ (computed); for $\zeta$ itself positivity comes from the term $\frac12\log(t/2\pi)$ of the Gamma factor, exactly what is removed. So positivity of the Thorin density is a property of the completion and not of the location of the zeros. No claim is made about the zeros of $\zeta_{\mathcal P}$. The benchmark that has all of an Euler product, a functional equation, RH proved and a lattice Thorin measure is the curve over a finite field (Section~\ref{route:sec:curves}).
+\end{remark}
+
 \section{Brownian motion and a probabilistic reading of the criterion}\label{bsy:sec:bm}
 
-The Cauchy kernel $P_{1-\theta}(t_0-\cdot)$ is the law of the height at which planar Brownian motion $B$ started at $1+it_0$ first hits the line $\Re s=\theta$. As in Section~\ref{bp:sec:planar}, the Cauchy process is Brownian motion run along the first passage times of an independent Brownian motion, indexed by the level.
+The Cauchy kernel $P_{1-\theta}(t_0-\cdot)$ is the law of the height at which planar Brownian motion $B$ started at $1+it_0$ first hits the line $\Re s=\theta$.
 
 \begin{proposition}[the criterion as optional stopping]\label{bsy:prop:yor}
 Let $B$ be a planar Brownian motion started at $s_0=1+it_0$, $\tau$ its hitting time of the line $\{\Re s=\theta\}$ and $H=\{\Re s>\theta\}$. Then $\log|h_\theta(B_\tau)|$ is integrable and
@@ -264,7 +327,7 @@ For planar Brownian motion $B$ from $1+it_0$, stopped at its hitting time $T$ of
 
 The coordinate $Y$ is $\arg h_\theta$, not the raw argument of $\zeta$, which differs from it by an explicit term of the order of $2\arctan\frac{1-\theta}t$ and fails the identities of the theorem: at $\theta=\frac12$, $t_0=0$ under RH the variance of $\arg\zeta$ exceeds that of $\log|\zeta|$ by more than $\pi^2/3$. Indeed, with $w=(s-1)/s$ the raw argument is $Y-\phi$, where $\phi=\operatorname{Arg}w(\frac12+i\tau)$ is uniform on $(-\pi,\pi)$, so $\mathrm{Var}\,\phi=\pi^2/3$. Writing $F(w)=\sum_{n\ge1}a_nw^n$ as in the proof of Theorem~\ref{bsy:thm:cmart} and using $\E[\phi\sin n\phi]=(-1)^{n+1}/n$ gives $\mathrm{Cov}(Y,\phi)=-\int_0^1F(-r)\,dr/r$, and $F(-r)=\log h_{1/2}(\frac1{1+r})>0$ because $h_{1/2}(s)=1+(1-s)\int_1^\infty\{x\}x^{-s-1}\,dx>1$ for $\frac12<s<1$. Hence $\mathrm{Var}(Y-\phi)=\mathrm{Var}\,X+\frac{\pi^2}3-2\,\mathrm{Cov}(Y,\phi)>\mathrm{Var}\,X+\frac{\pi^2}3$.
 
-The moments do not determine the joint law of $(X,Y)$ by themselves; the law is the image of the Cauchy law under $L$. What the theorem adds is the moment identities and the variance formula. Selberg's central limit theorem says that for $t$ uniform on $[T,2T]$, $\log|\zeta(\frac12+it)|$ and $\arg\zeta(\frac12+it)$ are asymptotically independent normals with the same variance $\frac12\log\log T$. Theorem~\ref{bsy:thm:cmart} is an exact finite height counterpart: under $\mathrm{QRH}(\theta)$, at every height, the two coordinates have equal variances and zero covariance under harmonic measure. A zero to the right of the line removes this proof: the logarithm then has a branch point in the half plane, and $Y$ jumps by $2\pi q$ at the height of a zero of multiplicity $q$.
+The moments do not determine the joint law of $(X,Y)$ by themselves; the law is the image of the Cauchy law under $L$. Selberg's central limit theorem says that for $t$ uniform on $[T,2T]$, $\log|\zeta(\frac12+it)|$ and $\arg\zeta(\frac12+it)$ are asymptotically independent normals with the same variance $\frac12\log\log T$. Theorem~\ref{bsy:thm:cmart} is an exact finite height counterpart: under $\mathrm{QRH}(\theta)$, at every height, the two coordinates have equal variances and zero covariance under harmonic measure.
 
 \begin{table}[h]
 \centering\scriptsize\setlength{\tabcolsep}{3pt}
@@ -284,7 +347,7 @@ DH & $\tfrac34$ & 85.7 & $+0.4770$ & $-0.0003$ & $1.0124$ & $3.2682$ & $-0.0162$
 \caption{Moments of $Z=\log h_\theta(\theta+i\tau)$ under $P_{1-\theta}(t_0-\cdot)$, computed in floating point: Poisson weighted panels between the zeros with tanh sinh nodes, midpoint cells beyond distance $1000$ out to $|\tau-t_0|\le13000$, and the mass beyond the window ($2.45\times10^{-5}$ at $\theta=\frac12$, $1.22\times10^{-5}$ at $\theta=\frac34$) estimated from the sample moments of the outer window. Entries are from the finer of two meshes; the larger of the difference between the meshes and half the tail correction is at most $2.1\times10^{-5}$ in every entry. For $\zeta$ the equal variance and zero covariance identities of Theorem~\ref{bsy:thm:cmart} hold to that accuracy; for Davenport and Heilbronn (DH), with $h=f$, they fail at both levels.}\label{bsy:tab:cm}
 \end{table}
 
-In Table~\ref{bsy:tab:cm}, for $\zeta$ the variances of $\log|\zeta|$ and $\arg h_\theta$ agree and the covariance vanishes to $2.1\times10^{-5}$ in every row, the size of the mesh differences. For Davenport and Heilbronn the variance of the argument is $6.9$ times that of the modulus at $\theta=\frac12$ and $3.2$ times at $\theta=\frac34$, as the jump of $Y$ at the height of the zero suggests (an observation, not a consequence of the jump), and the first moment shows the defect of Theorem~\ref{bsy:thm:bsy}. At the three positive heights shown the variance at $\theta=\frac12$ is close to $\frac12\log\log t_0$ ($0.71$ against $0.75$ at height $85.7$, $1.05$ against $0.97$ at height $1000$, $1.13$ against $1.07$ at height $5000$), the scale of Selberg's theorem, which concerns $t$ uniform on $[T,2T]$ and implies nothing for a window of fixed width at a given centre.
+In Table~\ref{bsy:tab:cm}, for Davenport and Heilbronn the variance of the argument is $6.9$ times that of the modulus at $\theta=\frac12$ and $3.2$ times at $\theta=\frac34$, as the jump of $Y$ at the height of the zero suggests (an observation, not a consequence of the jump), and the first moment shows the defect of Theorem~\ref{bsy:thm:bsy}. At the three positive heights shown the variance at $\theta=\frac12$ is close to $\frac12\log\log t_0$ ($0.71$ against $0.75$ at height $85.7$, $1.05$ against $0.97$ at height $1000$, $1.13$ against $1.07$ at height $5000$), the scale of Selberg's theorem, which concerns $t$ uniform on $[T,2T]$ and implies nothing for a window of fixed width at a given centre.
 
 \subsection{The defect of the complex moments}\label{bsy:sec:cuts}
 

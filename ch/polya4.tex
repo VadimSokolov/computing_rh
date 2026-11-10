@@ -65,6 +65,80 @@ $0.52$ & 29 & 29.0044 & 29 & $1.6\times10^{-3}$\\
 Real rootedness of $A_\alpha$ is a counting condition: it can be certified to a given height by sign changes of $\re\xi(\alpha+it)$ together with an argument principle count, exactly as in Turing's method. So the P\'olya family is not easier in principle, but converts the analytic positivity of $\re\xi'/\xi$ into a discrete, verifiable statement about atoms. The zero trajectories $\alpha\mapsto\tau_k(\alpha)$ satisfy $d\tau_k/d\alpha=\re\xi'(s)/\im\xi'(s)$ at $s=\alpha+i\tau_k$. Under RH no two trajectories collide for $\alpha>\frac12$, because the zeros are simple (Proposition~\ref{pol:prop:round}); conversely a nonimaginary zero of $A_\alpha$ can appear only through a collision of two imaginary zeros, provided no zeros enter from infinity as $\alpha$ decreases, which needs uniform control of the zero counts in $\alpha$. In this heuristic sense RH is the statement that no two trajectories collide before $\alpha=\frac12$, a discrete analogue of the de Bruijn Newman dynamics.
 \end{remark}
 
+\subsection{Gap bounds and the Wintner layer}\label{pol:sec:gaps}
+
+In this subsection $\alpha=\frac12+h$ with $h>\frac12$, so that $\alpha>1$, and $\tau_1<\tau_2<\cdots$ are the positive zeros of $t\mapsto\re\xi(\alpha+it)$ of Proposition~\ref{pol:prop:round}, with clock $U_\alpha$. The counting bound and the gap bounds below were proposed in an unrefereed note of Polson (November 2026); the numbers quoted were recomputed independently (computed, mpmath at 15 digits).
+
+\begin{proposition}[Bounded counting error]\label{pol:prop:count}
+Let $\theta_\infty(T)$ be the continuous argument of $\frac12s(s-1)\pi^{-s/2}\Gamma(\frac s2)$ along $s=\alpha+it$, $0\le t\le T$, starting from $0$, and let $N_\alpha(T)=\#\{k:\tau_k\le T\}$. Then
+\[
+-1-\frac{\log\zeta(\alpha)}\pi<N_\alpha(T)-\frac{\theta_\infty(T)}\pi-\frac12\le\frac{\log\zeta(\alpha)}\pi ,
+\]
+so the counting error is bounded by $1+\log\zeta(\alpha)/\pi$ (proved).
+\end{proposition}
+
+\begin{proof}
+By \eqref{pol:eq:round}, $N_\alpha(T)=\lfloor x+\frac12\rfloor$ with $x=U_\alpha(T)=\pi^{-1}\arg\xi(\alpha+iT)$, so $-1<N_\alpha-x-\frac12\le0$. For $\alpha>1$ the argument splits as $\pi x=\theta_\infty(T)+\arg\zeta(\alpha+iT)$, and $\arg\zeta(\alpha+it)=-\sum_{n\ge2}\frac{\Lambda(n)}{\log n}n^{-\alpha}\sin(t\log n)$ has modulus at most $\sum_{n\ge2}\frac{\Lambda(n)}{\log n}n^{-\alpha}=\log\zeta(\alpha)$.
+\end{proof}
+
+At $\alpha=\frac32$ the bound is $1+\log\zeta(\frac32)/\pi=1.30566$, and for $T\le400$ the supremum of the deviation is $1.1845$ (computed), with $202$ zeros of $\re\xi(\frac32+it)$ below $400$.
+
+Integrating the same arithmetic expansion shows that the clock itself is given by the primes: for $\alpha>1$ and the prime form of $\re\xi'/\xi$ of Remark~\ref{iw:rem:sin2},
+\begin{equation}\label{pol:eq:primephase}
+\pi U_\alpha(t)=\theta_\infty(t)-\sum_{n\ge2}\frac{\Lambda(n)}{\log n}\,n^{-\alpha}\sin(t\log n),
+\end{equation}
+and the series converges absolutely only for $\alpha>1$.
+
+Write $G_\alpha(y)=\re\frac1{\alpha-1+iy}-\frac12\log\pi+\frac12\re\psi\big(1+\frac{\alpha+iy}2\big)$, the archimedean part of $\re\xi'/\xi(\alpha+iy)$, so that $\re\frac{\xi'}\xi(\alpha+iy)=G_\alpha(y)+\re\frac{\zeta'}\zeta(\alpha+iy)$ and $G_\alpha(y)=\frac12\log\frac y{2\pi}+O(1/y)$. Since $\re\frac{\zeta'}\zeta(\alpha+iy)=-\sum\Lambda(n)n^{-\alpha}\cos(y\log n)$ lies between $\frac{\zeta'}\zeta(\alpha)$ and $-\frac{\zeta'}\zeta(\alpha)$,
+\begin{equation}\label{pol:eq:sandwich}
+G_\alpha(y)+\frac{\zeta'}\zeta(\alpha)\ \le\ \re\frac{\xi'}\xi(\alpha+iy)\ \le\ G_\alpha(y)-\frac{\zeta'}\zeta(\alpha),\qquad\alpha>1 .
+\end{equation}
+
+\begin{theorem}[Gap sandwich]\label{pol:thm:gaps}
+Let $\alpha>1$ and let $G^\pm$ be the maximum and minimum of $G_\alpha$ over $[\tau_k,\tau_{k+1}]$. Then
+\[
+\frac\pi{G^+-\frac{\zeta'}\zeta(\alpha)}\ \le\ \tau_{k+1}-\tau_k ,
+\]
+and if $G^-+\frac{\zeta'}\zeta(\alpha)>0$ then also $\tau_{k+1}-\tau_k\le\pi/\big(G^-+\frac{\zeta'}\zeta(\alpha)\big)$ (proved). Consequently the normalised gaps $\delta_k=(\tau_{k+1}-\tau_k)\frac1{2\pi}\log\frac{\tau_k}{2\pi}$ satisfy $|\delta_k-1|\le\frac{2|\zeta'/\zeta(\alpha)|}{\log(\tau_k/2\pi)}(1+o(1))$.
+\end{theorem}
+
+\begin{proof}
+On a gap the clock rises by exactly $1$ (Proposition~\ref{pol:prop:round}), so $\int_{\tau_k}^{\tau_{k+1}}\re\frac{\xi'}\xi(\alpha+iy)\,dy=\pi$. Integrate \eqref{pol:eq:sandwich} over the gap. For the last claim put $L=\log(\tau_k/2\pi)$ and $c=|\zeta'/\zeta(\alpha)|$; the gap lies between $\pi/(\frac L2+c+o(1))$ and $\pi/(\frac L2-c+o(1))$, and $\delta_k$ between $L/(L+2c)$ and $L/(L-2c)$ up to $o(1)$ terms.
+\end{proof}
+
+This is a uniform and quantitative form of the statement of Lagarias \cite{Lagarias05} that the normalised spacings tend to $1$, and its constant blows up as $\alpha\downarrow1$, where $\zeta'/\zeta$ has a pole. At $\alpha=\frac32$ one has $\zeta'/\zeta(\frac32)=-1.50524$ (computed). The lower bound holds for all $201$ gaps below height $400$ (computed). The hypothesis of the upper bound fails at low height: $\min_yG_{3/2}(y)+\frac{\zeta'}\zeta(\frac32)=-1.723$, attained near $y\approx2.1$, and $G_{3/2}>-\frac{\zeta'}\zeta(\frac32)$ only from $y\approx127.5$ on. It holds on the $159$ gaps above that height, and those satisfy it (computed). The closest approach factors are $1.389$ to the lower bound and $2.904$ to the upper bound, and the normalised bounds at $T=400$ are $[0.580,3.634]$ (computed); they close at rate $1/\log T$.
+
+\paragraph{Variance identity.} Expanding $\re\xi(\alpha+it)=\sum_j(-1)^j\xi^{(2j)}(\alpha)t^{2j}/(2j)!$ and the Hadamard product $\prod_k(1-t^2/\tau_k^2)$ to second order gives, for real zeros (every $\alpha\ge1$, by Proposition~\ref{pol:prop:round}),
+\begin{equation}\label{pol:eq:var}
+2\sum_k\tau_k^{-2}=\frac{\xi''(\alpha)}{\xi(\alpha)}
+\end{equation}
+(proved). Table~\ref{pol:tab:var} compares the two sides, with the tail of the sum beyond height $400$ estimated from the zero density $\frac1{2\pi}\log\frac t{2\pi}$, so the agreement is to the accuracy of that estimate.
+
+\begin{table}[ht]
+\centering\small
+\begin{tabular}{ccc}
+\toprule
+$\alpha$ & $2\sum_k\tau_k^{-2}$ (to height $400$ plus tail) & $\xi''(\alpha)/\xi(\alpha)$\\
+\midrule
+$\frac12$ & $0.046215$ & $0.046210$\\
+$\frac32$ & $0.048118$ & $0.048117$\\
+\bottomrule
+\end{tabular}
+\caption{The identity \eqref{pol:eq:var} at $\alpha=\frac12$, with the computed zeros of $\Xi$, and at $\alpha=\frac32$ (computed).}\label{pol:tab:var}
+\end{table}
+
+\begin{remark}[Suzuki and Wintner]\label{pol:rem:wintner}
+To first order in $1/\log\tau$ the fluctuation of the gaps is the fluctuation of the arithmetic term. Indeed $\frac{d}{dt}\arg\zeta(\alpha+it)=\re\frac{\zeta'}\zeta(\alpha+it)$, so by \eqref{pol:eq:primephase} the clock has derivative $\frac1\pi\big(\frac12\log\frac t{2\pi}+\re\frac{\zeta'}\zeta(\alpha+it)\big)+O(1/t)$, and consecutive zeros satisfy $\frac L2(\delta_k-1)\approx-\re\frac{\zeta'}\zeta(\alpha+i\tau_k)$ with $L=\log\frac{\tau_k}{2\pi}$ (heuristic at this order). The distribution of $\re\zeta'/\zeta(\sigma+it)$ for $t$ uniform on $[0,T]$ has a limit law for $\sigma>\frac12$, by Jessen and Wintner \cite{JessenWintner35}, Kershner and Wintner \cite{KershnerWintner37}, van Kampen and Wintner \cite{vanKampenWintner37} and Ihara \cite{Ihara08}, and Suzuki \cite{Suzuki15} used it to obtain the limiting nearest neighbour spacing law of the zeros of the real and imaginary parts of $\xi$ on the line $\re s=\frac12+h$, which becomes Gaussian as $h\to0^+$ (cited, not reproved). Two remarks. For $\sigma>1$ each prime contributes a bounded nondegenerate summand, so the limit law has bounded support and is not infinitely divisible (proved); for $\frac12<\sigma\le1$ the support is unbounded and this argument says nothing. In particular, for $h>\frac12$ the second order law is not in the Thorin class, and the Thorin structure of this section lives at first order, in the atoms. Second, the limit $h\to0^+$ is singular: the second order law is Gaussian there, whereas at $h=0$ the spacings are expected to follow the GUE law (heuristic), so no estimate uniform in $h$ can be read off from the $h>0$ statistics.
+\end{remark}
+
+\begin{problem}[Monotonicity in $h$]\label{pol:prob:mono}
+Is the set of $h\ge0$ for which all zeros of $t\mapsto\re\xi(\frac12+h+it)$ are real an interval? By Theorem~\ref{pol:thm:cosh}(ii) it contains $[\Delta,\infty)$ with $\Delta=\sup|\beta-\frac12|\le\frac12$, and RH is equivalent to its being $[0,\infty)$. Whether nonreal zeros persist for every $h<\Delta$ when $\Delta>0$ is open: the strip bound only locates zeros, it does not produce nonreal ones (open).
+\end{problem}
+
+\begin{problem}[Calibration of Thorin recovery]\label{pol:prob:calib}
+For $h>\frac12$ the atoms $\tau_k^2$ of the Thorin measure are known from the phase, so this family is a test case on which a method that recovers a Thorin measure from its transform at a fixed level $\eta_0$ has a known answer. Run the deconvolution methods of the book from $\eta_0$ (say $\frac12$) down to $\eta=0.05$ at $h=1$ and report the total variation error as a function of $\eta_0$ and $h$ (open). Evaluating the Poisson smoothed density directly from $\xi$ at small $\eta$ locates the atoms, but that is root location for a function one can evaluate, not recovery from the transform.
+\end{problem}
+
 \section{P\'olya's $\Xi^*$ as the archimedean model}\label{pol:sec:xistar}
 
 \begin{proposition}\label{pol:prop:bessel}
@@ -155,7 +229,7 @@ to $\psi'(t)$. Since $\Xi^\circ(t)=|K_{\frac14+\frac{it}2}(2\pi)|\cos\psi(t)$ an
 (iii) Away from ordinates $N(T)=\vartheta(T)/\pi+1+S(T)$, and $N$ jumps from $n$ to $n+1$ at $\gamma_{n+1}$; averaging the one sided limits gives the identity, which needs no hypothesis on the other zeros. Subtracting it from (ii) gives $\vartheta(t^\circ_n)-\vartheta(\gamma_{n+1})=\pi S(\gamma_{n+1})+O(\gamma_{n+1}^{-1/2})$, and the mean value theorem with $\vartheta''(t)=O(1/t)$ and $S(T)=O(\log T)$ gives the displacement.
 \end{proof}
 
-Numerically, $\Xi^\circ$ has 28 zeros in $(0,100]$ (the 29th is $t^\circ_{29}=101.0946$), the first at $t^\circ_1=19.332507$, and $\vartheta(t^\circ_n)/\pi-(n-\frac12)$ increases from $-0.2434$ at $n=1$ to $-0.0155$ at $n=28$ (computed; the existence of the 28 zeros is certified by sign changes in ball arithmetic). For $n\le28$ the displacement $t^\circ_n-\gamma_{n+1}$ has mean absolute value $0.513$ and correlation $0.889$ with $\pi S(\gamma_{n+1})/\vartheta'(\gamma_{n+1})$ (computed). Each $t^\circ_n$ is paired with $\gamma_{n+1}$, and $\gamma_1$ has no partner.
+Numerically, $\Xi^\circ$ has 28 zeros in $(0,100]$ (the 29th is $t^\circ_{29}=101.0946$), the first at $t^\circ_1=19.332507$, and $\vartheta(t^\circ_n)/\pi-(n-\frac12)$ increases from $-0.2434$ at $n=1$ to $-0.0155$ at $n=28$ (computed; the existence of the 28 zeros is certified by sign changes in ball arithmetic). For $n\le28$ the displacement $t^\circ_n-\gamma_{n+1}$ has mean absolute value $0.513$ and correlation $0.889$ with $\pi S(\gamma_{n+1})/\vartheta'(\gamma_{n+1})$ (computed).
 
 \begin{figure}[ht]
 \centering

@@ -61,15 +61,4 @@ The Thorin density shows which resolution separates them. A single zero on the l
 \label{fig:ch5:lehmer}
 \end{figure}
 
-\subsubsection{The zero count at height 1000}\label{sec:ch5:count}
-
-Proposition~\ref{prop:zerodensity} of Section~\ref{ch:turing} gives the unconditional count $N(T)=M_{1/2}(T)+\tau_{1/2}(T)$, where $M_{1/2}(T)=\pi^{-1}\arg\xi(1+iT)$ is the cumulative Thorin mass at resolution $\frac12$, that is at the basepoint one of Section~\ref{ch:basepoint}, and $\tau_{1/2}(T)$ is $\pi^{-1}$ times the change of $\arg\xi$ along the segment from $1+iT$ to $\frac12+iT$. With the tilted route ($\delta=0.1$, $200$ bits, step $0.004$ and truncation $|x|\le4.2$, that is $2101$ nodes), $10000$ steps of $0.1$ along $\re s=1$ and $2000$ steps along the segment, we find
-\[
-M_{1/2}(1000)=648.7562315041018,\qquad \tau_{1/2}(1000)=0.2437684958980,
-\]
-\[
-M_{1/2}(1000)+\tau_{1/2}(1000)=648.9999999999999,
-\]
-so $N(1000)=649$, with a largest argument increment of $0.43$ radians. The computation took $77.5$ seconds; \texttt{mpmath}'s \texttt{nzeros} returns $649$ in $0.017$ seconds. Where Backlund bounds the argument, this computation accumulates it from samples; ball arithmetic certifies the rounding in each sampled value but not the absence of winding between samples, so the count is computed, not certified. Certifying it would need, besides the analytic error bounds of Section~\ref{ch:polya}, an enclosure of $\xi$ between consecutive sample points $s_k$ and $s_{k+1}$, for instance a check that $\re\,\xi(s)/\xi(s_k)>0$ on a ball containing the segment between them.
-
-For counting and locating zeros at height the Riemann Siegel family with Turing's method is faster by orders of magnitude, and the P\'olya route is no competitor. It reads the count as an integer from a smooth quantity, the Thorin mass, with no Gram point bookkeeping; it gives the zero density strip by strip (Section~\ref{ch:turing}); and it evaluates objects that the classical methods, used on the critical line, do not compute: Thorin densities and their distances to $U_{\RH}$.
+For counting and locating zeros at height the Riemann Siegel family with Turing's method is faster by orders of magnitude (Section~\ref{sec:ch5:count}). The P\'olya route reads the count as an integer from a smooth quantity, the Thorin mass, with no Gram point bookkeeping; it gives the zero density strip by strip (Section~\ref{ch:turing}); and it evaluates objects that the classical methods, used on the critical line, do not compute: Thorin densities and their distances to $U_{\RH}$.

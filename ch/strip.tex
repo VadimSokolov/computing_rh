@@ -434,30 +434,3 @@ The factor $1-2^{1-s}$ in $\eta$ vanishes at $s=1+2\pi ik/\log2$ with $k\ne0$, s
 \caption{Left: $|\eta(\sigma+i\theta)|$, the Fourier transform of Salem's kernel divided by $\Gamma(\sigma+i\theta)$, at $\sigma=\frac12$, $0.6$, $0.75$, $1$. Right: the Riesz function $R(x)/x^{1/4}$ from the M\"obius series and from the explicit formula \eqref{wr:eq:rieszexplicit} over $60$ zeros.}
 \label{wr:fig:salem}
 \end{figure}
-
-\subsection{Riesz's criterion and multiplicative completeness}\label{wr:sec:riesz}
-
-Riesz \cite{Riesz16} found the first criterion of this type, in terms of growth rather than completeness. With the M\"obius function $\mu(n)$ (unrelated to the Thorin measure $\mu_\varepsilon$ of Section~\ref{ch:clock}), put
-\begin{equation}\label{wr:eq:riesz}
-R(x)=-\sum_{k\ge1}\frac{(-x)^k}{(k-1)!\,\zeta(2k)}=x\sum_{n\ge1}\frac{\mu(n)}{n^2}\,e^{-x/n^2},
-\end{equation}
-the second form following from $1/\zeta(2k)=\sum_n\mu(n)n^{-2k}$. Riesz proved that RH holds if and only if $R(x)=O(x^{1/4+\delta})$ for every $\delta>0$. The Mellin transform shows why: for $\frac12<\re s<1$,
-\begin{equation}\label{wr:eq:rieszmellin}
-\int_0^\infty R(x)\,x^{-s-1}dx=\frac{\Gamma(1-s)}{\zeta(2s)},
-\end{equation}
-whose poles in the strip $0<\re s<\frac12$ sit at $s=\rho/2$, and shifting the contour gives, when the zeros are simple, the explicit formula
-\begin{equation}\label{wr:eq:rieszexplicit}
-R(x)=\sum_\rho\frac{\Gamma(1-\rho/2)}{2\zeta'(\rho)}\,x^{\rho/2}+\sum_{k\ge1}\frac{\Gamma(1+k)}{2\zeta'(-2k)}\,x^{-k},
-\end{equation}
-in which the sum over the zeros is the limit of its partial sums over $|\gamma|<T_\nu$ along a suitable sequence of heights $T_\nu\to\infty$. The same argument gives the basepoint version: for $\frac12\le\alpha<1$, $\zeta$ has no zeros in $\re s>\alpha$ if and only if $R(x)=O(x^{\alpha/2+\delta})$ for every $\delta>0$. Proposition~\ref{ri:prop:twisted} gives the proof for a twisted form of $R$: the zero free half plane bounds $1/\zeta(\sigma+it)$ by a power of $|t|$ on $\sigma\ge\alpha+2\delta$, by the Borel Carath\'eodory lemma as in \cite[Section 14.2]{Titchmarsh} with the line $\re s=\alpha$ in place of the critical line.
-
-In the language of this book, $R(x)/x=\sum_n\mu(n)n^{-2}e^{-x/n^2}$ is the Laplace transform of the signed M\"obius measure $\sum_n\mu(n)n^{-2}\delta_{1/n^2}$, a heat trace on the arithmetic side with the M\"obius function in place of the zeros, and the M\"obius series that underlies the representation of the reciprocal zeta function in Section~\ref{ch:rz1} (Theorem~\ref{rz:thm:sech}). The coefficients $1/\zeta(2k)$ of the power series of $R$ are, up to elementary factors, values of the Laplace transforms of the centre clock $T$ and of $T_1$ (Section~\ref{ri:sec:thorin}).
-
-We compute $R(x)$ from the M\"obius series with $n\le N=10^7$ as
-\[
-R(x)\approx x\Big[\sum_{n\le N}\mu(n)n^{-2}\big(e^{-x/n^2}-1\big)+\frac6{\pi^2}\Big]
-\]
-to avoid the slowly converging tail, for $10\le x\le10^{12}$. Beyond $x\approx10^{10}$ the truncation at $N=10^7$ limits the accuracy: the omitted terms are about $-x^2\sum_{n>N}\mu(n)n^{-4}\approx9\times10^{-26}x^2$, that is $3\times10^{-8}$ in $R(x)/x^{1/4}$ at $x=10^{10}$ and $9\times10^{-5}$ at $x=10^{12}$. For $10^4\le x\le10^{10}$ the ratio $R(x)/x^{1/4}$ oscillates with amplitude about $1.1\times10^{-4}$, and for $10^5\le x\le10^{10}$ with amplitude $7.8\times10^{-5}$, which is the amplitude $|\Gamma(1-\rho_1/2)/\zeta'(\rho_1)|$ of the term of the first zero. The larger swing near $x=10^4$ comes from the term $\Gamma(2)x^{-1}/(2\zeta'(-2))=-16.42\,x^{-1}$ of the first trivial zero, which contributes $-1.6\times10^{-4}$ to the ratio at $x=10^4$. The explicit formula \eqref{wr:eq:rieszexplicit} with the first $60$ zeros and the first three trivial terms reproduces the computed values to $3.1\times10^{-8}$ on $[10^3,10^{10}]$, against a signal of size up to $3\times10^{-3}$ (Figure~\ref{wr:fig:salem}, right). The largest difference, at $x=10^{10}$, is the truncation error just described, and on $[10^3,10^9]$ the difference is at most $6.2\times10^{-10}$. Section~\ref{ri:sec:filters} twists the M\"obius series by $(x/n^2)^{ih}$ so that it responds to the zeros near height $2h$.
-
-Wiener's theorem concerns translates; its multiplicative counterpart concerns dilates, and there completeness is equivalent to RH itself. Nyman and Beurling \cite{Nyman50,Beurling55} proved that RH holds if and only if the constant function $1$ lies in the $L^2(0,1)$ closure of the span of the functions $r_\lambda(x)=\{\lambda/x\}-\lambda\{1/x\}$, $0<\lambda\le1$, where $\{\cdot\}$ is the fractional part, and B\'aez Duarte \cite{BaezDuarte03} showed that $\lambda=1/n$ suffices. Under $x=e^{-u}$ this is a closure problem for translates in a weighted $L^2$ space on the half line, and the Mellin transform of $r_\lambda$ is $-\zeta(s)(\lambda^s-\lambda)/s$, so the zeros of $\zeta$ in $\re s>\frac12$ are what obstructs the closure. The same framework governs the dilates $\sech(nx)$ of the Lai and Vere-Jones identity (Proposition~\ref{rz:prop:lvj}), which lies behind the expansion of Theorem~\ref{rz:thm:sech}: the Mellin transform of $\sech$ is $2\Gamma(s)L(s,\chi_4)$, and completeness of systems of dilates is controlled by where the associated Dirichlet series vanishes, in the sense of Beurling's periodic dilation problem and the work of Hedenmalm, Lindqvist and Seip \cite{HLS97}. How the two questions are related is the Nyman Beurling problem of Section~\ref{rz:sec:open}. The Nyman Beurling closure problem is equivalent to RH; for the dilates $\sech(nx)$ the answer is different: completeness in one weighted space $L^2(x^{2c-1}dx)$, $c>0$, holds unconditionally (Theorem~\ref{lv:thm:single}), and only the two weight version is equivalent to the generalised Riemann hypothesis for $L(s,\chi_4)$ (Theorem~\ref{lv:thm:two}, Chapter~\ref{chap:lv}). The additive family of Proposition~\ref{wr:prop:wiener} is the probabilistic one, and like every construction of Chapters~\ref{chap:basepoint} to \ref{chap:almost} it reaches RH only as $\alpha\downarrow\frac12$.
-

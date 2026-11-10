@@ -23,12 +23,92 @@ Up to the scaling $X=u/d$ and a constant this is the Jensen polynomial of degree
 \end{proposition}
 
 \begin{proof}
-For (1), the factors $\prod_{j<k}(1-j/d)$ lie in $[0,1]$ and tend to $1$, and $\sum c_k|u|^k<\infty$. For (2), a polynomial with positive coefficients has no zeros in $[0,\infty)$, and a product of linear factors with negative zeros is the transform of a sum of independent exponentials. For (3), if every $J_d$ is hyperbolic then $G$, as a locally uniform limit of polynomials with only negative zeros, has only negative zeros by Hurwitz's theorem, which is RH; Bondesson's continuity theorem (Corollary~\ref{cor:weak:closure}) gives the same conclusion directly from $\mu_d\Rightarrow\mu$. Conversely under RH $G$ is in the Laguerre and P\'olya class, and the Jensen polynomials of such a function are hyperbolic (Proposition~\ref{pol:prop:lp}, \cite{GORZ19}). Part (4) is the theorem of Chasse on the Jensen polynomials of this sequence, as quoted in a footnote of \cite{GORZ19}.
+For (1), the factors $\prod_{j<k}(1-j/d)$ lie in $[0,1]$ and tend to $1$, and $\sum c_k|u|^k<\infty$. For (2), a polynomial with positive coefficients has no zeros in $[0,\infty)$, and a product of linear factors with negative zeros is the transform of a sum of independent exponentials. For (3), if every $J_d$ is hyperbolic then $G$, as a locally uniform limit of polynomials with only negative zeros, has only negative zeros by Hurwitz's theorem, which is RH. Conversely under RH $G$ is in the Laguerre and P\'olya class, and the Jensen polynomials of such a function are hyperbolic (Proposition~\ref{pol:prop:lp}, \cite{GORZ19}). Part (4) is the theorem of Chasse on the Jensen polynomials of this sequence, as quoted in a footnote of \cite{GORZ19}.
 % UNCHECKED: Chasse's theorem (every Jensen polynomial of degree at most 2e17 and shift 0 is hyperbolic) is quoted from the footnote of GORZ as the source quotes it; neither Chasse nor the footnote was read.
 Part (5) follows from the factors $1$ and $1-1/d$ at $k=1,2$: the cumulants are $\kappa_1=c_1$ and $\kappa_2=c_1^2-2c_2(1-1/d)$, while $\operatorname{Var}\mu=c_1^2-2c_2=\sum\gamma^{-4}$.
 \end{proof}
 
-So the Jensen laws are what Proposition~\ref{ht:prop:red} asks for, built from Brownian moments rather than zeros. The questions are how fast they converge, and what the existence of $\mu_d$ at a given degree says about the zeros.
+\subsection{Interlacing of consecutive shifts}\label{ht:sec:interlace}
+This subsection and the models in it are taken from an unrefereed note of Polson (November 2026); the proofs are elementary and probably classical, and no priority is claimed. Put $g(k)=k!\,c_k>0$ (a normalisation of the function $g$ above) and, for $d\ge1$ and $n\ge0$,
+\[
+J^{d,n}(X)=\sum_{j=0}^d\binom dj g(n+j)X^j ,
+\]
+so that $J_d(u)=J^{d,0}(u/d)$. Write $H(d,n)$ for ``$J^{d,n}$ has only real and simple zeros'', all negative since the coefficients are positive, and list the magnitudes of the zeros of $J^{d,n}$ and $J^{d,n+1}$ as $0<u_1<\dots<u_d$ and $0<v_1<\dots<v_d$. Write $I(d,n)$ for the interlacing $u_1<v_1<u_2<\dots<u_d<v_d$. Pascal's rule gives the identities
+\[
+J^{d+1,n}(X)=J^{d,n}(X)+X\,J^{d,n+1}(X),\qquad \frac{d}{dX}J^{d+1,n}(X)=(d+1)\,J^{d,n+1}(X).
+\]
+
+\begin{lemma}\label{ht:lem:rolle}
+Let $P$ have degree $d+1$ and positive coefficients, and let $P'$ have the simple zeros $-v_1,\dots,-v_d$, $0<v_1<\dots<v_d$. Then $P$ has $d+1$ simple real zeros if and only if $(-1)^kP(-v_k)>0$ for $k=1,\dots,d$.
+\end{lemma}
+
+\begin{proof}
+Since $P(0)>0$ and $P$ has sign $(-1)^{d+1}$ at $-\infty$, the alternating signs at $0,-v_1,\dots,-v_d$ and $-\infty$ give one simple zero in each of the $d+1$ intervals when the condition holds. Conversely, if $P$ has $d+1$ simple zeros, Rolle's theorem puts exactly one critical point between consecutive zeros, so each $-v_k$ lies between the $k$th and $(k+1)$st zero counted from $0$, where $P$ has sign $(-1)^k$.
+\end{proof}
+
+\begin{theorem}[Interlacing equivalence]\label{ht:thm:interlace}
+Assume $H(d,n)$ and $H(d,n+1)$. Then $H(d+1,n)$ holds if and only if $I(d,n)$ holds. Status: proved.
+\end{theorem}
+
+\begin{proof}
+Apply Lemma~\ref{ht:lem:rolle} to $P=J^{d+1,n}$, whose derivative is $(d+1)J^{d,n+1}$. Since $J^{d,n+1}(-v_k)=0$, the first identity gives $J^{d+1,n}(-v_k)=J^{d,n}(-v_k)$. Now $J^{d,n}(-x)$ has sign $(-1)^j$ on the $j$th of the intervals $(u_j,u_{j+1})$, $j=0,\dots,d$, with $u_0=0$ and $u_{d+1}=\infty$. So $H(d+1,n)$ holds if and only if each $v_k$ lies in an interval of index $j_k\equiv k\pmod2$. As $v_k$ increases, $j_k$ does not decrease, so the parities force $j_{k+1}\ge j_k+1$, and $1\le j_1$, $j_d\le d$. This leaves $j_k=k$ for every $k$, which is $I(d,n)$. The converse is the same argument read backwards.
+\end{proof}
+
+Since every $J^{1,n}$ is linear with positive coefficients, induction on $d$ shows that every $J^{d,n}$ is hyperbolic with simple zeros if and only if $I(d,n)$ holds for every $d$ and $n$. This is a reformulation of hyperbolicity at every shift, of which Proposition~\ref{ht:prop:jensen} is the case of shift $0$, not a reduction: the theorem of Griffin, Ono, Rolen and Zagier \cite{GORZ19} and that of Chass\'e supply some of the hypotheses and conditions, and no more. Simplicity of the zeros is part of the hypothesis. For the Jensen polynomials of a function in the Laguerre and P\'olya class of genus zero with infinitely many zeros, and so of all its derivatives, which covers $G$ under RH and P\'olya's $\Phi^*$, it is a theorem of Craven and Csordas \cite{CravenCsordas89}; some such hypothesis is needed, since the Jensen polynomials of $e^X$ and of $(1+X)e^X$ have multiple zeros. This is how it enters below.
+
+Define the relative position of $v_k$ in the $k$th gap and the margin
+\[
+p_k(d,n)=\frac{v_k-u_k}{u_{k+1}-u_k},\qquad \iota(d,n)=\min_{1\le k<d}\min\big(p_k,1-p_k\big)\le\tfrac12,
+\]
+invariant under $X\mapsto\lambda X$, so that $\iota(d,n)>0$ with $v_d>u_d$ is $I(d,n)$. The margins of $\xi$ are as follows (computed, $110$ digits, not certified).
+
+\begin{table}[ht]
+\centering\small
+\begin{tabular}{ccccccc}
+\toprule
+$d\backslash n$ & $0$ & $1$ & $2$ & $5$ & $10$ & $20$\\
+\midrule
+$10$ & $0.107$ & $0.104$ & $0.102$ & $0.097$ & $0.090$ & $0.079$\\
+$20$ & $0.094$ & $0.093$ & $0.092$ & $0.089$ & $0.085$ & $0.078$\\
+$30$ & $0.087$ & $0.086$ & $0.086$ & $0.084$ & $0.080$ & $0.075$\\
+$40$ & $0.082$ & $0.081$ & $0.081$ & $0.079$ & $0.077$ & $0.073$\\
+\bottomrule
+\end{tabular}
+\caption{The interlacing margin $\iota(d,n)$ of the Jensen polynomials of $\xi$ (computed).}\label{ht:tab:margin}
+\end{table}
+
+At $n=0$ the margin fits $\iota(d,0)\approx C\,d^{-0.20}$ up to $d=68$ (exponent $0.201$, computed), and the minimum is at the last gap in every computed case, at the edge of the approximant. At fixed degree it also decays in $n$: $\iota(10,n)=0.1065$, $0.0500$, $0.0195$ at $n=0$, $100$, $1000$ (computed).
+
+\paragraph{Two solvable models.} P\'olya's kernel $\Phi^*$ of equation~\eqref{pol:eq:phistar} has a transform with only real zeros \cite{Polya}, so by the theorem of Jensen and P\'olya (Proposition~\ref{pol:prop:lp}) all its Jensen polynomials are hyperbolic, with simple zeros by the theorem of Craven and Csordas above, and $I(d,n)$ holds for every $d$ and $n$ by Theorem~\ref{ht:thm:interlace} (proved). For $g(k)=1/k!$ the function is $F(s)=\sum_ks^k/(k!)^2=I_0(2\sqrt s)$ and
+\[
+J^{d,n}(X)=\sum_j\binom dj\frac{X^j}{(n+j)!}=\frac{d!}{(d+n)!}\,L_d^{(n)}(-X),
+\]
+with $L_d^{(n)}$ the Laguerre polynomial (proved). The zeros of $L_d^{(n)}$ are simple and $F$ lies in the Laguerre and P\'olya class, so $I(d,n)$ holds for all $d$ and $n$. For fixed $n$ the Airy asymptotics of the largest zeros of $L_d^{(n)}$ suggest $\iota(d,n)\sim0.4536\,d^{-1/3}$, with the minimum at the last gap (heuristic); the computed values $0.1995$, $0.1627$, $0.1309$, $0.1102$, $0.0972$ at $d=10$, $20$, $40$, $68$, $100$ approach its form $0.7200\,\nu^{-1/3}$ with $\nu=4d+2n+2$, which gives $0.2071$, $0.1657$, $0.1321$, $0.1109$, $0.0976$. At fixed $d$ the margin of this model tends to $0$ like $n^{-1/2}$ as $n\to\infty$, since the zeros of $L_d^{(n)}$ are those of a Hermite polynomial near $n$ on the scale $\sqrt{2n}$ while the shift moves them by $1$ (proved from the classical asymptotics of Laguerre zeros); at $d=10$ it is $0.1995$, $0.1480$, $0.0686$, $0.0239$, $0.0077$, $0.00078$ at $n=0$, $10$, $10^2$, $10^3$, $10^4$, $10^6$ (computed).
+
+\paragraph{Five kernels.} Table~\ref{ht:tab:kernels} gives $\iota(d,0)$ for $\xi$; the kernel $e^{-2u^2}\Phi$, which flows $\Phi$ by the heat equation to $t=-2$ and has nonreal zeros by Rodgers and Tao \cite{RodgersTao}; P\'olya's $\Phi^*$; the Davenport and Heilbronn function of Section~\ref{ht:sec:dh}; and $G_{0.75,10}=\xi\cdot((s-0.75)^2+100)((s-0.25)^2+100)$, the entire core of the function $F_{0.75,10}$ of Theorem~\ref{rg:thm:Fbg}, whose zeros $0.75\pm10i$ lie off the line below $\gamma_1$.
+
+\begin{table}[ht]
+\centering\scriptsize\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lccccccc}
+\toprule
+$d$ & $10$ & $20$ & $30$ & $40$ & $50$ & $60$ & $68$\\
+\midrule
+$\xi$ & $0.1065$ & $0.0945$ & $0.0871$ & $0.0818$ & $0.0778$ & $0.0746$ & $0.0724$\\
+heat flow $t=-2$ & $0.1051$ & $0.0936$ & $0.0865$ & $0.0814$ & $0.0774$ & $0.0743$ & $0.0721$\\
+P\'olya $\Phi^*$ & $0.1087$ & $0.0952$ & $0.0874$ & $0.0820$ & $0.0780$ & $0.0747$ & $0.0725$\\
+Davenport and Heilbronn & $0.1331$ & $0.1127$ & $0.1016$ & $0.0942$ & $0.0887$ & $0.0844$ & $0.0815$\\
+$G_{0.75,10}$ & $0.1275$ & $0.1034$ & $0.0925$ & $0.0856$ & $0.0807$ & $0.0769$ & $0.0743$\\
+Laguerre ($g(k)=1/k!$) & $0.1995$ & $0.1627$ & $0.1434$ & $0.1309$ & $0.1218$ & $0.1148$ & $0.1102$\\
+\bottomrule
+\end{tabular}
+\caption{The margin $\iota(d,0)$ for five kernels and the Laguerre model (computed). Every Jensen polynomial in the first five rows is hyperbolic and interlaced at the degrees shown.}\label{ht:tab:kernels}
+\end{table}
+
+All five are hyperbolic and interlaced at every degree shown, those of $G_{0.75,10}$ are also hyperbolic at degrees $80$, $100$, $120$, $140$ (interlacing was not tested there), although the second, fourth and fifth have zeros off the line; at degree $68$ the margins of the last two are within $13\%$ of that of $\xi$, and at degree $10$ within $25\%$ (computed). The family $G_{0.95,5}$ first loses hyperbolicity between degrees $30$ and $40$, at its lowest roots, and heuristically the onset degree is of order $(g/\delta)^2$ for zeros $\tfrac12+\delta\pm ig$. So Jensen data of degree up to $68$, at the edge or in the bulk, cannot see RH. The coefficients $c_k$ of the first three agree to about one per cent for $k\le70$, and the ratio of the margins of $\xi$ and of the Laguerre model is $0.58$, $0.63$, $0.66$ at $d=20$, $40$, $68$.
+
+\paragraph{Leading asymptotics do not give real roots.} Write $\xi(\frac12+\sqrt s)=\sum_kc_ks^k$ and $r_k=(k+1)^2c_{k+1}/c_k$. Laplace's method on the moments $\int_0^\infty u^{2k}\Phi(u)\,du$ puts their mass near $u_k=\frac14\mathcal W(2k/\pi)$, with $\mathcal W$ the Lambert function, and gives $r_k\approx u_k^2$ (heuristic); the ratio $u_k^2/r_k$ is $0.82$, $0.90$, $0.95$ and $0.97$ at $k=10$, $20$, $40$ and $68$ (computed). So $r_k$ grows like $\frac1{16}(\log k)^2$, and its local index $d\log r_k/d\log k$, which is $0.59$ at $k=20$ and $0.54$ at $k=40$ (computed), tends to $0$ only like $2/\log k$; Proposition~\ref{nw:prop:lambert} is a Lambert centring of the same kind in another normalisation. Let $b_0=1$ and $(k+1)^2b_{k+1}/b_k=\frac1{16}\mathcal W(2(k+1)/\pi)^2$, so that the sequence $b$ has exactly the leading ratios (with the index shifted by one, so that $b_1\ne0$). Its Jensen polynomials $\sum_j\binom dj j!\,b_jX^j$ have their edge where those of $\xi$ have it, the largest zero in absolute value being $183.1$ and $265.5$ at $d=20$ and $40$ against $178.2$ and $261.5$ for $\xi$, yet $18$ of their $20$ zeros at $d=20$ and $36$ of their $40$ zeros at $d=40$ are not real (computed). Matching the coefficient ratios of $\xi$ to leading order therefore fixes the position of the edge but not hyperbolicity, which lives in the corrections to the leading law. The observation is from an unrefereed note of Polson (November 2026).
+
+\paragraph{Critical points at infinite degree.} If the zeros of $F^{(n)}$ and $F^{(n+1)}$ are simple and negative, $p_k(d,n)\to p_k(\infty,n)$ as $d\to\infty$ (Hurwitz\'s theorem, since $J^{d,n}(X/d)\to F^{(n)}(X)$), the relative position of the $k$th zero of $F^{(n+1)}$ in the $k$th gap between those of $F^{(n)}$. For $n=0$ these are the critical points of $\Xi(\sqrt x)$ in the gaps $(\gamma_k^2,\gamma_{k+1}^2)$. For the first $1900$ gaps (computed from $8000$ zeros and a smooth tail), $\min(p_k,1-p_k)$ has its minimum $0.178$ at $k=1$ and its minimum over $k\ge100$ is $0.294$, at $k=367$; the means over five sampled blocks of $100$ gaps (the first two and those starting at $501$, $1001$, $1501$) rise from $0.352$ to $0.421$. RH gives only $0<p_k<1$, and a bound $\min(p_k,1-p_k)\ge c>0$ uniform in $k$ is open and not implied by RH.
 
 \subsection{Rate of convergence}
 Since $\prod_{j<k}(1-j/d)=1-k(k-1)/(2d)+O(k^4/d^2)$ and $\sum_kk(k-1)c_ku^k=u^2G''(u)$,
@@ -80,7 +160,7 @@ d^*(\gamma,\delta)\approx\frac{|u|^2}{b^2}\approx\frac{\gamma^2}{4\delta^2}
 
 We tested this on Davenport and Heilbronn. With $600$ coefficients of $G_{DH}$ computed in the same way from the positive kernel of Proposition~\ref{ht:prop:dhtheta}, the zero of $J_d^{DH}$ starting at $u_\rho=(0.3085+85.6993i)^2=-7344.28+52.88i$ was followed as $1/d$ increases from $0$ (computed at $240$ and $280$ digits). Its squared imaginary part decreases linearly in $1/d$, with slope $-6.27\times10^7$ at $1/d=0$ against $|u_\rho|^2=5.39\times10^7$ in the quadratic model, and the pair is real below and complex above the double root $d^*=20784.9$ of $J_d$ (both coefficient sets give $20784.92$): at $d=20619$ it is real and at $d=20833$ it has imaginary part $2.44$. The model value is $\gamma^2/(4\delta^2)=19290$. So the Jensen polynomials of Davenport and Heilbronn are not all hyperbolic, as they cannot be, but this zero first breaks them near degree $2\cdot10^4$, far beyond the degrees at which the coefficient ladder of Table~\ref{ht:tab:dh} was tested.
 
-For $\xi$ the same scaling turns Chasse's theorem around. An off line zero at height $\gamma$ would first make $\mu_d$ fail near $d\approx\gamma^2/(4\delta^2)$. Since every zero below $3\cdot10^{12}$ is on the line and $\delta<\frac12$, the heuristic predicts Jensen laws up to degree of order $10^{25}$, well beyond the cited $2\cdot10^{17}$, which corresponds to heights near $\sqrt{2\cdot10^{17}}\approx4.5\cdot10^8$. Conversely, certifying $\mu_d$ for all $d\le D$ says about the zeros what a verification up to height about $\sqrt D$ says, at a cost growing like $D\approx\gamma^2$ rather than the $\gamma^{1+o(1)}$ of direct verification. This is heuristic: the other zeros change $d^*$ by about $8\%$ for Davenport and Heilbronn ($20785/19290=1.0775$). The unconditional ladder of Section~\ref{ch:heat} trades height against order in a similar way.
+For $\xi$ the same scaling turns Chasse's theorem around. An off line zero at height $\gamma$ would first make $\mu_d$ fail near $d\approx\gamma^2/(4\delta^2)$. Since every zero below $3\cdot10^{12}$ is on the line and $\delta<\frac12$, the heuristic predicts Jensen laws up to degree of order $10^{25}$, well beyond the cited $2\cdot10^{17}$, which corresponds to heights near $\sqrt{2\cdot10^{17}}\approx4.5\cdot10^8$. Conversely, certifying $\mu_d$ for all $d\le D$ says about the zeros what a verification up to height about $\sqrt D$ says, at a cost growing like $D\approx\gamma^2$ rather than the $\gamma^{1+o(1)}$ of direct verification. This is heuristic: the other zeros change $d^*$ by about $8\%$ for Davenport and Heilbronn ($20785/19290=1.0775$).
 
 \subsection{A Hermite identity and the de Bruijn flow}
 Write $u=-z^2$ and use $c_k=\E V^{2k}/(2k)!$. Since $(2k)!=4^kk!(\frac12)_k$ and $\prod_{j<k}(1-j/d)\,(-1)^k=(-d)_k/d^k$,
@@ -225,7 +305,7 @@ T_{\E\log N_P}\ \overset{d}{=}\ Y_P+T_{\log N_P}.
 Put $\tilde\mu=\sum_{p\le P}\sum_{k\ge1}\log p\,p^{-k\alpha}\delta_{k\log p}$, a positive measure with $\int(1\wedge x)\tilde\mu(\,\mathrm{d}x)<\infty$ because the sum is finite over $p$ and converges over $k$. With $f(w)=\E e^{-wL}$ the formula above reads $\log f(w)/f(0)-w f'(0)/f(0)=\int(e^{-wx}-1+wx)\tilde\mu(\,\mathrm{d}x)/x$, since $\tilde\mu(\,\mathrm{d}x)/x$ puts the mass $p^{-k\alpha}/k$ at $k\log p$ and $-f'(0)/f(0)=\E L$. The sine squared lemma (Lemma~\ref{rz:lem:sin2}) therefore gives $\Phi_{\alpha,P}(u)=\exp\big(-\int_0^\infty\log(1+2u/\tau^2)U(\,\mathrm{d}\tau)\big)$ with $U(\,\mathrm{d}\tau)=\pi^{-1}\int(1-\cos\tau x)\tilde\mu(\,\mathrm{d}x)\,\,\mathrm{d}\tau$, which is the stated density and is nonnegative termwise; there is no drift because $-\log\Phi_{\alpha,P}(u)=O(\sqrt u)$. For the second statement, $\E e^{-uT_{\log N_P}}=\E e^{-\sqrt{2u}L}$ and $\E e^{-uT_{\E L}}=e^{-\sqrt{2u}\E L}$, so $\E e^{-uT_{\E L}}=\Phi_{\alpha,P}(u)\,\E e^{-uT_{\log N_P}}$.
 \end{proof}
 
-The zeros of $1/\zeta_P(\alpha+w)$ lie on $\re w=-\alpha$ and cause no difficulty: $w=\sqrt{2u}$ maps $\cut$ into $\re w>0$, where $\zeta_P(\alpha+w)$ has neither zeros nor poles. The mechanism is a Jensen gap: for any infinitely divisible $L\ge0$ with finite mean the same argument gives $T_{\E L}\overset d=Y+T_L$ with $Y$ a GGC independent of $L$, a sharpened form of Jensen's inequality $\E e^{-wL}\ge e^{-w\E L}$; nothing arithmetic is used beyond the infinite divisibility of $\log N_P$. The proposition is the statement of \cite{PolsonEuler26} for truncated products, proved here from the sine squared lemma; the statement at $\alpha>1$ for the full product is in Remark~\ref{ht:rem:blocks}. The source reports at $\alpha=\frac12$, $P=13$ and $u=0.7$ the Thorin integral $5.92746438$ against $-\log\Phi_{1/2,13}(0.7)=5.92746429$ (not recomputed).
+The zeros of $1/\zeta_P(\alpha+w)$ lie on $\re w=-\alpha$ and cause no difficulty: $w=\sqrt{2u}$ maps $\cut$ into $\re w>0$, where $\zeta_P(\alpha+w)$ has neither zeros nor poles. The mechanism is a Jensen gap: for any infinitely divisible $L\ge0$ with finite mean the same argument gives $T_{\E L}\overset d=Y+T_L$ with $Y$ a GGC independent of $L$, a sharpened form of Jensen's inequality $\E e^{-wL}\ge e^{-w\E L}$. The proposition is the statement of \cite{PolsonEuler26} for truncated products, proved here from the sine squared lemma; the statement at $\alpha>1$ for the full product is in Remark~\ref{ht:rem:blocks}. The source reports at $\alpha=\frac12$, $P=13$ and $u=0.7$ the Thorin integral $5.92746438$ against $-\log\Phi_{1/2,13}(0.7)=5.92746429$ (not recomputed).
 
 \begin{remark}[One prime blocks: M\"obius, Liouville and the P\'olya Gamma law]\label{ht:rem:blocks}
 This remark is based on \cite{PolsonRXi26}. Fix a prime $p$ and write $\ell=\log p$, $q=p^{-\alpha}$ with $\alpha>0$, $w=\sqrt{2u}$ and $\vartheta=\tau \ell$. For a single prime the density of Proposition~\ref{ht:thm:trunc} sums in closed form,
@@ -343,7 +423,7 @@ and $\rho_4(P)\to0$.
 \end{theorem}
 
 \begin{proof}
-Put $c=\kappa_3^{2/3}$ and $w=\sqrt{2s/c}$ with the principal root, so $\re w\ge0$. Then $\log\E e^{-sZ_P}=s\kappa_2/c-K_P(w)$. For $\re x\ge0$ one has $|e^{-x}-1+x-x^2/2+x^3/6|\le|x|^4/24$, since $|e^{-\xi}|\le1$ on the segment from $0$ to $x$. Apply this with $x=wm\log p$ in the second form of $K_P$: the terms of degree two and three sum to $\kappa_2w^2/2-\kappa_3w^3/6$, and the rest is at most $\kappa_4|w|^4/24$. Now $\kappa_2w^2/2=\kappa_2s/c$ cancels the centring, $\kappa_3w^3/6=\kappa_3(2s/c)^{3/2}/6=(2s)^{3/2}/6$ because $c^{3/2}=\kappa_3$, and $\kappa_4|w|^4/24=|s|^2\rho_4/6$. Finally $\rho_4\asymp P^{-1/6}(\log P)^{1/3}\to0$. At $\re s=0$ this gives the characteristic functions, so L\'evy's continuity theorem gives weak convergence; the limit $\exp((2s)^{3/2}/6)$ has a Laplace exponent $Cs^{3/2}$ with $C>0$, that of a spectrally positive stable law of index $\frac32$.
+Put $c=\kappa_3^{2/3}$ and $w=\sqrt{2s/c}$ with the principal root, so $\re w\ge0$. Then $\log\E e^{-sZ_P}=s\kappa_2/c-K_P(w)$. For $\re x\ge0$ one has $|e^{-x}-1+x-x^2/2+x^3/6|\le|x|^4/24$, since $|e^{-\xi}|\le1$ on the segment from $0$ to $x$. Apply this with $x=wm\log p$ in the second form of $K_P$: the terms of degree two and three sum to $\kappa_2w^2/2-\kappa_3w^3/6$, and the rest is at most $\kappa_4|w|^4/24$. Now $\kappa_2w^2/2=\kappa_2s/c$ cancels the centring, $\kappa_3w^3/6=\kappa_3(2s/c)^{3/2}/6=(2s)^{3/2}/6$ because $c^{3/2}=\kappa_3$, and $\kappa_4|w|^4/24=|s|^2\rho_4/6$. Finally $\rho_4\asymp P^{-1/6}(\log P)^{1/3}\to0$. At $\re s=0$ this gives the characteristic functions, so L\'evy's continuity theorem gives weak convergence.
 \end{proof}
 
 Exact computation from the truncated Euler product confirms the limit, with the slow rate $P^{-1/6}$ the cumulant estimate predicts (Table~\ref{ht:tab:euler32}; computed, primes up to $10^7$).
@@ -384,7 +464,7 @@ where $m_\gamma$ is the multiplicity of the zero (so $m_\gamma=1$ for simple zer
 Drifts and Thorin measures add under convolution of GGC laws and are determined by the Laplace transform. So $\mu$ is a GGC, which is RH, with drift zero and Thorin measure $\sum m_\gamma\delta_{\gamma^2}$; the nonnegative measures $U_1,U_2$ summing to it are carried by the points $\gamma^2$ with masses in $[0,m_\gamma]$.
 \end{proof}
 
-The hypothesis that the cofactor is a GGC cannot be dropped. Assume RH with simple zeros and take $\gamma_1^2<a<\gamma_2^2$. The function $(1+u/a)/((1+u/\gamma_1^2)(1+u/\gamma_2^2))$ is a mixture of two exponential transforms with weights $(1-\gamma_1^2/a)/(1-\gamma_1^2/\gamma_2^2)$ and $(1-\gamma_2^2/a)/(1-\gamma_2^2/\gamma_1^2)$, both positive with sum one, so the exponential law of rate $a$ is an exact factor of $\mu$, with a probability cofactor that is the convolution of this mixture with the remaining exponentials. The same holds for a GGC whose Thorin density is supported inside $(\gamma_1^2,\gamma_2^2)$ with total mass at most one: each cofactor term is a mixture of exponentials, hence infinitely divisible \cite{Goldie67,Steutel67}, so the exact factor exists with a cofactor that is a probability law (proved). Hence only factorisations into two GGC laws are rigid.
+The hypothesis that the cofactor is a GGC cannot be dropped. Assume RH with simple zeros and take $\gamma_1^2<a<\gamma_2^2$. The function $(1+u/a)/((1+u/\gamma_1^2)(1+u/\gamma_2^2))$ is a mixture of two exponential transforms with weights $(1-\gamma_1^2/a)/(1-\gamma_1^2/\gamma_2^2)$ and $(1-\gamma_2^2/a)/(1-\gamma_2^2/\gamma_1^2)$, both positive with sum one, so the exponential law of rate $a$ is an exact factor of $\mu$, with a probability cofactor that is the convolution of this mixture with the remaining exponentials. The same holds for a GGC whose Thorin density is supported inside $(\gamma_1^2,\gamma_2^2)$ with total mass at most one: each cofactor term is a mixture of exponentials, hence infinitely divisible \cite{Goldie67,Steutel67}, so the exact factor exists with a cofactor that is a probability law (proved).
 
 Every prime built law met so far is a GGC with an absolutely continuous Thorin measure: the Euler laws for $\alpha>1$, the truncated Euler laws $Y_P$, and the basepoint laws $\mu^{(\alpha)}$ for $\alpha\ge1$. None is an exact factor of $\mu$ with a GGC cofactor, so a proof through such pieces must be a limit in which absolutely continuous Thorin measures converge vaguely to $\sum\delta_{\gamma^2}$. The basepoint descent is a limit of this kind; the Euler family, by Theorem~\ref{ht:thm:32}, is not, after the one centring and scaling treated there.
 
@@ -403,6 +483,6 @@ A proof of RH through hitting times built from the primes would have to produce 
 
 \section{Diffusion approximations}\label{ht:sec:diffusion}
 
-Diffusion approximations in the sense of Roberts, Gelman and Gilks \cite{RGG97}, in which high dimensional Markov chains, suitably sped up, converge to a Langevin diffusion, offer half of what is needed. (The boundary crossing approach of Roberts and Shortland is a different tool and is treated in Section~\ref{ht:sec:rs}.) The hitting time of a level by a one dimensional diffusion started at an entrance or reflecting end is a GGC, by Kent's theorem \cite{Kent80} (Section~\ref{sec:ch18:kent}); from an interior point it need not be. For reflected Brownian motion on $[0,\infty)$ started at $x\in(0,1)$ the time to reach $1$ has transform $\cosh(x\sqrt{2u})/\cosh(\sqrt{2u})$, and $-\varphi'/\varphi=\sum_k1/(u+\lambda_k)-\sum_k1/(u+\mu_k)$ with $\lambda_k=(k+\frac12)^2\pi^2/2$ and $\mu_k=\lambda_k/x^2>\lambda_k$, so the Thorin measure would have negative atoms. Hence any family of processes converging weakly to a one dimensional diffusion started at an entrance or reflecting end, with hitting times converging in law, has a GGC limit: positivity comes free with the diffusion limit. And RH together with the simplicity of the zeros is equivalent to $\mu$ being the hitting time of a level by a one dimensional generalised diffusion started at an entrance end.
+Diffusion approximations in the sense of Roberts, Gelman and Gilks \cite{RGG97}, in which high dimensional Markov chains, suitably sped up, converge to a Langevin diffusion, offer half of what is needed. The hitting time of a level by a one dimensional diffusion started at an entrance or reflecting end is a GGC, by Kent's theorem \cite{Kent80} (Section~\ref{sec:ch18:kent}); from an interior point it need not be. For reflected Brownian motion on $[0,\infty)$ started at $x\in(0,1)$ the time to reach $1$ has transform $\cosh(x\sqrt{2u})/\cosh(\sqrt{2u})$, and $-\varphi'/\varphi=\sum_k1/(u+\lambda_k)-\sum_k1/(u+\mu_k)$ with $\lambda_k=(k+\frac12)^2\pi^2/2$ and $\mu_k=\lambda_k/x^2>\lambda_k$, so the Thorin measure would have negative atoms. Hence any family of processes converging weakly to a one dimensional diffusion started at an entrance or reflecting end, with hitting times converging in law, has a GGC limit: positivity comes free with the diffusion limit. And RH together with the simplicity of the zeros is equivalent to $\mu$ being the hitting time of a level by a one dimensional generalised diffusion started at an entrance end.
 
 The other half is identification. The limiting diffusion must have speed measure with spectrum exactly $\{\gamma^2\}$, and diffusion limits of this type are universal, depending only on averaged quantities such as a Fisher information constant. That is the washing out of Theorem~\ref{ht:thm:32}; a diffusion scaling of the Euler family is the cruder Gaussian scaling, under which $Y_P/\operatorname{Var}L_P\to1$ in probability (the fluctuation scale $\kappa_3^{2/3}$ is $o(\kappa_2)$) and every trace of the zeros disappears. A diffusion approximation would supply positivity only if the chains already carried the arithmetic at the scale the limit sees, and by Theorem~\ref{ht:thm:rigid} through Thorin measures concentrating onto the $\gamma^2$, not through exact factors with GGC cofactors. Its natural role is as a tool: if Markov chains built from the primes approximated the Krein string operator, for example through discretisations of the canonical systems of \cite{Lagarias06}, a weak convergence theorem of Roberts type is what would carry nonnegativity to the limit.
