@@ -4,8 +4,9 @@ import matplotlib.pyplot as plt
 from matplotlib import font_manager as fm
 from matplotlib.colors import LinearSegmentedColormap
 from matplotlib.patches import Rectangle
-# Wrapped KDP covers (back, spine, front) for the two volume edition, 7 by 10 inches, white paper.
-# Usage (from cover/): python3 cover_volumes.py 1|2 [pages]. The page count defaults to that of ../main_vol{1,2}-kdp.pdf.
+# Wrapped KDP covers (back, spine, front) for the three volume edition, 7 by 10 inches, white paper.
+# Usage (from cover/): python3 cover_volumes.py 1|2|3 [pages]. The page count defaults to that of ../main_vol{1,2,3}-kdp.pdf.
+# Volume III uses the design of Volume II (the backward Cauchy flow) on a yellow ground, with dark ink.
 # Writes cover_vol{1,2}_full.pdf (upload), .png (preview) and _guides.png (trim, spine and barcode guides; not for upload).
 VOL = int(sys.argv[1])
 C = np.load('plotcurves.npz'); Z = C['zeros']
@@ -14,8 +15,8 @@ else: PAGES = int(re.search(r'Pages:\s+(\d+)', subprocess.run(['pdfinfo', '../ma
 PPI = 0.002252                      # KDP white paper, inches per page
 TRIM_W, TRIM_H, BL = 7.0, 10.0, 0.125
 K = TRIM_W/8.5
-BASE = {1: np.array([0.52, 0.07, 0.08]), 2: np.array([0.07, 0.15, 0.32])}[VOL]
-EDGE = {1: np.array([0.36, 0.04, 0.05]), 2: np.array([0.03, 0.08, 0.20])}[VOL]
+BASE = {1: np.array([0.52, 0.07, 0.08]), 2: np.array([0.07, 0.15, 0.32]), 3: np.array([0.95, 0.80, 0.22])}[VOL]
+EDGE = {1: np.array([0.36, 0.04, 0.05]), 2: np.array([0.03, 0.08, 0.20]), 3: np.array([0.82, 0.60, 0.06])}[VOL]
 FADE = lambda c, a: tuple(a*np.array(matplotlib.colors.to_rgb(c)) + (1-a)*BASE)
 S = round(PAGES*PPI, 4)
 W = 2*BL + 2*TRIM_W + S; H = TRIM_H + 2*BL
@@ -28,6 +29,7 @@ d = np.minimum(np.hypot((x-backc)/TRIM_W, (y-0.55*H)/TRIM_H), np.hypot((x-frontc
 t = np.clip(d/0.75, 0, 1)[..., None]
 bg.imshow(BASE*(1-t**2) + EDGE*t**2, extent=[0, W, 0, H], aspect='auto', origin='lower', zorder=0)
 cream = '#F3E6C8'; gold = '#E0B04F'
+if VOL == 3: cream = '#2A1A04'; gold = '#7A2410'   # dark ink and a deep red accent on the yellow ground
 def lmfont(fname, family):
     p = subprocess.run(['kpsewhich', fname], capture_output=True, text=True).stdout.strip()
     return fm.FontProperties(fname=p) if p else fm.FontProperties(family=family)
@@ -36,8 +38,9 @@ ital = lmfont('lmromanslant10-regular.otf', 'Latin Modern Roman Slanted')
 eps = [1.0, 0.5, 0.25, 0.1, 0.05, 0.02, 0.01, 0.005]
 tmin, tmax = 10, 60
 SUB = {1: 'Representations of Xi, Thorin Measures\nand the Reciprocal Xi Function',
-       2: 'Cauchy Deconvolution\nand Certified Computation'}[VOL]
-VOLNAME = {1: 'Volume I', 2: 'Volume II'}[VOL]
+       2: 'Cauchy Deconvolution\nand Certified Computation',
+       3: 'Is There a Path?\nRoutes to RH from the Thorin Programme'}[VOL]
+VOLNAME = {1: 'Volume I', 2: 'Volume II', 3: 'Volume III'}[VOL]
 # ---------------- front panel ----------------
 fx0 = BL + TRIM_W + S; fxc = fx0 + TRIM_W/2
 def fy(v): return BL + v*TRIM_H
@@ -59,11 +62,11 @@ if VOL == 1:
     cap = r'the Thorin density of $\xi(\frac{1}{2})/\xi(\frac{1}{2}+\sqrt{u})$ sharpening onto the zeros'
 else:
     # the backward Cauchy flow: the broad level one density (top) deconvolved towards the zeros (bottom)
-    cmap = LinearSegmentedColormap.from_list('b', ['#7FB3E0', '#F3E6C8'])
+    cmap = LinearSegmentedColormap.from_list('b', ['#7FB3E0', '#F3E6C8'] if VOL == 2 else ['#7A2410', '#2A1A04'])
     for i, e in enumerate(eps):
         th = C['th_%s' % e]; f = C['F_%s' % e]/np.pi; m = (th >= tmin) & (th <= tmax)
         lv = np.log10(f[m]); yv = (lv-lv.min())/(lv.max()-lv.min()); y0 = (len(eps)-1-i)*0.55
-        ax.fill_between(th[m], y0, y0+yv*1.6, color=FADE('#000000', 0.15), zorder=2*i)
+        ax.fill_between(th[m], y0, y0+yv*1.6, color=FADE('#000000', 0.15 if VOL == 2 else 0.08), zorder=2*i)
         ax.plot(th[m], y0+yv*1.6, color=cmap(i/(len(eps)-1)), lw=0.8+0.14*i, zorder=2*i+1)
     for z in Z[(Z > tmin) & (Z < tmax)]: ax.plot([z, z], [-0.25, -0.05], color=FADE(gold, 0.9), lw=1.0)
     ax.annotate('', xy=(61.2, 0.3), xytext=(61.2, (len(eps)-1)*0.55+1.2), arrowprops=dict(arrowstyle='->', color=gold, lw=1.0))
@@ -81,19 +84,20 @@ bg.text(sx, BL+TRIM_H*0.11, 'Polson  ·  Sokolov', rotation=-90, ha='center', va
 # ---------------- back panel ----------------
 bxc = BL + TRIM_W/2; lm = BL + 0.75; tw = TRIM_W - 1.5
 TAG = {1: 'The Riemann Hypothesis as the positivity of a measure',
-       2: 'Running the Cauchy flow backwards'}[VOL]
+       2: 'Running the Cauchy flow backwards',
+       3: 'Is there a path to the Riemann Hypothesis?'}[VOL]
 BLURB = {1: (
 "The Riemann Hypothesis can be stated as a positivity condition. The reciprocal Xi function is the Laplace transform of a "
 "generalised gamma convolution exactly when every zero lies on the critical line, and then its Thorin measure is the "
 "discrete measure on the squared ordinates. This volume is the theory of that condition.",
-"It gives every representation of the Xi function the two volumes use, the classes of infinitely divisible laws in which "
+"It gives every representation of the Xi function the three volumes use, the classes of infinitely divisible laws in which "
 "they live, from generalised gamma convolutions and their extended form to hyperbolic complete monotonicity, and the "
 "reciprocal Xi function at every basepoint. It follows the Thorin condition through the reciprocal zeta function, the "
 "critical strip, Dirichlet L functions and the Dedekind eta function, and through hitting times, extreme values and "
 "ferromagnetic random variables.",
 "The last chapters read the Thorin measure as a mixture of Cauchy laws, prove a strip version of the Lee and Yang theorem "
-"for spins of Xi type, and assemble a route to the Riemann Hypothesis in six equivalent forms, each proved at the line "
-"Re s = 1, with curves over finite fields as the benchmark where the same route is a proof. Every statement is marked "
+"for spins of Xi type, and follow P\u00f3lya and Haseo Ki on the zeros of entire functions and the Keiper Li "
+"coefficients. Whether these results give a path to the Riemann Hypothesis is the question of Volume III. Every statement is marked "
 "proved, computed, certified, conditional, heuristic or open."),
 2: (
 "The Thorin measure of the reciprocal Xi function at any level is the Cauchy smoothing of the zeros, and at level one it "
@@ -103,9 +107,13 @@ BLURB = {1: (
 "barrier method in Thorin form, and runs the backward Cauchy flow from the level one density, locating zeros and "
 "certifying window masses, by particle filters, nested sampling and the Monte Carlo criterion of Balazard, Saias and Yor.",
 "It certifies Weil positivity in windows, follows truncations, friable, ferromagnetic and extreme value approximants and "
-"their zeros, and gathers the certificates that hold under the quasi Riemann hypothesis announced in October 2026. Each "
+"their zeros, approximating clocks and Ramanujan's Delta in Thorin form. Each "
 "chapter says what a finite computation can decide and why no finite computation can decide the hypothesis itself. The "
-"code and data are at github.com/VadimSokolov/computing_rh.")}[VOL]
+"code and data are at github.com/VadimSokolov/computing_rh."),
+3: (
+"The first two volumes recast the Riemann Hypothesis as the positivity of a measure and computed that measure. This volume asks whether the methods built there give a path to a proof, and answers as exactly as it can: which steps are proved, which are computed, and where every route stops.",
+"It reads the Thorin measure through Bondesson's gamma block, the cancellation ledger of the primes against the pole, and an oscillator whose band is fixed by the zeros; through Chebyshev's factorial identity, the log gamma function and the Kolmogorov law; through P\u00f3lya frequency ladders, birth and death chains of the zeros, metaplectic forms, random walk maxima and the tools of Barndorff Nielsen. It certifies the log concavity of P\u00f3lya's density in ball arithmetic and proves, under the Riemann Hypothesis, a much sharper prime side test of positivity.",
+"Every level above seven eighths is now positive by the zero free half plane proved in 2026; the descent from there to the critical line is the open step, and the volume says plainly that it is open. The Davenport and Heilbronn function is run as a control throughout. The code and data are at github.com/VadimSokolov/computing_rh.")}[VOL]
 bg.text(bxc, fy(0.915), TAG, ha='center', va='center', color=gold, fontsize=20*K, fontproperties=ital)
 yy = fy(0.865); ASC = 0.105
 for para in BLURB:
@@ -117,7 +125,8 @@ axh = fig.add_axes([lm/W, (yy-1.55*K)/H, tw/W, 1.45*K/H])
 tg = np.linspace(10, 60, 2000)
 img = np.array([np.interp(tg, C['th_%s' % e], np.log10(C['F_%s' % e]/np.pi)) for e in eps])
 if VOL == 1: hm = LinearSegmentedColormap.from_list('h', ['#3a0507', '#8c1c1f', '#d08a3a', '#f7ebd0'])
-else: hm = LinearSegmentedColormap.from_list('h', ['#061226', '#173a6b', '#7FB3E0', '#f3e6c8'])
+elif VOL == 2: hm = LinearSegmentedColormap.from_list('h', ['#061226', '#173a6b', '#7FB3E0', '#f3e6c8'])
+else: hm = LinearSegmentedColormap.from_list('h', ['#2A1A04', '#7A2410', '#D9A21B', '#FFF4C4'])
 axh.pcolormesh(tg, np.arange(len(eps)), img, shading='auto', cmap=hm); axh.set_axis_off()
 bg.text(bxc, yy-1.72*K, r'the same measure at eight resolutions, from $\varepsilon=1$ (bottom) to $\varepsilon=0.005$ (top)', ha='center', va='top', color=FADE(cream, 0.85), fontsize=10*K, fontproperties=ital)
 yy -= 2.15*K

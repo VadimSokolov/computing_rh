@@ -1,0 +1,222 @@
+% Volume III closing chapter "Is there a path? What is proved and the open problems": additions after ch/c12.tex, ch/path.tex, ch/ch22.tex and vol/new/II_22_open_problems.tex. Sources: misc/reviews/nick-volume3/vol3/ch9_path_to_rh.tex lines 31-42 (counts updated, U12 M7), 54-81 (control table), 105-127, 130-146 (condensed, U12 M5 and M6 applied); referee misc/research/directions/opus/vol3/U12.md; the problem environments of ch/nc_v3_*.tex. Date 17 Nov 2026.
+% UNVERIFIED: rung 44 for the control (the W5 minors of rungs 43 and 44 were not computed), the moment ladder to 50, the heat trace order 8230 (see the chapter on spins), the control mixing density; the control table values for the Thorin ladder (rung near 75), the chain levels and the distance 8e-8 are those of the chapters cited in each row; the planted cosine orders were not rerun.
+\label{fin:ch:final}
+
+\section{What is proved, and what the control records}\label{fin:sec:proved}
+
+The unconditional results of this volume around the target are these.
+\begin{itemize}
+\item Rungs one and two of the P\'olya frequency ladder of $F$: $F$ is strictly positive and strictly log concave (Theorem~\ref{p:thm:m1}, certified in ball arithmetic).
+\item The far field of every rung: for each $k$ such that the first $k$ zeros are simple and on the line, so unconditionally for $k$ up to about $10^{13}$, every minor of order $k$ is positive once the configuration is shifted far enough (Theorem~\ref{p:thm:farpfk}).
+\item The whole ladder for $t\ge0.2$ and its failure for every $t<0$ (Theorem~\ref{p:thm:heat}), from the bounds of Polymath \cite{Polymath}, of Platt and Trudgian \cite{PT21}, and of Rodgers and Tao \cite{RodgersTao}.
+\item The first $50$ rungs of the Thorin ladder (computed), and for $\xi$ the first $1299$ coefficients of the Thorin string, certified in ball arithmetic in an unrefereed note of Polson (November 2026, Section~\ref{sec:ch21:hankel}). The chain of the zeros is computed in double precision to depth $2799$ (Chapter~\ref{b:ch:chain}).
+\item The chain at level $\alpha$ has positive rates if no zero has real part $\beta\ge\alpha$, and conversely no zero with $\beta>\alpha$ under the proviso of Theorem~\ref{h:thm:crit}, with the Euler product as the rung above $1$ and the theorem of Hadamard and de la Vall\'ee Poussin as the rung at $1$ (Chapter~\ref{h:ch:chains}).
+\item On the kernel side, the order of total positivity of Riemann's kernel, which is $4$ (Proposition~\ref{c:thm:tp4}, computed in floating point, not proved).
+\end{itemize}
+None of these bears on the zeros beyond what is already known. The detection rung theorem (Theorem~\ref{p:thm:detect}) says why a finite computation cannot: rung $k$ of the ladder for $F$ is affected only by a zero off the line that has fewer than $k$ real zeros below it, and by the detection scale (Corollary~\ref{p:cor:scale}) the large sign changes of the failing minor are spaced by order $(\beta-\frac12)^{-1}$ in the shift, where the entries of the matrix are tiny. The same limit holds for kernels: a kernel with an entire transform is a P\'olya frequency function only if it is Gaussian (Proposition~\ref{c:prop:gauss}), and knots that converge to the ordinates of the zeros give $F^{\rm ord}$ whether or not RH holds (Proposition~\ref{c:prop:ord}).
+
+The Davenport and Heilbronn function is the judge of every test in this volume. Table~\ref{tab:control} collects its record.
+
+\begin{table}[t]
+\centering
+\footnotesize
+\begin{tabular}{p{0.4\textwidth}p{0.22\textwidth}p{0.26\textwidth}}
+\toprule
+test & $\zeta$ & control\\
+\midrule
+positivity and log concavity of $F$ & certified & holds (computed)\\
+ladder of $F$ & far field to rung about $10^{13}$ & fails at rung $44$ at the latest (computed, under the hypotheses of Theorem~\ref{p:thm:detect})\\
+order of the kernel & $4$ (computed) & $2$, as for $\chi_4$ (computed)\\
+gamma knots, sup error in $F$ & $0.4$ per cent (computed) & $1.2$ per cent (computed)\\
+distance from $F$ to $F^{\rm ord}$ & zero if and only if RH & about $8\times10^{-8}$ (computed)\\
+mixing density of $H$ & positive & positive where resolved (computed)\\
+moment ladder & holds to $50$ (computed) & holds to $50$ (computed)\\
+Thorin ladder & holds to $50$ & fails near rung $75$\\
+Thorin string, or birth and death chain & positive to $1299$ & negative at levels $148$, $150$, $217$, $219$\\
+chain at level $\alpha$ & positive at every level computed & fails at levels $\alpha<\beta$ (computed)\\
+\bottomrule
+\end{tabular}
+\caption{The Davenport and Heilbronn control on every test of the volume. The ladder of $F$ detects its zeros off the line at rung $44$ at the latest, at shifts where the determinants are extremely small; the chain detects them at level $148$.}
+\label{tab:control}
+\end{table}
+
+Two lessons follow. The first is the apparent order of sensitivity: the ladder of $F$ detects a zero off the line at rung $44$ at the latest (an earlier failure in the near field is not excluded, Section~\ref{p:sec:open}), the Thorin ladder and its chain at larger rungs and levels, near rung $75$ and at level $148$, and the moment ladder not up to $N=50$. The free shift $L$ in the minors of $F$ amplifies a pair of zeros off the line through $\cos(dL+\theta)$, where $d=\beta-\frac12$; in the Hankel determinants the same pair enters only through the small quantity $(2d/\gamma)^2$. The second lesson is that agreement with the control is the normal state of affairs. A proposed mechanism should be distrusted until it is shown to fail for the control, and no pattern found in a finite table of numbers can be evidence for RH.
+
+\section{What the chain chapters add to the assessment}\label{fin:sec:later}
+
+The assessment above was fixed before the computations of Chapters~\ref{ch:progress} and~\ref{f:ch:ferro}. They leave it standing and sharpen it in four places. All statements are computed unless a result is cited.
+
+\paragraph{The fluctuation of the chain is linear to a good approximation.} The fluctuation $\varepsilon_j$ of the chain, which carries the arithmetic, is a smooth functional of the displacements of the zeros from their smooth positions: three evaluations of the exact Jacobian (Theorem~\ref{pp:thm:lr}) along a straight path reproduce it to a coefficient of determination of $0.9993$. The question of a formula for the fluctuation in terms of the primes therefore splits into a kernel, which is computed exactly and whose scaled limit is a problem on orthogonal polynomials, and the displacements, which are $S(t)$ at the zeros and carry the primes. The kernel has the same shape for the evenly spaced zeros of the cosine, so it carries no arithmetic. The response of a rate to the zeros is bounded by about $1.1$ per mean spacing at every level checked between $100$ and $1900$; uniformity in the level is Conjecture~\ref{pp:conj:norm}.
+
+\paragraph{The smooth part has a ferromagnetic realisation.} The chain of P\'olya's cosh spin agrees with the Gamma chain beyond the first few levels (Computation~\ref{f:comp:spinchain}). The smooth part is therefore matched by a positive object with a structural proof of positivity. What is not known lies in the difference between $\Phi$ and $\Phi^*$ (Open problem~\ref{r:op:deform}).
+
+\paragraph{A pair off the line is caught at a depth that depends on its distance.} Real zeros, however close, contribute a positive factor to every Hankel determinant (Corollary~\ref{pp:cor:real}), and two zeros brought to collision change the nearby rates by under ten per cent. A pair off the line has exactly two negative rates when $r_n$ and $r'_n$ each change sign once (Proposition~\ref{pp:prop:two}), and in the collision experiment the depth grows like the logarithm of its distance from the line (computed). This is a statement about the detection of such a pair, and not a route to excluding it: whether it can occur is RH.
+
+\paragraph{The instruments are calibrated against each other.} On the control the ladder of the density fails at rung $44$ at the latest, the Thorin ladder near rung $75$, the chain at level $148$ and the heat trace at order $8230$ (Chapter~\ref{f:ch:ferro}); the sharper an instrument, the harder it is to certify, and none can be completed by computation.
+
+The place where the missing structure must act is stated in Section~\ref{bo:sec:cancel}, which reduces positivity on the critical line to one inequality between a Fej\'er weighted prime sum and three closed form terms, an inequality that is a theorem at level $1$ and has no margin on the line. The step below level $1$ is described in Sections~\ref{route:sec:answer} and~\ref{qrh:sec:claims}.
+
+\section{A programme of work}\label{fin:sec:programme}
+
+The following are finite tasks, ordered roughly by cost. The first group sharpens what is known. The second attacks the problem. Section~\ref{fin:sec:open} lists the open problems of the chapters.
+
+\paragraph{Sharpening}
+\begin{enumerate}
+\item Prove the inverse half of the Bohr and Sommerfeld law: the chain of the smooth zeros has the rates of the law \eqref{eq:ch21:ratelaw} to leading order (Chapter~\ref{l:ch:bohr}, Section~\ref{l:sec:inverse}). The linear form of the stability theorem is Conjecture~\ref{pp:conj:norm} of Chapter~\ref{ch:progress}.
+\item Complete the inertia theorem of Chapter~\ref{h:ch:chains}: finitely many zeros to the right of a level give finitely many negative rates, with the exact count. It is proved there modulo two cited theorems.
+\item Certify rung three for $F$. The far field needs explicit constants in Theorem~\ref{p:thm:farpfk}; the near field needs Taylor models in five variables. Its value is structural: it tests whether the method of Theorem~\ref{p:thm:m1} extends.
+\item Prove that $F_t$ passes every rung up to $m(t)$ for $t<0$, which would make the failing rung exactly $m(t)+1$. The cases $t=-4$ and $t=-2$ support it.
+\item Decide whether the mixing density of the control is nonnegative. If it is, complete monotonicity is strictly weaker than RH in this family.
+\end{enumerate}
+
+\paragraph{Attacking}
+\begin{enumerate}
+\item Bound the response of the rates to the zeros uniformly in the level (Conjecture~\ref{pp:conj:norm}) and find the scaled limit of its kernel.
+\item A contiguous relation. Gauss's continued fraction for Bessel functions comes from a positive M\"obius map between neighbouring orders. Find the substitute for $\xi$, the lemma missing in Chapter~\ref{b:ch:chain}.
+\item Descent in the level. Chapter~\ref{h:ch:chains} makes positivity a ladder in $\alpha$ whose top rungs are arithmetic theorems. Ask what the Euler product gives between $\alpha=1$ and a claimed zero free half plane, and whether any step of the descent can be made unconditional.
+\item The string under the heat flow. For $t\ge0.2$ the family $F_t$ has all rungs, so its Thorin string is positive by a known proof. Compute the strings of $F_t$ for $0\le t\le0.2$ and for $t<0$, and find where the first coefficient turns negative as $t$ decreases. The question is what replaces the damping by the Gaussian factor at $t=0$.
+\item A string from the theta function. Riemann's kernel is a derivative of the theta function, whose probabilistic meaning is the maximum of a Brownian excursion. Ask whether the Thorin string is the string of a diffusion obtained from that excursion by a time change, and test any proposal on the control.
+\item The see saw. Under the heat flow the order of the kernel rises as $t\to-\infty$ while the ladder of $F_t$ falls. The Gaussian is the fixed point where both are infinite. A quantitative duality between the two ladders would be a statement about $\xi$ that no argument of this volume supplies.
+\end{enumerate}
+
+\section{Open problems of the volume}\label{fin:sec:open}
+
+Each problem posed in a chapter of this volume appears once below, with a one line statement and a reference to where it is posed. The problems stay in their chapters. Two kinds are dropped: a problem posed in two chapters is listed under the chapter that treats it, and a problem that a later chapter answers is omitted, with the answer named in the notes at the end of the list. The open problems of Volumes I and II are sorted in the closing chapter of Volume II.
+
+\paragraph{Part II, levels}
+\begin{enumerate}
+\item Maximise the lower Chebyshev constant over weights with $\sum\varepsilon_kc_k=0$ at a bounded upper constant, and decide whether the optimum is a limit of GGCs converging to the Thorin measure of $\Gamma(s)\zeta(s)$ with the pole removed (Problem~\ref{ct:op:sylvester}).
+\item Characterise the finite signed products $\prod\Gamma(1+c_kw)^{\varepsilon_k}$ whose reciprocal at $\sqrt u$ is a GGC, in particular for which of them the chain of implications is exact. Nonnegative running sums are not necessary: Theorem~\ref{ct:thm:hier} shows that none of the implications $U\ge0\Rightarrow V\ge0\Rightarrow g\ge0\Rightarrow t\ge0$ reverses, so the necessity question is settled, and the open part is the characterisation itself (Problem~\ref{ct:op:signed}).
+\item Build a Bayesian line spectrum estimator for $U_{\rm RH}$ from $Z(u)$ on $[0,\log X]$ and quantify how large $X$ must be to certify the first $K$ atoms (Section~\ref{ct:sec:path}, third problem).
+\item Make the extreme value heuristic for the rotor process rigorous under LI, and transfer it to $Z(u)$ (Section~\ref{ct:sec:path}, fourth problem).
+\item Prove Conjecture~\ref{ct:conj:canonical}, the uniformity in $r$ of the expansion in $\alpha-\frac12$, and compare the Yamazato rates of the Thorin ladder at level one with the critical points of the canonical product (Section~\ref{ct:sec:path}, fifth problem).
+\end{enumerate}
+
+\paragraph{Part IV, chains}
+\begin{enumerate}
+\setcounter{enumi}{5}
+\item Bohr and Sommerfeld law, direct half: an $O(1)$ bound for the staircase of the law chain with the midpoint quantisation formula, which is the missing quarter phase (Section~\ref{l:sec:inverse}, first problem). This also covers the problem of Conjecture~\ref{b:conj:bs} and its death level coefficient in Chapter~\ref{b:ch:chain}.
+\item Prove the mass rule of Section~\ref{l:sec:inverse} and the death level correction of the Gamma chain (Section~\ref{l:sec:inverse}, second problem).
+\item Prove the stability theorem for S fractions, or property (R) for the Gamma chain directly (Section~\ref{l:sec:inverse}, third problem).
+\item Find the transformation that takes the tail of the continued fraction at depth $j$ to the tail at depth $j+1$, in a form that preserves positivity (Chapter~\ref{b:ch:chain}, section on open problems, first problem).
+\item Explain the line of the prime $2$ in the periodogram of $\varepsilon_j$, its amplitude and phase against the candidate, and the weaker lines at other primes (Chapter~\ref{b:ch:chain}, fourth problem).
+\item Find the height $h(J)$ up to which the reality of the zeros forces $c_j>0$ for $j\le J$ (Chapter~\ref{b:ch:chain}, fifth problem).
+\item Compute the chain for $L(s,\Delta)$ and compare it with the chain of $\chi_{12}$ (Chapter~\ref{b:ch:chain}, sixth problem).
+\item Remove the conditioning barrier on the moment route, by a modified moment method with the Gamma chain as reference measure (Chapter~\ref{b:ch:chain}, seventh problem).
+\item Remove the proviso of Theorem~\ref{h:thm:crit}(ii) for $\zeta$: no common zero of $F_\alpha(s)$ and $F_\alpha(-s)$ with $\re s>0$ (Chapter~\ref{h:ch:chains}, section on a path, first problem).
+\item Prove Conjecture~\ref{h:conj:count} for the class of entire functions considered, and check the hypotheses (I1) and (I2) of Section~\ref{h:sec:inertia} (Chapter~\ref{h:ch:chains}, second problem).
+\item Prove a local form of the criterion: $a_j(\alpha)>0$ unless a zero with $\beta>\alpha$ has ordinate near the turning height of level $j$ (Chapter~\ref{h:ch:chains}, third problem).
+\item Prove positivity of the rung $\alpha=1$ for $\zeta$ through the rates, using the Euler product, and try the same argument at $\alpha=\frac{11}{12}$ (Chapter~\ref{h:ch:chains}, fourth problem).
+\item Explain the stability of Computation~\ref{h:comp:stab}, and prove a uniform bound $|\log a_j(\alpha)-\log a_j(1)|<C$ from the Euler product (Chapter~\ref{h:ch:chains}, fifth problem).
+\item Study $\partial a_j/\partial\alpha$ at $\alpha=\frac12$, with a lower bound uniform in $j$ (Chapter~\ref{h:ch:chains}, sixth problem).
+\item Prove Conjecture~\ref{pp:conj:norm}, the bound of the response of the rates uniform in the level (Section~\ref{pp:sec:open}, first problem).
+\item Find the scaled limit of the response kernel, expected to involve an Airy function of the distance in mean spacings (Section~\ref{pp:sec:open}, second problem).
+\item Prove that a single conjugate pair added to a determinate measure changes the sign of $r_n$ exactly once, with the first negative level $n_0+C\log(1/\eta)+O(1)$ (Section~\ref{pp:sec:open}, third problem).
+\item Run the collision experiment through the actual heat flow, with all zeros moving, for the Lehmer pair near $\gamma_{6709}$ (Section~\ref{pp:sec:open}, fourth problem).
+\end{enumerate}
+
+\paragraph{Part V, spins and instruments}
+\begin{enumerate}
+\setcounter{enumi}{23}
+\item Find ferromagnetic spin systems whose magnetisations converge to P\'olya's law, adding one Euler factor at a time to the cosh spin (Chapter~\ref{f:ch:ferro}, section on open problems, first problem).
+\item Follow the zeros along the deformation $\Phi_\lambda=(1-\lambda)\Phi^*+\lambda\Phi$ (Open problem~\ref{r:op:deform}).
+\item Prove the converse of the heat trace rule with constants: $D_n(x)>0$ for all $x$ and $n\le n_0$ puts every zero with ordinate below $c\sqrt{n_0}$ on the line (Chapter~\ref{f:ch:ferro}, third problem).
+\item Find the weights in Ramanujan's 1915 identities for which the density is an EGGC characteristic function (Open problem~\ref{r:op:Ram}).
+\item Decide whether a GGC $V$ in the randomisation of Proposition~\ref{dl:prop:sechram} cancels zeros of $\zeta(1-s)$ in part of the strip (Open problem~\ref{r:op:V}).
+\item Explain the constant in the rule of Remark~\ref{r:rem:rule}, which overestimates the first failing order on the control by $17$ and $26$ per cent (Chapter~\ref{f:ch:ferro}, sixth problem).
+\item Extend Proposition~\ref{dl:prop:deligne} to the completed function $(2\pi)^{-s}\Gamma(s)L(s,\Delta)$ and test whether its reciprocal in the variable $6+\sqrt s$ has a nonnegative Thorin type representation (Chapter~\ref{f:ch:ferro}, seventh problem).
+\end{enumerate}
+
+\paragraph{Part I, the route}
+\begin{enumerate}
+\setcounter{enumi}{30}
+\item Construct from the primes a positive semidefinite Hermitian form on test functions that equals the zero sum of Weil's criterion, or prove one of its equivalent forms (Problem~\ref{route:prob:missing}).
+\item Prove lower bounds for the margins that the runs only observe: the least eigenvalue of Weil's form on $N$ modes, the Thorin margin, and the curve margin (Problem~\ref{route:prob:margin}).
+\item Prove quantitative shrinking of the strip for pair couplings that do not act through the magnetisation, and the multiplicity rate for $N$ pairs (Problem~\ref{route:prob:shrink}).
+\item Prove the gap law of one pair for many pairs, beyond clusters small compared with their distance from the other zeros (Problem~\ref{route:prob:gap}).
+\item Find a family of laws or spins indexed by an integer, built from the Euler product, whose Lee and Yang property propagates from one member to the next and whose limit is P\'olya's spin (Problem~\ref{route:prob:family}).
+\item Prove the two spin Lee and Yang property for every $w>w_0$, for one $w_0<\frac12$ (Problem~\ref{route:prob:qrh}).
+\end{enumerate}
+
+\paragraph{Part II, further problems of the chapters on the gamma factor and on families}
+\begin{enumerate}
+\setcounter{enumi}{36}
+\item Find conditions on a nonnegative sequence and a trigonometric weight under which the regularised prime sum below the abscissa of convergence is bounded below by an explicit negative quantity (Section~\ref{g:sec:open}, first problem).
+\item Determine which sum of squares certificates on the Bohr torus survive the regularisation of the previous problem (Section~\ref{g:sec:open}, second problem).
+\item Explain analytically why the strip inequality is tightest inside the gap $(\gamma_1,\gamma_2)$ and bound the margin there by the gap length (Section~\ref{g:sec:open}, third problem).
+\item Decide whether the fake prime deformation of the gamma factor can make the compensated density nonnegative for some $q<1$ (Section~\ref{g:sec:open}, fourth problem).
+\item Identify the limiting transfer and the signed measures admitted by the spline lemmas as the order grows (Section~\ref{g:sec:open}, fifth problem).
+\item Find smoothed Dirichlet polynomial models of $(s-1)\zeta(s)$ whose reciprocals at level $\alpha$ are GGC transforms up to a drift inside the archimedean budget (Chapter~\ref{bo:ch:families}, section on open problems, first problem).
+\item Decide whether the least level $\alpha_P$ at which the truncated Euler product is a GGC transform tends to $1$, and compute it for $P\le10^4$ (Chapter~\ref{bo:ch:families}, second problem).
+\item Bound the smallest detectable zero displacement of the EM descent from $\frac78$ as a function of step, iterations and local gap (Chapter~\ref{bo:ch:families}, third problem).
+\item Accelerate the EM descent with momentum and test it at heights $10^4$ to $10^6$ (Chapter~\ref{bo:ch:families}, fourth problem).
+\item Prove that the truncation integral of the Fej\'er ledger is small on average, and that under RH the Ces\`aro truncated density is positive for all $t$ once it is at the origin (Chapter~\ref{bo:ch:families}, fifth problem).
+\item Prove a lower bound under RH for the slack $f(L)$ in terms of $L$, from simultaneous approximation (Chapter~\ref{bo:ch:families}, sixth problem).
+\item Characterise the kick trains for which the oscillator stays in a band, and find a model with fluctuating zeros in which this can be proved (Chapter~\ref{bo:ch:families}, seventh problem).
+\item Close the gap between the proved range $\log Y\ge58.6$ of the elementary level one inequality and the computed range, to a proof for every $Y>1$ that uses no zeros (Chapter~\ref{bo:ch:families}, eighth problem).
+\item Decide whether any $\varepsilon>0$ and family of weights give the prime sum estimate needed at level $1-\varepsilon$ from a sieve or a mean value estimate (Chapter~\ref{bo:ch:families}, ninth problem).
+\item Find the order at which the Pick test on the ratio of successive derivatives first fails, and its dependence on $\alpha$ (Chapter~\ref{bo:ch:families}, tenth problem).
+\item Compute the family average at a level above $1$ from averages of Hecke eigenvalues and invert the semigroup of Theorem~\ref{iw:thm:semigroup} down to level $\frac12$ (Problem~\ref{iw:prob:family}, in the chapter on Iwaniec's approach).
+\end{enumerate}
+
+\paragraph{Part II, the quasi Riemann hypothesis}
+\begin{enumerate}
+\setcounter{enumi}{52}
+\item Prove the minimum at the origin for $\chi_4$ and $\chi_{12}$ for every $\sigma>\frac78$, from the half plane of \cite{OAI26a} (Problem~\ref{qrh:prob:chi4}).
+\item Find a Thorin reading of the signal of Proposition~\ref{qrh:prop:cont} (Problem~\ref{qrh:prob:signal}).
+\item Decide whether the exponent $\frac67$ of the cubic theta method is a limit of the full method, and whether that method can pass $\frac34$ (Problem~\ref{qrh:prob:exponent}).
+\item Give an independent certified check of the absence of zeros with $\re s>\frac78$ up to a height beyond the verification of RH (Problem~\ref{qrh:prob:cert}).
+\item Decide whether positivity of $u_\theta$ on the single line $\re s=\theta$ implies $(\mathrm Q_\theta)$ for $\zeta$ (Problem~\ref{qrh:prob:oneline}).
+\item Represent the level one Thorin measure from the Euler product without the zeros, and prove that its Lorentzian half widths are all $\frac12$ (Problem~\ref{qrh:prob:levelone}).
+\item Quantify the approach of the Thorin measures to the atomic limit in a weak metric for $\frac12<\alpha<\frac78$ (Problem~\ref{qrh:prob:weak}).
+\item Find the rate of the truncated Thorin measures and prove the damped Weil inequality near level $1$ from the $2\sin^2$ structure (Problem~\ref{qrh:prob:trunc}).
+\item Make explicit the regularised prime side between $\frac78$ and $1$ and prove it is a positive measure, using the half plane of \cite{OAI26a} (Problem~\ref{qrh:prob:reg}).
+\item Decide whether $1/\xi(\frac12+\sqrt\lambda)$ is a positive mixture of toy reciprocal Xi functions (Problem~\ref{qrh:prob:mixture}).
+\end{enumerate}
+
+\paragraph{Part III, the P\'olya frequency ladder}
+\begin{enumerate}
+\setcounter{enumi}{62}
+\item Certify PF$_3$ with explicit constants in the far field and a box decomposition of the mixed configurations (Section~\ref{p:sec:open}, first problem).
+\item Decide whether the control fails some rung $k\le43$ in the near field (Section~\ref{p:sec:open}, second problem).
+\item Give an analytic proof of log concavity of $F$ by structure and not by certificate (Section~\ref{p:sec:open}, third problem).
+\item Make the Lehmer heuristic precise: bound the margin of rung $m+1$ by the gap of the $(m+1)$th pair (Section~\ref{p:sec:open}, fourth problem).
+\item Find a uniform mechanism on $0\le t\le0.2$ with constants uniform as $t\downarrow0$ (Section~\ref{p:sec:open}, fifth problem).
+\item Certify the flow values of the failing rung function, extend beyond height $9000$, and determine the growth of $m(t)$ as $t\uparrow0$ (Section~\ref{p:sec:open}, sixth problem).
+\item Prove that $F_t$ passes every rung up to $m(t)$ for $t<0$ (Section~\ref{p:sec:open}, seventh problem).
+\item Decide whether the failing rung $r(t)$ is monotone in $t$ (Section~\ref{p:sec:open}, eighth problem).
+\end{enumerate}
+
+\paragraph{Part VI, what is forced}
+\begin{enumerate}
+\setcounter{enumi}{70}
+\item Decide whether $\zeta$ is the only admissible positive minorant (Problem~\ref{rg:prob:minorant}).
+\item Decide whether a Beurling zeta function with the functional equation of $\zeta$, conductor $Q>1$, a positive theta kernel and a zero off the line exists (Problem~\ref{rg:prob:conductor}).
+\item Decide whether a rational modification of $\zeta$ can have a positive prime measure, a positive level $\alpha$ measure and a zero just below $\alpha$ (Problem~\ref{rg:prob:modif}).
+\item Decide whether the transform of the P\'olya kernel divided by $\cosh(ax)$ has all its zeros in a strip of width one for small $a>0$ (Problem~\ref{rg:prob:cosh}).
+\end{enumerate}
+
+\paragraph{Part II, the phase diagram}
+\begin{enumerate}
+\setcounter{enumi}{74}
+\item Prove, without locating zeros, that the clock $\varphi_{t,1/2}$ is the Laplace transform of a GGC for $t\ge\frac12$, from the representation of $\xi_t$ as a Gaussian tilt of the P\'olya kernel and the sine squared lemma. This would reprove de Bruijn's bound $\Lambda\le\frac12$, which the known region already improves to $0.2$ (Corollary~\ref{cp:cor:known}). (from an unrefereed note of Polson, November 2026).
+\item Find estimates, or a well posed evolution that preserves positivity, for the joint structure in $(t,\alpha)$ of the Thorin density. On a zero free region $q=\xi_t'/\xi_t$ satisfies $\partial_tq=\frac14\partial_s^2q+\frac12q\,\partial_sq$, by differentiating the heat equation $\partial_t\xi_t=\frac14\xi_t''$. With $s=\alpha+ik$ and $q=\pi(S+iV)$, where $S$ is the Thorin density and $V$ its harmonic conjugate, this gives $S_{\alpha\alpha}+S_{kk}=0$ and $S_t=\frac14S_{\alpha\alpha}+\frac\pi2(SS_\alpha-VV_\alpha)$. The equations are local and nonlinear, and the open task is a bound for $S$ near the origin that uses them (from an unrefereed note of Polson, November 2026).
+\end{enumerate}
+
+The notes on what was dropped. The problem of finding the explicit kernel of $\varepsilon_j$ (Chapter~\ref{b:ch:chain}) is answered in form by Theorem~\ref{pp:thm:lr}, an exact formula for the derivative of each rate with respect to each zero; what remains of it is the scaled limit of the kernel, which is problem 21 above. The problem of proving the Bohr and Sommerfeld law in Chapter~\ref{b:ch:chain} is the three problems of Section~\ref{l:sec:inverse}. The problems of the route chapter, of the chapters on the gamma factor, on families, on Iwaniec's approach and on the quasi Riemann hypothesis, of the P\'olya ladder chapter and of the rigidity chapter are listed above, continuing the numbering; the other chapters pose none, and their open questions are stated in the text and in Section~\ref{fin:sec:programme}.
+
+\section{What changed in this volume}\label{fin:sec:changed}
+
+Volume III adds the following to Volumes I and II. The status words are those of the book.
+\begin{itemize}
+\item The Riemann density $F$ is strictly log concave (Theorem~\ref{p:thm:m1}): certified, in ball arithmetic only. This replaces the floating point certificate of Volume I for PF$_2$.
+\item The smooth window threshold satisfies $\sqrt\delta\,L^g_*(\delta)\to\ell_0=4.2099648632$ (Theorem~\ref{bo:thm:smooth}): proved under RH.
+\item The value distribution of $J_\alpha$ for $\frac12<\alpha<1$ is that of a prime sum with independent uniform phases (Section~\ref{bo:sec:values}): proved for the limiting law, which is due to Kershner and Wintner~\cite{KershnerWintner37}, with the computed comparisons stated there.
+\item Chebyshev's Gamma ratio is a GGC, and Bondesson's function has an explicit nonnegative Thorin density (Theorem~\ref{ct:thm:chebggc}, Corollary~\ref{ct:cor:bondesson}): proved.
+\item The threshold at the origin, in its corrected form: $L^*(\delta)$ is finite if and only if $\Theta\le\frac12+\delta$, so that RH holds if and only if it is finite for every $\delta>0$ (Theorem~\ref{bo:thm:threshold}): proved, unconditionally.
+\item Positivity of the Thorin density of the reciprocal Xi function at every level $\alpha>\frac78$, and the GGC property of the compensated function on each such rung (Theorem~\ref{dz:thm:qrh}): proved, from the theorem of \cite{OAI26a}.
+\item The ladder of chains at every level, with the criterion of Theorem~\ref{h:thm:crit}: proved under the proviso stated there; the rates and their fluctuation are computed (Chapters~\ref{b:ch:chain} to~\ref{ch:progress}).
+\end{itemize}
+Results from an unrefereed note of Polson (November 2026) are credited where they appear.
+
+Volume III does not prove RH. It does not settle the descent below level $\frac78$: no argument of this volume gives positivity at one level below $\frac78$ that is not already a consequence of a zero free half plane, and the descent is open. The half plane $\re s>\frac78$ is the theorem of \cite{OAI26a} (Section~\ref{qrh:sec:claims}); the open step is from $\frac78$ to $\frac12$. The tests of the volume are instruments, and every one of them is passed by the control wherever it is computed, up to the rung or level at which the control's zeros off the line are seen; none of them is a proof.

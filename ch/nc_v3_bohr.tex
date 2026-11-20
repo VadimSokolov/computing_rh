@@ -1,0 +1,310 @@
+% Chapter 14: The Bohr and Sommerfeld law for the gamma chain. Sources: misc/reviews/nick-volume3/vol3/ch7_bohr_law.tex lines 5-388 (script list 390-393 cut), referee reports U07 (ch7 part, M1 and minors), V3D referee_bohr, verification W3 V10; 17 Nov 2026.
+\label{l:ch:bohr}
+
+The Gamma chain is the birth and death chain of the smooth zeros of $\xi$, the chain of the measure with atoms $x_k=\gamma_k^{-2}$ and masses $x_k$, where $\gamma_k$ are the smooth zeros defined by $\theta(\gamma_k)=\pi(k-\frac32)$. Its rates $c_j$, in the book's normalisation, were found numerically to obey the law of eq.~\eqref{eq:ch21:ratelaw}, which we write for a general constant $c_0$ (the value in the book is $c_0=\frac74$):
+\begin{equation}\label{l:eq:law}
+c_j=\frac1{4g_j^2},\qquad\frac{g_j}2\log\frac{g_j}{4\pi}+c_0=j .
+\end{equation}
+The law is heuristic. It comes from an unrefereed note of Polson (November 2026), which solves Abel's equation of Section~\ref{sec:wigfree:jacobi} (see eq.~\eqref{eq:wigfree:count} and Proposition~\ref{prop:wigfree:abel}) for the smooth count. A proof would have two halves. The direct half says that the chain defined by \eqref{l:eq:law} has the zero counting function of the smooth zeros. The inverse half says that the chain of the smooth zeros has the rates \eqref{l:eq:law}. This chapter proves the leading order of the direct half and nothing more. What it contains:
+\begin{enumerate}
+\item Theorem~\ref{l:thm:count} (proved): for a Jacobi matrix with zero diagonal and regularly decreasing weights, the number of eigenvalues above $\mu$ is $\frac1\pi\sum_j\arccos(\mu/2w_j)$ up to an error $O(\sqrt{n\log n})$, where $n$ is the number of sites below the turning point. The proof cuts the matrix into blocks, freezes the weight on each block, and uses Weyl's inequality and a rank count. This is close in spirit to the theorem of Kuijlaars and Van Assche \cite{KVA99}.
+\item Theorem~\ref{l:thm:law} (proved): the chain \eqref{l:eq:law} has spectrum $\{\Gamma_k^{-2}\}$ with $\Gamma_k$ satisfying $\#\{k:\Gamma_k<\Gamma\}=\frac\Gamma{2\pi}\log\frac\Gamma{2\pi e}+O(\sqrt\Gamma\log\Gamma)$, the main term of the Riemann and von Mangoldt formula. It does not see the constant.
+\item The constant $c_0=\frac74$ is not derived. The arccos sum of Theorem~\ref{l:thm:count} carries the constant $\frac{c_0}2-\frac14$ (computed), not $\frac{c_0}2$, and a further quarter, the eigenvalue quantisation, is missing. With $c_0=\frac74$ the eigenvalues of the law chain match the smooth zero count $\frac\Gamma{2\pi}\log\frac\Gamma{2\pi e}+\frac78$ in the midpoint form $D_k$ of Computation~\ref{l:comp:direct} to $0.0251$ for $50<\Gamma_k<1500$ (computed). So $c_0=\frac74$ is a heuristic value, not derived, supported numerically to a few thousandths in $D_k$.
+\item The law chain is the chain of the smooth zeros weighted by their local spacing, to three and a half digits beyond the first hundred eigenvalues, and the spacing weighted Gamma chain follows the law with $c_0=\frac74$ on birth and death levels alike over the computed range (computed). The unexplained term $B$ of the Gamma chain is small for the spacing weighted chain over the computed range, which suggests that it comes from removing the spacing (heuristic; Section~\ref{l:sec:weighted}).
+\end{enumerate}
+The inverse half is open; Section~\ref{l:sec:inverse} gives a conditional leading order result.
+
+\section{Setting}
+
+Let $w_1\ge w_2\ge\cdots>0$ with $w_j\to0$, and let $J$ be the Jacobi matrix on $\ell^2(\mathbb N)$ with zero diagonal and off diagonal entries $w_j$: $(Ju)_j=w_{j-1}u_{j-1}+w_ju_{j+1}$, $w_0=0$. It is compact and self adjoint, with spectrum symmetric about $0$. For $\mu>0$ let $N_J(\mu)$ be the number of eigenvalues greater than $\mu$. The link with the chain is classical. In the convention of Chapter~\ref{b:ch:chain}, the Stieltjes continued fraction of the measure $\nu$ with rates $c_j$ is
+\[
+\int\frac{d\nu(x)}{1+xu}=\cfrac{s_0}{1+\cfrac{c_1u}{1+\cfrac{c_2u}{1+\cdots}}},
+\]
+where $s_0$ is the total mass. If $w_j=\sqrt{c_j}$ and $\nu$ has atoms at the points $x_k$, the positive eigenvalues of $J$ are $\sqrt{x_k}$; this support map does not depend on the masses. With $x_k=\Gamma_k^{-2}$ they are $1/\Gamma_k$, so
+\[
+N_J(\mu)=\#\{k:\Gamma_k<1/\mu\}.
+\]
+Put $\mathcal A(x)=\arccos x$ for $|x|\le1$, $\mathcal A(x)=0$ for $x>1$ and $\mathcal A(x)=\pi$ for $x<-1$. It is nonincreasing with total variation $\pi$.
+
+\medskip
+\noindent Hypothesis (R). There are constants $0<k\le K$ and $j_0$ such that
+\[
+\frac kj\le\frac{w_j-w_{j+1}}{w_j}\le\frac Kj\qquad(j\ge j_0).
+\]
+Below, $C$ denotes a constant depending only on $k$, $K$, $j_0$, not always the same.
+
+\section{Three elementary lemmas}
+
+\begin{lemma}[Frozen block]\label{l:lem:const}
+The $L\times L$ Jacobi matrix with zero diagonal and constant weight $w$ has eigenvalues $2w\cos\frac{i\pi}{L+1}$, $1\le i\le L$. Hence the number of its eigenvalues greater than $\mu'$ differs from $\frac L\pi\mathcal A(\mu'/2w)$ by at most $2$, for every real $\mu'$.
+\end{lemma}
+
+\begin{proof}
+The eigenvalues are classical. The number of $i\le L$ with $\cos\frac{i\pi}{L+1}>x$ differs from $\frac{L+1}\pi\mathcal A(x)$ by at most $1$, and $\frac1\pi\mathcal A\le1$.
+\end{proof}
+
+\begin{lemma}[Perturbation]\label{l:lem:pert}
+Let $A$, $B$ be compact self adjoint operators, and count eigenvalues above positive thresholds only.
+\begin{enumerate}
+\item If $\|A-B\|\le\varepsilon$ then $N_A(\mu+\varepsilon)\le N_B(\mu)\le N_A(\mu-\varepsilon)$ for $\mu>\varepsilon$. For finite matrices the same holds for all real $\mu$.
+\item If $A-B$ has at most $m$ positive and at most $m$ negative eigenvalues, then $|N_A(\mu)-N_B(\mu)|\le m$.
+\item A zero diagonal Jacobi matrix with off diagonal entries $d_j$ has norm at most $2\sup|d_j|$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+Parts 1 and 2 are Weyl's inequalities, from the minimax principle (for part 2, subadditivity of the positive and negative inertia). Part 3 is Schur's test, or the writing of the matrix as a weighted shift plus its adjoint.
+\end{proof}
+
+\begin{lemma}[Overlap]\label{l:lem:overlap}
+Let $a_1<a_2<\cdots<a_M$ with $a_{b+1}-a_b\ge\sigma>0$, and let $I_b\ni a_b$ be intervals of length at most $h$. Then $\sum_b\bigl(\sup_{I_b}\mathcal A-\inf_{I_b}\mathcal A\bigr)\le\pi\,(2h/\sigma+1)$.
+\end{lemma}
+
+\begin{proof}
+A point lies in at most $\lfloor2h/\sigma\rfloor+1$ of the $I_b$, and $\mathcal A$ is monotone with total variation $\pi$.
+\end{proof}
+
+\section{The counting theorem}
+
+\begin{theorem}[Semiclassical count]\label{l:thm:count}
+Assume (R). For $0<\mu<2w_1$ let $n=n(\mu)$ be the number of $j$ with $2w_j\ge\mu$. Then
+\[
+\Bigl|\,N_J(\mu)-\frac1\pi\sum_{j\le n}\arccos\frac{\mu}{2w_j}\,\Bigr|\le C\sqrt{n\log n}\qquad(n\ge2).
+\]
+\end{theorem}
+
+\begin{proof}
+For $n\le C$ both terms are $O(n)$ and there is nothing to prove, so let $n$ be large. Fix an integer $L$ with $1\le L\le n$, to be chosen, and put $j_1=\max(j_0,\lceil8KL\rceil)$, which is at most $n$ for $n$ large.
+
+Step 1, cutting. Split the sites $1,\dots,n$ into a first block $\{1,\dots,j_1\}$, consecutive blocks of length $L$ after it, a last block of length at most $L$ ending at $n$, and the tail $\{n+1,n+2,\dots\}$. Let $J^\oplus$ be $J$ with the weights joining different pieces set to zero. There are at most $m=n/L+3$ cuts, and each removed weight is a symmetric operator of rank two with one positive and one negative eigenvalue. By Lemma~\ref{l:lem:pert}(2), $|N_J(\mu)-N_{J^\oplus}(\mu)|\le m$, and $N_{J^\oplus}$ is the sum of the counts of the pieces. On the tail all weights are less than $\mu/2$, so by Lemma~\ref{l:lem:pert}(3) its norm is less than $\mu$ and it contributes nothing. The first and the last block contribute at most $j_1+L$ to the discrepancy between the two sides. So it suffices to bound, for each full block $b$ beyond $j_1$,
+\[
+E_b=\Bigl|N_b(\mu)-\frac1\pi\sum_{j\in b}\mathcal A\Bigl(\frac{\mu}{2w_j}\Bigr)\Bigr| .
+\]
+
+Step 2, freezing. Let block $b$ start at site $j_b$, with largest weight $w_b^+=w_{j_b}$ and smallest $w_b^-=w_{j_b+L-1}$, the weight leaving the block, so that every summand of the phase sum is covered. Put $r_b=1-w_b^-/w_b^+$ and $a_b=\mu/2w_b^+$. By (R), $r_b\le KL/j_b\le\frac18$. Replacing all weights of the block by $w_b^+$ changes the block by a matrix of norm at most $\varepsilon_b=2(w_b^+-w_b^-)$, by Lemma~\ref{l:lem:pert}(3). By Lemma~\ref{l:lem:pert}(1) and Lemma~\ref{l:lem:const},
+\[
+\frac L\pi\mathcal A\Bigl(\frac{\mu+\varepsilon_b}{2w_b^+}\Bigr)-2\le N_b(\mu)\le\frac L\pi\mathcal A\Bigl(\frac{\mu-\varepsilon_b}{2w_b^+}\Bigr)+2 .
+\]
+Here $(\mu\pm\varepsilon_b)/2w_b^+=a_b\pm r_b$. Also every $\mu/2w_j$, $j\in b$, lies in $[a_b,a_b/(1-r_b)]$, and $a_b/(1-r_b)\le a_b+2r_b$ because $a_b\le1$ and $r_b\le\frac18$. Hence, with $I_b=[a_b-r_b,\,a_b+2r_b]$,
+\begin{equation}\label{l:eq:Eb}
+E_b\le\frac L\pi\Bigl(\sup_{I_b}\mathcal A-\inf_{I_b}\mathcal A\Bigr)+2 .
+\end{equation}
+
+Step 3, blocks far from the turning point. Consider the blocks with $a_b\le\frac14$. Then $I_b\subset[-\frac18,\frac12]$, where $\mathcal A$ is Lipschitz with constant $2/\sqrt3$, so $E_b\le CLr_b+2\le CL\cdot L/j_b+2$. Since the $j_b$ are spaced by $L$, $\sum_bL/j_b\le1+\log n$. These blocks contribute at most $CL\log n+2n/L$.
+
+Step 4, blocks near the turning point. Consider the blocks with $a_b>\frac14$, that is $w_b^+<2\mu$. Since $w_n\ge\mu/2$, $w_n/w_{j_b}>\frac14$. By (R), $w_n/w_i\le c^{-1}(i/n)^k$ for $i\ge j_1$ and some $c=c(k,K,j_0)>0$ (only this upper bound is needed), so these blocks start at sites $j_b\ge n/C$. For them $r_b\le KL/j_b\le CL/n=:h/3$, and the points $a_b$ are separated: by (R),
+\[
+a_{b+1}-a_b=a_b\Bigl(\frac{w_{j_b}}{w_{j_b+L}}-1\Bigr)\ge\frac14\Bigl(1-\frac{w_{j_b+L}}{w_{j_b}}\Bigr)\ge\frac{L}{Cn}=:\sigma ,
+\]
+using $1-\prod(1-\delta_i)\ge1-e^{-\sum\delta_i}\ge\frac12\min(1,\sum\delta_i)$ with $\delta_i\ge k/i$. By Lemma~\ref{l:lem:overlap} with these $h$ and $\sigma$, whose ratio is bounded by $C$, and \eqref{l:eq:Eb}, these blocks contribute at most $CL+2n/L$.
+
+Step 5. Altogether the error is at most $C(n/L+L\log n)$. Take $L=\lceil\sqrt{n/\log n}\rceil$.
+\end{proof}
+
+\begin{remark}
+The proof uses nothing about the form of the weights beyond monotonicity and (R). The bound is not sharp; the numerical error below is $O(1)$. The theorem is a statement about the leading count: no density, bounded remainder or fixed spectral phase follows from it. A sharp bound would need the uniform asymptotics of the orthogonal polynomials at the turning point.
+\end{remark}
+
+\section{The law chain has the Riemann and von Mangoldt count}
+
+The integration by parts below is the one behind eq.~\eqref{eq:wigfree:count}; Proposition~\ref{prop:wigfree:abel} is the inversion. We need it with the constant and with the clipped inverse function.
+
+\begin{lemma}[Abel transform]\label{l:lem:abel}
+Let $f$ be continuous and strictly decreasing on $[0,\infty)$ with $f(x)\to0$, and with inverse function $n(f)$, and let $0<\mu<f(0)$. Then
+\[
+\frac1\pi\int_0^{n(\mu)}\arccos\frac{\mu}{f(x)}\,dx=\frac1\pi\int_\mu^{f(0)}n(f)\,\frac{\mu\,df}{f\sqrt{f^2-\mu^2}} .
+\]
+If $n(f)=\frac af\log\frac bf+c$ for $f\le f_*$, the left side equals $\frac a{\pi\mu}\bigl(\log\frac{2b}\mu-1\bigr)+\frac c2+O(\mu)$ as $\mu\to0$.
+\end{lemma}
+
+\begin{proof}
+Write $\arccos(\mu/f(x))_+=\int_\mu^{f(x)}\frac{\mu\,dv}{v\sqrt{v^2-\mu^2}}$, zero when $f(x)<\mu$, and apply Tonelli's theorem: the set where $f(x)>v$ has length $n(v)$. For the second statement replace $n$ by the formula on all of $(\mu,\infty)$. The change is $O(\mu)$, since both the true $n$ on $[f_*,f(0)]$ and $\frac af\log\frac bf+c$ on $[f_*,\infty)$ are integrated against a kernel of size $O(\mu/f^2)$. Then put $f=\mu/t$ and use $\int_0^1\frac{t\,dt}{\sqrt{1-t^2}}=1$, $\int_0^1\frac{t\log t\,dt}{\sqrt{1-t^2}}=\log2-1$, $\int_0^1\frac{dt}{\sqrt{1-t^2}}=\frac\pi2$.
+\end{proof}
+
+\begin{theorem}[Direct half of the law, leading order]\label{l:thm:law}
+Fix a real $c_0<1+2\pi/e$. For $j\ge1$ let $g_j=4\pi\exp W_0\bigl((j-c_0)/2\pi\bigr)$, where $W_0$ is the principal branch of the Lambert function, that is the root $g_j>4\pi/e$ of $\frac{g_j}2\log\frac{g_j}{4\pi}+c_0=j$. Let $w_j=1/(2g_j)$, so that $c_j=w_j^2=1/(4g_j^2)$ as in \eqref{l:eq:law}, and let $1/\Gamma_k$ be the positive eigenvalues of the corresponding matrix $J$. Then
+\[
+\#\{k:\Gamma_k<\Gamma\}=\frac\Gamma{2\pi}\log\frac\Gamma{2\pi e}+O\bigl(\sqrt\Gamma\,\log\Gamma\bigr)\qquad(\Gamma\to\infty).
+\]
+\end{theorem}
+
+\begin{proof}
+The weights decrease because $g_j$ increases. Hypothesis (R) holds: with $\frac{g(x)}2\log\frac{g(x)}{4\pi}+c_0=x$ we have $g'=2/(\log(g/4\pi)+1)$ and
+\[
+\frac{w_j-w_{j+1}}{w_j}=\frac{g_{j+1}-g_j}{g_{j+1}}=\frac{1+o(1)}{\frac12g_j(\log(g_j/4\pi)+1)}=\frac{1+o(1)}j,
+\]
+so $k=\frac12$, $K=2$ serve for $j\ge j_0$. Let $\mu=1/\Gamma$. By Theorem~\ref{l:thm:count}, $N_J(\mu)=\frac1\pi\sum_{j\le n}\arccos(\mu/2w_j)+O(\sqrt{n\log n})$, where $2w_n\approx\mu$ gives $g_n\approx\Gamma$ and $n=\frac\Gamma2\log\frac\Gamma{4\pi}+O(1)$, so $\sqrt{n\log n}=O(\sqrt\Gamma\log\Gamma)$. The summand is monotone in $j$ and at most $\frac12$, so the sum $\sum_{j\le n}\arccos(\mu/2w_j)$ differs from $\int_0^{n(\mu)}\arccos(\mu/f(x))\,dx$, $f(x)=2w(x)=1/g(x)$ (on an initial interval where $1/g$ is undefined, take any monotone interpolation, which changes the integral by $O(1)$), by $O(1)$. For $x$ large, $x=\frac{g}2\log\frac g{4\pi}+c_0$ gives
+\[
+n(f)=\frac1{2f}\log\frac1{4\pi f}+c_0 ,
+\]
+the form of Lemma~\ref{l:lem:abel} with $a=\frac12$, $b=\frac1{4\pi}$, $c=c_0$. The lemma gives
+\[
+\frac1{2\pi\mu}\Bigl(\log\frac1{2\pi\mu}-1\Bigr)+\frac{c_0}2+O(\mu)=\frac\Gamma{2\pi}\Bigl(\log\frac\Gamma{2\pi}-1\Bigr)+\frac{c_0}2+O(1/\Gamma).
+\]
+Since $N_J(\mu)=\#\{k:\Gamma_k<\Gamma\}$, the theorem follows.
+\end{proof}
+
+\paragraph{Where the constant sits.} The Abel integral has the constant $\frac{c_0}2$, and $\frac{c_0}2=\frac78$ would give the constant of the smooth zero count $\frac\Gamma{2\pi}\log\frac\Gamma{2\pi e}+\frac78$, which is the archimedean term of $1+\theta(\Gamma)/\pi$. But the integral is not the sum of Theorem~\ref{l:thm:count}. By the Euler and Maclaurin formula the sum $S(\Gamma)=\frac1\pi\sum_j\arccos(\mu/2w_j)$ differs from the integral by the endpoint term $-\frac14+o(1)$, so that $S(\Gamma)=\frac\Gamma{2\pi}\log\frac\Gamma{2\pi e}+\frac{c_0}2-\frac14+o(1)$ (the endpoint term is checked numerically below; the $o(1)$ is not proved here). If the arccos sum alone were the semiclassical count, the smooth constant $\frac78$ would give $c_0=\frac94$. The exact count is a step function, and for $c_0=\frac74$ it follows the integral, not the sum: $k-\frac12-S(\Gamma_k)$ is about $0.244$ on average (computed). That is a missing quarter, of the kind of a Maslov term at the turning point, which nothing in this chapter controls. The statement $\#\{k:\Gamma_k<\Gamma\}=\frac\Gamma{2\pi}\log\frac\Gamma{2\pi e}+\frac{c_0}2+o(1)$ is impossible for a step function, and is to be read at the eigenvalues, as $k-\frac12=\frac{\Gamma_k}{2\pi}\log\frac{\Gamma_k}{2\pi e}+\frac{c_0}2+o(1)$. This midpoint law is a conjecture supported by the data, and $c_0=\frac74$ is the value that matches $\frac78$ (heuristic).
+
+\begin{remark}[Computation: the direct table]\label{l:comp:direct}
+Build the matrix of Theorem~\ref{l:thm:law} with $12000$ sites and compute its eigenvalues with $\Gamma_k<1500$ in double precision; there are $1069$ for $c_0=\frac74$. The initial weights are those of the theorem, $g_j=4\pi\exp W_0((j-c_0)/2\pi)$ for all $j\ge1$, so that $g_1<4\pi$ when $c_0=\frac74$ or $2$. Let $D_k=k-\frac12-\bigl(\frac{\Gamma_k}{2\pi}\log\frac{\Gamma_k}{2\pi e}+\frac78\bigr)$.
+\begin{center}\small
+\begin{tabular}{@{}lccc@{}}
+\toprule
+$c_0$ & mean of $D_k$ ($\Gamma_k>50$) & range of $D_k$ ($\Gamma_k>50$) & predicted $c_0/2-\frac78$\\
+\midrule
+$7/4$ & $-0.0025$ & $[-0.0251,-0.0009]$ & $0$\\
+$2$ & $+0.1215$ & $[+0.0911,+0.1238]$ & $+0.1250$\\
+$0$ & $-0.8672$ & $[-0.8723,-0.7968]$ & $-0.8750$\\
+\bottomrule
+\end{tabular}
+\end{center}
+For $c_0=\frac74$ the exact counts at $\Gamma=100$, $400$, $1200$ are $29$, $202$, $813$, and the arccos sum $S(\Gamma)$ gives $28.773$, $201.392$, $812.737$. The sum minus $\frac\Gamma{2\pi}\log\frac\Gamma{2\pi e}+\frac78$ is $-0.229$, $-0.247$, $-0.248$, tending to $-\frac14$, while the integral of Lemma~\ref{l:lem:abel}, with the same constant $\frac78$, differs from $\frac\Gamma{2\pi}\log\frac\Gamma{2\pi e}+\frac78$ by $0.0039$, $0.0010$, $0.0003$ (computed). The scale $\sqrt{n\log n}$ of the bound of Theorem~\ref{l:thm:count} is $22$, $67$, $147$ at these heights, far above the observed error. The first eigenvalues $\Gamma_k=15.15$, $20.97$, $25.71$, $29.91$, $33.76$ are close to the smooth zeros $14.52$, $20.65$, $25.49$, $29.74$, $33.62$ without being equal to them.
+\end{remark}
+
+So the law chain with $c_0=\frac74$ reproduces the smooth zero count at its eigenvalues, in the midpoint form $|D_k|\le0.0251$, for $\Gamma_k>50$ (computed). The bound $0.0251$ does not hold at lower heights. The values of this remark are not certified.
+
+\section{Which chain obeys the law: the spacing weighted chain}\label{l:sec:weighted}
+
+Theorem~\ref{l:thm:law} concerns eigenvalues. A Jacobi matrix also carries masses, the spectral measure of the first site, and these identify which measure the law chain belongs to.
+
+\begin{remark}[Computation: masses of the law chain]\label{l:comp:mass}
+For the matrix of Theorem~\ref{l:thm:law} with $c_0=\frac74$, let $m_k$ be the spectral mass at the eigenvalue $1/\Gamma_k$ and $x_k=\Gamma_k^{-2}$. The quantity $m_k\log(\Gamma_k/2\pi)/x_k$, normalised to $1$ at $k=100$, is $0.8545$, $0.9743$, $0.9958$, $1$, $1.0003$, $1.0004$, $1.0004$ at $k=1$, $5$, $20$, $100$, $200$, $300$, $415$ (computed). The ratio of the mass to $x_k$ itself, normalised in the same way, is $3.52$, $2.10$, $1.44$, $1$, $0.87$, $0.81$, $0.77$ at the same $k$ (computed).
+\end{remark}
+
+So the law chain has masses proportional to $x_k/\log(\Gamma_k/2\pi)$, that is, to $x_k$ times the local spacing $2\pi/\log(\Gamma_k/2\pi)$ of the zeros, to about three and a half digits beyond the first hundred eigenvalues; the ratio is $0.8545$ at $k=1$ and $0.9958$ at $k=20$. Section~\ref{l:sec:mass} derives this with an explicit constant and checks it numerically; it is not proved. The Gamma chain has masses $x_k$, without the spacing, so the law chain is not the Gamma chain: the two have nearly the same eigenvalues and slowly diverging masses. The natural test is therefore the chain of the measure with the spacing put in.
+
+\begin{remark}[Computation: the spacing weighted Gamma chain]\label{l:comp:weighted}
+Take atoms $x_k=\gamma_k^{-2}$ at the first $30000$ smooth zeros with masses proportional to $x_k/\log(\gamma_k/2\pi)$ and a matching continuous tail, and compute the chain to depth $1799$ by the Lanczos method of Chapter~\ref{b:ch:chain}. Let $g_j=1/(2\sqrt{c_j})$ and $c(j)=j-\frac{g_j}2\log\frac{g_j}{4\pi}$. Fit $c(j)$ by $c_\infty+B/\log(g_j/4\pi)$ on $60\le j\le1200$. % UNVERIFIED: this table was not rerun in W3 (V10); the fits for the Gamma chain depend on the form of the fit, see the text below.
+\begin{center}\small
+\begin{tabular}{@{}llccc@{}}
+\toprule
+chain & levels & $c_\infty$ & $B$ & $c(j)$ near $j=100$, $400$, $1000$\\
+\midrule
+spacing weighted & birth & $1.7486$ & $0.006$ & $1.752$, $1.751$, $1.757$\\
+spacing weighted & death & $1.7475$ & $0.009$ & $1.752$, $1.750$, $1.744$\\
+Gamma chain & birth & $1.7534$ & $0.020$ & $1.763$, $1.760$, $1.765$\\
+Gamma chain & death & $1.8155$ & $0.476$ & $2.047$, $1.974$, $1.935$\\
+\bottomrule
+\end{tabular}
+\end{center}
+The rows are for the odd (birth) and even (death) levels nearest to the three indices. An independent refit of the Gamma chain with terms in $1/L$ and $1/L^2$, $L=\log(g_j/4\pi)$, on $60\le j\le1399$ gives $c_\infty=1.7514$ on birth levels and $1.7747$ on death levels, with $B=0.030$ and $0.706$ (computed).
+\end{remark}
+
+Over the computed range the spacing weighted chain follows the law with $c_0=\frac74$ on birth and death levels alike, from $j=100$ on, with a small fitted $B$. The fits do not decide whether this $B$ is zero, a finite depth effect or a small correction. On the death levels of the Gamma chain the $1/\log$ term is large, and its fitted size depends on the form of the fit, so the data fix neither $B$ nor $c_\infty$ there beyond about $0.06$. Note that a term $B/\log$ in $c(j)$ is a correction of relative size only $2B/(jL)$ to the rates, not of relative size $1/\log$.
+
+\begin{remark}[Computation: response to a power factor]\label{l:comp:power}
+Replace the masses of the spacing weighted chain by $x_k^{1+p}$ times the spacing, with the matching tail, and record the change in $c(j)$. % UNVERIFIED: not rerun in W3.
+\begin{center}\small
+\begin{tabular}{@{}rcc@{}}
+\toprule
+$p$ & birth levels $j=101$, $401$, $801$ & death levels $j=100$, $400$, $800$\\
+\midrule
+$0.1$ & $+0.139$, $+0.128$, $+0.124$ & $-0.340$, $-0.328$, $-0.324$\\
+$0.2$ & $+0.277$, $+0.256$, $+0.247$ & $-0.680$, $-0.657$, $-0.648$\\
+$1.0$ & $+1.356$, $+1.274$, $+1.238$ & $-3.431$, $-3.291$, $-3.247$\\
+$-0.2$ & $-0.280$, $-0.257$, $-0.248$ & $+0.677$, $+0.656$, $+0.648$\\
+\bottomrule
+\end{tabular}
+\end{center}
+The response is approximately linear in $p$ (the $p=0.1$ row predicts $1.39$ at $p=1$ against $1.356$). The two shifts add to about $-2p$ (at $p=1$: $-2.07$, $-2.02$, $-2.01$), as if multiplying the measure by $x$ advanced the chain by one level on average; this is an observation in the tested range, not a theorem. The shifts are not equal and neither is zero: per unit $p$, about $+1.24$ on birth levels and $-3.25$ on death levels at $j=800$, both still drifting.
+\end{remark}
+
+\begin{remark}[The term $B$ is not explained]
+By analogy with the Laguerre weight $x^ae^{-x}$ one might expect that a power factor moves one parity only, with $B=\frac12$. Computation~\ref{l:comp:power} refutes the first statement for this chain: both parities move, in opposite directions. Treating $\log(\Gamma/2\pi)$ as a local power $x^{-1/(2\log(\Gamma/2\pi))}$ and using the measured responses would predict shifts of about $-0.14$ on birth levels and $+0.37$ on death levels near $j=800$, against the observed $+0.01$ and $+0.19$, so a local power is not an adequate model of a slowly varying factor either. With the constant pinned at $\frac74$, the excess of the death levels of the Gamma chain over the spacing weighted chain, multiplied by $\log(g_j/2\pi)$, recomputed from the entries of the table, is $0.81$, $0.84$, $0.85$ near $j=100$, $400$, $1000$ and still rising slowly. The free fit that gave $B=0.48$ had a constant of $1.82$ in place of $1.75$. What the data show is that the term lives on the death levels and is small for the spacing weighted chain over the computed range.
+\end{remark}
+
+\begin{remark}[Link with the ladder]
+The quadrature theorem of Chapter~\ref{h:ch:chains} gives the chain at level $\alpha>\frac12$ masses $W_kt_k^{-2}$, each atom weighted by the local spacing of the nodes. So the chains on the ladder above the critical line are of the spacing weighted kind, and one may expect (heuristic: this extrapolates from smooth zero atoms to quantile atoms) that the law is cleaner there. The birth and death chain at $\alpha=\frac12$, where the weights $W_k$ become equal and the masses proportional to $x_k$, as for the Gamma chain, is the one exceptional rung.
+\end{remark}
+
+Two consequences for the proof. First, the inverse half is best posed for the spacing weighted chain: there the law chain agrees both in eigenvalues, to $0.0251$ of a zero, and in masses, to three and a half digits beyond the first hundred, so the stability theorem needed is the mildest possible one. Second, the Gamma chain itself would then follow from a perturbation statement about multiplying a measure by a slowly varying factor.
+
+\section{The mass rule}\label{l:sec:mass}
+
+Let $p_n(\mu)$ be the orthonormal polynomials of $J$: $p_0=1$, $w_1p_1=\mu p_0$, and $w_{n+1}p_{n+1}+w_np_{n-1}=\mu p_n$. The spectral mass of the first site at an eigenvalue $\mu_k$ is $m_k=1/\sum_{n\ge0}p_n(\mu_k)^2$. At zero energy the recurrence solves in closed form:
+\[
+p_{2m}(0)=(-1)^m\prod_{i=1}^m\frac{w_{2i-1}}{w_{2i}},\qquad p_{2m+1}(0)=0 .
+\]
+
+\begin{lemma}[The zero energy constant]\label{l:lem:ainf}
+If $\sum_{j\ge2}|\log w_{j+1}-2\log w_j+\log w_{j-1}|<\infty$, the limit
+\[
+a_\infty=\lim_{m\to\infty}w_{2m}\,p_{2m}(0)^2=\lim_{m\to\infty}w_{2m}\prod_{i=1}^m\Bigl(\frac{w_{2i-1}}{w_{2i}}\Bigr)^2
+\]
+exists and is positive.
+\end{lemma}
+
+\begin{proof}
+With $d_j=\log w_j-\log w_{j+1}$, $\log\bigl(w_{2m}p_{2m}(0)^2\bigr)=\log w_1-\sum_{j<2m}d_j+2\sum_{i\le m}d_{2i-1}$, which equals $\log w_1+d_1+\sum_{i=2}^{m}(d_{2i-1}-d_{2i-2})$ after pairing the terms. Each bracket is a second difference of $\log w$, so the series converges absolutely.
+\end{proof}
+
+For the weights of the law, and for power weights, the second differences of $\log w_j$ are $O(j^{-2})$ and the lemma applies.
+
+\medskip
+\noindent Derivation of the rule (heuristic). For $n$ below the turning point write $\cos\theta_n=\mu/2w_n$. Suppose the semiclassical form $p_n(\mu)^2\approx a_\infty\sin^2\phi_n/(w_n\sin\theta_n)$, with a phase $\phi_n$ advancing by $\theta_n$ per site. At $\mu=0$ this is exact in the limit, by Lemma~\ref{l:lem:ainf}, with $\sin^2\phi_n$ equal to $1$ on even sites and $0$ on odd sites. Away from $\mu=0$ the ansatz is not exact: for the free chain the amplitude is $1/\sin^2\theta$, so it can only be used as $\mu\to0$, where $\theta_n\to\frac\pi2$. Averaging $\sin^2$ to $\frac12$,
+\[
+\sum_np_n(\mu)^2\approx\frac{a_\infty}{2}\sum_n\frac{1}{w_n\sin\theta_n}=\pi a_\infty\,\bigl|S'(\mu)\bigr|,\qquad S(\mu)=\frac1\pi\sum_n\arccos\frac\mu{2w_n}.
+\]
+The derivative of the smooth phase sum $S$ stands for the density of eigenvalues, and $1/|S'(\mu_k)|$ for the local gap. Theorem~\ref{l:thm:count} does not give this: it controls $N_J$ only to leading order, and the step function $N_J$ has no density. With this reading the rule is
+\begin{equation}\label{l:eq:massrule}
+m_k=\frac{\mathrm{gap}_k}{\pi\,a_\infty}\,(1+o(1))\qquad(\mu_k\to0),\qquad \mathrm{gap}_k=\tfrac12(\mu_{k-1}-\mu_{k+1}).
+\end{equation}
+There is no free constant: $a_\infty$ is computed from the weights alone.
+
+\begin{remark}[Computation: the rule, with its constant]\label{l:comp:massrule}
+With $40000$ sites, $a_\infty$ from the product of Lemma~\ref{l:lem:ainf} extrapolated to $m\to\infty$, and eigenvalues and masses computed in double precision:
+\begin{center}\small
+\begin{tabular}{@{}l@{\ \ }c@{\ \ }l@{}}
+\toprule
+chain & $a_\infty$ & $m_k\pi a_\infty/\mathrm{gap}_k$\\
+\midrule
+law, $c_0=\frac74$ & $0.050547$ & $0.9558$, $0.9942$, $0.99949$, $0.99995$, $1.00000$\\
+ & & at $k=5$, $20$, $100$, $400$, $1000$\\
+$w_j=j^{-0.7}$ & $1.3717783$ & $0.9649$, $0.9982$, $0.99995$, $1.00000$, $1.00000$\\
+ & & at $k=5$, $20$, $100$, $400$, $1000$\\
+\bottomrule
+\end{tabular}
+\end{center}
+The product for the law chain, taken at $m=5000$, $10000$, $20000$, converges like $1/m$ (computed); the value $0.050547$ is $0.07148365$ divided by $\sqrt2$, the latter being the constant for weights $\sqrt2$ times as large. For the power weights $a_\infty=(\pi/2)^{0.7}$ exactly. For the free chain $w_j=1$ on $N$ sites, $h=\pi/(N+1)$, the exact masses give $m_k\pi/\mathrm{gap}_k=\sin(kh)\,h/\sin h$, which tends to the density $\sqrt{1-\mu_k^2/4}$ of the arcsine law.
+\end{remark}
+
+So \eqref{l:eq:massrule} holds to four digits or better for $k\ge100$ on two different families (computed), with the predicted constant. For the law chain $\mathrm{gap}_k\approx\Delta\Gamma_k/\Gamma_k^2=x_k\Delta\Gamma_k$ with $\Delta\Gamma_k\approx2\pi/\log(\Gamma_k/2\pi)$ the local spacing of the zeros, that is, mass proportional to $x_k$ times the spacing, the form found in Computation~\ref{l:comp:mass}.
+
+\begin{remark}[Status of the mass rule]
+Proved: Lemma~\ref{l:lem:ainf}, and the identity $m_k=1/\sum p_n(\mu_k)^2$. Heuristic and computed: the semiclassical form of $p_n^2$ away from $\mu=0$, the averaging step and the identification of the density, hence \eqref{l:eq:massrule}. A proof needs the same uniform control of the polynomials through the turning point as a sharp form of Theorem~\ref{l:thm:count}; the two problems are one problem, since by the Christoffel and Darboux formula $\sum_{n<N}p_n^2=w_N(p_N'p_{N-1}-p_{N-1}'p_N)$ is a statement about the phase and its derivative in $\mu$.
+\end{remark}
+
+\section{The inverse half}\label{l:sec:inverse}
+
+The Gamma chain is defined from the smooth zeros, and the law is a statement about its rates. Theorem~\ref{l:thm:law} goes the other way. To close the gap one needs an inverse spectral statement, and it has two parts.
+
+First, the counting function alone does not determine a Jacobi matrix: the spectral weights are needed as well. For the Gamma chain the mass at $x_k$ is $x_k$ itself, and for the law chain it is not (Computation~\ref{l:comp:mass}). The law can hold for the Gamma chain only asymptotically, with corrections that the data suggest are small and slowly varying, as the term $B$ of Chapter~\ref{b:ch:chain} indicates; their order does not follow from the slowly varying mass ratio alone. What is missing is a stability theorem: two S fractions whose spectra agree to this accuracy and whose masses differ by a slowly varying factor have rates that agree asymptotically. We do not know whether this holds, and the size of the correction is a conjecture.
+
+Second, there is a conditional statement at leading order.
+
+\begin{proposition}[Conditional inverse, leading order]\label{l:prop:inverse}
+Suppose the weights $w_j=\sqrt{c_j}$ of the Gamma chain are decreasing and satisfy (R), and put $g_j=1/(2w_j)$. Then $\frac{g_j}2\log g_j\sim j$, so that $c_j\sim(\log j)^2/(16j^2)$.
+\end{proposition}
+
+\begin{proof}[Proof (sketch)]
+Let $n(s)=\#\{j:g_j\le s\}$ and $A(\Gamma)=\frac1\pi\sum_j\arccos(g_j/\Gamma)_+$. Since $\arccos(g/\Gamma)=\int_g^\Gamma ds/\sqrt{\Gamma^2-s^2}$, $A(\Gamma)=\frac1\pi\int_0^\Gamma n(s)\,ds/\sqrt{\Gamma^2-s^2}$. By (R), $A\ge c\,n(\Gamma)$, so the error of Theorem~\ref{l:thm:count} is $o(N_J)$, and the known count $N_J(1/\Gamma)\sim\frac\Gamma{2\pi}\log\Gamma$ gives $A(\Gamma)\sim\frac\Gamma{2\pi}\log\Gamma$. Applying the Abel kernel a second time and Tonelli's theorem, with $\int_{v^2}^{t^2}ds/\sqrt{(s-v^2)(t^2-s)}=\pi$, gives the exact identity $G(t):=\int_0^tn(s)\,ds=\int_0^{t^2}A(\sqrt s)\,ds/\sqrt{t^2-s}$, hence $G(t)\sim\frac{t^2}4\log t$, since $B(\frac32,\frac12)=\frac\pi2$. Since $n$ is nondecreasing, $\frac{G(t)-G(t/q)}{t(1-1/q)}\le n(t)\le\frac{G(qt)-G(t)}{t(q-1)}$ for every $q>1$. Dividing by $t\log t$ and letting $q\downarrow1$ gives $n(t)\sim\frac t2\log t$, which is the claim. This replaces the Tauberian theorem for Mellin convolutions of Bingham, Goldie and Teugels, whose hypotheses were not checked in the note, by an elementary argument (not independently checked).
+\end{proof}
+
+The hypothesis is supported by the computation of the Gamma chain to depth $2799$ in the note of Polson (not rerun here) but not proved: the birth and death levels of the true chain differ at order $1/\log g_j$ in $c(j)$, so even monotonicity of $w_j$ needs an argument. The proposition does not prove $c_0$, the term $B$, or stability.
+
+\begin{remark}[Status]
+Proved here: Theorem~\ref{l:thm:count} and the leading order direct half, Theorem~\ref{l:thm:law}, with an error $O(\sqrt\Gamma\log\Gamma)$. Computed: the midpoint law, $|D_k|\le0.0251$ for $50<\Gamma_k<1500$, and the value $c_0=\frac74$. Conditional: the leading order inverse half, on (R) for the Gamma chain. Heuristic: the law \eqref{l:eq:law} with $c_0=\frac74$ (eq.~\eqref{eq:ch21:ratelaw}), the midpoint law above and the mass rule. Open: the constant, the term $B$ on death levels, the inverse half. None of this involves the primes or bears on the Riemann hypothesis: it is a statement about the Gamma factor.
+\end{remark}
+
+\begin{problem}
+Find an $O(1)$ bound for the staircase $\#\{k:\Gamma_k<\Gamma\}-\frac\Gamma{2\pi}\log\frac\Gamma{2\pi e}$ for the law chain, with a midpoint quantisation formula $k-\frac12=\frac{\Gamma_k}{2\pi}\log\frac{\Gamma_k}{2\pi e}+\frac{c_0}2+o(1)$ (equivalently, an explicit proof of the missing quarter phase), by uniform Plancherel and Rotach asymptotics at the turning point. An $O(1)$ estimate alone would still not identify the constant.
+\end{problem}
+
+\begin{problem}
+Prove the mass rule \eqref{l:eq:massrule}, and find the death level correction of the Gamma chain: its form, its constant, and why the birth levels are free of it.
+\end{problem}
+
+\begin{problem}
+Prove the stability theorem for S fractions described in Section~\ref{l:sec:inverse}, or prove (R) for the Gamma chain directly.
+\end{problem}

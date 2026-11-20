@@ -1,0 +1,435 @@
+% Chapter 6 of Volume III: Bondesson's letter, the gamma block and the levels 3/4 and 7/8. Sources: misc/reviews/nick-volume3/vol3/chG_bondesson.tex lines 3-441; reports U08 (M1 to M9 and minors), V3A rows bo:thm:level and bo:prop:descent; verification W4 (V12). 17 Nov 2026.
+\label{bo:ch:bondesson}
+
+% TODO for the authors: the 2016 letter and Abramowitz and Stegun 6.1.50 have no bib entry.
+In a letter dated Ume\aa, 23 August 2016, Lennart Bondesson showed that $g(s)=e^{-\gamma\sqrt s}/\Gamma(1+\sqrt s)$ is the Laplace transform of a generalised gamma convolution (GGC), where $\gamma$ is Euler's constant. Since $1-\cos x=2\sin^2(x/2)$, his argument is the gamma function case of the sine squared lemma \eqref{eq:sin2}. This chapter keeps the material of an unrefereed note of Polson (November 2026) written around the letter, with credit and cross references where Volumes I and II already contain a statement. It begins with a short proof of the sign condition in the letter, which Bondesson had checked with Maple plots, a closed form for the Thorin density, and a generalisation to every centred infinitely divisible law with only negative jumps (Theorem~\ref{bo:thm:gen}), which is the sine squared lemma for a L\'evy measure.
+
+The level criterion of Section~\ref{bo:sec:level} says that $\xi(\alpha)/\xi(\alpha+\sqrt s)$ is a GGC transform exactly when no zero lies to the right of $\alpha$. It is Theorem~\ref{thm:poisson}, with Proposition~\ref{prop:struct} and Remark~\ref{rem:ch2:oneline}; we give a proof through the Hadamard product, which also covers zeros on the line $\Re s=\alpha$. The Thorin density at level $\alpha$ then splits into an archimedean part, which the letter gives in closed form and which together with the pole term integrates on the critical line to $\theta(T)/\pi$ exactly, and a zeta part that carries $1+S(T)$. The rest of the chapter is computation: the level $\frac34$ in detail, with a deconvolution to the critical line by EM and by Tikhonov filtering, and the level $\frac78$, where the zero free half plane $\Re s>\frac78$ is the theorem of \cite{OAI26a} (Section~\ref{qrh:sec:claims}). A descent criterion (Proposition~\ref{bo:prop:descent}, which is Theorem~\ref{tf:thm:deconv} with a signed variant) turns the deconvolution into an exact test of RH, and a planted off line pair shows the size of the effect in one experiment.
+
+The balance is mixed. For computation in the strip the letter helps: subtracting the archimedean part first lets one linear solve replace the iteration, and improves the counting function by a factor of 9 to 62 when the data are exact and by 1.4 to 4.9 on the data of the speed study of Section~\ref{bo:sec:speed}, so the gain depends on the accuracy of the data. For understanding, it names what has to cancel. For proof inside the strip it adds nothing. Below $\alpha=1$ the L\'evy decomposition of the arithmetic part fails, since its drift is infinite and the truncated drifts grow like a power of the cutoff. Every argument of this kind loses a power of the cutoff against a margin of the size of its logarithm (Section~\ref{bo:sec:ledger}), and positivity there is equivalent to the location of the zeros. The next chapters carry the same bookkeeping into the strip (Section~\ref{bo:sec:ledger}) and to the $L$ functions of the eta function and the tau function (Section~\ref{bo:sec:otherL}).
+
+\section{The letter}
+
+Bondesson's letter makes one claim and five remarks.
+\begin{description}
+\item[(Claim)] The function $g(s)=e^{-\gamma\sqrt s}/\Gamma(1+\sqrt s)$ is the Laplace transform of a GGC, and hence HCM.
+\item[(Remark 1)] $\tilde g(s)=e^{-\gamma s}/\Gamma(1+s)$ is not even completely monotone. He adds that the same holds when $s$ is replaced by $s^b$ with $b>\frac12$, with the comment ``I think''.
+\item[(Remark 2)] Since $e^{-c\sqrt s}$ is HCM for $c\ge0$, $g$ may be multiplied by $T^{\sqrt s}$ with $0<T\le1$.
+\item[(Remark 3)] $s$ may be replaced by $s^\alpha$ with $0<\alpha\le1$.
+\item[(Remark 4)] $\Gamma(1+\sqrt s)$ may be replaced by $\Gamma(a+\sqrt s)$ with $a\ge1$.
+\item[(Remark 4$'$)] (The letter has a second Remark 4.) $g$ is not the transform of an HCM density: the Pick test on $g^{(n+1)}/g^{(n)}$ holds for $n=0,1,2$ and fails at $n=3$.
+\end{description}
+He closes by suggesting the law with transform $\exp\{-(e^{-\sqrt s}-1+\sqrt s)\}$ as worth further study.
+
+\subsection{The exponent}
+
+From Abramowitz and Stegun, formula 6.1.50, and the identity $-\gamma=\int_0^\infty(1-t/(1-e^{-t}))e^{-t}t^{-1}\,dt$, Bondesson writes $g=e^{-h}$ with
+\begin{equation}\label{bo:eq:h}
+h(s)=\log\Gamma(1+\sqrt s)+\gamma\sqrt s=\int_0^\infty\big(e^{-t\sqrt s}-1+t\sqrt s\big)\frac{e^{-t}}{1-e^{-t}}\frac{dt}{t}.
+\end{equation}
+To check \eqref{bo:eq:h}, differentiate in $z=\sqrt s$. The right side gives $\int_0^\infty(1-e^{-zt})e^{-t}(1-e^{-t})^{-1}\,dt=\sum_{n\ge1}(1/n-1/(n+z))=\psi(1+z)+\gamma$, which is the derivative of the left side. Both sides vanish at $z=0$.
+
+\subsection{The Pick reduction}
+
+By the characterisation of GGC transforms in \cite[Chapter 3]{Bondesson}, $g$ is a GGC transform as soon as $-h'(s)$ is a Pick function, that is, holomorphic on $\mathbb C\setminus(-\infty,0]$ with nonnegative imaginary part for $\Im s>0$, and $h'\ge0$ on $(0,\infty)$. % UNVERIFIED: the theorem numbers 3.1.2 and 3.1.3 of Bondesson (1992) were not checked, so only the chapter is cited.
+Differentiating \eqref{bo:eq:h},
+\[
+-h'(s)=\int_0^\infty\frac{e^{-t\sqrt s}-1}{\sqrt s}\,\frac12\,\frac{e^{-t}}{1-e^{-t}}\,dt,
+\]
+so it is enough that $\Im[(e^{-t\sqrt s}-1)/\sqrt s]\ge0$ when $\Im s>0$. By rescaling one may take $t=1$. With $s=re^{i\theta}$ and $\eta=\theta/2\in(0,\frac\pi2)$, the imaginary part is
+\begin{equation}\label{bo:eq:F}
+\frac{1}{\sqrt r}\Big(\sin\eta-e^{-\sqrt r\cos\eta}\sin(\eta+\sqrt r\sin\eta)\Big).
+\end{equation}
+The letter verifies the sign of \eqref{bo:eq:F} with Maple plots. The next lemma proves it.
+
+\begin{lemma}[Damped sine]\label{bo:lem:ds}
+For $\rho>0$, $0\le\eta\le\frac\pi2$ and $w=\rho e^{i\eta}$,
+\[
+\Im\Big[\frac{e^{-w}-1}{w}\Big]=\frac1\rho\int_0^\rho e^{-v\cos\eta}\sin(v\sin\eta)\,dv\ \ge\ 0.
+\]
+\end{lemma}
+
+\begin{proof}
+Write $(e^{-w}-1)/w=-\int_0^1e^{-uw}\,du$, take imaginary parts, and substitute $v=u\rho$. If $\eta=0$ the integral is $0$. Otherwise the substitution $y=v\sin\eta$ turns it into $(\sin\eta)^{-1}\int_0^{\rho\sin\eta}e^{-y\cot\eta}\sin y\,dy$. Because $\cot\eta\ge0$, the lobes of $e^{-y\cot\eta}\sin y$ on $[k\pi,(k+1)\pi]$ alternate in sign and do not increase in absolute area. Hence every partial integral is nonnegative.
+\end{proof}
+
+Differentiating in $\rho$ shows that $\int_0^\rho e^{-v\cos\eta}\sin(v\sin\eta)\,dv=\sin\eta-e^{-\rho\cos\eta}\sin(\eta+\rho\sin\eta)$, which is \eqref{bo:eq:F} with $\rho=\sqrt r$. On the cut, where $\eta=\frac\pi2$, the expression becomes $1-\cos\rho=2\sin^2(\rho/2)$. This is the kernel of the sine squared lemma. Figure~\ref{bo:fig:pick} shows \eqref{bo:eq:F} for several values of $\eta$.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=\textwidth]{fig/v3/bo_pick.pdf}
+\caption{$\sqrt r$ times the imaginary part \eqref{bo:eq:F}, plotted against $\sqrt r$. The top curve, $\eta=\pi/2$, is $1-\cos\sqrt r$.}
+\label{bo:fig:pick}
+\end{figure}
+
+\subsection{The Thorin density in closed form}
+
+Stieltjes inversion gives Bondesson's formula for the density of Thorin's measure in the variable $r$ (the variable $z$ of the book; the digamma block below is the term $A$ of Remark~\ref{tx2:rem:alpha1}),
+\[
+u(r)=\frac1\pi\int_0^\infty\frac{1-\cos(t\sqrt r)}{\sqrt r}\,\frac12\,\frac{e^{-t}}{1-e^{-t}}\,dt.
+\]
+Expanding $e^{-t}/(1-e^{-t})=\sum_{n\ge1}e^{-nt}$ and using $\int_0^\infty(1-\cos bt)e^{-nt}\,dt=b^2/\{n(n^2+b^2)\}$ gives
+\begin{equation}\label{bo:eq:u}
+u(r)=\frac{\gamma+\Re\,\psi(1+i\sqrt r)}{2\pi\sqrt r}=\frac{1}{2\pi\sqrt r}\sum_{n\ge1}\frac{r}{n(n^2+r)}.
+\end{equation}
+As $r\to0$, $u(r)\sim\zeta(3)\sqrt r/(2\pi)$. As $r\to\infty$, $u(r)\sim\log r/(4\pi\sqrt r)$. The density peaks at $r\approx1.6419$ (computed). Its total mass is infinite, but $\int u(r)(1+r)^{-1}\,dr<\infty$, as a Thorin measure requires. The mean of the law is $-g'(0)=\zeta(2)/2=\pi^2/12$, which a quadrature of $\int u(r)/r\,dr$ reproduces to twelve digits. Quadrature of Bondesson's integral and the closed form \eqref{bo:eq:u} agree to all fourteen digits shown at $r=0.1,1,10,100$ (computed; Figure~\ref{bo:fig:u}).
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=\textwidth]{fig/v3/bo_udens.pdf}
+\caption{The Thorin density \eqref{bo:eq:u} with its small and large $r$ asymptotes.}
+\label{bo:fig:u}
+\end{figure}
+
+\section{The probabilistic content of the letter}
+
+Let $\gamma_a$ have the gamma distribution with shape $a$, and put $X_a=\log\gamma_a-\psi(a)$. Since $\E\gamma_a^z=\Gamma(a+z)/\Gamma(a)$,
+\begin{equation}\label{bo:eq:ga}
+g_a(s):=\frac{\Gamma(a)\,e^{\psi(a)\sqrt s}}{\Gamma(a+\sqrt s)}=\frac{1}{\E e^{\sqrt s\,X_a}},\qquad g_1=g.
+\end{equation}
+So Bondesson's function is the reciprocal of the moment generating function of a centred log gamma variable, evaluated at $\sqrt s$. The variable $X_a$ is infinitely divisible with only negative jumps, and its L\'evy measure is $\nu_a(dx)=e^{-ax}\,dx/\{x(1-e^{-x})\}$.
+
+Nothing in the proof depends on the particular weight. Only the positivity of the L\'evy measure matters.
+
+\begin{theorem}\label{bo:thm:gen}
+Let $X$ be infinitely divisible with $\E X=0$ and
+\[
+\log\E e^{zX}=\tfrac12c^2z^2+\int_0^\infty\big(e^{-zx}-1+zx\big)\,\nu(dx),\qquad\Re z\ge0,
+\]
+where $\int_0^\infty\min(x,x^2)\,\nu(dx)<\infty$. Then $G(s)=1/\E e^{\sqrt sX}$ is the Laplace transform of a GGC with drift $c^2/2$. Its Thorin measure, written in the variable $t=\sqrt r$, is
+\begin{equation}\label{bo:eq:Ugen}
+U(dt)=\frac1\pi\int_0^\infty\big(1-\cos tx\big)\,x\,\nu(dx)\,dt .
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Differentiating gives $(\log G)'(s)=-\frac{c^2}{2}+\int_0^\infty x\,\frac{e^{-x\sqrt s}-1}{2\sqrt s}\,\nu(dx)$. For $\Im s>0$ and $x>0$, Lemma~\ref{bo:lem:ds} applied with $w=x\sqrt s$ shows each integrand has nonnegative imaginary part, so $(\log G)'$ is a Pick function, and it is negative on $(0,\infty)$. Bondesson's criterion then makes $G$ a GGC transform. At $s=-t^2+i0$, $\sqrt s=it$, and $\Im[(e^{-ixt}-1)/(2it)]=(1-\cos xt)/(2t)$. Since $dr=2t\,dt$, Stieltjes inversion gives \eqref{bo:eq:Ugen}.
+\end{proof}
+
+\begin{remark}[Relation to the sine squared lemma]
+In the chart $\theta=\sqrt z$ the sine squared lemma \eqref{eq:sin2} reads $e^{-sx}+sx-1=\frac x\pi\int_0^\infty\log(1+s^2/\theta^2)(1-\cos x\theta)\,d\theta$. Integrating it against $\nu(dx)$ gives \eqref{bo:eq:Ugen}, with $t=\theta$. Theorem~\ref{bo:thm:gen} is therefore the sine squared lemma stated for a L\'evy measure $\nu$. The letter is the case $\nu=\nu_1$.
+\end{remark}
+
+\subsection{Remark 4 sharpened}
+
+\begin{proposition}\label{bo:prop:sharp}
+For every $a>0$ and $\beta\in\mathbb R$, the function $\Gamma(a)e^{-\beta\sqrt s}/\Gamma(a+\sqrt s)$ is a GGC transform if and only if $\beta\ge-\psi(a)$. Its Thorin density is
+\[
+u_{a,\beta}(r)=\frac{\Re\,\psi(a+i\sqrt r)-\psi(a)}{2\pi\sqrt r}+\frac{\beta+\psi(a)}{2\pi\sqrt r}.
+\]
+\end{proposition}
+
+\begin{proof}
+The function equals $g_a(s)\,e^{-(\beta+\psi(a))\sqrt s}$. For $c\ge0$ the factor $e^{-c\sqrt s}$ is a GGC transform with Thorin density $c/(2\pi\sqrt r)$ in $r$, because $\sqrt u=\pi^{-1}\int_0^\infty\log(1+u/\theta^2)\,d\theta$ (Remark 2 of the letter). So if $\beta+\psi(a)\ge0$, the function is a product of two GGC transforms, by \eqref{bo:eq:ga} and Theorem~\ref{bo:thm:gen}. If $\beta+\psi(a)<0$, the expansion near $s=0$ is $1-(\beta+\psi(a))\sqrt s+O(s)$, which exceeds $1$ for small $s>0$. A Laplace transform of a probability measure cannot do that.
+\end{proof}
+
+Bondesson keeps $\beta=\gamma=-\psi(1)$. Since $\psi$ is increasing, $\gamma\ge-\psi(a)$ is exactly his condition $a\ge1$. The proposition shows that every $a>0$ works once the drift $e^{\psi(a)\sqrt s}$ is matched to $a$.
+
+\subsection{Remark 1 in one line}
+
+The expansion $\log\{e^{-\gamma z}/\Gamma(1+z)\}=-\sum_{k\ge2}(-1)^k\zeta(k)z^k/k$ has no linear term. Put $z=s^b$ with $b>\frac12$. Then $1-\tilde g(s)=O(s^{2b})=o(s)$. If $\tilde g$ were completely monotone with $\tilde g(0)=1$, its law would have mean $0$ and support in $[0,\infty)$, so it would be $\delta_0$. That forces $\tilde g\equiv1$, which is false. This confirms Bondesson's ``I think''. At $b=\frac12$ the linear term survives with coefficient $\pi^2/12$. This is why the square root is essential, and why the book works with $\xi(\alpha+\sqrt s)$ rather than $\xi(\alpha+s)$ (Remark~\ref{tx3:rem:forced}). Remark 4$'$ says that the density of $g$ is not HCM, so GGC is the right class here, and it is the class the book uses.
+
+\subsection{The closing example}
+
+Take $\nu=\delta_1$. Then $X=1-N$ with $N$ Poisson with mean one, $1/\E e^{\sqrt sX}=\exp\{-(e^{-\sqrt s}-1+\sqrt s)\}$, and \eqref{bo:eq:Ugen} gives $U(dt)=\pi^{-1}(1-\cos t)\,dt$. A single jump of size $x$ produces the periodic Thorin density $\pi^{-1}x(1-\cos tx)$. Section~\ref{bo:sec:above} shows that for $\alpha>1$ the arithmetic part of the reciprocal Xi function is a superposition of these blocks, with jumps $\log n$ and weights $\Lambda(n)n^{-\alpha}$. The density Bondesson suggested studying is thus the single prime power term.
+
+\section{The level criterion}\label{bo:sec:level}
+
+For $\alpha\ge\frac12$, put $G_\alpha(s)=\xi(\alpha)/\xi(\alpha+\sqrt s)$, the shifted clock of Section~\ref{ch:clock}. At $s=-t^2+i0$ we have $\sqrt s=it$. The Stieltjes inversion of the proof of Theorem~\ref{bo:thm:gen} gives the formal Thorin density in the variable $t=\sqrt r$, which is the chart $\theta=\sqrt z$ of \eqref{eq:Ualpha}:
+\begin{equation}\label{bo:eq:Ualpha}
+U_\alpha(dt)=\frac1\pi\,\Re\frac{\xi'}{\xi}(\alpha+it)\,dt=\frac1\pi\,d_t\arg\xi(\alpha+it).
+\end{equation}
+
+\begin{theorem}[Level criterion]\label{bo:thm:level}
+Let $\alpha\ge\frac12$. Then $G_\alpha$ is the Laplace transform of a GGC if and only if $\xi$ has no zeros in $\Re s>\alpha$. In that case
+\[
+U_\alpha(dt)=\frac1\pi\sum_\rho\frac{\alpha-\beta}{(\alpha-\beta)^2+(t-\gamma)^2}\,dt\qquad(t>0),
+\]
+where the sum runs over the zeros $\rho=\beta+i\gamma$ (ordinates of both signs, with multiplicity), and a zero with $\beta=\alpha$ contributes an atom at its ordinate.
+\end{theorem}
+
+This is Theorem~\ref{thm:poisson} (after \cite{P26}), and the density formula is Proposition~\ref{prop:struct} at $\alpha=\frac12+\varepsilon$. The proof below replaces a contour argument by the Hadamard product, which treats zeros with $\beta=\alpha$ without a separate step.
+
+\begin{proof}
+Suppose $\xi$ has a zero $\rho$ with $\beta>\alpha$. Then $u=(\rho-\alpha)^2$ has $\Re\sqrt u=\beta-\alpha>0$, so it lies in the slit plane $\mathbb C\setminus(-\infty,0]$, and $G_\alpha$ has a pole there, since $\xi(\alpha)\ne0$. A GGC transform is holomorphic and zero free on the slit plane, so $G_\alpha$ is not one.
+
+Conversely, suppose there are no zeros in $\Re s>\alpha$. Put $w=\sqrt u$. By Hadamard's product, grouping each zero $\rho=\beta+i\gamma$ with $\gamma>0$ with its conjugate $\bar\rho$,
+\[
+\frac{\xi(\alpha+w)}{\xi(\alpha)}=\prod_{\rho}\Big(1-\frac{w}{\rho-\alpha}\Big)=\prod_{\gamma>0}F_\rho(w),\qquad F_\rho(w)=\frac{(c+w)^2+\gamma^2}{c^2+\gamma^2},
+\]
+where $c=\alpha-\beta\ge0$, and the second product runs over the zeros in the upper half plane, with multiplicity. Indeed $\rho-\alpha=-c+i\gamma$, and $(1+w/(c-i\gamma))(1+w/(c+i\gamma))=F_\rho(w)$. The product converges absolutely, locally uniformly in $w$, since $F_\rho(w)-1=(2cw+w^2)/(c^2+\gamma^2)$ and $\sum|\rho-\alpha|^{-2}<\infty$.
+
+Fix a zero with $c>0$ and write $\lambda=c+i\gamma$. For $\Re w>0$, the function $t\mapsto1/(w-it)$ is bounded and holomorphic in the upper half plane and $1/(w+it)$ in the lower, so the Poisson integral gives, with $P_c(x)=c/\{\pi(c^2+x^2)\}$,
+\[
+\int_{-\infty}^\infty\frac{P_c(t-\gamma)}{t^2+w^2}\,dt=\frac1{2w}\Big[\frac1{w+\bar\lambda}+\frac1{w+\lambda}\Big]=\frac{(c+w)}{w\{(c+w)^2+\gamma^2\}} .
+\]
+By the symmetry $t\mapsto-t$ the left side is $\int_0^\infty[P_c(t-\gamma)+P_c(t+\gamma)]\,(t^2+s)^{-1}\,dt$ with $s=w^2$, and the right side is $\frac{d}{ds}\log F_\rho(\sqrt s)$. Both $\log F_\rho(\sqrt s)$ and $\int_0^\infty\log(1+s/t^2)[P_c(t-\gamma)+P_c(t+\gamma)]\,dt$ vanish at $s=0$, so for $s>0$
+\[
+\log F_\rho(\sqrt s)=\int_0^\infty\log\Big(1+\frac s{t^2}\Big)\big[P_c(t-\gamma)+P_c(t+\gamma)\big]\,dt .
+\]
+For $c=0$ the factor is $F_\rho=1+s/\gamma^2$, which is the same identity with the kernel replaced by the atom $\delta_\gamma$. Let $U$ be the sum over $\gamma>0$ of these kernels. The terms are positive, so by Tonelli $\int\log(1+s/t^2)\,U(dt)=\sum\log F_\rho(\sqrt s)<\infty$ for $s>0$. Finiteness at $s=1$ is the integrability condition of Thorin's representation, so $G_\alpha(u)=\exp\{-\int\log(1+u/t^2)\,U(dt)\}$ is the Laplace transform of a GGC with zero drift. Its Thorin density is the displayed sum, which agrees with \eqref{bo:eq:Ualpha} by Hadamard's formula for $\Re\,\xi'/\xi$.
+\end{proof}
+
+\begin{corollary}\label{bo:cor:level}
+\begin{enumerate}
+\item $U_\alpha\ge0$ for every $\alpha\ge1$ unconditionally, because every zero has $\beta<1$.
+\item At $\alpha=\frac12$, GGC is equivalent to RH, and then $U_{1/2}=\sum_{\gamma>0}\delta_\gamma$ (with multiplicity) in $t$, which is $\sum_{\gamma>0}\delta_{\gamma^2}$ in the variable $z$.
+\item If $\xi$ has no zeros in $\Re s>\theta$, then $U_\alpha$ is a Thorin measure for every $\alpha\ge\theta$. In particular this holds for $\theta=\frac78$ by the theorem of \cite{OAI26a}.
+\item Under RH, $U_\alpha=P_{\alpha-1/2}*U_{1/2}$, where $P_\delta(t)=\delta/\{\pi(\delta^2+t^2)\}$ is the Poisson (Cauchy) kernel and $U_{1/2}$ is extended evenly in $t$.
+\end{enumerate}
+\end{corollary}
+
+Lagarias \cite{Lagarias,Garunkstis02} proved that RH is equivalent to $\Re\,\xi'/\xi(s)>0$ throughout $\Re s>\frac12$. Theorem~\ref{bo:thm:level} restates this as a GGC property, one level at a time, and makes precise which zero free half plane each level needs. Sondow and Dumitrescu \cite{SD10} give the equivalent monotonicity formulation: $|\xi(\sigma+it)|$ is increasing in $\sigma>\frac12$. On a single line the sign of $\Re\,\xi'/\xi$ and the GGC property differ (Remark~\ref{rem:ch2:oneline}).
+
+\section{Archimedean and arithmetic parts}
+
+Write $\xi(s)=(s-1)\pi^{-s/2}\Gamma(1+s/2)\zeta(s)$ and set $a=1+\alpha/2$. The ratio $\xi(\alpha)/\xi(\alpha+\sqrt s)$ does not change if $\xi$ is multiplied by a constant, so a constant factor such as Riemann's $\frac12$ plays no role. Taking real parts of the logarithmic derivative in \eqref{bo:eq:Ualpha} gives, as a regrouping of \eqref{eq:split} for $\alpha>1$,
+\begin{equation}\label{bo:eq:split}
+\pi\frac{dU_\alpha}{dt}=\underbrace{B_\alpha(t)+c_\alpha}_{\text{archimedean}}+\underbrace{\Pi_\alpha(t)+A_\alpha(t)}_{\text{arithmetic}},
+\end{equation}
+where
+\begin{align*}
+B_\alpha(t)&=\tfrac12\big[\Re\,\psi(a+\tfrac{it}2)-\psi(a)\big]\ \ge\ 0,&
+c_\alpha&=\tfrac12\big[\psi(a)-\log\pi\big],\\
+\Pi_\alpha(t)&=\Re\,(\alpha-1+it)^{-1},&
+A_\alpha(t)&=\Re\,\tfrac{\zeta'}{\zeta}(\alpha+it).
+\end{align*}
+The points that differ from \eqref{eq:split} are that the constant $c_\alpha$ is kept apart from $B_\alpha$ and that the pole term is grouped with the zeta term. The term $\pi^{-1}B_\alpha$ is the Thorin density, in $t$, of the letter's transform $g_a(s/4)$ (Proposition~\ref{bo:prop:sharp} with the scaling $s\mapsto s/4$). It vanishes like $t^2$ at $0$ and grows like $\frac1{2\pi}\log t$. The constant $c_\alpha$ comes from $\pi^{-s/2}$ together with the matched drift. In the strip $\psi(a)\le\psi(\frac32)\approx0.036<\log\pi$, so $c_\alpha<0$. Equivalently, $\pi^{-s/2}$ leaves a factor $e^{+\kappa\sqrt s}$ that the other factors must pay for. The grouping in \eqref{bo:eq:split} follows the remark of the next proposition: the pole term and the zeta term are not harmonic separately, since both are singular at $s=1$, and only their sum is.
+
+\begin{proposition}[Harmonic structure]\label{bo:prop:harm}
+The archimedean density $B_\alpha(t)+c_\alpha=\Re\,\frac{d}{ds}\log\{\pi^{-s/2}\Gamma(1+s/2)\}$ at $s=\alpha+it$ is harmonic in $\Re s>-2$ and grows logarithmically. Hence, for $\alpha\ge\alpha_0>-2$, it is the Poisson extension of its values at level $\alpha_0$. The arithmetic density $\Pi_\alpha+A_\alpha=\Re\,\frac{d}{ds}\log\{(s-1)\zeta(s)\}$ is harmonic away from the zeros of $\zeta$. In particular it is harmonic in $\Re s>\frac12$ under RH.
+\end{proposition}
+
+\subsection{The critical line: the letter gives $\theta(T)/\pi$}
+
+At $\alpha=\frac12$ we have $a=\frac54$. Integrate the archimedean part and the pole term over $[0,T]$, and use $\arg\Gamma(\frac54+\frac{iT}2)=\arg\Gamma(\frac14+\frac{iT}2)+\arctan2T$ and $\arg(-\frac12+iT)-\pi=-\arctan2T$. The result is
+\[
+\frac1\pi\Big[\arg\Gamma(\tfrac54+\tfrac{iT}2)-\tfrac T2\log\pi\Big]+\frac{\arg(-\frac12+iT)-\pi}{\pi}=\frac{\theta(T)}{\pi},
+\]
+the Riemann Siegel theta function, exactly. The zeta term therefore carries $1+S(T)$. This is the Riemann von Mangoldt formula $N(T)=\theta(T)/\pi+1+S(T)$ (Section~\ref{ch:turing}), read as a split of the Thorin measure. The identity is confirmed numerically to machine precision on $[0,100]$ (computed; Figure~\ref{bo:fig:cumul}).
+% UNVERIFIED: the machine precision check on $[0,100]$ is not in W4.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=\textwidth]{fig/v3/bo_cumul.pdf}
+\caption{$N(T)$ against the integrated archimedean part plus pole term at $\alpha=\frac12$, which equals $\theta(T)/\pi$.}
+\label{bo:fig:cumul}
+\end{figure}
+
+\subsection{Above the strip}\label{bo:sec:above}
+
+For $\alpha>1$ the split \eqref{eq:split} of Section~\ref{sec:ch6:split} and Proposition~\ref{tx:prop:alpha0} give the following statements; the form below is the one in which the letter enters. For $\alpha>1$, $\zeta(\alpha+z)/\zeta(\alpha)=\E e^{-z\log N}$, where $N$ has the zeta distribution $\Pr(N=n)=n^{-\alpha}/\zeta(\alpha)$. This law is infinitely divisible, with L\'evy measure $\sum_n\Lambda(n)(n^\alpha\log n)^{-1}\delta_{\log n}$. Centring it and applying Theorem~\ref{bo:thm:gen} gives the arithmetic Thorin density
+\[
+\frac1\pi\sum_{n\ge2}\Lambda(n)n^{-\alpha}\big(1-\cos(t\log n)\big)-\frac{\mu_\alpha}{\pi},\qquad \mu_\alpha=-\frac{\zeta'}{\zeta}(\alpha).
+\]
+Since $\mu_\alpha=\sum\Lambda(n)n^{-\alpha}$, this equals $\pi^{-1}A_\alpha(t)$. The positive sum is the Thorin density of the centred variable, and $-\mu_\alpha/\pi$ is its drift. The factor $1/(\alpha-1+\sqrt s)$ is a GGC transform with density $\pi^{-1}(\alpha-1)/\{(\alpha-1)^2+t^2\}$ (the identity for $\log(1+\sqrt u/a)$ in the proof of Proposition~\ref{tx:prop:alpha0}). So for $\alpha>1$ each factor is of Bondesson type, apart from one total drift, the exponential factor $e^{\kappa_\alpha\sqrt s}$ with
+\begin{multline*}
+\kappa_\alpha=\tfrac12\big(\log\pi-\psi(a)\big)-\frac{\zeta'}{\zeta}(\alpha),\\ \text{positive for }1<\alpha<\alpha_0=5.4962\ldots\ \text{(Proposition~\ref{tx:prop:alpha0})}.
+\end{multline*}
+For $1<\alpha<\alpha_0$ the drift $\kappa_\alpha>0$ is not a GGC factor and has to be paid for by the pole. For $\alpha\ge\alpha_0$, $\kappa_\alpha\le0$, the factor $e^{-|\kappa_\alpha|\sqrt s}$ is itself a GGC factor, and Proposition~\ref{tx:prop:alpha0} gives the Thorin property from the sine squared lemma alone. At $t=0$ the Bondesson densities vanish and only the pole pays: $\frac1{\alpha-1}-\kappa_\alpha=\xi'(\alpha)/\xi(\alpha)>0$. For the Thorin density at levels below $1$ see also Section~\ref{bp:sec:below}.
+
+Below $\alpha=1$ this mechanism breaks for three reasons. The drift $-\zeta'/\zeta(\alpha)\sim1/(\alpha-1)$ blows up. Truncated Euler products remain infinitely divisible at every $\alpha>0$, but their drift $\mu_P(\alpha)=\sum_{p\le P}\log p\,p^{-\alpha}/(1-p^{-\alpha})$ grows like $P^{1-\alpha}$. At $P=10^6$ it equals $13.2$ at $\alpha=1$, $122$ at $\alpha=\frac34$ and $626$ at $\alpha=0.6$ (computed; Figure~\ref{bo:fig:drift}), while the archimedean density grows only like $\frac{1}{2\pi}\log t$. Finally, $\xi(\frac12+z)/\xi(\frac12)=\E e^{zX}$ with $X$ drawn from the Riemann density. Because $\Xi$ has real zeros, the characteristic function $\E e^{i\theta X}=\Xi(\theta)/\Xi(0)$ vanishes on the real line, and the characteristic function of an infinitely divisible law has no real zeros. So $X$ is not infinitely divisible, and Theorem~\ref{bo:thm:gen} does not apply.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=\textwidth]{fig/v3/bo_drift.pdf}
+\caption{Drift $\mu_P(\alpha)$ of truncated Euler products, for $P$ up to $10^6$.}
+\label{bo:fig:drift}
+\end{figure}
+
+\section{The level three quarters}
+
+Throughout this section $\alpha=\frac34$ and $\delta=\alpha-\frac12=\frac14$. All numbers are computed in floating point, not certified. We use the first 400 zeros, up to $\gamma_{400}=679.74\ldots$, together with direct evaluation of \eqref{bo:eq:Ualpha} in 20 digit arithmetic on the grid $t\in[0,130]$ with step $0.05$. Figure~\ref{bo:fig:decomp} shows the split \eqref{bo:eq:split} at this level.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=\textwidth]{fig/v3/bo_decomp.pdf}
+\caption{The split \eqref{bo:eq:split} at $\alpha=\frac34$, divided by $\pi$. Dotted lines mark the zero ordinates. In this figure the pole term is drawn with the zeta term.}
+\label{bo:fig:decomp}
+\end{figure}
+
+\subsection{The value at the origin}
+
+At $t=0$ the density is $\pi^{-1}\xi'(\frac34)/\xi(\frac34)=0.0036769$. It is the minimum of the density on $[0,130]$, as Theorem~\ref{thm:dbeta:minall} proves for every level. It is small because two large terms nearly cancel. The archimedean value is $c_{3/4}/\pi=-0.196089$, and the arithmetic value is $+0.199766$. As a check, $\sum_\rho\Re(\frac34-\rho)^{-1}=\sum_{\gamma>0}2\delta/(\delta^2+\gamma^2)$ (the second form uses RH, which holds for the 400 zeros used and is assumed for the tail) summed over 400 zeros gives $0.0108866$. Adding the tail $\int_{\gamma_{400}}^\infty 2\delta(\delta^2+t^2)^{-1}(2\pi)^{-1}\log(t/2\pi)\,dt$ brings it to $0.0115520$, against the direct value $0.0115513$. For small $\delta$ the margin is $\delta(\log\xi)''(\frac12)=0.0462\,\delta$ to first order, and under RH this equals $\delta\sum_\rho|\rho-\frac12|^{-2}$. So the positivity of $U_\alpha$ near $t=0$ is a first order effect in $\delta$, set by $\sum_\rho\gamma^{-2}$. The arithmetic part must cancel the archimedean drift to about two percent.
+
+\subsection{Peaks and troughs}
+
+Each zero contributes a Cauchy peak of height $1/(\pi\delta)=4/\pi=1.2732$. The observed peaks at the 29 zeros below $100$ range from $1.2786$ to $1.3601$. % UNVERIFIED: the bound 2.2e-4 for the Poisson prediction of each peak was not recomputed.
+The Poisson sum over the other zeros predicts each peak to within $2.2\times10^{-4}$ (computed). The excess over $4/\pi$ grows with height because the zeros crowd together. Between consecutive zeros the troughs range from $0.018$ to $0.397$. The smallest ratio of a peak to the trough before it is $3.4$. Every zero below $100$ is visible as a separate peak at level $\frac34$.
+
+\subsection{Mass and long run averages}
+
+Under RH, $U_{3/4}([0,T])$ is a smoothed copy of $N(T)$ (Figure~\ref{bo:fig:u34cum}). % UNVERIFIED: the discrepancies 0.084 and 0.60 were not recomputed.
+At the midpoints between consecutive zeros below $100$ the two agree to within $0.084$ (computed). The largest discrepancy, $0.60$, occurs at the zeros themselves, where $N$ jumps and $U_{3/4}$ passes through the middle of the step.
+
+Figure~\ref{bo:fig:u34rem} shows the arithmetic remainder $R_{3/4}=\pi^{-1}(\Pi+A)$. Over the windows $[20,60)$, $[60,100)$ and $[100,130)$ its averages are $0.0099$, $-0.0024$ and $0.0008$. Over the same windows the archimedean part averages $0.287$, $0.403$ and $0.462$, close to the observed zero densities $0.300$, $0.400$ and $0.467$. So on average the archimedean part carries all of the mass and the remainder carries none. The remainder is $S'(t)$ smoothed at width $\delta$. It is not positive: on $[0,100]$ its minimum is $-0.3515$, at $t=90.70$ (on $[0,130]$ it is lower, $-0.3848$). At the level $\frac78$ the corresponding minimum on $[0,100]$ is $-0.3165$. Since a GGC has a nonnegative Thorin density and the density is unique, the arithmetic part of the Thorin density at $\frac34$ and $\frac78$ cannot be the Thorin density of a GGC factor.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=\textwidth]{fig/v3/bo_u34_cum.pdf}
+\caption{$U_{3/4}([0,T])$, $N(T)$ and $\theta(T)/\pi+1$.}
+\label{bo:fig:u34cum}
+\end{figure}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=\textwidth]{fig/v3/bo_u34_rem.pdf}
+\caption{Arithmetic remainder at $\alpha=\frac34$. The bars show averages over windows.}
+\label{bo:fig:u34rem}
+\end{figure}
+
+\subsection{Resolution scales}
+
+The Fourier transform of $P_\delta$ is $e^{-\delta|\omega|}$. Resolving features of size $g$ requires frequencies up to about $\omega=\pi/g$, so the deconvolution amplifies noise by a factor of about $e^{\pi\delta/g}$. At the mean spacing $g=2\pi/\log(T/2\pi)$ this factor is
+\[
+e^{\pi\delta/g}=\Big(\frac{T}{2\pi}\Big)^{\delta/2},
+\]
+which is only polynomial in $T$. Peaks remain visually separate while the mean spacing exceeds $2\delta$, that is, up to $T=2\pi e^{\pi/\delta}$. Table~\ref{bo:tab:res} gives both scales. For $\delta=\frac14$, peaks separate up to $T\approx1.8\times10^6$. Close pairs are the hard cases: a gap $g$ costs $e^{\pi\delta/g}$, so a Lehmer pair with $g=0.04$ needs about nine digits at level $\frac34$.
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{lcccccc}
+\toprule
+$T$ & $10^2$ & $10^3$ & $10^4$ & $10^6$ & $10^9$ & $10^{12}$\\
+\midrule
+mean spacing & 2.27 & 1.24 & 0.85 & 0.52 & 0.33 & 0.24\\
+$(T/2\pi)^{1/8}$ & 1.41 & 1.88 & 2.51 & 4.47 & 10.6 & 25.1\\
+$(T/2\pi)^{3/16}$ & 1.68 & 2.59 & 3.98 & 9.45 & 34.5 & 126\\
+\bottomrule
+\end{tabular}
+\caption{Mean zero spacing and noise amplification at the mean spacing, for the levels $\frac34$ ($\delta=\frac14$, middle row) and $\frac78$ ($\delta=\frac38$, bottom row).}
+\label{bo:tab:res}
+\end{table}
+
+\subsection{Deconvolution to the critical line}
+
+We ran two experiments, both computed in floating point; they are numerical experiments, not proofs of positivity, and their output depends on the window padding, the tail treatment, the normalisation of the finite operator and the peak extraction.
+
+The first is positivity constrained EM. This is the Richardson Lucy iteration \cite{Richardson72,Lucy74}, which is also the Shepp Vardi and Vardi Lee EM for positive linear inverse problems \cite{ShVa82,VardiLee93}; it is the iteration of Section~\ref{cx:sec:em}, and the inverse problem itself is the subject of Section~\ref{ch:deconv}. We use the kernel $P_\delta(t-u)+P_\delta(t+u)$ on the grid, with 3000 iterations, starting from the total density. All 29 zeros below $100$ are recovered, with no spurious atoms. The largest location error is $0.0021$, against a grid step of $0.05$, and the recovered masses lie between $0.970$ and $0.999$. With multiplicative noise at relative levels $10^{-4}$, $10^{-3}$ and $10^{-2}$, the largest location errors are $0.0022$, $0.0021$ and $0.0035$. Figure~\ref{bo:fig:em} shows the estimate.
+% UNVERIFIED: EM and Tikhonov deconvolution not recomputed (W4 NOT DONE).
+
+The second experiment is Tikhonov filtering in Fourier space, using the filter $e^{-\delta|\omega|}/(e^{-2\delta|\omega|}+\lambda)$ on the even extension. We compare deconvolving the raw density with deconvolving the arithmetic remainder and then adding back the archimedean part at level $\frac12$, which is known exactly. Accuracy is measured by the largest error of the reconstructed counting function at midpoints between zeros below $100$ (Table~\ref{bo:tab:tik}). On these data, built from the exact density, detrending improves the error by a factor of 9 to 62. With the less exact data of Section~\ref{bo:sec:speed} the factor is only 1.4 to 4.9, so the gain depends on the accuracy of the data and is not a constant. It is the main computational use of the letter.
+% UNVERIFIED: EM and Tikhonov deconvolution not recomputed (W4 NOT DONE).
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=\textwidth]{fig/v3/bo_u34_em.pdf}
+\caption{Data $U_{3/4}$ and the EM estimate of $U_{1/2}$. The estimate concentrates on the zero ordinates.}
+\label{bo:fig:em}
+\end{figure}
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{lccc}
+\toprule
+& $\lambda=10^{-2}$ & $\lambda=10^{-3}$ & $\lambda=10^{-4}$\\
+\midrule
+raw $U_{3/4}$ & 0.239 & 0.0110 & 0.0360\\
+detrended & 0.0075 & 0.0012 & 0.00058\\
+\bottomrule
+\end{tabular}
+\caption{Largest counting function error at midpoints, after Tikhonov deconvolution from level $\frac34$ (computed; the ratios are $32$, $9.2$ and $62$).}
+\label{bo:tab:tik}
+\end{table}
+% UNVERIFIED: EM and Tikhonov deconvolution not recomputed (W4 NOT DONE).
+
+\subsection{Does the closed form speed up the descent?}\label{bo:sec:speed}
+
+The archimedean part is known exactly at every level, and by Proposition~\ref{bo:prop:harm} it moves between levels by the Poisson semigroup. It is natural to ask whether this makes the deconvolution faster, and not only more accurate. We tested four ways of using it, on the descent from $\frac34$ to $\frac12$ on $[0,130]$ with step $0.05$, with the density built from the zeros below height $7000$ and a smooth tail (computed).
+
+\label{bo:comp:speed}
+% UNVERIFIED: EM and Tikhonov deconvolution not recomputed (W4 NOT DONE).
+\begin{enumerate}
+\item EM started from the archimedean density at level $\frac12$, which is $\theta'(t)/\pi+2/\{\pi(1+4t^2)\}$, in place of a flat start. After $25$, $100$, $400$ and $3000$ iterations the largest location error and the misfit are the same as from the flat start, to the digits printed: $0.0026$ and $0.237$ after $25$ iterations, $0.0021$ and $0.022$ after $3000$. All $29$ zeros are found after $25$ iterations either way.
+\item EM with the data corrected for everything above the window, which the harmonic structure gives in closed form. The location errors are unchanged, between $0.0014$ and $0.0024$, and the misfit is slightly worse.
+\item Conjugate gradient iterations on the normal equations, for the raw density and for the arithmetic remainder. The count error at midpoints reaches $0.08$ after $17$ iterations for the raw density and $0.10$ after $24$ for the remainder, and neither improves further.
+\item One linear solve by FFT with Tikhonov filtering. It takes $0.9$ milliseconds. With the archimedean part removed first, the count error at midpoints is $0.008$, against $0.011$ to $0.039$ for the raw density, and the zeros are located to $0.0003$ at $\lambda=10^{-3}$ in both cases. EM takes $0.1$ seconds for $25$ iterations and $11.5$ seconds for $3000$, and its count error at midpoints is $0.094$ throughout.
+\end{enumerate}
+
+So the answer is in two parts. The closed form does not reduce the number of iterations of any iterative scheme we tried. EM finds the zeros in about $25$ iterations whatever the start, and what it does afterwards, sharpening the atoms, is governed by the kernel and not by the trend. The amplification $e^{\pi\delta/g}$ of Table~\ref{bo:tab:res} is a property of the Poisson kernel and no knowledge of the gamma factor changes it.
+
+What the closed form changes is which method can be used. The raw density grows like $\frac1{2\pi}\log t$ and does not extend periodically, so a Fourier method applied to it carries an error from the trend and the edge. With the archimedean part subtracted the remainder has mean zero and a single linear solve is accurate: it is a hundred times faster than the $25$ iterations of EM that find the zeros and ten thousand times faster than the $3000$ that sharpen them, it locates the zeros more precisely, and it gives the counting function ten times more accurately than EM does. The earlier tables of this section, computed from the exact density, put the gain in the count from detrending at a factor of $9$ to $62$; with the less exact data used here it is $1.4$ to $4.9$. The letter turns the descent into a problem that one filter solves. EM remains the tool when positivity itself is the question, as in the test with a planted pair, because the linear solve does not know that the answer should be a positive measure.
+% UNVERIFIED: EM and Tikhonov deconvolution not recomputed (W4 NOT DONE).
+
+\section{The level seven eighths}
+
+By the theorem of \cite{OAI26a} (Section~\ref{qrh:sec:claims}), $\xi$ has no zeros in $\Re s>\frac78$. By Theorem~\ref{bo:thm:level}, $U_\alpha$ is then a Thorin measure for every $\alpha\ge\frac78$. Here $\delta=\frac38$ and $a=\frac{23}{16}$. The numerical parts of this section do not use the half plane: they are computations of $U_{7/8}$ from the zeros, which exist whatever their location.
+
+\subsection{What the letter adds at seven eighths}
+
+The letter does not strengthen the zero free half plane. Positivity at $\frac78$ comes from the theorem of \cite{OAI26a}, and the arithmetic part of the Thorin density at $\frac78$ changes sign, as at $\frac34$. What the letter does provide is the following.
+\begin{enumerate}
+\item An explicit archimedean part, $B_{7/8}(t)+c_{7/8}$, with $c_{7/8}/\pi=-0.18595$. The density at $t=0$ is $0.00551$, and it is the global minimum on $[0,130]$. So the arithmetic part must supply $0.19146$ at the origin, a cancellation to three percent. This is an unconditional computation: $\xi(\frac12+x)$ increases with $x$, and the half plane plays no role.
+\item Exact detrending. By Proposition~\ref{bo:prop:harm} the archimedean part moves between levels by the Poisson semigroup exactly. Only the arithmetic remainder has to be deconvolved.
+\item A criterion that turns descent into a test of RH, stated next.
+\end{enumerate}
+
+\begin{proposition}[Descent from a zero free level]\label{bo:prop:descent}
+Suppose $\xi$ has no zeros in $\Re s>\theta$, where $\frac12<\theta\le1$ (for $\theta=1$ this holds unconditionally), and let $\alpha\ge\theta$ with $\alpha>\frac12$. Then RH holds if and only if $U_\alpha=P_{\alpha-1/2}*V$ for some locally finite signed measure $V$ on $\mathbb R$ with $\int(1+t^2)^{-1}|V|(dt)<\infty$. In that case $V=U_{1/2}=\sum\delta_\gamma$ (ordinates of both signs, with multiplicity), and $V\ge0$.
+\end{proposition}
+
+For $V\ge0$ this is Theorem~\ref{tf:thm:deconv}, which needs only $\varepsilon_0>\beta-\frac12$ for every zero, for instance $\varepsilon_0\ge\frac12$. The only addition here is that $V$ may be signed, with positivity as a conclusion. Here $U_\alpha$ is extended evenly in $t$ and carries its atoms if a zero lies on $\Re s=\alpha$; then $P_{\alpha-1/2}*V$ is a smooth function, and the equality fails.
+
+The same proof descends from $\alpha$ to any level $\alpha'$ with $\frac12\le\alpha'<\alpha$: there is a locally finite signed measure $V'$ with $\int(1+t^2)^{-1}|V'|(dt)<\infty$ and $U_\alpha=P_{\alpha-\alpha'}*V'$ if and only if $\xi$ has no zeros in $\Re s>\alpha'$, and then $V'=U_{\alpha'}$, with its atoms. The deconvolution by $P_{\alpha-\alpha'}$ therefore tests the absence of zeros in $\Re s>\alpha'$, one level at a time, signed or not (from an unrefereed note of Polson, November 2026).
+
+\begin{proof}
+If RH holds, take $V=U_{1/2}$ and use Corollary~\ref{bo:cor:level}(4). Conversely, suppose such a $V$ exists and put $H(\frac12+y+it)=(P_y*V)(t)$ for $y>0$, which is harmonic in $\Re s>\frac12$. By the semigroup property of the Poisson kernel, on $\Re s>\alpha$ the function $H$ is the Poisson extension of $P_{\alpha-1/2}*V=U_\alpha$. The function $\pi^{-1}\Re\,\xi'/\xi$ is also the Poisson extension of $U_\alpha$ on $\Re s>\alpha$, because every kernel in Proposition~\ref{prop:struct} is positive for $\alpha\ge\theta$ and the Cauchy kernels form a semigroup. So the two agree on $\Re s>\alpha$. The set $\{\Re s>\frac12\}$ minus the discrete set of zeros of $\xi$ is connected, and both functions are real analytic on it, so they agree there. If RH fails, some zero $\rho^*$ has $\Re\rho^*>\frac12$. Letting $s\to\rho^*$ from the right, $\Re\,\xi'/\xi(s)\sim m\Re(s-\rho^*)^{-1}$ is unbounded, where $m$ is the multiplicity, while $H$ is harmonic near $\rho^*$ and hence bounded. This is a contradiction, so RH holds. The proof needs no zero of largest real part. By Poisson uniqueness, $V$ is then $U_{1/2}$.
+\end{proof}
+
+By the theorem of \cite{OAI26a} and Theorem~\ref{bo:thm:level}, $U_{7/8}=\pi^{-1}\sum_\rho(\frac78-\beta)/\{(\frac78-\beta)^2+(t-\gamma)^2\}$. This is a mixture of Cauchy kernels whose widths $\frac78-\beta$ lie between $0$ and $\frac34$. RH says every width equals $\frac38$. An off line pair $\frac12\pm\varepsilon+i\gamma$ contributes widths $\frac38-\varepsilon$ and $\frac38+\varepsilon$. The wider one deconvolves to a Cauchy kernel of width $\varepsilon$ at level $\frac12$. The narrower one cannot be deconvolved by $P_{3/8}$ at all, and a positivity constrained fit leaves a residual misfit there.
+
+Whether any of this carries the Thorin property below $\frac78$ is taken up in Section~\ref{bo:sec:stepbelow}, after the criterion at a single point has been established.
+
+\subsection{Numerics at seven eighths}
+
+At this level the peaks have height between $0.857$ and $0.975$, against $1/(\pi\delta)=0.849$. All 29 zeros below $100$ are still visible separately, and the archimedean part dominates more visibly (Figure~\ref{bo:fig:u78}). EM descent from $\frac78$ to $\frac12$ with 4000 iterations recovers all 29 zeros. The largest location error is $0.0019$, the masses lie between $0.962$ and $0.993$, and the largest relative misfit is $1.4$ percent (computed). Tikhonov descent gives the counting function errors in Table~\ref{bo:tab:tik78}. Here detrending improves accuracy by a factor of 23 to 104 on exact data. The detrended errors are about the same as at $\frac34$, while the raw errors are larger. By Table~\ref{bo:tab:res}, peaks at $\frac78$ separate up to $T=2\pi e^{8\pi/3}\approx2.7\times10^4$, and noise is amplified by $(T/2\pi)^{3/16}$ at the mean spacing.
+% UNVERIFIED: EM and Tikhonov deconvolution not recomputed (W4 NOT DONE).
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=\textwidth]{fig/v3/bo_u78_decomp.pdf}
+\caption{$U_{7/8}$, its archimedean part and its arithmetic remainder.}
+\label{bo:fig:u78}
+\end{figure}
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{lccc}
+\toprule
+& $\lambda=10^{-3}$ & $\lambda=10^{-4}$ & $\lambda=10^{-5}$\\
+\midrule
+raw $U_{7/8}$ & 0.0303 & 0.0555 & 0.0580\\
+detrended & 0.0013 & 0.00073 & 0.00056\\
+\bottomrule
+\end{tabular}
+\caption{Largest counting function error at midpoints, after Tikhonov deconvolution from level $\frac78$ (computed, exact data).}
+\label{bo:tab:tik78}
+\end{table}
+% UNVERIFIED: EM and Tikhonov deconvolution not recomputed (W4 NOT DONE).
+
+\subsection{A planted off line pair}
+
+To test Proposition~\ref{bo:prop:descent} in practice, we built $U_{7/8}$ from the Poisson sum over the first 400 zeros. We then moved the tenth zero, $\gamma_{10}=49.774$, to the pair $\frac12\pm\varepsilon+i\gamma_{10}$ and ran EM with the RH width $\frac38$. Table~\ref{bo:tab:pair} reports the largest relative misfit within $3$ of $\gamma_{10}$ and elsewhere below $100$. The misfit floor, set by the grid and the iteration count, is $1.43$ percent. In this experiment the pair stands out at $\varepsilon=0.05$ (misfit $2.6$ percent) and clearly at $\varepsilon=0.1$ ($6.9$ percent). At $\varepsilon=0.1$ the EM estimate splits the atom into two lumps (Figure~\ref{bo:fig:pair}). The detection size depends on the grid, the iteration count and the tail treatment, and it is limited in the end by the amplification $e^{\pi\delta/g}$; the experiment is not a detection threshold. The book has a planted pair EM test at level $0.6$ in Section~\ref{cx:sec:irls}.
+% UNVERIFIED: EM and Tikhonov deconvolution not recomputed (W4 NOT DONE).
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{lccccc}
+\toprule
+$\varepsilon$ & 0 & 0.02 & 0.05 & 0.1 & 0.2\\
+\midrule
+misfit near $\gamma_{10}$ (\%) & 1.45 & 1.62 & 2.62 & 6.89 & 26.2\\
+misfit elsewhere (\%) & 1.43 & 1.43 & 1.43 & 1.46 & 1.74\\
+\bottomrule
+\end{tabular}
+\caption{EM descent from $\frac78$ with a planted off line pair at height $\gamma_{10}$ (computed).}
+\label{bo:tab:pair}
+\end{table}
+% UNVERIFIED: EM and Tikhonov deconvolution not recomputed (W4 NOT DONE).
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=\textwidth]{fig/v3/bo_u78_pair.pdf}
+\caption{EM estimate of the measure at level $\frac12$ near $\gamma_{10}$, with all zeros on the line and with a pair at $\beta=\frac12\pm0.1$.}
+\label{bo:fig:pair}
+\end{figure}

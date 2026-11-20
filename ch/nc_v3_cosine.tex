@@ -1,0 +1,317 @@
+% Volume III, Chapter 3: The toolkit and a solved model, the cosine. Sources: misc/reviews/nick-volume3/vol3/chA_tools.tex lines 5-9, 160-242, 264-304 and chB_cosine.tex lines 5-182; referee report U01 (M3, M4, M5, M11 and minors); chB numbers reproduced by the referee, the chain table recomputed for this chapter in the book normalisation. 17 Nov 2026.
+\label{ch:cosine}\label{ch:tools}
+
+\section{What this chapter is for}\label{t:sec:purpose}
+
+The chapters that follow use four languages for one statement about the zeros of $\xi$: the density, the clock and its Thorin measure, the chain, and the heat flow. The classical background is in the earlier volumes: the function $\xi$, the density and the clock in Section~\ref{ch:clock}, infinitely divisible laws, generalised gamma convolutions and the Bondesson hierarchy in Volume~I (Chapter~3 and the chapter on the Thorin measure), the Stieltjes criterion in Section~\ref{mw:sec:stieltjes}, the Wald couple in Remark~\ref{mw:rem:waldT}, hitting times in Section~\ref{ev:sec:kent}, the $2\sin^2$ lemma in \eqref{eq:sin2}, and the heat flow in Section~\ref{ch:dbn}. This chapter does not repeat them. It collects the short proofs on which the ladders of finite tests rest, sets the four languages side by side, and then runs every tool on a model in which everything has a closed form, the cosine in place of $\Xi$, and on the same model with four zeros planted off the axis.
+
+Notation follows the book. The density $F$ is the density of $X=Z\sqrt{2T}$ of Section~\ref{ch:clock} (the book's $f_X$), where $T$ is the clock, $\E e^{-uT}=\xi(\frac12)/\xi(\frac12+\sqrt u)$, and $\E e^{itX}=\xi(\frac12)/\xi(\frac12+t)$. Write $G(u)=\xi(\frac12+\sqrt u)/\xi(\frac12)$, so that
+\begin{equation}\label{t:eq:G}
+G(u)=\prod_{\gamma>0}\Big(1+\frac u{\gamma^2}\Big),
+\end{equation}
+the product running over the ordinates $\gamma>0$ of the zeros $\frac12+i\gamma$, which are real exactly when RH holds. The control function of Section~\ref{t:sec:control} carries the symbol $\xi_f$.
+
+\begin{proposition}\label{t:prop:ggc}
+RH holds if and only if $1/G$ is the Laplace transform of a generalised gamma convolution whose Thorin measure $\sum_{\gamma>0}\delta_{\gamma^2}$ is positive. In that case $T$ is the sum of independent exponential variables with rates $\gamma^2$.
+\end{proposition}
+
+\begin{proof}
+This is Corollary~\ref{ev:cor:rh}, part (2). If a representation $\exp(-\int\log(1+u/z)\,\sigma(\dd z))$ exists with $\sigma$ a measure on $(0,\infty)$, the function is analytic and zero free on the plane cut along the negative axis, so $G$ has no zeros off that axis, which is RH. The representation therefore does not exist, even with a signed measure, when an ordinate is not real.
+\end{proof}
+
+\section{Total positivity}\label{t:sec:tp}
+
+\begin{definition}
+A function $F$ on the real line is a P\'olya frequency function of order $k$, written PF$_k$, if for all $x_1<\dots<x_k$ and $y_1<\dots<y_k$,
+\[
+\det\big[F(x_i-y_j)\big]_{i,j=1}^{k}\ \ge0,
+\]
+and the same holds for all smaller orders. It is a P\'olya frequency function, PF$_\infty$, if this holds for every $k$.
+\end{definition}
+
+The first rung says $F\ge0$. The second is a familiar property.
+
+\begin{lemma}\label{t:lem:pf2}
+A positive function $F$ is PF$_2$ if and only if $\log F$ is concave.
+\end{lemma}
+
+\begin{proof}
+The condition of order two is $F(x_1-y_1)F(x_2-y_2)\ge F(x_1-y_2)F(x_2-y_1)$ for $x_1<x_2$, $y_1<y_2$. Put $a=x_1-y_2$, $b=x_2-y_1$, the smallest and the largest of the four arguments. The other two arguments lie between them and have the same sum $a+b$. So the condition says that $\log F(p)+\log F(q)\ge\log F(a)+\log F(b)$ whenever $a\le p\le q\le b$ and $p+q=a+b$, which is concavity of $\log F$.
+\end{proof}
+
+Higher rungs have no such simple name, but they have a meaning. A PF$_k$ kernel is variation diminishing up to order $k$: if a function $g$ changes sign at most $k-1$ times, then the convolution $F*g$ changes sign no more often than $g$ does. Smoothing by a totally positive kernel can remove oscillations but can never create them. This is the property that Schoenberg isolated \cite{Schoenberg51,Karlin68}.
+
+\paragraph{Two closure rules.} The first is the composition formula of Cauchy and Binet in its continuous form:
+\begin{multline}\label{t:eq:cb}
+\det\big[(F_1*F_2)(x_i-z_j)\big]\\
+=\int_{y_1<\dots<y_k}\det\big[F_1(x_i-y_l)\big]\det\big[F_2(y_l-z_j)\big]\dd y_1\cdots\dd y_k .
+\end{multline}
+It shows at once that a convolution of two PF$_k$ functions is PF$_k$. The second rule is that a limit of PF$_k$ functions is PF$_k$.
+
+\begin{lemma}\label{t:lem:exp}
+The exponential density $e^{-x}$ on $x>0$ is PF$_\infty$. So is the Laplace density $\frac12e^{-|x|}$.
+\end{lemma}
+
+\begin{proof}
+Write $F(x-y)=e^{-x}e^{y}\,1[y<x]$. The factors $e^{-x_i}$ and $e^{y_j}$ come out of the determinant, and what is left is the determinant of the zero and one matrix with entries $1[y_j<x_i]$. Because both sequences increase, each row of this matrix is an initial block of ones, and the rows are nested. Subtracting each row from the next leaves a matrix with at most one nonzero block per row, and its determinant is $1$ if the points interlace as $y_1<x_1\le y_2<x_2\le\cdots$ and $0$ otherwise. So every minor is nonnegative. The reflected density $e^{x}$ on $x<0$ is PF$_\infty$ by symmetry, and the Laplace density is the convolution of the two, so it is PF$_\infty$ by \eqref{t:eq:cb}.
+\end{proof}
+
+\begin{proposition}\label{t:prop:easy}
+If RH holds then the density $F$ is PF$_\infty$ (proved, conditional on RH).
+\end{proposition}
+
+\begin{proof}
+Under RH, $F$ is the density of $W=\sum_{\gamma>0}L_\gamma/\gamma$ with independent standard Laplace variables $L_\gamma$ (Proposition~\ref{pol:prop:pf}). Each term has a rescaled Laplace density, which is PF$_\infty$ by Lemma~\ref{t:lem:exp}. Finite partial sums are PF$_\infty$ by \eqref{t:eq:cb}, and the densities of the partial sums converge to $F$ uniformly, because their characteristic functions converge in $L^1$.
+\end{proof}
+
+This is the easy half of Schoenberg's theorem in the case at hand. The deep half is the converse: a PF$_\infty$ density has a Laplace transform whose reciprocal is an entire function with only real zeros, of the special form \eqref{pol:eq:LP}. Applied to $F$, the converse says that if $F$ is PF$_\infty$ then all zeros of $\Xi$ are real. Together this is Proposition~\ref{pol:prop:pf},
+\[
+\text{RH}\iff F\text{ is PF}_k\text{ for every }k .
+\]
+
+\paragraph{How the ladder is used.} Each rung PF$_k$ is a statement about finitely many values of $F$ at a time, and can be tested. What a passed or failed test means is decided by the detection rung theorem (Theorem~\ref{p:thm:detect}): if exactly one simple quadruple of zeros lies off the line, above $m$ simple zeros on the line, then in the far field $F$ is PF$_k$ for $k\le m$ and is not PF$_{m+1}$. A pass at rung $k$ therefore places such a violation above the first $k$ zeros (Corollary~\ref{p:cor:detect}), and the first rung that fails in the far field, $m+1$, places it between the $m$th and the $(m+1)$th zero. The theorem is a statement about the far field, so a finite window of values resolves only what the window is wide and precise enough to see, and a rung passed on a window is evidence about that window. The theorem turns the ladder from a source of hope into a measuring instrument, and Chapter~\ref{p:ch:path} is written around that change.
+
+\paragraph{The kernel side.} Total positivity can also be asked of Riemann's kernel $\Phi$ in place of $F$. The two questions are different. A kernel whose transform is entire can be PF$_\infty$ only if it is Gaussian (Proposition~\ref{c:prop:gauss}), so $\Phi$ must fail at some finite order, and Proposition~\ref{c:thm:tp4} finds the order: exactly four (computed). On the kernel side total positivity is therefore a closed road, and on the density side it is equivalent to RH. Keeping the two sides apart is the first task of Chapter~\ref{c:ch:cand}.
+
+\section{Moments, continued fractions and chains}\label{t:sec:moments}
+
+The third language is the oldest. Take the logarithmic derivative of the product \eqref{t:eq:G}:
+\[
+\frac{G'(u)}{G(u)}=\sum_{\gamma>0}\frac{1}{u+\gamma^2}=\int\frac{\nu(\dd x)}{1+ux},\qquad \nu=\sum_{\gamma>0}x_\gamma\,\delta_{x_\gamma},\quad x_\gamma=\frac{1}{\gamma^2}.
+\]
+Under RH, $\nu$ is a positive measure on a bounded interval, with atoms at the points $\gamma^{-2}$, which accumulate at the origin. Its moments are the power sums
+\[
+s_n=\int x^n\,\nu(\dd x)=\sum_{\gamma>0}\gamma^{-2(n+1)},
+\]
+and these are real numbers that can be computed from the Taylor coefficients of $G$ with no knowledge of the zeros (Chapter~\ref{b:ch:chain}).
+
+The classical moment problem of Stieltjes asks when a sequence $s_0,s_1,\dots$ is the moment sequence of a positive measure on the half line (Section~\ref{mw:sec:stieltjes}). The answer has three equivalent forms.
+
+\paragraph{Hankel determinants.} Let $\Delta_n=\det[s_{i+j}]_{i,j=0}^{n-1}$ and $\Delta'_n=\det[s_{i+j+1}]_{i,j=0}^{n-1}$, with $\Delta_0=\Delta'_0=1$. The sequence is a Stieltjes moment sequence of a measure with infinitely many atoms if and only if $\Delta_n>0$ and $\Delta'_n>0$ for all $n$.
+
+\paragraph{The continued fraction.} The generating function has an expansion
+\begin{gather*}
+\int\frac{\nu(\dd x)}{1+ux}=\cfrac{s_0}{1+\cfrac{\alpha_1u}{1+\cfrac{\alpha_2u}{1+\cdots}}},\\
+\alpha_{2n}=\frac{\Delta_{n+1}\,\Delta'_{n-1}}{\Delta_n\,\Delta'_n},\qquad
+\alpha_{2n+1}=\frac{\Delta_n\,\Delta'_{n+1}}{\Delta_{n+1}\,\Delta'_n},
+\end{gather*}
+and the Hankel conditions hold if and only if every $\alpha_j$ is positive.
+
+\paragraph{The chain.} Karlin and McGregor \cite{KarlinMcGregor57} showed that positive numbers $\alpha_j$ are the same thing as the rates of a birth and death chain on the nonnegative integers: the odd coefficients are birth rates and the even ones are death rates, and $\nu$, normalised, is the spectral measure of the chain. The discrete string reading is in Section~\ref{ev:sec:string}.
+
+For the zeros this gives the criterion of Chapter~\ref{b:ch:chain}: RH holds if and only if every $\alpha_j$ computed from $\xi$ is positive (Theorem~\ref{thm:ch12:inertia} with the Hankel test of Section~\ref{sec:ch21:hankel}). The proof of the hard direction is short and worth keeping in mind. If all $\alpha_j$ are positive there is a positive measure with the moments $s_n$. It is supported on a bounded interval because the $s_n$ grow at most geometrically. So $G'/G$ is the Stieltjes transform of a positive measure on a bounded interval, and such a transform is analytic off the negative real axis. Hence $G$ has no zeros off that axis, which says that every $\gamma^2$ is real and positive.
+
+Compared with the other two languages, the chain has one large practical advantage and one large disadvantage. The advantage is that the $j$th rate tracks the $j$th zero. The rates decay like the reciprocals of the squared ordinates (equation~\eqref{eq:ch21:ratelaw}), and in the examples computed in this volume a pair of zeros off the line near the $m$th ordinate shows up as a negative rate near level $2m$ plus a small constant. The disadvantage is conditioning: the map from moments to rates is as badly conditioned as any map in numerical analysis, and the computation of Chapter~\ref{b:ch:chain} carries thousands of digits.
+
+\section{The heat flow}\label{t:sec:heat}
+
+The fourth language is the flow of de Bruijn \cite{deBruijn} and Newman \cite{Newman1976}, developed from the density in Section~\ref{ch:dbn}: the zeros of $H_t$ move as particles with $\dd z_k/\dd t=2\sum_{j\ne k}1/(z_k-z_j)$, and the constant $\Lambda$ of de Bruijn and Newman is the infimum of the times at which all zeros are real. The theorem of Rodgers and Tao \cite{RodgersTao} gives $\Lambda\ge0$. At $t=0$ the function is $H_0(z)=\Xi(z/2)/8$, whose zeros are at $2\gamma$.
+
+\section{The control, and what counts as evidence}\label{t:sec:control}
+
+A test for RH that has only ever been run on $\zeta$ carries no information, because one cannot tell a test that passes from a test that is unable to fail. Every test in this volume is therefore run twice: on $\zeta$, and on a control.
+
+The control is the function of Davenport and Heilbronn \cite{DH36}, a combination of two Dirichlet $L$ functions of conductor $5$, described in Section~\ref{ht:sec:dh}. With $\xi_f(s)=(5/\pi)^{s/2}\Gamma(\frac{s+1}{2})f(s)$ it satisfies the same kind of functional equation as $\xi$, and it has a gamma factor, a Dirichlet series and a zero counting function of the same shape. It has no Euler product, and it has zeros off the critical line. The lowest are at $0.8085\pm85.6993i$ and $0.6508\pm114.1633i$, together with their reflections, and below the first of these there are $43$ zeros on the line (certified in ball arithmetic, Theorem~\ref{bsy:thm:dhid}). So the control has everything except the arithmetic, and RH is false for it.
+
+A method that proves positivity for $\zeta$ by an argument that would apply equally to the control is wrong. A numerical test that passes for both has not tested anything. This discipline disposes of a surprising number of attractive ideas, and the record is kept in the final chapter (Chapter~\ref{chap:conclusions}). The status words of the volume are those of the book: proved, computed (floating point, at two precisions where stated), certified (ball arithmetic only), conditional on a named hypothesis, heuristic, open.
+
+\section{How the tools fit together}\label{t:sec:fit}
+
+The four languages describe one object. Table~\ref{t:tab:dict} is the dictionary. Each row is a way of saying where the zeros are, and each has its own ladder of finite tests and its own depth at which a zero off the line would be seen.
+
+\begin{table}[ht]
+\centering\small
+\caption{One object in four languages. The last column is the index at which the control function first fails the corresponding test (rung $44$ by Theorem~\ref{p:thm:detect}, with $43$ certified zeros below the first quadruple).}\label{t:tab:dict}
+\begin{tabular}{@{}p{0.18\textwidth}p{0.26\textwidth}p{0.23\textwidth}p{0.15\textwidth}@{}}
+\toprule
+Language & A zero $\frac12+i\gamma$ appears as & RH says & Control fails at\\
+\midrule
+Density $F$ & an exponent: a term $c\,e^{-\gamma|x|}$ in the far field & $F$ is PF$_k$ for every $k$ & rung $44$\\
+Clock $T$ & a Thorin atom at $\gamma^2$ & the Thorin measure is positive & order $75$\\
+Chain & an atom of the spectral measure at $1/\gamma^2$ & every rate $\alpha_j$ is positive & rate $148$\\
+Heat flow & a particle at $2\gamma$ on the real axis & no two zeros collide at positive time & not applicable\\
+\bottomrule
+\end{tabular}
+\end{table}
+% Rung 44 is Theorem~\ref{p:thm:detect} applied to the 43 certified zeros below the first quadruple (computed in Chapter~\ref{p:ch:path}). Order 75 and rate 148: computed, ch/ch21.tex:149.
+
+The remaining chapters take the languages in turn. The next sections first run all of them on a model in which every quantity has a closed form, so that the reader has seen each tool succeed, and seen each tool detect a planted failure, before meeting it on the real problem.
+
+\section{A worked example: the cosine in place of \texorpdfstring{$\Xi$}{Xi}}\label{e:sec:model}
+
+Every construction of this volume starts from an even entire function with a product over its zeros, and asks what the reciprocal of that function knows about the zeros. For $\Xi$ nothing is available in closed form. For the cosine everything is. The zeros are the odd multiples of $\frac\pi2$, they are real, and each object above can be written down and checked by hand.
+
+There are two halves. In the first we replace $\Xi(z)$ by $\cos z$ and compute the density, the Thorin measure, the chain and the heat flow. The reader sees each tool succeed. In the second we spoil the model on purpose, by planting four zeros off the axis, and watch each tool fail in the way the theorems of the later chapters say it must. The planted model is a small copy of the Davenport and Heilbronn control, with the advantage that the failure occurs at the second rung and can be seen in a table of ten numbers.
+
+\subsection{The cast in closed form}
+
+Take $\Xi(z)=\cos z$. Then $\xi(\frac12+\tau)$ is replaced by $\cosh\tau$, the characteristic function $\varphi(\tau)=\E e^{i\tau X}$ of $X$ becomes its reciprocal, and
+\begin{gather*}
+\varphi(\tau)=\frac{1}{\cosh\tau},\qquad G(u)=\cosh\sqrt{u}=\prod_{n\ge1}\Big(1+\frac{u}{\lambda_n}\Big),\\
+\lambda_n=\gamma_n^2,\qquad\gamma_n=\Big(n-\frac12\Big)\pi .
+\end{gather*}
+
+\paragraph{P\'olya's variable.} Since $\cos z=\E\cos(zU)$ for a fair coin $U=\pm1$, the kernel is a pair of point masses. This is the simplest possible kernel, and it is the reason that the model is exactly solvable.
+
+\paragraph{The clock.} Let $B$ be a Brownian motion started at $0$ and let $H$ be the first time that $|B|$ reaches $1$. Wald's identity gives $\E e^{-\tau^2H/2}=1/\cosh\tau$. So $T=H/2$ has $\E e^{-uT}=1/\cosh\sqrt u$, and $T$ is half an exit time, with mean $\E T=\frac12$. The value $B_H=\pm1$ is the coin.
+
+\paragraph{The density.} The function with Fourier transform $1/\cosh\tau$ is
+\begin{equation}\label{e:eq:sech}
+F(x)=\frac12\operatorname{sech}\Big(\frac{\pi x}{2}\Big).
+\end{equation}
+It is the density of $X=Z\sqrt{2T}$, that is of $B'_H$ for a second Brownian motion $B'$ independent of the first, and also the density of the sum $W=\sum_nL_n/\gamma_n$ of independent Laplace variables. The hyperbolic secant is its own Fourier transform up to scaling. The relation to the kernel is that $1/\cosh\tau$ is the reciprocal of the transform $\cos(i\tau)=\cosh\tau$ of the coin at imaginary argument, which is the model's version of the pairing of the density and Riemann's kernel.
+
+\subsection{The far field and the sign rule}
+
+Expand \eqref{e:eq:sech} in powers of $e^{-\pi x}$. For $x>0$,
+\begin{equation}\label{e:eq:res}
+F(x)=\frac{e^{-\pi x/2}}{1+e^{-\pi x}}=\sum_{n\ge1}(-1)^{n-1}e^{-\gamma_nx}.
+\end{equation}
+This is the residue expansion of Lemma~\ref{pol:lem:residue} in the model: one exponential for each zero, with the ordinate of the zero as the rate of decay. Three features of \eqref{e:eq:res} carry over to the Riemann density and are used throughout Chapter~\ref{p:ch:path}.
+
+First, the far field is governed by the lowest zero: $F(x)\sim e^{-\gamma_1x}$. Each further zero is a correction that is exponentially smaller. To see the $k$th zero in $F$ one must resolve a term of relative size $e^{-(\gamma_k-\gamma_1)x}$, and this is why high rungs of the ladder are numerically delicate.
+
+Second, the coefficients alternate in sign. This is the sign rule of Proposition~\ref{p:prop:signrule}. It is forced by real simple zeros: the coefficient of $e^{-\gamma_nx}$ is a residue of $1/\cosh$, and the derivative of a real function with simple real zeros alternates in sign from one zero to the next.
+
+Third, the alternation is what makes the density log concave in the far field. For a sum of exponentials $F=\sum_ic_ie^{-\mu_ix}$ there is an exact identity,
+\begin{equation}\label{e:eq:wr}
+F\,F''-(F')^2=\sum_{i<j}c_ic_j\,(\mu_i-\mu_j)^2\,e^{-(\mu_i+\mu_j)x},
+\end{equation}
+obtained by expanding the two products and collecting the terms in $c_ic_j$. The leading term is the one with the two smallest rates, and its sign is the sign of $c_1c_2$. With alternating coefficients it is negative. So the second rung holds in the far field because the first two residues have opposite signs, and for no other reason. The same mechanism, with generalised Vandermonde determinants in place of the squares, gives every rung in the far field (Theorem~\ref{p:thm:farpfk}).
+
+\subsection{The second rung by hand}
+
+In the model the second rung can be checked everywhere at once. From \eqref{e:eq:sech},
+\begin{equation}\label{e:eq:logconc}
+\big(\log F\big)''(x)=-\Big(\frac\pi2\Big)^2\operatorname{sech}^2\Big(\frac{\pi x}{2}\Big)<0 ,
+\end{equation}
+so $F$ is log concave, which is PF$_2$ by Lemma~\ref{t:lem:pf2}. For large $x$ the right side is close to $-\pi^2e^{-\pi x}$, and this agrees with the leading term of \eqref{e:eq:wr} divided by $F^2$: the coefficient is $c_1c_2(\gamma_2-\gamma_1)^2/c_1^2=-\pi^2$ and the rate is $\gamma_2-\gamma_1=\pi$.
+
+In fact $F$ is PF$_\infty$. This follows from Proposition~\ref{t:prop:easy}, whose proof applies word for word: $F$ is the density of a sum of independent Laplace variables. It also follows from Schoenberg's theorem, since $\cosh$ has only imaginary zeros. The model therefore sits at the top of the ladder, where RH would place the Riemann density.
+
+\subsection{The Thorin measure}
+
+The product for $G$ gives
+\begin{gather*}
+\E e^{-uT}=\prod_{n\ge1}\Big(1+\frac{u}{\lambda_n}\Big)^{-1}=\exp\Big(-\int_0^\infty\log\Big(1+\frac uz\Big)\,U(\dd z)\Big),\\
+U=\sum_{n\ge1}\delta_{\lambda_n}.
+\end{gather*}
+So the clock is a GGC, and its Thorin measure is one unit atom at each point $\lambda_n=(n-\frac12)^2\pi^2$. In words, the exit time of Brownian motion from an interval is a sum of independent exponential variables, one for each eigenvalue of the Laplacian on the interval whose eigenfunction is symmetric about the starting point. This is a classical fact, and Proposition~\ref{t:prop:ggc} is the statement that RH would make the same sentence true with the squared ordinates of the zeros of $\zeta$ in place of the eigenvalues.
+
+The atoms have unit mass because the zeros are simple, and they are positive because the zeros are real. The second property fails in the planted model below; the first would fail only for a multiple zero.
+
+\subsection{The chain: Lambert's continued fraction}
+
+The logarithmic derivative of $G$ is
+\[
+\frac{G'(u)}{G(u)}=\frac{\tanh w}{2w},\qquad w=\sqrt{u},
+\]
+and Lambert's continued fraction for the tangent, in its hyperbolic form, is
+\[
+\frac{\tanh w}{w}=\cfrac{1}{1+\cfrac{w^2}{3+\cfrac{w^2}{5+\cdots}}}.
+\]
+Brought to the form of Section~\ref{t:sec:moments}, with $s_0=\frac12$, this gives
+\[
+\alpha_j=\frac{1}{(2j-1)(2j+1)} .
+\]
+The rates are $\frac13,\frac1{15},\frac1{35},\frac1{63}$ and so on. All are positive, as they must be. Two checks can be done by hand. The total mass is $s_0=\sum_n1/\lambda_n=(4/\pi^2)\sum_n(2n-1)^{-2}=\frac12$, which is $\E T$. The first rate is $\alpha_1=s_1/s_0=2\sum_n\lambda_n^{-2}=2\,(16/\pi^4)(\pi^4/96)=\frac13$.
+
+The $j$th rate tracks the $j$th zero. The atoms of the spectral measure are at $x_j=1/\lambda_j=4/((2j-1)^2\pi^2)$, and
+\[
+\frac{\alpha_j}{x_j}=\frac{\pi^2}{4}\cdot\frac{2j-1}{2j+1}\ \longrightarrow\ \frac{\pi^2}{4}.
+\]
+This is the model for the law of the rates in Chapter~\ref{b:ch:chain}: there the rates of the chain of $\zeta$ follow a law of the same kind (equation~\eqref{eq:ch21:ratelaw}), with the counting function of the zeros of $\zeta$ in place of the linear count of the model, and the semiclassical argument of Chapter~\ref{l:ch:bohr} has the display above as its simplest instance.
+
+\subsection{The heat flow: an equilibrium}
+
+With point masses at $\pm1$ for the kernel, the heat flow multiplies the kernel by $e^{tv^2}=e^t$, so
+\[
+H_t(z)=e^t\cos z .
+\]
+The zeros do not move. Equally spaced zeros are an equilibrium of the particle system of Section~\ref{t:sec:heat}, because the forces from the two sides cancel in pairs. In the model the constant of de Bruijn and Newman is $-\infty$: the zeros are real for every $t$. For $\Xi$ the zeros are not equally spaced, the flow moves them, and running the flow backward produces collisions. The model shows what the flow is trying to reach, and the theorem of Rodgers and Tao says that $\Xi$ has not arrived.
+
+\subsection{A planted failure}\label{e:sec:toy}
+
+Now spoil the model. Fix $d=0.4$ and $g=3$, put $\omega=d+ig$, and let
+\[
+\varphi_c(\tau)=\frac{1}{\cosh\tau\;Q(\tau)},\qquad Q(\tau)=\Big(1-\frac{\tau^2}{\omega^2}\Big)\Big(1-\frac{\tau^2}{\bar\omega^2}\Big).
+\]
+On the real axis $Q=|1-\tau^2/\omega^2|^2>0$. The new function has, besides the poles of $1/\cosh$, a quadruple of poles at $\pm d\pm ig$. In the language of zeros of $\Xi$ this is a quadruple at $\pm g\pm id$: four zeros off the real axis at height $3$, which lies between $\gamma_1=1.571$ and $\gamma_2=4.712$. So there is exactly one real zero below the planted quadruple, $m=1$ in the notation of Theorem~\ref{p:thm:detect}, and the theorem predicts that the function $F_c$ with Fourier transform $\varphi_c$ fails rung $m+1=2$. It should not be log concave.
+
+\begin{proposition}\label{e:prop:toy}
+For the planted model, as $x\to\infty$,
+\[
+\big(\log F_c\big)''(x)=A\,e^{-(g-\gamma_1)x}\cos\big(dx+\theta\big)+O\big(e^{-2(g-\gamma_1)x}\big),
+\]
+with $A=6.5594$, $\theta=1.2117$ and $g-\gamma_1=1.4292$. In particular $(\log F_c)''$ changes sign infinitely often, at points spaced asymptotically $\pi/d=7.854$ apart, and $F_c$ is not PF$_2$ (proved, with the constants computed).
+\end{proposition}
+
+\begin{proof}
+Closing the contour in the lower half plane gives, for $x>0$,
+\[
+F_c(x)=c_1e^{-\gamma_1x}+a\,e^{-\lambda x}+\bar a\,e^{-\bar\lambda x}+O\big(e^{-\gamma_2x}\big),\qquad\lambda=g+id,
+\]
+with $c_1>0$ and $a\ne0$ the residue coefficients. Apply \eqref{e:eq:wr} to the three leading terms. The two pairs that contain the real exponent contribute $2\Re\big[c_1a(\lambda-\gamma_1)^2e^{-(\gamma_1+\lambda)x}\big]$. The pair $(\lambda,\bar\lambda)$ contributes a term of order $e^{-2gx}$. Divide by $F_c^2=c_1^2e^{-2\gamma_1x}\big(1+O(e^{-(g-\gamma_1)x})\big)$. The pair $(\lambda,\bar\lambda)$ and the correction to $F_c^2$ both give terms of order $e^{-2(g-\gamma_1)x}$, and the terms with $\gamma_2$ are smaller still, since $\gamma_2-\gamma_1=\pi$ exceeds $2(g-\gamma_1)=2.858$. This gives the stated form with $A=2|a|\,|\lambda-\gamma_1|^2/c_1$ and $\theta=-\arg\big(a(\lambda-\gamma_1)^2\big)$. The residues are $c_1=1.80948$ and $a=-0.50000-2.64752\,i$, which give the constants.
+\end{proof}
+
+Table~\ref{e:tab:toy} compares the proposition with direct quadrature of the Fourier integral (computed). Up to $x=8$ the function looks log concave, and a test confined to that range would pass. The first sign change is at $x=8.75$, where $F_c$ has fallen to about $2\times10^{-6}$. The negative values return at $x=16.61$.
+
+\begin{table}[ht]
+\centering\small
+\caption{The planted model: the second rung fails in the far field. The last column is the leading term of Proposition~\ref{e:prop:toy}.}\label{e:tab:toy}
+\begin{tabular}{@{}rlll@{}}
+\toprule
+$x$ & $F_c(x)$ & $(\log F_c)''(x)$ & leading term\\
+\midrule
+$0$ & $0.379448$ & $-1.17439$ & \\
+$2$ & $6.70157\times10^{-2}$ & $-0.230916$ & \\
+$4$ & $3.34676\times10^{-3}$ & $-2.08387\times10^{-2}$ & \\
+$6$ & $1.45981\times10^{-4}$ & $-1.10437\times10^{-3}$ & $-1.10365\times10^{-3}$\\
+$8$ & $6.31032\times10^{-6}$ & $-2.10329\times10^{-5}$ & $-2.1033\times10^{-5}$\\
+$9$ & $1.31178\times10^{-6}$ & $+1.68556\times10^{-6}$ & $+1.68559\times10^{-6}$\\
+$10$ & $2.72692\times10^{-7}$ & $+1.95011\times10^{-6}$ & $+1.95012\times10^{-6}$\\
+$12$ & $1.17841\times10^{-8}$ & $+2.25068\times10^{-7}$ & $+2.25068\times10^{-7}$\\
+$17$ & $4.57462\times10^{-12}$ & $-2.89093\times10^{-11}$ & $-2.89093\times10^{-11}$\\
+$20$ & $4.10951\times10^{-14}$ & $-2.47185\times10^{-12}$ & $-2.47185\times10^{-12}$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Four lessons can be read from the table, and each is a small version of a result in Chapter~\ref{p:ch:path}.
+
+\paragraph{The failure is in the far field.} Near the origin the planted model is indistinguishable in shape from the true one. A zero off the line does not disturb the bulk of the density. It adds a faint oscillation to the tail, and the test must reach the tail to see it.
+
+\paragraph{The failure is periodic.} The sign of the minor is the sign of $\cos(dx+\theta)$. The spacing of the sign changes is $\pi/d$, where $d$ is the distance of the zero from the line. This is the detection scale of Corollary~\ref{p:cor:scale}: a zero close to the line produces a slow oscillation, and one must look over a window of length about $\pi/d$ to be sure of meeting a negative value.
+
+\paragraph{The rung is $m+1$.} With one real zero below the quadruple, the first rung holds, since $F_c$ is positive, and the second fails. Had a single quadruple been planted between $\gamma_2$ and $\gamma_3$, the leading two terms of \eqref{e:eq:wr} would again be real with opposite signs, the second rung would hold in the far field, and the failure would move to the third. That is the detection rung theorem, with its hypotheses of simple zeros and one quadruple.
+
+\paragraph{The cost grows with the gap.} The oscillating term is smaller than the density by the factor $e^{-(g-\gamma_1)x}$. For the control function, with $43$ zeros below the first quadruple, the quadruple sits far higher above the lowest zero, the factor is far smaller, and this is why a failing minor of order $44$ is so small.
+
+\subsection{The planted model in the other languages}
+
+\paragraph{Thorin measure.} In the variable $u=\tau^2$ the quadruple is a conjugate pair of zeros of $G_c$ at $u=-\lambda_c$ and its conjugate, with $\lambda_c=-\omega^2=8.84-2.4\,i$. The Thorin measure has a pair of unit atoms at complex positions. It is not a positive measure on the half line, and $T$ is no longer a GGC. The pair sits between the real atoms $\lambda_1=2.467$ and $\lambda_2=22.21$.
+
+\paragraph{The chain.} The power sums are still real, $s_n=\sum_k\lambda_k^{-(n+1)}+2\Re\lambda_c^{-(n+1)}$, and the rates can be computed from them by the determinant formulas of Section~\ref{t:sec:moments}. Table~\ref{e:tab:chain} shows the result (computed, in $300$ digits). The fifth and seventh rates are negative. So the chain detects the planted pair at level $5$, in line with the rule of Section~\ref{b:sec:toy} that a pair above the $k$th zero is detected near level $2k$ plus a small constant. Beyond the disturbance the rates are positive again, at every level computed.
+
+\begin{table}[ht]
+\centering\footnotesize\setlength{\tabcolsep}{4pt}
+\caption{Rates of the chain for the cosine and for the planted model.}\label{e:tab:chain}
+\begin{tabular}{@{}rrrrrrrrr@{}}
+\toprule
+$j$ & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8\\
+\midrule
+cosine & $0.3333$ & $0.0667$ & $0.0286$ & $0.0159$ & $0.0101$ & $0.0070$ & $0.0051$ & $0.0039$\\
+planted & $0.2634$ & $0.1024$ & $0.1080$ & $0.0193$ & $-0.0238$ & $0.2427$ & $-0.0777$ & $0.0106$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Comparison.} The density sees the pair at rung $2$ but only where $F_c$ is of size $10^{-6}$. The chain sees it at level $5$ with numbers of ordinary size, but each level costs digits. This trade is the same for $\zeta$ and for the control, at a larger scale, and the choice between the two instruments is the practical question of the programme in Chapter~\ref{chap:conclusions}.
+
+\subsection{What the model teaches and where it stops}
+
+The model shows that the tools are sound. Each one certifies the cosine and each one rejects the planted model, at the depth and in the manner that the general theorems predict. It also shows what a proof of RH along these lines would have to look like: an argument that produces the positivity of every rung, or of every rate, from the structure of $\xi$.
+
+For the cosine that argument exists, and it is short. The zeros are real because $\cos$ is a characteristic function of a coin, or because $T$ is half an exit time whose eigenvalue expansion is known, or because Lambert's fraction has an explicit positive form. Each of these is a structural reason. For $\xi$ the corresponding structure would have to be an arithmetic one, and it is exactly what separates $\zeta$ from the control: the control has a gamma factor of the same shape and the same kind of functional equation, and it fails. Whatever proves positivity must therefore use something the control lacks, and the Euler product is the obvious candidate. Chapters~\ref{n:ch:nakamura} and~\ref{g:ch:gammaprimes} set out how the primes enter, and Chapter~\ref{h:ch:chains} follows the Euler product from the region where it converges down toward the critical line.
+
+The model stops being a guide at one point. Its zeros are equally spaced, so its heat flow is stationary and its chain is smooth. The zeros of $\zeta$ have fluctuating gaps, with near collisions at the Lehmer pairs, and the difficulty of the real problem lies in those fluctuations. The smooth part of the real chain is a deformation of the model, described by the law of Chapter~\ref{l:ch:bohr}, whose status is stated there. The fluctuating part is where the primes act, and it is the part that remains open.

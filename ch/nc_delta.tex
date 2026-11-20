@@ -5,7 +5,7 @@
 
 This chapter carries the level $\alpha$ dictionary of the preceding chapter on Iwaniec's approach (Theorem~\ref{iw:thm:dictionary}) to Ramanujan's discriminant form $\Delta$, whose $L$ function $L(s,\Delta)=\sum\tau(n)n^{-s}$ has the same shape as $\zeta$ with every ingredient explicit: the kernel is a product, its log concavity is a two line computation, and Deligne's bound makes the Euler product positive in the sense of the sine squared lemma. It is assembled from unrefereed notes of Polson (November 2026) after a referee's reading, and only what survived that reading is kept. What is new relative to the book is Delta as an admissible $L$ function with the corrected L\'evy density, the Deligne compound Poisson remark, the Delta tables, a positivity argument by pairing zeros, the sphere identity for the kernel of $\Delta$, the Tur\'an table, a truncation test, and Ramanujan's lost notebook formula as a density. The de Bruijn Newman flow for $\Delta$ in Thorin form, is in Section~\ref{sec:ch16:flowthorin}, next to the flow of Section~\ref{sec:ch16:dbn}.
 
-Every result carries one of the status words proved, computed, conditional, heuristic or open. The unrefereed zero free half plane of \cite{OAI26a} is never used as a theorem. No priority is claimed for anything below, and the identities that are classical (Jacobi's identity, the Hadamard product, Deligne's theorem) are credited as such. The answer to the question whether any of this is a path to the Riemann hypothesis for $\Delta$ is no (Section~\ref{dl:sec:path}).
+Every result carries one of the status words proved, computed, conditional, heuristic or open. The zero free half plane of \cite{OAI26a} is a theorem and is cited as one. No priority is claimed for anything below, and the identities that are classical (Jacobi's identity, the Hadamard product, Deligne's theorem) are credited as such. The answer to the question whether any of this is a path to the Riemann hypothesis for $\Delta$ is no (Section~\ref{dl:sec:path}).
 
 \section{Setting and the dictionary for \texorpdfstring{$\Delta$}{Delta}}\label{dl:sec:setting}
 
@@ -43,7 +43,10 @@ The descent from a higher level to a lower one is the Cauchy semigroup $\tilde u
 As in Proposition~\ref{prop:dbeta:arg} for $\chi_4$, for $\alpha>\Theta_\Delta$,
 \[U_\alpha((0,R^2])=\int_0^R\tilde u_\alpha(r)\,dr=\frac1\pi\arg\Lambda(\alpha+iR),\]
 with the argument continuous from $\Lambda(\alpha)>0$, and Stirling's formula gives
-\[U_\alpha((0,R^2])=\frac R\pi\log\frac R{2\pi e}+\frac{2\alpha-1}4+S_\alpha(R)+O(R^{-1}),\qquad S_\alpha(R)=\frac1\pi\arg L(\alpha+iR,\Delta),\]
+\begin{gather*}
+U_\alpha((0,R^2])=\frac R\pi\log\frac R{2\pi e}+\frac{2\alpha-1}4+S_\alpha(R)+O(R^{-1}),\\
+S_\alpha(R)=\frac1\pi\arg L(\alpha+iR,\Delta),
+\end{gather*}
 with $S_\alpha$ bounded for $\alpha>\frac{13}2$ (proved). So at every level the Thorin measure counts the zeros, each spread over a Cauchy window of width $\alpha-\beta_\rho$, and $\alpha\ge\Theta_\Delta$ exactly when $r\mapsto\arg\Lambda(\alpha'+ir)$ is nondecreasing for every $\alpha'>\alpha$. Under $\mathrm{RH}_\Delta$ the limit $\alpha\downarrow6$ is the Riemann von Mangoldt formula. Table~\ref{dl:tab:arg} gives the decomposition (computed, $110$ digits; for $\alpha=7$ the last column agrees with the Euler product over the primes below $10^5$ to $4\times10^{-4}$). This remark is from an unrefereed note of Polson (November 2026), with the table recomputed.
 \end{remark}
 
@@ -601,6 +604,34 @@ Numerically $f_Z(0)=0.2270675$ and $\operatorname{Var}Z=4.3408$, the latter equa
 \begin{remark}[$Z$ is not infinitely divisible]\label{dl:rem:Zid}
 An infinitely divisible characteristic function has no real zeros, but $\mathbb Ee^{itZ}$ contains the factor $\Xi(t/2)^2$, which vanishes at $t=2\gamma_\rho$ for every zero $\frac12+i\gamma_\rho$ on the critical line, the first at $t=28.27$. So neither $Z$ nor $\frac12(U_1+U_2)$ is EGGC (proved), and no EGGC representation of $1/\Xi$ transfers to $1/\mathbb Ee^{itZ}$. The P\'olya pair, unlike $Z$, has no obvious such obstruction, but no result of this chapter bears on it.
 \end{remark}
+
+Ramanujan also stated, and Hardy and Littlewood proved under hypotheses on the zeros \cite{HL16}, a transformation formula under $x\mapsto\pi/x$ for the M\"obius series $\sum_n\frac{\mu(n)}ne^{-x^2/n^2}$, whose sum over the zeros carries the factors $\Gamma(\frac{1-\rho}2)/\zeta'(\rho)$ \cite[Section 9.8]{Titchmarsh}. The Gaussian is its own Fourier transform, and so is the hyperbolic secant. An unrefereed note of Polson (November 2026) gives the secant form, in which the gamma factors cancel and no hypothesis is needed. We found no earlier source for it; for analogues of the formula with Dirichlet characters see \cite{DRZ16}. Write $\beta(s)=L(s,\chi_4)$ and, for $x>0$,
+\[
+Q(x)=\sum_{n\ge1}\frac{\mu(n)}n\sech\frac xn=\sum_{n\ge1}\frac{\mu(n)}n\Big(\sech\frac xn-1\Big),
+\]
+the second series converging absolutely.
+
+\begin{proposition}[A secant form of Ramanujan's M\"obius formula]\label{dl:prop:sechram}
+There are heights $T_j\to\infty$ such that for every $x>0$
+\[
+Q(x)=\frac\pi x\,Q\Big(\frac{\pi^2}x\Big)-\lim_{j\to\infty}\sum_{|\im\rho|<T_j}\operatorname*{Res}_{s=\rho}\frac{\beta(s)}{\cos(\frac{\pi s}2)\,\zeta(s)}\Big(\frac{2\pi}x\Big)^s,
+\]
+the sum running over the nontrivial zeros $\rho$ of $\zeta$; at a simple zero the residue is $\beta(\rho)(2\pi/x)^\rho/(\cos(\frac{\pi\rho}2)\zeta'(\rho))$. Status: proved, and computed.
+\end{proposition}
+
+\begin{proof}
+The Mellin transform of $\sech$ is $2\Gamma(s)\beta(s)$, so termwise integration of the absolutely convergent series gives $\int_0^\infty x^{s-1}Q(x)\,dx=2\Gamma(s)\beta(s)/\zeta(1-s)$ for $-2<\re s<0$. By the functional equation $\zeta(1-s)=2(2\pi)^{-s}\cos(\frac{\pi s}2)\Gamma(s)\zeta(s)$ the gamma factors cancel, and Mellin inversion on a line $\re s=c$ with $-1<c<0$ gives
+\[
+Q(x)=\frac1{2\pi i}\int_{(c)}\frac{\beta(s)}{\cos(\frac{\pi s}2)\,\zeta(s)}\Big(\frac{2\pi}x\Big)^s\,ds .
+\]
+Move the line to $\re s=2$ along heights $T_j$ with $1/\zeta(\sigma+iT_j)\ll T_j^A$ for $-1\le\sigma\le2$ \cite[Theorem 9.7]{Titchmarsh}. The horizontal segments vanish in the limit because $1/\cos(\frac{\pi s}2)$ decays like $e^{-\pi|t|/2}$, and the integrand is regular at $s=0$ and at $s=1$, where the zero of the cosine meets the pole of $\zeta$, so only the nontrivial zeros are crossed. On $\re s=2$ expand $\beta(s)/\zeta(s)=\sum_m(\mu*\chi_4)(m)m^{-s}$ and use, for $w>0$,
+\[
+\frac1{2\pi i}\int_{(2)}\frac{w^{-s}}{\cos(\frac{\pi s}2)}\,ds=-\frac2\pi\,\frac1{w(1+w^2)},
+\]
+the Mellin inversion of $\int_0^\infty w^{s-2}(1+w^2)^{-1}dw=-\frac\pi2/\cos(\frac{\pi s}2)$ on $1<\re s<3$. With $m=nj$ and $v=2\pi/(xn)$ the integral becomes $-\frac4x\sum_n\frac{\mu(n)}n\sum_{j\ \mathrm{odd}}\frac{\chi_4(j)}j\,\frac{v^2}{v^2+j^2}$, absolutely convergent, and $\beta(1)=\frac\pi4$ with the partial fractions $\sum_{j\ \mathrm{odd}}\chi_4(j)\,j/(j^2+v^2)=\frac\pi4\sech\frac{\pi v}2$ turn it into $\frac\pi x\sum_n\frac{\mu(n)}n\big(\sech\frac{\pi^2}{xn}-1\big)=\frac\pi x\,Q\big(\frac{\pi^2}x\big)$.
+\end{proof}
+
+The zero sum is damped by $e^{-\pi|\gamma|/2}$, against $e^{-\pi|\gamma|/4}$ in Ramanujan's formula, and at the self dual point $x=\pi$ it vanishes. With the first seven pairs of zeros the residue sum reproduces $Q(x)-\frac\pi xQ(\frac{\pi^2}x)$, which is $2.91983\times10^{-9}$ at $x=1$, $-4.52076\times10^{-10}$ at $x=2$ and $-1.24074\times10^{-9}$ at $x=10$, to six digits, while $Q(1)=-0.274679806897$ and the dual term is $-\pi^5/(2\zeta(3)x^3)+O(x^{-5})\approx-127.3\,x^{-3}$ (computed). The secant is an average of Gaussians, $\sech t=\mathbb E\,e^{-t^2\tau/2}$ for the sech clock $\tau$ of Section~\ref{ri:sec:cauchy}. So $Q(x)$ is Ramanujan's series $\sum_n\frac{\mu(n)}ne^{-y/n^2}$ averaged at the random argument $y=\frac12x^2\tau$, the interchange being justified because the partial sums of that series are bounded by $2$ uniformly in $y\ge0$ (proved). The Mellin transform of the same average in $t$, with the duplication formula, gives $\mathbb E(\pi\tau/2)^{-s/2}=(4/\pi)^{(s+1)/2}\Gamma(\frac{s+1}2)\beta(s)$ for every complex $s$, the $\chi_4$ analogue of the identity $2\xi(s)=\mathbb E[(\pi S_2/2)^{s/2}]$ of Biane, Pitman and Yor \cite{BPY01} (proved). As for Riesz's criterion (Section~\ref{wr:sec:riesz}), $Q(x)=O(x^{-1/2+\varepsilon})$ for every $\varepsilon>0$ if RH holds. Conversely the bound makes $2\Gamma(s)\beta(s)/\zeta(1-s)$ analytic on $0<\re s<\frac12$, so every zero of $\zeta$ with $\re\rho>\frac12$ is then a zero of $\beta$ (proved). The secant kernel changes the damping, not the M\"obius signs.
 
 \section{Is this a path?}\label{dl:sec:path}
 

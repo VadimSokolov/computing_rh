@@ -1,0 +1,830 @@
+% Chapter of Volume III, "Random walk maxima, the Cauchy process and the Gamma function". Sources: misc/reviews/nick-cauchy-walk/cauchy_walk_chapter/chapter_cauchy_walk_gamma.tex 47-574 (Sections 1 and 3 reduced to the new parts, Section 9 to cross references, Section 11 to a pointer to bsy:thm:bsy plus the table, status list and Code and Notes cut); report misc/research/directions/opus/vol3/CWALK.md (M1 to M7 and minors), misc/vol3/verify/CWALK/results.md; 17 Nov 2026. Extended 18 Nov 2026 with the new and partly new material of Nick's revised chapter misc/reviews/nick-cauchy-walk-v2/cauchy_walk_chapter/chapter_cauchy_walk_gamma.tex (1121 lines; v2 lines 251-291, 318-371, 539-555 and 636-1111), report misc/research/directions/opus/vol3/CWALK2.md (M1 to M4 and minors), decision misc/vol3/QRH78_DECISION.md (7/8 is a theorem, OAI26a). Results the book already has are cited, not reprinted (M1). % UNCHECKED: Darling 1956, Bingham 1973, Lubinsky, Mhaskar and Saff 1988, Hinkkanen 1997 and Baluyot 2017 are named without \cite because neither ch/bib.tex nor misc/vol3/bib_new.tex has a verified entry.
+\label{cw:ch:cwalk}
+
+Binet's function $J$, the remainder in Stirling's formula, is the Pollaczek and Spitzer exponent of a Cauchy random walk. This chapter reads Stirling, Binet and Robbins as statements about the maximum and the ladder heights of that walk, and then asks whether a walk can do for $\zeta$ what the Cauchy walk does for $\Gamma$. The answer is no under stated hypotheses, and the computation that shows it, the exact negative mass of the walk built from the Euler product, locates the wall at $\sigma=1$. The entry point is the paper of Comtet and Majumdar~\cite{ComtetMajumdar05} on the expected maximum of a random walk, which the book treats in Proposition~\ref{cg:prop:spitzer}. The identity of the Cauchy walk with Binet's function, the monitoring theorem, the Gaussian continued fraction, the obstruction theorem, the prime walks, the negative mass, the exact law of the supremum of the Cauchy process, the fine mesh series, the growth law of the continued fraction coefficients, the level profile and the windows of half width one are from an unrefereed note of Polson (November 2026). Where that note restates what the book already has (the Poisson functional, the ledger split, the positivity criterion, localisation and mass accounting) the label is cited and only the new part is kept. We have not checked these results against the literature on stable suprema, and no priority is claimed. The maximum of a walk is an extreme value statistic of the kind studied in Chapter~\ref{chap:maxwald} and Section~\ref{ev:sec:decomp}. Nothing here proves the Riemann Hypothesis or a zero free region, and Section~\ref{cw:sec:path} says so.
+
+Status words follow the book: proved, computed (floating point, or Monte Carlo where stated), conditional, open. A value marked computed that is not accompanied by a precision was checked to the digits printed. Every walk below has independent steps $\xi_n$ with a symmetric law, partial sums $x_n=x_{n-1}+\xi_n$, $x_0=0$, and maximum $M_n=\max(0,x_1,\dots,x_n)$. The Laplace variable is $\lambda>0$ (the letter $\rho$ is reserved for zeros of $\zeta$), and $v^2=\E\xi^2$ when it is finite.
+
+\section{The Comtet and Majumdar constant, and one exact case}\label{cw:sec:cm}
+
+When the step law has a continuous symmetric density $f$ with characteristic function $\hat f$ and $v^2<\infty$, Comtet and Majumdar prove
+\begin{equation}\label{cw:eq:cm}
+\frac{\E M_n}{v}=\sqrt{\frac{2n}{\pi}}+C_{\mathrm{CM}}+O(n^{-1/2}),\qquad
+C_{\mathrm{CM}}=\frac{1}{\pi\sqrt2}\int_0^\infty\frac{dk}{k^2}\ln\Big[\frac{1-\hat f(\sqrt2k/v)}{k^2}\Big].
+\end{equation}
+For Laplace steps $C_{\mathrm{CM}}=-1/\sqrt2$, and for Gaussian steps $C_{\mathrm{CM}}=\zeta(\tfrac12)/\sqrt{2\pi}=-0.5825971579$ (computed, 10 digits, and reproduced independently). For symmetric stable steps of index $\mu\in(1,2]$ the constant is the Mellin value $\Gamma(1-\tfrac1\mu)\zeta(1-\tfrac1\mu)/\pi=\zeta(1/\mu)/((2\pi)^{1/\mu}\sin(\pi/2\mu))$, which is Proposition~\ref{cg:prop:spitzer} and Proposition~\ref{cg:prop:mellin}, including the two normalisations of the Gaussian case ($-0.82392$ and $-0.58260$). The Gaussian case is the case $\mu=2$.
+
+The one new exact formula is for Laplace steps, where Spitzer's identity and Kac's formula give, for every $n\ge0$,
+\begin{equation}\label{cw:eq:laplace}
+\E M_n=-1+\frac{2}{\sqrt\pi}\,\frac{\Gamma(n+\frac32)}{\Gamma(n+1)}.
+\end{equation}
+It agrees with $\sum_{k\le n}\E[x_k^+]/k$ at $n=1,2,3,10$ (computed). The walk is thus a Binet computation: by Stirling,
+\[
+\frac{\Gamma(n+\frac32)}{\Gamma(n+1)\sqrt n}=1+\frac{3}{8n}-\frac{7}{128n^2}+O(n^{-3}),
+\]
+and the coefficient $-7/128$ is confirmed at $n=10^6$ (computed). Truncating after the terms in $n^{-1}$ and $n^{-2}$ gives errors $1.9\times10^{-3}$ and $3.2\times10^{-5}$ in $\E M_n$ at $n=10$, and $6.2\times10^{-5}$ and $9.9\times10^{-8}$ at $n=100$ (computed).
+
+\section{Gaussian steps, Euler Maclaurin and Stirling}\label{cw:sec:gauss}
+
+For unit Gaussian steps Kac's formula $\E M_n=\sum_{k\le n}\E[x_k^+]/k$ with $\E x_k^+=\sqrt{k/2\pi}$ gives, exactly,
+\[
+\E M_n=\frac{1}{\sqrt{2\pi}}\sum_{k=1}^nk^{-1/2}=\frac{1}{\sqrt{2\pi}}\Big(\zeta(\tfrac12)-\zeta(\tfrac12,n+1)\Big),
+\]
+and Euler Maclaurin gives the full expansion
+\begin{equation}\label{cw:eq:gauss}
+\E M_n=\frac{1}{\sqrt{2\pi}}\Big[2\sqrt n+\zeta(\tfrac12)+\tfrac12n^{-1/2}-\tfrac1{24}n^{-3/2}+\tfrac1{384}n^{-7/2}-\cdots\Big],
+\end{equation}
+with general term $-\frac{B_{2j}}{(2j)!}(\tfrac12)_{2j-1}n^{-2j+1/2}$ (proved). There is no $n^{-5/2}$ term. The first three terms are Proposition~\ref{cg:prop:spitzer} at $\mu=2$. The errors left after successive terms are as follows (computed, reproduced).
+\begin{center}
+\small
+\begin{tabular}{rllll}
+\toprule
+$n$ & after $\zeta(\frac12)$ & after $n^{-1/2}$ & after $n^{-3/2}$ & after $n^{-7/2}$\\
+\midrule
+10 & $6.3\times10^{-2}$ & $5.3\times10^{-4}$ & $3.3\times10^{-7}$ & $1.2\times10^{-9}$\\
+100 & $2.0\times10^{-2}$ & $1.7\times10^{-5}$ & $1.0\times10^{-10}$ & $3.9\times10^{-15}$\\
+\bottomrule
+\end{tabular}
+\end{center}
+Stirling is the same computation at $s=0$ after differentiation: $\ln n!=-\frac{d}{ds}\sum_{k\le n}k^{-s}\big|_{s=0}$, with constant $-\zeta'(0)=\tfrac12\ln2\pi$. In both cases the constant is the finite part of a divergent Dirichlet sum and the exact remainder is a Hurwitz value. The constant $-\zeta(\tfrac12)/\sqrt{2\pi}=0.5826$ is also the continuity correction for discretely monitored Brownian motion (Asmussen, Glynn and Pitman 1995; Broadie, Glasserman and Kou~\cite{BGK97}). Theorem~\ref{cw:thm:monitor} below is the Cauchy analogue.
+
+\section{Pollaczek, Spitzer, Wiener and Hopf}\label{cw:sec:ps}
+
+For symmetric continuous steps, with $\omega\in[0,1)$ a generating variable,
+\begin{equation}\label{cw:eq:ps}
+\sum_{n\ge0}\omega^n\E\big[e^{-\lambda M_n}\big]=\frac{\phi(\omega,\lambda)}{\sqrt{1-\omega}},\qquad
+\ln\phi(\omega,\lambda)=\frac\lambda\pi\int_0^\infty\frac{-\ln\big(1-\omega\hat f(k)\big)}{\lambda^2+k^2}\,dk .
+\end{equation}
+Spitzer's identity~\cite{Spitzer56} writes the same exponent as a series,
+\begin{equation}\label{cw:eq:spitzer}
+\ln\phi(\omega,\lambda)=\sum_{m\ge1}\frac{\omega^m}{m}\E\big[e^{-\lambda x_m};\,x_m>0\big],
+\end{equation}
+after $P(x_m>0)=\tfrac12$ absorbs $(1-\omega)^{-1/2}=\exp\sum_m\omega^m/(2m)$. Let $T_+=\inf\{n\ge1:x_n>0\}$ and $H_+=x_{T_+}$. Sparre Andersen's theorem gives $\E\omega^{T_+}=1-\sqrt{1-\omega}$, and the Wiener and Hopf factorisation at $\omega=1$ gives the third form,
+\begin{equation}\label{cw:eq:ladder}
+\phi(1,\lambda)=\frac{1}{1-\E e^{-\lambda H_+}},\qquad 1-\hat f(k)=\big|1-\E e^{ikH_+}\big|^2 .
+\end{equation}
+So $1-\E e^{-\lambda H_+}$ is the outer function in the right half plane with boundary modulus $\sqrt{1-\hat f}$, evaluated at $k=i\lambda$, and $\ln\phi(1,\lambda)$ is the Poisson integral of $-\frac12\ln(1-\hat f)$. Section~\ref{cw:sec:jump} uses this outer function reading.
+
+The coefficients of $(1-\omega)^{-1/2}$ are asymptotic to $1/\sqrt{\pi n}$, and $\E e^{-\lambda M_n}$ is decreasing in $n$. By Karamata's Tauberian theorem for monotone sequences~\cite{BGT87}, whenever $\phi(\omega,\lambda)$ is continuous at $\omega=1$,
+\begin{equation}\label{cw:eq:tauber}
+\lim_{n\to\infty}\sqrt{\pi n}\,\E\big[e^{-\lambda M_n}\big]=\phi(1,\lambda).
+\end{equation}
+As $\lambda\to\infty$ the limit is 1, which is the Sparre Andersen law $P(M_n=0)\sim1/\sqrt{\pi n}$.
+
+Two checks. For Laplace steps $\hat f=1/(1+k^2)$, so $-\ln(1-\hat f)=\ln(1+k^{-2})$, and the classical integral $\frac\lambda\pi\int_0^\infty\ln(1+a^2/k^2)(\lambda^2+k^2)^{-1}dk=\ln(1+a/\lambda)$ gives $\phi(1,\lambda)=1+1/\lambda$. Hence $\E e^{-\lambda H_+}=1/(1+\lambda)$: the ladder height is standard exponential, the memoryless overshoot one expects. For unit Gaussian steps, quadrature of~\eqref{cw:eq:ps} gives $(1/\phi(1,\lambda))/\lambda=0.7071027$ at $\lambda=10^{-5}$ (computed), matching Spitzer's $\E H_+=1/\sqrt2$.
+
+\section{The Cauchy walk and Binet's function}\label{cw:sec:cauchy}
+
+Binet's function is $J(\lambda)=\ln\Gamma(\lambda)-(\lambda-\tfrac12)\ln\lambda+\lambda-\tfrac12\ln2\pi$, the remainder in Stirling's formula. Binet's two formulas~\cite[\S5.9]{DLMF} are, for $\lambda>0$,
+\begin{align}
+J(\lambda)&=\int_0^\infty e^{-\lambda x}\Big(\frac1{e^x-1}-\frac1x+\frac12\Big)\frac{dx}{x},\label{cw:eq:binet1}\\
+J(\lambda)&=\frac1\pi\int_0^\infty\frac{\lambda}{\lambda^2+k^2}\ln\frac{1}{1-e^{-2\pi k}}\,dk.\label{cw:eq:binet2}
+\end{align}
+
+\begin{theorem}[proved]\label{cw:thm:cauchy}
+Let the steps be Cauchy with scale $2\pi$, so $\hat f(k)=e^{-2\pi|k|}$. Then:
+\begin{enumerate}
+\item $\ln\phi(1,\lambda)=J(\lambda)$, and~\eqref{cw:eq:ps} at $\omega=1$ is Binet's second formula~\eqref{cw:eq:binet2};
+\item Spitzer's series~\eqref{cw:eq:spitzer} at $\omega=1$ is Binet's first formula~\eqref{cw:eq:binet1};
+\item $\E e^{-\lambda H_+}=1-e^{-J(\lambda)}=1-\sqrt{2\pi}\,\lambda^{\lambda-1/2}e^{-\lambda}/\Gamma(\lambda)$;
+\item $\lim_n\sqrt{\pi n}\,\E e^{-\lambda M_n}=e^{J(\lambda)}=\Gamma(\lambda+1)\big/\big(\sqrt{2\pi\lambda}\,(\lambda/e)^\lambda\big)$;
+\item $P(H_+>x)\sim\sqrt{2/x}$ as $x\to\infty$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Part 1 is the substitution $\hat f=e^{-2\pi k}$, $\omega=1$ in~\eqref{cw:eq:ps}. For part 2, $x_m$ is Cauchy with scale $2\pi m$, so $\E[e^{-\lambda x_m};x_m>0]=\int_0^\infty e^{-\lambda x}\,2m\,(4\pi^2m^2+x^2)^{-1}dx$, and
+\[
+\sum_{m\ge1}\frac{2}{x^2+4\pi^2m^2}=\frac1x\Big(\frac1{e^x-1}-\frac1x+\frac12\Big)
+\]
+turns~\eqref{cw:eq:spitzer} into~\eqref{cw:eq:binet1}. Part 3 is~\eqref{cw:eq:ladder}. Part 4 is~\eqref{cw:eq:tauber}: the logarithmic singularity of $\ln(1-\omega e^{-2\pi k})$ at $k=0$, $\omega=1$ is integrable against $\lambda/(\lambda^2+k^2)$, which gives continuity at $\omega=1$. For part 5, $J(\lambda)=-\tfrac12\ln(2\pi\lambda)+O(\lambda\ln\lambda)$ as $\lambda\to0$, so $1-\E e^{-\lambda H_+}\sim\sqrt{2\pi\lambda}=\Gamma(\tfrac12)\sqrt2\lambda^{1/2}$, and the Tauberian theorem for Laplace transforms (the distribution function of $H_+$ is monotone) gives the tail.
+\end{proof}
+
+\begin{corollary}[proved]\label{cw:cor:robbins}
+$e^{-J}$ is a Bernstein function, and $e^{J}$ is the Laplace transform of the ascending ladder renewal measure $U=\sum_{j\ge0}P(H_1+\cdots+H_j\in\cdot)$ of the Cauchy walk. Stirling's correction factor $n!/(\sqrt{2\pi n}(n/e)^n)$ equals $\int e^{-nx}U(dx)$, and Robbins' bounds~\cite{Robbins55}, $e^{1/(12n+1)}<e^{J(n)}<e^{1/(12n)}$, are bounds on this renewal transform.
+\end{corollary}
+
+Numerical checks (computed). The Spitzer series, the Pollaczek integral and $J$ agree to fifteen digits at $\lambda=0.5,1,2$, and $1-e^{-J}$ takes the values $0.14224$, $0.077863$, $0.040498$ there (reproduced). Monte Carlo used $2\times10^5$ walks run to the first positive value and capped at $10^5$ steps; $0.17\%$ were censored (theory $0.18\%$), and since $e^{-\lambda H}\in(0,1]$ adding the censored fraction brackets the estimate. The sampling error, about $5\times10^{-4}$ at this sample size, is comparable to the width of the brackets, so they confirm the theory only to about three digits.
+% UNVERIFIED: the Monte Carlo brackets were not reproduced by the independent check; the theory columns, the tail probabilities (to 0.1450, 0.0449, 0.0141) and the n = 400 values were.
+\begin{center}
+\small
+\begin{tabular}{rll}
+\toprule
+$\lambda$ & bracket for $\E e^{-\lambda H_+}$ & $1-e^{-J(\lambda)}$\\
+\midrule
+0.5 & $[0.1418,\,0.1434]$ & 0.1422\\
+1 & $[0.0777,\,0.0793]$ & 0.0779\\
+2 & $[0.0404,\,0.0421]$ & 0.0405\\
+\bottomrule
+\end{tabular}
+\quad
+\begin{tabular}{rll}
+\toprule
+$x$ & $P(H_+>x)$ & $\sqrt{2/x}$\\
+\midrule
+$10^2$ & 0.1450 & 0.1414\\
+$10^3$ & 0.0449 & 0.0447\\
+$10^4$ & 0.0141 & 0.0141\\
+\bottomrule
+\end{tabular}
+\end{center}
+For part 4, $\sqrt{\pi n}\,\widehat\E e^{-\lambda M_n}$ at $n=400$ was $1.166$, $1.085$, $1.042$ for $\lambda=0.5,1,2$ (exact, from the Spitzer coefficients), against $e^{J(\lambda)}=1.166$, $1.084$, $1.042$; the gaps, $6\times10^{-4}$, $10^{-4}$, $10^{-4}$, are of the $O(n^{-1/2})$ size of the Comtet and Majumdar correction.
+
+\section{Stirling as continuous monitoring of the Cauchy process}\label{cw:sec:monitor}
+
+The Cauchy walk of scale $2\pi$ is the symmetric Cauchy process $C$, with $\E e^{ikC_t}=e^{-2\pi t|k|}$, observed at integer times. It is also Brownian motion on a clock of first passage times: with $B,W$ independent Brownian motions and $\tau_t=\inf\{u:W_u=2\pi t\}$, $C_t=B(\tau_t)$, because $\E e^{-\lambda\tau_t}=e^{-2\pi t\sqrt{2\lambda}}$ and $\lambda=k^2/2$. Let $M^{(h)}_t=\max\{0,C_h,C_{2h},\dots\}$ up to time $t$ (monitoring at mesh $h$) and $S_t=\sup_{u\le t}C_u$.
+
+\begin{theorem}[proved]\label{cw:thm:monitor}
+For every mesh $h>0$ and $\lambda>0$,
+\[
+L_h(\lambda):=\lim_{t\to\infty}\sqrt{\pi t}\;\E e^{-\lambda M^{(h)}_t}=\sqrt h\,e^{J(\lambda h)}=\frac{1}{\sqrt{2\pi\lambda}}\;\Gamma(1+x)\Big(\frac ex\Big)^x,\qquad x=\lambda h,
+\]
+and $L_h(\lambda)\to1/\sqrt{2\pi\lambda}$ as $h\to0$. For continuous monitoring, $L_0(\lambda):=\lim_t\sqrt{\pi t}\,\E e^{-\lambda S_t}=1/\sqrt{2\pi\lambda}$, equivalently
+\[
+P(S_1\le x)\sim\frac{2}{\pi\sqrt{2\pi}}\sqrt x\quad(x\to0),
+\]
+which for the standard Cauchy process reads $P(\sup_{[0,1]}\le y)\sim\frac2\pi\sqrt y$. The ratio of discrete to continuous monitoring is
+\[
+\frac{L_h(\lambda)}{L_0(\lambda)}=\Gamma(1+x)\Big(\frac ex\Big)^x=\sqrt{2\pi x}\,e^{J(x)}.
+\]
+\end{theorem}
+
+\begin{proof}
+Monitoring at mesh $h$ sees increments that are Cauchy with scale $2\pi h$, that is $h$ times a scale $2\pi$ Cauchy variable. So $M^{(h)}_t\overset{d}{=}hM'_{t/h}$ with $M'$ the maximum of the scale $2\pi$ walk, and Theorem~\ref{cw:thm:cauchy} part 4 with $n=t/h$ and $\lambda h$ in place of $\lambda$ gives $\sqrt{\pi t/h}\,\E e^{-\lambda hM'_{t/h}}\to e^{J(\lambda h)}$. Multiply by $\sqrt h$. The limit $h\to0$ uses $J(x)=-\tfrac12\ln(2\pi x)+o(1)$.
+
+For the continuous statement no interchange of limits is needed. For a symmetric L\'evy process with exponent $\Psi$ and an independent exponential time $e_\kappa$ of rate $\kappa$, $\ln\E e^{-\lambda S_{e_\kappa}}=-\frac\lambda\pi\int_0^\infty\ln(1+\Psi(k)/\kappa)(\lambda^2+k^2)^{-1}dk$. With $\Psi(k)=2\pi k$ and $k=\lambda v$ this is $-I(a)$, $a=\lambda/\kappa$, $I(a)=\frac1\pi\int_0^\infty\ln(1+2\pi av)(1+v^2)^{-1}dv=\frac12\ln(2\pi a)+o(1)$, using $\int_0^\infty\ln v\,(1+v^2)^{-1}dv=0$. By self similarity $S_t\overset{d}{=}tS_1$, so with $\varphi(\theta)=\E e^{-\theta S_1}$ we have $\E e^{-\lambda S_{e_\kappa}}=\int_0^\infty e^{-u}\varphi(au)\,du\sim(2\pi a)^{-1/2}$. Since $\varphi$ is monotone, Karamata's Tauberian theorem gives $\varphi(\theta)\sim\theta^{-1/2}/(\pi\sqrt2)$, hence $\sqrt{\pi t}\,\varphi(\lambda t)\to1/\sqrt{2\pi\lambda}$, and a second application gives the small ball law.
+\end{proof}
+
+Numerically $e^{-I(a)}\sqrt{2\pi a}=0.99951$ at $a=10^3$ (reproduced), and $L_h(1)=1.0844$, $0.5281$, $0.4196$, $0.4019$ at $h=1,0.1,0.01,0.001$ (computed, reproduced), approaching $1/\sqrt{2\pi}=0.3989$.
+% UNVERIFIED: the draft also prints e^{-I(a)} sqrt(2 pi a) = 0.9999927 and 0.9999999 at a = 10^5 and 10^7; omitted here because the check reproduced only a = 10^3. The draft printed L_h(1) = 0.4195 at h = 0.01; the check gives 0.4196.
+The exponent $\frac12$ in the small ball law is consistent with the classical results of Darling (1956) and Bingham (1973) on suprema of stable processes. We have not checked whether the constant itself, or Theorem~\ref{cw:thm:cauchy}, appears there.
+
+So Stirling's leading term $\sqrt{2\pi x}(x/e)^x$ is continuous monitoring, the factorial is discrete monitoring, and Binet's $J$ is the monitoring correction. This is the Cauchy counterpart of the Brownian constant $-\zeta(\tfrac12)/\sqrt{2\pi}$ of Section~\ref{cw:sec:gauss}.
+
+\subsection{The exact law of the supremum}\label{cw:sec:darling}
+The continuous Wiener and Hopf factor can be continued analytically, and this gives the law of the supremum in closed form. State it for the standard Cauchy process $C^\circ$ (scale 1) with $S^\circ=\sup_{[0,1]}C^\circ$; for scale $2\pi$ replace $y$ by $x/2\pi$.
+
+\begin{theorem}[proved]\label{cw:thm:darling}
+$S^\circ$ has density
+\[
+g(y)=\frac1\pi\,y^{-1/2}(1+y^2)^{-3/4}\exp\Big(-\frac1\pi\int_0^{1/y}\frac{\ln w}{1+w^2}\,dw\Big),\qquad y>0 .
+\]
+Consequently:
+\begin{enumerate}
+\item $g$ is strictly decreasing, with $g(y)\sim\frac1\pi y^{-1/2}$ as $y\to0$ and $g(y)\sim\frac1{\pi y^2}$ as $y\to\infty$;
+\item $P(S^\circ\le y)=\dfrac2\pi\sqrt y+y^{3/2}\Big[\dfrac2{3\pi^2}\ln\dfrac1y+\dfrac{10}{9\pi^2}\Big]+O\big(y^{5/2}\ln^2\tfrac1y\big)$;
+\item the exponential factor lies between 1 and $e^{G/\pi}=1.33852$, with $G$ Catalan's constant, the maximum being at $y=1$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+By the argument of the proof of Theorem~\ref{cw:thm:monitor} with $\Psi(k)=k$, $\E[(1+aS^\circ)^{-1}]=e^{-I(a)}$ with $I(b)=\frac1\pi\int_0^\infty\ln(1+bv)(1+v^2)^{-1}dv$, since $\int_0^\infty e^{-u}e^{-auS}du=(1+aS)^{-1}$. So $z^{-1}e^{-I(1/z)}$ is the Stieltjes transform $\int g(y)(y+z)^{-1}dy$, and $I$ is analytic off the negative real axis. For $b=-B\mp i0$, $B>0$, the logarithm $\ln(1+bv)$ equals $\ln|1-Bv|$, minus or plus $i\pi$ on the range $v>1/B$, so $I(-B\mp i0)=R(B)\mp i\arctan B$ with
+\[
+R(B)=\tfrac14\ln(1+B^2)+\frac1\pi\int_0^B\frac{\ln w}{1+w^2}\,dw .
+\]
+Stieltjes inversion at $z=-y$, $B=1/y$, gives $g(y)=\frac1{\pi y}e^{-R(B)}\sin(\arctan B)$, which is the stated formula. For part 1,
+\[
+\frac{d}{dy}\ln g=-\frac1{2y}-\frac{3y}{2(1+y^2)}+\frac{\ln(1/y)}{\pi(1+y^2)}<0,
+\]
+because $y\ln(1/y)\le1/e<\pi/2$. Part 2 follows from $\int_0^B\frac{\ln w}{1+w^2}dw=-\frac{\ln B+1}B+O(B^{-3}\ln B)$ and integration. Part 3: the integral is minimal at $B=1$, where it equals $-G$.
+\end{proof}
+
+The formula has the shape of the classical result of Darling (1956) on suprema of stable processes, obtained there by a different route. We have not compared it with that paper, and no priority is claimed. Checks (computed): the density integrates to 1 within $4\times10^{-14}$, and $\E[(1+aS^\circ)^{-1}]$ computed from $g$ equals $e^{-I(a)}$ to twelve digits at $a=0.5$ and $3$. At $y=0.01$ the distribution function is $0.0640870$, against $0.0636620$ from the first term of part 2 and $0.0640856$ from two terms.
+
+So the factor $1/\sqrt{2\pi\lambda}$ of Stirling is the Laplace asymptotics of an explicit law, and the supremum density is decreasing. The ladder height density $h$ of the discrete walk is decreasing as well (Proposition~\ref{cw:prop:density}).
+
+\subsection{The fine mesh series}
+The monitoring ratio has two expansions, one for each regime of the mesh. For a coarse mesh, $x=\lambda h\to\infty$, it is $\sqrt{2\pi x}\,e^{J(x)}$ with the divergent Stirling series for $J$. For a fine mesh, $x<1$, the Taylor series $\ln\Gamma(1+x)=-\gamma_Ex+\sum_{k\ge2}(-1)^k\zeta(k)x^k/k$ gives the convergent expansion (proved)
+\begin{equation}\label{cw:eq:finemesh}
+\frac{L_h(\lambda)}{L_0(\lambda)}=\exp\Big(x\ln\frac1x+(1-\gamma_E)x+\sum_{k\ge2}\frac{(-1)^k\zeta(k)}kx^k\Big),
+\end{equation}
+which agrees with $\Gamma(1+x)(e/x)^x$ to fifteen digits at $x=0.1$ and $0.5$ (computed). So the monitoring correction is governed by Bernoulli numbers when the mesh is coarse and by the values $\zeta(k)$ when it is fine. Stirling's series and the Taylor series of $\ln\Gamma$ are the two ends of one monitoring problem.
+
+\section{Binet type functions of other walks, and the ladder height of the Cauchy walk}\label{cw:sec:gaussiancf}
+
+\subsection{A Stieltjes continued fraction for the Gaussian walk}
+For a symmetric walk with $0\le\hat f\le1$ the weight $w=-\ln(1-\hat f)$ is nonnegative, so $\ln\phi(1,\lambda)/\lambda$ is a Stieltjes function of $\lambda^2$. If all moments $m_j=\frac1\pi\int_0^\infty k^{2j}w(k)\,dk$ are finite (they are for the stable steps of Proposition~\ref{cw:prop:growth}), then $\ln\phi(1,\lambda)\sim\sum_j(-1)^jm_j\lambda^{-2j-1}$, and the associated continued fraction~\cite{Stieltjes94} $\ln\phi(1,\lambda)=b_0/(\lambda+b_1/(\lambda+\cdots))$ has all $b_j>0$. For the Cauchy walk $m_j=(2j)!\,\zeta(2j+2)/\big(\pi(2\pi)^{2j+1}\big)$, $m_0=\tfrac1{12}$, and the $b_j$ are Binet's $\tfrac1{12},\tfrac1{30},\tfrac{53}{210},\dots$.
+
+For unit Gaussian steps, expanding $-\ln(1-e^{-k^2/2})=\sum_ne^{-nk^2/2}/n$,
+\[
+m_j=\frac{\Gamma(j+\frac12)\,2^{j-1/2}\,\zeta(j+\frac32)}{\pi},\qquad m_0=\frac{\zeta(\frac32)}{\sqrt{2\pi}}=1.0421869788\ldots
+\]
+So the zeta function at half integers plays the role that $\zeta(2j+2)$ plays for Binet. The coefficients $b_j$ (computed at 60 digits and reproduced by an independent quotient difference run) are as follows.
+\begin{center}
+\small
+\begin{tabular}{rlrlrl}
+\toprule
+$j$ & $b_j$ & $j$ & $b_j$ & $j$ & $b_j$\\
+\midrule
+0 & 1.042187 & 5 & 4.758877 & 10 & 10.07072\\
+1 & 0.513512 & 6 & 6.060059 & 11 & 10.80622\\
+2 & 2.006229 & 7 & 6.781643 & 12 & 12.07356\\
+3 & 2.713667 & 8 & 8.066606 & 13 & 12.81395\\
+4 & 4.047588 & 9 & 8.796023 & & \\
+\bottomrule
+\end{tabular}
+\end{center}
+All are positive and they grow linearly in $j$, in pairs, against the quadratic growth $b_j\approx j^2/16$ for Binet (Proposition~\ref{cw:prop:growth} explains both). At $\lambda=5$ the fourteen level convergent agrees with quadrature ($0.2045231854593$) to eleven digits (computed). One consequence: the Gaussian ladder height has density $\zeta(\tfrac32)/\sqrt{2\pi}$ at $0^+$, since $1-e^{-\ln\phi}\sim m_0/\lambda$.
+
+\subsection{The growth law}\label{cw:sec:growth}
+The moments are exact for every symmetric stable walk. The asymptotics of the $b_j$ rest on Freud asymptotics, which do not quite cover the weight, so that part is conditional.
+
+\begin{proposition}[moments proved; asymptotics conditional on Freud asymptotics]\label{cw:prop:growth}
+Let the steps be symmetric stable with $\hat f(k)=e^{-c|k|^\beta}$, $0<\beta\le2$. Then
+\[
+m_j=\frac{\Gamma\big(\frac{2j+1}\beta\big)\,\zeta\big(1+\frac{2j+1}\beta\big)}{\pi\beta\,c^{(2j+1)/\beta}},
+\]
+the $b_j$ are the squared off diagonal entries of the Jacobi matrix of the even measure $\frac1{2\pi}w(|k|)\,dk$ on the line, and, granting Freud asymptotics for this weight,
+\[
+b_j\sim K_\beta\,j^{2/\beta},\qquad K_\beta=\Big[\frac{\Gamma(\beta/2)\Gamma(\beta/2+1)}{\Gamma(\beta+1)}\Big]^{2/\beta}c^{-2/\beta}.
+\]
+For the Cauchy walk of scale $2\pi$ this is $b_j\sim j^2/16$, and for unit Gaussian steps it is $b_j\sim j$.
+\end{proposition}
+
+\begin{proof}
+Expand $w=\sum_ne^{-nc|k|^\beta}/n$ and integrate term by term for $m_j$ (the weight has the tail $e^{-c|k|^\beta}$, so all its moments are finite although those of the step law are not). Since $\ln\phi(1,\lambda)=\lambda\int_{\mathbb R}(\lambda^2+k^2)^{-1}\mu(dk)$ with $\mu$ even, the continued fraction in $\lambda$ is the Stieltjes fraction of the image of $\mu$ under $k\mapsto k^2$, whose coefficients are the squares of the recurrence coefficients $\alpha_j$ of $\mu$. The weight satisfies $w(k)\sim e^{-c|k|^\beta}$ at infinity, and for Freud weights $e^{-c|x|^\beta}$ the theorem of Lubinsky, Mhaskar and Saff gives $\alpha_j\sim[\Gamma(\frac\beta2)\Gamma(\frac\beta2+1)/\Gamma(\beta+1)]^{1/\beta}(j/c)^{1/\beta}$.
+\end{proof}
+
+The weight $w$ has a logarithmic singularity at the origin, so the asymptotic is a derivation from the tail of the weight and not a complete proof (Open problem~\ref{cw:prob:growth}). The ratio $b_j/(K_\beta j^{2/\beta})$, computed at 200 digits, is as follows. The Cauchy and Gaussian rows were reproduced.
+% UNVERIFIED: the beta = 3/2 row was not reproduced by the independent check.
+\begin{center}
+\small
+\begin{tabular}{lllll}
+\toprule
+steps & $j=10$ & $j=20$ & $j=30$ & $j=45$\\
+\midrule
+Cauchy, scale $2\pi$ ($K=\frac1{16}$) & 1.0054 & 1.0026 & 1.0017 & 0.9987\\
+stable, $\beta=\frac32$, $c=1$ ($K=0.8017$) & 1.0071 & 1.0038 & 1.0026 & 0.9976\\
+Gaussian, $\sigma=1$ ($K=1$) & 1.0071 & 1.0040 & 1.0028 & 0.9968\\
+\bottomrule
+\end{tabular}
+\end{center}
+The index $j=45$ is odd, and the pairing of the coefficients lowers the ratio there (Gaussian: $b_{44}/44=1.0019$, $b_{45}/45=0.9968$). For the generalised Hermite weight $|x|^{2\mu}e^{-x^2/2}$ the squared recurrence coefficients are $j+2\mu$ for odd $j$ and $j$ for even $j$, and the logarithmic singularity of $w$ acts like a slowly varying negative $\mu$. This suggests the observed pattern for the Gaussian walk: $b_{2j}-2j$ rises slowly to about $0.08$, and $b_{2j+1}-(2j+1)$ is $-0.194$ at $j=5$ and $-0.146$ at $j=20$ (computed).
+
+\subsection{Bernstein but not complete Bernstein}
+A Bernstein function $g$ with $g(0)=0$, $g(\infty)=1$ is complete Bernstein exactly when its L\'evy measure has a completely monotone density; for $g=e^{-J}$ the L\'evy measure is the law of $H_+$, because $1-g$ is its Laplace transform. A complete Bernstein function extends analytically to $\cut$ with $\operatorname{Im}g(z)\ge0$ for $\operatorname{Im}z>0$~\cite{boSSV}.
+
+\begin{proposition}[proved]\label{cw:prop:notcbf}
+$e^{-J}$ is not a complete Bernstein function. Hence the ladder height of the Cauchy walk of scale $2\pi$ has no completely monotone density.
+\end{proposition}
+
+\begin{proof}
+$e^{-J(z)}=\sqrt{2\pi}\,z^{z-1/2}e^{-z}/\Gamma(z)$ is analytic off $(-\infty,0]$, and at $z=-2.75+0.25i$ it equals $1.030958-0.211414\,i$ (reproduced), with negative imaginary part.
+\end{proof}
+
+On a grid over the right half of the upper half plane the imaginary part stays positive on a $120\times120$ grid (computed; the grid minimum depends on the grid and tends to $0$ with $\operatorname{Im}z$, so no value is quoted); the failure comes from the left half plane, near the poles of $\Gamma$. The ladder height law is thus not a mixture of exponentials, even though its Laplace transform is built from $\Gamma$.
+
+\begin{proposition}[proved]\label{cw:prop:density}
+The ladder height of the Cauchy walk has a density $h$ with $h(0^+)=\frac1{12}$ and $h'(0^+)=-\frac1{288}$. It is decreasing on $(0,\infty)$, $h(x)\sim x^{-3/2}/\sqrt2$ as $x\to\infty$, and $h$ is not log concave. More generally the ascending ladder height of any symmetric walk with a unimodal step density has a decreasing density.
+\end{proposition}
+
+\begin{proof}
+By Theorem~\ref{cw:thm:cauchy}, $J$ is the Laplace transform of $j(x)=x^{-1}\big(\frac1{e^x-1}-\frac1x+\frac12\big)=\frac1{12}-\frac{x^2}{720}+\cdots$, and $1-e^{-J}=J-\frac12J^2+\cdots$ gives $h=j-\frac12j*j+\cdots$, so $h(0^+)=j(0)=\frac1{12}$ and $h'(0^+)=j'(0)-\frac12j(0)^2=-\frac1{288}$. For monotonicity use the classical formula for the first ladder height (Feller~\cite{Feller71}, Chapter XII): $h(x)=\int_{[0,\infty)}f(x+y)\,\psi(dy)$, where $f$ is the step density and $\psi$ is the occupation measure of the reflected walk before the first ascending ladder epoch, which equals the renewal measure of the weak descending ladder heights. If $f$ is symmetric and unimodal, $x\mapsto f(x+y)$ is decreasing on $x>0$ for every $y\ge0$, so $h$ is decreasing. The Cauchy density is unimodal. A decreasing density is ultimately monotone, so the monotone density theorem~\cite{BGT87} differentiates part 5 of Theorem~\ref{cw:thm:cauchy} to the stated tail, and a law with a power tail has no log concave density.
+\end{proof}
+
+Numerical inversion of $1-e^{-J}$ (Talbot contour) gives $h=0.07859$ at $x=1$ and $0.000753$ at $x=100$ (computed, reproduced); the last compares with $x^{-3/2}/\sqrt2=0.000707$. The values $0.08330$, $0.04851$, $0.02429$ at $x=0.01,5,10$ and the second differences of $\ln h$ ($-0.026$ near $x=2$ with step $1$, $+0.44$ near $x=40$ with step $20$, so log concave near the origin and log convex in the tail) are computed and reproduced.
+The decrease of $h$ at every point tested agrees with the proof.
+
+\section{The Euler product as a family of killed walks}\label{cw:sec:euler}
+
+\subsection{One prime, one walk}
+\begin{theorem}[proved]\label{cw:thm:primewalk}
+Fix a prime $p$ and $\sigma>0$. Let $Y$ be the simple symmetric random walk on the lattice $(\ln p)\mathbb Z$, killed independently at each step with survival probability
+\[
+s_p=\sech(\sigma\ln p)=\frac{2p^{-\sigma}}{1+p^{-2\sigma}} .
+\]
+Then:
+\begin{enumerate}
+\item $1-s_p\cos(k\ln p)=\dfrac{|1-p^{-\sigma-ik}|^2}{1+p^{-2\sigma}}$, so the Wiener and Hopf factors of $Y$ are the Euler factor $1-p^{-s}$ and its conjugate;
+\item the walk ever climbs one lattice step with probability $p^{-\sigma}$, so its ladder height is $\ln p$ with defect $1-p^{-\sigma}$;
+\item its all time maximum is $M_p=(\ln p)\,G_p$ with $P(G_p=j)=(1-p^{-\sigma})p^{-j\sigma}$, and $\E e^{-\lambda M_p}=\dfrac{1-p^{-\sigma}}{1-p^{-\sigma-\lambda}}$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Write $r=p^{-\sigma}$. Part 1 is $1+r^2-2r\cos\theta=|1-re^{i\theta}|^2$ divided by $1+r^2$. For part 2, a simple walk with survival $s$ reaches $+1$ with probability $(1-\sqrt{1-s^2})/s$; with $s=\sech a$, $a=\sigma\ln p$, this is $\cosh a-\sinh a=e^{-a}=r$. The Wiener and Hopf constant $\exp(-\sum_ns^nP(Y_n=0)/n)=(1+\sqrt{1-s^2})/2=1/(1+r^2)$ matches part 1. Part 3 is the geometric number of ladder steps.
+\end{proof}
+
+The hyperbolic secant of Proposition~\ref{rz:prop:lvj} thus enters the Euler product directly, as the survival probability of the prime walk. Numerically, at $p=3$, $\sigma=0.7$ the ladder probability is $0.4634631$, equal to $3^{-0.7}$ (computed).
+
+\subsection{Maxima add: the zeta law}
+For $\sigma>1$ let the prime walks be independent. Then $\sum_pM_p$ converges and
+\[
+\E\exp\Big(-\lambda\sum_pM_p\Big)=\prod_p\frac{1-p^{-\sigma}}{1-p^{-\sigma-\lambda}}=\frac{\zeta(\sigma+\lambda)}{\zeta(\sigma)} .
+\]
+This is the zeta law of Theorem~\ref{mw:thm:khinchin}: $\sum_pM_p=\ln N$ with $P(N=n)=n^{-\sigma}/\zeta(\sigma)$, and the $G_p$ are the prime exponents of $N$. So $\zeta$ is realised, for $\sigma>1$, by a positive object: not one walk, but the sum of the maxima of independent prime walks. With $10^5$ primes the product at $\sigma=1.5$, $\lambda=0.8$ is $0.548381$ against $\zeta(2.3)/\zeta(1.5)=0.548320$ (computed, reproduced). For $\sigma\le1$, $\sum_pP(M_p>0)=\sum_pp^{-\sigma}=\infty$, so by the second Borel and Cantelli lemma the sum is infinite almost surely.
+
+\subsection{Symbols multiply: the negative mass}
+Multiplying the symbols of Theorem~\ref{cw:thm:primewalk} gives, for $\sigma>1$,
+\begin{equation}\label{cw:eq:walkproduct}
+\frac{1}{|\zeta(\sigma+ik)|^2}=\frac{\zeta(2\sigma)}{\zeta(4\sigma)}\prod_p\Big[1-\sech(\sigma\ln p)\cos(k\ln p)\Big].
+\end{equation}
+At $\sigma=2$, $k=3.7$ the truncated product is $1.5714900$ and $1/|\zeta(2+3.7i)|^2=1.5714902$ (computed, reproduced). Expanding the product over a finite set $\mathcal P$ of primes writes it as $1-\hat g(k)$ for a signed step measure $g$ on logarithms of rationals, a quasi probability walk, and its masses can be computed exactly.
+
+\begin{theorem}[proved]\label{cw:thm:negmass}
+The signed measure $g_{\mathcal P}$ has positive mass $\frac12\big[\prod(1+s_p)-\prod(1-s_p)\big]$ and negative mass
+\[
+N_{\mathcal P}(\sigma)=\frac12\Big[\prod_{p\in\mathcal P}(1+s_p)+\prod_{p\in\mathcal P}(1-s_p)\Big]-1 .
+\]
+Over all primes, for $\sigma>1$,
+\[
+N(\sigma)=\frac12\Big[\frac{\zeta(\sigma)^2\zeta(4\sigma)}{\zeta(2\sigma)^3}+\frac{\zeta(4\sigma)}{\zeta(2\sigma)\zeta(\sigma)^2}\Big]-1,
+\qquad
+N(\sigma)\sim\frac{\zeta(4)}{2\zeta(2)^3}\,\frac{1}{(\sigma-1)^2}\quad(\sigma\downarrow1),
+\]
+and $N_{\mathcal P}(\sigma)\to\infty$ as $\mathcal P$ exhausts the primes whenever $\sigma\le1$.
+\end{theorem}
+
+\begin{proof}
+For a set $S$ of primes, $\prod_{p\in S}\cos(k\ln p)$ is the transform of the uniform law on the $2^{|S|}$ points $\sum_{p\in S}\pm\ln p$. By unique factorisation these points are distinct for distinct $S$ and sign patterns, so no cancellation occurs between terms. The term for $S$ enters $g$ with sign $(-1)^{|S|+1}$ and mass $\prod_{p\in S}s_p$; summing over odd and even $|S|$ gives the two masses. The closed form follows from $1+s_p=(1+r)^2/(1+r^2)$, $1-s_p=(1-r)^2/(1+r^2)$ and the Euler products of $\zeta(\sigma)/\zeta(2\sigma)$ and $\zeta(4\sigma)/\zeta(2\sigma)$. Divergence for $\sigma\le1$ follows from $\sum_ps_p=\infty$.
+\end{proof}
+
+The values of $N_{\mathcal P}(\sigma)$ for the first $10$, $100$, $1000$ and $10^5$ primes are as follows (computed, reproduced to the digits printed).
+\begin{center}
+\small
+\begin{tabular}{llllll}
+\toprule
+$\sigma$ & 10 primes & 100 & 1000 & $10^5$ & all primes\\
+\midrule
+2 & 0.2300 & 0.2424 & 0.2428 & 0.2429 & $17/70$\\
+1.5 & 0.811 & 1.020 & 1.053 & 1.060 & 1.0606\\
+1 & 3.99 & 14.5 & 30.2 & 75.5 & $\infty$\\
+0.75 & 11.8 & 514 & $5.7\times10^4$ & $7.3\times10^{11}$ & $\infty$\\
+0.5 & 48.3 & $9.0\times10^6$ & $1.1\times10^{21}$ & $1.2\times10^{168}$ & $\infty$\\
+\bottomrule
+\end{tabular}
+\end{center}
+At $\sigma=2$ the value $17/70$ is exact (it equals $87/70-1$). Near the pole, $N(\sigma)(\sigma-1)^2=0.12211$ at $\sigma=1.001$ against the limit $\zeta(4)/(2\zeta(2)^3)=0.12159$ (computed). At $\sigma=\frac12$ the prime number theorem gives $\sum_{p\le X}s_p=(4+o(1))\sqrt X/\ln X$, so the negative mass grows like $\exp((4+o(1))\sqrt X/\ln X)$ in the largest prime $X$, consistent with the entry $1.2\times10^{168}$.
+
+So the quasi probability walk exists, with finite masses, exactly in the half plane of absolute convergence $\sigma>1$, and its negative mass has a double pole at $\sigma=1$. There is also a simpler reason that no finite signed walk reaches the strip. For a finite signed measure $g$ the symbol $1-\hat g$ is bounded, whereas $1/|\zeta|^2$ is unbounded on $\operatorname{Re}s=\sigma$ for $\sigma\in(\frac12,1]$ (this follows from the universality theorem of Voronin, and for $\sigma=1$ from the classical $\Omega$ results; Titchmarsh~\cite{Titchmarsh}, Chapter~11 for the first).
+% UNCHECKED: the pinpoint Titchmarsh Chapter 11 (Voronin universality, second edition) and the unboundedness of 1/zeta on Re s = sigma in (1/2,1] were not checked against the printed text.
+The wall for walks built from the raw Euler product is $\sigma=1$, not $\sigma=\frac12$.
+
+\subsection{The compensator is Chebyshev's error}
+The zeta law is infinitely divisible with L\'evy measure $\nu_\sigma=\sum_n\frac{\Lambda(n)}{\ln n}n^{-\sigma}\delta_{\ln n}$. By the prime number theorem its continuous counterpart is $\bar\nu_\sigma(du)=e^{(1-\sigma)u}u^{-1}du$, the L\'evy measure of the pole: replacing prime powers by their density replaces $\zeta(s)$ by $1/(s-1)$. This is the monitoring picture of Section~\ref{cw:sec:monitor} at the arithmetic place, discrete monitoring at the meshes $\ln p$ against continuous monitoring. Formally, after regularising at $u=0$ (both measures have a non integrable singularity there, and the difference does not),
+\[
+\ln\big[(s-1)\zeta(s)\big]=\int_0^\infty e^{-(s-\sigma)u}\,(\nu_\sigma-\bar\nu_\sigma)(du)+\text{const},
+\]
+where
+\[
+(\nu_\sigma-\bar\nu_\sigma)(du)=\frac{e^{-\sigma u}}{u}\,d\big(\psi(e^u)-e^u\big).
+\]
+The measure $e^{-\sigma u}u^{-1}d(\psi(e^u)-e^u)$ is not locally finite at $u=0$, so the classical statement is about convergence at infinity.
+
+The compensated measure has masses that can be compared with those of Theorem~\ref{cw:thm:negmass}; the double pole of that theorem is not addressed here. Truncate at $u\le\ln X$. Its positive part has mass $P(X)=\sum_{n\le X}\Lambda(n)n^{-\sigma}/\ln n$ and its negative part has mass $Q(X)=\int_2^Xt^{-\sigma}dt/\ln t$. Both grow like $X^{1-\sigma}/((1-\sigma)\ln X)$ for $\sigma<1$, whatever the zeros do. Compensation does not remove the negativity; it makes the difference converge. This is the cancellation ledger of Chapter~\ref{bo:ch:ledger} (Theorem~\ref{bo:thm:ledger}, part 3) seen through its masses (computed).
+\begin{center}
+\small
+\begin{tabular}{llllll}
+\toprule
+$\sigma$ & $X$ & $P(X)$ & $Q(X)$ & net $P-Q$ & $X^{1/2-\sigma}$\\
+\midrule
+0.75 & $10^3$ & 5.2426 & 5.0027 & 0.2399 & 0.178\\
+ & $10^5$ & 10.3873 & 10.1451 & 0.2422 & 0.056\\
+ & $10^7$ & 21.2737 & 21.0329 & 0.2408 & 0.018\\
+0.55 & $10^3$ & 11.1998 & 10.9370 & 0.2628 & 0.708\\
+ & $10^5$ & 46.4877 & 46.2110 & 0.2767 & 0.562\\
+ & $10^7$ & 236.3093 & 236.0537 & 0.2556 & 0.447\\
+\bottomrule
+\end{tabular}
+\end{center}
+The masses diverge and the net converges, with fluctuations that shrink at $\sigma=0.75$ and persist at $\sigma=0.55$, on the scale $X^{1/2-\sigma}$ that RH predicts. In the strip the relevant quantity is the net mass, not the negative mass. The net converges for $\sigma>\Theta$, the supremum of the real parts of the zeros, with error $O(X^{\Theta-\sigma+\varepsilon})$ (classical), and that is Chebyshev's error again. By the theorem of \cite{OAI26a}, $\Theta\le\frac78$, so the convergence is proved for $\sigma>\frac78$. Both rows of the table lie below that line, so the convergence seen there is computed.
+
+\begin{proposition}[classical]\label{cw:prop:reduction}
+RH holds if and only if $\int_{\ln2}^\infty e^{-\sigma u}u^{-1}\,d(\psi(e^u)-e^u)$ converges for every $\sigma>\frac12$, if and only if $\psi(x)-x=O(x^{1/2+\varepsilon})$ for every $\varepsilon>0$.
+\end{proposition}
+
+This is the abscissa of convergence statement for the Chebyshev error; see Titchmarsh~\cite{Titchmarsh}, Chapter~14, and Ingham~\cite{Ingham32}. % UNCHECKED: pinpoint (Titchmarsh 14.25 or Ingham, Chapter on the zeros) not verified.
+Its place in this chapter is the following. At the archimedean place the monitoring correction is Binet's $J$, a positive object with a positive continued fraction. At the arithmetic place it is Chebyshev's error, a signed object, and Theorem~\ref{lg:thm:psi} writes it as a M\"obius sum of Stirling remainders. The $2\sin^2$ lemma of~\eqref{eq:sin2} converts its signed L\'evy form into a Thorin statement about the reciprocal. The walk picture explains why the sign problem is unavoidable (Theorems~\ref{cw:thm:obstruction} and~\ref{cw:thm:negmass}) and why it sits at $\sigma=1$ for walks but at $\sigma=\frac12$ for the compensated reciprocal.
+
+\section{Is there a symmetric jump law for $\zeta$?}\label{cw:sec:jump}
+
+\subsection{The question and its relation to the Thorin programme}
+The Thorin question for the reciprocal asks that $\xi(\frac12)/\xi(\frac12+\sqrt s)=\prod_k(1+s/\gamma_k^2)^{-1}$ be a generalised gamma convolution with Thorin atoms $\gamma_k^2$, which is RH (Proposition~\ref{bsy:prop:eggc}); Bondesson's letter on the Gamma function is Chapter~\ref{bo:ch:bondesson}. Binet's $J$ carries three positivity statements, each now with a walk behind it: complete monotonicity (the positive terms of Spitzer's series), the Stieltjes property of $J(\lambda)/\lambda$ in $\lambda^2$ (a Poisson integral of a nonnegative weight, hence the positive continued fraction), and the Bernstein property of $e^{-J}$ (a ladder height exponent). The analogue for $\zeta$ of the second statement is the Thorin question; the question here is whether it can come from a walk. The Mellin transform of the Bose kernel $1/(e^x-1)-1/x$ on $0<\operatorname{Re}s<1$ is $\Gamma(s)\zeta(s)$ (Proposition~\ref{cg:prop:mellin}), and real step laws reach only real $s$.
+
+Let $F(s)=\zeta(s)(s-1)/s$: analytic on $\operatorname{Re}s>\tfrac12$, $F\to1$ as $\operatorname{Re}s\to\infty$, $|F(\tfrac12+it)|=|\zeta(\tfrac12+it)|$. We ask for a symmetric continuous step law with $1-\E e^{-\lambda H_+}=B(\lambda)F(\sigma+\lambda)$, $\sigma\ge\frac12$, for an explicit smooth factor $B$. By~\eqref{cw:eq:ladder} this forces
+\begin{equation}\label{cw:eq:target}
+1-\hat f(k)=m(k)|\zeta(\sigma+ik)|^2,\qquad m(k)=|B(-ik)|^2\Big|\frac{\sigma-1+ik}{\sigma+ik}\Big|^2 .
+\end{equation}
+At $k=0$ the left side vanishes, and $\zeta(\sigma)\ne0$ for real $\sigma\ge\frac12$, so $m(0)=0$ for every admissible law: the point $k=0$ is excluded from every hypothesis below. At $\sigma=\frac12$ the Pollaczek exponent of such a walk would equal $-\ln B-\ln F$ exactly when $F$ is outer on $\operatorname{Re}s>\frac12$ and $B$ is outer, which is RH.
+
+\subsection{The obstruction}
+\begin{theorem}[proved for (a) and for (b) at $\sigma>1$; (b) at $\frac12<\sigma\le1$ rests on the twisted mean value~\eqref{cw:eq:twisted}]\label{cw:thm:obstruction}
+No nondegenerate symmetric step law satisfies~\eqref{cw:eq:target} if either
+\begin{enumerate}
+\item[(a)] $\sigma=\frac12$ and $0<m(k)<\infty$ for all $k\ne0$; or
+\item[(b)] $\sigma>\frac12$ and $m(k)\to m_\infty\in[0,\infty)$ as $|k|\to\infty$.
+\end{enumerate}
+\end{theorem}
+Without a hypothesis of this kind the statement is empty: for $\sigma>1$ any symmetric law $X$ satisfies~\eqref{cw:eq:target} with $m:=(1-\hat f)/|\zeta(\sigma+ik)|^2$, so the restriction on $m$ is the whole content. In particular the theorem does not say that no symmetric step law realises $\zeta$.
+
+\begin{proof}
+(a) At each zero $\frac12+i\gamma$, $\gamma>0$, we have $m(\gamma)\in(0,\infty)$, so $\hat f(\gamma)=1$, which forces the law onto the lattice $(2\pi/\gamma)\mathbb Z$. Fix one zero $\gamma_1$ and put $h=2\pi/\gamma_1$. Then $\hat f$ has period $\gamma_1$, so $\hat f(n\gamma_1)=1$ and $m(n\gamma_1)|\zeta(\frac12+in\gamma_1)|^2=0$ for every $n\ge1$. Since $m(n\gamma_1)>0$, $\zeta(\frac12+in\gamma_1)=0$ for every $n\ge1$, contradicting Putnam~\cite{Putnam54}. The degenerate law would give $1-\hat f\equiv0$.
+
+(b) For any law,
+\[
+\frac1T\int_T^{2T}(1-\operatorname{Re}\hat f)\,dk=\E\Big[1-\frac{\sin2TX-\sin TX}{TX}\Big]\to P(X\ne0),
+\]
+and for symmetric $X$ and $x\ne0$, $P(X=x)=\lim\frac1T\int_0^T\hat f(k)\cos(kx)\,dk$. We use two mean values of $\zeta$: for $\sigma>\frac12$ and rational $q>1$,
+\begin{equation}\label{cw:eq:twisted}
+\frac1T\int_0^T|\zeta(\sigma+ik)|^2dk\to\zeta(2\sigma),\quad
+\frac1T\int_0^T|\zeta(\sigma+ik)|^2\cos(k\ln q)\,dk\to\sum_{a/b=q}(ab)^{-\sigma}>0,
+\end{equation}
+the second sum equal to $2^{-\sigma}\zeta(2\sigma)$ at $q=2$. For $\sigma>1$ both follow from the absolute convergence of the Dirichlet series. For $\frac12<\sigma\le1$ the first is Titchmarsh~\cite{Titchmarsh}, Chapter~7 (the untwisted mean). The twisted mean is not in that chapter; it follows from the approximation $\zeta(s)=\sum_{n\le x}n^{-s}+O(x^{-\sigma})$ for $x\asymp T$ (Titchmarsh, Theorem 4.11) and the mean value theorem for Dirichlet polynomials of Montgomery and Vaughan, and we use it in this form.
+% UNCHECKED: the twisted mean value for 1/2 < sigma <= 1 has no printed source in ch/bib.tex (the Montgomery and Vaughan theorem is not in the bibliography); the argument is the referee's sketch (CWALK.md, M7), not verified here.
+If $m_\infty=0$ the Ces\`aro mean of $m|\zeta|^2$ vanishes, so $P(X\ne0)=0$. If $m_\infty>0$, $(m-m_\infty)|\zeta|^2$ has mean zero, and $P(X=\ln2)=-m_\infty2^{-\sigma}\zeta(2\sigma)<0$.
+\end{proof}
+
+\begin{remark}
+Positive Dirichlet coefficients of $|\zeta|^2$ become atoms of the step law at logarithms of rationals with the wrong sign. For real coefficients $a(p)$ and a multiplicative series supported on three or more primes and $\sigma$ large, two of $a(p_1),a(p_2),a(p_3)$ share a sign, so the coefficient of $|A|^2$ at $\ln(p_ip_j)$ is positive and the atom of the corresponding step law is negative. For $1/\zeta$ and $\sigma>1$ the coefficient of $|1/\zeta|^2$ at $\ln(q_1/q_2)$, $q_1,q_2$ coprime, is $\mu(q_1)\mu(q_2)(q_1q_2)^{-\sigma}\sum_{(t,q_1q_2)=1}\mu(t)^2t^{-2\sigma}$. At $\ln6$ this coefficient is positive ($\mu(6)=+1$; $+0.0278$ at $\sigma=2$) and at $\ln2$ it is negative ($-0.2536$ at $\sigma=2$). The step law $f$ with $1-\hat f=m|1/\zeta|^2$ has the opposite signs: its atom at $\ln6$ is negative and its atom at $\ln2$ is positive. It is the step law, not the Dirichlet coefficient, that has the negative atom at $\ln6$.
+\end{remark}
+
+Means over $[0,T]$ on a grid of step $0.02$ confirm the signs of~\eqref{cw:eq:twisted} (computed).
+\begin{center}
+\small
+\begin{tabular}{llllll}
+\toprule
+$\sigma$ & $T$ & mean $|\zeta|^2$ & $\zeta(2\sigma)$ & at $\ln2$ & $2^{-\sigma}\zeta(2\sigma)$\\
+\midrule
+1.5 & 400 & 1.2040 & 1.2021 & 0.4287 & 0.4250\\
+0.75 & 1000 & 2.386 & 2.612 & 1.365 & 1.553\\
+\bottomrule
+\end{tabular}
+\end{center}
+At $\sigma=0.75$ the slow convergence is the second mean value term $\frac{\zeta(2-2\sigma)}{2-2\sigma}(\frac T{2\pi})^{1-2\sigma}$, which predicts $2.381$ against the observed $2.386$ (computed, reproduced).
+
+\section{The Poisson functional}\label{cw:sec:bsy}
+
+The Pollaczek exponent of Section~\ref{cw:sec:ps} with $\ln|\zeta|$ in place of $-\frac12\ln(1-\hat f)$ is the Poisson functional of Balazard, Saias and Yor~\cite{BSY99}, and it needs no step law. We had stated it as a theorem of the chapter. It is Theorem~\ref{bsy:thm:bsy}, which is stronger: it holds at every point $s$ of the half plane and every level $\theta\in[\frac12,1)$, and its reflected factor $(s-1)/(s-2\theta+1)$ makes only $\ln|\zeta|$ appear on the line. The Brownian reading, $\ln|F|$ as a martingale up to the critical line and a strict submartingale if a zero lies to its right, is Proposition~\ref{bsy:prop:yor}. The Green function reading is the form $G_\theta$ of the theorem. Only the numerics are kept here, in the notation of that theorem at $\theta=\frac12$, where $h_{1/2}(s)=(s-1)\zeta(s)/s$. Write $F=h_{1/2}$ and, for a Poisson scale $a>0$,
+\[
+D(a):=\frac a\pi\int_{-\infty}^\infty\frac{\ln|\zeta(\frac12+it)|}{a^2+t^2}\,dt-\ln\big|F(\tfrac12+a)\big|=\sum_{\operatorname{Re}\rho>1/2}G_{1/2}\big(\tfrac12+a,\rho\big)\ge0 .
+\]
+It vanishes if and only if RH holds, and $a=\frac12$ is the Balazard, Saias and Yor case. Truncating the integral at height $T$ gives the following table.
+\begin{center}
+\small
+\begin{tabular}{lllll}
+\toprule
+level & $a$ & Poisson integral & $\ln|F(\sigma_0+a)|$ & difference\\
+\midrule
+$\frac12$, $T=300$ & 0.5 & $1.3\times10^{-6}$ & 0 & $1.3\times10^{-6}$\\
+ & 1 & $-0.1383498$ & $-0.1383524$ & $2.6\times10^{-6}$\\
+ & 2 & $-0.2170415$ & $-0.2170467$ & $5.2\times10^{-6}$\\
+$\frac12$, $T=1000$ & 0.5 & & 0 & $3.1\times10^{-8}$\\
+ & 1 & & $-0.1383524$ & $6.2\times10^{-8}$\\
+ & 2 & & $-0.2170467$ & $1.2\times10^{-7}$\\
+$1$, $T=4000$ & 0.5 & $-0.13835237$ & $-0.13835238$ & $1.3\times10^{-8}$\\
+ & 1 & $-0.19544685$ & $-0.19544688$ & $2.6\times10^{-8}$\\
+ & 2 & $-0.22143088$ & $-0.22143093$ & $5.2\times10^{-8}$\\
+\bottomrule
+\end{tabular}
+\end{center}
+The rows are computed in floating point, and the last column is the truncated functional, to be compared with 0. The level 1 rows use the same $F=(s-1)\zeta(s)/s$ with the Poisson integral on $\operatorname{Re}s=1$, where the identity $D\equiv0$ holds because $F$ has no zeros in $\operatorname{Re}s>1$ (the proof of Theorem~\ref{bsy:thm:bsy} applies; Theorem~\ref{bsy:thm:bsy} itself is stated for $\theta<1$). They test the method on an identity known to hold: their differences are pure truncation error, growing linearly in $a$. On the critical line the difference falls from $1.3\times10^{-6}$ at $T=300$ (138 zeros) to $3.1\times10^{-8}$ at $T=1000$ (649 zeros). The computation is consistent with $D=0$ to the accuracy of the truncation, and cannot say more. The truncated Balazard, Saias and Yor integral and its error are studied by Bui, Lester and Milinovich~\cite{BLM14}, and the defects at the levels $\frac12$, $\frac34$ and $\frac78$ are Table~\ref{bsy:tab:defects}.
+
+Three limits should be stated plainly. First, the theorem is an equivalence, not a method: proving $D(a_0)=0$ requires the mean of $\ln|\zeta|$ on the line against a Cauchy weight, exactly, and no unconditional evaluation of that mean is known. Second, a numerical bound on $D$ gives only a weak zero free region (Remark~\ref{cw:rem:zerofree}). Third, a zero at height $\gamma$ contributes about $2a\beta/\gamma^2$ to $D$, so high zeros are nearly invisible to it; the functional is dominated by low zeros, which are already verified to lie on the line.
+
+\begin{remark}[proved, elementary]\label{cw:rem:zerofree}
+If $D(a)\le\varepsilon$, a zero $\frac12+\beta+i\gamma$ with $0<\beta\le2a$ contributes at most $\varepsilon$ to the sum, so $4a\beta\le(e^{2\varepsilon}-1)\big((a-\beta)^2+\gamma^2\big)\le(e^{2\varepsilon}-1)(a^2+\gamma^2)$, that is $\beta\le(e^{2\varepsilon}-1)(a^2+\gamma^2)/(4a)$. This is a rigorous zero free region only when $\varepsilon$ is a rigorous upper bound for $D(a)$, and a truncated floating point value is not one.
+\end{remark}
+
+\subsection{The level profile}\label{cw:sec:profile}
+Theorem~\ref{bsy:thm:bsy} moves the level $\theta$ and changes the reflected factor with it. For the profile below the function is fixed, $F=h_{1/2}$, and only the level moves. Its zeros in the half plane $\operatorname{Re}s>\sigma_0$ are the zeros of $\zeta$ with $\beta>\sigma_0$, it is bounded by $1+|s-1|/\operatorname{Re}s$ there, and $F(s)/(1+s-\sigma_0)^2$ is bounded, so the proof of Theorem~\ref{bsy:thm:bsy} applies verbatim in each half plane. Write the zeros as $\rho=\sigma_0+\beta+i\gamma$ with $\beta>0$, and for $z=\sigma_0+a+it_0$ with $a>0$ put
+\[
+D_{\sigma_0}(z):=\frac a\pi\int_{-\infty}^\infty\frac{\ln|F(\sigma_0+it)|}{a^2+(t-t_0)^2}\,dt-\ln|F(z)| .
+\]
+
+\begin{lemma}[proved]\label{cw:lem:level}
+For every $\sigma_0\ge\frac12$ and every $z=\sigma_0+a+it_0$ with $a>0$,
+\begin{equation}\label{cw:eq:level}
+D_{\sigma_0}(z)=\sum_{\beta>0}\frac12\ln\frac{(a+\beta)^2+(t_0-\gamma)^2}{(a-\beta)^2+(t_0-\gamma)^2}\ \ge0,
+\end{equation}
+the sum over the zeros $\sigma_0+\beta+i\gamma$, counted with multiplicity. It vanishes if and only if $\zeta$ has no zero with real part greater than $\sigma_0$, and $D_1\equiv0$.
+\end{lemma}
+
+This is the Blaschke factor of Theorem~\ref{bsy:thm:bsy} at the point $z$: its modulus is $|z-\rho|/|z-\rho^*|$ with $\rho^*$ the reflection of $\rho$ in the line. Write $D_{\sigma_0}(a)$ for $t_0=0$ and $D=D_{1/2}$, which is the function of the table above. By the theorem of \cite{OAI26a}, $D_{\sigma_0}\equiv0$ for every $\sigma_0\ge\frac78$.
+
+Fix a real point $x>1$ and define the level profile
+\[
+\Phi_x(\sigma_0):=\frac{x-\sigma_0}\pi\int_{-\infty}^\infty\frac{\ln|F(\sigma_0+it)|}{(x-\sigma_0)^2+t^2}\,dt=\ln|F(x)|+D_{\sigma_0}(x-\sigma_0),\qquad\tfrac12\le\sigma_0\le1 .
+\]
+It is the Cauchy average of $\ln|F|$ on the line $\operatorname{Re}s=\sigma_0$ as seen from $x$.
+
+\begin{theorem}[proved]\label{cw:thm:profile}
+Let $1<x\le14.13$. Then:
+\begin{enumerate}
+\item $\Phi_x$ is continuous, nonincreasing and convex on $[\frac12,1]$, and $\Phi_x(1)=\ln|F(x)|$;
+\item $\Phi_x$ has a corner at $\sigma_0=b$ exactly when $\zeta$ has a zero with real part $b>\frac12$, and it is constant on $[\Theta,1]$, where $\Theta$ is the supremum of the real parts of the zeros; by the theorem of \cite{OAI26a} it is constant on $[\frac78,1]$;
+\item RH holds if and only if $\Phi_x$ is constant, if and only if $\Phi_x(\frac12)=\Phi_x(1)$;
+\item for $\frac12\le\sigma_0\le1$, $\ D_{\sigma_0}(x-\sigma_0)\le2(1-\sigma_0)\,D(x-\tfrac12)$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+By~\eqref{cw:eq:level}, a zero with real part $b>\sigma_0$ and ordinate $\gamma$ contributes $g(\sigma_0)=\frac12\ln\frac{A^2+\gamma^2}{(x-b)^2+\gamma^2}$ with $A=x+b-2\sigma_0>0$, and a zero with $b\le\sigma_0$ contributes 0. Then $g(b)=0$, $g'=-2A/(A^2+\gamma^2)<0$ and $g''=4(\gamma^2-A^2)/(A^2+\gamma^2)^2\ge0$, because $A\le x\le14.13<|\gamma|$ (every zero has $|\gamma|>14.13$). So each contribution is continuous, nonincreasing and convex, with a corner at $b$ where the slope jumps from $-2(x-b)/((x-b)^2+\gamma^2)$ to 0. Sums of such functions keep these properties, which gives parts 1 and 2. Part 3 is Lemma~\ref{cw:lem:level} at $\sigma_0=\frac12$ and part 1. Part 4 is convexity between the endpoints $\frac12$ and $1$.
+\end{proof}
+
+So the zeros off the line are exactly the corners of a convex function of the level, and the book's ladder of levels $1,\frac78,\frac34,\dots,\frac12$ is a walk down this profile. The profile is flat from level 1 to level $\frac78$ by \cite{OAI26a}; RH is flatness all the way down, and below $\frac78$ only zero density estimates (Proposition~\ref{cw:prop:avg}) say anything. Part 4 says that one computation at level $\frac12$ bounds the defect on every rung.
+
+The verified height of RH turns into an unconditional bound on the functional itself. The proof is that of Remark~\ref{bsy:rem:local}: if all zeros with $|\gamma|\le H$ lie on the line, each zero above $H$ contributes at most $a/\gamma^2$ to~\eqref{cw:eq:level} (since $\beta\le\frac12$), and the count of Hasanalizade, Shen and Wong~\cite{HSW22} bounds the sum. With $H=3\times10^{12}$~\cite{PT21} and $0<a\le H/2$ this gives $0\le D(a)\lesssim a\,(\ln(H/2\pi)+1)/(2\pi H)\approx1.5\times10^{-12}a$ (proved, given the verified height). At $a=\frac12$ it is the $7.4\times10^{-13}$ of Remark~\ref{bsy:rem:local}, which we do not reprint. The direct computation of the table above reached $3\times10^{-8}$ at height $1000$. The functional improves only like $\ln H/H$ in the verified height, so no finite computation moves it to zero.
+
+\subsection{Complex base points: a local zero detector}\label{cw:sec:local}
+A real base point sees a zero at height $\gamma$ only with weight $\gamma^{-2}$. Moving the base point up the strip removes this, and Lemma~\ref{cw:lem:level} is the identity that makes it exact.
+
+\begin{theorem}[proved]\label{cw:thm:local}
+Let $\sigma_0\ge\frac12$ and $z=\sigma_0+a+it_0$ with $a>0$. Then:
+\begin{enumerate}
+\item RH holds if and only if $D_{1/2}(z)=0$ for one point $z$ with $\operatorname{Re}z>\frac12$;
+\item if $D_{\sigma_0}(z)\le\varepsilon$, there is no zero $\sigma_0+\beta+i\gamma$ with $|\gamma-t_0|\le a$ and $a\ge\beta>\frac a2(e^{2\varepsilon}-1)$;
+\item if $a\ge1-\sigma_0$, then
+\[
+\frac1T\int_0^TD_{\sigma_0}(\sigma_0+a+it_0)\,dt_0=\frac{2\pi}T\sum_{\substack{0<\gamma\le T\\ \beta>0}}\beta+O\Big(\frac{a\ln^2T}T\Big).
+\]
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Part 1 is Lemma~\ref{cw:lem:level}. For part 2, a zero with $|\gamma-t_0|\le a$ and $\beta\le a$ contributes at least $\frac12\ln\big(1+4a\beta/((a-\beta)^2+a^2)\big)\ge\frac12\ln(1+2\beta/a)$. For part 3, $\int_{-\infty}^\infty\frac12\ln\frac{A^2+\Delta^2}{B^2+\Delta^2}\,d\Delta=\pi(|A|-|B|)$ with $A=a+\beta$ and $B=a-\beta$, which is $2\pi\beta$ when $\beta\le a$. Since $\beta\le1-\sigma_0\le a$ for every zero, no term is capped, and the zeros within $a$ of the ends of $[0,T]$ and the tails of the zeros outside it give the error term.
+\end{proof}
+
+The hypothesis $a\ge1-\sigma_0$ in part 3 is needed: a zero with $\beta>a$ contributes $2\pi a$ and not $2\pi\beta$, and these terms are not inside the error. Part 3 is Littlewood's lemma in Poisson form: the height average of the local functional is the mean distance of the zeros to the right of the line. Under RH, $D_{1/2}\equiv0$ by part 1, so the averages vanish identically. So the family $D(z)$ has three scales: a single point (RH), a height average (zero density) and a real base point (the Balazard, Saias and Yor integral).
+
+\subsection{Control experiment: the Davenport and Heilbronn function}\label{cw:sec:dh}
+The Davenport and Heilbronn function~\cite{DH36} $f=\frac{1-i\kappa}2L(s,\chi)+\frac{1+i\kappa}2L(s,\bar\chi)$, with $\chi$ the character modulo 5 with $\chi(2)=i$ and $\kappa=(\sqrt{10-2\sqrt5}-2)/(\sqrt5-1)$, has a functional equation of Riemann type and zeros off the line (see also~\cite{BSO07}). It is of finite order and polynomially bounded on $\operatorname{Re}s\ge\frac12$, so $f/(1+s)^2$ is bounded there and the results above apply with $F=f$. A grid scan and Newton iteration located eight zeros with $\frac12<\operatorname{Re}s<1.6$ and $0<t<400$ (computed; three of them were checked to $|f|<7\times10^{-7}$ at the printed digits).
+% UNVERIFIED: only three of the eight zeros were checked by the independent run (the report does not say which).
+\begin{center}
+\small
+\begin{tabular}{ll}
+\toprule
+$0.808517+85.699348\,i$ & $0.869531+240.404672\,i$\\
+$0.650830+114.163343\,i$ & $0.819550+320.876490\,i$\\
+$0.574356+166.479306\,i$ & $0.768223+331.050259\,i$\\
+$0.724258+176.702461\,i$ & $0.628508+366.640908\,i$\\
+\bottomrule
+\end{tabular}
+\end{center}
+The local functional was then computed by direct quadrature on the window $|t-t_0|\le300$, with no knowledge of the zeros, and compared with the Green sum~\eqref{cw:eq:level} over the located zeros (computed). The Green sums were reproduced at all four levels for both base points, which is the check of this table; the quadrature columns were not reproduced.
+% UNVERIFIED: the quadrature columns and the statement that D for zeta is at most 2e-5 at these base points and levels.
+\begin{center}
+\small
+\begin{tabular}{lllll}
+\toprule
+ & \multicolumn{2}{c}{base point $1.5+85.7\,i$} & \multicolumn{2}{c}{base point $1.5+100\,i$}\\
+level $\sigma_0$ & $D$ by quadrature & Green sum & $D$ by quadrature & Green sum\\
+\midrule
+0.55 & 0.55866 & 0.55868 & 0.00348 & 0.00349\\
+0.65 & 0.37745 & 0.37746 & 0.00138 & 0.00139\\
+0.75 & 0.15638 & 0.15638 & & 0.000445\\
+0.80 & 0.02434 & 0.02434 & 0.00006 & 0.00007\\
+0.82 & 0.00000 & 0.00000 & 0.00000 & 0.00000\\
+0.90 & 0.00000 & 0.00000 & 0.00000 & 0.00000\\
+1.00 & 0.00000 & 0.00000 & 0.00000 & 0.00000\\
+\bottomrule
+\end{tabular}
+\end{center}
+The functional reproduces the Green sum to $2\times10^{-5}$, falls to zero as the level passes the zero at real part $0.8085$, and is of size $0.56$ next to that zero against $0.003$ fourteen units away. For $\zeta$ at the same base points and the levels $0.5$, $0.55$, $0.75$ the same computation returns $D\le2\times10^{-5}$ in every case. So the detector separates a function with zeros off the line from $\zeta$, with a signal four orders of magnitude above the numerical floor.
+
+\subsection{Height averages: zero density as the slope of the averaged profile}\label{cw:sec:avg}
+Average the local functional over heights. By Theorem~\ref{cw:thm:local}, part 3, for $\frac12\le\sigma_0\le1$ and $a\ge1$,
+\begin{equation}\label{cw:eq:avg}
+\bar D_{\sigma_0}(T):=\frac1T\int_0^TD_{\sigma_0}(\sigma_0+a+it_0)\,dt_0=\frac{2\pi}T\int_{\sigma_0}^1N(\sigma,T)\,d\sigma+O\Big(\frac{a\ln^2T}T\Big),
+\end{equation}
+where $N(\sigma,T)$ counts zeros with real part above $\sigma$ and $0<\gamma\le T$. So $-\frac T{2\pi}\frac d{d\sigma_0}\bar D_{\sigma_0}(T)=N(\sigma_0,T)$: the zero density function is the slope of the height averaged level profile. This is the depth identity~\eqref{dz:eq:depth} and the mean value Theorem~\ref{bo:thm:meanvalue} in the language of the functional; the table of exponents, Table~\ref{bo:tab:negset}, is the same table.
+
+\begin{proposition}[proved]\label{cw:prop:avg}
+\begin{enumerate}
+\item For every fixed level $\sigma_0>\frac12$, an estimate $N(\sigma,T)\ll T^{1-2\theta(\sigma-\frac12)}\ln T$, uniform in $\sigma\ge\frac12$, gives
+\[
+\bar D_{\sigma_0}(T)\ll T^{-2\theta(\sigma_0-\frac12)}.
+\]
+This holds with $\theta=\frac18$ (Selberg~\cite{Selberg46}) and, as reported by Baluyot following Conrey, for every $\theta<\frac47$ (reported, not checked here). A density estimate $N(\sigma,T)\ll T^{A(1-\sigma)+\varepsilon}$ gives $\bar D_{\sigma_0}(T)\ll T^{A(1-\sigma_0)-1+\varepsilon}$;
+\item at the critical level, $\bar D_{1/2}(T)=O(1)$ and $\bar D_{1/2}(T)=\frac1T\int_0^T\ln|\zeta(\tfrac12+it)|\,dt+O(\ln T/T)$;
+\item $\bar D_{1/2}(T)\to0$ if and only if $\sum_{0<\gamma\le T}(\beta-\frac12)^+=o(T)$, if and only if for every $c>0$ all but $o(T\ln T)$ of the zeros up to height $T$ lie within $c/\ln T$ of the critical line.
+\end{enumerate}
+\end{proposition}
+% UNVERIFIED: the theta < 4/7 of Baluyot (2017) following Conrey was not checked against the source.
+
+\begin{proof}
+Insert the density bounds in~\eqref{cw:eq:avg}; for the first,
+\[
+\int_{\sigma_0}^1T^{-2\theta(\sigma-\frac12)}\ln T\,d\sigma\le\frac1{2\theta}\,T^{-2\theta(\sigma_0-\frac12)}.
+\]
+Part 2 is the same integral from $\frac12$, together with Littlewood's lemma~\cite{Littlewood24} on the rectangle with left side on the critical line. For part 3, $\int_{1/2}^1N(\sigma,T)d\sigma=\sum(\beta-\frac12)^+$; if $\delta T\ln T$ zeros lie further than $c/\ln T$ from the line the sum is at least $c\delta T$. Conversely, split at $c/\ln T$ and $\Phi/\ln T$: the zeros within $c/\ln T$ contribute $O(cT)$, those between contribute $o(T)\Phi$, and those beyond contribute $O(Te^{-2\theta\Phi})$ by the density estimate.
+\end{proof}
+
+With $\theta$ just below $\frac47$ near the line and the exponents $A=12/5$ (Huxley~\cite{Huxley72}) and $A=30/13$ (Guth and Maynard~\cite{GM26}) further out, the decay exponents of the averaged defect on the book's rungs are as follows (computed from the formulas of part 1).
+\begin{center}
+\small
+\begin{tabular}{lllll}
+\toprule
+level $\sigma_0$ & $\theta=\frac18$ & $\theta\to\frac47$ & $A=30/13$ & best\\
+\midrule
+$7/8$ & $-0.094$ & $-0.429$ & $-0.712$ & $-0.712$\\
+$3/4$ & $-0.063$ & $-0.286$ & $-0.423$ & $-0.423$\\
+$5/8$ & $-0.031$ & $-0.143$ & $-0.135$ & $-0.143$\\
+$0.55$ & $-0.013$ & $-0.057$ & $+0.038$ & $-0.057$\\
+$1/2$ & $0$ & $0$ & & $0$\\
+\bottomrule
+\end{tabular}
+\end{center}
+At levels $\sigma_0\ge\frac78$ the table is superseded: by \cite{OAI26a}, $N(\sigma,T)=0$ for $\sigma>\frac78$, so the averaged defect is the error term of~\eqref{cw:eq:avg} alone. For $\sigma_0<\frac78$ the table is the best known statement, and on every such rung strictly above the critical line the averaged Poisson defect is known to vanish in the limit, at a rate that degrades to zero exactly at the line. What the averaged form leaves open is a boundary layer of width $1/\ln T$ at $\sigma_0=\frac12$ (Open problem~\ref{cw:prob:layer}).
+
+\subsection{The mean of $\ln|\zeta|$ on the line to height $10^6$}\label{cw:sec:littlewood}
+Write $M(T)=\int_0^T\ln|f(\frac12+it)|\,dt$ for $\zeta$ and for the control function. For $T$ up to $400$ (computed):
+% UNVERIFIED: the row of M(T) for the control function was not reproduced. The zeta row is confirmed by direct quadrature and by the identity below (the draft printed -1.431, -0.927 and -0.968 at T = 100, 200, 400).
+\begin{center}
+\small
+\begin{tabular}{lllll}
+\toprule
+$T$ & 100 & 200 & 300 & 400\\
+\midrule
+$\zeta$: $M(T)$ & $-1.436$ & $-0.924$ & $-1.197$ & $-0.974$\\
+Davenport and Heilbronn: $M(T)$ & 1.865 & 4.704 & 6.940 & 11.481\\
+$2\pi\sum(\beta-\frac12)$ over its located zeros & 1.938 & 4.762 & 7.084 & 11.585\\
+\bottomrule
+\end{tabular}
+\end{center}
+For $\zeta$ the integral stays bounded, as Littlewood's theorem requires up to the verified height. Littlewood's lemma on the rectangle with corners $\frac12$, $\infty$, $\infty+iT$, $\frac12+iT$ gives, for every $T$ below the verified height $3\times10^{12}$ and not an ordinate of a zero,
+\[
+M(T)=-\frac\pi2-A(T),\qquad A(T)=\int_{1/2}^\infty\arg\zeta(\sigma+iT)\,d\sigma,
+\]
+with the argument continued from $+\infty$; the constant is the bottom edge, where $\arg\zeta=\pi$ on $(\frac12,1)$. The identity was confirmed at $T=100$, where quadrature gives $M+A=-1.5707$ against $-\frac\pi2=-1.5708$ (computed). Since $A(T)$ needs only one horizontal line, $M(T)$ is cheap at any height (computed; the values at $10^3$ and $10^6$ were recomputed by the identity, the tail error at $10^6$ being about $0.005$).
+\begin{center}
+\small
+\begin{tabular}{lllll}
+\toprule
+$T$ & $10^3$ & $10^4$ & $10^5$ & $10^6$\\
+\midrule
+$M(T)$ & $-1.474$ & $0.006$ & $-2.796$ & $-2.799$\\
+$M(T)/T$ & $-1.5\times10^{-3}$ & $6\times10^{-7}$ & $-2.8\times10^{-5}$ & $-2.8\times10^{-6}$\\
+\bottomrule
+\end{tabular}
+\end{center}
+The table is at $T=10^k$ exactly (at $T=10^k+\frac12$ the values are $-1.156$, $-0.585$, $-1.838$, $-2.262$, so the value depends on the fractional part of $T$ at the level of one). The integral stays of size at most three at these heights, in line with the bound $O(\ln T)$ that Littlewood proves under RH. The computation carries no information beyond the verification itself, since the identity assumes no zeros off the line below $T$. For the control function the integral grows linearly, about $0.029\,T$, and matches the sum over the zeros located independently, the difference being the bounded argument terms of Littlewood's lemma. At the levels $0.6$, $0.7$, $0.85$ the control integrals to $T=400$ are $6.61$, $3.00$, $0.08$ against $6.72$, $3.08$, $0.12$ from the zeros (the three zero sums are reproduced).
+
+\section{The Thorin density of the reciprocal: a numerical view and windows of half width one}\label{cw:sec:thorin}
+
+Write $\xi(s)=\frac12s(s-1)\pi^{-s/2}\Gamma(\frac s2)\zeta(s)$. The Thorin density of the compensated reciprocal at level $\alpha$ is $T_\alpha(t)=\frac1\pi\big[\operatorname{Re}\frac{\xi'}\xi(\alpha+it)-\frac{\xi'}\xi(\alpha)\big]=(v_\alpha(t)-b_\alpha)/\pi$ in the notation of Chapter~\ref{dz:ch:density}, and the transfer from a signed L\'evy measure to this density is the $2\sin^2$ identity~\eqref{eq:sin2}. Most of what one proves about it is already in the book. The cancellation ledger of Chapter~\ref{bo:ch:ledger} (Theorem~\ref{bo:thm:ledger}) splits it, with $\pi T_\alpha=B_\alpha+J_\alpha$, into the archimedean block $B_\alpha\ge0$ of~\eqref{bo:eq:B}, which is the Thorin density of the Gamma factor with atoms at the integers and grows like $\frac12\ln t$, and the prime block $J_\alpha$, which is signed in the strip; its one sided reading is that the primes are never more negative than the archimedean block. That RH holds exactly when $T_\alpha\ge0$ on every level is Theorem~\ref{thm:dbeta:minall}(vi) and Proposition~\ref{ct:prop:qrh}; that $\operatorname{Re}\xi'/\xi>0$ to the right of the critical line is equivalent to RH is the criterion of Lagarias~\cite{Lagarias} and Hinkkanen. The proof of RH $\Rightarrow T_\alpha\ge0$ by convexity near the origin and a zero within $3.64$ is Theorem~\ref{dz:thm:low}. The converse is one line: if $\beta_0+i\gamma_0$ is a zero with $\beta_0>\frac12$, then as $\alpha\uparrow\beta_0$ the real part of $\xi'/\xi(\alpha+i\gamma_0)$ tends to $-\infty$ while $\xi'/\xi(\alpha)$ stays bounded. The sharp negative set, the negative mass $\frac2\pi\arctan(\eta/r_\rho)=\frac2\pi\arcsin\frac{\alpha-1/2}{\beta-1/2}$ of one zero and the jump of two units are Theorem~\ref{bo:thm:negset}, Lemma~\ref{dz:lem:pair}, Theorem~\ref{dz:thm:mass} and Corollary~\ref{dz:cor:jump}. They are not reprinted. What follows is the numerical illustration, the window of half width one, and the Davenport and Heilbronn controls.
+
+\subsection{Numerical illustration}
+Values of the archimedean part $T^\Gamma_\alpha=B_\alpha/\pi$, of the prime part $T^P_\alpha=J_\alpha/\pi$ and of their sum (computed).
+% UNVERIFIED: only the cells (alpha, t) = (0.75, 5), (0.75, 14.1347), (0.75, 30), (0.55, 14.1347) and (0.55, 100) were reproduced by the independent check; the grid statements and the Thorin check right side 0.023080 were not.
+\begin{center}
+\small
+\begin{tabular}{lrrrrrr}
+\toprule
+ & \multicolumn{3}{c}{$\alpha=0.75$} & \multicolumn{3}{c}{$\alpha=0.55$}\\
+$t$ & $T^\Gamma$ & $T^P$ & $T_\alpha$ & $T^\Gamma$ & $T^P$ & $T_\alpha$\\
+\midrule
+5 & 0.1682 & $-0.1677$ & 0.0005 & 0.1838 & $-0.1837$ & 0.0001\\
+10 & 0.2722 & $-0.2675$ & 0.0048 & 0.2893 & $-0.2883$ & 0.0010\\
+14.1347 & 0.3262 & 0.9487 & 1.2750 & 0.3436 & 6.0230 & 6.3665\\
+17 & 0.3553 & $-0.3398$ & 0.0155 & 0.3727 & $-0.3696$ & 0.0031\\
+30 & 0.4451 & $-0.1024$ & 0.3427 & 0.4627 & $-0.3727$ & 0.0900\\
+100 & 0.6365 & $-0.5140$ & 0.1226 & 0.6541 & $-0.6288$ & 0.0253\\
+\bottomrule
+\end{tabular}
+\end{center}
+On a grid of step $0.05$ over $(0,120]$ the total is nonnegative with minimum 0 as $t\to0$, while the prime part ranges over $[-0.58,0.94]$ at $\alpha=0.75$ and $[-0.66,5.8]$ at $\alpha=0.55$. Between zeros the two parts cancel to three or four digits: the primes use almost all of the room the archimedean density gives them. The Thorin representation itself was checked at $\alpha=0.75$, $w=1$: the left side is $0.023061$ (reproduced), the right side $0.023080$ with the integral cut at $t=250$ and an asymptotic tail. The small values of $T_\alpha$ at $t=5$ and $t=10$ are an artefact of the recentring at $t=0$, where $T_\alpha$ vanishes by construction. The block $T^\Gamma_\alpha$ is positive for every $t>0$ and is exactly $\frac1\pi\sum_{k\ge1}t^2/((\alpha+2k)((\alpha+2k)^2+t^2))$.
+
+For the Davenport and Heilbronn function, completed with its own Gamma factor, the same density at the height $t=85.6993$ of its zero with real part $0.8085$ is as follows (computed).
+% UNVERIFIED: the T_alpha row of the Davenport and Heilbronn function was not checked.
+\begin{center}
+\small
+\begin{tabular}{lrrrrr}
+\toprule
+$\alpha$ & 0.90 & 0.82 & 0.80 & 0.75 & 0.60\\
+\midrule
+$T_\alpha(85.6993)$ & 4.01 & 28.29 & $-36.79$ & $-4.82$ & $-0.73$\\
+\bottomrule
+\end{tabular}
+\end{center}
+It is positive above the abscissa of the zero and negative below it, as the converse above predicts, while at $t=60$ and $t=100$ it stays between $0.39$ and $0.81$.
+
+\subsection{Localisation, with windows of half width one}
+For a zero $\rho=\beta+i\gamma$ with $\beta>\alpha$ put $r_\rho=\sqrt{(\beta-\alpha)(\alpha+\beta-1)}\le\frac12$, and write $\eta=\alpha-\frac12$ and $P_c(x)=c/(c^2+x^2)$. The following sharpens Corollary~\ref{dz:cor:narrow}, whose windows have half width $4.54$.
+
+\begin{theorem}[proved]\label{cw:thm:local2}
+Let $\alpha\in(\frac12,1]$. Then:
+\begin{enumerate}
+\item $\operatorname{Re}\frac{\xi'}\xi(\alpha+it)\ge0$ for every $t$ that is not within $r_\rho$ of the ordinate of a zero $\rho$ with $\beta>\alpha$ (this is Theorem~\ref{dz:thm:loc} and Theorem~\ref{bo:thm:negset});
+\item $T_\alpha(t)\ge0$ for every $t$ that is not within distance $1$ of the ordinate of a zero with $\beta>\alpha$;
+\item consequently $T_\alpha(t)\ge0$ for all $|t|\le3\times10^{12}-1$ and every $\alpha\in(\frac12,1]$, and
+\[
+\operatorname{meas}\{t\in[0,T]:T_\alpha(t)<0\}\le2N(\alpha,T+1)\ll T^{1-2\theta(\alpha-\frac12)}\ln T,
+\]
+with $\theta$ as in Proposition~\ref{cw:prop:avg}.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Group the zeros by ordinate: a zero on the line stands alone, and a zero $\beta+i\gamma$ with $\beta>\frac12$ is grouped with $1-\beta+i\gamma$. With $x=t-\gamma$ a group contributes to $\operatorname{Re}\xi'/\xi(\alpha+it)$:
+\begin{itemize}
+\item on the line: $P_\eta(x)>0$;
+\item $\frac12<\beta\le\alpha$: $P_{\alpha-\beta}(x)+P_{\alpha+\beta-1}(x)\ge0$;
+\item $\beta>\alpha$: $P_{c'}(x)-P_c(x)$ with $c=\beta-\alpha$, $c'=\alpha+\beta-1$, $c'-c=2\eta>0$, and
+\[
+P_{c'}(x)-P_c(x)=\frac{2\eta\,(x^2-cc')}{(c'^2+x^2)(c^2+x^2)},
+\]
+which is nonnegative exactly when $|x|\ge\sqrt{cc'}=r_\rho$.
+\end{itemize}
+This is part 1. For part 2 we need the sum of the groups to be at least $b_\alpha=\xi'/\xi(\alpha)$, and $b_\alpha\le0.0462\,\eta$ by Theorem~\ref{thm:dbeta:minall}(i), with $V_\xi=0.04620998623$. Let $t>10.5$ be at distance at least $1$ from every ordinate with $\beta>\alpha$. All groups are nonnegative at $t$ by part 1, since $r_\rho\le\frac12$. There is an ordinate with $|x|\le3.64$, because consecutive ordinates differ by less than $7$. This holds by the certified gap bound $6.8874$ for the first $1800$ zeros (Theorem~\ref{dz:thm:low}), which covers heights up to about $2000$, and above that by the count~\eqref{dz:eq:count} of Hasanalizade, Shen and Wong~\cite{HSW22}: a window of length $7$ below height $t$ has main term $\frac7{2\pi}\ln\frac t{2\pi}$, which is $8.21$ at $t=10^4$ against $2E(t)=5.03$, and exceeds $2E(t)$ from about $t=580$ on; beyond $X_0=3.061\times10^{10}$ the main term is $24.9$ against $2E=12.6$, and the margin widens (computed). The group of that ordinate contributes at least $\eta/(\eta^2+x^2)\ge0.074\,\eta$ if it is on the line; at least $P_{\alpha+\beta-1}(x)\ge\eta/(4\eta^2+x^2)\ge0.070\,\eta$ if $\frac12<\beta\le\alpha$; and at least $2\eta(x^2-\frac14)/((1+x^2)(\frac14+x^2))\ge0.135\,\eta$ if $\beta>\alpha$, since then $1\le|x|\le3.64$. Each exceeds $0.0462\,\eta$. For $|t|\le10.5$ every group is a convex even function of $t$ plus its mirror at $-\gamma$, as in the proof of Theorem~\ref{dz:thm:low}: the zeros on the line have $|\gamma|\ge14.13$, and the groups with $\beta>\alpha$ have $|\gamma|>3\times10^{12}$, where $P_{c'}-P_c=2\eta/x^2+O(x^{-4})$ is convex. So $T_\alpha(t)\ge T_\alpha(0)=0$ there. Part 3 follows from the verified height~\cite{PT21}, from the interval of length $2$ around each ordinate of a zero with $\beta>\alpha$ in $(0,T+1]$, and from the density estimates of Proposition~\ref{cw:prop:avg}.
+\end{proof}
+
+By the theorem of \cite{OAI26a} no zero has $\beta>\alpha$ when $\alpha\ge\frac78$, so for $\alpha\in[\frac78,1]$ part 2 has no excluded window: $T_\alpha(t)\ge0$ for every $t$ (proved). For $\alpha<\frac78$ the inequality that is equivalent to RH is a theorem at every height up to $3\times10^{12}$ and, beyond that, outside a set of heights of density zero: the unit neighbourhoods of the ordinates of zeros to the right of the level. What remains is not an estimate at typical heights. It is the exclusion of the exceptional neighbourhoods themselves, and a zero inside one makes $T_\alpha$ as negative as $-1/(\pi(\beta-\alpha))$, so no margin elsewhere can absorb it. Outside the discs of part 1 the density can be negative only by $b_\alpha/\pi\le0.0147\,\eta$, and the window of width $1$ is needed only to remove that allowance. The same argument works down to a half width of $0.515$, since $2(x^2-\frac14)/((1+x^2)(\frac14+x^2))\ge0.0462$ on $0.515\le|x|\le3.64$ (computed).
+
+\emph{The margin between zeros.} At the midpoint between consecutive zeros, $\pi T_\alpha/\eta\approx\sum_\gamma(t-\gamma)^{-2}-b_\alpha/\eta\ge8/g^2-0.046$ for a gap $g$, and for evenly spaced zeros it is $\frac14\ln^2(t/2\pi)$. For the first 400 gaps (computed, values at $\alpha=0.55$; at $\alpha=0.75$ the minima are $0.183$, $0.894$, $1.55$ and the medians $1.26$, $3.10$, $4.70$, so the minima agree to two digits and the medians only to the first):
+% UNVERIFIED: the gap counts were not checked.
+\begin{center}
+\small
+\begin{tabular}{lllll}
+\toprule
+heights & gaps & min of $\pi T_\alpha/\eta$ & median & midpoint median of $\frac14\ln^2(t/2\pi)$\\
+\midrule
+$t<100$ & 28 & 0.184 & 1.30 & 1.36\\
+$100\le t<300$ & 109 & 0.904 & 3.32 & 3.05\\
+$300\le t<700$ & 263 & 1.584 & 5.19 & 4.79\\
+\bottomrule
+\end{tabular}
+\end{center}
+The smallest margin, $0.184$, is at $t=17.58$, in the largest gap $6.887$, where $8/g^2=0.169$. The margin grows with height like $\frac14\ln^2t$, so the bound is tightest at the very bottom, where everything is verified, and loosens as $t$ grows.
+
+\emph{Control.} For the Davenport and Heilbronn function the completed density near its zero $0.8085+85.6993\,i$ behaves as part 1 predicts, with the sharp radius $r_\rho$. Here $d$ is the distance in height from the zero (computed).
+% UNVERIFIED: this table was not checked by the independent run.
+\begin{center}
+\small
+\begin{tabular}{llrrrrrr}
+\toprule
+$\alpha$ & $r_\rho$ & $d=0$ & $0.1$ & $0.2$ & $0.3$ & $0.5$ & $1$\\
+\midrule
+0.80 & 0.072 & $-36.79$ & 0.30 & 0.47 & 0.46 & 0.38 & 0.27\\
+0.75 & 0.181 & $-4.82$ & $-0.78$ & 0.13 & 0.30 & 0.31 & 0.23\\
+0.60 & 0.292 & $-0.73$ & $-0.48$ & $-0.14$ & 0.03 & 0.11 & 0.10\\
+\bottomrule
+\end{tabular}
+\end{center}
+The density is negative inside $r_\rho$ and positive outside in every row.
+
+\subsection{Mass accounting for the control function}
+The mass deficit identity is Theorem~\ref{dz:thm:mass}: for $\frac12<\alpha_1<\alpha_2\le1$ and $T$ not an ordinate, with $I_\alpha(T)=\int_0^T\operatorname{Re}\frac{\xi'}\xi(\alpha+it)\,dt$, one has $I_{\alpha_2}(T)-I_{\alpha_1}(T)=2\pi\#\{\rho:\alpha_1<\beta<\alpha_2,\ 0<\gamma<T\}+\operatorname{Im}\int_{\alpha_1}^{\alpha_2}\frac{\xi'}\xi(\sigma+iT)\,d\sigma$, by the argument principle on the rectangle with vertical sides on the two levels. For the Davenport and Heilbronn function, with $T=100$ and its zero $0.8085+85.6993\,i$, the deficit is as follows (computed).
+\begin{center}
+\small
+\begin{tabular}{lllll}
+\toprule
+levels $\alpha_1,\alpha_2$ & $I_{\alpha_2}-I_{\alpha_1}$ & top edge term & deficit$/\pi$ & zeros between\\
+\midrule
+$0.75,\ 0.90$ & 6.33155 & 0.04837 & 2.00000 & 1\\
+$0.82,\ 0.90$ & 0.03454 & 0.03454 & 0.00000 & 0\\
+$0.60,\ 0.75$ & $-0.04478$ & $-0.04478$ & 0.00000 & 0\\
+$0.55,\ 0.90$ & 6.24897 & $-0.03421$ & 2.00000 & 1\\
+\bottomrule
+\end{tabular}
+\end{center}
+The negative mass of the group of that zero at $\alpha=0.75$ is $0.60142$, by quadrature and by the formula $\frac2\pi\arctan(\eta/r_\rho)$ (reproduced).
+
+\emph{The reverse direction (heuristic).} One can try to run the transform backwards: a zero to the right of the level forces $|\zeta'/\zeta(\alpha+it)|\ge1/|\alpha+it-\rho|-O(\ln t)$ near its ordinate, hence
+\[
+\int_T^{2T}\Big|\frac{\zeta'}\zeta(\alpha+it)\Big|^2dt\ \ge\ \big(\pi+o(1)\big)\sum_{\substack{\beta>\alpha\\T<\gamma\le2T}}\frac1{\beta-\alpha}-O(T\ln^2T),
+\]
+so an upper bound for the mean square of the prime side would bound the number of zeros just to the right of the level. This does not give a new estimate. The only unconditional bounds for the mean square of $\zeta'/\zeta$ inside the strip are themselves obtained from the zeros, through the same partial fraction expansion, so the argument is circular; under RH the mean square is $\sim T\sum\Lambda(n)^2n^{-2\alpha}$ and the inequality is consistent but empty. The classical zero density method avoids the circle by replacing $\zeta'/\zeta$ with $\zeta M-1$ for a mollifier $M$, a Dirichlet polynomial whose mean values are known unconditionally. In the language of this section the classical density theorems are bounds for the mass deficit, and the present transform reproduces them but does not improve them.
+
+\subsection{Why this is not a proof}
+By Theorem~\ref{cw:thm:local2} the inequality $T_\alpha\ge0$ holds at all heights below $3\times10^{12}$ and at almost all heights above, with a margin that grows like $\ln^2t$, and by \cite{OAI26a} it holds at every height for $\alpha\ge\frac78$. So the difficulty is not that the inequality is delicate at typical heights. It is that a single zero with real part in $(\alpha,\frac78]$ would violate it by an arbitrarily large amount in a window of width at most $1$, and nothing in the inequality at other heights prevents that. Excluding those windows is a statement about every height, and that is RH.
+
+\section{Is there a path to RH?}\label{cw:sec:path}
+
+The chapter closes two roads under stated hypotheses and reduces the third to a named statement.
+
+First road: one walk. Theorem~\ref{cw:thm:obstruction} shows that no symmetric step law satisfies~\eqref{cw:eq:target} when the multiplier $m$ has a limit at infinity ($\sigma>\frac12$), or is positive off the origin on the critical line. It does not exclude other multipliers.
+
+Second road: signed walks. Theorem~\ref{cw:thm:negmass} computes the negative mass of the quasi probability walk built from the Euler product. It is finite exactly for $\sigma>1$, equals $17/70$ at $\sigma=2$ and has a double pole at $\sigma=1$. A finite signed walk cannot reach the strip at all, since $1/|\zeta|^2$ is unbounded there.
+
+The open road has two equivalent forms. In walk language it is Proposition~\ref{cw:prop:reduction}: the monitoring correction of the primes, Chebyshev's error, must give an integral that converges down to $\sigma=\frac12$. In function language it is the Poisson functional of Theorem~\ref{bsy:thm:bsy}: the Poisson semigroup carries boundary data on the critical line to the level $\frac12+a$, and RH says nothing is lost on the way. Every finite Euler product $P_X(s)=\prod_{p\le X}(1-p^{-s})^{-1}$ is bounded and zero free on $\operatorname{Re}s\ge\frac12$, so its own functional vanishes identically: RH is the statement that this survives the limit $X\to\infty$ after the pole is compensated. Two facts limit what computation can do on this road. A numerical bound on $D$ gives only Remark~\ref{cw:rem:zerofree}, a zero free region of width of order $\varepsilon\gamma^2/a$, useless at large height unless $\varepsilon$ is tiny. And $\varepsilon$ is bounded below by the tail of the integral beyond the computed height, which needs control of $\ln|\zeta(\frac12+it)|$ on average, the Lindel\"of and Selberg regime.
+
+What is known unconditionally about the open road is now explicit. The level profile $\Phi_x$ of Theorem~\ref{cw:thm:profile} is convex in the level, its corners are the zeros off the line, and by \cite{OAI26a} it is flat on $[\frac78,1]$; by Section~\ref{cw:sec:profile} the Poisson functional on the critical line is at most about $1.5\times10^{-12}a$. A proof of RH along this road is a proof that a convex function, flat from level $1$ to level $\frac78$ and within $10^{-12}$ of flat overall, has no corners. Convexity and flatness at one end do not force that, and an input that excludes corners is needed; that input is arithmetic. The local and averaged forms sharpen the target. By Theorem~\ref{cw:thm:local}, RH is the vanishing of $D(z)$ at one interior point. By Proposition~\ref{cw:prop:avg}, the height average of the defect tends to zero, unconditionally, on every level strictly above the critical line, and is bounded on the line itself. In averaged form the frontier is the boundary layer of width $1/\ln T$ at the line: $\bar D_{1/2}(T)\to0$, equivalently that for every $c>0$ almost all zeros lie within $c/\ln T$ of the line. It is implied by RH, and it is open. Section~\ref{cw:sec:thorin} gives the positive object that the walk picture lacked, the density $T_\alpha$, and shows how much of its positivity is unconditional.
+
+So the chapter does not give a path to RH, and the open step in its language is the passage from level $\frac78$ to level $\frac12$: the zero free half plane $\Re s>\frac78$ is the theorem of \cite{OAI26a} (Section~\ref{qrh:sec:claims}), and nothing here goes below it. The archimedean place is a walk and is positive. The arithmetic place is positive only as a sum of maxima for $\sigma>1$; in the strip the only available positive statement is the Thorin statement for the compensated reciprocal, which is where the book's main line already works. The negative mass of Theorem~\ref{cw:thm:negmass} measures how much negativity the Euler product carries at each $\sigma$, and the same count applied to the compensated symbol (Open problem~\ref{cw:prob:comp}) would show whether compensation by the pole removes the double pole at $\sigma=1$.
+
+\section{Open problems}\label{cw:sec:open}
+
+\begin{problem}\label{cw:prob:growth}
+Make Proposition~\ref{cw:prop:growth} rigorous for the actual weight $w$, with its logarithmic singularity at the origin, and find the second order term that produces the pairing of the coefficients.
+\end{problem}
+
+\begin{problem}
+Identify the Gaussian continued fraction coefficients $b_j$ in closed form, or explain the pattern found at 150 digits with 42 coefficients: $b_{2j}-2j=0.0062$, $0.0707$, $0.0796$, $0.0827$, $0.0842$ at $j=1,5,10,15,20$, apparently converging, while the gaps $b_{2j+1}-b_{2j}=0.707$, $0.736$, $0.753$, $0.763$, $0.770$ are still increasing slowly (computed, not reproduced). For symmetric stable steps the moments are in closed form (Proposition~\ref{cw:prop:growth}) and the growth law is the conditional statement there.
+% UNVERIFIED: the 150 digit values b_{2j} - 2j and the gaps.
+\end{problem}
+
+\begin{problem}\label{cw:prob:comp}
+Compensated negative mass. Theorem~\ref{cw:thm:negmass} settles the quasi probability walk for the raw Euler product, and the table of Section~\ref{cw:sec:euler} gives the compensated masses: both diverge for $\sigma<1$ and only the net converges. What is open is the size of the net for $\frac12<\sigma\le\frac78$. Under RH it is governed by $\psi(x)-x$; an unconditional bound of the form $X^{\theta-\sigma}$ with $\theta<\frac78$ would be a zero free half plane $\operatorname{Re}s>\theta$ beyond \cite{OAI26a}.
+\end{problem}
+
+\begin{problem}\label{cw:prob:layer}
+The boundary layer. Prove $\bar D_{1/2}(T)\to0$ (Proposition~\ref{cw:prop:avg}), that is $\sum_{0<\gamma\le T}(\beta-\frac12)^+=o(T)$. Decide whether the mollifier methods that give a positive proportion of zeros on the line, or the density estimates near the line with $\theta<\frac47$, can be pushed to this statement.
+\end{problem}
+
+\begin{problem}\label{cw:prob:input}
+A prime side input that does not pass through the zeros. By Section~\ref{cw:sec:thorin} a zero to the right of the level costs two units of Thorin mass (Corollary~\ref{dz:cor:jump}) and creates a negative excursion of mass $\frac2\pi\arctan(\eta/r_\rho)$. The reverse argument through the mean square of $\zeta'/\zeta$ is circular. Find a functional of the net prime measure, computable from mean values of Dirichlet polynomials alone, that is sensitive to such an excursion. The natural candidate is the Thorin density of a mollified product $\zeta M$, and the question is whether the $2\sin^2$ transform of its L\'evy measure gives more than the classical mollifier method.
+\end{problem}
+
+\begin{problem}
+Compute $D(a)$ to height $10^4$ with the Riemann and Siegel formula, add a tail correction from Selberg's central limit theorem, and compare with the bounds of Bui, Lester and Milinovich~\cite{BLM14}. The defects at levels $\frac12$, $\frac34$ and $\frac78$ are Table~\ref{bsy:tab:defects}; the open part is a smoothing of the Poisson kernel for which the truncation error is rigorous, so that the computation yields an explicit zero free region by Remark~\ref{cw:rem:zerofree}.
+\end{problem}

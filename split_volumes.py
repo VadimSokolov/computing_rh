@@ -41,7 +41,7 @@ import sys
 VOLUMES = {
     "1": {
         "main": "main_vol1",
-        "other": "main_vol2",
+        "other": ["main_vol2", "main_vol3"],
         "title": "Computing the Riemann Hypothesis I",
         "volume": "I",
         "cover": r"Cover: the Thorin density of $\xi(\frac12)/\xi(\frac12+\sqrt u)$ at eight resolutions, sharpening onto the zeros.",
@@ -76,15 +76,11 @@ VOLUMES = {
             (r"Cauchy mixtures, the reverse sine squared lemma and a two spin Lee and Yang form of RH", r"Cauchy mixtures and Lee and Yang", ["nc_cauchy"], None),
             (r"P\'olya and the zeros of entire functions", None, ["c16", "polya1", "polya2", "polya3", "polya4", "polya5", "polya6", "polya7", "polya8"], None),
             (r"Haseo Ki, derivatives and the Keiper Li coefficients", r"Ki and the Keiper Li coefficients", ["c23", "ki1", "ki2", "ki3", "ch20"], None),
-            ("PART", r"Synthesis"),
-            (r"A route to the Riemann Hypothesis", None, ["nc_route"], None),
-            (r"The Berry Keating operator and the Thorin programme", None, ["nc_bk"], None),
-            (r"Conclusions and open problems of the theory", r"Conclusions and open problems", ["c12", "path", "ch22"], None),
         ],
     },
     "2": {
         "main": "main_vol2",
-        "other": "main_vol1",
+        "other": ["main_vol1", "main_vol3"],
         "title": "Computing the Riemann Hypothesis II",
         "volume": "II",
         "cover": r"Cover: the backward Cauchy flow, from the level one density down to the zeros.",
@@ -115,14 +111,59 @@ VOLUMES = {
             (r"Ferromagnetic and extreme value approximants with certified real zeros", r"Ferromagnetic and extreme value approximants", ["fm4", "c25", "ev2", "ev4"], None),
             (r"The Comtet Majumdar family: damped kernels and a solved model", r"The Comtet Majumdar family", ["c27", "cg1", "cg2", "cg3"], None),
             (r"Approximating clocks: Jensen, Euler product and boundary hitting times", r"Approximating clocks", ["ht2", "ht3", "ht5"], None),
-            ("PART", r"Conditional results and synthesis"),
-            (r"The quasi Riemann hypothesis and the Thorin programme", r"The quasi Riemann hypothesis", ["nc_qrh", "polya9", "nc_qrh2"], None),
-            (r"Iwaniec's approach and the level of the Thorin measure", r"Iwaniec's approach", ["nc_iw"], None),
+            ("PART", r"Modular forms"),
             (r"Ramanujan's Delta in Thorin form", r"Ramanujan's Delta", ["nc_delta"], None),
-            (r"What the Euler product and the functional equation force", r"What the Euler product and the functional equation force", ["nc_rigid"], None),
-            (r"What would close the gap: open problems of the computational programme", r"Open problems of the computation", [], "II_22_open_problems"),
             ("APPENDIX",),
             (r"The P\'olya evaluators", None, ["appA"], None),
+        ],
+    },
+    "3": {
+        "main": "main_vol3",
+        "other": ["main_vol1", "main_vol2"],
+        "title": "Computing the Riemann Hypothesis III",
+        "volume": "III",
+        "cover": r"Cover: the backward Cauchy flow, from the level one density down to the zeros.",
+        "subtitle": r"Is There a Path?\\[0.2em] Routes to RH from the Thorin Programme",
+        "subtitle_flat": r"Is There a Path? Routes to RH from the Thorin Programme",
+        "plan": [
+            ("PART", r"The question and the tools"),
+            (r"Introduction: the path question", "Introduction", ["nc_v3_intro"], None),
+            (r"Routes, filters and the target", None, ["nc_route", "nc_v3_routes"], None),
+            (r"The toolkit and a solved model: the cosine", r"The toolkit and the cosine", ["nc_v3_cosine"], None),
+            ("PART", r"Levels: the Thorin measure across the strip"),
+            (r"Nakamura's measure, positive definiteness and the P\'olya and Gneiting obstruction", r"Nakamura's measure", ["nc_v3_nakamura"], None),
+            (r"The gamma factor, the primes and the spline lemma", r"The gamma factor and the primes", ["nc_v3_gamma"], None),
+            (r"Bondesson's letter, the gamma block and the levels three quarters and seven eighths", r"Bondesson's letter", ["nc_v3_bond1"], None),
+            (r"The cancellation ledger, the Fej\'er criterion and the oscillator", r"The ledger and the oscillator", ["nc_v3_bond2"], None),
+            (r"Families, level one from the primes and the step below seven eighths", r"Families and level one", ["nc_v3_bond3"], None),
+            (r"Thorin positivity on every level outside a set of density zero", r"Positivity outside density zero", ["nc_v3_density"], None),
+            (r"The classical sources: von Mangoldt, Hardy, Littlewood, Ramanujan and P\'olya", r"The classical sources", ["nc_v3_classics"], None),
+            (r"Chebyshev's error, L\'evy measures and the Thorin ladder", r"Chebyshev's error and the ladder", ["nc_v3_cheb"], None),
+            (r"Chebyshev's error, Wiener's spectrum and the level criterion", r"Wiener's spectrum and the level criterion", ["nc_v3_cw"], None),
+            (r"Ma\'slanka, Haglund and the missing positivity", r"Ma\'slanka and Haglund", ["nc_v3_mh"], None),
+            (r"The Thorin measure in terms of the log gamma function", r"The Thorin measure and log gamma", ["nc_v3_logg"], None),
+            (r"A route through the Kolmogorov law", None, ["nc_v3_kolm"], None),
+            (r"Metaplectic forms, L\'evy and Thorin measures, and hitting times", r"Metaplectic forms and hitting times", ["nc_v3_meta"], None),
+            (r"Mellin zeros of generalised gamma convolutions and the pairing of the zeros of $\beta$ and $\zeta$", r"Mellin zeros and the pairing", ["nc_v3_mellin"], None),
+            (r"Iwaniec's approach and the level of the Thorin measure", r"Iwaniec's approach", ["nc_iw"], None),
+            (r"The quasi Riemann hypothesis and the Thorin programme", r"The quasi Riemann hypothesis", ["nc_qrh", "polya9", "nc_qrh2"], None),
+            ("PART", r"Total positivity and the heat flow"),
+            (r"The P\'olya frequency ladder: log concavity, the detection rung and the heat flow", r"The P\'olya frequency ladder", ["nc_v3_pf"], None),
+            (r"Kernels, splines and Hankel ladders", None, ["nc_v3_kernels"], None),
+            (r"Approximating $\Xi$ by laws with real zeros", r"Approximating $\Xi$", ["nc_v3_approx"], None),
+            ("PART", r"Chains"),
+            (r"The birth and death chain of the zeros", r"The birth and death chain", ["nc_v3_chain"], None),
+            (r"The Bohr and Sommerfeld law for the gamma chain", r"The Bohr and Sommerfeld law", ["nc_v3_bohr"], None),
+            (r"Chains at every level", None, ["nc_v3_ladder"], None),
+            (r"Linear response of the rates and the pair formula", r"Linear response of the rates", ["nc_v3_response"], None),
+            (r"The Berry Keating operator and the Thorin programme", None, ["nc_bk"], None),
+            ("PART", r"Spins"),
+            (r"Ferromagnetic spins and the Ramanujan Vere-Jones laws as instruments", r"Spins and instruments", ["nc_v3_spins"], None),
+            (r"Barndorff Nielsen's tools on the ladder: sand, hitting times and free probability", r"Barndorff Nielsen's tools", ["nc_v3_bn"], None),
+            (r"Random walk maxima, the Cauchy process and the Gamma function", r"Random walk maxima and the Cauchy process", ["nc_v3_cwalk"], None),
+            ("PART", r"What is forced, and is there a path"),
+            (r"What the Euler product and the functional equation force", r"What the Euler product and the functional equation force", ["nc_rigid"], None),
+            (r"Is there a path? What is proved and the open problems", r"Is there a path?", ["c12", "path", "ch22", "@stub", "nc_v3_final"], "II_22_open_problems"),
         ],
     },
 }
@@ -263,6 +304,20 @@ def load_sources(root):
     for V in VOLUMES.values():
         V["plan"] = [item for item in V["plan"] if item[0] in ("PART", "APPENDIX")
                      or not all(f.startswith("nc_") and f not in src for f in item[2] if f != "@stub") or not item[2]]
+        V["plan"] = [item if item[0] in ("PART", "APPENDIX") else
+                     (item[0], item[1], [f for f in item[2] if not (f.startswith("nc_") and f not in src)], item[3])
+                     for item in V["plan"]]
+        # a part left with no chapters is dropped
+        keep = []
+        for i, item in enumerate(V["plan"]):
+            if item[0] == "PART":
+                nxt = next((x for x in V["plan"][i + 1:] if x[0] in ("PART", "APPENDIX") or True), None)
+                rest = V["plan"][i + 1:]
+                j = next((k for k, x in enumerate(rest) if x[0] in ("PART", "APPENDIX")), len(rest))
+                if j == 0:
+                    continue
+            keep.append(item)
+        V["plan"] = keep
     SRC_FOR_HOIST.update(src)
     return main, files, src
 
@@ -405,7 +460,7 @@ def write_main(root, key, V, main, body):
     pre, rest = main.split("\\begin{document}", 1)
     # xr-hyper must come before hyperref; labels are unique across the book, so no prefix is needed
     pre = pre.replace("\\usepackage[hidelinks]{hyperref}",
-                      "\\usepackage{xr-hyper}\n\\usepackage[hidelinks]{hyperref}\n\\externaldocument{%s_xr}" % V["other"])
+                      "\\usepackage{xr-hyper}\n\\usepackage[hidelinks]{hyperref}\n" + "\n".join("\\externaldocument{%s_xr}" % o for o in V["other"]))
     # theorem environments and macros that some chapter files define on first use (for example the
     # conjecture environment of c22): the new order may use them earlier, so define them in the preamble
     hoist = []
@@ -427,7 +482,7 @@ def write_main(root, key, V, main, body):
     front = front.replace(r"{\Huge\scshape Computing the Riemann Hypothesis\par}",
          r"{\Huge\scshape Computing the Riemann Hypothesis\par}\vspace{0.4cm}{\LARGE\scshape Volume %s\par}" % vol)
     front = front.replace(r"\textit{Computing the Riemann Hypothesis: ", r"\textit{Computing the Riemann Hypothesis, Volume %s: " % vol)
-    front = front.replace("First edition, October 2026", "Second edition, in two volumes, November 2026")
+    front = front.replace("First edition, October 2026", "Second edition, in %s volumes, November 2026" % {2: "two", 3: "three"}[len(VOLUMES)])
     front = front.replace(r"Cover: the Thorin density of $\xi(\frac12)/\xi(\frac12+\sqrt u)$ at eight resolutions, computed by the authors.", V["cover"])
     pre = pre.replace(r"pdftitle={Computing the Riemann Hypothesis}", r"pdftitle={Computing the Riemann Hypothesis, Volume %s}" % vol)
     # the copyright page prints this volume's DOI: bookmeta.tex (bookrepo.py generate) picks it by \BookVolume
@@ -510,7 +565,7 @@ def report(root, src, where, vol_of, chap_of):
     lines = ["# Split report", ""]
     pages = page_estimates(root)
     for key, V in VOLUMES.items():
-        lines.append("## Volume %s: %s" % ("I" if key == "1" else "II", V["subtitle_flat"]))
+        lines.append("## Volume %s: %s" % (V["volume"], V["subtitle_flat"]))
         n = 0
         total = 0
         for item in V["plan"]:
@@ -575,7 +630,7 @@ def write_xr(root, V):
     if not os.path.exists(aux):
         return
     # Numbers printed in the other volume carry this volume's roman numeral, as in Theorem II.12.3.
-    roman = "II" if V["main"].endswith("2") else "I"
+    roman = V["volume"]
     keep = []
     for line in open(aux, encoding="latin1"):
         if line.startswith("\\newlabel{") and ":" in line[10:line.find("}")]:
@@ -646,7 +701,7 @@ def main():
             n += 1
             for f in [x for x in item[2] if x != "@stub"]:
                 vol_of[f] = key
-                chap_of[f] = "%s.%d" % ("I" if key == "1" else "II", n)
+                chap_of[f] = "%s.%d" % (V["volume"], n)
     os.makedirs(os.path.join(root, "vol"), exist_ok=True)
     bodies = {key: write_volume(root, key, V, src, vol_of) for key, V in VOLUMES.items()}
     for key, V in VOLUMES.items():

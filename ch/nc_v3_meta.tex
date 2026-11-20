@@ -1,0 +1,111 @@
+% Chapter: Metaplectic forms, Levy and Thorin measures, and hitting times (Volume III). Sources: misc/reviews/nick-metaplectic/metaplectic/metaplectic_chapter.tex lines 1-191; referee report misc/research/directions/opus/vol3/META.md (M1 to M12); numbers misc/vol3/verify/META/results.md. 17 Nov 2026.
+\label{mt:ch:meta}
+This chapter is a dictionary and a short list of readings, taken from an unrefereed note of Polson (November 2026). It proves nothing about zeros. Much of the note is already in Volumes I to III, and we cite it rather than restate it: the hitting time form of RH is Corollary~\ref{ev:cor:rh} and Theorem~\ref{bk:thm:string}, the Bessel hitting time and the identity of Biane, Pitman and Yor are \eqref{bp:eq:bpy}, and the Kolmogorov law and its Thorin measure are Theorem~\ref{kr:thm:kolm}. What we keep is the dictionary as an organising reading, the killed Brownian motion reading of the sine squared lemma, the Euler product as a factorisation of the Thorin measure, and the open problems. The chart is the book's: Brownian motion has generator $d^2/dy^2$, the Laplace variable is $u=w^2$, and a first passage time to a level $x$ has transform $e^{-wx}$. The hitting times $J$ and $S_2$ of Section~\ref{bp:sec:kk} keep the normalisation of Biane, Pitman and Yor.
+
+\section{The dictionary}\label{mt:sec:dict}
+Let $X$ be a generalised gamma convolution (GGC) without drift and with Thorin measure $\tau$, so that $-\log\mathbb Ee^{-uX}=\int\log(1+u/z)\,\tau(dz)$ (Bondesson \cite{Bondesson}). Call $\Theta_\tau(x)=\int_0^\infty e^{-xz}\tau(dz)$ its Thorin transform.
+\begin{proposition}\label{mt:prop:dict}
+\begin{enumerate}
+\item The L\'evy measure of $X$ has density $\ell(x)=\Theta_\tau(x)/x$.
+\item For $s>0$ such that the right side is finite, $\int_0^\infty x^{s}\ell(x)\,dx=\Gamma(s)\int z^{-s}\tau(dz)$. The Mellin transform of the L\'evy measure is $\Gamma(s)$ times the Dirichlet series of the Thorin measure.
+\item If $\tau=\sum_nm_n\delta_{\lambda_n}$ then $X=\sum_n\Gamma_{m_n}/\lambda_n$, a sum of independent gamma variables, and $\Theta_\tau(x)=\sum_nm_ne^{-\lambda_nx}$.
+\end{enumerate}
+\end{proposition}
+\begin{proof}
+Frullani's formula $\log(1+u/z)=\int_0^\infty(1-e^{-ux})e^{-xz}\,dx/x$ and Fubini give the first statement. The second is $\int_0^\infty x^{s-1}e^{-xz}dx=\Gamma(s)z^{-s}$. The third is the product formula for the transform.
+\end{proof}
+Item 1 is the criterion of Bondesson used in the proof of Proposition~\ref{prop:ch2:thin}.% TODO authors: the Bondesson criterion is not found in ch/ch02.tex near that proposition; check the reference So three objects describe one law: the Thorin measure $\tau$, the L\'evy density $\Theta_\tau(x)/x$, and the Dirichlet series $\int z^{-s}\tau(dz)$. Whether $x\ell(x)$ is a theta function, a function of weight $\frac12$ in the imaginary direction, is then a question about the lattice $\tau$, and by Hecke's correspondence \cite{Hecke36} it is equivalent to a functional equation for the Dirichlet series (a heuristic remark, not used below).
+
+\section{Four hitting times}\label{mt:sec:table}
+The table lists the Brownian hitting times with generator $d^2/dy^2$ whose Thorin measures are explicit. The last column is the Dirichlet series of the Thorin measure, as in Proposition~\ref{mt:prop:dict}. It is not the Mellin transform of the law, which is where $\beta$ and $\xi$ appear (Remark~\ref{rem:dbeta:exit} and \eqref{bp:eq:bpy}).
+\begin{center}
+\small
+\begin{tabular}{p{0.24\textwidth}p{0.15\textwidth}p{0.22\textwidth}p{0.19\textwidth}}
+\toprule
+hitting time & transform in $u=w^2$ & Thorin measure & Dirichlet series\\
+\midrule
+Brownian motion reaches level $x$ & $e^{-x\sqrt u}$ & $\frac{x}{2\pi\sqrt z}\,dz$ & none (continuous)\\
+\addlinespace
+Brownian motion leaves $(-1,1)$ & $1/\cosh\sqrt u$ & $\sum_{n\ge1}\delta_{(n-\frac12)^2\pi^2}$ & $\pi^{-2s}(4^{s}-1)\zeta(2s)$\\
+\addlinespace
+Bessel(3) process reaches $1$ & $\sqrt u/\sinh\sqrt u$ & $\sum_{n\ge1}\delta_{n^2\pi^2}$ & $\pi^{-2s}\zeta(2s)$\\
+\addlinespace
+two independent copies of the last, added & $(\sqrt u/\sinh\sqrt u)^2$ & $2\sum_{n\ge1}\delta_{n^2\pi^2}$ & $2\pi^{-2s}\zeta(2s)$\\
+\bottomrule
+\end{tabular}
+\end{center}
+Each line is an infinite product, $\cosh y=\prod_n\big(1+y^2/((n-\frac12)^2\pi^2)\big)$ and $\sinh y/y=\prod_n(1+y^2/n^2\pi^2)$, so the exit time and the Bessel hitting time are sums of independent exponentials whose rates are Dirichlet eigenvalues of the generator (for the exit time, those of the even eigenfunctions). The Bessel hitting time is a rescaling of $K^2$: $K^2=\sum_n\mathrm{Exp}(2n^2)$ is $\frac{\pi^2}2$ times the hitting time of the table (Theorem~\ref{kr:thm:kolm}, part 4).
+
+For the hitting time $H$ of the Bessel line, Proposition~\ref{mt:prop:dict} gives the L\'evy density
+\[
+\ell(x)=\frac1x\sum_{n\ge1}e^{-n^2\pi^2x}=\frac{\theta(\pi x)-1}{2x},\qquad\theta(y)=\sum_{n\in\mathbb Z}e^{-\pi n^2y}.
+\]
+So the L\'evy measure of a Brownian hitting time is a theta function divided by $x$. The first line of the table is the degenerate case: the stable law of index $\frac12$ has a continuous Thorin measure, the scaling limit of the quadratic lattice, and $\Theta$ is a pure power, the leading term of Jacobi's inversion. In the notation of Biane, Pitman and Yor, \eqref{bp:eq:bpy} says that $\xi$ is the Mellin transform of a hitting time law whose Thorin measure is twice the quadratic lattice and whose L\'evy density is $(\theta-1)/x$ up to scale. At $s=-3$ the right side of \eqref{bp:eq:bpy}, computed from the Laplace transform, is $1.3159472535=2\xi(4)$ (computed, independent recomputation at thirty digits). For the exit time $C$ of $(-1,1)$ in the same normalisation, Remark~\ref{rem:dbeta:exit} has the Mellin transform with $\beta$.
+
+\section{Jacobi inversion as two expansions}\label{mt:sec:jacobi}
+A hitting density of Brownian motion in an interval has two expansions. The spectral one sums over eigenfunctions, converges fast for large time, and is the series $\sum e^{-\lambda_nx}$, that is, the Thorin transform. The other sums over images by the reflection principle and converges fast for small time. Poisson summation equates them, and the equality is Jacobi's formula $\theta(1/x)=\sqrt x\,\theta(x)$. On the Mellin side it becomes $\xi(s)=\xi(1-s)$. In the form of Biane, Pitman and Yor, with $Y=\sqrt{\pi S_2/2}$, the functional equation is $\mathbb Ef(1/Y)=\mathbb E[Yf(Y)]$ for $f\ge0$, so $1/Y$ has the law of $Y$ size biased (Section~\ref{bp:sec:kk}). Checked on five test functions (computed, agreement to nine digits for four, to $10^{-6}$ for the fifth). A functional equation is a symmetry in law between a hitting time and its reciprocal. This symmetry is not special to theta functions: the inverse Gaussian first passage time of Brownian motion with drift has it with a continuous Thorin measure. So we claim only that Jacobi inversion is one instance of it.
+
+\section{The sine squared lemma as killed Brownian motion}\label{mt:sec:sin2}
+The lemma \eqref{eq:sin2} and its thinning reading (Proposition~\ref{prop:ch2:thin}) are in Volume I. Here is a second reading, a heuristic one. Write $r=\sqrt z$, so that $2\sin^2(xr/2)=1-\cos xr$. The constant $1$ is the first line of the table: $x/(2\pi\sqrt z)$ is the Thorin density of the first passage time to level $x$, and it produces $wx$. The cosine term, after one integration by parts, is
+\[
+1-e^{-wx}=\frac2\pi\int_0^\infty\sin(xr)\,\frac{w^2}{w^2+r^2}\,\frac{dr}r .
+\]
+At $w=0.8$, $x=1.9$ both sides are $0.7812881130$ (computed, thirty digits). Now $e^{-wx}=\mathbb Ee^{-w^2T_x}$ is the probability that Brownian motion started at $x$ reaches $0$ before an independent exponential clock of rate $w^2$ rings. The factor $w^2/(w^2+r^2)$ is the probability that this clock rings before an exponential time of rate $r^2$. The functions $\sin(xr)$ are the eigenfunctions of Brownian motion on the half line killed at $0$, with eigenvalue $r^2=z$ for the generator $d^2/dy^2$. So the lemma is the spectral decomposition of killed Brownian motion on the half line, the continuous spectrum analogue of the eigenfunction side of Jacobi's formula. It carries a L\'evy measure in the space variable $x$ to a Thorin density in the spectral variable $z$. This is an interpretation, and we use it for orientation only. One identity is exact and may be used: if $Y\ge0$ is independent of the Brownian motion, then $\mathbb Ee^{-wY}=\mathbb Ee^{-w^2T_Y}$, so a Laplace transform in $w$ is a Laplace transform in $u=w^2$ of the first passage time to a random level.
+
+\section{The Euler product as a factorisation of the Thorin measure}\label{mt:sec:euler}
+Let $\star$ be multiplicative convolution of measures on $(0,\infty)$. The Dirichlet series $\int z^{-s}\tau(dz)$ turns $\star$ into multiplication.
+\begin{proposition}\label{mt:prop:euler}
+The Thorin measure of the Kolmogorov law factorises over the primes, as a formal infinite product (each partial product is a finite convolution of purely atomic measures and the products converge setwise on every atom):
+\[
+\sum_{n\ge1}\delta_{2n^2}=\delta_2\star\mathop{\bigstar}_p\tau_p,\qquad\tau_p=\sum_{k\ge0}\delta_{p^{2k}},
+\]
+and $\int z^{-s}\tau_p(dz)=(1-p^{-2s})^{-1}$.
+\end{proposition}
+\begin{proof}
+Unique factorisation: $n^2=\prod_pp^{2k_p}$ in exactly one way.
+\end{proof}
+Each $\tau_p$ is a geometric lattice, the Thorin measure of $\sum_k\mathrm{Exp}(p^{2k})$, a law that is self similar under scaling by $p^2$. This is the Euler product of $\zeta(2s)$ read on the Thorin measure of Theorem~\ref{kr:thm:kolm}. We have not found this phrasing in the literature, and it is a restatement of unique factorisation.% TODO authors: novelty of this phrasing is not confirmed by the referee
+
+Shifting the lattice changes this. The lattice $\{2(k+\lambda)^2\}$ is the lattice of Proposition~\ref{mt:prop:euler} for $\lambda=1$. For $\lambda=\frac12$ it is $\frac12$ times the odd squares, which are closed under multiplication and factorise over the odd primes, with Dirichlet series proportional to $(1-4^{-s})\zeta(2s)$. For other $\lambda$ the lattice is not closed under multiplication, and we know no factorisation. We do not prove that none exists.
+
+The two sided theta series with characteristic is the heat kernel of the circle. By Poisson summation,
+\[
+\sum_{n\in\mathbb Z}e^{-2(n+\lambda)^2t}=\sqrt{\frac{\pi}{2t}}\sum_{k\in\mathbb Z}e^{-\pi^2k^2/(2t)}\cos(2\pi k\lambda),
+\]
+the transition density of Brownian motion on a circle of length one from $0$ to $\lambda$ (generator $\frac12\,d^2/dy^2$, twice the chart's time) at time $\frac1{4t}$, up to the factor $\sqrt{2\pi/(4t)}$. The left side is the sum over images and the right side the sum over eigenfunctions. At $\lambda=0.2$, $t=0.37$ both sides are $2.0604378038$ (computed). For rational $\lambda=j/q$ with $\gcd(j,q)=1$ the Dirichlet series $\sum_n|n+\lambda|^{-2s}$ is a combination of $L(2s,\chi)$ over the even characters $\chi$ modulo $q$. For $q\in\{2,3,4,6\}$ the only even character is the principal one, so the series is a single Euler product times $\zeta(2s)$, for instance $4^{2s}(1-2^{-2s})\zeta(2s)$ at $q=4$ (agreement to eight digits at $s=1.3$, computed), and its zeros are those of $\zeta(2s)$. For $q$ with several even characters the series is a combination of different Euler products, and zeros off the critical line are what one expects of such combinations, by analogy with the Hurwitz zeta function (Davenport and Heilbronn \cite{DH36}). For $\lambda=\frac15$ this is a theorem. Here $\sum_n|n+\frac15|^{-2s}=5^{2s}\sum_{m\equiv\pm1\ (5)}m^{-2s}$ has periodic coefficients, equal to $\frac12(\chi_0+(\frac\cdot5))$ with $\chi_0$ the principal character, and this is not a Dirichlet polynomial times one $L$ function. By the theorem of Saias and Weingartner \cite{SaiasWeingartner09} (stated in Chapter~\ref{h:ch:chains}) such a series has zeros with $\Re 2s>1$, so zeros off the line $\Re s=\frac12$. We have not checked the other $q$, and we do not claim a consequence for RH: these series are not $\zeta$.
+
+A nonprincipal character $\chi$ gives weights $\chi(p)^k$ on $\tau_p$ that are complex, so there is no Thorin measure for $L(2s,\chi)$, only a complex measure, and no hitting time. The same obstruction is recorded for the cubic theta series in Remark~\ref{qrh:rem:kubota}. We therefore make no claim that a factorising measure is a Hecke eigenform, a statement we cannot support (for half integral weight the coefficients of eigenforms are not multiplicative in general). In the dictionary form:
+\begin{center}
+\small
+\begin{tabular}{p{0.3\textwidth}p{0.58\textwidth}}
+\toprule
+arithmetic & probability\\
+\midrule
+theta function, weight $\frac12$ & $x$ times the L\'evy density of a hitting time\\
+Jacobi inversion & eigenfunctions against images; reciprocal is size biased\\
+Dirichlet series & Mellin transform of the L\'evy measure over $\Gamma$\\
+Euler product & multiplicative convolution of self similar Thorin measures\\
+nonprincipal character & complex measure, no hitting time\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\section{The hitting time form of RH}\label{mt:sec:hit}
+The equivalence between RH and a Krein string hitting time is not new here. In the book's chart it is Theorem~\ref{bk:thm:string} part (d) and Corollary~\ref{ev:cor:rh}: the function $u\mapsto\xi(\frac12)/\xi(\frac12+\sqrt u)$ is the Laplace transform of the hitting time of the far end of a string started at its reflecting end if and only if RH holds and all zeros are simple. The simplicity is needed because a string has simple spectrum (Proposition~\ref{ht:prop:kent}); with a multiple zero the hitting time law is the product over distinct eigenvalues, and not the clock. The Thorin measure of that string is the centre measure $\sum\delta_{\gamma^2}$ of this book, with $\sum\gamma^{-2}<\infty$, Krein's correspondence and Kent's theorem \cite{DymMcKean76,KotaniWatanabe82,Kent80} supplying the string. This is the Hilbert and P\'olya idea in probabilistic form, with the same difficulty as RH. What it adds is a contrast.
+\begin{itemize}
+\item $\xi$ is the Mellin transform of a hitting time law, unconditionally, with Thorin measure on $\{n^2\pi^2\}$ up to scale (equation~\eqref{bp:eq:bpy}).
+\item $1/\xi$ is the Laplace transform of a hitting time law, conditionally on RH and simple zeros, with Thorin measure on $\{\gamma^2\}$.
+\end{itemize}
+The first diffusion is known, a Bessel process with a theta function L\'evy density. The second is not. RH asks for a spectral relation between two strings: the Mellin zeros of the hitting law of one are the Dirichlet eigenvalues of the other. Off the critical line there is no such form, since $1/\xi(\alpha+w)$ is not a function of $w^2$ for $\alpha\ne\frac12$.
+
+\section{The quasi Riemann hypothesis and open problems}\label{mt:sec:open}
+The quasi Riemann theorem of \cite{OAI26a} (zero free half plane $\operatorname{Re}s>\frac78$) has its status in Section~\ref{qrh:sec:claims}. Nothing in this chapter uses it. The cubic Gauss sums of Dunn and Radziwi\l\l\ \cite{NCDunnRadziwill24} are the coefficients of Patterson's cubic theta function \cite{NCPatterson77}, which lives on hyperbolic three space over the Eisenstein integers and has Bessel functions in place of Gaussians. These coefficients are complex and the cubic series has no Euler product, so there is no Thorin measure to match (Remark~\ref{qrh:rem:kubota}). We make no statement about how the method of \cite{OAI26a} uses them.
+\begin{problem}\label{mt:prob:cubic}
+The question of a probabilistic object for the cubic theta function is ill posed as a Thorin transform, because a Thorin measure is nonnegative. Decide whether the absolute values of the cubic coefficients, or a signed L\'evy measure built from them, are the L\'evy measure of a process.
+\end{problem}
+\begin{problem}\label{mt:prob:string}
+Describe the second string of Section~\ref{mt:sec:hit}. Under RH and simple zeros its spectral measure is $\sum\delta_{\gamma^2}$, so its number of eigenvalues at most $R$ is $N(\sqrt R)$ by definition. Truncated strings for up to $800$ zeros are computed in Theorem~\ref{bk:thm:string} and the data after it. Compare their mass distributions with that of the Bessel string.
+\end{problem}
+\begin{problem}\label{mt:prob:ladder}
+Decide whether Proposition~\ref{mt:prop:euler} interacts with the ladder of Section~\ref{kr:sec:ladder}: the Thorin measure of the Kolmogorov law has the self similar factors $\tau_p$, and the ladder is built from the L\'evy measure of $\log\xi$, which is a sum over prime powers.
+\end{problem}
