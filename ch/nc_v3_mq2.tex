@@ -1,0 +1,548 @@
+% Chapter mq, part B: the integers behind (M), the sawtooth form, finite field models, characters and the choice of (q,d). Sources: misc/reviews/nick-line-towards-M/line_towards_M_for_vadim/chapter_line_of_proof_M.tex (salvage only), referee reports misc/research/directions/opus/vol3/ML1.md and ML2.md, misc/research/directions/astra/MLA/report.md, recomputation misc/vol3/verify/ML/results.md; written 23 Nov 2026.
+\section{The inequality (M), Part B: integers, sawtooth and models}\label{mql:sec:partb}
+
+This part collects the elementary and finite field material that surrounds (M). It does not prove (M), and nothing in it improves a zero free region. Chebyshev's method rests on one fact: a nonzero integer $N$ satisfies $\sum_pv_p(N)\log p=\log|N|$, so a lower bound for valuations is an upper bound for a prime sum. Most of the arithmetic is classical (Hurwitz, Carlitz, Katz, Gauss, Jacobi, Hasse, Deuring, Honda, Gross and Koblitz) and is attributed where it occurs; the few identities proved (the exact $2$ adic valuation of the lemniscate coefficients, the sawtooth identity, the finite field weight) are claimed with no novelty. Characters follow Part A: $\chi_q=(\cdot/q)$ has discriminant $-q$, $\chi_d$ has discriminant $-d$ (so $\chi_4$ is the character of $\mathbb Q(i)$), and $\chi_q\chi_d=\chi_{qd}$ has discriminant $+qd$. The inequality (M) and the statements about its proof are those of the Rubinstein draft \cite{Rub26} and are reported, not verified, except Estimates B and C, which are proved in Subsection~\ref{mq:sub:BC}. Numerical statements are of two kinds: those marked as recomputed were checked independently for this book (integer valuations in exact arithmetic, other quantities in floating point or interval arithmetic), and every other number is reported from the source draft, not recomputed. Throughout, $\gamma$ is Euler's constant, and $t_\rho=\Im\rho$ (so $\rho=\beta+it_\rho$), never $\gamma$. Where RH is not assumed, the spectral parameter of Part A is the complex $\tau_\rho=(\rho-\frac12)/i$, and $t_\rho$ replaces it only under RH.
+
+\subsection{The lemniscate integers}\label{mql:sub:lemn}
+
+Let $\mathrm{sl}$ be the lemniscate sine, the inverse of $z=\int_0^s(1-t^4)^{-1/2}dt$. It has complex multiplication by $\mathbb Z[i]$. Write
+\[
+\mathrm{sl}(z)=\sum_{n\equiv1\,(4)}a_n\frac{z^n}{n!}=z-12\frac{z^5}{5!}+3024\frac{z^9}{9!}-4390848\frac{z^{13}}{13!}+\cdots,\qquad e_n=\frac{a_n}{n!}.
+\]
+The $a_n$ are integers, since $\mathrm{sl}''=-2\,\mathrm{sl}^3$. The character is $\chi_{4}$: a prime $p\equiv3\pmod4$ is inert in $\mathbb Q(i)$ and a prime $p\equiv1\pmod4$ splits. The inverse function is the logarithm of the formal group of the lemniscate,
+\[
+\ell(s)=\int_0^s\frac{dt}{\sqrt{1-t^4}}=\sum_{k\ge0}b_k\,s^{4k+1},\qquad b_k=\frac{1}{4^k(4k+1)}\binom{2k}{k}.
+\]
+
+\begin{lemma}[Carries]\label{mql:lem:carries}
+Let $p\equiv3\pmod4$ and $k\ge1$. Then $v_p(b_k)\ge-\dfrac{4k}{p^2-1}$.
+\end{lemma}
+
+\begin{proof}
+Let $p^j$ be the exact power of $p$ dividing $4k+1$. If $j=0$ then $b_k$ is $p$ integral. In $\mathbb Z_p$, $-\frac14=\frac{p^2-1}4(1+p^2+p^4+\cdots)$ and $\frac{p^2-1}{4}=\frac{p-3}4\,p+\frac{3p-1}4$, so the base $p$ digits of $-\frac14$ alternate: $d_0=\frac{3p-1}4$ in even positions and $d_1=\frac{p-3}4$ in odd positions. Since $k\equiv-\frac14\pmod{p^j}$, these are the lowest $j$ digits of $k$. Adding $k$ to itself, each even position produces a carry, because $2d_0>p$, and no odd position does, because $2d_1+1=\frac{p-1}2<p$. By Kummer's theorem $v_p\binom{2k}k$ is the number of carries, hence at least $\lceil j/2\rceil$, and $v_p(b_k)\ge-\lfloor j/2\rfloor$. Finally $4k\ge p^j-1$ and $\frac{p^j-1}{p^2-1}\ge\lfloor j/2\rfloor$.
+\end{proof}
+
+Equality holds at $k=\frac{p^2-1}4$. This is the statement that the formal group has height two at an inert prime: the first denominator of the logarithm occurs at $s^{p^2}$, not at $s^p$.
+
+\begin{theorem}[Divisibility at inert primes]\label{mql:thm:div}
+Let $p\equiv3\pmod4$. For every $n\equiv1\pmod4$,
+\[
+v_p(e_n)\ge-\frac{n-1}{p^2-1},\qquad\text{hence}\qquad v_p(a_n)\ge v_p(n!)-\frac{n-1}{p^2-1}=\frac{n-s_p(n)}{p-1}-\frac{n-1}{p^2-1},
+\]
+where $s_p(n)$ is the sum of the base $p$ digits of $n$. For every odd prime $p$, $v_p(e_n)\ge-\lfloor\frac{n-1}{p-1}\rfloor$, and $v_2(e_n)\ge-\frac{n-1}2$.
+\end{theorem}
+
+\begin{proof}
+Work in $\mathcal O=\mathbb Z_p[\varrho]$ with $\varrho^{p^2-1}=p$ and put $g(t)=\ell(\varrho t)/\varrho=t+\sum_{k\ge1}b_k\varrho^{4k}t^{4k+1}$. By Lemma~\ref{mql:lem:carries}, $v_p(b_k\varrho^{4k})\ge0$, so $g\in\mathcal O[[t]]$ with linear coefficient $1$, and its compositional inverse $\mathrm{sl}(\varrho y)/\varrho=\sum_ne_n\varrho^{n-1}y^n$ has coefficients in $\mathcal O$. Hence $v_p(e_n)+\frac{n-1}{p^2-1}\ge0$, and the formula for $v_p(n!)$ is Legendre's. For the second claim, if $p^j$ exactly divides $4k+1$ then $v_p(b_k)\ge-j$ and $j\le\frac{p^j-1}{p-1}\le\frac{4k}{p-1}$; repeat the argument with $\varrho^{p-1}=p$. For $p=2$, $v_2(b_k)=s_2(k)-2k\ge-2k$, and one takes $\varrho^2=2$. Valuations of rationals are integers, which gives the floors.
+\end{proof}
+
+This is a special case of the height formula of Theorem~\ref{mql:thm:height} below. At a split prime the bound cancels $v_p(n!)$ and no divisibility is forced (Table~\ref{mql:tab:lemn}). At the prime $2$ the exact valuation holds.
+
+\begin{remark}[Version 2 of the Rubinstein draft]\label{mql:rem:v2}
+Version 2 of the draft \cite{Rub26}, dated 22 November 2026 and not checked here, states in its Section III.12 the sharper bound $v_p(a_n)\ge\lfloor np/(p^2-1)\rfloor$ at every inert prime (Theorem Le18), the size $a_n/n!=\pm4(\sqrt2/\varpi)^{n+1}(1+O(C_0^{-n}))$ for every $C_0<\sqrt5$ (Theorem Le9), and the Chebyshev inequality for the inert primes with the same loss of a factor two (Proposition Le19). On these points this subsection is not new. The height formula, the Kummer congruences at split primes and the Hankel chain below are not in the parts of the draft compared.
+\end{remark}
+
+\begin{theorem}[The prime $2$]\label{mql:thm:two}
+For every $n\equiv1\pmod4$, $a_n=2^{(n-1)/2}o_n$ with $o_n$ an odd integer. Hence $v_2(a_n)=\frac{n-1}2$ and $v_2(e_n)=s_2(n)-\frac{n+1}2$; for $n=4K+1$ this is $v_2(e_{4K+1})=s_2(K)-2K$.
+\end{theorem}
+
+\begin{proof}
+Put $h(z)=\sqrt2\,\mathrm{sl}(z/\sqrt2)=\sum_nh_nz^n/n!$, so $h_n=a_n2^{-(n-1)/2}$. From $\mathrm{sl}''=-2\,\mathrm{sl}^3$ we get $h''=-\frac12h^3=-3\gamma_3(h)$, where $\gamma_3(h)=h^3/3!$ is the divided power. The ring $\mathcal H$ of series $\sum c_nz^n/n!$ with integer $c_n$ is closed under the divided powers $\gamma_k$ on series without constant term (partition the labelled indices into unordered blocks), so the recursion $h_{n+2}=-3\,[z^n/n!]\gamma_3(h)$ gives $h_n\in\mathbb Z$. Modulo $2$, $\mathcal H/2\mathcal H$ is the divided power algebra $\mathbb F_2[x_0,x_1,\dots]/(x_j^2)$ with $x_j=z^{2^j}/(2^j)!$, in which $z^n/n!$ is the product of the $x_j$ over the binary digits of $n$. Let $E=\prod_{j\ge2}(1+x_j)=\sum_{n\equiv0\,(4)}z^n/n!$ and $s=x_0E=\sum_{n\equiv1\,(4)}z^n/n!$. Then $s''=\sum_{n\equiv3\,(4)}z^n/n!=x_0x_1E$. On the other hand $\gamma_3(x_0E)=E^3\gamma_3(x_0)=E^3x_0x_1$, and $E^2=\prod(1+x_j)^2=1$ in characteristic $2$. So $\gamma_3(s)=x_0x_1E=s''$: $s$ solves $s''=-3\gamma_3(s)$ modulo $2$ with $s(0)=0$, $s'(0)=1$. Since $\gamma_3(h+2g)\equiv\gamma_3(h)$ modulo $2$, the recursion determines the solution modulo $2$, and $h\equiv s$. The valuations follow from $v_2(n!)=n-s_2(n)$ and $s_2(4K+1)=s_2(K)+1$.
+\end{proof}
+
+So modulo $2$ the rescaled lemniscate sine is $\frac12(\sinh z+\sin z)$. The theorem is stronger than the last claim of Theorem~\ref{mql:thm:div} by $s_2(n)-1$, and was recomputed for all $n\le1201$ (every $o_n$ odd). Whether it is in the literature was not checked.
+
+\begin{table}[h]
+\centering\small
+\begin{tabular}{@{}lrrrrrrrr@{}}
+\toprule
+& \multicolumn{5}{c}{inert $p$} & \multicolumn{3}{c}{split $p$}\\
+\cmidrule(lr){2-6}\cmidrule(l){7-9}
+$n$ & 3 & 7 & 11 & 19 & 31 & 5 & 13 & 17\\
+\midrule
+$n=101$ & 37 & 14 & 9 & 5 & 3 & 0 & 0 & 0\\
+$n=401$ & 150 & 58 & 36 & 21 & 12 & 0 & 0 & 0\\
+\midrule
+bound, $n=401$ & 146 & 58 & 36 & 21 & 12 & & & \\
+$v_p(401!)$ & 196 & 66 & 39 & 22 & 12 & 99 & 32 & 24\\
+\bottomrule
+\end{tabular}
+\caption{Valuations $v_p(a_n)$ of the Taylor coefficients of the lemniscate sine (recomputed), with the lower bound of Theorem~\ref{mql:thm:div} rounded up.}\label{mql:tab:lemn}
+\end{table}
+
+For all $2292$ pairs $(n,p)$ with $n\le401$, $n\equiv1\pmod4$ and $p\le n$ inert, there is no violation of Theorem~\ref{mql:thm:div}, the bound rounded up is attained in $2129$ cases ($92.9\%$), and the largest excess is $5$ (recomputed). At split primes $p\le n$ the coefficient $a_n$ is divisible by $p$ in only $3$ of $2014$ cases, which the next subsection explains.
+
+\begin{remark}[The toy inequality, in its correct form]\label{mql:rem:toy}
+Put $l_p=\big[v_p(n!)-\frac{n-1}{p^2-1}\big]_+$ and $\mathrm{MAIN}_{\rm toy}(n)=\log n!-(n+1)\log R+\log4$ with $R=\varpi/\sqrt2=1.8541$ and $\varpi=2.6221$ the lemniscate constant. The poles of $\mathrm{sl}$ are at $\frac\varpi2(\alpha+\beta i)$ with $\alpha,\beta$ odd and residues of modulus one, so for $n\equiv1\pmod4$ and $n\ge5$ (the coefficient $a_1$ is treated separately) $e_n=-\sum_\omega c_\omega\omega^{-n-1}$ over the poles, the four nearest poles contribute $4R^{-(n+1)}$ in modulus, and the rest of the lattice sum is of relative size at most $3\cdot5^{-(n+1)/2}$ for $n\ge5$ (by a direct shell count, whose constant was not recomputed). Hence $|a_n|=4n!R^{-(n+1)}(1+\eta_n)$, $|\eta_n|\le3\cdot5^{-(n+1)/2}$, and $a_n\ne0$. The product formula gives the valid inequalities
+\[
+\sum_{p\equiv3\,(4),\ p\le n}l_p\log p\ \le\ \log|a_n|\ \le\ \mathrm{MAIN}_{\rm toy}(n)+|\eta_n| ,
+\]
+and by Chebyshev's bound $\pi(n)\ll n/\log n$ the digit sums cost $O(n)$, so $\sum_{p\equiv3\,(4),\,p\le n}\frac{p\log p}{p^2-1}\le\log n+O(1)$. The sum over inert $p$ only is meant, since $\sum_{p\ \rm odd}$ would be twice as large; the inequality loses a factor two: the left side is asymptotically $\frac12n\log n$ (by the prime number theorem in residue classes) and the right side $n\log n$.
+\end{remark}
+
+\subsection{Split primes: Kummer congruences, irregular pairs, trace and the Gamma product}\label{mql:sub:split}
+
+\begin{theorem}[Kummer congruences]\label{mql:thm:kummer}
+Let $p$ be an odd prime and put $a_n=0$ when $n\not\equiv1\pmod4$. Then for all $n\ge1$,
+\[
+a_{n+p-1}\equiv a_p\,a_n\pmod p .
+\]
+If $p\equiv3\pmod4$ then $a_p=0$, so $a_n\equiv0\pmod p$ for all $n\ge p$. If $p\equiv1\pmod4$ then
+\[
+a_p\equiv(-1)^{(p-1)/4}\binom{(p-1)/2}{(p-1)/4}\not\equiv0\pmod p ,
+\]
+so $p\mid a_n$ if and only if $p\mid a_r$, where $r\in\{1,5,\dots,p-4\}$ is the residue of $n$ modulo $p-1$ (for $n\equiv1\pmod 4$). In particular $p\nmid a_n$ for every $n\equiv1\pmod{p-1}$.
+\end{theorem}
+
+\begin{proof}
+Let $A=\mathbb Z[s,w]/(w^2-1+s^4)$ and $D=w\frac{d}{ds}$, so $Ds=w$ and $Dw=-2s^3$. Since $\mathrm{sl}'=\sqrt{1-\mathrm{sl}^4}$, $a_n=(D^ns)(0)$ at the point $s=0$, $w=1$. Modulo $p$, $A/pA$ is the coordinate ring of the elliptic curve $w^2=1-s^4$ over $\mathbb F_p$ with that point as origin, and $D$ is its invariant derivation, dual to $ds/w$. The $p$th power of a derivation in characteristic $p$ is a derivation, and $D^p$ is again invariant, so $D^p=\alpha D$ with $\alpha\in\mathbb F_p$. Applying $D^{n-1}$ to $D^ps=\alpha Ds$ and evaluating at the origin gives $a_{n+p-1}\equiv\alpha a_n$, and $n=1$ gives $\alpha\equiv a_p$. The constant $\alpha$ is the Hasse invariant, the coefficient of $s^{p-1}$ in $f(s)^{(p-1)/2}$ for $w^2=f(s)$ (Cartier, Katz); for $f=1-s^4$ it is $0$ when $p\equiv3\pmod4$ and the stated binomial coefficient when $p\equiv1\pmod4$, which is prime to $p$.
+\end{proof}
+
+The integrality of the lemniscatic coefficients and congruences of this type are due to Hurwitz, with developments by Carlitz and by Katz \cite{Katz75}, where the multiplier is the Hasse invariant; the proof above is the invariant derivation form. For split $p$ and $n\equiv1\pmod4$ the congruence was recomputed in $11906$ cases without failure. At an inert prime the curve is supersingular, $D^p\equiv0$, and the coefficients acquire $p$ at a linear rate (Theorem~\ref{mql:thm:div}); at a split prime it is ordinary and the coefficients are units along whole progressions. The Gauss congruence $\binom{(p-1)/2}{(p-1)/4}\equiv2a\pmod p$ for $p=a^2+b^2$, $a\equiv1\pmod4$, identifies $a_p$ with the trace below.
+
+\begin{definition}[Irregular pairs]\label{mql:def:irr}
+A pair $(p,r)$ with $p\equiv1\pmod4$ prime, $r\equiv1\pmod4$ and $5\le r\le p-4$ is irregular if $p\mid a_r$.
+\end{definition}
+
+By Theorem~\ref{mql:thm:kummer}, for $n\equiv1\pmod4$ a split prime $p$ divides $a_n$ exactly when $(p,r)$ is irregular for the residue $r$ of $n$ modulo $p-1$. This is the analogue of Kummer's irregular primes, with $a_r$ in place of the Bernoulli numbers. Below $600$ there are exactly eight irregular pairs (recomputed):
+\begin{gather*}
+(157,101),\ (181,105),\ (181,165),\ (233,229),\\ (337,193),\ (353,245),\ (409,361),\ (449,109),
+\end{gather*}
+for $51$ split primes, against about one quarter per prime if $a_r$ were random modulo $p$.
+
+\begin{theorem}[Trace and slack for the lemniscate]\label{mql:thm:trace}
+Let $N_p$ be the number of solutions of $w^2=1-s^4$ in $\mathbb F_p^2$. If $p\equiv3\pmod4$ then $N_p=p+1$. If $p\equiv1\pmod4$ then $N_p=p-1-t_p$, where $t_p\equiv a_p\pmod p$ and $t_p=\pi+\bar\pi$ with $\pi\in\mathbb Z[i]$, $\pi\bar\pi=p$, so that $4p-t_p^2=(2\,\mathrm{Im}\,\pi)^2\ge4$. Hence $|t_p|<2\sqrt p$, and for $p>16$ the integer $t_p$ is the residue of $a_p$ of least absolute value.
+\end{theorem}
+
+\begin{proof}
+Let $\chi$ be the quadratic character of $\mathbb F_p$, so $N_p=p+\sum_s\chi(1-s^4)$. Since $\chi(u)\equiv u^{(p-1)/2}\pmod p$ and $\sum_ss^k\equiv-1$ for $p-1\mid k>0$, $\equiv0$ otherwise, the polynomial $(1-s^4)^{(p-1)/2}$ gives $\sum_s\chi(1-s^4)\equiv-a_p-1$ for $p\equiv1\pmod4$. For $p\equiv3\pmod4$, $s\mapsto s^4$ has the image counts of $s\mapsto s^2$, so the sum is $\sum_s\chi(1-s^2)=-\chi(-1)=1$ exactly. For $p\equiv1\pmod4$ let $\psi$ be a character of order four, $\chi=\psi^2$, so the number of $s$ with $s^4=u$ is $\sum_{j=0}^3\psi^j(u)$ (with $s=0$ counted once), and $\sum_s\chi(1-s^4)=0+J(\psi,\chi)+J(\chi,\chi)+\overline{J(\psi,\chi)}$, with $J(\chi,\chi)=-\chi(-1)=-1$ and $|J(\psi,\chi)|^2=p$ (Ireland and Rosen, Chapters 8 and 18). Put $\pi=-J(\psi,\chi)$; since $p$ is not a square, $\mathrm{Im}\,\pi\ne0$.
+\end{proof}
+
+For $p=13$: $N_p=6$, $t_p=6$, $4p-t_p^2=16$; for $p=101$: $N_p=102$, $t_p=-2$, $4p-t_p^2=400$ (hand check). The classical source is Gauss (1814) and Jacobi sums. Note that $4p-t_p^2=(2\sqrt p-t_p)(2\sqrt p+t_p)$ is the product of the two unnormalised Hasse gaps.
+
+\begin{theorem}[One Gamma product]\label{mql:thm:gammaprod}
+For $v=\infty$ and for $v=p$ an odd prime put $G_v=\Gamma_v(\frac14)\Gamma_v(\frac12)/\Gamma_v(\frac34)$, with $\Gamma_\infty$ Euler's Gamma function and $\Gamma_p$ Morita's (the prime $2$ is omitted, since $\Gamma_2(\frac14)$ is not defined).
+\begin{enumerate}
+\item $G_\infty=B(\frac14,\frac12)=2\varpi$; hence $R=G_\infty/(2\sqrt2)$.
+\item Let $p\equiv1\pmod4$ and let $u_p\in\mathbb Z_p$ be the unit root of $X^2-t_pX+p$. Then $u_p=G_p$ exactly, with the sign $+$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(a) $\varpi=2\int_0^1(1-s^4)^{-1/2}ds=\frac12B(\frac14,\frac12)$. (b) By Theorem~\ref{mql:thm:trace} the roots are $-J(\psi,\chi)$ and its conjugate, with $J(\psi,\chi)=g(\psi)g(\chi)/g(\psi\chi)$, and one takes $\psi=\omega^{-(p-1)/4}$ with $\omega$ the Teichm\"uller character at a chosen embedding. The formula of Gross and Koblitz \cite{GrossKoblitz79}, $g(\omega^{-a})=-\pi_p^{\,a}\,\Gamma_p(\frac a{p-1})$ with $\pi_p^{p-1}=-p$, gives each of the three Gauss sums a minus sign, the powers of $\pi_p$ cancel, and the quotient is $J(\psi,\chi)=-\Gamma_p(\frac14)\Gamma_p(\frac12)/\Gamma_p(\frac34)=-G_p$. So $u_p=-J=G_p$.
+\end{proof}
+
+The sign was left open in the source draft and is fixed here by Gross and Koblitz. The source reports $u_p\equiv G_p$ modulo $p^3$ for the seven primes $p\equiv1\pmod4$ below $60$ and modulo $p^2$ for the fourteen between $60$ and $200$; these were not recomputed. So the $p$ adic recurrence of $a_n$ is governed by $G_p$, and the archimedean size by $G_\infty$ (Remark~\ref{mql:rem:toy}).
+
+\begin{remark}[Kummer congruences modulo $p^2$]\label{mql:rem:kummer2}
+For $p\equiv1\pmod4$ one has $a_{n+p(p-1)}\equiv u_p^{\,p}\,a_n\pmod{p^2}$ for $n\ge2$, with a short proof from the invariant derivation (put $T=D^{p-1}$ and $B=T-aI$ for an integer $a\equiv a_p$; then $D^nB^j$ maps the coordinate ring into $p^{\min(n,j)}$ times itself, and one expands $(aI+B)^p$). It fails at $n=1$ for each of $p=5,13,17,29$ (an Euler factor is missing there), the one step form $a_{n+p-1}\equiv u_pa_n$ modulo $p^2$ is false, and the congruence holds in all $885$ tests with $p\in\{5,13,17,29\}$, $n\equiv1\pmod4$, $n\ge5$ and $n+p(p-1)\le1201$ (recomputed). This is an elementary instance of the congruences of Hurwitz and Katz and of the Coates and Wiles theory of CM special values.
+\end{remark}
+
+\subsection{An elementary chain: Hankel determinants}\label{mql:sub:chain}
+
+A chain combines several evaluations so that the archimedean size falls faster than the denominators grow. Stepanov's device is an auxiliary function vanishing to order $m$; its elementary form for a sequence of Taylor coefficients is a Hankel determinant. For $m\ge1$ and $k_0\ge1$ put
+\[
+\begin{gathered}
+D_m=D_m(k_0)=\det\big[e_{4(k_0+i+j)+1}\big]_{0\le i,j<m},\qquad n_{\max}=4(k_0+2m-2)+1,\\
+S=\sum_{i<m}\big(4(k_0+2i)+1\big).
+\end{gathered}
+\]
+
+\begin{proposition}[Heine's formula]\label{mql:prop:heine}
+Let $\nu=\sum_\omega(-c_\omega\omega^{-2})\,\delta_{\omega^{-4}}$, the sum over the poles of $\mathrm{sl}$, so that $e_{4k+1}=\int x^k\,\nu(dx)$ for $k\ge1$. Then
+\[
+D_m=\frac1{m!}\int\!\cdots\!\int\prod_{a=1}^mx_a^{k_0}\prod_{a<b}(x_a-x_b)^2\,\nu(dx_1)\cdots\nu(dx_m).
+\]
+\end{proposition}
+
+\begin{proof}
+This is Heine's (Andr\'eief's) identity for the Hankel determinant of the moments of $x^{k_0}\nu$. The measure $\nu$ itself has infinite total variation, since $\sum|\omega|^{-2}$ diverges, but $x^{k_0}\nu$ has finite total variation for $k_0\ge1$, which is all the identity needs.
+\end{proof}
+
+\begin{theorem}[The chain inequality]\label{mql:thm:chain}
+If $D_m\ne0$, then
+\[
+-\log|D_m|\le T_m:=\sum_{p\equiv1\,(4)}B_p\log p+\sum_{p\equiv3\,(4)}B_p'\log p+\Big\lfloor\frac{S-m}2\Big\rfloor\log2,
+\]
+with $B_p=\min\big(\lfloor\frac{S-m}{p-1}\rfloor,\,m\lfloor\frac{n_{\max}-1}{p-1}\rfloor\big)$ and $B_p'=\min\big(\lfloor\frac{S-m}{p^2-1}\rfloor,\,m\lfloor\frac{n_{\max}-1}{p^2-1}\rfloor\big)$, the sums over primes $p\le n_{\max}$. The difference $T_m+\log|D_m|$ is the logarithm of a positive integer.
+\end{theorem}
+
+\begin{proof}
+Every term of the determinant is a product $\prod_ie_{n_{i\sigma(i)}}$ with $\sum_in_{i\sigma(i)}=S$ for every permutation $\sigma$. By Theorem~\ref{mql:thm:div}, $v_p$ of each term is at least $-B_p$ at a split prime, at least $-B_p'$ at an inert prime and at least $-\lfloor\frac{S-m}2\rfloor$ at $2$, and no prime above $n_{\max}$ divides a denominator. So $D_m\prod_pp^{B_p}\prod_pp^{B_p'}2^{\lfloor(S-m)/2\rfloor}$ is a nonzero integer, and the product formula gives the claim.
+\end{proof}
+
+\begin{proposition}[A $2$ adic certificate that $D_m\ne0$]\label{mql:prop:certificate}
+Let $\kappa(m,k_0)=\min_\sigma\sum_{i<m}\big[s_2(k_0+i+\sigma(i))-(k_0+i+\sigma(i))\big]$, the minimum over permutations of $\{0,\dots,m-1\}$. If
+\[
+v_2\Big(\prod_{i<m}\frac{i!}{(k_0+i+m-1)!}\Big)=\kappa(m,k_0),
+\]
+then $D_m(k_0)\ne0$ and $v_2(D_m)=\kappa(m,k_0)-mk_0-m(m-1)$.
+\end{proposition}
+
+\begin{proof}
+By Theorem~\ref{mql:thm:two} the entry $e_{4K+1}$ is $2^{s_2(K)-2K}$ times a $2$ adic unit, so the term indexed by $\sigma$ is a unit times $2$ to the power $\sum_i[s_2(K_i)-K_i]-\sum_iK_i$ with $K_i=k_0+i+\sigma(i)$, and $\sum_iK_i=mk_0+m(m-1)$ for every $\sigma$. A sum of an odd number of units is a unit, so the claim holds as soon as the number of minimising permutations is odd. The matrix $[1/(k_0+i+j)!]$ has entries of valuation $s_2(K)-K$, against $s_2(K)-2K$ for the entries of $D_m$, so all permutation totals differ by the same constant and the minimising permutations are the same, and its determinant is $\pm\prod_{i<m}i!/(k_0+i+m-1)!$ by the classical evaluation. The number of minimisers is odd exactly when the valuation of that product equals the minimum.
+\end{proof}
+
+The hypothesis of the proposition is a finite check (an assignment problem and a count of factors of $2$). The hypothesis in fact always holds: writing $\frac1{K_{ij}!}=\frac{r_i!}{b_j!}\binom{b_j}{r_i}$ with $K_{ij}=k_0+i+j$, $r_i=m-1-i$, $b_j=k_0+m-1+j$, the binomial matrix has determinant one after reversing its rows (Vandermonde on consecutive integers, with row leading coefficients $1/r!$), so its determinant is odd, an odd number of permutations have odd product, and the minimum $\kappa$ equals the valuation of the comparison determinant for every $m\ge1$, $k_0\ge1$, so $D_m(k_0)\ne0$ for all of them. Nonvanishing does not estimate $|D_m|$ at the real place.
+
+\begin{table}[h]
+\centering\small
+\begin{tabular}{@{}rrrrr@{}}
+\toprule
+$m$ & $n$ range & $-\log|D_m|$ & $T_m$ & slack share\\
+\midrule
+1 & 1201 & 741 & 3571 & 0.793\\
+4 & 1177 to 1201 & 6141 & 14167 & 0.567\\
+16 & 1081 to 1201 & 35853 & 55182 & 0.350\\
+64 & 697 to 1201 & 157784 & 188338 & 0.162\\
+128 & 185 to 1201 & 250752 & 279026 & 0.101\\
+150 & 9 to 1201 & 257979 & 285792 & 0.097\\
+\bottomrule
+\end{tabular}
+\caption{The Hankel chain with $n_{\max}=1201$ fixed, reported from the source draft, not recomputed. The slack share is $(T_m+\log|D_m|)/T_m$. Since $n_{\max}$ is fixed, $k_0=300-2m+2$ changes with $m$, so each row has a different shift.}\label{mql:tab:chain}
+\end{table}
+
+The slack share falls from $0.79$ to $0.10$ as $m$ grows from $1$ to $150$ (reported measurements, with a different shift in each row), so the inequality of Theorem~\ref{mql:thm:chain} is within $10\%$ of equality at the end of the range. The reading below is heuristic. The atoms of $\nu$ are indexed by odd Gaussian integers $\mu$ up to units; for the $m$ largest atoms the squared Vandermonde is a ratio of a Gaussian discriminant to a Gaussian factorial, a split prime divides a proportion about $4/(p-1)$ of the differences and an inert prime about $4/(p^2-1)$, and counting gives $-\log|D_m|$ and $T_m$ both equal to $2m^2\log m\,(1+o(1))$ for small $k_0$, differing in the term of order $m^2$. So the chain is heuristically Chebyshev's method for the Dedekind zeta function of $\mathbb Q(i)$. This is not a proof: Heine's formula has complex terms that can cancel, the size heuristic does not control that cancellation. A run with $k_0$ fixed would be needed to separate $m$ from $k_0$ in Table~\ref{mql:tab:chain}.
+
+\subsection{The sawtooth identity}\label{mql:sub:sawtooth}
+
+The Riesz statistic $S(x)=\sum_r\Lambda(r)(x/r-1)_+$ has an exact elementary form in which the sawtooth is explicit. Let $T(t)=\log\lfloor t\rfloor!=\sum_r\Lambda(r)\lfloor t/r\rfloor$ and
+\[
+W(X)=\int_0^XT(t)\,dt,\qquad Q(X)=\sum_{r\le X}\Lambda(r)\,r\,\Big\{\frac Xr\Big\}\Big(1-\Big\{\frac Xr\Big\}\Big)\ \ge0 .
+\]
+For an integer $N$, $W(N)=\sum_{M<N}\log M!$ is the logarithm of the superfactorial $\prod_{M<N}M!$. Let $\mathcal G(x)=S(x)-x\log x+(1+\gamma)x$ be the Riesz mean of equation \eqref{qt:eq:riesz}.
+
+\begin{theorem}[Sawtooth identity]\label{mql:thm:sawtooth}
+For every $X\ge1$,
+\[
+\frac X2\,S(X)+\frac12\,Q(X)=W(X).
+\]
+Consequently, for integers $N$,
+\[
+Q(N)=\big(\gamma-\tfrac12\big)N^2+N\log2\pi-N\,\mathcal G(N)-\tfrac16\log N+2\zeta'(-1)+O(N^{-2}).
+\]
+\end{theorem}
+
+\begin{proof}
+For $r\le X$ write $X/r=q+f$ with $q$ an integer and $0\le f<1$. Then $\int_0^X\lfloor t/r\rfloor dt=r\big[\frac{q(q-1)}2+qf\big]=\frac r2\big[(\frac Xr)^2-\frac Xr+f(1-f)\big]$, and $\frac r2\big[(\frac Xr)^2-\frac Xr\big]=\frac X2(\frac Xr-1)$. Sum against $\Lambda(r)$. For the second statement, $W(N)=\log G_{\rm B}(N+1)$ with $G_{\rm B}$ the Barnes function, and $\log G_{\rm B}(N+1)=\frac{N^2}2\log N-\frac34N^2+\frac N2\log2\pi-\frac1{12}\log N+\zeta'(-1)+O(N^{-2})$; insert into $Q=2W-NS$ with $S=\mathcal G+N\log N-(1+\gamma)N$.
+\end{proof}
+
+The identity is the product formula for the superfactorial: its valuation at a prime $p$ is $\sum_k\sum_{M<N}\lfloor M/p^k\rfloor$, a quadratic ramp plus a parabolic sawtooth, and its archimedean size is the Barnes function. There is no slack: the whole content of the one sided bound is the sawtooth sum $Q$.
+
+\begin{corollary}[Sawtooth form of the Riesz bound]\label{mql:cor:sawtoothRH}
+\begin{enumerate}
+\item Under RH, $Q(N)\ge(\gamma-\frac12)N^2-F_0N^{3/2}-\frac16\log N+O(1)$ with $F_0=2+\gamma-\log4\pi$.
+\item Conversely, if for every $\epsilon>0$ there are arbitrarily large $Y$ such that $Q(N)\ge(\gamma-\frac12)N^2-N^{3/2+\epsilon}$ for all integers $N\in[Y,Y^{3/2}]$, then RH holds by the window criterion of Part A (Corollary~\ref{mq:hyp:window}: a one sided bound $\mathcal G(x)\le x^{1/2+\epsilon}$ on windows $[Y,Y^{3/2}]$ for arbitrarily large $Y$, for every $\epsilon>0$, implies RH).
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+(a) By Theorem~\ref{mql:thm:sawtooth}, and by Theorem~\ref{qt:thm:sharp}(1) in its form with the trivial zero term, $\mathcal G(N)\le\log2\pi-\mathrm{tr}(N)+F_0\sqrt N$ under RH; the terms $N\log2\pi$ cancel, and $N\,\mathrm{tr}(N)\ge0$. (b) Apply the hypothesis with $\epsilon/2$ in place of $\epsilon$: by Theorem~\ref{mql:thm:sawtooth} it gives $\mathcal G(N)\le N^{1/2+\epsilon/2}+O(1)$ on the integers of the window. Between consecutive integers $\mathcal G$ changes by $O(1)$, because $S$ has slope $\sum_{r\le x}\Lambda(r)/r=\log x+O(1)$ and the main term has slope $\log x-\gamma$, so, including at the endpoints, the bound $\mathcal G(x)\le x^{1/2+\epsilon}$ holds for all real $x$ in the window once $Y$ is large, and the window criterion gives RH.
+\end{proof}
+
+The sharp form has no term $N\log2\pi$ (a term of that size in the source draft was an error). Table~\ref{mql:tab:sawtooth} is reported, not recomputed.
+
+\begin{table}[h]
+\centering\small
+\begin{tabular}{@{}rrr@{}}
+\toprule
+$N$ & $\mathcal G(N)$ & $Q(N)/N^2$\\
+\midrule
+$10^3$ & $1.531$ & $0.07752115$\\
+$10^4$ & $1.749$ & $0.07722450$\\
+$10^5$ & $3.672$ & $0.07719733$\\
+$10^6$ & $11.040$ & $0.07720646$\\
+$10^7$ & $27.864$ & $0.07721306$\\
+\bottomrule
+\end{tabular}
+\caption{The sawtooth identity, reported from the source draft, not recomputed. The limit of $Q(N)/N^2$ is $\gamma-\frac12=0.07721566$.}\label{mql:tab:sawtooth}
+\end{table}
+
+So the elementary statement behind the bound for the trivial character is a lower bound for a nonnegative sum over primes: prime powers weighted by $r\Lambda(r)$ cannot avoid the middle of the parabolic sawtooth $f(1-f)$ of $N/r$ by more than $N^{3/2+\epsilon}$ out of $(\gamma-\frac12)N^2$. An elementary chain has three tools (integers with known valuations, their archimedean sizes, and averaging over shifts), and none of them bounds the sawtooth from below with a power saving.
+
+\subsection{The main term is a $2\sin^2$ transform}\label{mql:sub:sin2}
+
+For $a>0$ and a measure $\nu$ on the line $z$ put
+\[
+\mathcal S_a[\nu](u)=\int\frac{2\sin^2\!\big(u\sqrt{z/2}\big)}{z+a^2/2}\,\nu(dz).
+\]
+Assume RH, so that $t_\rho$ is real. With $z_\rho=t_\rho^2/2$ and $U=\sum_{t_\rho>0}\delta_{z_\rho}$ (zeros counted with multiplicity, one from each pair $\pm t_\rho$), $\mathcal S_a[U](u)=\sum_\rho\frac{2\sin^2(ut_\rho/2)}{a^2+t_\rho^2}$, the sum over all zeros, which is the slack $\Phi_a$ of Part A; $a=\frac12$ is the Riesz slack of this book. Without RH the positive measure $U$ is not available: $t_\rho=\Im\rho$ would discard the growth coming from $\Re\rho-\frac12$, and one keeps the complex parameters $\tau_\rho$ of Part A, paired as $\pm\tau_\rho$. The variable here is $z=t^2/2$, whereas the book's spectral variable is $z=t^2$, a factor of two.
+
+\begin{proposition}[The pole atom]\label{mql:prop:atom}
+For $a>\frac12$,
+\begin{gather*}
+\mathcal S_a\big[\delta_{-1/8}\big](u)=-\frac{16\sinh^2(u/4)}{4a^2-1},\\\text{so}\qquad\sqrt x\,\mathcal S_a\big[\delta_{-1/8}\big](\log x)=-\frac{4}{4a^2-1}\big(x-2\sqrt x+1\big).
+\end{gather*}
+\end{proposition}
+
+\begin{proof}
+At $z=-\frac18$, $\sqrt{z/2}=\frac i4$ and $2\sin^2(\frac{iu}4)=-2\sinh^2(\frac u4)$, while $z+\frac{a^2}2=\frac{4a^2-1}8$.
+\end{proof}
+
+The point $z=-\frac18$ is $t=\pm\frac i2$, that is $s=1$ and $s=0$. So the pole of $\zeta$ enters Weil's explicit formula, on the test function $e^{-a|u-v|}+e^{-a|u+v|}$, as a unit atom, a positive measure at the negative spectral coordinate $z=-\frac18$; the negative sign of its $2\sin^2$ transform comes from the kernel there, not from a negative mass. The transform has the leading term $\frac{x}{1/4-a^2}$, which is the polar term $\frac{2a\sqrt x}{1/4-a^2}$ of the book's resolvent statistic $S_a$ rescaled by $\sqrt x/(2a)$. This is a reading of one term of the explicit formula, not a proof of an inequality.
+
+For a twisted statistic there is no pole atom: the raw twisted sum has the linear main term $-x\frac{L'}{L}(1,\chi)$, which the compensator in $\mathcal G_\chi$ cancels. On the geometric side this constant comes from the period: for the odd real primitive character $\chi_{d}$ of conductor $d$ define $\Omega_d$ by the relation of Chowla and Selberg \cite{ChowlaSelberg67}, in the form $\log\Omega_d=\gamma+\log\frac{2\pi}{\sqrt d}-\frac{L'}{L}(1,\chi_{d})$. This defines $\Omega_d$; only the identification at $d=4$ has content.
+
+\begin{theorem}[Period and compensator]\label{mql:thm:period}
+For an odd real primitive character $\chi_{d}$,
+\[
+c_{\chi_{d}}:=\sum_\rho\frac{1}{\rho(1-\rho)}=2\,\frac{\xi'}{\xi}(1,\chi_{d})=\gamma+\log4\pi-2\log\Omega_d ,
+\]
+equivalently
+\[
+\Omega_d=2\sqrt\pi\,e^{\gamma/2}\exp\Big(-\frac{\xi'}{\xi}(1,\chi_{d})\Big).
+\]
+Unconditionally $c_{\chi_{d}}>0$, so $\Omega_d<2\sqrt\pi\,e^{\gamma/2}=4.7309$. For $d=4$, $\Omega_4=\Gamma(\frac14)^4/(4\pi^2)=\frac{2\varpi^2}{\pi}=\frac{4R^2}\pi=4.3769$ and
+\[
+c_{\chi_{4}}=\gamma+3\log\pi-\log4-4\log R=0.155568 .
+\]
+\end{theorem}
+
+\begin{proof}
+With $\xi_\chi(s)=(d/\pi)^{s/2}\Gamma(\frac{s+1}2)L(s,\chi)$, the functional equation and the paired Hadamard product give $2\xi_\chi'/\xi_\chi(1)=\sum_\rho\frac1{\rho(1-\rho)}$, and $2\xi_\chi'/\xi_\chi(1)=\log\frac d\pi+\psi(1)+2\frac{L'}L(1,\chi)$ with $\psi(1)=-\gamma$; substitute the definition of $\Omega_d$. Positivity: $\Re\,\rho(1-\rho)=\beta(1-\beta)+t_\rho^2>0$ for every zero in the strip, so each reciprocal has positive real part, and the sum is real by pairing $\rho$ with $\bar\rho$. For $d=4$, Lerch's formula $\frac{L'}{L}(1,\chi_{4})=\gamma+2\log2+3\log\pi-4\log\Gamma(\frac14)$ and $\varpi=\Gamma(\frac14)^2/(2\sqrt{2\pi})$ give $\Omega_4=\Gamma(\frac14)^4/(4\pi^2)$.
+\end{proof}
+
+The numbers $c_{\chi_{4}}=0.15556798$, $\Omega_4=4.376879$ and $2\sqrt\pi e^{\gamma/2}=4.730921$ were recomputed; $c_{\chi_{4}}$ was not recomputed from the zeros of $L(s,\chi_{4})$. Whether the Chowla and Selberg computation of the period is itself a $2\sin^2$ transform is not answered here.
+
+\subsection{A finite field example: the Hasse bound for $y^2=x-x^3$}\label{mql:sub:ffq}
+
+Over a finite field the structure of (M) can be seen by hand in one example. It is the Hasse bound for one CM elliptic curve, proved by Jacobi sums (Gauss, Jacobi, Hasse and Davenport \cite{DavenportHasse35}, and the diagonal case of Weil \cite{Weil49}), inside a weight chosen so that two of the three nontrivial characters come from curves of genus zero and have no zeros. It is not a proof of (M) and has no counterpart of the zeros of $L(s,\chi_q)$ and $L(s,\chi_d)$ over $\mathbb Q$, which is the whole difficulty of (M).
+
+Let $q$ be an odd prime power, $\chi$ the quadratic character of $\mathbb F_q$ with $\chi(0)=0$, and
+\[
+w(x)=(1+\chi(x))(1-\chi(1-x^2))\ge0,\qquad W_q=\sum_{x\in\mathbb F_q}w(x).
+\]
+In $\mathbb F_q(x)$ the two factors are the quadratic residue symbols of the polynomials $x$ and $1-x^2$.
+
+\begin{theorem}[A weighted Hasse bound for the lemniscate curve]\label{mql:thm:ffM}
+\begin{enumerate}
+\item $W_q=q+\chi(-1)-E_q$ with $E_q=\sum_x\chi(x-x^3)$.
+\item If $q\equiv3\pmod4$ then $E_q=0$ and $W_q=q-1$. If $q\equiv1\pmod4$ then $E_q=J+\bar J$ with $J=J(\psi,\chi)$ the Jacobi sum of a character $\psi$ of order four and $J\bar J=q$.
+\item For every odd $q$, $W_q\le q+1+2\sqrt q$, and for $q\equiv1\pmod4$, with $J=\sqrt q\,e^{i\theta}$,
+\begin{gather*}
+q+1+2\sqrt q-W_q=\frac{|\sqrt q+J|^2}{\sqrt q}=4\sqrt q\cos^2(\theta/2),\\ W_q-(q+1-2\sqrt q)=4\sqrt q\sin^2(\theta/2).
+\end{gather*}
+In particular $|W_q-q-1|\le2\sqrt q$: the bound is two sided.
+\item Write $q=p^r$ and let $\pi,\bar\pi$ be the Frobenius eigenvalues of $y^2=x-x^3$ over $\mathbb F_p$. Then $W_q=q+\chi(-1)+\pi^r+\bar\pi^r$ (Hasse and Davenport). For $p\equiv3\pmod4$ one has $\pi^2=-p$, so $W_{p^2}=(p-1)^2$, $W_{p^4}=(p^2+1)^2=p^4+1+2p^2$, and $W_{p^r}=p^r-1$ for odd $r$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(a) Expand the product: $\sum_x\chi(x)=0$, and $\sum_x\chi(1-x^2)=-\chi(-1)$ because $y^2=1-x^2$ has $q-\chi(-1)$ solutions. (b) For $q\equiv3\pmod4$ the summand $\chi(x-x^3)$ is odd under $x\mapsto-x$. For $q\equiv1\pmod4$ put $x=s^2$: each nonzero square has two roots, so $\sum_s\chi(1-s^4)=1+\sum_{x\ne0}(1+\chi(x))\chi(1-x^2)=E_q-\chi(-1)$, and the left side is $-1+J+\bar J$ by the proof of Theorem~\ref{mql:thm:trace}, which holds for every $q\equiv1\pmod4$. (c) For $q\equiv1\pmod4$, $W_q=q+1-J-\bar J$ and $2\sqrt q+J+\bar J=|\sqrt q+J|^2/\sqrt q$ since $|J|^2=q$. For $q\equiv3\pmod4$, $W_q=q-1$. (d) is Weil's Frobenius count for the curve together with (a), since $E_q=-(\pi^r+\bar\pi^r)$; the checks for $p\equiv3\pmod4$ are direct, using $\pi^r+\bar\pi^r=0$ for odd $r$ and $\chi(-1)=-1$ there.
+\end{proof}
+
+The bounds of Bombieri and Stepanov for a general curve, and the $2\sin^2$ and $2\cos^2$ form of the Hasse slack (equations \eqref{st:eq:ffsin} and \eqref{st:eq:ffcos}), are in Section~\ref{st:sec:stepanov} and Theorem~\ref{st:thm:bombieri}. Over $\mathbb F_q(x)$ the characters $\chi(x)$ and $\chi(1-x^2)$ belong to genus zero curves and contribute exactly, all the zeros of the family are those of the product character, a Jacobi sum; the slack is a $\cos^2$ and not a $\sin^2$ because that character enters with a negative sign, the simplest instance of Proposition~\ref{mql:prop:twosided}. Over $\mathbb Q$ every one of the four $L$ functions has infinitely many zeros, none of which is known to be a product of Gamma values.
+
+\subsection{The better integer for a general discriminant}\label{mql:sub:general}
+
+The lemniscate has $d=4$. The weight of (M) has $\chi_d(2)=1$, which excludes $d=3,4$; the value $d=7$ has $\chi_7(2)=1$ but is not admissible for (M), because the congruences of Subsection~\ref{mql:sub:choice} ($q\mid d+1$ for a prime $q\equiv3\pmod8$, and $d\equiv7\pmod{16}$) force $d\ge23$. In fact no prime $d$ admissible in this sense has class number one: $2$ splits in $\mathbb Q(\sqrt{-d})$, and a principal prime ideal above $2$ would give $a^2+db^2=8$, impossible for $d\ge23$, so no rational CM curve exists for such $d$ and the curve with $d=7$ below is a model case only. The construction extends to every CM elliptic curve given by an integral cubic, with proofs using only a derivation. Let $f\in\mathbb Z[x]$ be a monic cubic without repeated roots, $A=\mathbb Z[x,y]/(y^2-f)$, and $D$ the derivation with $Dx=2y$, $Dy=f'(x)$. Let $P=(x_0,y_0)$ be a point with integer coordinates and $a_n=(D^nx)(P)\in\mathbb Z$.
+
+\begin{theorem}[The better integer of a cubic]\label{mql:thm:general}
+\begin{enumerate}
+\item $X(z)=\sum_na_nz^n/n!$ solves $X''=2f'(X)$ with $X(0)=x_0$, $X'(0)=2y_0$. It is an elliptic function, and $\limsup|a_n/n!|^{1/n}=1/\rho$ with $\rho$ the distance from $0$ to its nearest pole.
+\item Let $p$ be an odd prime not dividing the discriminant of $f$, and let $H_p$ be the coefficient of $x^{p-1}$ in $f^{(p-1)/2}$. Then $a_{n+p-1}\equiv H_pa_n\pmod p$ for all $n\ge1$, and $H_p\equiv p-N_p\pmod p$, where $N_p$ is the number of solutions of $y^2=f(x)$ modulo $p$.
+\item If $H_p\equiv0\pmod p$ then $p^{\lfloor n/p\rfloor}$ divides $a_n$ for all $n\ge1$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(a) $D^2x=2Dy=2f'(x)$, and $D$ is $d/dz$ in the uniformisation. (b) Modulo $p$ the derivation $D$ is invariant, so $D^p=\alpha D$. Since $D=2\delta$ with $\delta x=y$ dual to $dx/y$, $\alpha=2^{p-1}H_p\equiv H_p$ (Hasse invariant), and summing $f^{(p-1)/2}$ over $x$ gives $N_p\equiv-H_p$ as in Theorem~\ref{mql:thm:trace}. (c) If $H_p\equiv0$ then $D^p(A)\subset pA$. Since $A$ has no torsion, $D^p=pE$ for an additive map $E$ commuting with $D$, and $D^{kp+r}=p^kD^rE^k$. Apply this to $x$ and evaluate at $P$.
+\end{proof}
+
+\begin{lemma}[Logarithm of a formal group of height $h$]\label{mql:lem:log}
+Let $F$ be a commutative formal group of dimension one over $\mathbb Z_p$ with normalised logarithm $L(t)=t+\sum_{k\ge2}\lambda_kt^k$, whose reduction has height $h$, that is $[p](t)\equiv u\,t^{N}+\cdots\pmod p$ with $N=p^h$ and $u$ a unit. Then $v_p(\lambda_k)\ge-\lfloor\log_Nk\rfloor$, and the inverse series $E(z)=\sum_ne_nz^n$ has $v_p(e_n)\ge-\frac{n-1}{N-1}$.
+\end{lemma}
+
+\begin{proof}
+Compare coefficients of $t^k$ in $L([p](t))=pL(t)$: $(p-p^k)\lambda_k=\sum_{i<k}\lambda_i\,[t^k][p](t)^i$ for $k\ge2$, with integral coefficients. Let $N^j\le k<N^{j+1}$. For $i\ge N^j$, $[p](t)^i\equiv(ut^N+\cdots)^i$ has only terms of degree at least $Ni>k$ modulo $p$, so $[t^k][p](t)^i\in p\mathbb Z_p$, and $v_p(\lambda_i)\ge-j$ by induction; for $i<N^j$, $v_p(\lambda_i)\ge1-j$. So the right side has valuation at least $1-j$, and $v_p(p-p^k)=1$ gives $v_p(\lambda_k)\ge-j$ (for $j=0$ the same argument uses $\lambda_1=1$). For the inverse, let $c$ have valuation $\frac1{N-1}$; since $\lfloor\log_Nk\rfloor\le\frac{k-1}{N-1}$ the series $L(cs)/c$ has integral coefficients and leading term $s$, so its inverse $E(cy)/c=\sum_ne_nc^{n-1}y^n$ is integral.
+\end{proof}
+
+\begin{theorem}[Height formula]\label{mql:thm:height}
+In the setting of Theorem~\ref{mql:thm:general}, let $p$ be an odd prime of good reduction of the chosen integral model and $\mathrm{ht}_p\in\{1,2\}$ the height of the formal group of the curve at $p$. Then for all $n\ge1$,
+\[
+v_p(a_n)\ \ge\ v_p(n!)-\frac{n-1}{p^{\mathrm{ht}_p}-1}.
+\]
+For a curve with CM by the integers of $\mathbb Q(\sqrt{-d})$ and $p\nmid d$, $\mathrm{ht}_p=\frac12(3-\chi_{d}(p))$ (Deuring).
+\end{theorem}
+
+\begin{proof}
+Let $t$ be the parameter of the formal group at the origin with $dx/2y=(1+\cdots)dt$, so that $z=L(t)$. Since $P$ is integral and does not reduce to the origin, $x(P+Q)$ is a power series $\Phi(t)$ with coefficients in $\mathbb Z_p$ (translation on the good integral model). Then $X(z)=\Phi(E(z))$, and by Lemma~\ref{mql:lem:log} the coefficient of $z^n$ in $E(z)^j$ has valuation at least $-(n-j)/(N-1)$, since the valuation bound adds over the factors. Hence $v_p(a_n/n!)\ge-\frac{n-1}{N-1}$ for $n\ge1$.
+\end{proof}
+
+Honda \cite{Honda70} and Hazewinkel \cite{Hazewinkel78} are the classical references for formal group logarithms and heights; the theorem is the usual finite height denominator estimate, applied to an integral point. At a split prime the bound can be zero or negative and says nothing. At inert primes of good reduction of the integral model (the bad primes are omitted), for each $n$ with $a_n\ne0$ and writing $l_p=[v_p(n!)-\frac{n-1}{p^2-1}]_+$,
+\[
+\sum_{p\ \mathrm{inert,\ good},\ p\le n}l_p\log p\ \le\ \log|a_n|\ \le\ n\log n-n(1+\log\rho)+o(n),
+\]
+the right inequality holding for all large $n$ by Cauchy and Hadamard (an upper estimate; equality only along a subsequence, and for $P$ of order two all odd $a_n$ vanish). The weight $1-\chi_{d}(p)=2(\mathrm{ht}_p-1)$ of (M) is the excess of the height over one. This is the toy inequality of Remark~\ref{mql:rem:toy} for a general $d$, with the same factor two.
+
+\paragraph{The case $d=7$.} Take $f=x^3-35x-98=(x-7)(x^2+7x+14)$ and $P=(7,0)$, a point of order two. This is a model of the curve with $j$ invariant $1728\cdot4(-35)^3/(4(-35)^3+27\cdot98^2)=-3375$ (the curve 49a1), the singular modulus of discriminant $-7$, so it has CM by $\mathbb Z[\frac{1+\sqrt{-7}}2]$. Here $X''=6X^2-70$ is even, every odd $a_n$ vanishes, and $a_0,a_2,\dots,a_{10}=7,\ 224,\ 18816,\ 3386880,\ 1043159040,\ 491233075200$ (recomputed). For $n\le900$ and primes below $300$ (recomputed): the split congruence $a_{n+p-1}\equiv(p-N_p)a_n\pmod p$ holds in all $10297$ tests with $n\ge2$ even (it fails at $n=0$), $a_n\equiv0\pmod p$ for $n\ge p$ at the inert primes in all $12600$ tests, and the bound of Theorem~\ref{mql:thm:height} holds in all $14850$ cases and is attained after rounding up in $13618$ of them.
+
+\begin{remark}[Gamma products for $d=7$, a numerical observation]\label{mql:prop:seven}
+For the model curve $y^2=x^3-35x-98$ the ratio $a_n(n+1)(n+2)/a_{n+2}$ estimates $\rho^2$, and its square root estimates $\rho$. With Richardson extrapolation the estimate is $0.48332679$ (from $n=798,1596$), which agrees to about six digits with $\frac{\Gamma(1/7)\Gamma(2/7)\Gamma(4/7)}{8\pi\sqrt7}=0.483327926404$, without a rigorous error bound. The period lattice and the nearest translate of the pole were not derived, so this is an observation and not a proof; it has the shape of the theorem of Chowla and Selberg \cite{ChowlaSelberg67}, and the constant $8\pi\sqrt7$ is not derived. Separately, for the seven primes $p\equiv1\pmod7$, $p\in\{29,43,71,113,127,197,211\}$, the unit root $u_p$ of $T^2-t_pT+p$ satisfies $u_p\equiv-\Gamma_p(\frac17)\Gamma_p(\frac27)\Gamma_p(\frac47)\pmod{p^2}$ (seven finite congruences, recomputed); this has the shape of the theorem of Gross and Koblitz \cite{GrossKoblitz79}, and the sign $-1$, which depends on the model since the quadratic twist flips it, is not derived. At a prime not dividing $7$ each $\Gamma_p(a/7)$ is a $p$ adic unit, so no claim about inert valuations follows from these products.
+\end{remark}
+
+\begin{proposition}[Uniform divisibility at torsion points]\label{mql:prop:uniform}
+Let $L$ be a number field, $S$ a finite set of primes, and $P$ a point of $y^2=f(x)$ with coordinates in $\mathcal O_{L,S}$, for instance a point of exact order $q$ with $S$ containing $q$ and the bad primes. Let $p\notin S$ be an odd prime with $H_p\equiv0\pmod p$. Then $a_n(P)\in p^{\lfloor n/p\rfloor}\mathcal O_{L,S}$. Consequently
+\begin{enumerate}
+\item $v_{\mathfrak P}(a_n(P))\ge e_{\mathfrak P}\lfloor n/p\rfloor$ for every prime $\mathfrak P$ of $L$ above $p$, whatever its residue degree;
+\item $v_p\bigl(N_{L/\mathbb Q}\,a_n(P)\bigr)\ge[L:\mathbb Q]\lfloor n/p\rfloor$, whatever the splitting of $p$;
+\item for $P$ of exact order $q$, any function $\chi$ on $(\mathbb Z/q)^\times$ with values in the integers of a cyclotomic field, and $c$ running over the representatives $1\le c<q$, if every $[c]P$ has coordinates in $\mathcal O_{L,S}$, then $\sum_c\chi(c)\,a_n([c]P)$ is divisible by $p^{\lfloor n/p\rfloor}$ in the ring generated by $\mathcal O_{L,S}$ and the values of $\chi$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+By the proof of Theorem~\ref{mql:thm:general}(c), $D^nx\in p^{\lfloor n/p\rfloor}A$, and evaluation at $P$ is a ring homomorphism $A\to\mathcal O_{L,S}$. Parts (a) to (c) follow, with $\sum_{\mathfrak P\mid p}e_{\mathfrak P}f_{\mathfrak P}=[L:\mathbb Q]$ for (b).
+\end{proof}
+
+So the divisibility forced at an inert prime is the same at every prime above it in the field of $q$ torsion, whether $\chi_q(p)$ is $1$ or $-1$: a rational prime enters the product formula of a number field through $\sum e_{\mathfrak P}f_{\mathfrak P}\log p=[L:\mathbb Q]\log p$, independent of splitting. Accidental divisibility is not covered.
+
+\begin{remark}[The second weight, with the sign corrected]\label{mql:rem:secondweight}
+Where the factor of (M) that depends on $q$ can come from is a count of primes by norm. Let $K=\mathbb Q(\sqrt{-d})$ and let $E$ be an elliptic curve over $\mathbb Q$ with CM by $\mathcal O_K$; this needs $K$ of class number one, and no prime $d$ admissible in Part A has that property (Subsection~\ref{mql:sub:general}), so for the $d$ of (M) the construction needs a larger field of definition and is not carried out here. Suppose $q$ splits in $K$ as $\mathfrak q\bar{\mathfrak q}$ (the condition $\chi_d(q)=1$). The points killed by $\mathfrak q$ form a group of order $q$ on which $\mathrm{Gal}(\bar K/K)$ acts through $(\mathcal O_K/\mathfrak q)^\times=\mathbb F_q^\times$, and the quadratic character of $\mathbb F_q^\times$ cuts out a quadratic extension $F_2$ of $K$. Let $p\nmid 2qd$ be inert in $K$. Then $a_p=0$ for the reduction of $E$ (this uses that $E$ is defined over $\mathbb Q$), so the Frobenius endomorphism $\phi$ satisfies $\phi^2=-p$, and the Frobenius of the prime $(p)$ of $K$, of norm $p^2$, acts on $E[\mathfrak q]$ as multiplication by $-p$, not by $p$. Its symbol in $F_2$ is therefore the Legendre symbol $\big(\frac{-p}q\big)=\big(\frac{-1}q\big)\big(\frac pq\big)$, and the number of primes of $F_2$ of relative degree one above $(p)$ is $1+\big(\frac{-p}q\big)$. For $q\equiv1\pmod4$ this is $1+\big(\frac pq\big)$. For $q\equiv3\pmod4$ we have $\chi_q(p)=\big(\frac pq\big)$ in the convention of Part A ($\chi_q=(\cdot/q)$ has discriminant $-q$), so the count is $1-\chi_q(p)$. This selects the complementary inert primes, those with $\chi_q(p)=-1$, the opposite sign to the factor $1+\chi_q$ of (M), and it is exactly the case $q\equiv3\pmod4$ that (M) uses. The statement that the weight is such a count is an expectation, not a theorem. For $y^2=x^3-35x-98$ and $q=11$, the Frobenius of $\mathbb F_{p^2}$ acts on $E[11]$ as the scalar $-p\bmod11$ and never as $p$ for all $22$ inert primes $5\le p<200$, $p\ne7,11$ (recomputed).
+\end{remark}
+
+So the weight $1-\chi_{d}$ is local (the height, seen by one integer), while the weight that depends on $q$ is a splitting condition in the field of $\mathfrak q$ torsion, invisible to valuations by Proposition~\ref{mql:prop:uniform}. To reach the constant one of (M) one needs the freedom of Stepanov's method over $\mathbb F_q$, many functions and many points. No claim is made that such a chain exists over $\mathbb Q$.
+
+\subsection{Characters and sums}\label{mql:sub:characters}
+
+\paragraph{Estimate B for almost all real characters.} For a real primitive character $\chi$ of conductor $k$ and $x\ge1$ put
+\[
+\mathcal G_\chi(x)=\sum_{n\le x}\Lambda(n)\chi(n)\Big(\frac xn-1\Big)+x\,\frac{L'}{L}(1,\chi),
+\]
+the centred Riesz sum. Let $N(\sigma,T,\chi)$ count the zeros of $L(s,\chi)$ with $\Re s\ge\sigma$ and $|\Im s|\le T$. Heath-Brown's zero density theorem for real characters \cite{HeathBrown95} (Theorem~3 on p.~240, in the form of its Corollary~1 for the family of real primitive characters) states that for $\frac12\le\sigma\le1$ and every $\eta>0$,
+\begin{equation}\label{mql:eq:HB}
+\sum_{k\le D}N(\sigma,T,\chi_k)\ll_\eta(DT)^\eta\,D^{3(1-\sigma)/(2-\sigma)}\,T^{(3-2\sigma)/(2-\sigma)},
+\end{equation}
+the sum over real primitive characters of conductor at most $D$.
+
+\begin{theorem}[Estimate B for almost all real characters]\label{mql:thm:Balmost}
+Let $0<\epsilon\le\frac1{10}$ and $D\ge D_0(\epsilon)$. For all but at most $D^{1-\epsilon/2}$ real primitive characters $\chi$ of conductor $k\le D$,
+\[
+|\mathcal G_\chi(x)|\le C\,x^{1/2+\epsilon}\log D\qquad\text{for all }3\le x\le D^{\epsilon/4},
+\]
+with $C$ absolute. In particular $|\mathcal G_\chi(x)|\le x^{1/2+2\epsilon}$ for $(C\log D)^{1/\epsilon}\le x\le D^{\epsilon/4}$.
+\end{theorem}
+
+\begin{proof}
+Take $\sigma=\frac12+\epsilon$ and $T=D^{\epsilon/2}$ in \eqref{mql:eq:HB}. The exponent of $D$ is $\frac{3(1/2-\epsilon)}{3/2-\epsilon}=1-\frac{2\epsilon}{3/2-\epsilon}\le1-\frac43\epsilon$ and the exponent of $T$ is at most $\frac43$, so the number of characters with a zero in $\Re s\ge\frac12+\epsilon$, $|\Im s|\le T$ is at most $D^{\eta+\eta\epsilon/2}D^{1-4\epsilon/3}D^{2\epsilon/3}\le D^{1-\epsilon/2}$ for small $\eta$ and $D\ge D_0(\epsilon)$. For every other character and every $x\le D^{\epsilon/4}$ the rectangle of height $x^2\le T$ is free of zeros to the right of $\frac12+\epsilon$. The explicit formula gives $\mathcal G_\chi(x)=\sum_\rho\frac{x^\rho}{\rho(1-\rho)}+O(\log(kx))$. The zeros with $|t_\rho|\le x^2$ lie in $|\beta-\frac12|\le\epsilon$ and contribute at most $x^{1/2+\epsilon}\sum_\rho|\rho(1-\rho)|^{-1}\ll x^{1/2+\epsilon}\log k$ (by symmetry the low zeros are in $[\frac12-\epsilon,\frac12+\epsilon]$, and the unit height zero count gives $\sum_\rho|\rho(1-\rho)|^{-1}\ll\log k$); the zeros with $|t_\rho|>x^2$ contribute $\ll x\log(kx^2)/x^2$. The second statement follows from $x^\epsilon\ge C\log D$.
+\end{proof}
+
+The range is far wider than a proof of (M) needs: there $\log d$ is a small power of the scale and $x\le Y^{3/2}$, so $x$ is a power of $\log d$, while the theorem allows $x$ up to a power of $d$. The count is unconditional, and the result is a standard consequence of zero density estimates (the idea goes back to Jutila). For the admissible pairs of (M) Estimate B is Theorem~\ref{mq:thm:estB}.
+
+\paragraph{Choosing $q$ and $d$.} The congruences must be imposed separately from the density theorem. The source's hypotheses $d\equiv-1\pmod{q\mathcal M}$ with $16\mid\mathcal M$ and $d\equiv7\pmod{16}$ were incompatible, so here $q$ is chosen first.
+
+\begin{proposition}[Selection of $(q,d)$]\label{mql:prop:choose}
+Fix $0<\epsilon\le\frac1{10}$ and let $Q$ be large. Then there is a prime $q\equiv3\pmod8$ with $Q/2<q\le Q$ such that $\chi_{q}$ satisfies the bound of Theorem~\ref{mql:thm:Balmost} on $3\le x\le Q^{\epsilon/4}$. Let $\mathcal M$ be a product of prescribed odd primes coprime to $q$, and $D$ with $16q\mathcal M\le D^{\epsilon/8}$. Suppose the primes $d\le D$ with $d\equiv-1\pmod{q\mathcal M}$ and $d\equiv7\pmod{16}$ number at least $D^{1-3\epsilon/8}/\log D$. Then there is such a prime $d$ for which $\chi_d$ and $\chi_{qd}$ also satisfy the bound of Theorem~\ref{mql:thm:Balmost} on $3\le x\le Q^{\epsilon/4}$, with the multipliers $C\log Q$, $C\log D$ and $C\log(qD)$ for $\chi_q$, $\chi_d$ and $\chi_{qd}$ respectively.
+\end{proposition}
+
+\begin{proof}
+Apply Theorem~\ref{mql:thm:Balmost} with $D=Q$ to the real primitive characters of conductor at most $Q$: the exceptional set has at most $Q^{1-\epsilon/2}$ elements, fewer than the $\gg Q/\log Q$ primes $q\equiv3\pmod8$ in $(Q/2,Q]$. For this $q$ apply it to the conductors $d\le D$ and $qd\le qD$ (the product $qd$ is $\equiv1\pmod4$ since $q,d\equiv3\pmod4$, so $\chi_{qd}=\chi_q\chi_d$ is primitive of conductor $qd$ and discriminant $+qd$): at most $D^{1-\epsilon/2}$ primes $d$ have $\chi_{d}$ exceptional and at most $(qD)^{1-\epsilon/2}\le D^{(1+\epsilon/8)(1-\epsilon/2)}=D^{1-3\epsilon/8-\epsilon^2/16}$ have $\chi_{qd}$ exceptional. By the union bound the exceptional $d$ number at most $D^{1-\epsilon/2}+D^{1-3\epsilon/8-\epsilon^2/16}=o\big(D^{1-3\epsilon/8}/\log D\big)$, fewer than the number of admissible primes.
+\end{proof}
+
+The progression hypothesis is of Linnik type for a modulus that is a small power of $D$, but it holds unconditionally here. By Maynard's Brun--Titchmarsh theorem (On the Brun--Titchmarsh theorem, Theorem~3.2), $\pi(D;k,a)\gg D\log k/(\sqrt k\,\varphi(k)\log D)$ for $k$ large, $(a,k)=1$ and $D\ge k^8$, and the conditions $d\equiv-1\pmod{q\mathcal M}$, $d\equiv7\pmod{16}$ define one reduced class modulo $k=16q\mathcal M$ (the moduli are coprime, and $q$ is large). For $k\le D^{\epsilon/8}$ this gives $\gg D^{1-3\epsilon/16}/\log D$ primes, more than the hypothesis requires. The range $x\le Q^{\epsilon/4}$ covers the window $x\le Y^{3/2}$ of (M) only if $q\ge Y^{6/\epsilon}$; at the lower end of the window the multipliers are absorbed because $x^\epsilon\ge C\log(qD)$.
+
+\paragraph{The two sided slack.} Let $w=\sum_\chi \varepsilon_\chi\chi$ be a real combination of Dirichlet characters, $S_w(x)=\sum_{n\le x}w(n)\Lambda(n)(\frac xn-1)$, and write $c_0x\log x+A_wx$ for the contribution of the pole at $s=1$. Put $H_\chi(u)=\sum_\rho\frac{\cos(t_\rho u)}{\frac14+t_\rho^2}$, the sum over all zeros with multiplicity, $\Phi_\chi(u)=H_\chi(0)-H_\chi(u)=\sum_\rho\frac{2\sin^2(t_\rho u/2)}{1/4+t_\rho^2}$ and $\Psi_\chi(u)=H_\chi(0)+H_\chi(u)=\sum_\rho\frac{2\cos^2(t_\rho u/2)}{1/4+t_\rho^2}$.
+
+\begin{proposition}[Two sided $2\sin^2$ and $2\cos^2$ slack]\label{mql:prop:twosided}
+Assume GRH for every $\chi$ with $\varepsilon_\chi\ne0$. Then with $u=\log x$ and $M_w=\sum_\chi|\varepsilon_\chi|H_\chi(0)$,
+\[
+M_w\sqrt x-\big(S_w(x)-c_0x\log x-A_wx\big)=\sqrt x\Big[\sum_{\varepsilon_\chi>0}\varepsilon_\chi\Phi_\chi(u)+\sum_{\varepsilon_\chi<0}|\varepsilon_\chi|\Psi_\chi(u)\Big]+O(\log x).
+\]
+\end{proposition}
+
+\begin{proof}
+By the explicit formula $S_w-c_0x\log x-A_wx=\sqrt x\sum_\chi \varepsilon_\chi H_\chi(u)+O(\log x)$ under GRH. For $\varepsilon_\chi>0$, $\varepsilon_\chi(H_\chi(0)-H_\chi(u))=\varepsilon_\chi\Phi_\chi(u)$; for $\varepsilon_\chi<0$, $|\varepsilon_\chi|(H_\chi(0)+H_\chi(u))=|\varepsilon_\chi|\Psi_\chi(u)$, using $1\mp\cos\theta=2\sin^2\frac\theta2,\,2\cos^2\frac\theta2$.
+\end{proof}
+
+For the weight $w=(1+\chi_q)(1-\chi_d)=1+\chi_q-\chi_d-\chi_q\chi_d$ of (M), the characters $1$ and $\chi_q$ enter through $2\sin^2$ and $\chi_d$ and $\chi_q\chi_d=\chi_{qd}$ through $2\cos^2$. The constant $M_w=\sum|\varepsilon_\chi|H_\chi(0)$ is the envelope of the identity; it is not claimed sharp, since that would need the zeros of the different characters to align in phase simultaneously. For a negative coefficient the spectral slack $\Psi_\chi$ does not vanish at $u=0$ ($\Psi_\chi(0)=2H_\chi(0)$, against $\Phi_\chi(0)=0$).
+
+\begin{remark}[What Landau gives for a signed weight]\label{mql:rem:landau}
+The signed Landau theorem for a fixed weight $w$ is Proposition~\ref{mq:prop:onesided} of Part A and is not restated here; for $w=1$ it is Proposition~\ref{qt:prop:riesz}, and the original is Landau \cite{Landau05}. As there, it does not give GRH for any single one of the four functions, since an off line zero of one factor that coincides with a zero of a factor of opposite sign is invisible. GRH for the four functions implies the one sided bound for the weight of (M), with slack given by Proposition~\ref{mql:prop:twosided}; the converse is not known, since the bound controls only net multiplicities.
+\end{remark}
+
+\paragraph{Frobenius angles and $z$ laws.} Over $\mathbb F_q$ the Thorin half of the van Dantzig pair can be written out. Let $C$ have genus $g$ over $\mathbb F_q$ with Frobenius angles $\pm\theta_j$, $1\le j\le g$, all $\theta_j\ne0$, put $a=\log q$ and $\Lambda_C(z)=\prod_j(2\cosh(az)-2\cos\theta_j)$, which is $q^{gz}$ times the numerator of the zeta function at $T=q^{-1/2-z}$.
+
+\begin{proposition}[Finite field form]\label{mql:prop:nakamura}
+\begin{enumerate}
+\item The value at the origin is $\Lambda_C(0)=\prod_j4\sin^2(\theta_j/2)$, and the ratio $\Lambda_C(0)/\Lambda_C(\sqrt{2s})$ equals $\mathbb E\,e^{-s\tau_C}$, where $\tau_C$ is a sum of independent exponential times with rates $\frac12\big((\theta_j+2\pi k)/a\big)^2$, one family $k\in\mathbb Z$ for each $j$. These are the rates of the operator $-\frac12d^2/dx^2$ on a circle of length $\log q$ on functions with $\psi(x+a)=e^{i\theta_j}\psi(x)$. The mean is $\mathbb E\,\tau_C=\sum_ja^2/(2\sin^2(\theta_j/2))$.
+\item $\Lambda_C(it)/\Lambda_C(0)$ is the transform of a signed measure of total mass one on the lattice $a\mathbb Z$, and it is a characteristic function if and only if the coefficients of $\Lambda_C$ as a polynomial in $e^{\pm az}$ are nonnegative. For genus one this is $\cos\theta\le0$, that is $\#C(\mathbb F_q)\ge q+1$.
+\item For $\sigma>\frac12$ the L\'evy measure of the numerator at $\sigma$ has mass $(N_r-q^r-1)q^{-r\sigma}/r$ at $r\log q$, with $N_r=\#C(\mathbb F_{q^r})$, and is signed, so it is not a L\'evy measure in the usual positive sense; for $\sigma>1$ that of the zeta function itself has mass $N_rq^{-r\sigma}/r\ge0$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(a) $\cosh(az)-\cos\theta=(1-\cos\theta)\prod_{k\in\mathbb Z}(1+a^2z^2/(\theta+2\pi k)^2)$, the angles are real by Weil's theorem, $z^2=2s$ gives the rates, and $\sum_k(\theta+2\pi k)^{-2}=\frac1{4\sin^2(\theta/2)}$ gives the mean. (b) and (c) are the expansion of the product and of $\log Z(T)=\sum_rN_rT^r/r$.
+\end{proof}
+
+This is the finite field counterpart of Nakamura's theorem \cite{Nakamura15} (Theorem~\ref{n:thm:nak}); no process with a first passage time of this law is constructed or claimed here. For $\theta=\pi$ the rates repeat and the full factor is $\mathrm{sech}^2(az/2)$.
+
+\begin{proposition}[Frobenius angles are $z$ parameters]\label{mql:prop:zdist}
+Let $\theta\in(0,2\pi)$ be a Frobenius angle, $\alpha=\theta/2\pi$, and let $X,X'$ be independent with the $z$ distribution \cite{BNKS82} of parameters $(\alpha,1-\alpha)$, that is the law of $\log(U/(1-U))$ with $U$ a Beta$(\alpha,1-\alpha)$ variable. Then
+\[
+\frac{1-\cos\theta}{\cosh(ta)-\cos\theta}=\mathbb E\exp\Bigl(it\,\frac{a}{2\pi}\,(X-X')\Bigr),\qquad a=\log q,
+\]
+and the normalising constant is $B(\alpha,1-\alpha)^{-2}=\sin^2(\theta/2)/\pi^2$.
+\end{proposition}
+
+\begin{proof}
+$\mathbb E\,e^{i\tau X}=B(\alpha+i\tau,1-\alpha-i\tau)/B(\alpha,1-\alpha)$, and the reflection formula gives $B(\alpha+i\tau,1-\alpha-i\tau)=\pi/\sin\pi(\alpha+i\tau)$ and $\sin\pi(\alpha+i\tau)\sin\pi(\alpha-i\tau)=\frac12(\cosh2\pi\tau-\cos2\pi\alpha)$. Take $\tau=ta/2\pi$.
+\end{proof}
+
+The Riemann hypothesis for the curve is the statement that $\alpha$ is real; a complex $\alpha$ defines an analytic function that is not a characteristic function. The period $2\varpi=B(\frac14,\frac12)$ is the normalising constant of the $z$ law with parameters $(\frac14,\frac12)$.
+
+\paragraph{Differences, and the helix on the prime side.} Under RH, so that $t_\rho$ is real, and with weights $w_\rho=(\frac14+t_\rho^2)^{-1}$, write $\mathbb E_w[g]=\sum_\rho w_\rho g(t_\rho)$ (a sum, not a probability), $f_u(t)=e^{itu}-1$, $K(u)=c_0+\mathbb E_w[f_u]=H(u)$ with $c_0=H(0)$.
+
+\begin{proposition}[Differences of $K$]\label{mql:prop:differences}
+\begin{enumerate}
+\item $f_{u+v}=f_u+f_v+f_uf_v$: $u\mapsto f_u$ is a homomorphism from the additive group into the multiplicative formal group, with $u$ its logarithmic coordinate and $f$ its formal coordinate.
+\item Every mixed difference of $K$ at the origin is a moment: the difference of order $n$ in $u_1,\dots,u_n$ equals $\mathbb E_w[f_{u_1}\cdots f_{u_n}]$. In the formal coordinate $K$ is affine.
+\item $B(u,v)=\mathbb E_w[f_u\overline{f_v}]$ has $B(u,u)=2\Phi(u)$ for real $t_\rho$, with $\Phi=\Phi_\zeta$. Then $u\mapsto f_u$ is a curve in $L^2(w)$ with $\|f_u-f_v\|^2=2\Phi(|u-v|)$, and the increments $f_{u+v}-f_v=e^{itv}f_u$ are transformed by the unitary group of multiplication by $e^{itv}$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+$e^{it(u+v)}-1=(e^{itu}-1)+(e^{itv}-1)+(e^{itu}-1)(e^{itv}-1)$, and (b) follows by induction. For (c), $|e^{itu}-1|^2=4\sin^2(\frac12tu)$ and $|f_u-f_v|=|f_{u-v}|$ for real $t$, with the vectors $f_u$ an affine isometric orbit, $f_{u+v}=f_v+e^{itv}f_u$.
+\end{proof}
+
+Part (c) is the helix (screw function) of Kolmogorov and of von Neumann and Schoenberg, studied for the zeta function by Suzuki \cite{Suzuki22}; its positive definiteness is Theorem~\ref{st:thm:pd}. On the analytic side nothing new appears: the function is exactly linear in the right coordinate, and what it lacks is a sign.
+
+\begin{proposition}[The slack on $(0,\log2)$]\label{mql:prop:helixprime}
+Let $\Phi(u)=F_0-\big(\mathcal G(e^u)-\log2\pi+\mathrm{tr}(e^u)\big)e^{-u/2}$ with $\mathrm{tr}(x)=\sum_{k\ge1}x^{-2k}/(2k(2k+1))$ and $F_0=2+\gamma-\log4\pi=0.0461914$. For $0<u<\log2$ there are no prime powers below $x=e^u$, and with $x=e^u$,
+\[
+\Phi(u)=F_0-e^{-u/2}\Bigl((1+\gamma-u)e^u-\log2\pi+1-\tfrac12\log(1-x^{-2})-x\,\mathrm{artanh}(1/x)\Bigr),
+\]
+and $\Phi(u)=\frac12u\log(1/u)-\big(\gamma+\frac{1-\log2}2-\frac{F_0}2\big)u+o(u)=\frac12u\log(1/u)-0.70755\,u+o(u)$ as $u\to0$.
+\end{proposition}
+
+\begin{proof}
+For $x<2$, $\mathcal G(x)=-x\log x+(1+\gamma)x$. Since $\frac1{2k(2k+1)}=\frac1{2k}-\frac1{2k+1}$, $\mathrm{tr}(x)=-\frac12\log(1-x^{-2})-x\,\mathrm{artanh}(1/x)+1$. The singular part at $x=1$ is $\frac12(x-1)\log(x-1)$, which gives the leading term, and the linear coefficient is obtained by expanding the closed form.
+\end{proof}
+
+The linear coefficient $-0.70754637$ and $F_0=0.04619142$ were recomputed (both forms of the coefficient agree). The book certifies $\Phi(u)>0$ for $0<u\le104.86604$ (Theorem~\ref{st:thm:cert}), far beyond the floating point window of the source.
+
+\subsection{Choosing $(q,d)$ and the theta kernel test}\label{mql:sub:choice}
+
+The weight of (M) needs $d$ prime with $d\equiv7\pmod{16}$ (so that $\chi_d(2)=1$; a congruence modulo $8$ would suffice for that), $q$ prime with $q\equiv3\pmod8$ (so that $\chi_q(2)=-1$), and $\chi_d(q)=1$ (so that $q$ splits in $\mathbb Q(\sqrt{-d})$ as in Remark~\ref{mql:rem:secondweight}), which holds when $d\equiv-1\pmod q$. For a character $\chi_D$ of fundamental discriminant $D$ let $a=0$ for $D>0$ and $a=1$ for $D<0$ and
+\[
+\theta_D(x)=\sum_{n\ge1}n^a\chi_D(n)e^{-\pi n^2x/|D|}.
+\]
+The completed function $\xi_D(s)=(|D|/\pi)^{(s+a)/2}\Gamma(\frac{s+a}2)L(s,\chi_D)$ is the Mellin transform of $\theta_D$ against $x^{(s+a)/2-1}$, so if $\theta_D(x)>0$ for all $x>0$ then $\xi_D(s)>0$ for real $s$ and $L(s,\chi_D)$ has no real zero in $(0,1)$. This removes an exceptional real zero in $(0,1)$ (the case excluded in Proposition~\ref{mq:prop:onesided}; see Remark~\ref{mql:rem:landau}). By the van Dantzig reading, a nonnegative, nonzero $\theta_D$ is enough for the first member of the pair to be a characteristic function; strict positivity is stronger.
+
+\begin{remark}[Theta kernel test]\label{mql:comp:theta}
+Among the $242$ fundamental discriminants $D\ne1$ with $|D|\le400$, $\theta_D$ was seen to change sign on the grid for $58$ (grids of $900$ and of $20000$ points on $x\in[1,|D|]$, the range $x<1$ following from the functional equation and $x>|D|$ being trivial), the first by $|D|$ being $-19,-40,-43,-52,-67$ and $53,77,152$ (recomputed). Of the $123$ admissible $d$ below $1200$ in the source's search, $105$ have a kernel positive on the grid; this was recomputed under the source's three symbol conditions, which are not those of the selection above.
+\end{remark}
+
+\begin{remark}[Admissible pairs]\label{mql:comp:pairs}
+For $q<400$, $d<1200$, $d$ prime, $d\equiv7\pmod{16}$, $q$ prime, $q\equiv3\pmod8$, $d\equiv-1\pmod q$, and all three kernels of $\chi_{q}$, $\chi_{d}$ and $\chi_{qd}$ positive on the grid, there are exactly nine pairs, all with $d<1000$ (recomputed):
+\begin{multline*}
+(q,d)=(3,23),\ (3,167),\ (11,263),\ (3,311),\ (3,503),\\(3,647),\ (3,839),\ (3,887),\ (3,983).
+\end{multline*}
+If $3$ and $5$ must both divide $d+1$ only $(3,839)$ remains. Of the ten pairs listed in the source, $(3,23)$ is the only one that meets these conditions. For $(q,d)=(3,23)$ the kernels of discriminants $-3$, $-23$ and $69$ were certified positive on $[1,|D|]$ by interval bisection in $100$ bit ball arithmetic (with the tail of the series beyond the cutoff bounded by $10^{-18}$), and $d=23$ has class number three. The other eight pairs rest on the grid: for them positivity is observed on a mesh and not proved, and a positive mesh minimum does not exclude an unobserved sign change. No pair with $d=7$ exists in this range.
+\end{remark}
+
+Whether the line of proof needs class number one is not known to the authors; every pair above has class number greater than one, so none is covered by the rational CM construction of Subsection~\ref{mql:sub:general}. The search answers a selection question different from Proposition~\ref{mql:prop:choose}: it uses the congruences of (M) and sign conditions on kernels, not the density theorem.
+
+\subsection{What the book already holds, and one remark on the road to (M)}\label{mql:sub:already}
+
+Several statements that a reader might look for here are already in the book in stronger form and are not repeated. The resolvent criterion and the Gamma probes are Theorems~\ref{st:thm:cm}, \ref{st:thm:abel} and \ref{st:thm:res}; the Stieltjes fraction criterion is (T11) of Theorem~\ref{d:thm:forms}; positive definiteness of the helix kernel is Theorem~\ref{st:thm:pd}; excursions in dyadic intervals of $\log x$ are Lemma~\ref{st:lem:excursion}; the certified positivity of the slack up to $u=104.86604$ is Theorem~\ref{st:thm:cert}; the global Landau form for $w=1$ is Proposition~\ref{qt:prop:riesz}; and Nakamura's theorem is Theorem~\ref{n:thm:nak}. Taking the zero free region $\Re s>\frac78$ of \cite{OAI26a}, as stated in the book (a premise here, not checked), together with the Riesz formula \eqref{qt:eq:riesz}, the Riesz mean satisfies $\mathcal G(x)\ll x^{7/8+\epsilon}$, a relative error $x^{-1/8+\epsilon}$ against the main term of order $x$, still short of $x^{-1/2}$.
+
+None of this proves (M) or a statement about zeros over $\mathbb Q$: a construction over $\mathbb Q$ that produces the slack as a norm, with a power saving for the sawtooth sum, is not known.

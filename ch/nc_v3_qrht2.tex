@@ -1,0 +1,443 @@
+% Chapter qt, part B: compensated positivity, the Levy side, equivalent forms. Sources: draft Q misc/reviews/nick-qrh_chapter_for_vadim/qrh_chapter_for_vadim/chapter_qrh_thorin.tex 346-663; draft L misc/reviews/nick-levy_mixture_chapter/levy_mixture_chapter/chapter_levy_mixture.tex 1-195; referee reports misc/research/directions/opus/vol3/QRH2.md (M1 to M4, M6, M8, M9 and minors) and LEVY.md (M1 to M6); numbers misc/vol3/verify/QRH/results.md and results_descent.md; own results misc/research/rh2/R4.md section 5 and Theorems A, B, Proposition C, misc/research/rh2/R2.md Theorem A, Lemma B, Corollary B', misc/research/rh2/R3.md Lemma 3.4 and Theorem 3.8; 20 Nov 2026.
+\section{The \texorpdfstring{$2\sin^2$}{2 sin2} lemma and the compensated density}\label{qt:sec:comp}
+
+Notation is that of the opening sections of this chapter: $\theta_\alpha'(y)=\Re\,\xi'/\xi(\alpha+iy)$ is the phase density of $\xi$ on the line of level $\alpha$, $G_\alpha$ is as in Theorem~\ref{qt:thm:ggc}, $\Theta=\sup\Re\rho$ is the supremum of the real parts of the zeros of $\zeta$, and $b<1$ is a floor, a number such that $\zeta$ has no zero with $\Re s>b$. The book proves the floor $b=\tfrac78$ \cite{OAI26a}. We write $\theta'_\alpha(y)$ for the function called $v_\alpha(y)$ in Chapter~\ref{dz:ch:density}, and $\theta'_\alpha(0)=\xi'/\xi(\alpha)$ for the function called $b_\alpha$ there. Throughout, $\Theta\le b$ for the floor in force, and no result of this chapter below needs $b$ to be anything but a zero free half plane.
+
+The transfer from a Levy measure to a Thorin measure is the $2\sin^2$ identity~\eqref{eq:sin2}: for $x,w>0$ and $u=w^2$,
+\[
+e^{-wx}+wx-1=\int_0^\infty\log\Big(1+\frac uz\Big)\,\tau_x(z)\,dz,\qquad\tau_x(z)=\frac{x}{\pi\sqrt z}\,\sin^2\!\Big(\frac{x\sqrt z}2\Big)\ge0 .
+\]
+It sends a Levy measure on the half line whose compensated exponential kernel is integrable (a finite first moment at infinity, which the usual Levy condition alone does not give) to a Thorin measure, and a positive one to a positive one. The Euler product application has that integrability. This section records what it computes for $\zeta$, first above the strip, then inside it. In the variable $y=\sqrt z$ the kernel is $2\pi y\,\tau_x(z)/x=1-\cos xy$, and all transforms below are written in $y$ with this kernel, without the factor $1/(2\pi y)$.
+
+\subsection{Above the strip}
+
+For $\alpha>1$, $\log\zeta(s)=\sum_n\Lambda(n)(\log n)^{-1}n^{-s}$. Applying the identity with $x=\log n$ and summing over $n$ gives the Thorin density
+\[
+T_\alpha(z)=\frac1{2\pi y}\sum_n\frac{\Lambda(n)}{n^\alpha}\big(1-\cos(y\log n)\big)\ \ge0,\qquad y=\sqrt z,
+\]
+and because $-\Re\,\zeta'/\zeta(\alpha+iy)=\sum_n\Lambda(n)n^{-\alpha}\cos(y\log n)$, this is the compensated phase density of the Euler product.
+
+\begin{proposition}[What the lemma computes above the strip]\label{qt:prop:phase}
+For $\alpha>1$ let $\vartheta_\alpha(y)=\arg\zeta(\alpha+iy)$. Then
+\[
+T_\alpha(z)=\frac{\vartheta_\alpha'(y)-\vartheta_\alpha'(0)}{2\pi y}\ \ge0,\qquad y=\sqrt z,
+\]
+and the compensated reciprocal $\zeta(\alpha)\zeta(\alpha+w)^{-1}e^{w\zeta'/\zeta(\alpha)}$ is, as a function of $u=w^2$, a GGC with Thorin density $T_\alpha$.
+\end{proposition}
+
+This is the Euler product half of Theorem~\ref{ct:thm:dictionary}, and we do not prove it again. The raw reciprocal $\zeta(\alpha)/\zeta(\alpha+w)$ exceeds one for $w>0$, and the compensation multiplies it by $e^{-\kappa\sqrt u}$ with $\kappa=-\zeta'/\zeta(\alpha)>0$, which removes a positive stable law of index $\tfrac12$: the factor $e^{-\kappa\sqrt u}$ has Thorin density $\kappa/(2\pi\sqrt t)$. The removal of a stable factor from the completed law (Corollary~\ref{qt:cor:stable}) is a different identity.
+
+\subsection{Inside the strip: the Chebyshev error and the decomposition}
+
+For $\alpha<1$ the pole of $\zeta$ must be removed. Put $g(s)=\zeta'/\zeta(s)+1/(s-1)$ and $\nu(dx)=d(\psi(e^x)-e^x)$, the Chebyshev error. Then $g(s)=-\int_0^\infty e^{-sx}\nu(dx)$ for $\Re s>\Theta$ (Proposition~\ref{ct:prop:levy}), the integrals being the improper limits $\lim_{R\to\infty}\int_0^R$ with a common cutoff, the difference of the primes and the main term being formed before the limit. For $\Theta<\alpha\le1$ the positive and negative masses at infinity are individually divergent, and integration by parts with $\psi(X)-X=O_\epsilon(X^{\Theta+\epsilon})$ proves convergence, also at the frequencies $\alpha\pm iy$ (Proposition~\ref{bp:prop:below}). The signed compensating measure of level $\alpha$ (a kernel, not a probabilistic Levy measure) is $e^{-\alpha x}\nu(dx)/x$, and
+\begin{equation}\label{qt:eq:band}
+\int_0^\infty\tau_x(z)\,e^{-\alpha x}\,\frac{\nu(dx)}{x}=\frac{\Re\,g(\alpha+iy)-g(\alpha)}{2\pi y},\qquad y=\sqrt z,\quad\Theta<\alpha<1 .
+\end{equation}
+The values at $\alpha=0.99$ and $0.98$ and $y=5,14.13,21.02,30$, computed from the primes up to $2\cdot10^7$, agree with the right side of \eqref{qt:eq:band} to five decimals, and they take both signs. The transform of the Chebyshev error alone is therefore not a positive Thorin density. The completed function contributes two further terms, and the sum is the object of the following proposition, which is the cancellation ledger of Theorem~\ref{ct:thm:budget} written with explicit kernels.
+
+\begin{proposition}[Decomposition of the compensated density]\label{qt:prop:decomp}
+For $\tfrac12<\alpha<1$ and $y>0$ with $\xi(\alpha+iy)\ne0$,
+\[
+\theta_\alpha'(y)-\theta_\alpha'(0)=Z_\alpha(y)+P_\alpha(y)+G^\Gamma_\alpha(y),
+\]
+where
+\begin{align*}
+Z_\alpha(y)&=\Re\frac{\zeta'}{\zeta}(\alpha+iy)-\frac{\zeta'}{\zeta}(\alpha),\\
+P_\alpha(y)&=\frac{y^2}{(1-\alpha)\big((1-\alpha)^2+y^2\big)},\\
+G^\Gamma_\alpha(y)&=\sum_{n\ge1}\frac{y^2}{(2n+\alpha)\big((2n+\alpha)^2+y^2\big)} .
+\end{align*}
+The term of the factor $s$ cancels against the $n=0$ term of the digamma series. Both $P_\alpha$ and $G^\Gamma_\alpha$ are positive: $P_\alpha$ is the contribution of the pole at $1$ and $G^\Gamma_\alpha$ is the gamma factor contribution associated with the cancellation of the trivial zeros at $-2n$. For $\Theta<\alpha<1$,
+\begin{gather*}
+Z_\alpha+P_\alpha=C_\alpha(y):=\int_0^\infty(1-\cos xy)\,e^{-\alpha x}\,\nu(dx),\\
+G^\Gamma_\alpha(y)=\int_0^\infty(1-\cos xy)\,m_\alpha(x)\,dx,
+\end{gather*}
+with $m_\alpha(x)=e^{-(1+\alpha)x}/(2\sinh x)>0$. Hence $\theta_\alpha'(y)-\theta_\alpha'(0)=C_\alpha(y)+G^\Gamma_\alpha(y)$: the transform of the Chebyshev error plus that of a positive Gamma density.
+\end{proposition}
+
+\begin{proof}
+The first formula follows from $\Re\,\psi(x+i\eta)-\psi(x)=\sum_{n\ge0}\eta^2/((n+x)((n+x)^2+\eta^2))$ for the digamma function applied to the Gamma factor, and from $\Re(\alpha-1+iy)^{-1}-(\alpha-1)^{-1}=P_\alpha(y)$ for the pole. For the integral forms, $\Re\,g(\alpha+iy)-g(\alpha)=C_\alpha(y)$ and $Z_\alpha=C_\alpha-P_\alpha$, while $\int_0^\infty(1-\cos xy)e^{-bx}dx=y^2/(b(b^2+y^2))$ and $\sum_{n\ge1}e^{-(2n+\alpha)x}=m_\alpha(x)$.
+\end{proof}
+
+So inside the strip the compensated density is a signed prime term plus two positive terms. $Z_\alpha$ and $P_\alpha$ are individually large and cancel to leave $C_\alpha$. At the levels $\alpha>\Theta$ where the integral exists the inequality to be proved reads $C_\alpha(y)>-G^\Gamma_\alpha(y)$ (below $\Theta$ the meromorphic difference still makes sense off its poles, but it has no transform interpretation), and $G^\Gamma_\alpha(y)$ grows like $\tfrac12\log y$.
+
+\begin{definition}[Compensated positivity]\label{qt:def:comp}
+Compensated positivity holds at level $\alpha$ if $\theta_\alpha'(y)>\theta_\alpha'(0)$ for every $y>0$ with $\xi(\alpha+iy)\ne0$.
+\end{definition}
+
+Equivalently, where the transform exists, the $2\sin^2$ Thorin density of the full signed compensating measure at level $\alpha$ is positive. It implies the positivity $\theta'_\alpha(y)>0$ of the phase density, since $\theta_\alpha'(0)=\xi'/\xi(\alpha)>0$ (Theorem~\ref{thm:dbeta:minall}(i)), and it requires the larger lower bound $\theta_\alpha'(0)$ in place of $0$. Neither the definition nor a single line sign test establishes the existence of an arithmetic Thorin transform at a level below $\Theta$.
+
+\section{Compensated positivity on the window and above the floor}\label{qt:sec:compwindow}
+
+The following constants are used in the proofs. By the Hadamard product $\sum_\rho\Re(1/\rho)=1+\tfrac{\gamma_E}2-\tfrac12\log4\pi\approx0.0230957$. Let $\gamma_1=14.1347$ be the first ordinate, $T_0=3\cdot10^{12}$, and write $a=\alpha-\tfrac12$ and $h_a(d)=a/(a^2+d^2)$. By Platt and Trudgian \cite{PT21} every zero with $|\gamma|\le T_0$ lies on the critical line.
+
+\begin{lemma}[Budget]\label{qt:lem:budget}
+For $\tfrac12<\alpha\le1$, $\ \theta_\alpha'(0)\le2aB$ with $B=0.023125$.
+\end{lemma}
+
+This is Theorem~\ref{thm:dbeta:minall}(i), which gives $0<\theta_\alpha'(0)/a\le V_\xi=0.046209986\ldots<0.04625=2B$ uniformly, also as $a\downarrow0$.
+
+\begin{theorem}[Compensated positivity on the window]\label{qt:thm:E}
+For every $\alpha\in(\tfrac12,1]$ and every $0<y\le T_0-20$, $\ \theta_\alpha'(y)>\theta_\alpha'(0)$.
+\end{theorem}
+
+This is the case $\alpha\le1$ of Theorem~\ref{thm:dbeta:minall}(ii) and Corollary~\ref{cor:dbeta:window}(2), which reach $T_0-\tfrac{1+\sqrt2}2$, and of Theorem~\ref{dz:thm:low}, which reaches $T_0-5$, all certified in ball arithmetic; the range stated here is weaker than both. We give the argument in the form in which it is used below, with its constants, because the same three steps prove Theorem~\ref{qt:thm:Eprime}.
+
+\begin{proof}
+Small $y$. A zero on the line contributes $F_\gamma(y)=h_a(y-\gamma)+h_a(y+\gamma)-2h_a(\gamma)$ to $\theta_\alpha'(y)-\theta_\alpha'(0)$. With $v=a^2+\gamma^2+y^2$ one has $h_a(y-\gamma)+h_a(y+\gamma)=2av/(v^2-4\gamma^2y^2)$, and $F_\gamma(y)>0$ exactly when $y^2<3\gamma^2-a^2$. Since $\gamma\ge\gamma_1$ and $a\le\tfrac12$ every such term is positive for $0<y\le24.47$ ($\sqrt{3\gamma_1^2-1/4}=24.4770$). A quartet of zeros above $T_0$ (a pair and its reflection) contributes nonnegatively to $\theta_\alpha'(y)-\theta_\alpha'(0)$ by Lemma~\ref{ct:lem:farpair}, whose hypotheses $\gamma\ge100$, $y\le\gamma/2$, $\tfrac12<\alpha\le1$ hold here; the lemma gives positivity for $0<y^2<3\gamma^2-a^2$, and $24.47$ lies strictly below that threshold.
+
+Large $y$. For $24.47<y\le T_0-20$ drop the mirror terms and the pairs above $T_0$, which are nonnegative at distance at least $20$:
+\[
+\theta_\alpha'(y)\ \ge\ \sum_{0<\gamma\le T_0}h_a(y-\gamma).
+\]
+By Lemma~\ref{qt:lem:budget} it suffices that this sum divided by $a$ exceeds $2B=0.04625$. One zero within $4.62$ of $y$ suffices, since $h_a(d)/a=1/(a^2+d^2)\ge1/(\tfrac14+4.62^2)=0.04631>2B$. Proposition~\ref{bp:prop:v1min} certifies $1800$ zeros through $2304.3$ with largest gap $<6.8874$ (the first gap, $\gamma_2-\gamma_1=6.887$), so for $\gamma_1\le y\le2220$ a zero lies within $3.45$ of $y$; it also certifies at least $23$ zeros within $15$ of every centre $\ge2000$, across the change of counting formula. For $y\ge2198$ take the window of half width $20$: it contains at least $19$ zeros, all on the line since $y+20\le T_0$, and $19/(\tfrac14+400)=0.0475>2B$.
+\end{proof}
+
+The first gap is the largest below $2225$ and half of it is $3.4437<3.45$. The large window rests on the certified count of Proposition~\ref{bp:prop:v1min}, not on the estimate of \eqref{dz:eq:count}, which is not a proof across the jump of that formula.
+
+\begin{theorem}[All heights above the floor]\label{qt:thm:Eprime}
+Let $b<1$ be a floor, so that $\Theta\le b$. For every $\alpha\in(b,1]$ and every $y>0$, $\ \theta_\alpha'(y)>\theta_\alpha'(0)$. In particular this holds for every $\alpha\in(\tfrac78,1]$ \cite{OAI26a}. For $b=\tfrac78$ this is Corollary~\ref{qrh:cor:thorin}(ii), which gives the strict inequality; Theorem~\ref{dz:thm:qrh} states only $v_\alpha\ge b_\alpha$.
+\end{theorem}
+
+\begin{proof}
+For $y\le T_0-20$ this is Theorem~\ref{qt:thm:E}. For larger $y$ every zero has real part at most $b<\alpha$. Write a zero as $\tfrac12+\delta+i\gamma$ with $|\delta|<a$ and put $d=y-\gamma$. It and its reflection $1-\bar\rho$ at the same ordinate contribute together $h$ of the two distances $a\mp\delta\in(0,2a)$, and by Lemma~\ref{qt:lem:B} this is at least $2a/(4a^2+d^2)$. Hence, on average per zero of a complete pair, each zero in a window of half width $20$ about $y$ contributes at least $a/(4a^2+400)\ge a/401$ in the count, and $19$ zeros give $\theta_\alpha'(y)\ge19a/401>2aB\ge\theta_\alpha'(0)$ by Lemma~\ref{qt:lem:budget}.
+\end{proof}
+
+
+\begin{theorem}[Equivalence with RH]\label{qt:thm:F}
+RH holds if and only if compensated positivity holds at every level $\alpha\in(\tfrac12,1]$.
+\end{theorem}
+
+This is Theorem~\ref{thm:dbeta:minall}(vi) and Corollary~\ref{pol:cor:equiv}, and with $\theta=\tfrac12$ it is Proposition~\ref{ct:prop:qrh}. The uncompensated sign criterion is described by Lagarias \cite{Lagarias} as already known, with a reference to Hinkkanen (\emph{On functions of bounded type}, 1997). That under RH $\theta_\alpha'$ is smallest at $y=0$ is the theorem of Lagarias \cite{Lagarias}, with his own published correction of the pair lemma, and its extension to the right of any zero free half plane is due to Garunk\v{s}tis \cite{Garunkstis02}; his theorem is stated as an equality of the infimum with the value at zero, and the book supplies the strictness for $y\ne0$. Here is the proof in this chapter's notation. If RH holds, this is Theorem~\ref{qt:thm:Eprime} with $b=\tfrac12$. Conversely, compensated positivity gives $\theta_\alpha'(y)>\theta_\alpha'(0)>0$ at every level, and a zero $\beta_0+i\gamma_0$ with $\beta_0>\tfrac12$ would send $\theta_\alpha'(\gamma_0)$ to $-\infty$ as $\alpha\uparrow\beta_0$ (the pole approached from the left defeats even the weak inequality) while $\theta'_\alpha(0)$ stays bounded (Theorem~\ref{thm:poisson}); the Laurent expansion at the zero proves the blow up. The endpoint $\alpha=1$ is supplied by Proposition~\ref{bp:prop:valpha}.
+
+\begin{corollary}[Stable factorisation, first passage]\label{qt:cor:stable}
+If $G_\alpha$ is a GGC and compensated positivity holds at level $\alpha$, then with $\kappa=\xi'/\xi(\alpha)>0$,
+\[
+\frac{\xi(\alpha)}{\xi(\alpha+\sqrt u)}=e^{-\kappa\sqrt u}\cdot\chi_\alpha(u),
+\]
+where $\chi_\alpha$ is the Laplace transform of a GGC with Thorin measure $U^\circ_\alpha(dz)=\frac{\theta_\alpha'(\sqrt z)-\kappa}{2\pi\sqrt z}\,dz+\sum_{\gamma>0}m_{\alpha,\gamma}\delta_{\gamma^2}(dz)$, the sum running over the distinct positive ordinates $\gamma$ of zeros on $\Re s=\alpha$ with multiplicities $m_{\alpha,\gamma}$ (there are no atoms without boundary zeros, in particular for $\alpha\in(\tfrac78,1]$). The reciprocal law of $\xi$ at level $\alpha$ is the convolution of a positive stable law of index $\tfrac12$ and scale $\kappa$ with a GGC.
+\end{corollary}
+
+The factor $e^{-\kappa\sqrt u}$ is the Laplace transform of the first passage time $\tau_\kappa$ of standard Brownian motion to the level $\kappa/\sqrt2$, as in Proposition~\ref{bp:prop:valpha}. If $X_\alpha$ has Laplace transform $G_\alpha$, the corollary reads $X_\alpha\overset{d}{=}\tau_\kappa+Y_\alpha$ with $Y_\alpha$ an independent GGC variable. By Theorem~\ref{qt:thm:Eprime} and the floor $\tfrac78$ this holds for every $\alpha\in(\tfrac78,1]$, where $\kappa=\xi'/\xi(\alpha)$ and $\kappa=0.0231$ at $\alpha=1$ (for $\alpha\ge1$ it is Proposition~\ref{bp:prop:valpha}). By Theorem~\ref{qt:thm:F} RH is equivalent to this decomposition at every level of the strip: for the converse, closure of GGCs under convolution makes every full reciprocal a GGC, and Theorem~\ref{qt:thm:ggc} gives RH.
+
+\section{The Levy side}\label{qt:sec:levy}
+
+\subsection{One measure and its exponential tilts}
+
+Define the signed measure on $(0,\infty)$
+\[
+\Lambda(dx)=e^{-x/2}\,d\psi(e^x)-e^{x/2}\,dx+\frac{e^{-3x/2}}{2\sinh x}\,dx .
+\]
+Its prime part has weights $\Lambda(n)n^{-1/2}$ at $\log n$, its continuous part is the density $-e^{x/2}$ of the main term, and the last part is a positive Gamma density. It is the measure $e^{-x/2}M(dx)$ with $M$ the Chebyshev error measure of Proposition~\ref{ct:prop:levy}, with $e^{-x/2}/(e^{2x}-1)=e^{-3x/2}/(2\sinh x)$.
+
+\begin{theorem}[Tilting]\label{qt:thm:tilt}
+For every $\alpha>\Theta$ and $y>0$, with $a=\alpha-\tfrac12$,
+\begin{equation}\label{qt:eq:tilt}
+\theta_\alpha'(y)-\theta_\alpha'(0)=\int_0^\infty(1-\cos xy)\,e^{-ax}\,\Lambda(dx).
+\end{equation}
+As a distribution on $x>0$, $\Lambda(dx)=-\sum_\rho e^{(\rho-1/2)x}\,dx$, which under RH, taking both signs of the ordinates, is $-2\sum_{\gamma>0}\cos(\gamma x)\,dx$.
+\end{theorem}
+
+\begin{proof}
+Multiplying the three parts of $\Lambda$ by $e^{-ax}$ gives $e^{-\alpha x}\nu(dx)+m_\alpha(x)\,dx$, so \eqref{qt:eq:tilt} is Proposition~\ref{qt:prop:decomp} for $\alpha<1$. At $\alpha=1$ one first removes the removable singularity of $g(s)=\zeta'/\zeta(s)+1/(s-1)$, for which $g(1)=\gamma_E$, and does not evaluate $Z_1$ and $P_1$ separately; the common cutoff proof then works for every $\alpha>\Theta$, and for $\alpha>1$ the same computation applies with the pole term on the other side. The last statement is the explicit formula $\psi'(X)=1-\sum_\rho X^{\rho-1}-1/(X(X^2-1))$ multiplied by $X^{1/2}$, with $X=e^x$ (\eqref{ct:eq:Mzeros}).
+\end{proof}
+
+All levels therefore share one signed Levy measure, and the level enters only through the tilt $e^{-ax}$, an exponential tilt of a signed kernel (not an Esscher change between probability laws). The cosine transform carries $e^{-ax}\Lambda(dx)$, whereas the compensated exponential formula carries $e^{-ax}\Lambda(dx)/x$. This is Proposition~\ref{ct:prop:levy} with Theorem~\ref{ct:thm:dictionary}. By the floor $\tfrac78$ and Proposition~\ref{ct:prop:qrh}, the integral \eqref{qt:eq:tilt} converges and is positive for every $a>\tfrac38$. For $a\le\Theta-\tfrac12$ the integral is not known to converge, and the correct statement of the equivalence is the following, with the function $a\mapsto\theta'_{1/2+a}(y)-\theta'_{1/2+a}(0)$, which is real analytic away from $\xi(\tfrac12+a+iy)=0$.
+
+\begin{corollary}\label{qt:cor:tilt}
+RH holds if and only if $\theta'_{1/2+a}(y)>\theta'_{1/2+a}(0)$ for all $0<a\le\tfrac12$ and $y>0$ with $\xi(\tfrac12+a+iy)\ne0$. For $a>\Theta-\tfrac12$ this is the statement that the tilted measure $e^{-ax}\Lambda(dx)$ has a convergent and positive $2\sin^2$ transform.
+\end{corollary}
+
+This is Theorem~\ref{qt:thm:F}. On the zero side, with $h_a(d)=a/(a^2+d^2)$, under RH the compensated density is $\sum_{\gamma>0}F_\gamma(y)$ with $F_\gamma(y)=h_a(y-\gamma)+h_a(y+\gamma)-2h_a(\gamma)$, and the sum of the first two terms is $\theta_\alpha'(y)$ and is positive term by term; without RH one must use the actual signed widths. It is not a consequence of Weil positivity: for $y\ne0$ the test function $(1-\cos xy)e^{-a|x|}$ vanishes at the origin but is nonzero elsewhere, so it cannot be a nontrivial autocorrelation $g*\tilde g$ of an $L^2$ function, and for $a<\tfrac12$ it lies outside the usual absolutely convergent test class of the explicit formula, which RH does not change (RH only allows a conditional use of the formula).
+
+\subsection{The critical line: an identity, and a curvature}
+
+\begin{proposition}[Boundary identity]\label{qt:prop:boundary}
+For every real $y$ with $\xi(\tfrac12+iy)\ne0$, unconditionally,
+\[
+Z_{1/2}(y)+P_{1/2}(y)+G_{1/2}(y)=0 .
+\]
+Moreover $a\mapsto\theta'_{1/2+a}(y)-\theta'_{1/2+a}(0)$ is odd, and equals $a\,K(y)+O_y(a^3)$ as $a\to0$ for fixed $y$ with $\Xi(y)\ne0$, with $K(y)=c(y)-c(0)$,
+\[
+c(t)=\Re\Big(\frac{\xi'}{\xi}\Big)'(\tfrac12+it)=-\frac{d^2}{dt^2}\log|\Xi(t)|,\qquad\Xi(t)=\xi(\tfrac12+it),
+\]
+where a Taylor disk in $a$ is given by the minimum of the distances from both $\tfrac12+iy$ and $\tfrac12$ to the set of zeros, since the subtracted term has singularities too; uniform remainder estimates apply on a smaller closed disk.
+\end{proposition}
+
+This is Proposition~\ref{ct:prop:saturation} with the oddness and the first order term of Proposition~\ref{bo:prop:zeroside}. The proof is two lines: $\Xi$ is real on the real axis, so $\Re\,\xi'/\xi(\tfrac12+iy)=0$, and $\xi'(\tfrac12)=0$; oddness in $a$ follows from $\xi'/\xi(1-s)=-\xi'/\xi(s)$.
+
+So the inequality is sharp: it is an equality on the critical line, and RH says that the compensated density rises from zero as the level moves to the right. The function $c(t)$ is the curvature of $-\log|\Xi|$ on the real axis, and the first order form of compensated positivity is $c(t)\ge c(0)$. Here $c(0)=(\xi'/\xi)'(\tfrac12)=0.0462100$.
+
+\begin{theorem}[The curvature is smallest at the origin]\label{qt:thm:curv}
+Write $K(t)=c(t)-c(0)$ and call $t$ regular if $\Xi(t)\ne0$. Using the floor $\tfrac78$ of \cite{OAI26a}, the functional equation and the prime powers up to $7$, and no zero data:
+\begin{enumerate}
+\item Unconditionally, $K(t)>t^2/10^5$ for regular $t$ with $0<|t|\le9$, and $K(t)>3/500$ for regular $t$ with $9\le|t|\le11$.
+\item With the verification of Platt and Trudgian \cite{PT21}, $K(t)>3/500$ for every regular $t$ with $9\le|t|\le T_0-1$.
+\item Under RH, $c(t)>c(0)$ for every regular $t\ne0$.
+\end{enumerate}
+In particular $c(t)>0$ there, so that $\log|\Xi|$ is strictly concave on every zero free interval within the stated domain, which is the Laguerre inequality $\Xi'^2-\Xi\,\Xi''>0$, and the theorem strengthens it by the explicit constant $c(0)$.
+\end{theorem}
+
+\begin{proof}
+Write $L=\xi'/\xi$, $\rho=\tfrac12+iz_\rho$ with $z_\rho=\gamma-i\delta$ and $\delta=\beta-\tfrac12$, so that $|\delta|\le\tfrac38$ by the floor and the reflection, and $\xi$ has no real zero (the alternating series for $\zeta$ is positive on $(0,1)$). For $b>0$ and $t$ away from the zeros the Hadamard product gives the absolutely convergent identities
+\[
+c(t)=\sum_\rho\Re\frac1{(t-z_\rho)^2},\qquad\frac{\Re L(\tfrac12+b+it)}b=\sum_\rho\Re\frac1{(t-z_\rho)^2+b^2},
+\]
+the second by subtracting the logarithmic derivatives at $\tfrac12\pm b+it$, using $L(1-s)=-L(s)$, and dividing by $2b$.
+
+Step 1, two real values. The Hadamard product and the Laurent expansion of $\zeta$ at $1$ give $L(1)=\sum_\rho\beta/(\beta^2+\gamma^2)=1+\tfrac12\gamma_E-\tfrac12\log4\pi<0.0232$, and the definition of $\xi$ gives $L(4)=\tfrac14+\tfrac13+\tfrac12(1-\gamma_E)-\tfrac12\log\pi-\sum_{n\ge2}\Lambda(n)n^{-4}>0.156$, since the prime sum is below $0.066$ (the terms through $n=7$ exactly, the rest by $\int_7^\infty u^{-4}\log u\,du$). In $L(1)$ a pair on the line contributes at least $1/(1+\gamma^2)$ and an off line quartet at least $2/(1+\gamma^2)$, and $L(1)\ge\tfrac{18}{37}\sum_\rho\gamma^{-2}$. Hence every $|\gamma|>6$, off line $|\gamma|>9$, and
+\[
+\sum_\rho\gamma^{-2}<\tfrac1{20},\qquad c(0)<\tfrac1{20}.
+\]
+Next $J=2L(1)-\tfrac27L(4)<0.0019$, and $J=\sum_\rho\Re\,12/\big((z_\rho^2+\tfrac14)(z_\rho^2+\tfrac{49}4)\big)$ has every summand positive (each denominator factor has argument at most $2\arctan|\delta/\gamma|$, and the cosine of the argument of the product exceeds $0.98$). A pair on the line with $|\gamma|\le10$ would contribute more than $24/\{(100+\tfrac14)(100+\tfrac{49}4)\}>0.0019$, and an off line quartet with $|\gamma|\le12$ more than $0.0019$ as well. So every zero has $|\gamma|>10$ and every off line zero has $|\gamma|>12$.
+
+Step 2, comparison. Put $Q_b(z)=z^{-2}-(z^2+b^2)^{-1}=b^2/\{z^2(z^2+b^2)\}$. It is positive on the real axis, and $\Re Q_b''(d+iv)>0$ for $d\ge3$, $|v|\le\tfrac38$, because $Q_b''=2b^2(10z^4+9b^2z^2+3b^4)/\{z^4(z^2+b^2)^3\}$, the arguments of the numerator terms lie in $[0,4\theta]$ and that of the denominator in $[4\theta,10\theta]$ with $\theta\le\arctan\tfrac18$ and $10\theta<\tfrac\pi2$. Pair $\rho$ with $\bar\rho$ and use Step 1 (off line $d>3$ along $[\gamma-|t|,\gamma+|t|]$ when $|t|\le9$, on the line $d>1$): the central second differences of $d\mapsto\Re Q_b(d+i\delta)$ are nonnegative, and subtracting the two identities at $t$ and $0$ gives, for $|t|\le9$ and $b>0$,
+\[
+K(t)\ge\frac{\Re L(\tfrac12+b+it)-L(\tfrac12+b)}b.
+\]
+Without summing in pairs, $\Re Q_b(t-z_\rho)>0$ for every zero on the line, and for every off line zero with $|t-\gamma|\ge1$ (the argument of $(d+iv)^2((d+iv)^2+b^2)$ is at most $4\arctan\tfrac38<\tfrac\pi2$, as $\tfrac38<\sqrt2-1$). Hence at a regular $t$ with $|t-\gamma|\ge1$ for every off line zero,
+\[
+c(t)\ge\frac{\Re L(\tfrac12+b+it)}b.
+\]
+
+Step 3, $|t|\le9$. Put $u=t^2$ and $f(v)=u/\{v(v^2+u)\}=\int_0^\infty e^{-vx}(1-\cos tx)\,dx$, which is decreasing and convex. At level $\sigma=\tfrac12+b$ the prime terms of $\Re L-L$ are nonnegative and are dropped, the pole term is $u/\{(\sigma-1)((\sigma-1)^2+u)\}$, and the gamma terms are $\sum_{j\ge1}f(2j+\sigma)\ge\tfrac12\int_{\sigma+2}^\infty f=\tfrac14\log\big(1+u/(\sigma+2)^2\big)$. At $\sigma=12$, $b=\tfrac{23}2$, with $\log(1+x)\ge x/(1+x)$ and $u\le81$,
+\[
+K(t)\ge\frac{2u}{23}\Big(\frac1{4(196+81)}-\frac1{1331}\Big)>\frac{t^2}{10^5}.
+\]
+
+Step 4, $|t|\ge9$. At $\sigma=4$, $b=\tfrac72$, convexity improves the gamma bound by $f(6)/2$, and with the pole term and the prime terms dropped, $\Re L(4+it)-L(4)\ge\tfrac14\log(1+u/36)+u/\{12(36+u)\}-u/\{3(9+u)\}$. The right side increases for $u\ge81$ and at $u=81$ exceeds $\tfrac27+\tfrac3{52}-\tfrac3{10}>\tfrac1{25}$ (using $\log\tfrac{13}4>\tfrac87$). So $\Re L(4+it)>0.156+\tfrac1{25}$, and at a regular $t$ with $|t-\gamma|\ge1$ for every off line zero the comparison of Step 2 gives $c(t)>\tfrac27(0.196)>0.056$, hence $K(t)>0.056-\tfrac1{20}=\tfrac3{500}$. The separation holds for $|t|\le11$ by Step 1 and for $|t|\le T_0-1$ by \cite{PT21}, and under RH there is no off line zero, which also gives (3) for $|t|\ge9$, while Step 3 gives it below $9$.
+\end{proof}
+
+\begin{proposition}[The exact prime side formula for the curvature]\label{qt:prop:curvprime}
+For every regular $t$,
+\begin{multline*}
+K(t)=-\mathrm{AC}_{v=1/2}\sum_{n\ge2}\frac{\Lambda(n)\log n}{n^v}\big(1-\cos(t\log n)\big)\\+4-\Re\frac1{(-\tfrac12+it)^2}+\sum_{j\ge1}\Big(\Re\frac1{(2j+\tfrac12+it)^2}-\frac1{(2j+\tfrac12)^2}\Big),
+\end{multline*}
+where $\mathrm{AC}_{v=1/2}$ is the value at $v=\tfrac12$ of the meromorphic continuation from $\Re v>1$. This is the derivative at $a=0$ of the compensated density of Proposition~\ref{qt:prop:decomp}, $K(t)=\lim_{a\to0}\{\theta'_{1/2+a}(t)-\theta'_{1/2+a}(0)\}/a$ (Proposition~\ref{qt:prop:boundary}).
+\end{proposition}
+
+\begin{proof}
+From $\xi'/\xi=1/s+1/(s-1)-\tfrac12\log\pi+\tfrac12\psi(s/2)+\zeta'/\zeta$ and $K(t)=\Re L'(\tfrac12+it)-L'(\tfrac12)$: the factor $1/s$ cancels the zeroth term of the digamma series and leaves $\tfrac12\psi(1+\tfrac s2)$, whose derivative is $\sum_{j\ge1}(2j+s)^{-2}$, the pole gives $-(s-1)^{-2}$, and $(\zeta'/\zeta)'(s)=\sum\Lambda(n)\log n\,n^{-s}$ for $\Re s>1$, differentiated term by term and continued. The continuation is of the whole expression, and setting $a=0$ in the improper Chebyshev integral directly is not justified. The pole is counted once, in the explicit term and not again in the continuous subtraction.
+\end{proof}
+
+\begin{proposition}[Smoothed prime sums approximate the curvature]\label{qt:prop:curvapprox}
+Let $U$ be a bounded nonnegative random variable, $W(x)=\Pr(U\ge x)$, $X=e^{\sup U}$, $F(z)=\mathbb E\,e^{-zU}$, $R(z)=F(z)/z^2-F'(z)/z$, and $w_v=\tfrac12+iv-\rho$. Put
+\begin{multline*}
+S_W(t)=-\sum_{n\le X}\frac{\Lambda(n)\log n}{\sqrt n}\big(1-\cos(t\log n)\big)W(\log n)\\+\int_0^{\log X}x(1-\cos tx)W(x)\Big(e^{x/2}-\frac{e^{-x/2}}{e^{2x}-1}\Big)dx.
+\end{multline*}
+For $U$ the sum of $m\ge4$ independent uniform variables on $[0,e/3]$, at every regular $t$
+\[
+K(t)-S_W(t)=\Re\sum_\rho\{R(w_0)-R(w_t)\},
+\]
+the zero sum converging absolutely, and for $|t|\le4$
+\[
+|K(t)-S_W(t)|\le E_mt^2,\qquad E_m=\tfrac5{24}\{6+12m+12m^2+8m^3\}e^{-(m-4)}.
+\]
+In particular $E_{30}<5\cdot10^{-7}$ with $X=e^{10e}<10^{12}$, and $E_{50}<10^{-14}$ with $X=e^{50e/3}<10^{20}$.
+\end{proposition}
+
+\begin{proof}
+The distributional explicit formula $dM(x)=-\sum_\rho e^{(\rho-1/2)x}dx$ for $dM=e^{-x/2}d\psi(e^x)-e^{x/2}dx+e^{-x/2}(e^{2x}-1)^{-1}dx$, tested against $-x(1-\cos tx)W(x)$, gives the prime side $S_W$ and on the zero side $\Re\sum_\rho\{I(w_0)-I(w_t)\}$ with $I(z)=\int xW(x)e^{-zx}dx=z^{-2}-R(z)$; since $\sum(w_0^{-2}-w_t^{-2})=L'(\tfrac12+it)-L'(\tfrac12)$, the identity follows (the test function is $O(x^3)$ at the origin, which justifies the cutoff there). With $A(z)=(1-e^{-hz})/(hz)$, $h=e/3$, $F=A^m$, and $|t|\le4$, Step 1 gives distance more than $6$ from $v\in\{0,t\}$ to a line zero and more than $8$ to an off line zero, so $|A(w_v)|\le e^{-1}$, $|A|\le3/|w_v|$ and $|A^{(k)}|<2$ ($k\le3$). Leibniz then gives $|F^{(j)}|\le3(2m)^je^{-(m-j-1)}/|w_v|$, hence $|R''(w_v)|\le3e^{-(m-4)}\{6+12m+12m^2+8m^3\}/|w_v|^2$. With $|w_v|\ge3|\gamma|/5$ and $\sum\gamma^{-2}<\tfrac1{20}$, Taylor's formula in $t$ (the zero sum is even in $t$) gives the bound.
+\end{proof}
+
+The proposition is an approximation result and not a sign certificate: the sign of $K$ on $|t|\le4$ comes from Theorem~\ref{qt:thm:curv}, and it shows that a finite prime sum with $X<10^{12}$ reproduces $K$ to $5\cdot10^{-7}t^2$.
+
+\begin{remark}[What the primes do not give]\label{qt:rem:curvobs}
+Two limits apply. First, at a zero on the line of multiplicity $k$, $c(t)=k/(t-\gamma)^2+O(1)$, while every $S_W$ is continuous, so no finite uniform two sided error holds on a punctured neighbourhood of a zero. Second, a one sided bound does not need it, and the real obstruction to extending the comparison of Step 2 past the verified window is a possible nearby off line zero: exactly at its ordinate the unsmoothed kernel has real part $-1/\delta^2$, while the smoothed kernel gives $1/(b^2-\delta^2)>0$ for $b>|\delta|$. This is a failure of the comparison and not a counterexample to $c(t)\ge c(0)$, since other zeros could offset it. The comparison needs $|t-\gamma|\ge1$ for every off line zero, a zero free strip near the height of $t$, which the primes alone supply here only up to $11$ (up to $12$ in $|\gamma|$) and Platt and Trudgian supply up to $T_0$. Any extension of the prime only certificate beyond $11$ is a local zero free statement, that is, a partial verification of RH by the explicit formula.
+\end{remark}
+
+\begin{remark}
+Theorem~\ref{qt:thm:curv}(3) is necessary for RH, and we do not claim that it is sufficient: it is a statement on the critical line only, the $a\to0$ shadow of compensated positivity. The curvature condition at gap lengths is that of Proposition~\ref{bo:prop:zeroside}(4): under RH a gap shorter than $\sqrt{8/c(0)}\approx13.157$ suffices, and for the analogous Laguerre inequality of the Delta function see Corollary~\ref{dl:cor:laguerre}.
+\end{remark}
+
+\subsection{Why the Levy side is hard}
+
+Truncate the prime side of $C_\alpha$ at $X$:
+\[
+C_{\alpha,X}(y)=\sum_{n\le X}\frac{\Lambda(n)}{n^\alpha}\big(1-\cos(y\log n)\big)-\int_1^Xu^{-\alpha}\big(1-\cos(y\log u)\big)\,du .
+\]
+Both pieces are positive and, for $\alpha<1$, both diverge; their difference converges to $C_\alpha(y)$ for $\alpha>\Theta$ (Lemma~\ref{bo:lem:trunc}). By the explicit formula the error is a sum over zeros of terms of size $X^{\beta-\alpha}/|\rho-s|$. For fixed $\alpha>\Theta$ and $y$ it is $O_{\alpha,y,\epsilon}(X^{\Theta-\alpha+\epsilon})$ unconditionally (Proposition~\ref{bp:prop:below}), and under RH the usual $\psi(X)-X=O(\sqrt X\log^2X)$ gives $O_{\alpha,y}(X^{-a}\log^2X)$. Neither source proves a pointwise lower bound for the error, since the endpoint can oscillate and the constants depend on $y$ and $a$.
+
+The obstruction to a proof from this side is then the following.
+\begin{enumerate}
+\item At tilt $a$ the prime side is modelled as carrying information at the rate $X^{-a}$. As a model for the cost, to certify $\theta'_\alpha(y)-\theta'_\alpha(0)>0$ at a point where it is of size $\delta$ one would need $X\gtrsim\delta^{-1/a}$, and between zeros the density is small, about $a\,K(y)$; this is not a theorem, since neither source above gives a lower bound for the error.
+\item The rate $X^{-a}$ is the rate that RH gives. Unconditionally the error is governed by $X^{\Theta-\alpha+\epsilon}$ (for fixed $\alpha>\Theta$ and $y$), and below $\Theta$ the integral \eqref{qt:eq:tilt} is not known to converge. By \cite{OAI26a} it converges for every $\alpha>\tfrac78$, so the obstruction concerns only $\alpha\le\tfrac78$.
+\item The three parts of $\Lambda$ are separately of constant sign, but for $a<\tfrac12$ the prime part and the continuous part have divergent transforms, so positivity can be seen only after they are combined.
+\end{enumerate}
+
+\begin{remark}[A heuristic, and where it becomes a theorem]\label{qt:rem:obstruction}
+One expects that a proof of compensated positivity from the Levy side on every line to the right of $\alpha$ must produce, as a byproduct, the convergence of the integral \eqref{qt:eq:tilt} at those levels, hence a zero free half plane $\Re s>\alpha$ (which for $\alpha>\tfrac78$ is already known). We do not prove this for a single level: whether positivity at every height on one fixed line excludes a zero to the right of that line is open for $\xi$ (Remark~\ref{qt:rem:onelevel}), and pointwise convergence of $C_\alpha(y)$ for each $y$ does not give convergence of the Laplace integral of $\nu$. What is proved is that positivity on every line to the right of $\alpha_0$ is equivalent to the half plane $\Re s>\alpha_0$ (Corollary~\ref{pol:cor:equiv}), and, in the Riesz form below, that a one sided bound of the prime side at exponent $\theta$ is again equivalent to it (Proposition~\ref{qt:prop:riesz}).
+\end{remark}
+
+\section{Equivalent forms}\label{qt:sec:equiv}
+
+This section collects statements that are equivalent to RH, or to a zero free half plane at a given width, and that come out of the Thorin reading.
+
+\subsection{The Riesz mean and a one sided bound}
+
+For $x\ge1$ let
+\[
+\mathcal G(x)=\sum_{n\le x}\Lambda(n)\Big(\frac xn-1\Big)-x\log x+(1+\gamma)x=-x\int_x^\infty(\psi(t)-t)\,t^{-2}\,dt .
+\]
+Its Mellin transform is $\int_1^\infty\mathcal G(x)x^{-s-1}\,dx=(J(s)-sJ(1))/(s(s-1))$, where $J(s)=s\int_1^\infty(\psi(t)-t)t^{-s-1}dt=-\zeta'/\zeta(s)-1-1/(s-1)$ with $J(1)=-1-\gamma_E$ (the function $J$ of the Chebyshev chapter, which differs from the unadjusted Laplace Stieltjes transform of $\nu$; the transform is obtained first for $\Re s>1$, and $s=1$ is removable), and with absolute convergence
+\begin{equation}\label{qt:eq:riesz}
+\mathcal G(x)=\log2\pi-\sum_\rho\frac{x^\rho}{\rho(\rho-1)}-\sum_{m\ge1}\frac{x^{-2m}}{2m(2m+1)},\qquad x\ge1 .
+\end{equation}
+Write $F_0=2+\gamma-\log4\pi=2\sum_\rho\Re\rho^{-1}=0.0461914$.
+
+\begin{proposition}[A one sided Riesz bound]\label{qt:prop:riesz}
+For $\tfrac12\le\theta<1$ the following are equivalent.
+\begin{enumerate}
+\item No zero of $\zeta$ has real part greater than $\theta$.
+\item $\mathcal G(x)\le Kx^\theta$ for some $K$ and all large $x$.
+\item $\mathcal G(x)\ge-Kx^\theta$ for some $K$ and all large $x$.
+\item $-C_0x^\theta-1+\log2\le\mathcal G(x)-\log2\pi\le C_0x^\theta$ for all $x\ge1$, where $C_0=\sum_\rho|\rho(\rho-1)|^{-1}\le F_0(1+10^{-24})$.
+\item The ladder is positive above $\theta$: $\theta'_\alpha(y)\ge\theta'_\alpha(0)$ for every $\alpha>\theta$ and every $y$ where it is defined.
+\end{enumerate}
+In particular RH holds if and only if $\mathcal G(x)\le\log2\pi+F_0\sqrt x$ for all $x\ge1$, and then $\limsup_{x\to\infty}\mathcal G(x)/\sqrt x=F_0$. Unconditionally $|\mathcal G(x)-\log2\pi+\mathrm{tr}(x)|\le C_0x^\Theta$ for $x\ge1$, with $0\le\mathrm{tr}\le1-\log2$ the contribution of the trivial zeros, and, with the floor $\tfrac78$, $|\mathcal G(x)-\log2\pi+\mathrm{tr}(x)|\le F_0\sqrt x+3\cdot10^{-12}x^{7/8}$ (the second constant is proved after the proof of the proposition).
+\end{proposition}
+
+\begin{proof}
+Inversion of the prime sum against $1/[s(s-1)]$, with its elementary terms treated separately, gives the residues at $0$, at $\rho$ and at $-2m$ in \eqref{qt:eq:riesz}; for rigour one shifts the contour for $x>1$ along heights avoiding the zeros, with the standard bound for the logarithmic derivative, the two series converge absolutely and continuously down to $x=1$, and $\sum_{m\ge1}[2m(2m+1)]^{-1}=1-\log2$. If (1) holds, $|x^\rho|\le x^\theta$ gives (4), which gives (2) and (3). For the constant, put $b_\rho=\beta/|\rho|^2+(1-\beta)/|1-\rho|^2$, so that $\sum_\rho b_\rho=F_0$ because the zero set is invariant under $\rho\mapsto1-\bar\rho$. On the line $|\rho(1-\rho)|^{-1}=b_\rho$. Off the line Jensen gives $b_\rho\ge(\gamma^2+\beta^3+(1-\beta)^3)^{-1}\ge(\gamma^2+1)^{-1}$, so that $|\rho(1-\rho)|^{-1}\le(1+\gamma^{-2})b_\rho$ with $|\gamma|>T_0$. If (2) holds, then
+\[
+\int_1^\infty(Kx^\theta-\mathcal G(x))\,x^{-s-1}\,dx=\frac K{s-\theta}-\frac{J(s)-sJ(1)}{s(s-1)}
+\]
+has an integrand of one sign for large $x$ and a continuation that is analytic on the real half line $(\theta,\infty)$, since $\zeta$ has no real zero in $(0,1)$ ($(1-2^{1-\sigma})\zeta(\sigma)=\sum(-1)^{n-1}n^{-\sigma}>0$ there). By Landau's theorem the integral converges and is analytic for $\Re s>\theta$, so $J$ has no pole there and $\zeta$ no zero: every zero gives a genuine pole of residue $-m_\rho/[\rho(\rho-1)]$, and the continued transform has no real singularity above $\theta$. Items (2) and (3) each separately force (1). (3) is the same with $Kx^\theta+\mathcal G$. (1) is equivalent to (5) by Proposition~\ref{ct:prop:qrh} and Theorem~\ref{bo:thm:level}. Under RH the zero sum is $\sqrt x\sum_\gamma x^{i\gamma}/(\tfrac14+\gamma^2)$, a positive definite almost periodic function in $\log x$, bounded by its value $F_0$ at the origin and, by Dirichlet's approximation theorem, approaching it.
+\end{proof}
+
+The one sided converse and the oscillatory term under RH are due in this form to Zhao (Tianyu Zhao, 2025, \emph{On the mean values of the error terms in Mertens' theorems}), who applies the same Landau argument to the identical tail $\int_X^\infty(\psi(x)-x)x^{-2}dx=-\mathcal G(X)/X$ and obtains oscillations of both signs if $\Theta>\tfrac12$; his work also uses the same cosine series, the constant $B_1=F_0$ and simultaneous approximation.
+
+The constant $3\cdot10^{-12}$ is obtained as follows. The Jensen comparison is valid since $\sqrt{|\rho|^2|1-\rho|^2}\ge\gamma^2$. At $T=T_0$ the sum of $1/|\rho(1-\rho)|$ over $|\gamma|>T$ is at most $2\int_{(T,\infty)}t^{-2}dN(t)$. Write $N=N_0+R$ from \eqref{dz:eq:count} and use $|R(t)|\le0.3\log t$ at these heights (the bound used in the proof of Proposition~\ref{bp:prop:v1min}). The main integral is $(\log(T/2\pi)+1)/(\pi T)$, and the absolute error is at most $(1.2\log T+0.3)/T^2$ by integration by parts including the boundary term. With $\log(T/2\pi)<27$, $\log T<29$ and $\pi>3.14$ their sum is $<3\cdot10^{-12}$. The verified low zeros have total weight at most $F_0$, since their weights equal the positive $b_\rho$ used above, which proves the mixed exponent bound.
+
+\subsection{The sharp constant: no room under RH}
+
+\begin{theorem}[The RH form of the Riesz bound]\label{qt:thm:sharp}
+\begin{enumerate}
+\item RH holds if and only if $\mathcal G(x)\le\log2\pi+F_0\sqrt x$ for every $x\ge1$, if and only if $\sup_{x\ge1}\mathcal G(x)/\sqrt x<\infty$.
+\item Under RH the function $f(Y)=e^{-Y/2}(\mathcal G(e^Y)-\log2\pi+\mathrm{tr}(e^Y))$ for $Y\ge0$, extended to $\mathbb R$ by the even cosine sum, which equals $\sum_\rho(\tfrac14+\tau_\rho^2)^{-1}\cos(\tau_\rho Y)$ with zeros counted with multiplicity, is positive definite and almost periodic, $|f|\le f(0)=F_0$, and
+\begin{gather*}
+\limsup_{x\to\infty}\frac{\mathcal G(x)}{\sqrt x}=F_0,\\-F_0\le\liminf_{x\to\infty}\frac{\mathcal G(x)}{\sqrt x}\le-\Big(\frac14+\gamma_1^2\Big)^{-1}\approx-0.0049990\approx-0.108\,F_0,
+\end{gather*}
+with no assumption of simplicity or linear independence.
+\item Unconditionally the slack $S(Y)=F_0-f(Y)$ is a $2\sin^2$ sum over the zeros,
+\[
+S(Y)=\sum_\rho\frac{2\sin^2(\tau_\rho Y/2)}{\tfrac14+\tau_\rho^2}=\int_0^\infty e^{-t/4}\,V_{\rm all}(t,Y)\,dt,\qquad\rho=\tfrac12+i\tau_\rho,
+\]
+where $V_{\rm all}=2V$, $V$ being the heat slack of Theorem~\ref{wt:thm:sin2}, which uses one zero of each pair, so that $V_{\rm all}$ is summed over all the zeros, with $e^{-\lambda_jt}$ read as $e^{-\tau_j^2t}$ (note that $\tau_\rho=(\rho-\tfrac12)/i$ is complex off the line). Under RH every term is nonnegative and $\liminf_{Y\to\infty}S(Y)=0$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(1) Under RH all $\tau_\rho$ are real and $|f(Y)|\le\sum_\rho(\tfrac14+\tau_\rho^2)^{-1}=F_0$. The converse is Proposition~\ref{qt:prop:riesz} at $\theta=\tfrac12$. (2) For the upper limit, given $N$ and $M$ apply Dirichlet's simultaneous approximation to $\gamma_kY_1/2\pi$, $k\le N$, for any $Y_1$: some integer $q\le M^N$ has $\|q\gamma_kY_1/2\pi\|<1/M$ for all $k\le N$, so for $Y=qY_1\ge Y_1$ we have $f(Y)\ge\cos(2\pi/M)\sum_{k\le N}2m_kw_k-\sum_{k>N}2m_kw_k$ with $w_k=(\tfrac14+\gamma_k^2)^{-1}$ and $m_k$ the multiplicity; let $N,M\to\infty$. For the lower limit, $f$ has mean $0$ and an absolutely convergent Fourier series, so the mean of $f(Y)(1-\cos\gamma_1Y)$ is $-m_1w_1$; since $1-\cos\gamma_1Y\ge0$ has mean $1$, $f\le-m_1w_1+\eta$ on an unbounded set for every $\eta>0$. (3) The identity $F_0=\sum_\rho(\tfrac14+\tau_\rho^2)^{-1}=\sum_\rho1/[\rho(1-\rho)]$ holds without RH by symmetry and the Hadamard constant. For fixed $Y$, $|1-\cos(\tau_\rho Y)|\le1+\cosh(|Y|/2)$ and $\Re(\tfrac14+\tau_\rho^2)\ge\gamma^2$, so the integrals of absolute values are summable, which justifies the heat integral. Subtract \eqref{qt:eq:riesz} from $F_0$, pair $\rho$ with $1-\rho$ and use $\int_0^\infty e^{-(1/4+\tau^2)t}\,dt=(\tfrac14+\tau^2)^{-1}$.
+\end{proof}
+
+The theorem is the resolvent form of the heat statement of Theorem~\ref{wt:thm:sin2}: the weights $1/(\tfrac14+\tau^2)=\int_0^\infty e^{-t/4}e^{-\tau^2t}\,dt$ replace $e^{-\tau^2t}$, and in exchange the prime side becomes a finite sum over $n\le x$, where the heat form needs all primes with Gaussian weights. A consequence: any argument that yields $\mathcal G(x)\le c\sqrt x+O(1)$ with $c<0.0461914$ is false.
+
+% TODO: 'the heuristic of the opening sections' is a placeholder, the target of the old 'next paragraph' pointer is not identified (R_qt minor)
+The bound has no room asymptotically and apparent room at every computable height. On $[10^3,10^9]$ the normalised mean $(\mathcal G(x)-\log2\pi)/\sqrt x$ lies in $[-0.4910\,F_0,\,0.5346\,F_0]$, with the sampled maximum at $x=34{,}186{,}499$ and the sampled minimum at the prime $319{,}439$ (the locations are approximate). By the detection scale of the heuristic of the opening sections, an off line zero at distance $\delta$ from the line would be felt by the sharp bound only at $\log x\approx\delta^{-1}\log(F_0|\rho(1-\rho)|/2)$, which is at least $143$ in $\log x$ beyond the verified height. The scale $143$ is an individual pair amplitude estimate for $\log x$ using $\delta\le\tfrac38$, not a certified first failure height. (This scale is heuristic, computed on five models.)
+
+\subsection{The Laplace family, the Fourier dual of the ladder}
+
+\begin{proposition}[Laplace family]\label{qt:prop:laplace}
+For $a>0$, $a\notin\{\tfrac52,\tfrac92,\dots\}$, and $y\ge0$, put $x=e^y$, $S_a(x)=\sum_{n\le x}\Lambda(n)n^{-1/2}\big((x/n)^a-(x/n)^{-a}\big)$ and $D_a=S_a-M_a$, where for $a\ne\tfrac12$
+\[
+M_a=\frac{2a\,x^{1/2}}{1/4-a^2}-\frac{\zeta'}{\zeta}(\tfrac12+a)\,x^a+\frac{\zeta'}{\zeta}(\tfrac12-a)\,x^{-a},
+\]
+and $M_{1/2}=x^{1/2}(\log x-1-\gamma_E)+x^{-1/2}\log(2\pi)$, the double pole at $w=\tfrac12$ producing the logarithm. The excluded values $a=2m+\tfrac12$ are a different collision, with a trivial zero. Then, with absolute convergence,
+\[
+D_a(y)=\sum_\rho\frac{2a\,e^{(\rho-1/2)y}}{a^2+\tau_\rho^2}-\sum_{m\ge1}\frac{2a\,e^{-(2m+1/2)y}}{(2m+\tfrac12)^2-a^2},
+\]
+and $D_{1/2}(y)=e^{-y/2}(\mathcal G(e^y)-\log2\pi)$. Under RH, with $T_a(y)=\sum_{m\ge1}\allowbreak2a\,e^{-(2m+1/2)y}\allowbreak/\big((2m+\tfrac12)^2-\allowbreak a^2\big)$, the zero part $Z_a=D_a+T_a$ equals $\sum_\gamma\allowbreak2h_a(\gamma)\allowbreak e^{i\gamma y}$ with $h_a(\gamma)=a/(a^2+\gamma^2)$, is positive definite (the convolution with $e^{-a|\cdot|}$ of the zero distribution in the logarithmic variable), and has its maximum $2\sum_\gamma h_a(\gamma)=2\theta'_\alpha(0)$ at $y=0$, $\alpha=\tfrac12+a$; hence $D_a(y)\le2\theta'_\alpha(0)-T_a(y)$, which is $<2\theta'_\alpha(0)$ for $0<a<\tfrac52$, with $\limsup D_a=2\theta'_\alpha(0)$. For every such $a$ and $\theta\in[\tfrac12,1)$, $D_a(y)\le Ke^{(\theta-1/2)y}$ for large $y$ if and only if no zero has $\Re\rho>\theta$.
+\end{proposition}
+
+\begin{proof}
+The Mellin transform of $S_a(x)=\sum_{n\le x}\Lambda(n)n^{-1/2}((x/n)^a-(x/n)^{-a})$ is $-\frac{\zeta'}{\zeta}(w+\tfrac12)\frac{2a}{w^2-a^2}$. The residues at $w=\tfrac12,\pm a$ are exactly the main terms $M_a$ (the pole at $\tfrac12$ is double when $a=\tfrac12$), and those at $\rho-\tfrac12$ and $-2m-\tfrac12$ give the two sums (contour shift as for \eqref{qt:eq:riesz}). The equivalence is the proof of Proposition~\ref{qt:prop:riesz}, the weights $2a/(a^2+\tau^2)$ never vanishing.
+\end{proof}
+
+The ladder damps the zero distribution $\sum_\gamma e^{i\gamma y}$ by $e^{-a|y|}$ and transforms: $\theta'_\alpha=\sum_\gamma h_a(\cdot-\gamma)$, and positivity is a minimum $\theta'_\alpha(0)$ at the origin. The Laplace family convolves it with $e^{-a|y|}$ instead: positivity is a maximum $2\theta'_\alpha(0)$ at $y=0$. Under RH the second is termwise, $2\theta'_\alpha(0)-D_a(y)=T_a(y)+\sum_\gamma4h_a(\gamma)\sin^2(\gamma y/2)$, where for $0<a<\tfrac52$ the term $T_a(0)>0$ (for $a=\tfrac12$ it equals $1-\log2$), and the first is not termwise (it needs the theorem of Garunk\v{s}tis). The width $a=\alpha-\tfrac12$ is the Poisson width of the ladder, and any fixed nonresonant $a$ can test any exponent $\theta$ through the growth of $D_a$; the level $\alpha$ of the ladder is not tied to the Riesz exponent $\theta$.
+
+\subsection{Monotonicity in the level}
+
+\begin{theorem}[Ratio monotonicity]\label{qt:thm:ratio}
+Write $v_\alpha(y)=\theta'_\alpha(y)$.
+\begin{enumerate}
+\item Under RH, for every real $y$ the map $\alpha\mapsto v_\alpha(y)/(\alpha-\tfrac12)=\sum_\gamma((\alpha-\tfrac12)^2+(y-\gamma)^2)^{-1}$ is strictly decreasing on $(\tfrac12,\infty)$; more generally $\alpha\mapsto v_\alpha(y)/(\alpha-\tfrac12)^p$ is strictly decreasing for every $p\ge1$, and $p=p(y)$ may depend on $y$.
+\item Conversely, if for every $y$ and some finite $p(y)\ge1$ the map $\alpha\mapsto v_\alpha(y)/(\alpha-\tfrac12)^{p(y)}$ is nonincreasing on the ordered set $\{\alpha\in(\tfrac12,1]:\xi(\alpha+iy)\ne0\}$ (as one set, not separately on each connected component), then RH holds.
+\item RH holds if and only if $\Re\,\xi'/\xi(\alpha+iy)\ge(2\alpha-1)\,\Re\,\xi'/\xi(1+iy)$ for all $\tfrac12<\alpha<1$ and all $y$ with $\xi(\alpha+iy)\ne0$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(1) Termwise: $\partial_a[a^{1-p}/(a^2+d^2)]=a^{-p}[(1-p)(a^2+d^2)-2a^2]/(a^2+d^2)^2<0$ for $p\ge1$, and the series and its derivative in $a$ converge locally uniformly on $a\ge a_0>0$ because the terms are $O(\gamma^{-2})$. (2) Let $\rho_0=\beta_0+i\gamma_0$ be a zero with $\beta_0>\tfrac12$, of multiplicity $m$; then $\beta_0<1$. Only finitely many zeros have ordinate $\gamma_0$, so on a punctured interval about $\beta_0$, $v_\alpha(\gamma_0)=m/(\alpha-\beta_0)+h(\alpha)$ with $h$ continuous. The ratio tends to $+\infty$ as $\alpha\downarrow\beta_0$ and to $-\infty$ as $\alpha\uparrow\beta_0$, and points $\alpha_1<\beta_0<\alpha_2$ with ratio$(\alpha_1)<0<$ ratio$(\alpha_2)$ contradict nonincrease on the whole punctured set. (3) The direct part is (1) between $\alpha$ and $1$. Conversely $v_1>0$ (Theorem~\ref{thm:poisson}), so $v_\alpha>0$ wherever defined on $(\tfrac12,1)$, while a zero with $\beta_0>\tfrac12$ gives $v_\alpha(\gamma_0)\to-\infty$ as $\alpha\uparrow\beta_0$.
+\end{proof}
+
+Part (3) strengthens the criterion of Lagarias by an explicit lower bound from the top rung, and the downward propagation uses no prime sum; the case $y=0$ is unconditional. The positivity needs no constant, so a large or height dependent $p$ is allowed. Part (1) with $p=1$ is Theorem~\ref{thm:dbeta:comp}.
+
+\begin{lemma}[The pair calculus and its exceptional set]\label{qt:lem:pairdiff}
+For an off line pair $\{\tfrac12\pm\delta+i\gamma\}$, $0<\delta<\tfrac12$, with $a=\alpha-\tfrac12$ and $d=y-\gamma$, the contribution to $v_\alpha(y)/a$ is
+\[
+f=\frac{2(a^2-\delta^2+d^2)}{((a-\delta)^2+d^2)((a+\delta)^2+d^2)},\qquad\operatorname{sign}\frac{\partial f}{\partial(a^2)}=\operatorname{sign}\big(4\delta^2d^2-(a^2+d^2-\delta^2)^2\big).
+\]
+So on $a>\delta$ the contribution is nonincreasing in $\alpha$ if and only if $a^2\ge2\delta^2-(|d|-\delta)^2$: for all $y$ if and only if $a\ge\sqrt2\,\delta$, for all $a>\delta$ if and only if $d=0$ or $|d|\ge2\delta$, and for all $a>0$, $a\ne\delta$, the derivative is nonpositive wherever defined if and only if $d=0$ or $|d|\ge(1+\sqrt2)\delta$. Nonincrease on the ordered punctured domain holds only in the case $|d|\ge(1+\sqrt2)\delta$, since at $d=0$, $f=2/(a^2-\delta^2)$ jumps upwards across the deleted pole. This is Lemma~\ref{lem:dbeta:comp} with $w=a^2$ and $u=d$.
+\end{lemma}
+
+\begin{proof}
+With $h(x)=x/(x^2+d^2)$ the numerator of $h(a-\delta)+h(a+\delta)$ is $2a(a^2-\delta^2+d^2)$. Write the denominator as $(A+p+q)^2-4Ap$ with $A=a^2$, $p=\delta^2$, $q=d^2$; then $\partial_Af$ has the sign of $(A+p+q)^2-4Ap-2(A-p+q)^2=4pq-(A+q-p)^2$.
+\end{proof}
+
+\begin{corollary}\label{qt:cor:range}
+The uncompensated monotonicity of Theorem~\ref{qt:thm:ratio}(1) holds unconditionally for $\alpha\ge\tfrac12+\tfrac1{\sqrt2}\approx1.2071$ (every $\delta<\tfrac12$), for $\alpha\ge\tfrac12+\tfrac{3\sqrt2}8\approx1.0303$ with the floor $\tfrac78$ \cite{OAI26a} ($\delta\le\tfrac38$), and for every $\alpha>\tfrac12$ at $y=0$ ($|d|=|\gamma|\ge14.13>\tfrac{1+\sqrt2}2$). The exact thresholds are the radicals; the decimals are rounded down and must not be used as sufficient cutoffs.
+\end{corollary}
+
+These are the constants $\tfrac12+\tfrac1{\sqrt2}$ and $\tfrac{1+\sqrt2}2$ of Lemma~\ref{lem:dbeta:comp} and Theorem~\ref{thm:dbeta:comp}, and of Theorem~\ref{thm:dbeta:minall}(ii),(iii) for the compensated density; the range $\alpha\ge1.0303$ is in Section~\ref{qrh:sec:descent}. On $a>\delta$ the exceptional set is $\{\delta<a<\sqrt2\delta,\ (|d|-\delta)^2<2\delta^2-a^2\}$, of size about $\delta$ around the ordinate of each hypothetical off line zero. This is where an arithmetic input would have to act.
+
+\begin{remark}[Conditional extensions]\label{qt:rem:cond}
+Under RH the ratio monotonicity holds for the compensated density on $0<a\le\tfrac12$, in the form that $a\mapsto[v_{1/2+a}(t)-v_{1/2+a}(0)]/a$ decreases for every real $t\ne0$ with $\Xi(t)\ne0$. With $K_a(d)=(a^2+d^2)^{-2}$ the derivative of this quotient in $a$ is $-2a\sum_\gamma[K_a(t-\gamma)-K_a(\gamma)]$. For $0<t<\gamma_1$ one pairs $\pm\gamma$: $K_a$ is strictly convex on $d>a/\sqrt5$, and when $\gamma-t<a/\sqrt5$ the nearest term alone exceeds $2K_a(\gamma)$. For $\gamma_1\le t\le2000$ one uses the certified distance $3.45$, and above $2000$ the $23$ ordinates within $15$ (Proposition~\ref{bp:prop:v1min}); indeed $\sum_\gamma K_a(\gamma)\le c(0)/\gamma_1^2<0.00024$, whereas $23/(225+\tfrac14)^2>0.00045$. Letting $a\downarrow0$ gives the comparison $c(t)-c(0)\ge2\{v_1(t)-v_1(0)\}$ for $\Xi(t)\ne0$, of the curvature of Theorem~\ref{qt:thm:curv} with twice the growth of the level one phase density.
+\end{remark}
+
+\subsection{The shadow of a zero at a single level}\label{qt:sec:shadow}
+
+For $\alpha>\tfrac12$ put $a=\alpha-\tfrac12$, $v_\alpha(y)=\Re(\xi'/\xi)(\alpha+iy)$ and
+\[
+S(\alpha,y)=v_\alpha(y)-a\,\partial_\alpha v_\alpha(y)=-a^2\,\partial_\alpha\big(v_\alpha(y)/a\big),
+\]
+so that $S(\alpha,y)\ge S(\alpha,0)$ is monotonicity of the compensated density in the level (Theorem~\ref{qt:thm:ratio}), and $S(\alpha,y)\ge0$ is its weaker form. For a zero $\rho'=\beta'+i\gamma'$ with $x=\alpha-\beta'\ne0$, $b=|x|$, $d=y-\gamma'$, the term of $v_\alpha(y)$ is $x/(x^2+d^2)$ and the term of $S$ is $\operatorname{sgn}(x)K_b(d)+aQ_b(d)$, with $K_b(d)=b/(b^2+d^2)$ and $Q_b(d)=(b^2-d^2)/(b^2+d^2)^2=-\partial_bK_b(d)$. Since $\int K_b=\pi$ and $\int Q_b=0$, each zero contributes signed mass $\pi\operatorname{sgn}(\alpha-\beta')$ to $S$. A reflected pair $\tfrac12\pm\eta+i\gamma'$ has mass $2\pi$ when $a>\eta$ and mass $0$ when $0<a<\eta$.
+
+\begin{proposition}[The shadow of a zero]\label{qt:prop:shadow}
+Let $M(T)=10+\log(1+|T|)$ and $w(a,T)=a/\{8M(T)\log(8M(T)/a)\}$ for $0<a\le\tfrac12$.
+\begin{enumerate}
+\item $S(\alpha,0)>0$ for every $\alpha>\tfrac12$, unconditionally.
+\item Let $\tfrac12<\alpha\le1$ and suppose $S(\alpha,y)\ge0$ at every real $y$ with $\xi(\alpha+iy)\ne0$ (in particular if $S(\alpha,y)\ge S(\alpha,0)$ there). Then no zero $\beta+i\gamma$ has $|\beta-\alpha|\le w(\alpha-\tfrac12,\gamma)$.
+\item Let $\beta+i\gamma$ be a zero with $\delta=\beta-\tfrac12>0$ and put
+\[
+\varepsilon(\beta,\gamma)=\frac{\delta}{16M(\gamma)\log\big(16M(\gamma)/\delta\big)}.
+\]
+For every $\alpha\le1$ with $|\alpha-\beta|<\varepsilon(\beta,\gamma)$ there is a real $y$ with $\xi(\alpha+iy)\ne0$ and $S(\alpha,y)<0<S(\alpha,0)$. Under the floor $\tfrac78$ of \cite{OAI26a} the radius is less than $\tfrac18$, so the whole interval lies in $(\tfrac12,1)$.
+\end{enumerate}
+Consequently a rung at one level $\alpha<\tfrac78$, at every ordinate, gives a zero free band about $\Re s=\alpha$ of half width about $(\alpha-\tfrac12)/(\log T\log\log T)$ at height $T$, which is new above the height of \cite{PT21} and shrinks with the height; it is not a half plane.
+\end{proposition}
+
+\begin{proof}
+(1) A zero on the line contributes $2a^3/(a^2+\gamma'^2)^2>0$. For a reflected pair put $U=a^2+d^2-\eta^2$: the contribution is $4a^3(U^2-4\eta^2d^2)/(U^2+4\eta^2d^2)^2$, and at $y=0$ one has $|d|=|\gamma'|>14$ and $\eta<\tfrac12$, so $U>|d|\ge2\eta|d|$. There is no real zero.
+
+A zero on the level $\alpha$, of multiplicity $m$ at ordinate $\tau$, gives $S(\alpha,\tau+d)=-ma/d^2+O(1)$, so under the hypothesis of (2) the level contains no zero and $b_\rho=|\alpha-\beta_\rho|>0$ for all $\rho$.
+
+Height bound. For $\alpha\le1$, $h=1+b_\rho$ and $k=2-\beta_\rho$ lie in $[1,2]$, so $K_h/K_k\le2$ and $\sum_\rho K_{1+b_\rho}(T-\gamma_\rho)\le2v_2(T)<M(T)$. Indeed $2v_2(T)=2\Re(\tfrac1s+\tfrac1{s-1}+\tfrac{\zeta'}\zeta(s))-\log\pi+\Re\psi(1+\tfrac{iT}2)$ at $s=2+iT$, with $\Re(\tfrac1s+\tfrac1{s-1})\le\tfrac32$, $|\zeta'/\zeta(s)|\le\sum\log n/n^2\le2$, and $\Re\psi(1+iu)=-\gamma_E+\sum_nu^2/\{n(n^2+u^2)\}\le1+\log N+\tfrac12$ for $N=\lceil\max(1,|u|)\rceil$, which gives $2v_2(T)\le\tfrac{17}2+\log(1+|T|/2)$.
+
+(2) For $0<r<1$ and $L=\log(1/r)$ use the even test function $\Phi_r=LK_1-\int_r^1K_u\,du$, so $0\le\Phi_r\le LK_1$ (as $K_u\le K_1/u$ for $u\le1$). From $K_b*K_u=\pi K_{b+u}$ and $\int_r^1Q_{b+u}\,du=K_{b+r}-K_{b+1}$, the pairing of the term of $S$ of a zero with $\Phi_r(y-T)$, divided by $\pi$, is at most $[(1+a)L+a]K_{b+1}(c)-aK_{b+r}(c)$, $c=T-\gamma'$. The negative term has the same sign for every zero, on either side of the level, so neighbours and multiplicities can only help; no lower bound on $\inf b_\rho$ is needed. The pairings may be summed (truncate $\Phi_r$ by a smooth cutoff at scale $R$, use $\int S\,f_R\ge0$, and dominate the individual pairings by $C_rK_1(c)$, using the zero integral of $Q_b$ and a second difference, then let $R\to\infty$). The height bound gives, for all $T$ and $r$,
+\[
+a\sum_\rho K_{b_\rho+r}(T-\gamma_\rho)\le\big[(1+a)\log(1/r)+a\big]M(T).
+\]
+A zero at ordinate $T$ with $h=|\alpha-\beta|$ alone gives $a/(h+r)\le M(T)[(1+a)\log(1/r)+a]$. Take $U=8M(T)/a\ge160$ and $r=1/(U\log U)=w(a,T)$, so $\log(1/r)\le2\log U$. If $h\le r$ the left side is at least $a/(2r)=4M(T)\log U$, and the right side is at most $M(T)(3\log U+\tfrac12)$, a contradiction.
+
+(3) $w(a,T)$ increases in $a$, and the radius $\varepsilon(\beta,\gamma)=w(\delta/2,\gamma)$ is less than $\delta/2$. If $|\alpha-\beta|<\varepsilon$ then $a>\delta/2$ and $|\alpha-\beta|<w(a,\gamma)$, so the zero lies in the band of (2), whose conclusion therefore fails: some $y$ has $S(\alpha,y)<0$, and $S(\alpha,0)>0$ by (1). With $\beta\le\tfrac78$, $M\ge10$ and $\delta<\tfrac12$ give $\varepsilon<\tfrac18$.
+\end{proof}
+
+The radius is much smaller than the width that a shadow of a zero uniform in height would need. A proof of the rung below $\tfrac78$ remains open, and by (2) each such rung would already be new zero free information.
+
+\subsection{Where the Levy side meets level one}
+
+The two statements above that need an arithmetic input are both blocked at level one, and the Levy side shows why. Write $v^{(P)}_\alpha$ for the phase density with only the Euler factors of the primes $p\le P$ kept, $v^{(P)}_\alpha(r)=v^\infty_\alpha(r)-\sum_{p\le P}\sum_k\frac{\log p}{p^{k\alpha}}\cos(kr\log p)$, $v^\infty_\alpha$ being the phase density of the archimedean factor.
+
+\begin{remark}[Finite Euler products]\label{qt:rem:eulerlevel}
+For $\alpha>1$ let $T^{(P)}_\alpha$ be the law with the Euler factors of the primes $p\le P$ and the archimedean factor (the finite Euler product analogue of the level law of Chapter~\ref{h:ch:chains}), in the variable $u=w^2$ of this part, with Thorin density $v^{(P)}_\alpha(\sqrt z)/(2\pi\sqrt z)$. Put $A(s)=\tfrac12s(s-1)\pi^{-s/2}\Gamma(s/2)$ and $\zeta_P(s)=\prod_{p\le P}(1-p^{-s})^{-1}$; the finite clock transform is $A(\alpha)\zeta_P(\alpha)/[A(\alpha+\sqrt u)\zeta_P(\alpha+\sqrt u)]$, and its candidate Thorin density is a signed inversion until positivity has been proved. For $\alpha>1$ it is a probability transform: it is the full GGC transform times the independent first passage transforms of the omitted primes, $\zeta_{>P}(\alpha+\sqrt u)/\zeta_{>P}(\alpha)$. These facts give, for every $\alpha>1$, a finite $P_0(\alpha)$, the least $P$ such that $T^{(P')}_\alpha$ is a GGC for all $P'\ge P$, and $P_0(\alpha)\to\infty$ as $\alpha\downarrow1$. At $\alpha=1+\epsilon$, at the ordinate $r=\epsilon^{1/4}$, the fixed $P$ density tends, in $v$ units, to $(\psi_\Gamma(\tfrac32)-\log\pi)/2-\sum_{p\le P}\log p/(p-1)<0$, with $\psi_\Gamma$ the digamma function. For $\tfrac12<\alpha<1$ the finite clock has a positive real pole at $u=(1-\alpha)^2$, and at $\alpha=1$ its normalisation degenerates, while the bare finite Euler product remains well defined. At level one no finite partial product, and no local or archimedean factor, is positive on its own. Above level $1$ the positivity of the full Euler product is arithmetic; the limit $\alpha\downarrow1$ is free for GGCs (they are closed under weak limits), and below $1$ each step is a zero free half plane.
+\end{remark}

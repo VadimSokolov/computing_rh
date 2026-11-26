@@ -1,0 +1,51 @@
+% Chapter mq, part F: the ledger. Source: misc/reviews/nick-towards-proof/towards_proof_RH_for_vadim/chapter_towards_proof_RH.tex (Sections 7 and 9 to 11, merged in part), reports misc/research/directions/opus/vol3/TWP.md (M1 to M8) and misc/vol3/verify/TWP/twp.md; edited 23 Nov 2026.
+\section{The inequality (M), Part F: the ledger}\label{mqc:sec:partf}
+
+This part records what can be said about the route reported in \cite{Rub26} from arithmetic objects to (M), and what cannot. Everything attributed to the draft is reported, not verified: the twelve hypotheses (H0) to (H11) are statements of version 2 of the draft, Part III, section 11, that we have not seen proved, and (M) is not proved here. The analytic links are in the book: the window criterion is Corollary~\ref{mq:hyp:window} (the draft reports it in its Part II, section 1; for the family of four characters it is Theorem~\ref{mq:thm:windowcombo}), $R_{q,d}$ is \eqref{mq:eq:R}, Estimates B and C are Theorems~\ref{mq:thm:estB} and~\ref{mq:thm:estC}, and the passage from (M) to the bound for $\mathcal G$ is Theorem~\ref{mq:thm:link4} and Corollary~\ref{mq:cor:link4}. What is left is (M) itself, reported to follow from (H0) to (H11) at one scale, and the supply (H12): for arbitrarily large $Z$ and every $x\in[Z,Z^{3/2}]$ the construction exists with (H0) to (H11), constants independent of $x$, and primes for which Estimates B and C hold at $x$. The draft assumes (H12) from its formal development and reports a proof only that primes of the required arithmetic kind exist at each large scale.
+
+\subsection*{The reduction to real numbers}
+
+Let $W$ be a finite nonempty set with weights $d_w\ge1$ and let $\sigma_w\le\sigma_w^{\max}$ $(w\in W)$, $P$, $M$, $\Gamma$, $\mu_*$ be real numbers, $e_1,e_2,e_3,U\ge0$, $b>0$, $X>0$. Put $s=\sum_wd_w\sigma_w/\sum_wd_w$ and $\mathrm{sp}=\max_w\sigma_w^{\max}-s$.
+
+\begin{theorem}[The ledger]\label{mqc:thm:ledger}
+Assume (i) $P\le\Gamma+e_1$ (the gain is the prime sum); (ii) $\sigma_w\ge\Gamma+\mu_*-M-e_2$ for every $w$ (each map is divisible and small); (iii) $\sigma_w^{\max}-\sigma_{w'}\le U$ for all $w,w'$ (the spread is bounded); (iv) $\mu_*\ge s-e_3-8\,\mathrm{sp}\log(1+Xb/\mathrm{sp})-12b$, the logarithmic term being $0$ when $\mathrm{sp}=0$ (the mean slope inequality). Then
+\[
+P-M\le e_1+e_2+e_3+8\log(1+X)\,(U+b)+12b .
+\]
+\end{theorem}
+
+\begin{proof}
+The mean of (ii) with the weights $d_w$ gives $s\ge\Gamma+\mu_*-M-e_2$. The mean of (iii) over $w'$, then the maximum over $w$, gives $0\le\mathrm{sp}\le U$. For $c>0$, $\log c\le c-1$; with $c=(1+Xb/\mathrm{sp})/(1+X)$ this gives $\mathrm{sp}\log(1+Xb/\mathrm{sp})\le\mathrm{sp}\log(1+X)+Xb/(1+X)\le\log(1+X)(U+b)$, because $X/(1+X)\le\log(1+X)$. Insert this in (iv) and add the first inequality: $\mu_*$ cancels and $\Gamma\le M+e_2+e_3+8\log(1+X)(U+b)+12b$. Now use (i).
+\end{proof}
+
+The theorem is elementary, and a numerical test on random feasible instances found no violation (computed). The dictionary, as we read the draft and not verified, is this. $\sigma_w=\mu(\Lambda_w)-h_w$ is the slope of the source lattice of the map of the word $w$ less the size of the map, $\sigma_w^{\max}$ the same with the largest slope $\mu_{\max}(\Lambda_w)$, $\mu_*$ the slope of the common target, $X=x^{C_H}$, and $P$, $M$ the two sides of (M) for one translate. Line (i) is (H7), first part, with the error $e_1$ of the local primes. Line (ii) comes from (H6)(ii), (H1) and the lower bounds of (H4) and (H5) with (H2), then the upper bound of (H4) and the second part of (H7) for the losses. Line (iii) comes from (H6)(ii) and (iii), (H5), (H2), (H3) and the third part of (H4), then the upper bound of (H4) and the second part of (H7) for the losses. Line (iv) is (H8) with (H9) and (H10), with $e_3=\log|W|$. The draft states that in (ii) three terms cancel exactly (a constant between (H1) and (H6), part of the period between (H1) and the count of forms in (H4), and the level primes between (H4) and (H2)), and that what remains of (H1) is $M$; this could not be reproduced from the text and is reported only. In Chebyshev's terms, as the draft reads it: the main term $a\log a-a$ of $M$ comes from the size of the pairing alone, as Stirling's formula does for $\log n!$; the prime sum $P$ comes from the divisibility alone, as Legendre's formula does; line (iv) plays the part of the fact that a nonzero integer has absolute value at least $1$.
+
+\subsection*{The mean slope inequality as a tail bound}
+
+Let $Q$ be a lattice of rank $D$ with slopes $y_1\ge\cdots\ge y_D$, and let $y$ be one of them chosen uniformly, so that $\mu(Q)=\mathbb E\,y$. For maps $\beta_w:\Lambda_w\to Q$ of ranks $d_w$ and sizes at most $h_w$ put $\sigma_w=\mu(\Lambda_w)-h_w$, $\sigma_w^{\max}=\mu_{\max}(\Lambda_w)-h_w$ and form $s$, $\mathrm{sp}$ as above. The rank bound of the draft (its Proposition M4) is not reproduced there in a form that can be checked, so we state what the proof needs as a hypothesis.
+
+\begin{proposition}[Tail bound under a rank bound]\label{mqc:prop:tail}
+Let $\eta_*\ge0$ and $0\le\delta_*<1$. Assume (RB): for every step $F$ of the slope filtration of $Q$, if $r_w$ is the rank of the image of $\Lambda_w$ in $Q/F$ and $\sum_wr_w\le\alpha\sum_wd_w$ with $\alpha\ge0$, then $\mathrm{rk}(Q/F)\le(\eta_*+4\alpha)D/(1-\delta_*)$. Then for $\vartheta\ge0$ with $\mathrm{sp}+\vartheta>0$,
+\[
+\mathbb P(y<s-\vartheta)\le\frac1{1-\delta_*}\Big(\eta_*+\frac{4\,\mathrm{sp}}{\mathrm{sp}+\vartheta}\Big).
+\]
+If moreover $y\ge s-Xb$ always, $\delta_*\le\frac12$ and $2\eta_*Xb\le e_3+12b$, then (iv) of Theorem~\ref{mqc:thm:ledger} holds.
+\end{proposition}
+
+\begin{proof}
+Let $F$ be the step of the filtration carrying the slopes at least $s-\vartheta$, so $\mu_{\max}(Q/F)<s-\vartheta$ and $\mathrm{rk}(Q/F)=D\,\mathbb P(y<s-\vartheta)$. Let $\ker_w$ be the kernel of $\Lambda_w\to Q/F$, of rank $d_w-r_w$. The slope inequality for the injective map $\Lambda_w/\ker_w\to Q/F$ gives $\mu(\Lambda_w/\ker_w)\le h_w+s-\vartheta$, and $\deg\ker_w\le(d_w-r_w)\mu_{\max}(\Lambda_w)$. Hence $d_w\sigma_w\le(d_w-r_w)\sigma_w^{\max}+r_w(s-\vartheta)\le d_w(s+\mathrm{sp})-r_w(\mathrm{sp}+\vartheta)$. Averaging with the weights $d_w$ gives $\sum_wr_w\le\alpha\sum_wd_w$ with $\alpha=\mathrm{sp}/(\mathrm{sp}+\vartheta)$, and (RB) gives the first claim. For the second, $s-y\le(s-y)_+=\int_0^{Xb}\mathbf 1[y<s-\vartheta]\,d\vartheta$, so with $\delta_*\le\frac12$,
+\[
+\mu(Q)\ge s-\int_0^{Xb}\mathbb P(y<s-\vartheta)\,d\vartheta\ge s-2\eta_*Xb-8\,\mathrm{sp}\log\Big(1+\frac{Xb}{\mathrm{sp}}\Big),
+\]
+since $\int_0^R\mathrm{sp}\,d\vartheta/(\mathrm{sp}+\vartheta)=\mathrm{sp}\log(1+R/\mathrm{sp})$ (the integral is $0$ for $\mathrm{sp}=0$).
+\end{proof}
+
+The condition $2\eta_*Xb\le e_3+12b$ is our sufficient form; which form the draft uses is not visible to us. The proof rests on the slope filtration of a lattice and the slope inequality for injective maps, which the draft cites from memory to Stuhler and Grayson. We have not consulted those papers.
+
+\begin{remark}[Linearity in the errors, as we read the draft]\label{mqc:rem:robust}
+The draft states that in its deduction of (M) from (H0) to (H11) the error $B_0$ enters, until the last division, only through $mB_0\le\mathcal E$, so that if (H1), (H2), (H3) and (H6)(iii) hold with $B_0$ replaced by $m^\kappa B_0$ ($\kappa\ge0$) then (M) holds with $E/B\le x^{C\epsilon}(x/m+xm/k+m^{1+\kappa}+k/n^2)$. We have not checked this against those hypotheses. The provable part is the consequence. Take $m=x^{1/(2+\kappa)}$, which balances $x/m$ and $m^{1+\kappa}$ at $x^{(1+\kappa)/(2+\kappa)}$ (exponent $\frac12$ for $\kappa=0$ and $\frac23$ for $\kappa=1$), and $xm\le k\le n^2x^{(1+\kappa)/(2+\kappa)}$. Then the proof of Corollary~\ref{mq:cor:link4}, which holds for every $E$, $m$, $k$ in Theorem~\ref{mq:thm:link4}, with the other sizes as there and Estimate B, gives $\mathcal G(x)\le x^{(1+\kappa)/(2+\kappa)+O(\epsilon)}$, and on windows Theorem~\ref{mq:thm:window} with $\theta=(1+\kappa)/(2+\kappa)+O(\epsilon)$ excludes the zeros with real part above $\theta$. Only the size conditions on $m$ and $k$ of Corollary~\ref{mq:cor:link4} change.
+\end{remark}
+
+\subsection*{The status map of the hypotheses}
+
+By kind, and as reported in the draft: the sizes of parameters and ranks (H0, H10, H11) rest on quoted statements, with the existence of the data assumed; the comparison of two heights (H3) is assumed and elementary in kind; the size of the pairing (H1) rests on eleven quoted inputs; the local terms at the level primes (H2, H9) are assumed; the count of forms and the covolume (H4, H5) are assumed and described as deep; the divisibility at inert primes (H6, H7) rests on statements that depend on a hypothesis (B), (H7) being quoted; the mean slope inequality (H8) rests on a rank bound that depends on trace formula estimates, quoted. The draft also records that the mean slope step needs one map with three properties coming from three sections, and that the identification of the three maps was not checked in its source. None of the twelve is proved outright there. A proof along this chain that a reader could check would need each of (H1) to (H9), the identification of the maps in the mean slope step, and (H12). The deduction of (M) from the twelve hypotheses, read as above, is elementary in kind, but the cancellation in line (ii) and the rank bound behind line (iv) could not be checked from the text; Lemma M10 of the draft (on the largest slope) and its Corollary M11 (from (H12) to RH through Parts I and II) were not examined. The finite range $x\le10^{42}$ of Corollary~\ref{gbm:cor:zeta} is consistent with the chain and replaces no link, since the window criterion needs windows at arbitrarily large scales. Neither RH nor (M) is proved here.

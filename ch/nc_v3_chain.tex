@@ -2,35 +2,12 @@
 \label{b:ch:chain}
 
 \noindent
-Volume II reads the Taylor coefficients of $\xi$ at the centre as a Stieltjes continued fraction, and the positivity of its coefficients as a Hankel test (Section~\ref{sec:ch21:hankel}). This chapter reads the same coefficients as the birth and death rates of a chain in the sense of Karlin and McGregor \cite{KarlinMcGregor57}, a reading already made in Section~\ref{ev:sec:string}, and asks what the chain looks like at depth. The material is from an unrefereed note of Polson (November 2026). The criterion itself is in the book: RH holds if and only if every rate is positive (Theorem~\ref{mw:thm:stieltjes}, Theorem~\ref{thm:ch12:inertia}, and the paragraph of Grommer and Chebotarev after it). For the classical diffusions the construction returns the continued fractions of Lambert and Gauss in closed form. For $\xi$ no closed form is known. We compute the chain from the moments of P\'olya's kernel and from the zeros, split the rates into a factor that depends on the Gamma factor alone and an arithmetic fluctuation, state the semiclassical law of the first factor as a heuristic, and run the same chain for $L(s,\chi_{12})$ and for the Davenport and Heilbronn function. The last section says what this does and does not give as a path to RH. Table~\ref{b:tab:summary} lists the results with their status.
-
+Volume II reads the Taylor coefficients of $\xi$ at the centre as a Stieltjes continued fraction, and the positivity of its coefficients as a Hankel test (Section~\ref{sec:ch21:hankel}). This chapter reads the same coefficients as the birth and death rates of a chain in the sense of Karlin and McGregor \cite{KarlinMcGregor57}, a reading already made in Section~\ref{ev:sec:string}, and asks what the chain looks like at depth. The material is from an unrefereed note of Polson (November 2026). The criterion itself is in the book: RH holds if and only if every rate is positive (Theorem~\ref{mw:thm:stieltjes}, Theorem~\ref{thm:ch12:inertia}, and the paragraph of Grommer and Chebotarev after it). For the classical diffusions the construction returns the continued fractions of Lambert and Gauss in closed form. For $\xi$ no closed form is known.
 \paragraph{Normalisation.} We use the notation of Volume II: $G(u)=\xi(\frac12+\sqrt u)/\xi(\frac12)$, the Thorin atoms are $\gamma_k^{-2}$, and the rates are the coefficients $c_j$ of
 \begin{equation}\label{b:eq:Sfrac}
 \frac{G'(u)}{G(u)}=\cfrac{m_0}{1+\cfrac{c_1u}{1+\cfrac{c_2u}{1+\cdots}}},\qquad m_0=\sum_{\gamma>0}\gamma^{-2}=0.0231049931154 .
 \end{equation}
 The coefficients with odd index are the birth rates and those with even index the death rates, and level $n$ means the first $2n-1$ coefficients, which is the Jacobi matrix of order $n$ of $\nu=\sum_k\gamma_k^{-2}\delta_{\gamma_k^{-2}}$. Positivity of $c_1,\dots,c_{2N-1}$ is positive definiteness of the Hankel matrices $\mathcal H_N(0)$ and $\mathcal H_N'(0)$ of Section~\ref{sec:ch21:hankel}. The note of Polson scales $G$ so that its rates are twice ours and its atoms are $2\gamma_k^{-2}$.
-
-\begin{table}[ht]
-\centering\small
-\begin{tabular}{@{}p{3.4in}p{1.9in}@{}}
-\toprule
-Result & Status\\
-\midrule
-RH if and only if all $c_j>0$ (cited, Volume II) & proved\\
-Closed form chains for Bessel hitting times, Proposition~\ref{b:prop:bessel} & proved (Lambert, Gauss)\\
-Zeros recovered from the chain, Computation~\ref{b:comp:zeros} & computed\\
-Level $n$ detects a pair above zero about $n/2$, Section~\ref{b:sec:toy} & computed\\
-$c_j=c_j^\Gamma(1+\varepsilon_j)$, $|\varepsilon_j|\le0.15$, Computation~\ref{b:comp:deep} & computed (zeros real on the range)\\
-Law $c_j^\Gamma=1/(4H_j^2)$, Conjecture~\ref{b:conj:bs} & heuristic; Abel inversion proved\\
-$c_j^\Gamma\gamma_j^2\to\pi^2/4$, Corollary~\ref{b:cor:limit} & follows from the law\\
-Candidate prime formula for $\varepsilon_j$, Section~\ref{b:sec:prime} & heuristic, rejected by computation\\
-Spectral lines and dispersion clock, Conjecture~\ref{b:conj:ap} & computed; conjecture\\
-Chain of $L(s,\chi_{12})$, Section~\ref{b:sec:eta} & computed\\
-Davenport and Heilbronn control, Section~\ref{b:sec:dh} & computed\\
-\bottomrule
-\end{tabular}
-\caption{Results of the chapter.}\label{b:tab:summary}
-\end{table}
 
 \section{Solvable models: Lambert and Gauss}
 
@@ -52,7 +29,7 @@ Put $w=\sqrt u$. Since $\frac{d}{dw}\log(w^{-\nu}I_\nu(w))=I_{\nu+1}(w)/I_\nu(w)
 with $w^2=u$, brought to the form \eqref{b:eq:Sfrac}, gives the stated coefficients. For $\nu=-\frac12$ it is Lambert's continued fraction $\tanh w/w=1/(1+w^2/(3+w^2/(5+\cdots)))$.
 \end{proof}
 
-So Lambert's continued fraction for the tangent is the chain of reflected Brownian motion. In these models the rates decay like $1/(4j^2)$, birth and death rates are nearly equal, and the $j$th coefficient tracks the $j$th zero: with $x_j=j_{\nu_B,j}^{-2}$ the $j$th atom of $\nu$,
+In these models the rates decay like $1/(4j^2)$, birth and death rates are nearly equal, and the $j$th coefficient tracks the $j$th zero: with $x_j=j_{\nu_B,j}^{-2}$ the $j$th atom of $\nu$,
 \begin{equation}\label{b:eq:pi4}
 \frac{c_j}{x_j}\ \longrightarrow\ \frac{\pi^2}{4}\qquad(j\to\infty),
 \end{equation}
@@ -81,8 +58,6 @@ true & 14.1347251 & 21.0220396 & 25.0108576 & 30.4248761\\
 \end{remark}
 % UNVERIFIED: the independent recomputation (W3 V8) used the zeros route, which gives the same chain when the zeros are real, and agreed with this table to 7 decimals and gave gamma_126 = 279.22925097 as a Gauss node of level 234 (true zero 279.22925093). The moment route to level 234 (about 2400 digits) was not rerun.
 
-The zeros are thus obtained from the moments of P\'olya's density by linear algebra, at about one zero for every two levels, from moment data that never mention a zero.
-
 \section{How fast the rates see a zero off the line}\label{b:sec:toy}
 
 To measure the resolving power of the criterion we replace $\nu$ by a toy measure: the first $80$ true zeros together with one planted conjugate pair of ordinates $u\pm0.4i$ placed just above the $k$th zero. The power sums stay real, the coefficients can be computed exactly as before, and we record the level of the first rate that is not positive (computed).
@@ -98,8 +73,7 @@ level & 5 & 9 & 14 & 19 & 25 & 30 & 36 & 42 & 48\\
 \end{tabular}
 \end{center}
 
-A pair above the $k$th zero is detected at level about $2k+3$ for small $k$, and about $2k$ at the top of the table. Moving the pair to within $0.01$ of the line at height $45$ delays detection only from level $19$ to level $23$. Figure~\ref{b:fig:res} shows both facts together: the chain resolves zeros, and exposes a bad one, at the same linear rate. Level $n$ probes about the first $n/2$ zeros. The price is conditioning: the moment route costs about five digits per level.
-
+A pair above the $k$th zero is detected at level about $2k+3$ for small $k$, and about $2k$ at the top of the table. Moving the pair to within $0.01$ of the line at height $45$ delays detection only from level $19$ to level $23$. Level $n$ probes about the first $n/2$ zeros.
 \begin{figure}[ht]
 \centering
 \includegraphics[width=0.9\textwidth]{fig/v3/bd_fig_resolution.pdf}
@@ -165,13 +139,13 @@ Part 1 concerns the Gamma factor only. Section~\ref{b:sec:bs} derives it, heuris
 
 \subsection{What the decomposition means}
 
-In this representation RH reads $\varepsilon_j>-1$ for every $j$. The computed fluctuation never exceeds $15$ per cent and shrinks with depth, so the margin is wide wherever we can see. Three cautions keep this in proportion.
+In this representation RH reads $\varepsilon_j>-1$ for every $j$. The computed fluctuation never exceeds $15$ per cent and shrinks with depth, so the margin is wide wherever we can see. Two cautions keep this in proportion.
 
 \begin{enumerate}
 \item The smallness of $\varepsilon_j$ was computed from real zeros. It is a consequence of their reality on the computed range, not evidence independent of it.
 \item The chain is not stable under complex perturbations. In the toy model a pair at distance $0.01$ from the line turns a coefficient negative almost as early as a pair at distance $0.4$. A perturbation argument from the Gamma chain therefore cannot work in a norm that ignores the direction of the perturbation.
-\item What the decomposition does supply is the correct statement to aim at. The primes enter the chain only through $\varepsilon_j$, and a proof must bound that single sequence from below by $-1$.
 \end{enumerate}
+What the decomposition supplies is the statement to aim at: the primes enter only through $\varepsilon_j$, which a proof must bound below by $-1$.
 
 \section{The Bohr and Sommerfeld law of the Gamma chain}\label{b:sec:bs}
 
@@ -211,7 +185,7 @@ c_j^\Gamma=\frac1{4H_j^2},\qquad \frac{H_j}2\log\frac{qH_j}{4\pi}=j-2C+O\Bigl(\f
 For $\xi$, $q=1$ and $2C=\frac74$, which is \eqref{eq:ch21:ratelaw}.
 \end{conjecture}
 
-The same argument applied to a Bessel chain, where the count is linear, gives $c_j=1/(4(j+c)^2)$, in agreement with the exact coefficients of Proposition~\ref{b:prop:bessel}. The logarithm in the law is the logarithm in the density of the zeros. The derivation is heuristic: Lemma~\ref{b:lem:abel} is exact, but the rule \eqref{b:eq:BS} is used in the inverse direction and assumes that the coefficients vary regularly. Section~\ref{b:sec:c0} gives the constant.
+The same argument applied to a Bessel chain, where the count is linear, gives $c_j=1/(4(j+c)^2)$, in agreement with the exact coefficients of Proposition~\ref{b:prop:bessel}. The derivation is heuristic: Lemma~\ref{b:lem:abel} is exact, but the rule \eqref{b:eq:BS} is used in the inverse direction and assumes that the coefficients vary regularly. Section~\ref{b:sec:c0} gives the constant.
 
 \begin{table}[ht]
 \centering\small
@@ -230,7 +204,7 @@ $j$ & Gamma chain $c_j^\Gamma$ & law with constant $2$ & relative error\\
 \end{table}
 % UNVERIFIED: the 1000 row and the bound for j>=1000: W3 V8 gives 1.761818e-6 (alpha) for j=1000, 9e-6 relative to the draft, and 3.8e-4 on 1001 to 1399; the draft's 3.7e-4 extends to 2799. The row j=2799 was dropped.
 
-The table lists only even $j$, and the accuracy depends on the parity. With constant $2$ the relative error at the odd (birth) indices $j=101$, $201$, $301$ is $3.2\cdot10^{-3}$, $1.7\cdot10^{-3}$ and $1.2\cdot10^{-3}$, against $6\cdot10^{-4}$, $4\cdot10^{-5}$ and $7\cdot10^{-5}$ at the even neighbours. With the constant $\frac74$ of the next subsection the pattern reverses: about $2\cdot10^{-4}$ at odd $j$ and up to $4.1\cdot10^{-3}$ at even $j$ (computed). So the law holds for the means of the birth and death rates, to a few parts in a thousand, not to two parts in ten thousand.
+The table lists only even $j$. With constant $2$ the relative error at the odd (birth) indices $j=101$, $201$, $301$ is $3.2\cdot10^{-3}$, $1.7\cdot10^{-3}$ and $1.2\cdot10^{-3}$, and with the constant $\frac74$ of the next subsection the pattern reverses (computed). So the law holds for the means of the birth and death rates, to a few parts in a thousand.
 
 \begin{corollary}\label{b:cor:limit}
 Assume the law of Conjecture~\ref{b:conj:bs} for $\xi$ and put $\rho_j=\gamma_j/(\pi H_j)$ and $L_j=\log(H_j/2)$. Then
@@ -245,10 +219,6 @@ $\gamma_j$ satisfies $\frac{\gamma}{2\pi}\log\frac{\gamma}{2\pi e}=j+O(\log j)$ 
 \end{proof}
 
 At $j=100$, $1000$, $2700$ the computed $\rho_j$ are $0.781$, $0.848$, $0.867$, giving $\frac{\pi^2}{4}\rho_j^2=1.50$, $1.78$, $1.86$, the values of Computation~\ref{b:comp:deep}. The slow rise seen in Figure~\ref{b:fig:ratio} is the factor $\rho_j^2$, and its limit is $\pi^2/4$ (heuristic, from the law). % UNVERIFIED: only rho_100 = 0.781 was recomputed (U06); the values at 1000 and 2700 are the draft's.
-
-\begin{remark}[Resolution, heuristic]\label{b:cor:res}
-If the law holds, the turning point of the eigenvalue $1/\Gamma$ is at the index $j$ with $H_j=\Gamma$. So the first $j$ coefficients determine the zeros up to height about $H_j$, and the fraction of zeros resolved per coefficient tends to $1/\pi$. For $j=467$ this gives height $295$; the level $234$ chain reproduced the zeros to six decimals up to height $279$. The rule is consistent with the detection level of the toy model: a pair above the $k$th zero is seen once $H_j$ passes its height.
-\end{remark}
 
 \subsection{The constant: $2C$ is the constant term of the zero count}\label{b:sec:c0}
 
@@ -288,17 +258,9 @@ The residual of the fit for $\xi$ is $6\cdot10^{-4}$ (the fit on $60\le j\le1500
 \end{figure}
 % The figure was drawn from the fit on 60 <= j <= 1500; W3 V10 reproduced the same picture with fits 0.003 different.
 
-The law now predicts where a zero off the line is seen. For the Davenport and Heilbronn zeros at heights $85.70$ and $114.16$, \eqref{b:eq:c0} with $H=\gamma$, $q=5$, $2C=\frac14$ gives $j=151.48$ and $218.08$, against the failures at $148$ to $150$ and $217$ to $219$ of Computation~\ref{b:comp:dh}. The first zero, farther from the line ($\beta-\frac12=0.31$), is seen about two indices early.
-
 \begin{remark}[What is proved and what is not]\label{b:rem:bsstatus}
-Exact: the Abel transforms, Lemma~\ref{b:lem:abel} and \eqref{b:eq:abelj}, and the Bessel case, where the coefficients are known in closed form. Heuristic: the semiclassical count \eqref{b:eq:BS} in the inverse direction, and with it the value $2C$, which the computation confirms to about $0.03$ on three chains. Note that the quantisation integral by itself does not give the constant: for the law chain with constant $\frac74$ an independent computation finds the arccos sum $\frac1\pi\sum_j\arccos(\mu/2w_j)$ smaller than the smooth count by about $\frac14$ in the limit, a term of Maslov type that the Abel kernel does not contain. So $2C=\frac74$ rests on the chain computations and on the integer eigenvalue count, not on the lemma. Unexplained: the death level coefficient $B$. A proof of the leading order should come from a Tauberian theorem for Krein strings of the kind due to Kasahara, which links regular variation of the spectral function to regular variation of the string; we have not checked its hypotheses for the discrete strings here. A proof needs two steps: the direct statement, that a Jacobi matrix with weights given by the law has the stated eigenvalue count, and a uniqueness or stability argument for the inverse problem with the weights $\gamma_k^{-2}$. Neither is supplied here. % TODO: Kasahara has no reference in the bibliography; add one or cut the name (review minor).
+Exact: the Abel transforms, Lemma~\ref{b:lem:abel} and \eqref{b:eq:abelj}, and the Bessel case, where the coefficients are known in closed form. Heuristic: the semiclassical count \eqref{b:eq:BS} in the inverse direction, and with it the value $2C$, which the computation confirms to about $0.03$ on three chains. Note that the quantisation integral by itself does not give the constant: for the law chain with constant $\frac74$ an independent computation finds the arccos sum $\frac1\pi\sum_j\arccos(\mu/2w_j)$ smaller than the smooth count by about $\frac14$ in the limit, a term of Maslov type that the Abel kernel does not contain. So $2C=\frac74$ rests on the chain computations and on the integer eigenvalue count, not on the lemma. Unexplained: the death level coefficient $B$. A proof needs two steps: the direct statement, that a Jacobi matrix with weights given by the law has the stated eigenvalue count, and a uniqueness or stability argument for the inverse problem with the weights $\gamma_k^{-2}$. Neither is supplied here.
 \end{remark}
-
-With the law, the statement of RH in this chapter takes its final form, conditional on the law. The chain of the zeros has coefficients
-\[
-c_j=\frac{1+\varepsilon_j}{4\,H_j^2}\,(1+o(1)),
-\]
-where $H_j$ is explicit and involves only the Gamma factor, and RH is the inequality $\varepsilon_j>-1$.
 
 \section{The arithmetic fluctuation: what the primes explain}\label{b:sec:prime}
 
@@ -339,15 +301,7 @@ So \eqref{b:eq:cand} is not the formula. The prime $2$ is the strongest line in 
 
 \subsection{Where the fluctuation comes from}
 
-\begin{remark}[Computation: a local regression]\label{b:comp:local}
-(Computed.)
-\begin{enumerate}
-\item The fluctuations of the birth and death rate at the same level have correlation $0.65$. Between consecutive levels the correlation of the product $c_{2n-1}c_{2n}$ is $0.24$.
-\item A linear regression of $\varepsilon_j\sqrt{H_j}$ on the displacements of the $25$ zeros nearest the turning height explains $21$ per cent of the variance, and between $23$ and $29$ per cent when the fit is allowed to depend on where the turning height falls between two zeros.
-\end{enumerate}
-\end{remark}
-
-This regression suggests that the fluctuation is local, but the suggestion is superseded. With the exact Jacobian of the rates with respect to the zeros (Theorem~\ref{pp:thm:lr}, Chapter~\ref{ch:progress}), a three point rule along the straight path from the smooth zeros to the true zeros reproduces $\varepsilon_j$ to a coefficient of determination of $0.9993$ through $j=1999$. So the fluctuation is a smooth and only mildly nonlinear function of the displacements, and the regression above failed because the response is not local: it extends over about a hundred zeros, almost all above the turning height. The index spacing in the turning height is about one third of the mean spacing of the zeros, so the chain reads the zeros nearly one at a time as the turning height passes them, but it does so through a long kernel. For the programme this is a negative result with a definite content: a lower bound $\varepsilon_j>-1$ cannot be read off from a convergent prime sum of the form \eqref{b:eq:cand}.
+A regression of the fluctuation on the displacements of the nearest zeros explains only about a fifth of its variance, and the suggestion that it is local is superseded. With the exact Jacobian of the rates with respect to the zeros (Theorem~\ref{pp:thm:lr}, Chapter~\ref{ch:progress}), a three point rule along the straight path from the smooth zeros to the true zeros reproduces $\varepsilon_j$ to a coefficient of determination of $0.9993$ through $j=1999$. So the fluctuation is a smooth and only mildly nonlinear function of the displacements, and it is not local: it extends over about a hundred zeros, almost all above the turning height. For the programme this is a negative result with a definite content: a lower bound $\varepsilon_j>-1$ cannot be read off from a convergent prime sum of the form \eqref{b:eq:cand}.
 
 \subsection{Spectral lines and a lattice dispersion}
 
@@ -357,11 +311,10 @@ Let $h_j=H_{j+1}-H_j$ be the step of the turning height. The periodogram of $\va
 \item The lines sit above $\log n$. With $w=\log n$ the peak frequency is $w+c\,w^{3}$ and $c=0.0041$ to within five per cent for $3\le n\le 8$.
 \item The constant $c$ falls with depth: $0.0051$, $0.0040$, $0.0037$ on $150<j\le900$, $900<j\le1800$, $1800<j\le2799$, where the mean of $h_j^{2}/24$ is $0.0097$, $0.0068$, $0.0057$. A fit with phase $wH_j+\kappa w^{3}\sum_{i\le j}h_i^{3}$ gives $\kappa=0.036$, against $1/24=0.042$ for the dispersion $(2/h)\arcsin(wh/2)$ of a lattice of step $h$.
 \item Lines appear at $n=6$, $10$ and $12$ as well as at prime powers, and the peak amplitude falls smoothly with $n$, between $n^{-1/2}$ and $n^{-1}$.
-\item A sum over $2\le n\le 30$ with weights $n^{-\sigma}$ and one common phase explains $16$ per cent of the variance at best. With a free amplitude and phase for each $n\le 40$ the lines explain $22$ per cent in sample, and a fit on the first half of the levels explains nothing on the second half.
 \end{enumerate}
 \end{remark}
 
-The clock of the candidate \eqref{b:eq:cand} was therefore wrong in one respect: the chain is a lattice in $j$, and a wave of frequency $w$ in height is seen with the lattice dispersion and not with frequency $w$. This is why the fixed frequency regression of Computation~\ref{b:comp:prime} found only the line at $n=2$. The correction does not rescue the formula. The lines carry about one fifth of the fluctuation, their phases are not stable across the range, and their presence at composite $n$ with smooth amplitudes is not the signature of $\zeta'/\zeta$. The peak search in item 3 is also a maximum over a window, so the weaker lines should be read with care.
+The clock of the candidate \eqref{b:eq:cand} was therefore wrong in one respect: the chain is a lattice in $j$, and a wave of frequency $w$ in height is seen with the lattice dispersion and not with frequency $w$. This is why the fixed frequency regression of Computation~\ref{b:comp:prime} found only the line at $n=2$. The correction does not rescue the formula: the lines carry about one fifth of the fluctuation, and their presence at composite $n$ with smooth amplitudes is not the signature of $\zeta'/\zeta$.
 
 \subsection{A common dispersion clock and a Dirichlet series model}
 
@@ -391,7 +344,7 @@ What the model would mean, if it held exactly. A series with $\sigma>1$ is absol
 There is a function $F$, almost periodic in the sense of Besicovitch with frequencies in the additive group generated by $\{\log p\}$ and dispersed by a clock $\beta I(H)$, such that $\varepsilon_j\sqrt{H_j}=F(H_j)+o(1)$ and $\sup|F|<\infty$.
 \end{conjecture}
 
-A bounded $F$ gives $\varepsilon_j\to0$ and hence $c_j>0$ for all but finitely many $j$; the remaining levels are a finite computation. It is not known to follow from RH, and it is not proved here. It is, however, testable level by level, and it separates the arithmetic part of the chain, which the primes appear to control, from the part that must carry any violation.
+A bounded $F$ gives $\varepsilon_j\to0$ and hence $c_j>0$ for all but finitely many $j$; the remaining levels are a finite computation. It is not known to follow from RH, and it is not proved here.
 
 \begin{figure}[ht]\centering
 \includegraphics[width=\textwidth]{fig/v3/bd_fig_oos.pdf}
@@ -411,7 +364,6 @@ so $f(y)=e^{y/2}\eta(ie^{2y})$ is even and $\Lambda(\tfrac12+v,\chi_{12})=(12/\p
 \item The identities above hold numerically to working precision, and $m_0=\Lambda''(\tfrac12)/(2\Lambda(\tfrac12))=0.1664618041$ from the kernel agrees with $\sum_\gamma \gamma^{-2}$ from the zeros, to $10^{-7}$ (the size of the smooth tail correction). $L(\tfrac12,\chi_{12})=0.4985570025$.
 \item The first zeros are $3.80462763$, $6.69222332$, $8.89059296$, $11.18839275$, $12.96617881$. All zeros below height $100$ were found, with $k-\vartheta_\chi(\gamma_k)/\pi$ between $0.17$ and $0.84$.
 \item The moment route from $\eta$ alone at $1500$ digits gives $c_j>0$ for every $j\le300$, with minimum about $1.5\cdot10^{-5}$ at $j=300$. A run at $1800$ and $2100$ digits, agreeing to $10^{-10}$ through $j=533$, reported $c_j>0$ for every $j\le533$ with minimum $5.9\cdot10^{-6}$. The cost is close to that for $\xi$.
-\item The zeros route with zeros to height $100$ and smooth zeros beyond agrees with the moment route to $3\cdot10^{-6}$ for $j\le10$ and $5\cdot10^{-4}$ for $j\le100$.
 \end{enumerate}
 \end{remark}
 % UNVERIFIED: W3 V9 confirmed items 1 and 2 (the draft's zeros 2 and 4 were wrong in the sixth decimal and are corrected here) and positivity to j=300 at one precision only; the run to 533 and item 4 were not rerun. All values are floating point or mpmath, not ball arithmetic.
@@ -421,8 +373,6 @@ Positivity of the first $J$ rates verifies no zero of $L(s,\chi_{12})$: the crit
 \begin{remark}[Computation: lines of $\chi_{12}$]\label{b:comp:etalines}
 Compare the computed chain for $L(s,\chi_{12})$ with its own Gamma chain (smooth zeros $\vartheta_\chi(\gamma)/\pi=k-\frac12$, conductor $12$), so that $\varepsilon_j$ is obtained from $\eta$ without any zeros, for $61\le j\le533$ (turning heights about $35$ to $203$). Then $\max|\varepsilon_j|=0.096$. The periodogram of $\varepsilon_j\sqrt{H_j}$, as peak over median power in a window at $\log n$, gives for $n=2,3,4,6,8,9,10$, where $\chi_{12}(n)=0$, the values $1.7$, $1.1$, $1.4$, $2.1$, $1.4$, $1.0$, $1.9$: no lines. For $n=5,7,11,13$, where $\chi_{12}(n)\ne0$, it gives $10.3$, $8.0$, $5.6$, $5.1$. For $\zeta$ over the same heights the lines at $\log2$ and $\log3$ are the strongest, $8.9$ and $5.5$. (The value $5.5$ at $n=12$ is the line at $\log13$ inside the search window.)
 \end{remark}
-
-So the arithmetic fluctuation is built from the Dirichlet coefficients of the $L$ function itself. This is the strongest evidence so far for Conjecture~\ref{b:conj:ap}, and it is obtained from the modular form alone. It is evidence on one function over a short range, and the lines at $n=5,7,11,13$ are peaks over a window, with the caution already given.
 
 \section{Calibration: a function with zeros off the line}\label{b:sec:dh}
 
@@ -443,20 +393,12 @@ The Davenport and Heilbronn function $f(s)=\sum a_nn^{-s}$, with $a_n=1,\kappa,-
 \caption{The fluctuation $\varepsilon_j$ of the Davenport and Heilbronn chain, symmetric log scale. Each zero off the line produces one localised triplet crossing $\varepsilon_j=-1$ at the level where the turning height reaches its ordinate.}
 \end{figure}
 
-Three facts are worth recording. First, the chain detects zeros off the line, as Grommer's theorem guarantees, and it does so sharply: a negative rate appears in a window of three levels. Second, the level is predicted in advance by the turning height of the Gamma chain, to within four levels. Third, each of the two pairs of zeros off the line costs exactly two negative rates, which is consistent with the Chebotarev count of negative terms of $D_{n-1}D_n$; this is two instances, not a law of the computation, and the general statement is Theorem~\ref{thm:ch12:inertia}. The size of the failure is not monotone in $\beta-\frac12$: the zero nearer the line gives the larger excursion, so the depth reflects where the level grid falls, not the distance from the line. Finally, the fluctuation away from the failures is of the same size as for $\zeta$ and $\chi_{12}$: there is a gap between about $0.17$ for the zeros on the line and more than $1$ at a zero off it.
+Three facts are worth recording. First, the chain detects zeros off the line, as Grommer's theorem guarantees, and sharply: a negative rate appears in a window of three levels, at a level predicted in advance by the turning height of the Gamma chain to within four levels. Second, each of the two pairs of zeros off the line costs exactly two negative rates, which is consistent with the Chebotarev count of negative terms of $D_{n-1}D_n$; this is two instances, not a law of the computation, and the general statement is Theorem~\ref{thm:ch12:inertia}. Third, the size of the failure is not monotone in $\beta-\frac12$, so the depth reflects where the level grid falls, not the distance from the line.
 
 \section{Is there a path to RH?}\label{b:sec:path}
 
-This chapter sharpens the programme without closing it.
-
-\begin{enumerate}
-\item It gives the criterion its most concrete form. RH is the positivity of an explicit sequence of numbers $c_j$ computed from P\'olya's moments, and equivalently the existence of a Lambert type continued fraction for $\xi'/\xi$.
-\item It does not give a new finite test. The centre Hankel test of Volume II already passes to order $650$ in the note's ball arithmetic ($c_1,\dots,c_{1299}>0$), and by Proposition~\ref{prop:ch21:verhankel} about $3\cdot10^4$ verified zeros give the same order.
-\item It separates the Gamma factor from the primes. The chain is the Gamma chain times $1+\varepsilon_j$, and RH is $\varepsilon_j>-1$.
-\item It does not give a reason for positivity. No formula or recurrence for $c_j$ is known.
-\end{enumerate}
-
-A proof along this route needs a structural law for the coefficients, the analogue for $\xi$ of Gauss' recurrence $c_j=1/(4(\nu+j)(\nu+j+1))$ for Bessel functions. Gauss' continued fraction comes from a contiguous relation: $I_{\nu+1}/I_\nu$ maps to $I_{\nu+2}/I_{\nu+1}$ by a positive M\"obius transformation. For $\xi$ no contiguous relation is available, and finding a substitute is the missing lemma. The empirical facts of this chapter, near balance of birth and death rates, the tie between $c_j$ and $\gamma_j$, and a small arithmetic fluctuation of mean zero, are what such a lemma must reproduce. Section~\ref{b:sec:prime} shows that the fluctuation is not given by a simple prime sum and not by a few nearby zeros: it is a smooth functional of the displacements of about a hundred zeros (Theorem~\ref{pp:thm:lr}).
+This chapter sharpens the programme without closing it. RH is the positivity of an explicit sequence $c_j$ computed from P\'olya's moments, equivalently a Lambert type continued fraction for $\xi'/\xi$, and the chain is the Gamma chain times $1+\varepsilon_j$. It gives no new finite test: the centre Hankel test of Volume II already passes to order $650$ in the note's ball arithmetic ($c_1,\dots,c_{1299}>0$), and by Proposition~\ref{prop:ch21:verhankel} about $3\cdot10^4$ verified zeros give the same order. It gives no reason for positivity either: no formula or recurrence for $c_j$ is known.
+A proof along this route needs a structural law for the coefficients, the analogue for $\xi$ of Gauss' recurrence $c_j=1/(4(\nu+j)(\nu+j+1))$ for Bessel functions. Gauss' continued fraction comes from a contiguous relation: $I_{\nu+1}/I_\nu$ maps to $I_{\nu+2}/I_{\nu+1}$ by a positive M\"obius transformation. For $\xi$ no contiguous relation is available, and finding a substitute is the missing lemma. The empirical facts of this chapter, near balance of birth and death rates, the tie between $c_j$ and $\gamma_j$, and a small arithmetic fluctuation of mean zero, are what such a lemma must reproduce.
 
 \subsection{Eventual positivity}
 
@@ -473,34 +415,13 @@ The best path, in the order in which the steps can be attempted:
 \item Prove the Bohr and Sommerfeld law for the Gamma chain. The constant is identified numerically, $2C$ (Section~\ref{b:sec:c0}); what remains is a rigorous semiclassical count, by Plancherel and Rotach asymptotics or a Tauberian theorem for strings, with the term of Maslov type of Remark~\ref{b:rem:bsstatus}. This is an unconditional theorem about an explicit Jacobi matrix. The weak edge form of the model of Section~\ref{sec:wigfree:jacobi} (\cite{KVA99}) gives the order of the rates, not the constant. % TODO: Plancherel and Rotach have no reference; add one or cut the name.
 \item Prove a linear response formula: $\varepsilon_j$ as an explicit functional of the zero counting function, through an Abel or Airy kernel, with the dispersion clock of Computation~\ref{b:comp:clock} derived rather than fitted. The exact Jacobian is Theorem~\ref{pp:thm:lr}; the explicit kernel and the clock are not.
 \item Prove a quantitative converse: a pair of zeros $\beta\pm i\gamma$ with $\beta\ne\frac12$ forces $\varepsilon_j<-1$ at a level near $j(\gamma)$ with a computable depth. The qualitative converse is Theorem~\ref{thm:ch12:inertia}. With zero density estimates the quantitative form could give unconditional statements such as negativity of a positive proportion of the $c_j$ under a violation, the chain analogue of the theorems of Selberg and Conrey. % TODO: Selberg and Conrey are named without a reference; add or cut.
-\item Calibrate on functions with known behaviour: the Davenport and Heilbronn function, which has zeros off the line, and $L(s,\chi_{12})$, where the kernel is a modular form. Done in Sections~\ref{b:sec:dh} and \ref{b:sec:eta}: the chain fails at the zeros off the line, at the predicted levels, two rates per pair in the two instances, and the fluctuation of $L(s,\chi_{12})$ carries lines only at $\log n$ with $\chi_{12}(n)\ne0$.
 \end{enumerate}
-Step 1 is within reach and step 4 is largely done. Step 2 is research. Step 3 would be a new theorem about the zeros. None of them is RH.
+Step 1 is within reach, step 2 is research, and step 3 would be a new theorem about the zeros. None of them is RH. The calibration on the Davenport and Heilbronn function and on $L(s,\chi_{12})$ is in Sections~\ref{b:sec:dh} and \ref{b:sec:eta}.
 
 \section{Open problems}
 
 \begin{problem}
-Find the transformation that takes the tail of the continued fraction at depth $j$ to the tail at depth $j+1$, for $\xi$, in a form that preserves positivity. For Bessel functions it is the contiguous relation.
-\end{problem}
-
-\begin{problem}
 Prove the Bohr and Sommerfeld law of Conjecture~\ref{b:conj:bs}, including $2C$ and the term of Maslov type, and explain the death level coefficient $B$. This involves no primes. The direct half is a semiclassical eigenvalue count for a Jacobi matrix with explicit slowly varying weights; the inverse half needs the spectral weights $\gamma_k^{-2}$.
-\end{problem}
-
-\begin{problem}
-Find the explicit kernel of $\varepsilon_j$: a functional of the zeros above the turning height $H_j$ that reproduces the fluctuation, with the pairing of birth and death rates and the near independence of consecutive levels as the facts to explain. A model with random matrix zeros in place of the true ones is the natural test.
-\end{problem}
-
-\begin{problem}
-Explain the line of the prime $2$: its amplitude $0.64$ and phase $-0.85$ relative to the candidate \eqref{b:eq:cand}, and why the lines at the other primes are weaker, although coherent (Computation~\ref{b:comp:clock}).
-\end{problem}
-
-\begin{problem}
-Find the height $h(J)$ up to which the reality of the zeros forces $c_j>0$ for $j\le J$, which is Proposition~\ref{prop:ch21:verhankel} in one direction. The toy model suggests $h(J)\approx\gamma_{J/4}$, to be set against the ceiling of order $\sqrt M$ proved there.
-\end{problem}
-
-\begin{problem}
-Compute the chain for $L(s,\Delta)$, where the exactly solvable ladder and the unsolved case of the book sit side by side, and compare the laws of the coefficients with the chain of $\chi_{12}$ of Section~\ref{b:sec:eta}.
 \end{problem}
 
 \begin{problem}

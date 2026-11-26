@@ -1,11 +1,11 @@
 % Chapter 18: Ferromagnetic spins and the Ramanujan Vere-Jones laws as instruments. Sources: misc/reviews/nick-volume3/vol3/chE_ferro.tex 40-62, 165-203, 233-245, 265-277 and chF_ramanujan.tex 45-70, 311-516 (rule and toy table only), 651-670, 952-1142; report U11 (E1, E2, E3, E5, N1 to N5, R1 to R6 and minors), verification W5 V16; 17 Nov 2026.
 \label{f:ch:ferro}\label{r:ch:ramanujan}
 
-P\'olya wrote $\Xi$ as the characteristic function of a random variable. Lee and Yang, and later Newman, identified the ferromagnetic laws, whose moment generating functions have only imaginary zeros. RH asks that P\'olya's law be ferromagnetic. Ramanujan never wrote on RH, but one of his series, joined to the hyperbolic secant sums of Lai and Vere-Jones through the exit time of Brownian motion, gives a laboratory in which the finite tests of the earlier chapters can be compared. This chapter has two parts. The first reads the spin side: the dictionary between ferromagnetic laws and hitting times is in Volume I, and what is added here is a worked example, a computation on P\'olya's cosh spin, a protocol and the heat flow. The second collects the Ramanujan and Vere-Jones material that is not already in Volume II, and uses it to compare four finite instruments on the control. Most of the underlying results are cited, not reprinted. Material not found in Volumes I and II comes from an unrefereed note of Polson (November 2026).
+P\'olya wrote $\Xi$ as the characteristic function of a random variable. Lee and Yang, and later Newman, identified the ferromagnetic laws, whose moment generating functions have only imaginary zeros. RH asks that P\'olya's law be ferromagnetic. Ramanujan never wrote on RH, but one of his series, joined to the hyperbolic secant sums of Lai and Vere-Jones through the exit time of Brownian motion, gives a laboratory in which the finite tests of the earlier chapters can be compared. Material not found in Volumes I and II comes from an unrefereed note of Polson (November 2026).
 
 \section{The dictionary, and two coupled spins}\label{f:sec:ly}
 
-A law on the line is ferromagnetic if its moment generating function has only purely imaginary zeros. By Theorem~\ref{fm:thm:dual} an even law is ferromagnetic exactly when the reciprocal of its moment generating function, in the variable $u=w^2$, is the Laplace transform of a hitting time whose Thorin atoms are the squares of the zero ordinates. The standard laws are listed in Table~\ref{fm:tab:examples}, the converse direction is Proposition~\ref{prop:rigid}, and the closure of the class under independent sums, scaling and limits is Theorem~\ref{fm:thm:closed} and Corollary~\ref{fm:cor:limit}. P\'olya's two approximants $\Phi^*$ and $\Psi$ are in Section~\ref{fm:sec:simple} and Proposition~\ref{fm:prop:psi}. The law of $\Phi^*$ can be sampled exactly through a generalised inverse Gaussian variable (Section~\ref{fm:sec:simple}), and P\'olya's law itself through the Gamma(2) sum of equation~\eqref{bp:eq:bpy} (Devroye \cite{Devroye09}). The zeros of $\Xi^*$ are in Table~\ref{tab:biane:zeros}, and the hitting time of the related Bessel kernel $e^{-2\pi\cosh2u}$ is Theorem~\ref{thm:biane:indexP}. None of this is repeated.
+A law on the line is ferromagnetic if its moment generating function has only purely imaginary zeros. By Theorem~\ref{fm:thm:dual} an even law is ferromagnetic exactly when the reciprocal of its moment generating function, in the variable $u=w^2$, is the Laplace transform of a hitting time whose Thorin atoms are the squares of the zero ordinates. The standard laws are listed in Table~\ref{fm:tab:examples}, and the converse direction is Proposition~\ref{prop:rigid}.
 
 The Lee and Yang theorem says that ferromagnetic couplings preserve the class. For spins $\sigma_i=\pm1$ with energy $-\sum J_{ij}\sigma_i\sigma_j$ and $J_{ij}\ge0$, the magnetisation $M=\sum\sigma_i$ is ferromagnetic. The smallest case can be pushed through the dictionary by hand.
 
@@ -13,11 +13,11 @@ The Lee and Yang theorem says that ferromagnetic couplings preserve the class. F
 \[
 \frac{(\theta_J+2\pi k)^2}{4}\quad\text{and}\quad\frac{(2\pi-\theta_J+2\pi k)^2}{4},\qquad k\ge0 .
 \]
-(Here the clock is half the exit time of standard Brownian motion, so that the exit of $(-1,1)$ has atoms $(2k+1)^2\pi^2/4$.) Two limits check the formula. When $J=0$ the spins are independent and $\theta_0=\pi$. The two families coincide, every atom $(2k+1)^2\pi^2/4$ appears twice, and the hitting time is the sum of two independent exits from $(-1,1)$, as the factorisation $\E\cosh(wM)=\cosh^2w$ requires. As $J\to\infty$ the spins lock and $\theta_J\to\frac\pi2$. The two families interleave into the single family $(2m+1)^2\pi^2/16$, $m\ge0$, each atom once, which is the exit from $(-2,2)$: the locked pair is one spin of size two. Between the limits the coupling splits each double atom into two and moves the atoms continuously along the positive axis, never off it. For $J<0$ the right side $-e^{-2J}$ is below $-1$, there is no real $\theta_J$, and the atoms leave the axis. This is the Lee and Yang theorem in its smallest case, read on the side of the hitting time. The example is elementary and proved. We have not found it in the literature.
+(Here the clock is half the exit time of standard Brownian motion, so that the exit of $(-1,1)$ has atoms $(2k+1)^2\pi^2/4$.) Two limits check the formula. When $J=0$ the spins are independent and $\theta_0=\pi$. Every atom $(2k+1)^2\pi^2/4$ appears twice, and the hitting time is the sum of two independent exits from $(-1,1)$, as $\E\cosh(wM)=\cosh^2w$ requires. As $J\to\infty$ the spins lock and $\theta_J\to\frac\pi2$. The two families interleave into the single family $(2m+1)^2\pi^2/16$, $m\ge0$, which is the exit from $(-2,2)$: the locked pair is one spin of size two. For $J<0$ there is no real $\theta_J$ and the atoms leave the axis. This is the Lee and Yang theorem in its smallest case, read on the side of the hitting time. The example is elementary and proved. We have not found it in the literature.
 
 \section{The chain of the cosh spin}\label{f:sec:spinchain}
 
-By Theorem~\ref{fm:thm:dual}, P\'olya's cosh spin $\Phi^*$ has a hitting time, and by Chapter~\ref{b:ch:chain} that hitting time has a birth and death chain whose spectral measure has atoms at $t_k^{-2}$, where $t_k$ are the zeros of $\Xi^*$. All its rates are positive, because the zeros are real. The question is how this chain compares with the chain of $\xi$. Recall from Section~\ref{fm:sec:simple} that $\Phi^*$ keeps only the $e^{9u/2}$ part of the summand $n=1$ of the theta series, symmetrised, with $\exp(-\pi e^{2u})$ replaced by $\exp(-2\pi\cosh2u)$. It is not the summand $n=1$ of $\Phi$.
+By Theorem~\ref{fm:thm:dual}, P\'olya's cosh spin $\Phi^*$ has a hitting time, and by Chapter~\ref{b:ch:chain} that hitting time has a birth and death chain whose spectral measure has atoms at $t_k^{-2}$, where $t_k$ are the zeros of $\Xi^*$. All its rates are positive, because the zeros are real. The question is how this chain compares with the chain of $\xi$. By Section~\ref{fm:sec:simple}, $\Phi^*$ keeps only the $e^{9u/2}$ part of the summand $n=1$ of the theta series, symmetrised, with $\exp(-\pi e^{2u})$ replaced by $\exp(-2\pi\cosh2u)$. It is not the summand $n=1$ of $\Phi$.
 
 \begin{computation}\label{f:comp:spinchain}
 A scan of $e^{\pi t/4}\,\Re K_{\frac94+\frac{it}2}(2\pi)$ with step $0.05$ finds $202$ zeros of $\Xi^*$ below height $400$, the same number as for $\Xi$ (double precision floating point).
@@ -36,13 +36,11 @@ A scan of $e^{\pi t/4}\,\Re K_{\frac94+\frac{it}2}(2\pi)$ with step $0.05$ finds
 \caption{Above: displacements of the zeros of $\Xi^*$ (line) and of $\Xi$ (points) from the smooth zeros of $\zeta$, in mean spacings. Below: the chain of the cosh spin and the chain of $\xi$, each against the chain of the smooth zeros.}\label{f:fig:spinchain}
 \end{figure}
 
-Figure~\ref{f:fig:spinchain} shows the two halves of the computation. P\'olya's approximant has its first zero far too low (Table~\ref{tab:biane:zeros}), but above the first few zeros its zeros follow the smooth zeros of $\zeta$, to a tenth of a spacing at the tenth zero and to a hundredth near the two hundredth, and its chain agrees with the Gamma chain of Chapter~\ref{b:ch:chain} to the accuracy stated. The raw zeros of $\Xi^*$ are not evenly spaced (Table~\ref{tab:biane:zeros}), but after unfolding their spacings are nearly constant, while those of $\Xi$ keep a relative spread of $0.366$. So the cosh spin realises the smooth part of the problem in the computed range. This is a computed agreement, not an identity.
+Figure~\ref{f:fig:spinchain} shows the two halves of the computation. P\'olya's approximant has its first zero far too low (Table~\ref{tab:biane:zeros}), but above the first few zeros its zeros follow the smooth zeros of $\zeta$, to a tenth of a spacing at the tenth zero and to a hundredth near the two hundredth, and its chain agrees with the Gamma chain of Chapter~\ref{b:ch:chain} to the accuracy stated. This is a computed agreement, not an identity.
 
 This gives the fluctuation of route B a description. The chain of $\xi$ is the chain of a positive kernel $\Phi$, and the Gamma chain is, to the accuracy computed, the chain of the positive ferromagnetic kernel $\Phi^*$. The fluctuation $\varepsilon_j$ is therefore the effect on the chain of the difference $\Phi-\Phi^*$, which contains the rest of the summand $n=1$ (Proposition~\ref{fm:prop:psi}) and the sum over $n\ge2$, where the integers, and through them the primes, enter. In the language of Chapter~\ref{ch:progress}, the displacements $\delta\gamma_k$ that drive the linear response are, above the first few zeros and to the accuracy computed, the displacements of the zeros of $\Xi$ from those of $\Xi^*$. A proof of RH along this line would deform $\Phi^*$ into $\Phi$ so as to move real zeros without moving a pair off the line. The de Bruijn and Newman flow is one such deformation, and the Euler product would have to supply another.
 
-\begin{remark}
-The agreement is what one expects from the saddle point analysis of $K_{\frac94+\frac{it}2}(2\pi)$ for large $t$, whose phase has the same leading terms as the Riemann and Siegel theta function. We have not written that analysis out with error terms, and the statement is heuristic. The computation shows how fast the error decays: from three quarters of a spacing at the first zero to one hundredth at the two hundredth.
-\end{remark}
+
 
 \section{A protocol for testing a spin system}
 
@@ -55,7 +53,7 @@ Suppose someone proposes a family of spin systems, with ferromagnetic couplings 
 \item Check sharpness along the heat flow. Replacing $\Phi$ by $e^{\lambda u^2}\Phi$ with small negative $\lambda$ must break the construction, by the theorem of Rodgers and Tao \cite{RodgersTao}.
 \end{enumerate}
 
-Step 4 is requirement 3 of Section~\ref{ch:pathdetail}, and step 3 is its warning about the control (Section~\ref{d:sec:req}), read in the language of spins. Step 1 is where P\'olya's approximant passes and step 2 is where it fails, by design. No proposal known to us passes all four.
+Step 1 is where P\'olya's approximant passes and step 2 is where it fails, by design. No proposal known to us passes all four.
 
 \section{The heat flow as a family of spins}\label{f:sec:heat}
 
@@ -63,30 +61,28 @@ Newman \cite{Newman1976} introduced the constant that carries his name in the la
 
 Three consequences for a ferromagnetic proof are worth stating.
 
-\paragraph{No slack.} A construction that produced P\'olya's law as the magnetisation of a ferromagnetic system would have to break under every Gaussian tilt toward the origin. Spin systems whose ferromagnetism comes from inequalities with room to spare, such as couplings bounded away from zero, cannot do this unless the room disappears exactly at P\'olya's law. This is requirement 3 of Section~\ref{ch:pathdetail}.
+\paragraph{No slack.} A construction that produced P\'olya's law as the magnetisation of a ferromagnetic system would have to break under every Gaussian tilt toward the origin. Systems whose ferromagnetism comes from inequalities with room to spare cannot do this unless the room disappears exactly at P\'olya's law (requirement 3 of Section~\ref{ch:pathdetail}).
 
 % TODO (authors, M4): the Hurwitz wording in this paragraph and in the sharpness paragraph of the five requirements is ours; confirm.
-\paragraph{A family of controls.} For each $\lambda<0$ the tilted law is a non ferromagnetic law built from $\Phi$ itself, with the same arithmetic. Conditional on RH, by Hurwitz's theorem the off line pairs of the tilted function leave every compact set as $\lambda\uparrow0$ unless they converge to a multiple real zero, so the rung of the ladder of Chapter~\ref{p:ch:path} at which the density fails would tend to infinity (heuristic; we have not proved it, and without RH off line zeros of the untilted function sit at fixed heights). By Chapter~\ref{ch:progress} the level of the chain at which a pair is seen grows like $3.3\,N(T)$ plus a term logarithmic in the distance of the pair from the line. So the family $e^{\lambda u^2}\Phi$, $\lambda<0$, would be a supply of controls of adjustable difficulty that share everything with $\xi$ except the property.
+\paragraph{A family of controls.} For each $\lambda<0$ the tilted law is a non ferromagnetic law built from $\Phi$ itself, with the same arithmetic. Conditional on RH, by Hurwitz's theorem the off line pairs of the tilted function leave every compact set as $\lambda\uparrow0$ unless they converge to a multiple real zero, so the rung of the ladder of Chapter~\ref{p:ch:path} at which the density fails would tend to infinity (heuristic; we have not proved it, and without RH off line zeros of the untilted function sit at fixed heights). By Chapter~\ref{ch:progress} the level of the chain at which a pair is seen grows like $3.3\,N(T)$ plus a term logarithmic in the distance of the pair from the line. So the family $e^{\lambda u^2}\Phi$, $\lambda<0$, would be a supply of controls of adjustable difficulty.
 
-\paragraph{What the tilt does to the cosh spin.} The approximant $\Phi^*$ is ferromagnetic, and so is $e^{\lambda u^2}\Phi^*$ for $\lambda\ge\Lambda^*$, with its own constant. For the variable $P$ of Section~\ref{ch:biane}, Proposition~\ref{prop:biane:lambdaP} proves the constant finite and not positive, and notes that Newman's argument applies verbatim to $\Phi^*$. The zeros of $\Xi^*$ are regularly spaced after unfolding (Computation~\ref{f:comp:spinchain}), with no close pairs, so the backward heat flow should take a long time to make two of them collide. One expects $\Lambda^*$ well below zero. The difference between $\Lambda^*<0$ and $\Lambda=0$ would then measure what the sum over $n$ does: it brings zeros into near collision, as the Lehmer pairs show, and leaves no room. Computing $\Lambda^*$ is a finite problem that we have not carried out.
+\paragraph{What the tilt does to the cosh spin.} The approximant $\Phi^*$ is ferromagnetic, and so is $e^{\lambda u^2}\Phi^*$ for $\lambda\ge\Lambda^*$, with its own constant. For the variable $P$ of Section~\ref{ch:biane}, Proposition~\ref{prop:biane:lambdaP} proves the constant finite and not positive, and notes that Newman's argument applies verbatim to $\Phi^*$. Computing $\Lambda^*$ is a finite problem that we have not carried out.
 
 \section{Ramanujan and Vere-Jones: the sources}\label{r:sec:sources}
 
-Ramanujan's work touches the zeta function in four places.
+\paragraph{The 1915 paper on $\xi$ and $\Xi$.} In \emph{New expressions for Riemann's functions $\xi(s)$ and $\Xi(t)$} \cite{Ram15} Ramanujan gave integral representations of $\Xi$ against products of gamma functions. Open problem~\ref{r:op:Ram} returns to them.
 
-\paragraph{The 1915 paper on $\xi$ and $\Xi$.} In \emph{New expressions for Riemann's functions $\xi(s)$ and $\Xi(t)$} \cite{Ram15} Ramanujan gave integral representations of $\Xi$ against products of gamma functions, of the kind that later appeared as the starting point for Fourier pairs involving $|\Xi|^2$. Open problem~\ref{r:op:Ram} returns to them.
+\paragraph{The M\"obius formula reported by Hardy and Littlewood.} In their memoir of 1916 \cite{HL16}, Hardy and Littlewood attribute to Ramanujan a formula for the series $\sum_n\mu(n)n^{-1}e^{-x/n^2}$, with a transformation under $x\mapsto\pi^2/x$ that holds, under hypotheses on the zeros, with a sum over the zeros of $\zeta$, and observe that RH is equivalent to a rate of decay of the series. The formula is a Laplace mixture with signed weights, and the signs destroy the positivity the Thorin programme needs. Its hyperbolic secant form is Proposition~\ref{dl:prop:sechram}.
 
-\paragraph{The M\"obius formula reported by Hardy and Littlewood.} In their memoir of 1916 \cite{HL16}, Hardy and Littlewood attribute to Ramanujan a formula for the series $\sum_n\mu(n)n^{-1}e^{-x/n^2}$, with a transformation under $x\mapsto\pi^2/x$ that holds, under hypotheses on the zeros, with a sum over the zeros of $\zeta$, and observe that RH is equivalent to a rate of decay of the series. The formula is a Laplace mixture with signed weights: the M\"obius function supplies the signs, and the positivity the Thorin programme needs is what the signs destroy. Its hyperbolic secant form is Proposition~\ref{dl:prop:sechram}.
 
-\paragraph{The loose papers.} A transformation formula from the pages printed with the lost notebook, tied together by an integral of $|\Xi|^2$ against a gamma factor, gives a law whose characteristic function contains $\Xi$ (Theorem~\ref{dl:thm:Z} and Remark~\ref{dl:rem:Zid}).
+\paragraph{The lost notebook.} A transformation formula from the pages printed with the lost notebook gives a law whose characteristic function contains $\Xi$ (Theorem~\ref{dl:thm:Z} and Remark~\ref{dl:rem:Zid}).
 
-\paragraph{Divisor series and Gauss sums.} In two short papers \cite{RamG,RamF} Ramanujan evaluated definite integrals connected with Gauss sums and proved closed forms for Dirichlet series such as $\zeta(s)^4/\zeta(2s)=\sum d(n)^2n^{-s}$. These are sources of the hyperbolic secant integrals and of the positive L\'evy measures of Proposition~\ref{dl:prop:deligne}.
+\paragraph{Divisor series and Gauss sums.} In two short papers \cite{RamG,RamF} Ramanujan evaluated definite integrals connected with Gauss sums and proved closed forms for Dirichlet series such as $\zeta(s)^4/\zeta(2s)=\sum d(n)^2n^{-s}$.
 
-\paragraph{Vere-Jones.} Lai and Vere-Jones studied the Meixner hypergeometric law, whose characteristic function is a power of a hyperbolic secant, and the sums of hyperbolic secants with M\"obius weights that arise when such laws are combined \cite{LVJ}. Those sums are the analogue of Ramanujan's Gaussian series, and Volume II joins the two (Proposition~\ref{dl:prop:sechram}, Theorem~\ref{rz:thm:sech} and Section~\ref{ri:sec:cauchy}). The chapter uses $\xi(s)=\frac12s(s-1)\pi^{-s/2}\Gamma(\frac s2)\zeta(s)$, as the book does.
-
+\paragraph{Vere-Jones.} Lai and Vere-Jones studied the Meixner hypergeometric law, whose characteristic function is a power of a hyperbolic secant, and the sums of hyperbolic secants with M\"obius weights that arise when such laws are combined \cite{LVJ}. Those sums are the analogue of Ramanujan's Gaussian series, and Volume II joins the two (Proposition~\ref{dl:prop:sechram}, Theorem~\ref{rz:thm:sech} and Section~\ref{ri:sec:cauchy}).
 \section{The exit time in three roles}\label{r:sec:vj}
 
-Let $\tau$ be the exit time of standard Brownian motion from $(-1,1)$. It is the mixing variable of the worked example of Chapter~\ref{ch:cosine}, and the closing paragraph of Proposition~\ref{dl:prop:sechram} identifies its negative moments with the completed Dirichlet beta function. Its three roles can be set side by side, with the facts that can be checked by hand. Write $\Lambda(s,\chi_4)=(\pi/4)^{-(s+1)/2}\Gamma(\frac{s+1}2)L(s,\chi_4)$, so that $\Lambda(s,\chi_4)=\Lambda(1-s,\chi_4)$.
+Let $\tau$ be the exit time of standard Brownian motion from $(-1,1)$. It is the mixing variable of the worked example of Chapter~\ref{ch:cosine}, and the closing paragraph of Proposition~\ref{dl:prop:sechram} identifies its negative moments with the completed Dirichlet beta function. Write $\Lambda(s,\chi_4)=(\pi/4)^{-(s+1)/2}\Gamma(\frac{s+1}2)L(s,\chi_4)$, so that $\Lambda(s,\chi_4)=\Lambda(1-s,\chi_4)$.
 
 \paragraph{Laplace transform: the eigenvalues.} $\E e^{-s\tau}=\sech\sqrt{2s}=\prod_{k\ge0}\bigl(1+s/\lambda_k\bigr)^{-1}$ with $\lambda_k=(2k+1)^2\pi^2/8$, the eigenvalues of $-\frac12\frac{d^2}{dx^2}$ on $(-1,1)$ with Dirichlet conditions. This is the Thorin form; the first row of Table~\ref{fm:tab:examples} lists $\tau/2$, with atoms $2\lambda_k$. The mean is $\E\tau=\sum_k1/\lambda_k=1$.
 
@@ -104,9 +100,9 @@ $\E Y=\Lambda(1,\chi_4)=1$. For the size biased variable $\tilde Y$, $\E\tilde Y
 
 The proposition is the probabilistic content of the functional equation of $L(s,\chi_4)$, as the theta identity is the content of the functional equation of $\zeta$ in the work of Biane, Pitman and Yor \cite{BPY01}. The zeta analogue, the size biased clock, is in Volume I. We have not found the statement for $\chi_4$ in the literature.
 
-It is also a reminder of the asymmetry at the heart of the programme. For $\tau$ the Thorin atoms, the eigenvalues, are explicit and the zeros of its Mellin transform are not known to lie on a line. For the variable of Chapter~\ref{b:ch:chain} the situation is reversed: its Laplace transform is built from $\xi$, so its Thorin atoms, if they exist, are the zeros, and RH asks that they exist. The one variable $\tau$ carries two spectra, the eigenvalues of Brownian motion on an interval and the zeros of an $L$ function. The Biane, Pitman and Yor variables are the analogue of $\tau$ for $\xi$, and Open problem~\ref{r:op:V} asks whether one variable can do both jobs.
+For $\tau$ the Thorin atoms are explicit and the zeros of its Mellin transform are not known to lie on a line. For the variable of Chapter~\ref{b:ch:chain} the situation is reversed: its Thorin atoms, if they exist, are the zeros, and RH asks that they exist. Open problem~\ref{r:op:V} asks whether one variable can do both jobs.
 
-\paragraph{The Wald partner of the spin.} In the dictionary, $\tau/2$ is the hitting time attached to the ferromagnetic spin $\pm1$, the first row of Table~\ref{fm:tab:examples}. So the passage from Ramanujan's Gaussian series to the series of Lai and Vere-Jones is the passage from the Gaussian to its mixture over the Wald partner of the simplest ferromagnetic spin. It costs exactly one factor $\Lambda(s,\chi_4)$ in the Mellin transform and leaves the M\"obius signs untouched (Proposition~\ref{dl:prop:sechram}). A randomisation that removed the signs would need a variable whose negative moments vanish at the points $1-\rho$, a variable that already knows the zeros. This is the circle that closes each route in Section~\ref{ch:pathdetail}.
+\paragraph{The Wald partner of the spin.} In the dictionary, $\tau/2$ is the hitting time attached to the ferromagnetic spin $\pm1$, the first row of Table~\ref{fm:tab:examples}. So the passage from Ramanujan's Gaussian series to the series of Lai and Vere-Jones is the passage from the Gaussian to its mixture over the Wald partner of the simplest ferromagnetic spin. It costs exactly one factor $\Lambda(s,\chi_4)$ in the Mellin transform and leaves the M\"obius signs untouched (Proposition~\ref{dl:prop:sechram}). A randomisation that removed the signs would need a variable whose negative moments vanish at the points $1-\rho$, a variable that already knows the zeros (the circle of Section~\ref{ch:pathdetail}).
 
 % TODO (authors, M5): level of the chain (coefficient index j, e.g. c_148, level 74) and order of the Thorin ladder (near 75, ch:cand) are the same Hankel determinants in two indexings, so rows 2 and 3 of r:tab:measured and rows 3 and 4 of r:tab:depth report one measurement twice and the four instruments are three; the constant 3.3 N(T) appears in no Volume III chapter (1.7 = 75/43 is one point). Restructure the section, tables and the lines naming 3.3 and 1.7.
 \section{Four instruments, four depths}\label{r:sec:connect}
@@ -114,26 +110,10 @@ It is also a reminder of the asymmetry at the heart of the programme. For $\tau$
 The heat trace of the zeros, $k(x)=\sum_ze^{-z^2x}$ over the zeros $z$ with positive real part, gives a fourth finite ladder besides the three of the other chapters: the order $n$ of monotonicity, that is, positivity of $D_n(x)=\sum_zz^{2n}e^{-z^2x}$ for all $x>0$. Differentiating the explicit formula (Section~\ref{wt:sec:explicit}) $n$ times in $x$ turns each inequality $D_n>0$ into an inequality between a prime sum and an archimedean term, and RH is the full family. Every order up to $1.52\times10^{25}$ is proved by Theorem~\ref{ps:thm:free}, using the verified zeros below $3\times10^{12}$.
 
 \begin{remark}[Which zeros does order $n$ see? Heuristic]\label{r:rem:rule}
-The weight $t^{2n}e^{-t^2x}$ peaks at $t=\sqrt{n/x}$ with relative width $(4n)^{-1/2}$. A pair of zeros $u\pm iv$ off the line can make $D_n$ negative only when the weight isolates it from its real neighbours while its phase reaches $\frac\pi2$. This suggests the rule that $n$ is of order $\pi u^2/(4v\delta)$, where $\delta$ is the distance from $u$ to the nearest real ordinate. Table~\ref{r:tab:toy} tests it on a toy model. So $n$ monotonicity probes zeros up to height about $\sqrt n$. With $v$ near $\frac12$ and $\delta$ near the mean spacing, a pair at height just above $T$ would first be seen at an order of size $T^2\log T$. The rule is not proved, and no constant in it is.
+The weight $t^{2n}e^{-t^2x}$ peaks at $t=\sqrt{n/x}$ with relative width $(4n)^{-1/2}$. A pair of zeros $u\pm iv$ off the line can make $D_n$ negative only when the weight isolates it from its real neighbours while its phase reaches $\frac\pi2$. This suggests the rule that $n$ is of order $\pi u^2/(4v\delta)$, where $\delta$ is the distance from $u$ to the nearest real ordinate. A toy model, the first $80$ zeros of $\zeta$ plus one artificial pair $u\pm iv$, gives the first failing order $613$ against $560$ from the rule at $u=27.7$, $v=0.4$, and $7752$ against $13355$ at $u=90$, $v=0.4$ (computed, not rerun in refereeing). So $n$ monotonicity probes zeros up to height about $\sqrt n$, and a pair at height just above $T$ (with $v$ near $\frac12$ and $\delta$ near the mean spacing) would first be seen at an order of size $T^2\log T$. The rule is not proved.
 \end{remark}
 
-\begin{table}[ht]
-\centering\small
-\begin{tabular}{@{}rrrrr@{}}
-\toprule
-$u$ & $v$ & $\delta$ & first failing $n$ & $\pi u^2/(4v\delta)$\\
-\midrule
-27.7 & 0.4 & 2.689 & 613 & 560\\
-27.7 & 0.2 & 2.689 & 1170 & 1120\\
-45.0 & 0.4 & 1.673 & 1639 & 2377\\
-62.0 & 0.4 & 1.168 & 2961 & 6461\\
-90.0 & 0.4 & 1.191 & 7752 & 13355\\
-\bottomrule
-\end{tabular}
-\caption{Toy model: the first 80 zeros of $\zeta$ plus one artificial pair $u\pm iv$. Smallest order $n$ at which $D_n$ changes sign (computed).}
-% UNVERIFIED: the toy table was not rerun.
-\label{r:tab:toy}
-\end{table}
+
 
 For each instrument, Table~\ref{r:tab:depth} records the index that must be reached before a zero off the line at height $T$ can affect the test, where $N(T)$ is the number of zeros below $T$.
 
@@ -152,7 +132,7 @@ order of the Thorin ladder & about $1.7\,N(T)$ for the control & Chapter~\ref{c:
 \end{tabular}
 \end{table}
 
-The heat trace is the bluntest, since its index grows faster than the count of zeros. The reason its finite stages can be proved far out is the same: a blunt test is implied by a finite verification of zeros far below its index. The other three are sharper and correspondingly harder to certify. None of the four can be completed by computation. The sharp instruments buy resolution, not proof.
+The heat trace is the bluntest, since its index grows faster than the count of zeros. None of the four can be completed by computation. The sharp instruments buy resolution, not proof.
 
 \subsection{The instruments measured on the control}
 
@@ -160,9 +140,9 @@ The indices in Table~\ref{r:tab:depth} are orders of magnitude. For the control 
 
 \begin{computation}\label{r:comp:heatdh}
 % TODO (authors, M6): the zero set described (304 real zeros below 420 plus the pair 85.6993) cannot produce the second result (pair 114.1633, order 30124); the control has eight off line pairs below 400 (W5 V7). State the zero set of each run, rerun if needed; orders 8230 and 30124 are UNVERIFIED.
-Take the heat trace over the zeros of the completed control function with positive real part: the $304$ on the line below height $420$ and the conjugate pair $85.6993\pm0.3085i$. Then $D_n(x)$ is positive for every $x$ for $n<8230$, and $D_{8230}(1.1525)<0$, with the weight peaking at height $84.5$. The rule of Remark~\ref{r:rem:rule}, with $u=85.70$, $v=0.3085$ and $\delta=1.948$ to the nearest real ordinate, predicts $9597$. For the second pair, $114.1633\pm0.1508i$ with $\delta=1.787$, the rule predicts $37979$, and the first failure found, in a search over orders $20000$ to $45000$, is at order $30124$, with the weight peaking at height $115.4$. The rule overestimates by $17$ and $26$ per cent in the two cases, relative to the measured orders, and gives the right order of magnitude (control values computed).
+Take the heat trace over the zeros of the completed control function with positive real part: the $304$ on the line below height $420$ and the conjugate pair $85.6993\pm0.3085i$. Then $D_n(x)$ is positive for every $x$ for $n<8230$, and $D_{8230}(1.1525)<0$, with the weight peaking at height $84.5$. The rule of Remark~\ref{r:rem:rule}, with $u=85.70$, $v=0.3085$ and $\delta=1.948$ to the nearest real ordinate, predicts $9597$. For the second pair, $114.1633\pm0.1508i$ with $\delta=1.787$, the rule predicts $37979$, and the first failure found, in a search over orders $20000$ to $45000$, is at order $30124$, with the weight peaking at height $115.4$. The rule overestimates by $17$ and $26$ per cent (control values computed).
 
-For the planted cosine model, real zeros at the odd multiples of $\frac\pi2$ (400 terms) and a pair $3\pm di$, the first failing order is $10$, $19$, $35$ and $67$ for $d=0.4$, $0.2$, $0.1$ and $0.05$, against $12$, $25$, $49$ and $99$ from the rule (floating point scan over $0<x<3n$; not a certificate, since a grid scan does not prove non negativity at lower orders). The rule overestimates by $20$, $32$, $40$ and $48$ per cent, relative to the measured orders, and the product $nd$ falls from $4.0$ to $3.35$, so the growth is slightly slower than $1/d$.
+For the planted cosine model, real zeros at the odd multiples of $\frac\pi2$ (400 terms) and a pair $3\pm di$, the first failing order is $10$, $19$, $35$ and $67$ for $d=0.4$, $0.2$, $0.1$ and $0.05$, against $12$, $25$, $49$ and $99$ from the rule (floating point scan over $0<x<3n$; not a certificate). The rule overestimates by $20$ to $48$ per cent, and the product $nd$ falls from $4.0$ to $3.35$, so the growth is slightly slower than $1/d$.
 \end{computation}
 % UNVERIFIED: the control orders 8230 and 30124 were not rerun in refereeing.
 
@@ -220,32 +200,31 @@ For the material of this chapter, no. Every statement that touches RH is one of 
 \item A signed identity. Proposition~\ref{dl:prop:sechram} is exact, and it shows that passing from Gaussian to hyperbolic secant kernels is a GGC randomisation costing one factor $\Lambda(s,\chi_4)$. The M\"obius signs are untouched.
 \end{enumerate}
 
-What the chapter contributes is a map. Ramanujan's Gaussian series, the sech series of Lai and Vere-Jones, and the exit time moment formula for $\Lambda(s,\chi_4)$ are one object seen through different GGC kernels, and the two obstacles of the programme appear in each of them in the same place.
+
 
 \subsection{The five requirements}
 
 Section~\ref{ch:pathdetail} gave five requirements that any proof along the paths of this volume must meet. The results of this chapter can be checked against them.
 
-\paragraph{The Euler product.} Proposition~\ref{dl:prop:deligne} is the only result here that uses it for positivity. It gives positive L\'evy measures for $\sigma>1$, where the Euler product converges, and says nothing at or below $\sigma=1$. The M\"obius formulas use the Dirichlet series of $1/\zeta$, a consequence of the Euler product, through cancellation rather than positivity.
-
+\paragraph{The Euler product.} Proposition~\ref{dl:prop:deligne} is the only result here that uses it for positivity. It gives positive L\'evy measures for $\sigma>1$, where the Euler product converges, and says nothing at or below $\sigma=1$.
 \paragraph{Uniformity in the height.} The finite orders of monotonicity are uniform in $x$ but not in the order $n$: each order is settled by a verification of the zeros below a height of order $\sqrt n$, and the proof of Theorem~\ref{ps:thm:free} uses exactly such a verification.
 
-\paragraph{Sharpness along the heat flow.} The heat trace of $H_t$ for $t<0$ fails to be completely monotone if $H_t$ has zeros off the line, and by Computation~\ref{r:comp:heatdh} and the rule of Remark~\ref{r:rem:rule} the failure would appear at an order of the size of the square of the height of the colliding pair divided by its distance from the line (heuristic). Whether every finite order holds for $H_t$ when $|t|$ is small enough is not known. For fixed $n$ it would need positivity of $D_n$ for $H_0$ at every $x$ and uniform continuity as $t\to0^-$, and even under RH it needs the off line zeros of $H_t$ to leave every compact set as $t\to0^-$ (by Hurwitz's theorem they can stay bounded only by converging to a multiple real zero), which is not proved.
+\paragraph{Sharpness along the heat flow.} The heat trace of $H_t$ for $t<0$ fails to be completely monotone if $H_t$ has zeros off the line, and by Computation~\ref{r:comp:heatdh} and the rule of Remark~\ref{r:rem:rule} the failure would appear at an order of the size of the square of the height of the colliding pair divided by its distance from the line (heuristic). Whether every finite order holds for $H_t$ when $|t|$ is small enough is not known.
 
-\paragraph{Kernel positivity.} The variable of Theorem~\ref{dl:thm:Z} has a positive density for an unconditional reason, the positivity of $|\Xi|^2$, and this kind of positivity does not distinguish $\zeta$ from the control: the control's completed function is also real on the line, and its square is positive.
 
-\paragraph{Approximation.} The exit time randomisation of Proposition~\ref{dl:prop:sechram} is exact rather than approximate, so the fifth requirement does not arise. But the open problem that asks for a better randomising variable is an approximation problem in disguise, since a variable whose negative moments vanish at the points $1-\rho$ must already encode the zeros.
+\paragraph{Kernel positivity.} The variable of Theorem~\ref{dl:thm:Z} has a positive density for an unconditional reason, the positivity of $|\Xi|^2$, and this positivity does not distinguish $\zeta$ from the control, whose completed function is also real on the line.
 
-The check confirms the verdict. Ramanujan's identities supply exact transformations and positivity of the weak kind. They do not supply the strong positivity at the critical line that all five requirements point to.
+\paragraph{Approximation.} The exit time randomisation of Proposition~\ref{dl:prop:sechram} is exact rather than approximate, so the fifth requirement does not arise.
+
 
 \section{Open problems}
 
-\begin{openproblem}
+\begin{openproblem}\label{f:op:ferro}
 Find a sequence of ferromagnetic spin systems whose magnetisations converge to P\'olya's law, starting from the cosh spin and adding one Euler factor at a time. Test each stage on the zeros of $\Xi^*$ in Table~\ref{tab:biane:zeros}.
 \end{openproblem}
 
 \begin{openproblem}\label{r:op:deform}
-Computation~\ref{f:comp:spinchain} shows that the chain of P\'olya's cosh spin agrees with the Gamma chain beyond the first few levels. The kernel $\Phi^*$ is not the first term of $\Phi$ (Section~\ref{fm:sec:simple}), so $\Phi$ is not $\Phi^*$ plus the terms $n\ge2$. Deform instead: put $\Phi_\lambda=(1-\lambda)\Phi^*+\lambda\Phi$ for $\lambda\in[0,1]$, a positive even density at each $\lambda$, and follow the zeros of its transform and the rates of its chain as $\lambda$ increases from $0$, where all zeros are real, to $1$, which is the case of $\xi$. RH is the statement that all zeros are real at $\lambda=1$. It is not the statement that no pair leaves the line before then, which is stronger, and a pair that left and returned would not contradict RH. By Lemma~\ref{pp:thm:pair} and Computation~\ref{pp:comp:coll}, the first pair to leave would be seen as two negative rates at a level set by its height (computed).
+Computation~\ref{f:comp:spinchain} shows that the chain of P\'olya's cosh spin agrees with the Gamma chain beyond the first few levels. The kernel $\Phi^*$ is not the first term of $\Phi$ (Section~\ref{fm:sec:simple}), so $\Phi$ is not $\Phi^*$ plus the terms $n\ge2$. Deform instead: put $\Phi_\lambda=(1-\lambda)\Phi^*+\lambda\Phi$ for $\lambda\in[0,1]$, a positive even density at each $\lambda$, and follow the zeros of its transform and the rates of its chain as $\lambda$ increases from $0$, where all zeros are real, to $1$, which is the case of $\xi$. RH is the statement that all zeros are real at $\lambda=1$. By Lemma~\ref{pp:thm:pair} and Computation~\ref{pp:comp:coll}, the first pair to leave would be seen as two negative rates at a level set by its height (computed).
 \end{openproblem}
 
 \begin{openproblem}

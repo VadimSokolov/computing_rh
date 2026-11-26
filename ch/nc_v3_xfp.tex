@@ -1,0 +1,163 @@
+% Volume III chapter: zeros from the primes. Sources: misc/reviews/nick-xi-from-primes/xi_from_primes_for_vadim/xi_from_primes_chapter.tex (fourth version, reduced to the parts the referee lists as new); referee misc/research/directions/opus/vol3/XFP.md (M1 to M11); numbers misc/vol3/verify/XFP/xfp.md (own recomputation, 24 Nov 2026); merged 24 Nov 2026.
+\label{xf:ch:primes}
+
+This chapter records what a note of Polson and Sokolov (November 2026) adds on the Riesz mean of the von Mangoldt function, seen as a function of the primes alone. We use the book's chart: the Laplace variable is $u=w^2$, the Thorin variable is $z=r^2$ and the atoms of the centre Thorin measure $U_{\rm RH}=\sum_{\gamma>0}\delta_{\gamma^2}$ are the squares of the ordinates. The note works in the chart $z=\gamma^2/2$; all weights below are converted. Write $\gamma_E$ for Euler's constant, $G=\xi'/\xi$, $v_\alpha(r)=\Re\,G(\alpha+ir)$, $b_\alpha=G(\alpha)$ and $t_\alpha(z)=(v_\alpha(r)-b_\alpha)/(2\pi r)$, $r=\sqrt z$, as in Chapter~\ref{ct:ch:cheb}. Put $D_\alpha(k)=v_\alpha(k)-b_\alpha$, $a=\alpha-\frac12$ and $c(\gamma)=2/(\frac14+\gamma^2)$. Status words follow the book: proved, under RH, computed (floating point), open.
+
+\section{The setting, recalled}
+
+Let $f(u)$, $u=\log x\ge0$, be the normalised remainder of the exact formula~\eqref{qt:eq:riesz} for the Riesz mean of $\Lambda$, so that $f(u)=-e^{-u/2}\sum_\rho x^{\rho}/(\rho(\rho-1))$ (the function of Theorem~\ref{qt:thm:sharp}). It is computed from the primes up to $x$ and $f(0)=F_0=\sum_\rho1/(\rho(1-\rho))=2+\gamma_E-\log4\pi=0.0461914$. Nothing in this section is new.
+\begin{itemize}
+\item RH is equivalent to $f$ bounded, to $|f|\le f(0)$, and to $f$ positive definite (Theorem~\ref{qt:thm:sharp}); one sided boundedness already suffices (Proposition~\ref{qt:prop:riesz}, with Landau's oscillation theorem \cite{Landau05}). Under RH, $\rho(\rho-1)=-(\frac14+\gamma^2)$ and
+\begin{equation}\label{xf:eq:cos}
+f(u)=\sum_{\gamma>0}c(\gamma)\cos(\gamma u)=\int_0^\infty\cos(u\sqrt z)\,W(\mathrm dz),\qquad W(\mathrm dz)=\frac{2\,U_{\rm RH}(\mathrm dz)}{z+\frac14},
+\end{equation}
+with zeros counted with multiplicity. So $f/f(0)$ is the characteristic function of the symmetric law with mass proportional to $c(\gamma)$ at $\pm\gamma$.
+\item Under RH the bound $|f|\le f(0)$ is attained only at $u=0$: otherwise all $\cos\gamma u_0$ would equal $1$, or all would equal $-1$, $f$ would have period $2u_0$, while $f'$ jumps by $\Lambda(n)/\sqrt n$ at $u=\log n$ and these jumps tend to zero.
+\item The Mellin transform of~\eqref{qt:eq:riesz} and Theorem~\ref{ct:thm:dictionary} give the level $\alpha$ density from $f$: for $\alpha>\Theta=\sup\Re\rho$ and $s=\alpha+ik$,
+\begin{equation}\label{xf:eq:level}
+-\frac{\zeta'}{\zeta}(s)=s(s-1)\Bigl[\frac1{(s-1)^2}-\frac{1+\gamma_E}{s-1}+\frac{\log2\pi}{s}-\widehat\tau(s)+\widehat E(s)\Bigr],
+\end{equation}
+with $\widehat E(\alpha+ik)=\int_0^\infty f(u)\,e^{-au}e^{-iku}\,\mathrm du$ and $\widehat\tau(s)=\sum_{j\ge1}1/(2j(2j+1)(s+2j))$. Level $\alpha$ sees the primes only through the damped error $f(u)e^{-au}$, and descending by $\epsilon$ multiplies it by $x^{\epsilon}$.
+\item Positivity of $t_\alpha$, that is $D_\alpha(k)>0$ for $k>0$, holds at every level under RH (Lagarias \cite{Lagarias}), unconditionally for every $\alpha\ge1$ (Proposition~\ref{bp:prop:valpha}), and its proof is in Theorem~\ref{thm:dbeta:minall}, Remark~\ref{rem:dbeta:nearest} and Lemma~\ref{yo:lem:gap}. Uniqueness of the central measure from the level $\alpha$ density on an interval is Theorem~\ref{tf:thm:deconv} and Section~\ref{cx:sec:problem}, and the EM facts are in Section~\ref{cx:sec:em} (with \cite{CT84}, \cite{VSK85}).
+\end{itemize}
+Under RH the level $\alpha$ data are a Cauchy deconvolution: with $\mu=\sum_\gamma\delta_\gamma$ over all ordinates of both signs, $v_\alpha(k)=\int a\,(a^2+(k-t)^2)^{-1}\mu(\mathrm dt)$ and, with $f_\gamma(k)=\frac a{a^2+(k-\gamma)^2}+\frac a{a^2+(k+\gamma)^2}$,
+\begin{equation}\label{xf:eq:Dsum}
+D_\alpha(k)=\sum_{\gamma>0}\bigl[f_\gamma(k)-f_\gamma(0)\bigr].
+\end{equation}
+
+\section{Positive definiteness tested from the primes}
+
+By Theorem~\ref{qt:thm:sharp} the matrix $f(|u_i-u_j|)$ is positive semidefinite under RH, and $f$ is an explicit function of the primes. From the primes below $X=10^7$ the smallest eigenvalue is $2.2\times10^{-3}$ for $n=400$ points of spacing $0.04$, and $1.6\times10^{-3}$ for $n=800$ points of spacing $0.02$ (computed); the largest are $2.0$ and $4.0$. Our recomputation reproduces these to two digits. A negative eigenvalue would disprove RH. The verified height does not by itself force a pass: write $f=P+R$ with $P$ the sum over zeros on the line (positive definite) and $R$ the contribution of zeros off the line, all of which have height above $3\cdot10^{12}$ \cite{PT21}. By the bound after Proposition~\ref{qt:prop:riesz} the zeros of height above $3\cdot10^{12}$ contribute at most $3\cdot10^{-12}$ in $\sum1/|\rho(1-\rho)|$, so $|R(u)|\le3\cdot10^{-12}X^{1/2}$ on $[0,\log X]$ and every eigenvalue is at least $-3n\cdot10^{-12}X^{1/2}$, which is $-7.6\times10^{-6}$ for $n=800$ (proved). The computed smallest eigenvalues are far above this. Finding a reason on the prime side for the positivity is open.
+
+\section{The truncation bound}\label{xf:sec:trunc}
+
+Descending to level $\alpha$ from primes up to $X$ means truncating $\widehat E$ in~\eqref{xf:eq:level} to $u\le\log X$.
+
+\begin{theorem}[Truncation error]\label{xf:thm:trunc}
+Assume RH, let $a>0$, $k\ge0$ and $K_a(k)=\sum_{\gamma>0}c(\gamma)\bigl(a^2+(k-\gamma)^2\bigr)^{-1/2}$. If $\widehat E$ is replaced by its truncation to $u\le\log X$, then $\widehat E(\alpha+ik)$ changes by at most $\sqrt2\,X^{-a}K_a(k)$, and $D_\alpha(k)$ changes by at most
+\[
+\sqrt2\,X^{-a}\bigl(|\alpha(\alpha-1)|\,K_a(0)+|s(s-1)|\,K_a(k)\bigr),\qquad s=\alpha+ik .
+\]
+\end{theorem}
+
+\begin{proof}
+With $p=a+ik$ and $L=\log X$, $\int_L^\infty\cos(\gamma u)e^{-pu}\,\mathrm du=e^{-pL}(p\cos\gamma L-\gamma\sin\gamma L)/(p^2+\gamma^2)$. The numerator has modulus at most $a+k+\gamma\le\sqrt2\sqrt{a^2+(k+\gamma)^2}$, $|e^{-pL}|=X^{-a}$, and $|p^2+\gamma^2|=\sqrt{a^2+(k-\gamma)^2}\sqrt{a^2+(k+\gamma)^2}$. Sum with the weights $c(\gamma)$ of~\eqref{xf:eq:cos}, which converge absolutely, and use~\eqref{xf:eq:level} for the factor $s(s-1)$ at $s=\alpha+ik$ and at $s=\alpha$.
+\end{proof}
+
+The constant $\sqrt2$ can be replaced by $1$: by the inequality of Cauchy and Schwarz the numerator is at most $\sqrt{|p|^2+\gamma^2}\le\sqrt{a^2+(k+\gamma)^2}$. Only an upper bound is proved. The relative error is of order $X^{-a}$ at most, not equal to it.
+
+\emph{Observed errors} (computed). From the primes below $10^7$, on $0<k\le60$, and with the bound as stated above (constant $\sqrt2$); the last column is the observed error divided by the bound:
+\begin{center}
+\small
+\begin{tabular}{ccccccc}
+\toprule
+$\alpha$ & $\max D_\alpha$ & error & relative & $X^{-a}$ & bound & ratio\\
+\midrule
+1.0 & 2.32 & $8.3\times10^{-4}$ & $3.6\times10^{-4}$ & $3.2\times10^{-4}$ & $5.0\times10^{-3}$ & 0.366\\
+0.8 & 3.53 & $0.030$ & $0.86\%$ & $0.79\%$ & $0.156$ & 0.367\\
+0.65 & 6.77 & $0.63$ & $9.3\%$ & $8.9\%$ & $2.59$ & 0.365\\
+0.6 & 10.06 & $2.07$ & $20.6\%$ & $20.0\%$ & $7.67$ & 0.369\\
+\bottomrule
+\end{tabular}
+\end{center}
+The last column is the largest ratio over $k$ of the observed error to the bound at the same $k$. So each step $\epsilon$ down the ladder multiplies the error by about $X^{\epsilon}$, and the bound is realistic up to a factor near $2.7$. For $X=10^7$ and accuracy $10\%$ the primes reach $\alpha\ge0.64$.
+
+\section{The cosine transform is consistent}
+
+Section~\ref{ct:sec:stat} reads $\psi(x)-x$ as a statistical signal. For the plain cosine transform of $f$ the convergence at rate $1/\log X$ is a theorem; the constant $2\pi$ and the necessity of $\log X\gtrsim2\pi/\Delta$ remain heuristic.
+
+\begin{theorem}[Consistency of the cosine transform]\label{xf:thm:consist}
+Assume RH. For $k>0$ and $L>0$ let $P_L(k)=\frac2L\int_0^Lf(u)\cos(ku)\,\mathrm du$, and let $m(k)$ be the multiplicity of $k$ as an ordinate, zero if it is not one. Then
+\[
+\Bigl|P_L(k)-m(k)c(k)\Bigr|\le\frac1L\Bigl[\frac{m(k)c(k)}{2k}+\sum_{\gamma\ne k}m(\gamma)c(\gamma)\Bigl(\frac1{|\gamma-k|}+\frac1{\gamma+k}\Bigr)\Bigr].
+\]
+Here the sum runs over the distinct positive ordinates $\gamma\ne k$. With $L=\log X$, at each fixed $k$ the coefficient $m(k)c(k)$ is recovered from the primes below $X$ at rate $O_k(1/\log X)$, the constant growing as $k$ nears an ordinate, and $P_L(k)\to0$ at every $k$ that is not an ordinate.
+\end{theorem}
+
+\begin{proof}
+$\frac2L\int_0^L\cos(\gamma u)\cos(ku)\,\mathrm du=\frac{\sin((\gamma-k)L)}{(\gamma-k)L}+\frac{\sin((\gamma+k)L)}{(\gamma+k)L}$ for $\gamma\ne k$, and $1+\frac{\sin2kL}{2kL}$ for $\gamma=k$. Sum against~\eqref{xf:eq:cos}; the series converges because the ordinates are discrete and $\sum c(\gamma)<\infty$.
+\end{proof}
+
+This is the classical mean value argument of Bohr. In practice a taper replaces the sharp window. With the one sided descending taper $\cos^2(\pi u/2L)$ on $[0,\log10^7]$, rescaled by $(\frac14+k^2)/2$, the thirteen atoms of $U_{\rm RH}$ below height $60$ are recovered with masses between $0.9997$ and $1.0006$ (computed). The estimated spectrum has minimum $-2.7\times10^{-4}$ against a maximum of $1.0\times10^{-2}$ for this taper only; a two sided Hann taper gives a minimum of $-5.5\times10^{-3}$, so no sign claim is made beyond the taper. The resolution is about $2\pi/\log X=0.39$.
+
+\section{Blind location and joint least squares}\label{xf:sec:sparse}
+
+Under RH the central measure is atomic, and if the zeros are simple the masses equal one. A reconstruction that uses this is nonlinear and is not bound by the law of Section~\ref{xf:sec:trunc}.
+
+\subsection*{Peak search}
+Scan the tapered cosine transform over $5\le k\le100$, keep the local maxima above $\frac12$ and refine each by a parabola through neighbouring values; no knowledge of the zeros enters. From the primes below $10^7$ (computed), $29$ maxima are found and there are $29$ zeros below height $100$, with median error between $5\times10^{-4}$ and $10^{-3}$ and maximum between $1.9\times10^{-3}$ and $4.2\times10^{-3}$, depending on the taper. For the $138$ zeros below height $300$ the median is $5\times10^{-4}$ and the maximum, at the edge of the range, is between $4.4\times10^{-3}$ and $10^{-2}$. This is a hundred times smaller than the resolution, because one isolated peak can be centred far more precisely than two peaks can be separated.
+
+\subsection*{Joint refinement}
+The peak search treats zeros one by one, and its error comes from the side lobes of the others. Under RH with simple zeros $f(u)=\sum_{\gamma>0}c(\gamma)\cos\gamma u$, so minimise
+\[
+\int_0^{\log X}\Bigl[f(u)-\sum_jc(\hat\gamma_j)\cos(\hat\gamma_ju)\Bigr]^2h(u)\,\mathrm du
+\]
+over the ordinates, with taper weight $h$, by Gauss and Newton steps started from the peak search. The masses are fixed at one, and the zeros above the cut act as noise. Results from the primes below $10^7$ (computed, our recomputation):
+\begin{center}
+\small
+\begin{tabular}{lccc}
+\toprule
+height below $300$ & zeros found & median error & maximal error\\
+\midrule
+peak search & 138 of 138 & $5\times10^{-4}$ & $4.4\times10^{-3}$ to $10^{-2}$\\
+joint refinement & 138 of 138 & $2.6\times10^{-6}$ & $2.3\times10^{-4}$\\
+\bottomrule
+\end{tabular}
+\end{center}
+After refinement the maximal error is at most $3.4\times10^{-7}$ below height $60$, $5.8\times10^{-6}$ between $60$ and $150$, and $2.3\times10^{-4}$ between $150$ and $300$, next to the cut where the unmodelled zeros are closest. (An earlier run with a different window gave $1.7\times10^{-4}$ for the last range and a median near $10^{-5}$.)
+
+\subsection*{Densities from located zeros}
+Put $\widehat D_\alpha(k)=\sum_{\hat\gamma_j<K}[f_{\hat\gamma_j}(k)-f_{\hat\gamma_j}(0)]+\int_K^\infty[f_t(k)-f_t(0)]\frac{\log(t/2\pi)}{2\pi}\,\mathrm dt$ in the notation of~\eqref{xf:eq:Dsum}, the integral replacing the zeros above $K$ by their mean density.
+
+\begin{proposition}[Propagation of location error]\label{xf:prop:prop}
+If $|\hat\gamma_j-\gamma_j|\le\eta$, then moving one ordinate changes its Cauchy kernel $a/(a^2+t^2)$ by at most $\eta$ times $\min(3\sqrt3/(8a^2),\,2a/d^3)$, where $d$ is the distance from the point of evaluation to the ordinate less $\eta$ (the second term only if $d>0$). Near a zero the error relative to the peak height $1/a$ is at most $0.65\,\eta/a$; at a distance from the zeros bounded below independently of $a$ it is of order $a\eta$.
+\end{proposition}
+
+\begin{proof}
+The derivative of $a/(a^2+t^2)$ is bounded by $3\sqrt3/(8a^2)$, attained at $|t|=a/\sqrt3$, and by $2a/|t|^3$.
+\end{proof}
+
+Maximal errors over $0<k\le60$ (computed, our recomputation; the damped transform is that of~\eqref{xf:eq:level}, and at level $0.51$ it has relative error near $X^{-0.01}=0.85$, not computed):
+\begin{center}
+\small
+\begin{tabular}{ccccc}
+\toprule
+level & $\max D_\alpha$ & damped transform & peak search & joint refinement\\
+\midrule
+0.6 & 10.06 & 2.07 & 0.125 & $2.2\times10^{-5}$\\
+0.55 & 20.0 & 9.1 & 0.50 & $8.9\times10^{-5}$\\
+0.51 & 100 & (0.85 relative) & 12.4 & $2.2\times10^{-3}$\\
+\bottomrule
+\end{tabular}
+\end{center}
+Relative to the maximum, the joint refinement is within $2.2\times10^{-6}$ at level $0.6$ and $2.2\times10^{-5}$ at level $0.51$ (an earlier run on a coarser grid gave $1.5\times10^{-5}$ and $1.2\times10^{-4}$). With the exact zeros in place of the located ones the error is below $10^{-7}$ at every level, so the whole error is location error. At level $0.51$, one hundredth from the critical line, where the direct method is expected to lose the density altogether, the density is obtained from the primes below $10^7$ to within $2.2\times10^{-5}$ of its maximum on the sampled grid.
+
+The measure located from primes, with the zeros above height $300$ replaced by their mean density, satisfies the calibration identities $\sum_{\gamma>0}c(\gamma)=0.0461914$ and $\sum_{\gamma>0}2/\gamma^2=(\log\xi)''(\frac12)=0.0462100$ to within $10^{-5}$ (computed); the sign of the discrepancy depends on the model for the tail above height $300$, so no fourth digit is claimed.
+
+\subsection*{How many primes}
+For the thirteen zeros below height $60$, all thirteen are found for each $X=10^4,10^5,10^6,10^7$ (computed, our recomputation). The peak search median falls from $3.1\times10^{-3}$ to $7.8\times10^{-4}$ and the joint median from $4.1\times10^{-7}$ to $1.6\times10^{-7}$ over these four values; the joint maximal error lies between $8.5\times10^{-5}$ and $1.6\times10^{-3}$ ($1.6\times10^{-3}$ at $X=10^4$) with no trend.
+The primes below ten thousand already give the median zero below height $60$ to six decimals at least (an earlier run gave a median near $6\times10^{-6}$). The maximal error is set by the zero next to the cut and does not improve with $X$. A rate for the joint fit is open. The information about the centre is not at large $x$: it is in the shape of $f$ at moderate $u$ once the atomic model is imposed.
+
+\section{The loss of linear reconstruction}
+
+\begin{theorem}[Loss of Fourier division]\label{xf:thm:loss}
+Let $\phi_\Omega$ have Fourier transform supported in $[-\Omega,\Omega]$, continuous on $[-\Omega,\Omega]$, of modulus at most one and of modulus one at $\pm\Omega$. Let $\mu\ge0$ with $\int(1+t^2)^{-1}\mu(\mathrm dt)<\infty$, $\nu=C_a\mu+e$ with $C_a\mu(k)=\int a(a^2+(k-t)^2)^{-1}\mu(\mathrm dt)$ and $e\in L^2$. The estimate of $\phi_\Omega*\mu$ obtained by Fourier division satisfies
+\[
+\bigl\|\widehat{\phi_\Omega*\mu}-\phi_\Omega*\mu\bigr\|_2\le\frac{e^{a\Omega}}{\pi}\|e\|_2 ,
+\]
+and $e^{a\Omega}/\pi$ is the norm of the error map, approached by errors whose transform concentrates near $|u|=\Omega$. Every linear estimator that is exact on noise free data has the same error on errors of band $\Omega$. With $\Omega=\log X$ the factor is $X^a$.
+\end{theorem}
+
+\begin{proof}
+The Fourier transform of the Cauchy kernel is $\pi e^{-a|u|}$, so the error has transform $\hat\phi_\Omega(u)e^{a|u|}\hat e(u)/\pi$; apply Parseval. For the last claim, if $L(C_a\mu)=\phi_\Omega*\mu$ for all $\mu$ and $e$ has band $\Omega$, then $e=C_a\mu_e$ with $\hat\mu_e=\hat e\,e^{a|u|}/\pi$, so $Le$ is the Fourier division output.
+\end{proof}
+
+The Fourier variable is $u=\log x$, up to the archimedean part, so using primes up to $X$ is a band limit $\Omega=\log X$, and the theorem and Theorem~\ref{xf:thm:trunc} state the same law from the two sides (this identification is heuristic). The law $X^{a}$ is therefore a property of linear reconstruction that is exact on noise free data, not of the problem. A linear method that accepts bias is not covered: the tapered cosine transform at the centre is linear in $f$ and shows no such factor, at the price of the resolution $2\pi/\log X$. The atomic prior beats the law, and after joint refinement the location error $\eta$ is of order $10^{-7}$ to $10^{-4}$, the loss being governed by $\eta/a$ (Proposition~\ref{xf:prop:prop}), algebraic in $a$ and no longer exponential in $a\log X$. The prior is RH together with simplicity of the zeros, so this is a method of computation and not a route to a proof. No stability guarantee for the atomic reconstruction is proved, and no rate for the joint fit. The local result on atoms that is proved is Proposition~\ref{cx:prop:atoms}.
+
+\section{The deconvolution path of Madrid Padilla, Polson and Scott}
+
+The path of \cite{PadillaPolsonScott18} (penalised Poisson likelihood followed down the penalty, finishing with EM) applied with the Cauchy kernel of level $\alpha$ to $D_\alpha$ computed from primes below $10^7$ recovers, with masses left free, all thirteen zeros below height $60$ from level $\alpha=1$ with median error $8.3\times10^{-5}$ and maximal error $1.2\times10^{-3}$ on a grid of spacing $0.05$ (computed). From level $1.5$ twelve of the thirteen are matched, with median $7\times10^{-4}$ and maximum $2.8\times10^{-3}$. Masses are within $0.3\%$ of one for ten of the thirteen at level one and rise to $1.04$ at the edge of the window, an effect of the window in $k$. Section~\ref{ct:sec:deconv} does the same from level $1.5$ on $69$ zeros, so this adds the penalty path and not reach. As a start for the joint fit above it gives the same locations with free masses, computed evidence for simplicity of the zeros below height $60$.
+
+\begin{problem}
+Give a Bayesian line spectrum estimator for $U_{\rm RH}$ from $f$ on $[0,\log X]$ with a posterior statement. The joint least squares fit of this chapter is a partial answer (point estimates, no posterior), and no rate for its median in $X$ is known.
+\end{problem}

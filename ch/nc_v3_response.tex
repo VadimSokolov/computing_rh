@@ -15,7 +15,7 @@ By Krein's theory the measure of the zeros is the spectral measure of a unique v
 \item The chain across a collision: as two zeros of $\zeta$ approach, merge and leave the line, which is what the backward heat flow does to a close pair in the isolated pair model, what does the chain see, and when?
 \item A solved model that is not classical, with fluctuating zeros, in which positivity of all rates is proved by a structural argument; and, last, a positive formula for the rates of $\xi$, which is RH.
 \end{enumerate}
-Steps 2 to 4 are taken up here: step 2 is computed from an exact formula, step 3 is reduced to one sign change of each update determinant, and step 4 is computed for one isolated pair. Step 1 is stated as a conjecture with evidence (Conjecture~\ref{pp:conj:norm}), and step 5 is open. A milestone is worth setting if either outcome teaches something: if the response were not local, the fluctuation could not be read from the zeros near the turning height, and the chapter shows that it is not.
+Steps 2 to 4 are taken up here: step 2 is computed from an exact formula, step 3 is reduced to one sign change of each update determinant, and step 4 is computed for one isolated pair. Step 1 is stated as a conjecture with evidence (Conjecture~\ref{pp:conj:norm}), and step 5 is open.
 
 Throughout, the atoms of the measure of the zeros are $x_\gamma=1/\gamma^2$, $\nu=\sum_\gamma x_\gamma\delta_{x_\gamma}$ is the measure of Section~\ref{t:sec:moments}, $h_n$ is the squared norm of the $n$th monic orthogonal polynomial $p_n$ of $\nu$, and $h'_n$, $p'_n$ are the same objects for the measure $x\,\nu$. The rates are the numbers $c_j$ of Section~\ref{sec:ch21:hankel}, written $\alpha_j$ here, and in this notation
 \begin{equation}\label{pp:eq:ratesh}
@@ -47,7 +47,7 @@ w_kp_n(x_k)p_n'(x_k)=-\sum_{l\ne k}w_lp_n(x_l)\,\frac{p_n(x_l)-p_n(x_k)}{x_l-x_k
 which is the sum in \eqref{pp:eq:lr} after division by $h_n$.
 \end{proof}
 
-Two remarks on the form. The quantities $Q_{n,k}$ are the components of the Lanczos vectors of the chain, which are computed stably, so the formula needs neither the zeros of $p_n$ nor a difference quotient. The naive form, with $p_n'/p_n$ written as a sum over the zeros of $p_n$, fails in floating point for exactly the atoms that matter: those well below the level, which $p_n$ has already resolved, so that a zero of $p_n$ coincides with the atom to machine precision while the product of a vanishing $Q_{n,k}^2$ and an infinite $p_n'/p_n$ is of order one. The orthogonality form avoids the product altogether.
+The quantities $Q_{n,k}$ are the components of the Lanczos vectors of the chain, which are computed stably, so the formula needs neither the zeros of $p_n$ nor a difference quotient (the naive form, with $p_n'/p_n$ summed over the zeros of $p_n$, fails in floating point for atoms well below the level).
 
 For the zeros of $\zeta$ the atom at $x_k=1/\gamma_k^2$ has weight $w=x$, so $w'/w=1/x$ for $\nu$ and $2/x$ for $x\,\nu$, and $\partial/\partial\gamma_k=-(2x_k/\gamma_k)\,\partial/\partial x_k$. We write $J_{jk}=\partial\log\alpha_j/\partial\gamma_k$. These logarithmic derivatives do not depend on the normalisation of the rates.
 
@@ -77,10 +77,7 @@ With all $6703$ known zeros and $10000$ zeros in all, for levels $j\le1999$:
 levels & spread of $\lambda_j$ & first order at $\gamma^{\rm s}$ & Simpson rule on \eqref{pp:eq:path}\\
 \midrule
 $1$ to $100$ & $0.069$ & $0.900$ & $0.99999$\\
-$100$ to $500$ & $0.037$ & $0.786$ & $0.99984$\\
-$500$ to $1000$ & $0.024$ & $0.748$ & $0.99931$\\
 $1000$ to $1500$ & $0.020$ & $0.656$ & $0.99649$\\
-$1500$ to $1999$ & $0.016$ & $0.676$ & $0.99917$\\
 all & $0.029$ & $0.789$ & $0.99934$\\
 \bottomrule
 \end{tabular}
@@ -94,7 +91,7 @@ The middle columns are coefficients of determination, the share of the variance 
 \caption{The fluctuation $\lambda_j$ of the chain of $\zeta$ on levels $1500$ to $1620$, the Simpson rule for \eqref{pp:eq:path}, and the first order prediction at the smooth zeros.}\label{pp:fig:lr}
 \end{figure}
 
-Chapter~\ref{b:ch:chain} suggested, from a regression on the displacements of the $25$ zeros nearest the turning height, that the fluctuation is predominantly a local and nonlinear function of those zeros (a suggestion that chapter now calls superseded). Computation~\ref{pp:comp:lr} corrects half of that conclusion and sharpens the other half. The fluctuation is not essentially nonlinear: first order response explains four fifths of it, and a three point rule along the path explains all but a thousandth. What the regression missed is the range of the response.
+Chapter~\ref{b:ch:chain} suggested that the fluctuation is predominantly a local and nonlinear function of the $25$ zeros nearest the turning height (a suggestion that chapter now calls superseded). Computation~\ref{pp:comp:lr} corrects half of that and sharpens the other half. The fluctuation is not essentially nonlinear: first order response explains four fifths of it, and a three point rule along the path explains all but a thousandth. What the regression missed is the range of the response.
 
 \begin{figure}[ht]
 \centering
@@ -107,11 +104,11 @@ Chapter~\ref{b:ch:chain} suggested, from a regression on the displacements of th
 \begin{computation}\label{pp:comp:range}
 For levels $100<j\le1999$, keep in the Simpson rule only the zeros within $m$ mean spacings of the turning height $H_j=(4\alpha^{\rm s}_j)^{-1/2}$. The share of variance explained is
 \begin{center}\small
-\begin{tabular}{@{}lccccccc@{}}
+\begin{tabular}{@{}lcccc@{}}
 \toprule
-$m$ & $2$ & $5$ & $10$ & $20$ & $40$ & $80$ & $160$\\
+$m$ & $2$ & $10$ & $40$ & $160$\\
 \midrule
-share & $0.14$ & $0.31$ & $0.47$ & $0.63$ & $0.78$ & $0.89$ & $0.96$\\
+share & $0.14$ & $0.47$ & $0.78$ & $0.96$\\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -126,14 +123,14 @@ Keeping only the zeros below the turning height explains $3$ per cent of the var
 
 Figure~\ref{pp:fig:jac} shows the whole Jacobian and Figure~\ref{pp:fig:kernel} a scaled average of its rows. Below the turning height the kernel is positive, smooth and slowly decaying; above it, it oscillates, with a first trough two spacings above the turning height that is four times deeper than the peak below, and a period of about two spacings further out. A displacement field that oscillates from zero to zero, as the true displacements do, is almost invisible to the smooth part, so the oscillating part above the turning height carries the fluctuation.
 
-This explains the failure of the candidate prime formula \eqref{b:eq:cand}. That formula came from the semiclassical inversion \eqref{b:eq:inv}, whose kernel is $(H^2-\gamma^2)^{-1/2}$ on $\gamma<H$: it sees only the zeros below the turning height, which is the part of the response that, by Computation~\ref{pp:comp:range}, carries three per cent of the signal. The correct kernel is the Jacobian, and its active part lies on the other side.
+This explains the failure of the candidate prime formula \eqref{b:eq:cand}: its semiclassical kernel \eqref{b:eq:inv} sees only the zeros below the turning height, which carry three per cent of the signal (Computation~\ref{pp:comp:range}).
 
 \subsection{The kernel is not special to the zeta function}
 
-The shape in Figure~\ref{pp:fig:kernel} could be a property of $\zeta$ or a property of chains in general. The cosine model of Chapter~\ref{ch:cosine} decides between the two: its zeros are evenly spaced, its chain is Lambert's continued fraction with $\alpha_j=1/((2j-1)(2j+1))$, and its turning height at level $j$ is $H_j=\frac12\sqrt{(2j-1)(2j+1)}$.
+Is the shape in Figure~\ref{pp:fig:kernel} special to $\zeta$? The cosine model of Chapter~\ref{ch:cosine} decides: its zeros are evenly spaced, its chain is Lambert's continued fraction with $\alpha_j=1/((2j-1)(2j+1))$, and its turning height at level $j$ is $H_j=\frac12\sqrt{(2j-1)(2j+1)}$.
 
 \begin{computation}\label{pp:comp:universal}
-With $4000$ zeros $(k-\frac12)\pi$ and a lumped tail, the Jacobian of Theorem~\ref{pp:thm:lr} for levels $j\le999$ and zeros $k\le1500$, scaled and averaged over levels $300$ to $900$ exactly as for $\zeta$, has correlation $0.998$ with the kernel of $\zeta$ over the window of $24$ mean spacings around the turning height. Its amplitude in the scaling of the figure is about twice that of $\zeta$, and most of the factor comes from the scaling by $H_j$, which at the same level is larger for the cosine by a factor that runs from about $1.4$ at level $300$ to about $1.8$ at level $900$. In the natural units, the response of $\log\alpha_j$ per mean spacing of displacement, the row norms are $1.09$, $1.09$ and $1.14$ at levels $200$, $500$ and $900$, against $0.99$ to $1.12$ for $\zeta$ (Computation~\ref{pp:comp:norm}; computed in floating point).
+With $4000$ zeros $(k-\frac12)\pi$ and a lumped tail, the Jacobian of Theorem~\ref{pp:thm:lr} for levels $j\le999$ and zeros $k\le1500$, scaled and averaged over levels $300$ to $900$ exactly as for $\zeta$, has correlation $0.998$ with the kernel of $\zeta$ over the window of $24$ mean spacings around the turning height. Its amplitude in the scaling of the figure is about twice that of $\zeta$, most of it from the scaling by $H_j$. In the natural units, the response of $\log\alpha_j$ per mean spacing of displacement, the row norms are $1.09$, $1.09$ and $1.14$ at levels $200$, $500$ and $900$, against $0.99$ to $1.12$ for $\zeta$ (Computation~\ref{pp:comp:norm}; computed in floating point).
 \end{computation}
 
 \begin{figure}[ht]
@@ -142,11 +139,11 @@ With $4000$ zeros $(k-\frac12)\pi$ and a lumped tail, the Jacobian of Theorem~\r
 \caption{The scaled response kernel of the cosine model, whose chain is Lambert's continued fraction, and that of $\zeta$.}\label{pp:fig:kernel2}
 \end{figure}
 
-So the shape of the response kernel is a property of the chain of an increasing sequence with a smooth density, not of the arithmetic. Its scaled limit can be sought in the cosine model, where the orthogonal polynomials of the spectral measure are explicit: they are the denominators of Lambert's continued fraction, polynomials of Lommel type attached to Bessel functions of half integer order. This turns the second open problem below into a problem about classical special functions. It also gives a cleaner reading of route B: the arithmetic enters the fluctuation only through the displacements of the zeros, and it is filtered by a kernel close to the one of the cosine model, which is the chain of Brownian motion on an interval.
+So the shape of the response kernel is a property of the chain of an increasing sequence with a smooth density, not of the arithmetic.
 
 \subsection{Stability}
 
-The inverse half of the law of Chapter~\ref{l:ch:bohr} is a stability statement for the map from a spectral measure to its rates. The Jacobian measures that stability directly. Let
+The inverse half of the law of Chapter~\ref{l:ch:bohr} is a stability statement for the map from a spectral measure to its rates. Let
 \[
 \|J_j\|=\sum_k\frac{|J_{jk}|}{\rho(\gamma_k)},
 \]
@@ -156,28 +153,26 @@ the change in $\log\alpha_j$ per unit displacement of every zero by one mean spa
 At the smooth zeros, $\|J_j\|$ lies between $0.99$ and $1.12$ for every level checked between $100$ and $1900$ (both parities): $1.12$ at $j=100$, $1.00$ at $200$, $1.10$ at $400$, $1.02$ at $700$, $1.07$ at $1000$, $1.05$ at $1300$, $0.99$ at $1600$ and $1.05$ at $1900$ (computed in floating point).
 \end{computation}
 
-So to first order, moving every zero by at most $\kappa$ mean spacings changes every rate by a factor between $e^{-1.12\kappa}$ and $e^{1.12\kappa}$, at every level checked between $100$ and $1900$. The observed fluctuation, of order $0.03$ against a displacement of order $0.3$ spacings, is ten times smaller than this bound, because the displacements oscillate and the kernel averages them.
-
 \begin{conjecture}\label{pp:conj:norm}
 $\sup_j\|J_j\|<\infty$ at the smooth zeros of $\zeta$, 
 % TODO (R_response M11): the draft's general clause (any increasing sequence with gamma_k log gamma_k ~ 2 pi k and bounded displacements) was cut: the reference sequence and the density in the norm are undefined for a general sequence. Authors to state which.
 \end{conjecture}
 
-The conjecture is the linearised form of the inverse half of the law. It would be a statement on route B that is uniform in the level and does not involve the primes. Eight levels support it, and nothing more.
+The conjecture is the linearised form of the inverse half of the law, uniform in the level and free of the primes. Eight levels support it, and nothing more.
 
 \subsection{The size of the fluctuation is not set by rigidity}
 
-The zeros of $\zeta$ are rigid: by the theory of the pair correlation \cite{Montgomery73}, the count of zeros in a window fluctuates far less than it would for independent points. The displacements show this directly. Measured in mean spacings they have variance $0.075$ each, but the sum of $10$ consecutive displacements has variance $0.102$ and the sum of $100$ has variance $0.128$, where independent displacements would give $0.75$ and $7.5$. One might expect this rigidity to be the reason the fluctuation of the chain is small.
+The zeros of $\zeta$ are rigid: by the theory of the pair correlation \cite{Montgomery73}, the count of zeros in a window fluctuates far less than it would for independent points. The displacements show this directly. Measured in mean spacings they have variance $0.075$ each, but the sum of $10$ consecutive displacements has variance $0.102$ and the sum of $100$ has variance $0.128$, where independent displacements would give $0.75$ and $7.5$.
 
 \begin{computation}\label{pp:comp:rigid}
 On levels $200$ to $1998$ the first order response to the true displacements has standard deviation $0.0223$. The same displacements shuffled at random among the zeros give $0.0229$, averaged over $20$ shuffles, and independent normal displacements with the same variance give $0.0231$. The lag one correlation of the displacements is $0.008$ (computed in floating point).
 \end{computation}
 
-So rigidity plays no measurable role. The response is governed by the oscillating part of the kernel above the turning height, which is blind to sums of displacements over long windows, and the size of $\lambda_j$ is set by the variance of a single displacement and the $\ell^2$ norm of the kernel row. This has a consequence for any attempt to bound $\lambda_j$ from below: the relevant input is the distribution of individual displacements, that is of $S(t)$ at the zeros, and not the long range correlations that make the zeros a rigid system.
+So rigidity plays no measurable role. The response is governed by the oscillating part of the kernel above the turning height, which is blind to sums of displacements over long windows, and the size of $\lambda_j$ is set by the variance of a single displacement and the $\ell^2$ norm of the kernel row.
 
 \section{The pair formula}\label{pp:sec:pair}
 
-The second milestone asks what a pair of zeros off the line does to the chain. The answer is an exact identity for any number of added atoms. It is a form of the Uvarov transformation of a measure by point masses \cite{Uvarov69}, combined with the determinant identity for a low rank update, and is classical. We state it as a lemma because the rest of the section uses it in this form.
+What does a pair of zeros off the line do to the chain? The answer is an exact identity for any number of added atoms, a form of the Uvarov transformation of a measure by point masses \cite{Uvarov69} combined with the determinant identity for a low rank update, and classical.
 
 \begin{lemma}[Rank update, after Uvarov]\label{pp:thm:pair}
 Let $\nu_0$ be a positive measure on $(0,\infty)$ with infinitely many points of support and finite moments, with orthonormal polynomials $\phi_m$, and let $\nu=\nu_0+\sum_{a=1}^rw_a\delta_{x_a}$ with atoms $x_a$ and weights $w_a$, real or complex. Write $W=\operatorname{diag}(w_a)$ and $K_n=\big[\sum_{m<n}\phi_m(x_a)\phi_m(x_b)\big]_{a,b}$, a symmetric matrix with no complex conjugation. Then for the Hankel determinants $\Delta_n=\det[s_{i+j}]_{i,j<n}$,
@@ -203,7 +198,7 @@ If all added atoms are positive real numbers and all weights positive, then $r_n
 $K_n$ is then a Gram matrix, so $I+W^{1/2}K_nW^{1/2}$ is positive definite and has the same determinant as $I+WK_n$.
 \end{proof}
 
-The corollary is the familiar fact that a positive measure has positive Hankel determinants, so it is no more than the Stieltjes positivity that is the starting point of Section~\ref{sec:ch21:hankel}. What the lemma adds is a factorisation: the whole contribution of a set of added atoms to every determinant, and so to every rate, is the explicit factor $r_n$.
+The corollary is only the Stieltjes positivity of Section~\ref{sec:ch21:hankel}. What the lemma adds is a factorisation: the whole contribution of added atoms to every determinant, and so to every rate, is the explicit factor $r_n$.
 
 For a single conjugate pair the determinant has a transparent form. Put $x_1=x$, $x_2=\bar x$, $w_1=w$, $w_2=\bar w$, and
 \[
@@ -226,24 +221,20 @@ Suppose that for $N-3\le n\le N+1$ the sign of $r_n$ changes exactly once, betwe
 Insert the signs into \eqref{pp:eq:ratio}. For $N'=N$: the factor of $\alpha_{2N-2}$ is $r_Nr'_{N-2}/(r_{N-1}r'_{N-1})$, with signs $(-)(+)/((+)(+))$; that of $\alpha_{2N}$ is $r_{N+1}r'_{N-1}/(r_Nr'_N)$, with signs $(-)(+)/((-)(-))$; that of $\alpha_{2N-1}$ is $r_{N-1}r'_N/(r_Nr'_{N-1})$, with signs $(+)(-)/((-)(+))$; and every other factor has an even number of negative terms. The case $N'=N-1$ is the same computation shifted by one level.
 \end{proof}
 
-Chapter~\ref{b:ch:chain} observed that each pair of zeros off the line of the control costs exactly two negative rates, and supported this by a count of negative squares of a Hankel form. Proposition~\ref{pp:prop:two} reduces the observation, locally at each pair, to a single sign change of each of $r_n$ and $r'_n$, at the same or neighbouring levels, which is what the computation below shows.
-
 \begin{computation}\label{pp:comp:control}
 The control from its zeros (Davenport and Heilbronn \cite{DH36}; for its zeros off the line see \cite{Spira94,BSO07}). A scan of the real function $e^{i\theta(t)}f(\frac12+it)$ with step $0.02$ finds $304$ zeros of the Davenport and Heilbronn function on the critical line below height $420$. Together with the two known quadruples off the line this is $308$ zeros, against the smooth count; the count falls short by about two at each of seven further places, between heights $164$ and $413$, where further zeros off the line lie. As the base $\nu_0$ take the $304$ zeros on the line, smooth zeros above height $420$ and a lumped tail. Add the four atoms $x=1/(\gamma\pm id)^2$ for $(d,\gamma)=(0.30852,85.69935)$ and $(0.15083,114.16334)$ by Lemma~\ref{pp:thm:pair}, in $300$ digit arithmetic.
 \begin{enumerate}
 \item The negative rates are exactly $\alpha_{148},\alpha_{150},\alpha_{217},\alpha_{219}$, the four levels found by the kernel route of Computation~\ref{b:comp:dh} at $1100$ and $1400$ digits. Here $r_n$ and $r'_n$ both turn negative at $n=75$, so Proposition~\ref{pp:prop:two} applies with $N=N'=75$ for the first pair and gives levels $148$ and $150$. The second pair makes each of them change sign again, near $n=110$, and the same local statement applies there (with $N=110$, $N'=109$) and gives levels $217$ and $219$.
-\item The values are $\alpha_{148}=-9.5\times10^{-6}$, $\alpha_{150}=-3.4\times10^{-4}$, $\alpha_{217}=-6.0\times10^{-6}$, $\alpha_{219}=-1.7\times10^{-4}$, against $-8.9\times10^{-6}$, $-3.6\times10^{-4}$, $-4.0\times10^{-6}$, $-2.6\times10^{-4}$ from the kernel. The differences presumably come from the zeros off the line above height $164$, which the base omits.
+\item The values are $\alpha_{148}=-9.5\times10^{-6}$, $\alpha_{150}=-3.4\times10^{-4}$, $\alpha_{217}=-6.0\times10^{-6}$, $\alpha_{219}=-1.7\times10^{-4}$, against $-8.9\times10^{-6}$, $-3.6\times10^{-4}$, $-4.0\times10^{-6}$, $-2.6\times10^{-4}$ from the kernel.
 \end{enumerate}
 \end{computation}
 % UNVERIFIED: levels 148, 150, 217, 219 and the values (W3 V15 did not rerun the pair formula levels); values are the draft's halved to the book normalisation.
-
-The levels are read correctly from the zeros, by a formula that isolates the contribution of each pair, although the values differ from those of the kernel route by up to a factor of $1.5$. In particular, the failure of the control is entirely the failure of $r_n$ and $r'_n$: the real zeros, however they are arranged, contribute a positive factor.
 
 \section{Collisions}\label{pp:sec:coll}
 
 In the isolated pair model of the backward heat flow, a pair of neighbouring zeros approaches, collides and leaves the line, and the pairs that are close at $t=0$, the Lehmer pairs, do so first (heuristic: Rodgers and Tao \cite{RodgersTao} prove that $H_t$ has nonreal zeros for every $t<0$, not that each close pair collides). If RH failed, a zero off the line would be the end state of such a collision. So the question of how the chain responds to a collision is the question of how close to failure a configuration of real zeros can look.
 
-The experiment holds all zeros of $\zeta$ fixed except one pair. Among the first $300$ zeros the closest pair, in units of the mean spacing, is $\gamma_{212}=415.018810$, $\gamma_{213}=415.455215$, with gap $0.4364$, or $0.29$ mean spacings. The pair is first brought together symmetrically about its centre $c=415.237$, then merged, and then pushed off the line to $c\pm i\eta$. For an isolated pair the heat flow of Section~\ref{sec:ch21:flow} does exactly this: in ordinate units the difference $\Delta$ of the two zeros satisfies $\dd\Delta/\dd t=1/\Delta$, so $\Delta^2=0.4364^2+2t$, the collision is at $t^*=-0.0952$, and for $t<t^*$ the pair is $c\pm i\eta$ with $\eta=\sqrt{(t^*-t)/2}$. All rates come from Lemma~\ref{pp:thm:pair} with the other zeros as base. The turning height of the chain reaches the pair at about level $715$.
+The experiment holds all zeros of $\zeta$ fixed except one pair. Among the first $300$ zeros the closest pair, in units of the mean spacing, is $\gamma_{212}=415.018810$, $\gamma_{213}=415.455215$, with gap $0.4364$, or $0.29$ mean spacings. The pair is brought together symmetrically about its centre $c=415.237$, merged, and pushed off the line to $c\pm i\eta$, as the heat flow of Section~\ref{sec:ch21:flow} does for an isolated pair: in ordinate units the difference $\Delta$ of the two zeros satisfies $\dd\Delta/\dd t=1/\Delta$, so $\Delta^2=0.4364^2+2t$, the collision is at $t^*=-0.0952$, and for $t<t^*$ the pair is $c\pm i\eta$ with $\eta=\sqrt{(t^*-t)/2}$. All rates come from Lemma~\ref{pp:thm:pair} with the other zeros as base. The turning height of the chain reaches the pair at about level $715$.
 % TODO (R_response minor): level 715 unverified and undefined: say whether the law, the smooth chain or the chain with the pair is meant; the smooth chain first exceeds 415.24 near level 708.
 % UNVERIFIED: level 715 (not rerun). t* = -0.0952 confirmed in W3 V15; draft had -0.0238 (factor 4).
 
@@ -260,7 +251,7 @@ level & $693$ & $721$ & $726$ & $732$ & $738$ & $742$ & $751$ & $760$ & $768$ & 
 \bottomrule
 \end{tabular}
 \end{center}
-For $\eta\le0.02$ the level is $722.5+9.1\log_{10}(1/\eta)$ to within $1.5$ levels (computed in floating point; the levels at $\eta=0.5$, $0.2$, $0.05$, $10^{-3}$ and $10^{-6}$ were reproduced exactly).
+For $\eta\le0.02$ the level is $722.5+9.1\log_{10}(1/\eta)$ to within $1.5$ levels (computed in floating point).
 \end{enumerate}
 \end{computation}
 % UNVERIFIED: levels for eta = 0.1, 0.02, 0.01, 1e-4, 1e-5 (not rerun). Draft items for gaps 0.2, 0.1, 0.01 (4.6, 5.7, 15 per cent) dropped: inconsistent with continuity (U12 M2), not rerun.
@@ -273,19 +264,17 @@ For $\eta\le0.02$ the level is $722.5+9.1\log_{10}(1/\eta)$ to within $1.5$ leve
 
 Three conclusions follow.
 
-\paragraph{The margin is not consumed by approach.} A pair of zeros at distance $0.29$ mean spacings, then at distance zero, moves the rates near its level by less than ten per cent. The fluctuation $\varepsilon_j$ does not drift toward $-1$ as two zeros approach a collision, so no lower bound for $\varepsilon_j$ can be expected to become tight near a Lehmer pair. The near collisions of $\zeta$ are not near failures of the chain.
+\paragraph{The margin is not consumed by approach.} A pair of zeros at distance $0.29$ mean spacings, then at distance zero, moves the rates near its level by less than ten per cent. The fluctuation $\varepsilon_j$ does not drift toward $-1$ as two zeros approach a collision: near collisions of $\zeta$ are not near failures of the chain.
 
 \paragraph{The failure is sharp and certain.} Once the pair is off the line the chain detects it at every distance tried, down to $10^{-6}$, always with exactly two negative rates, in agreement with Proposition~\ref{pp:prop:two}. In heat time, a pair that collided at $t^*$ is seen at time $t<t^*$ at a level that grows by about $4.6$ levels for each factor of ten in $t^*-t$.
 
-\paragraph{The cost of a near miss is logarithmic.} The depth at which a pair is caught grows like $\log(1/\eta)$, about nine levels per factor of ten beyond the turning level. In \eqref{pp:eq:D} this is the statement that $A_n-|B_n|$ grows geometrically past the turning point, by a factor of about $10^{2/4.55}=2.75$ per index $n$, that is $1.66$ per level, since $A_n-|B_n|$ is of order $\eta^2$ at fixed $n$. The chain therefore resolves the distance from the line far more efficiently than the ladder of the density, where the corresponding failure appears at shifts of order $1/\eta$ and in minors of size $e^{-c/\eta}$ (Corollary~\ref{p:cor:scale}).
+\paragraph{The cost of a near miss is logarithmic.} The depth at which a pair is caught grows like $\log(1/\eta)$, about nine levels per factor of ten beyond the turning level. In \eqref{pp:eq:D} this is the statement that $A_n-|B_n|$ grows geometrically past the turning point, by a factor of about $10^{2/4.55}=2.75$ per index $n$, that is $1.66$ per level, since $A_n-|B_n|$ is of order $\eta^2$ at fixed $n$.
 
 \section{What this changes on the path}\label{pp:sec:status}
 
-\paragraph{The arithmetic enters through a known linear filter.} The fluctuation is the image of the displacements under a smooth, nearly linear map whose kernel is computed exactly by Theorem~\ref{pp:thm:lr}. Since the displacements are $-S(\gamma_k)/\rho(\gamma_k)$ to first order, $\lambda_j$ is, to the same order, a weighted sum of $S$ at about a hundred zeros above the turning height. The primes enter only through $S$. This is the linear response formula that the programme of Chapter~\ref{b:ch:chain} asked for. It does not bound $\lambda_j$, because $S$ is unbounded, but it replaces the search for a prime formula with a question about one explicit kernel.
+\paragraph{The arithmetic enters through a known linear filter.} The fluctuation is the image of the displacements under a smooth, nearly linear map whose kernel is computed exactly by Theorem~\ref{pp:thm:lr}. Since the displacements are $-S(\gamma_k)/\rho(\gamma_k)$ to first order, $\lambda_j$ is, to the same order, a weighted sum of $S$ at about a hundred zeros above the turning height. The primes enter only through $S$. This is the linear response formula that the programme of Chapter~\ref{b:ch:chain} asked for. It does not bound $\lambda_j$.
 
-\paragraph{The inverse half has a linear form.} Computation~\ref{pp:comp:norm} shows the response of the rates to the zeros bounded at the levels checked, in the natural units. Conjecture~\ref{pp:conj:norm} states this for all levels, and its proof would be the linearised inverse half of the law.
-
-\paragraph{What would change the assessment.} Signs that a route is opening: a closed form or a sign preserving recurrence for the rates of a function with fluctuating zeros; a formula for the fluctuation that is exact at first order and tested on the control; any inequality for $\xi$ that is sharp along the heat flow and false for the control at the correct height. Signs that the path is closed: a proof that the fluctuation is unbounded below along some sequence for functions in a class that contains $\xi$; a demonstration that the map from zeros to rates is so unstable that no formula in terms of smooth data can control it; or a second control, with an Euler product of a weaker kind, that passes every structural test the chain can pose and still has zeros off the line. Further finite computation in agreement with RH would not change it, since it is shared by the control up to the height of its first bad zero.
+\paragraph{What would change the assessment.} A route would open with a closed form or a sign preserving recurrence for the rates of a function with fluctuating zeros, or an inequality for $\xi$ that is sharp along the heat flow and false for the control at the correct height; the path would close with a proof that the fluctuation is unbounded below for a class containing $\xi$, or a second control that passes every structural test the chain can pose and still has zeros off the line. Further finite computation in agreement with RH would not change it, since it is shared by the control up to the height of its first bad zero.
 
 \begin{table}[ht]
 \centering\small
@@ -294,9 +283,9 @@ Three conclusions follow.
 \toprule
 route & milestone & status\\
 \midrule
-B & linear response of the rates to one zero & proved: exact formula (Theorem~\ref{pp:thm:lr}); response computed to be smooth, not local, carried by the zeros above the turning height\\[2pt]
-B & inverse half of the law & linear form stated (Conjecture~\ref{pp:conj:norm}) and computed at eight levels up to $1900$\\[2pt]
-B & two negative rates per pair & proved from one local sign change of $r_n$ and of $r'_n$ (Proposition~\ref{pp:prop:two}); the control read from its zeros (computed)\\[2pt]
+B & linear response of the rates to one zero & proved: exact formula (Theorem~\ref{pp:thm:lr}); response computed to be smooth, not local\\[2pt]
+B & inverse half of the law & linear form stated (Conjecture~\ref{pp:conj:norm}), computed at eight levels\\[2pt]
+B & two negative rates per pair & proved from one local sign change (Proposition~\ref{pp:prop:two})\\[2pt]
 C & the chain across a collision & computed for an isolated pair: blind to approach, certain after, depth logarithmic in $\eta$\\[2pt]
 B & all rates positive in one nonclassical model & open\\
 \bottomrule

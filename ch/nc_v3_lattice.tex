@@ -1,0 +1,299 @@
+% Chapter lt: the lattice inequality. Source: misc/reviews/nick-chebyshev-rh/full/chebyshev_and_rh.tex (Part III second half, Part IV, Conclusion), report misc/research/directions/opus/vol3/CRH.md, overlap map CRH_overlap.md, 25 Nov 2026. Notation: G of the draft is the Riesz mean \mathcal G of qt:eq:riesz, c* of the draft is F_0, the lattice sum S(n) of the draft is written \Sigma(n), the character psi of the draft is omega. Numbers marked CRH-CHECK are to be replaced by the Hopper values.
+
+\emph{What this chapter proves.} The Riesz mean $\mathcal G$ of equation~\eqref{qt:eq:riesz} is $\mathcal G(y)=\sum_{n\le y}\Lambda(n)(y/n-1)-y\log y+(1+\gamma)y$, and $F_0=2+\gamma-\log4\pi=0.0461914$. RH holds if and only if $\mathcal G(y)\le C\,y^{1/2+\varepsilon}$ for all large $y$ (Proposition~\ref{qt:prop:riesz}). We turn this one sided bound into a statement about integers only: a weighted count $\Sigma(n)$ of lattice points under a hyperbola is never below its leading term, for large $n$ (Theorem~\ref{lt:thm:clean}). The reduction uses the convexity of $\mathcal G+y\log y$, an exact hyperbola identity, and the window criterion of Theorem~\ref{mq:thm:window}. The inequality itself is not proved. It holds in a long computed range (Theorem~\ref{lt:thm:cleanrange}), and a finite range can never prove RH. Nothing in this chapter proves RH.
+
+\section{Sparse sampling by a chord bound}\label{lt:sec:chord}
+
+\begin{theorem}[Chord bound]\label{lt:thm:chord}
+For $1\le a\le y\le b$,
+\[
+\mathcal G(y)\ \le\ \max\{\mathcal G(a),\mathcal G(b)\}+\frac{(b-a)^2}{8a}.
+\]
+Consequently, if $\tfrac12\le\theta<1$ and $y_1<y_2<\dots\to\infty$ satisfy $y_{i+1}-y_i\le c\,y_i^{(1+\theta)/2}$ and $\mathcal G(y_i)\le A\,y_i^\theta$ for all $i$, then $\mathcal G(y)\le(A+\tfrac18c^2)(1+o(1))\,y^\theta$ for all $y\ge y_1$.
+\end{theorem}
+
+\begin{proof}
+$\mathcal G(y)+y\log y-(1+\gamma)y=\sum_n\Lambda(n)(y/n-1)_+$ is convex, as a sum of ramps with nonnegative weights, so it lies below its chord on $[a,b]$. The function $y\log y$ lies below its chord by at most $(b-a)^2/(8a)$, and the linear terms cancel.
+\end{proof}
+
+\begin{corollary}[Fourth powers]\label{lt:cor:fourth}
+RH holds if and only if for every $\varepsilon>0$ there is $C$ with $\mathcal G(n^4)\le C\,n^{2+\varepsilon}$ for all integers $n\ge1$. More precisely, if $\mathcal G(y)\le\log2\pi+A\sqrt y$ at the points $y=(n/m)^4$, $n\ge m$, then $\mathcal G(y)\le\log2\pi+(A+2/m^2)(1+o(1))\sqrt y$ for all $y$.
+\end{corollary}
+
+\begin{proof}
+The gap between consecutive fourth powers is $4n^3(1+O(1/n))=4y^{3/4}(1+o(1))$, so the chord term is $2\sqrt y\,(1+o(1))$. Then use Proposition~\ref{qt:prop:riesz}. The converse is the bound under RH.
+\end{proof}
+
+So the one sided bound is needed only at points with gaps $y^{3/4}$, about $Y^{1/4}$ points below $Y$. For a quasi Riemann hypothesis with exponent $\theta$ the sampling set is $n^{2/(1-\theta)}$.
+
+\section{The multiplicity $q$ hyperbola identity}\label{lt:sec:hyp}
+Let $\Delta(u)=\psi(u)-u$ with $\psi$ Chebyshev's function, $B_1(x)=\{x\}-\tfrac12$, $E(y)=\log\lfloor y\rfloor!-y\log y+y$, $H_q$ the harmonic number, and for an integer $q\ge1$
+\begin{gather*}
+T_q(z)=\sum_{j=1}^{q-1}\Delta\Big(\frac{qz}j\Big)+\frac12\Delta(z),\qquad W_q(z)=\sum_{n\le z}\Lambda(n)\,B_1\Big(\frac{qz}n\Big),\\
+\varepsilon_q=\gamma+\log q-H_q+\frac1{2q}=\frac1{12q^2}+O(q^{-4}).
+\end{gather*}
+
+\begin{theorem}[Multiplicity $q$ identity]\label{lt:thm:hyp}
+For every integer $q\ge1$ and every real $z\ge1$,
+\[
+\mathcal G(z)=-\frac1q\,T_q(z)+\frac1q\,W_q(z)+z\,\varepsilon_q+\frac{E(qz)}q .
+\]
+\end{theorem}
+
+\begin{proof}
+Put $y=qz$. In Chebyshev's identity $\log\lfloor y\rfloor!=\sum_{j\ge1}\psi(y/j)$ split the sum at $j=q$. The tail is $\sum_{n\le z}\Lambda(n)(\lfloor y/n\rfloor-q+1)$, and $\lfloor y/n\rfloor=qz/n-\{y/n\}$, so the tail equals $q\sum_{n\le z}\Lambda(n)(z/n-1)+\psi(z)-\sum_{n\le z}\Lambda(n)\{y/n\}$. Insert the definition of $\mathcal G$, write $\psi(y/j)=y/j+\Delta(y/j)$, and collect terms.
+\end{proof}
+
+This is Dirichlet's hyperbola method applied to $\Lambda*1=\log$, with the remainder kept exact. At $q=1$ it is the identity of Proposition~\ref{sw:prop:floor}. The errors of $\psi$ at the nodes enter as the signed sum $T_q$, not as a sum of absolute values. And $T_q$ is a weighted count of lattice points under a hyperbola: $\sum_{j\le q}\psi(qz/j)=\sum_n\Lambda(n)\,\#\{j\le q:\ jn\le qz\}$.
+
+\begin{corollary}[Why $\sqrt z$]\label{lt:cor:sqrt}
+$|W_q(z)|\le\tfrac12\psi(z)$. Hence for $q=\lceil\sqrt z\rceil$ and large $z$,
+\[
+\Big|\mathcal G(z)+\frac1q\,T_q(z)\Big|\ \le\ \frac{\psi(z)}{2\sqrt z}+O(1)\ \le\ 0.53\sqrt z .
+\]
+The sawtooth term reaches the target scale $\sqrt z$ by the trivial bound exactly when the multiplicity is of order $\sqrt z$.
+\end{corollary}
+
+\section{A one sided window bound}\label{lt:sec:win}
+
+\begin{lemma}[Convexity]\label{lt:lem:conv}
+For $0<w<z$,
+\[
+\mathcal G(z)\ \le\ \frac1{2w}\int_{z-w}^{z+w}\mathcal G(t)\,dt+\frac{w^2}{6(z-w)} .
+\]
+\end{lemma}
+
+\begin{proof}
+A convex function is at most its mean over a symmetric interval, and the mean of $t\log t$ over the interval exceeds its value at the centre by at most $w^2/(6(z-w))$.
+\end{proof}
+
+\begin{theorem}[One sided window bound]\label{lt:thm:win}
+Let $q\ge1$ be an integer, $0<w\le z/2$, and $\overline T_q(z)=\frac1{2w}\int_{z-w}^{z+w}T_q(t)\,dt$. Then
+\[
+\mathcal G(z)\ \le\ -\frac1q\,\overline T_q(z)+\frac{(z+w)\,\psi(z+w)}{16\,q^2w}+\frac{z+w}{12q^2}+\frac{w^2}{6(z-w)}+O\Big(\frac{\log(qz)}q\Big).
+\]
+With $w=z\,(3/16q^2)^{1/3}$ the first and third error terms are $0.164\,z\,q^{-4/3}(1+o(1))$ and the second is smaller. In particular for $q=z^{3/8}$ and $w\approx0.57\,z^{3/4}$ one has $\mathcal G(z)\le-\frac1q\overline T_q(z)+0.17\sqrt z$ for large $z$.
+\end{theorem}
+
+\begin{proof}
+Average Theorem~\ref{lt:thm:hyp} over the window and use Lemma~\ref{lt:lem:conv}. The integral of $B_1(qt/n)$ over any interval is at most one eighth of its period $n/q$, so the mean of $W_q$ is at most $\sum_{n\le z+w}\Lambda(n)\,n/(16qw)$.
+\end{proof}
+
+\begin{corollary}[Reduction]\label{lt:cor:red}
+If for every $\varepsilon>0$ there is $C$ with $\overline T_q(z)\ge-C\,q\,z^{1/2+\varepsilon}$ for $q=\lfloor z^{3/8}\rfloor$, $w=z(3/16q^2)^{1/3}$ and large $z$, then RH holds.
+\end{corollary}
+
+The condition is a one sided bound on a smooth sum over the lattice points $(j,n)$ with $j\le q$ under the hyperbola $jn\le qz$, with weight $\Lambda(n)$. Since Theorem~\ref{lt:thm:hyp} is an identity, it is equivalent in strength to the one sided bound on $\mathcal G$, so nothing has been proved. What has changed is the form: a smoothed lattice point count of multiplicity a power of $z$, bounded from one side.
+
+\section{An integer criterion}\label{lt:sec:int}
+By Corollary~\ref{lt:cor:fourth} the one sided bound is needed at fourth powers only. Put $z=n^4$ and $q=n^2$ in Theorem~\ref{lt:thm:hyp}.
+
+\begin{theorem}[Lattice criterion]\label{lt:thm:int}
+Let
+\[
+\Sigma(n)=\sum_{m\le n^6}\Lambda(m)\,\min\Big\{n^2,\Big\lfloor\frac{n^6}m\Big\rfloor\Big\}=\sum_{j\le n^2}\psi\Big(\frac{n^6}j\Big).
+\]
+RH holds if and only if for every $\varepsilon>0$ there is $C$ such that for all integers $n\ge1$
+\[
+\Sigma(n)\ \ge\ n^6\,(2\log n+\gamma)-C\,n^{4+\varepsilon}.
+\]
+\end{theorem}
+
+\begin{proof}
+With $z=n^4$, $q=n^2$: $T_q(z)=\Sigma(n)-qzH_{q-1}-\tfrac12\psi(z)-\tfrac12z$ and $qzH_{q-1}=n^6(2\log n+\gamma)-\tfrac12n^4+O(n^2)$, so $T_q(z)=\Sigma(n)-n^6(2\log n+\gamma)+O(n^4)$. By Corollary~\ref{lt:cor:sqrt}, $\mathcal G(n^4)=-T_q/n^2+O(n^2)$. So the displayed inequality is $\mathcal G(n^4)\le C'n^{2+\varepsilon}$, which is equivalent to RH by Corollary~\ref{lt:cor:fourth}. Under RH, $\mathcal G(n^4)=O(n^2)$ and the inequality holds with $\varepsilon=0$.
+\end{proof}
+
+The sum $\Sigma(n)$ counts the lattice points $(j,m)$ with $j\le n^2$ under $jm\le n^6$, with weight $\Lambda(m)$. The criterion is one sided, has integer parameters only, and involves no zeros. Put $\kappa_n=[n^6(2\log n+\gamma)+\tfrac12n^4-\Sigma(n)]/n^4$. The criterion says $\kappa_n\le Cn^\varepsilon$, and $\kappa_n$ tracks $\mathcal G(n^4)/n^2$.
+
+\begin{proposition}[Three faces of $\Sigma(n)$]\label{lt:prop:faces}
+Let $x=n^6$, $q=n^2$, $z=n^4$.
+\begin{enumerate}
+\item \emph{Lattice.} $\Sigma(n)=\sum\Lambda(m)$ over the lattice points $(j,m)$ with $j\le q$ and $jm\le x$.
+\item \emph{Primes to $n^4$.} $\Sigma(n)=\log(x!)+q\,\psi(z)-\sum_{m\le z}\Lambda(m)\lfloor x/m\rfloor$.
+\item \emph{Large prime factors.} $\Sigma(n)=\sum_{k\le x}L_q(k)$, where $L_q(k)=\sum_{d\mid k,\ d\ge k/q}\Lambda(d)$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(1) is the definition. (2): $\sum_m\Lambda(m)\lfloor x/m\rfloor=\log x!$, and $\min\{q,\lfloor x/m\rfloor\}$ equals $q$ for $m\le z$ and $\lfloor x/m\rfloor$ beyond. (3): group the lattice points by $k=jm$.
+\end{proof}
+
+
+\begin{proposition}[Mertens against Chebyshev]\label{lt:prop:MD}
+Let $M(y)=\sum_{m\le y}\Lambda(m)/m-\log y+\gamma$. Then $\mathcal G(y)=y\,M(y)-\Delta(y)$.
+\end{proposition}
+
+So the one sided bound says that $y$ times the Mertens error never exceeds the Chebyshev error by more than $C\sqrt y$. Under RH each of the two is of order $\sqrt y\log^2y$, with a conditionally convergent sum over zeros, and their difference has the absolutely convergent sum $\sum y^\rho/(\rho(1-\rho))$. In Table~\ref{lt:tab:data} for $n\ge10$, the two terms are five to two hundred times larger than $|\mathcal G|$ (computed).
+
+\begin{table}[h]
+\centering\footnotesize
+\begin{tabular}{rccccc}
+\toprule
+$n$ & $\kappa_n$ & $\mathcal G(n^4)/n^2$ & $K_n$ & $zM(z)/n^2$ & $\Delta(z)/n^2$\\
+\midrule
+6 & $0.0536$ & $0.0527$ & $0.0016$ & $-0.029$ & $-0.082$\\
+10 & $0.0184$ & $0.0175$ & $-0.0009$ & $0.152$ & $0.134$\\
+17 & $0.0075$ & $0.0043$ & $-0.0020$ & $0.193$ & $0.189$\\
+25 & $0.0106$ & $0.0122$ & $0.0092$ & $-0.125$ & $-0.137$\\
+40 & $-0.0004$ & $-0.0019$ & $-0.0030$ & $-0.333$ & $-0.331$\\
+55 & $0.0074$ & $0.0077$ & $0.0071$ & $-0.038$ & $-0.046$\\
+74 & $-0.0120$ & $-0.0122$ & $-0.0125$ & $0.101$ & $0.114$\\
+\bottomrule
+\end{tabular}
+\caption{(Computed, sieve to $3\cdot10^7$, $z=n^4$, $K_n=(\mathcal G(z)-\log2\pi)/\sqrt z$.) For $6\le n\le74$: $-0.0158\le\kappa_n\le0.0536$ and $|\kappa_n-\mathcal G(n^4)/n^2|\le0.0085$. The bound under RH is $K_n\le F_0=0.0462$.}\label{lt:tab:data}
+\end{table}
+
+\section{RH from one lattice inequality}\label{lt:sec:main}
+
+\begin{theorem}[RH from one lattice inequality]\label{lt:thm:main}
+Let $\tfrac12\le\theta<1$. Suppose there is $C$ such that for all integers $n\ge1$
+\[
+\Sigma(n)\ \ge\ n^6\,(2\log n+\gamma)-C\,n^{2+4\theta}.
+\]
+Then $\zeta(s)\ne0$ for $\Re\,s>\theta$. If this holds for every $\theta>\tfrac12$, with $C$ depending on $\theta$, then RH holds. Conversely RH implies the inequality with $\theta=\tfrac12$.
+\end{theorem}
+
+\begin{proof}
+\emph{Identity.} With $z=n^4$, $q=n^2$, Theorem~\ref{lt:thm:hyp} and Corollary~\ref{lt:cor:sqrt} give $\mathcal G(n^4)=-T_q(n^4)/n^2+O(n^2)$, and $T_q(n^4)=\Sigma(n)-n^6(2\log n+\gamma)+O(n^4)$ as in the proof of Theorem~\ref{lt:thm:int}. So the hypothesis gives $\mathcal G(n^4)\le C'n^{4\theta}$ for all $n$. \emph{Convexity.} For $n^4\le y\le(n+1)^4$, Theorem~\ref{lt:thm:chord} gives $\mathcal G(y)\le\max\{\mathcal G(n^4),\mathcal G((n+1)^4)\}+2\sqrt y\,(1+o(1))$, and $\theta\ge\tfrac12$, so $\mathcal G(y)\le C''y^\theta$ for all large $y$. \emph{Landau.} Proposition~\ref{qt:prop:riesz}, items (2) and (1). \emph{Converse.} Under RH, $\mathcal G(y)-\log2\pi\le F_0\sqrt y$ (Theorem~\ref{qt:thm:sharp}), so $T_q(n^4)=O(n^4)$.
+\end{proof}
+
+The proof uses $\Lambda\ge0$ in the trivial bound on the sawtooth term, in the convexity of the ramp sum, and in Landau's theorem inside Proposition~\ref{qt:prop:riesz}, and no zero of $\zeta$ or computation.
+
+\subsection*{Windows are enough}
+Theorem~\ref{lt:thm:main} asks for the inequality at every $n$, which is more than is needed. The window form of Landau's lemma is the book's Theorem~\ref{mq:thm:window} (Corollary~\ref{mq:hyp:window} for the window $[Y,Y^{3/2}]$): if $\mathcal G(x)\le K(Y)x^\theta$ on $[Y,Y^{c}]$ for arbitrarily large $Y$, with $c>1$ and $\log^+K(Y)=o(\log Y)$, then $\zeta(s)\ne0$ for $\Re\,s>\theta$. Corollary~\ref{mq:cor:logwindow} shows that windows with only $\log(Z/Y)\to\infty$ would do; we state the results for $[N,N^{1+\delta}]$.
+
+\begin{theorem}[Integrated window form]\label{lt:thm:intwin}
+Let $0<\theta<1$ and $\delta>0$. Suppose that for every $\eta>0$ there are arbitrarily large $Y$ with
+\[
+\int_Y^{Y^{1+\delta}}\mathcal G(y)_+\,y^{-\theta-1}\,dy\ \le\ Y^\eta .
+\]
+Then $\zeta(s)\ne0$ for $\Re\,s>\theta$.
+\end{theorem}
+
+\begin{proof}
+Put $g(u)=\mathcal G(e^u)$ and $F(s)=\int_0^\infty g(u)e^{-su}du$. By equation~\eqref{qt:eq:riesz}, $F$ is meromorphic in $\Re\,s>0$, its poles there are the zeros $\rho$ of $\zeta$ with residue $m_\rho/(\rho(1-\rho))\ne0$, and $g(u)\ll ue^{u}$. For $\sigma>2$, real $t$ and $k\ge0$ let $A_k(t)=\frac{(-1)^k}{k!}F^{(k)}(\sigma+it)=\int_0^\infty\frac{u^k}{k!}g(u)e^{-\sigma u}e^{-itu}du$. Since $g$ is real, $|A_k(t)|+A_k(0)\le2\int_0^\infty\frac{u^k}{k!}g(u)_+e^{-\sigma u}du$: only the positive part of $g$ enters, which is why one sided information suffices.
+
+\emph{Upper bound.} The weight $q^{k+1}u^ke^{-qu}/k!$ is a gamma density with mean $(k+1)/q$. Let $U=\log Y$ and $k=\lfloor q(1+\delta/2)U\rfloor$. By Cram\'er's bound its mass outside $[U,(1+\delta)U]$ is at most $2e^{-ck}$ with $c=c(\delta)>0$. Choose $q$ with $\log((q+2)/q)<c$ and put $\sigma=q+2$, $R=\sigma-\theta$. Outside the window $g\ll e^{2u}$ contributes $\ll\sigma^{-k}$. On the window,
+\[
+\int_U^{(1+\delta)U}\frac{u^k}{k!}g_+e^{-\sigma u}du\le\max_u\Big(\frac{u^k}{k!}e^{-Ru}\Big)\int_U^{(1+\delta)U}g_+e^{-\theta u}du\le R^{-k}e^{\eta U},
+\]
+because the maximum is $(k/R)^ke^{-k}/k!\le R^{-k}$. As $k\ge U$ this is at most $(Re^{-\eta})^{-k}$. So along a sequence $k\to\infty$, uniformly in $t$, $|A_k(t)|+A_k(0)\ll(Re^{-\eta})^{-k}$.
+
+\emph{Lower bound.} Suppose $\zeta(\rho_0)=0$ with $\Re\,\rho_0>\theta$. There are no real poles. Let $D$ be the distance from $\sigma$ to the nearest pole. If $D<R$, move the centre up the line $\Re\,s=\sigma$ towards a nearest pole, and if $D\ge R$ to the height of $\rho_0$. After a small perturbation we get $z=\sigma+it$ and a unique nearest pole $\rho$ with $d=|z-\rho|<\min\{R,D\}$. Fix $r$ with $d<r<\min\{R,D\}$ and less than the distance from $z$ to every other pole, and then $\eta$ so small that $r<Re^{-\eta}$. Subtracting the principal part and using Cauchy's estimates on discs of radius $r$ about $z$ and $\sigma$, $A_k(t)=c/(z-\rho)^{k+1}+O(r^{-k})$ and $A_k(0)=O(r^{-k})$. So $|A_k(t)|+A_k(0)\ge|c|d^{-k-1}-O(r^{-k})$, which contradicts the upper bound because $d<r<Re^{-\eta}$.
+\end{proof}
+
+A pointwise bound $\mathcal G\le Cy^\theta$ on the window gives the integral at most $C\delta\log Y$, so Theorem~\ref{lt:thm:intwin} contains the pointwise window form.
+
+\begin{theorem}[RH from the lattice inequality on windows]\label{lt:thm:mainwin}
+Let $\tfrac12\le\theta<1$, $\delta>0$, $C\ge0$. Suppose there are arbitrarily large $N$ with $\Sigma(n)\ge n^6(2\log n+\gamma)-C\,n^{2+4\theta}$ for all integers $n\in[N,N^{1+\delta}]$. Then $\zeta(s)\ne0$ for $\Re\,s>\theta$, and if this holds for every $\theta>\tfrac12$ then RH holds.
+\end{theorem}
+
+\begin{proof}
+The first two steps of the proof of Theorem~\ref{lt:thm:main} are local: they give $\mathcal G(y)\le C''y^\theta$ for $N^4\le y\le N^{4(1+\delta)}$, with $C''$ independent of $N$, except that the chord at the top end needs a slightly smaller $\delta$. Apply Theorem~\ref{mq:thm:window} with $Y=N^4$.
+\end{proof}
+
+\begin{proposition}[Three forms of the window bound]\label{lt:prop:three}
+Fix $\delta>0$. The following are equivalent, without any hypothesis on zeros, and each implies RH.
+\begin{enumerate}
+\item For every $\eta>0$ there are arbitrarily large $Y$ with $\mathcal G(x)\le x^{1/2+\eta}$ on $[Y,Y^{1+\delta}]$.
+\item For every $\eta>0$ there are arbitrarily large $Y$ with $\mathcal G(n^4)\le n^{2+4\eta}$ for all integers $n$ with $n^4\in[Y,Y^{1+\delta}]$.
+\item For every $\eta>0$ there are arbitrarily large $N$ with $\Sigma(n)\ge n^6(2\log n+\gamma)-n^{4+4\eta}$ for all integers $n\in[N,N^{1+\delta}]$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(1) gives (2) at once. (2) gives (1) by Theorem~\ref{lt:thm:chord}, the chord term $2\sqrt y$ being absorbed by a larger $\eta$ and a slightly smaller $\delta$. (2) and (3) are the same by $\mathcal G(n^4)=-[\Sigma(n)-n^6(2\log n+\gamma)]/n^2+O(n^2)$. Each implies RH by Theorem~\ref{mq:thm:window}, and RH gives (1) and (2) for all large $Y$ by Theorem~\ref{qt:thm:sharp}, and (3) for all large $N$ by Theorem~\ref{lt:thm:clean}, which closes the equivalence at the same $\delta$.
+\end{proof}
+
+\begin{theorem}[Mean lattice criterion]\label{lt:thm:mean}
+Let $D(n)=n^6(2\log n+\gamma)-\Sigma(n)$, $\tfrac12<\theta<1$ and $\delta>0$. Suppose that for every $\eta>0$ there are arbitrarily large $N$ with $\sum_{N\le n\le N^{1+\delta}}D(n)_+\,n^{-3-4\theta}\le N^\eta$. Then $\zeta(s)\ne0$ for $\Re\,s>\theta$, and if this holds for every $\theta>\tfrac12$ then RH holds. Under RH the sum is bounded.
+\end{theorem}
+
+\begin{proof}
+For $n^4\le y\le(n+1)^4$, Theorem~\ref{lt:thm:chord} gives $\mathcal G(y)_+\le\mathcal G(n^4)_++\mathcal G((n+1)^4)_++3n^2$, and $\mathcal G(n^4)_+\le D(n)_+/n^2+Cn^2$ by the identity of Theorem~\ref{lt:thm:int}. The interval has length $4n^3(1+o(1))$ and on it $y^{-\theta-1}\le n^{-4\theta-4}$. Each $D(n)$ enters two intervals, so $\int_{N^4}^{N^{4(1+\delta)}}\mathcal G_+y^{-\theta-1}dy\le9\sum D(n)_+n^{-3-4\theta}+C'\sum_{n\ge N}n^{1-4\theta}$, and the last sum is bounded because $\theta>\tfrac12$. Apply Theorem~\ref{lt:thm:intwin} with $Y=N^4$ and a slightly smaller $\delta$.
+\end{proof}
+
+So the lattice inequality may fail at some $n$ if the weighted positive deficits over a window stay below a small power of $N$.
+
+\section{The clean criterion}\label{lt:sec:clean}
+Heuristically, if the fractional parts $\{n^6/m\}$ are equidistributed, $\Sigma(n)$ is about $n^6(2\log n+\gamma)+\tfrac12n^4$. The term $\tfrac12n^4$ is an allowance that turns out to be enough. Write $W(n)=W_{n^2}(n^4)$.
+
+\begin{proposition}[Exact deficit]\label{lt:prop:deficit}
+Let $Q(n)=\sum_{m\le n^4}\Lambda(m)\{n^6/m\}=W(n)+\tfrac12\psi(n^4)$. Then exactly, for every $n\ge1$,
+\[
+\Sigma(n)-n^6\,(2\log n+\gamma)\ =\ Q(n)+E(n^6)-n^2\,\mathcal G(n^4),
+\]
+and unconditionally $W(n)=O(n^{10/3+\varepsilon})$ for every $\varepsilon>0$, so $Q(n)=\tfrac12n^4+o(n^4)$. The weaker bound $Q(n)\ge(\tfrac18-o(1))\,n^4$ has an explicit form, used in Theorem~\ref{lt:thm:cleanrange}.
+\end{proposition}
+
+\begin{proof}
+With $z=n^4$, $q=n^2$: $\Sigma(n)=T_q+qzH_{q-1}+\tfrac12\psi(z)+\tfrac12z$ and $\log q+\gamma-H_{q-1}=\varepsilon_q+1/(2q)$, so $D(n)=qz\varepsilon_q-T_q-\tfrac12\psi(z)$. Theorem~\ref{lt:thm:hyp} gives $-T_q=q\mathcal G-W_q-qz\varepsilon_q-E(qz)$, hence $D(n)=n^2\mathcal G(n^4)-W(n)-\tfrac12\psi(n^4)-E(n^6)$ with no remainder. For the bounds let $x=n^6$. Prime powers and $m\le z/\log z$ contribute $o(z)$. For a prime $p\in(z/\log z,z]$ and $0<\tau<1$, the condition $\{x/p\}<\tau$ puts $p$ in an interval $(x/(a+\tau),x/a]$ with $a$ an integer, $n^2\le a\le n^2\log z$, of length $Y_a=\tau x/(a(a+\tau))\ge\tau n^2/\log^2z$. By the Brun and Titchmarsh inequality in the form of Montgomery and Vaughan \cite{MV73} it holds at most $2Y_a/\log Y_a=(4+o(1))Y_a/\log z$ primes. Summing over $a$, the primes with $\{x/p\}<\tau$ carry weight $\sum\log p\le(4+o(1))\tau z$. So the distribution function $F$ of $\{x/p\}$ with weights $\log p$ and mass $(1+o(1))z$ satisfies $F(\tau)\le(4+o(1))\tau$, and its mean is at least $\int_0^{1/4}(1-4\tau)d\tau-o(1)=\tfrac18-o(1)$. For the asymptotic split $m\le z$ into the blocks $(z/2^{k+1},z/2^k]$. On each block with $z/2^{k+1}\ge x^{6/13}$, Proposition~4.1 of \cite{LWY21} bounds $\sum\Lambda(m)B_1(x/m)$ by $O_\varepsilon((x^2z^7)^{1/12}x^\varepsilon)=O(n^{10/3+6\varepsilon})$, because $z=x^{2/3}$. There are $O(\log n)$ blocks, and the remaining $m\le2x^{6/13}$ contribute $O(n^{36/13})$. Hence $W(n)=O(n^{10/3+\varepsilon})$ and $Q(n)=W(n)+\tfrac12\psi(n^4)=\tfrac12n^4+o(n^4)$.
+\end{proof}
+
+
+\begin{theorem}[Clean lattice criterion]\label{lt:thm:clean}
+The following are equivalent.
+\begin{enumerate}
+\item RH.
+\item $\Sigma(n)\ge n^6\,(2\log n+\gamma)$ for all sufficiently large integers $n$.
+\item For some $\delta>0$ there are arbitrarily large $N$ with $\Sigma(n)\ge n^6\,(2\log n+\gamma)$ for all integers $n\in[N,N^{1+\delta}]$.
+\end{enumerate}
+Under RH, moreover, $\Sigma(n)\ge n^6(2\log n+\gamma)+(\tfrac12-F_0-o(1))\,n^4$, with $\tfrac12-F_0=0.4538$, and the constant cannot be increased.
+\end{theorem}
+
+\begin{proof}
+(2) gives (3). (3) gives (1) by Theorem~\ref{lt:thm:mainwin} with $C=0$ and $\theta=\tfrac12$. For (1) to (2): under RH, $\mathcal G(n^4)\le\log2\pi+F_0n^2$ (Theorem~\ref{qt:thm:sharp}), valid with multiple zeros because $F_0=\sum_\rho1/(\rho(1-\rho))$ counts them. By Proposition~\ref{lt:prop:deficit}, $D(n)\le n^2\mathcal G(n^4)-Q(n)\le n^2\log2\pi+(F_0-\tfrac12+o(1))\,n^4<0$ for large $n$. For the constant: under RH, $\frac{d}{dy}\mathcal G(y)=M(y)=(\mathcal G+\Delta)/y=O(y^{-1/2}\log^2y)$ (by the definition of $\mathcal G$ and Proposition~\ref{lt:prop:MD}), so $\mathcal G$ moves by $O(y^{1/4}\log^2y)=o(\sqrt y)$ between consecutive fourth powers, and $\limsup\mathcal G(y)/\sqrt y=F_0$ (Theorem~\ref{qt:thm:sharp}) holds along $y=n^4$. With $E(n^6)=O(\log n)$ the identity gives $\liminf_n[\Sigma(n)-n^6(2\log n+\gamma)]/n^4=\tfrac12-F_0$.
+\end{proof}
+
+So RH is the statement that a weighted count of lattice points under a hyperbola is never below its leading term: for every large $n$, $\sum_{j\le n^2}\psi(n^6/j)\ge n^6(2\log n+\gamma)$. There is no constant to choose, no $\varepsilon$, no zero and no character. The inequality has room: its margin is $\tfrac12n^4$ (computed $Q(n)/n^4\ge0.4959$ for $10\le n\le100$), the sawtooth uses only $o(n^4)$ of it (Proposition~\ref{lt:prop:deficit}), and the zeros, under RH, at most $F_0n^4=0.046\,n^4$.
+
+\begin{theorem}[The clean inequality in a computed range]\label{lt:thm:cleanrange}
+(Computed; ball arithmetic for $n\ge100$.) $\Sigma(n)\ge n^6(2\log n+\gamma)$ for every integer $2\le n\le1.4\cdot10^{11}$.
+\end{theorem}
+
+\begin{proof}
+By the exact identity it is enough that $n^2\mathcal G(n^4)<Q(n)+E(n^6)$, and $E>0$ at integers.
+
+\emph{$2\le n\le100$.} Direct evaluation in floating point, with wide margins, of $\mathcal G(n^4)$, $Q(n)$ and $E(n^6)$ from the prime powers up to $10^8$: the largest value of $D(n)/n^4$ is $-0.127$, at $n=2$, and for $10\le n\le100$, $Q(n)/n^4\ge0.4959$ while $\mathcal G(n^4)/n^2\le0.0198$.
+
+\emph{$100\le n\le1.4\cdot10^{11}$.} For $y=n^4\le3.9\cdot10^{44}$, Theorem~\ref{st:thm:cert} gives $\mathcal G(y)<\log2\pi+F_0\sqrt y$. For $Q$ we make the proof of Proposition~\ref{lt:prop:deficit} explicit. By the layer cake formula $Q(n)\ge\int_0^1[\vartheta(z)-N(\tau)]_+d\tau$, with $N(\tau)$ the sum of $\log p$ over primes $p\le z$ with $\{x/p\}<\tau$. For any $K>1$, $N(\tau)\le\vartheta(z/K)+\sum_{a=n^2}^{Kn^2}\log\frac xa\cdot\frac{2(Y_a+2)}{\log(Y_a+2)}$ with $Y_a=\tau x/a^2$, by \cite{MV73}. With $\vartheta(u)<1.000081\,u$ \cite{Schoenfeld76} and $\vartheta(z)\ge z(1-0.2/\log^2z)$ for $z\ge3594641$ \cite{Dusart10}, one bounds $N(\tau)$ on 150 geometric blocks of $a/n^2\in[1,K]$ with $K\in\{3,6,12,30\}$, and the layer cake integral by a lower Riemann sum over 240 cells of $\tau\in(0,\tfrac12]$. Each interval of $n$ (ratio $1.03$ up to $10^4$, $1.1$ above) is entered as one ball, so no monotonicity in $n$ is needed. In ball arithmetic this gives $Q(n)\ge c\,n^4$ with $c\ge0.0590$ on $[100,1.4\cdot10^{11}]$, the minimum at $n=100$, about $0.083$ near $10^3$ and $0.109$ at the top (computed).
+Since $(0.0590-F_0)\,n^4>n^2\log2\pi$, $n^2\mathcal G(n^4)<Q(n)$ on $[100,1.4\cdot10^{11}]$.
+\end{proof}
+
+Nothing is claimed for larger $n$. The range in $n$ grows linearly with the height to which RH is verified. At $n=1$ the inequality fails, since $\Sigma(1)=0<\gamma$.
+
+\subsection*{The multiplicity threshold}
+The identity does not need $z=n^4$ or $q=n^2$. For every integer $q\ge1$ and real $z\ge1$ the same proof gives $I_q(z):=\sum_{j\le q}\psi(qz/j)-qz(\log q+\gamma)=Q_q(z)+E(qz)-q\,\mathcal G(z)$, with $Q_q(z)=\sum_{m\le z}\Lambda(m)\{qz/m\}$ and $0\le Q_q(z)\le\psi(z)$. The larger the multiplicity, the smaller the envelope $(\psi(z)+E(qz))/q$, and so the stronger the bound on $\mathcal G$ that $I_q(z)\ge0$ gives.
+
+\begin{theorem}[Multiplicity threshold]\label{lt:thm:mult}
+Let $\lambda>0$ and $q=\lceil\lambda\sqrt z\,\rceil$.
+\begin{enumerate}
+\item If $I_q(z)\ge0$ for all large real $z$, or for all $z$ in windows $[Y,Y^{1+\delta}]$ with $Y$ arbitrarily large, then RH holds; in the first case $\limsup\mathcal G(z)/\sqrt z\le1/\lambda$.
+\item If RH holds and $\lambda<1/(2F_0)=10.82$, then $I_q(z)\ge0$ for all large $z$.
+\item If $\lambda>1/(2F_0)$, then $I_q(z)<0$ for arbitrarily large $z$, unconditionally.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(1) $\mathcal G(z)\le(\psi(z)+E(qz))/q\le(1+o(1))\sqrt z/\lambda$, then Theorem~\ref{mq:thm:window}; no convexity is needed since $z$ is real. (2) RH gives $q\mathcal G(z)\le(\lambda F_0+o(1))z$. For $\lambda<2.7$ the Brun and Titchmarsh argument of Proposition~\ref{lt:prop:deficit} gives $Q_q(z)\ge(\tfrac18-o(1))z>q\mathcal G(z)$. For $\lambda\ge1$ the dyadic argument there applies with $x=qz\ge z^{3/2}$, so every block lies below $x^{2/3}$ and $(x^2z^7)^{1/12}\ll z^{5/6}$: it gives $Q_q(z)=(\tfrac12+o(1))z>q\mathcal G(z)$. (3) If $I_q(z)\ge0$ for all large $z$, RH holds by (1). Then, as $\lambda>1$, $Q_q(z)=(\tfrac12+o(1))z$ as in (2), and $\limsup\mathcal G(z)/\sqrt z=F_0$ (Theorem~\ref{qt:thm:sharp}) gives $\liminf I_q(z)/z=\tfrac12-\lambda F_0<0$, a contradiction.
+\end{proof}
+
+So the threshold is exactly $q=\sqrt z/(2F_0)\approx10.8\sqrt z$: below it the family is RH, above it the family is false, and $q=n^2$ is the case $\lambda=1$. At $\lambda=1/(2F_0)$ the sign is not decided.
+
+\subsection*{Convexity for character sums}
+For a primitive character $\chi\ne1$ put $\mathcal G_\chi(y)=\sum_{n\le y}\Lambda(n)\chi(n)(y/n-1)+y\,L'(1,\chi)/L(1,\chi)$, and for a primitive character $\omega$ of order $r$ let $\mathcal G_\omega=\mathcal G+\frac1{3r+1}\sum_{\chi\ne1}\Re\,\mathcal G_\chi$, the sum over the primitive characters inducing $\omega,\dots,\omega^{r-1}$ (as described in \cite{ZhangR26}).
+
+\begin{proposition}[Convexity for character sums]\label{lt:prop:twist}
+Let $c(n)\ge0$ be bounded and $\mathcal G_c(y)=\sum_{n\le y}c(n)\Lambda(n)(y/n-1)-\kappa\,y\log y+\lambda y$ with $\kappa\ge0$. Then for $1\le a\le y\le b$, $\mathcal G_c(y)\le\max\{\mathcal G_c(a),\mathcal G_c(b)\}+\kappa(b-a)^2/(8a)$. This applies to $\mathcal G_\omega$ with $\kappa=1$ and $c(n)=1+\frac1{3r+1}\sum_{\chi\ne1}\Re\,\chi(n)\ge1-\frac1{3r+1}>0$. Hence a bound $\mathcal G_\omega(x)\le x^{1/2+\eta}$ on a window follows from the same bound at the fourth powers in the window, with a slightly larger $\eta$.
+\end{proposition}
+
+\begin{proof}
+$\sum c(n)\Lambda(n)(y/n-1)_+$ is a sum of convex functions with nonnegative weights, and the proof of Theorem~\ref{lt:thm:chord} uses nothing else. For the weights: the characters in the sum, with the trivial one, form a cyclic group; those unramified at a prime $p$ form a subgroup, and the sum of a subgroup of characters at a Frobenius power is its order or zero. So the sum over $\chi\ne1$ is at least $-1$.
+\end{proof}
+
+\section{What is known, what a proof must contain, and Alp\"oge's argument}\label{lt:sec:known}
+\emph{What is known.} The inequality holds with $\theta=\tfrac12$ in the computed range of Theorem~\ref{lt:thm:cleanrange}, and numerically $\kappa_n$ lies in $[-0.016,0.054]$ for $6\le n\le74$ (Table~\ref{lt:tab:data}). Since $\zeta(s)\ne0$ for $\Re\,s>\frac78$ \cite{OAI26a}, the absolutely convergent formula~\eqref{qt:eq:riesz} gives $\mathcal G(y)=O(y^{7/8})$, so by the identity of Theorem~\ref{lt:thm:int} the inequality of Theorem~\ref{lt:thm:main} holds for all $n$ with $\theta=\frac78$, that is with the error term $Cn^{11/2}$; no $\theta<\frac78$ is known, and by Theorem~\ref{lt:thm:main} any would be a new zero free half plane. A finite range can never suffice: a zero $\tfrac12+\delta_0+i\gamma_0$ contributes about $y^{1/2+\delta_0}/\gamma_0^2$ to $\mathcal G$, which exceeds $F_0\sqrt y$ only for $y>(F_0\gamma_0^2)^{1/\delta_0}$, so a bound on a finite range of $y$ sees only zeros far from the line. Lattice methods with prime weights can beat $\sqrt x$ when the weights are differenced \cite{LWY21}, but in $\Sigma(n)$ the smooth part is the Mertens sum, and by Proposition~\ref{lt:prop:MD} a power saving there is a zero free half plane.
+
+\emph{What a lattice proof must contain.} We do not have one. The criterion needs the constant $1$ in the main term, from one side, so it cannot go through a sieve (lower bound sieves stop at a positive proportion, upper bound sieves at a factor $2$, by the parity obstruction). The only positivity used here is $\Lambda\ge0$, through convexity, and it is exhausted: it gave the sparse form and the range $y\le10^{42}$ of Corollary~\ref{gbm:cor:zeta}. A proof needs a second positivity, on the count of integers with a large prime factor, or an exact identity at multiplicity $x^{1/3}$ relating $\sum_{k\le x}L_q(k)$ to the same sum at smaller arguments with nonnegative coefficients. We have not found an inequality there that beats the prime number theorem, and we list it as a direction. It need not bound $\mathcal G$ from below, treat every $y$, or find the sharp constant.
+
+\emph{The match with Alp\"oge's argument.} Alp\"oge has claimed a proof of RH, with a Lean formalisation; the claim is unverified, and we know it through the working draft of Rubinstein \cite{Rub26} and a preliminary note of Zhang \cite{ZhangR26}, neither checked by us. We have verified none of this, and every statement below about that argument is as described in those accounts. The statements match as follows. For the trivial character, the bound described in Proposition 1.2 of \cite{ZhangR26} is statement (1) of Proposition~\ref{lt:prop:three} with $\delta=\tfrac12$, so, if that claim holds, it is the lattice inequality for $\Sigma(n)$ on windows $N\le n\le N^{3/2}$, and Proposition~\ref{lt:prop:three} then gives RH. Our window criterion for $\zeta$ is Theorem~\ref{mq:thm:window}. The argued arithmetic estimate is said to be proved at every $x$ of the window, with parameters chosen anew at each $x$, and the analytic side would accept less: the bound is needed only at the fourth powers in each window (Proposition~\ref{lt:prop:twist}), and in a mean over the deficits (Theorem~\ref{lt:thm:mean}). Balancing the two main errors $z/q$ and $q$ in Corollary~\ref{lt:cor:sqrt} has the same arithmetic as the balance of the errors $x/m$ and $m$, with $m\approx\sqrt x$ the number of theta lifts, in the description; we do not claim that a theta lift is a row of the lattice sum. In the description the prime sum arises from the product formula for an automorphic period, whose upper bound comes from slopes of lattices of automorphic forms. In our language that is the second positivity of the previous paragraph. We have no substitute for it. Nothing in this chapter proves the window bound, nothing replaces the automorphic and Arakelov input of that argument, and nothing here checks it.

@@ -3,7 +3,7 @@
 
 Take a level $\alpha>\frac12$ and write $v_\alpha(r)=\Re\frac{\xi'}\xi(\alpha+ir)$ and $b_\alpha=\frac{\xi'}\xi(\alpha)$. The Thorin density of the level at height $r$ (the square root of an atom $\gamma^2$) is $v_\alpha(r)/\pi$, and $(v_\alpha(r)-b_\alpha)/\pi$ after compensation; the Thorin mass of a set of heights $B$ is $\pi^{-1}\int_Bv_\alpha\dd r$. RH holds exactly when $v_\alpha\ge b_\alpha$ on every level (Theorem~\ref{thm:dbeta:minall}(vi) and Proposition~\ref{ct:prop:qrh}). This chapter asks what can be proved on a level without RH. The answer is the classical zero density theorems, written as statements about Thorin measures with explicit constants, plus three things that we have not found in this form in the literature: positivity of the compensated density outside windows of width $9.08$ around offending zeros, a short proof of the finite height case, and a bound on how far a level can see. The chapter proves nothing about RH beyond what the zero density estimates already give.
 
-What is already in the book is cited and not reprinted. The set where the density is negative, its measure bound and the table of exponents are Theorem~\ref{bo:thm:negset} and Table~\ref{bo:tab:negset}; the fraction of negative mass is Theorem~\ref{ag:thm:almost}; the average of the density and the count of zeros to the right of a level is Theorem~\ref{bo:thm:meanvalue} and Proposition~\ref{prop:zerodensity}; the finite height positivity of every compensated level with $\alpha\le7.35$ is Theorem~\ref{thm:dbeta:minall}(ii) and Corollary~\ref{cor:dbeta:window}, which reach further than the proof given below; and the metaplectic forms and the family of shifted lattices belong to Chapter~\ref{mt:ch:meta}, where the Thorin transform of the Kolmogorov law and the shifted lattices, with the case $\lambda=\frac15$, are treated.
+What is already in the book is cited and not reprinted. The set where the density is negative, its measure bound and the table of exponents are Theorem~\ref{bo:thm:negset} and Table~\ref{bo:tab:negset}; the fraction of negative mass is Theorem~\ref{ag:thm:almost}; the average of the density and the count of zeros to the right of a level is Theorem~\ref{bo:thm:meanvalue} and Proposition~\ref{prop:zerodensity}; and the finite height positivity of every compensated level with $\alpha\le7.35$ is Theorem~\ref{thm:dbeta:minall}(ii) and Corollary~\ref{cor:dbeta:window}, which reach further than the proof given below.
 
 \section{The two zero lemma}\label{dz:sec:pair}
 Let $\rho=\beta+i\gamma$ run over the nontrivial zeros of $\zeta$ with multiplicity. By Hadamard's product for $\xi$,
@@ -34,7 +34,7 @@ The mass removed from the Thorin measure by the pair is at most
 \[
 m_\rho=\frac2\pi\Big(\arctan\sqrt{\tfrac{\alpha+\beta-1}{\beta-\alpha}}-\arctan\sqrt{\tfrac{\beta-\alpha}{\alpha+\beta-1}}\Big)=\frac2\pi\arcsin\frac{\alpha-\frac12}{\beta-\frac12}<1,
 \]
-which is the mass $\frac2\pi\arcsin\frac\varepsilon\delta$ of the proof of Theorem~\ref{ag:thm:almost}, with $\varepsilon=\alpha-\frac12$ and $\delta=\beta-\frac12$. As $\beta\downarrow\alpha$ the interval shrinks to a point while its mass tends to one unit. As $\alpha\uparrow1$ the interval shrinks to a point and the mass tends to one unit; for $\alpha\ge1$ there are no offending zeros. In words: each zero to the right of $\alpha$ removes less than one unit of Thorin mass, within distance $\frac12$ of its ordinate. Its localisation is Theorem~\ref{bo:thm:negset}, and the total negative mass on $[0,R]$ is at most $\sum_{\beta>\alpha,\,0<\gamma\le R+\frac12}m_\rho$, since the negative part of a sum is at most the sum of the negative parts.
+which is the mass $\frac2\pi\arcsin\frac\varepsilon\delta$ of the proof of Theorem~\ref{ag:thm:almost}, with $\varepsilon=\alpha-\frac12$ and $\delta=\beta-\frac12$. As $\alpha\uparrow1$ the interval shrinks to a point and the mass tends to one unit; for $\alpha\ge1$ there are no offending zeros. Its localisation is Theorem~\ref{bo:thm:negset}, and the total negative mass on $[0,R]$ is at most $\sum_{\beta>\alpha,\,0<\gamma\le R+\frac12}m_\rho$, since the negative part of a sum is at most the sum of the negative parts.
 
 \begin{lemma}[other zeros]\label{dz:lem:other}
 If $1-\alpha\le\beta\le\alpha$, the pair $\rho$, $1-\bar\rho$ (or the single zero if $\beta=\frac12$) contributes at least $c/(4c^2+d^2)$ per zero to \eqref{dz:eq:had}, where $d=r-\gamma$.
@@ -64,7 +64,6 @@ Let $\frac12<\alpha\le1$, $H=12.5$ and $r\ge139$. If no offending zero has $|\ga
 \begin{proof}
 Every offending pair has $|r-\gamma|\ge H>\frac12>\delta_\rho$ and contributes nonnegatively, and so do all zeros outside the window. Inside the window every zero is an other zero, and by Lemma~\ref{dz:lem:other} contributes at least $c/(4c^2+H^2)\ge c/(1+H^2)$, since $c\le\frac12$. So $v_\alpha(r)\ge cL_H(r)/(1+H^2)$. The function $L_H(r)/(1+H^2)$ exceeds $V_\xi$ for $r\ge138.48$ and stays above it for larger $r$ (computed, floating point; the function is not monotone, since the error term jumps, but it stays far above the threshold). Hence $v_\alpha(r)>cV_\xi\ge b_\alpha$.
 \end{proof}
-The window has to be wide: with $H=\frac12$ the count is never positive. With~\eqref{dz:eq:count} the best $H$ is $10.5$, with the starting height $132.05$ (computed); the value $12.5$ is kept for simplicity. The constant $V_\xi$ makes the starting height uniform in $\alpha$.
 
 \begin{theorem}[compensated levels at finite height]\label{dz:thm:low}
 For every $\frac12<\alpha\le1$ and every $0<r\le3\cdot10^{12}-5$, $v_\alpha(r)>b_\alpha$.
@@ -81,7 +80,6 @@ which is positive when $d<d_0=\sqrt{1/V_\xi-\frac14}$, and $d_0>4.6249$. So it s
 
 \emph{Range $0<r\le9.6$.} Every zero on the line has $\gamma\ge\gamma_1>r$. With $f(x)=(c^2+x^2)^{-1}$, a zero on the line contributes $c\big(f(\gamma-r)+f(\gamma+r)-2f(\gamma)\big)$ to $h(r)$, and this is nonnegative because $f$ is convex on $|x|\ge c/\sqrt3$ and $\gamma-r\ge4.5$. For $\gamma_1$ the contribution is at least $c\,r^2\min f''\ge1.88\times10^{-5}\,c\,r^2$, the minimum being over $[\gamma_1-9.6,\gamma_1+9.6]$ and $0<c\le\frac12$ (computed: $1.888\times10^{-5}$). Pairs above $3\cdot10^{12}$ contribute nonnegatively to $h(r)$ by Lemma~\ref{ct:lem:farpair}. So $h(r)\ge1.88\times10^{-5}\,c\,r^2>0$.
 \end{proof}
-The mechanism in words: the constant removed by compensation is at most $cV_\xi$, and one zero on the line within $4.62$ already pays for it. Zeros of $\zeta$ are never that far apart.
 
 The same idea narrows the windows of Theorem~\ref{dz:thm:comp}. A zero that is not offending contributes at least $c/(1+d^2)$ by Lemma~\ref{dz:lem:other}, which exceeds $cV_\xi$ when $d<d_1=\sqrt{1/V_\xi-1}$, and $d_1>4.543$.
 \begin{corollary}[windows of width $9.08$]\label{dz:cor:narrow}
@@ -93,7 +91,6 @@ Let $\frac12<\alpha\le1$ and $r\ge205$. If no offending zero has $|\gamma-r|\le4
 \begin{proof}
 For $r\ge204.62$ the count of~\eqref{dz:eq:count} with $H=4.54$ is positive (computed), so there is a zero with $|\gamma-r|\le4.54$, and it is not offending by hypothesis. All offending pairs are at distance at least $4.54>\delta_\rho$ and contribute nonnegatively. The range $r<205$ is Theorem~\ref{dz:thm:low}. For $\alpha>1$ the set $Y_\alpha$ is empty by Proposition~\ref{bp:prop:valpha}.
 \end{proof}
-So the exceptional windows of the compensated levels have width $9.08$ and nothing below $3\cdot10^{12}$ is exceptional.
 
 \begin{figure}[t]
 \centering
@@ -101,8 +98,6 @@ So the exceptional windows of the compensated levels have width $9.08$ and nothi
 \caption{A hypothetical zero moved off the line. The zero near height $999.79$ is replaced by the pair $\beta=0.75$ and $0.25$. Grey: $v_\alpha(r)$ with all zeros on the line, on the levels $\alpha=0.6$ (left) and $0.7$ (right). Red: after the move. Shaded: the interval $|r-\gamma|<\delta_\rho$ of Theorem~\ref{dz:thm:loc}.}
 \label{dz:fig:loc}
 \end{figure}
-\paragraph{A hypothetical zero (computed).} Moving the zero at $999.79$ to $\beta=0.75$ makes the level $0.6$ negative on $[-0.196,0.203]$ around it, inside the predicted $\delta_\rho=0.229$; the negative Thorin mass is $0.229$, below $m_\rho=0.262$. On the level $0.7$ the negative set is $[-0.130,0.133]$ against $\delta_\rho=0.150$, with mass $0.549$ against $m_\rho=0.590$. The difference is the positive background of the other zeros. Floating point, not certified.
-
 \section{The mass identity}\label{dz:sec:mass}
 Integrating \eqref{dz:eq:had} term by term over $0\le r\le R$ gives, for $\alpha>\frac12$ not the real part of a zero,
 \[
@@ -127,12 +122,10 @@ Fix $R$ not an ordinate. The function $\alpha\mapsto\mu_\alpha([0,R])$ on $(\fra
 \end{corollary}
 The theorem and the corollary both follow from the continuity of $E_\alpha(R)$ and the jump of $2\pi$ in the slope of the logarithmic integral across a zero (Proposition~\ref{prop:littlewood}).
 
-\paragraph{Checks (computed).} Direct integration of $v_\alpha$ agrees with the zero sum to $5\times10^{-6}$: $\mu_{0.6}([0,50])=9.88479$ with $N(50)=10$. On the true zeros $E_\alpha(R)$ lies in $[-0.648,0.886]$ for $100\le R\le2000$ over the levels $\alpha=0.55,0.6,0.75,0.9,1$. With the zero at $999.79$ moved to $\beta=0.75$ and $R=1500.3$, the quantity $\mu_\alpha([0,R])-N(R)$, with $N(R)$ that of the original zeros, is $-0.513$ at $\alpha=0.749$ and $+1.488$ at $\alpha=0.751$: a jump of $2.001$.
-
 \begin{remark}[masking]\label{dz:rem:mask}
 The sign of the density on one level does not detect every zero to its right. Take an offending pair with $a=0.05$ on the level $\alpha=0.6$: alone it gives $-16$ at $r=\gamma$. A second pair at the same height with $\beta=0.58$, just to the left of the level, adds $+55.6$, and the density is positive there (computed). So Theorem~\ref{dz:thm:loc} has no converse on one level. The mass identity counts with signs and sees both zeros: moving the level between them shows the jump.
 \end{remark}
-A positivity argument for RH must therefore control the mass defect $N(R)-\mu_\alpha([0,R])=2N(\alpha,R)+O(\log R)$ and not the negative mass on one level. A proof that this defect is $O(\log R)$ for one $\alpha<1$ and all $R$ would give $N(\alpha,R)=O(\log R)$; a proof that it is $O(R^A)$ is a zero density theorem with exponent $A$.
+A positivity argument for RH must therefore control the mass defect $N(R)-\mu_\alpha([0,R])=2N(\alpha,R)+O(\log R)$ and not the negative mass on one level; a bound $O(R^A)$ for it is a zero density theorem with exponent $A$.
 
 \section{Littlewood's lemma and the first test}\label{dz:sec:littlewood}
 Let $\Phi_R(\sigma)=\int_0^R\log|\xi(\sigma+it)|\dd t$. Then $\Phi_R'(\sigma)=\pi\mu_\sigma([0,R])$ for $\sigma$ not the real part of a zero (Proposition~\ref{prop:littlewood}), and integrating Theorem~\ref{dz:thm:mass} over $\sigma\in[\alpha,\sigma_1]$ gives, for $\frac12<\alpha<\sigma_1$,
@@ -145,7 +138,7 @@ Split $\xi=\frac12s(s-1)\pi^{-s/2}\Gamma(\frac s2)\zeta(s)$. By Stirling's formu
 \begin{equation}\label{dz:eq:depth}
 \sum_{\substack{\beta>\alpha\\0<\gamma<R}}(\beta-\alpha)=\frac1{2\pi}\int_0^R\log|\zeta(\alpha+it)|\dd t+O(\log R).
 \end{equation}
-By Jensen's inequality and the mean value $\frac1R\int_0^R|\zeta(\alpha+it)|^2\dd t\to\zeta(2\alpha)$ the depth is at most $\frac R{4\pi}\log\zeta(2\alpha)+o(R)$ for $\frac12<\alpha<1$. Hence $N(\alpha',R)\le\frac{\log\zeta(2\alpha)}{4\pi(\alpha'-\alpha)}R+o(R)$ for $\alpha'>\alpha$, the theorem of Bohr and Landau~\cite{BL14}. Since $N(R)\sim\frac R{2\pi}\log R$, the fraction of Thorin mass lost on any level above $\frac12$ is $O(1/\log R)$. At $R=200.3$ the mean squares of $|\zeta|$ are $2.900$ at $\alpha=0.6$ and $2.179$ at $\alpha=0.75$ (limits $5.592$ and $2.612$), and the resulting bounds on the depth are $17.0$ and $12.4$, against the true value $0$ (computed).
+By Jensen's inequality and the mean value $\frac1R\int_0^R|\zeta(\alpha+it)|^2\dd t\to\zeta(2\alpha)$ the depth is at most $\frac R{4\pi}\log\zeta(2\alpha)+o(R)$ for $\frac12<\alpha<1$. Hence $N(\alpha',R)\le\frac{\log\zeta(2\alpha)}{4\pi(\alpha'-\alpha)}R+o(R)$ for $\alpha'>\alpha$, the theorem of Bohr and Landau~\cite{BL14}. Since $N(R)\sim\frac R{2\pi}\log R$, the fraction of Thorin mass lost on any level above $\frac12$ is $O(1/\log R)$.
 
 The next classical input is Carlson's method of 1920 (Titchmarsh~\cite[Chapter 9]{Titchmarsh}). Multiply $\zeta$ by the M\"obius mollifier $M_X(s)=\sum_{n\le X}\mu(n)n^{-s}$, the combination that turned Chebyshev's Gamma ratios into $e^w/(1+w)$ (Theorem~\ref{ct:thm:mobius}). Zeros of $\zeta$ are zeros of $\zeta M_X$, so \eqref{dz:eq:depth} holds with $\zeta M_X$ on the right (the zeros of $M_X$ added on the left only help), and $\log|1+g|\le\Re g+\frac12|g|^2$ with $g=\zeta M_X-1$ replaces Jensen. The depth is then controlled by the mean square of $\zeta M_X-1$, which is small:
 \begin{center}
@@ -159,7 +152,7 @@ $\alpha=0.75$ & $1.196$ & $0.457$ & $0.192$ & $0.089$ & $0.058$\\
 \bottomrule
 \end{tabular}
 \end{center}
-The table gives the mean of $|\zeta M_X-1|^2$ over $0\le t\le200.3$ (computed). Carlson's argument gives $N(\alpha,R)\ll R^{4\alpha(1-\alpha)+\varepsilon}$; we have not rederived the exponent here. Ingham's exponent needs in addition a bound for $\zeta$ on the critical line, and Guth and Maynard \cite{GM26} need large value estimates for Dirichlet polynomials. So the route reproduces the theorems of 1914 and 1920 with the book's objects, and will not pass the density hypothesis without a new mean value estimate. What the Thorin side adds is positivity structure: by Theorem~\ref{dz:thm:loc} the integrand of $\Phi_R'$ is positive off the defect intervals, a constraint the mean value methods do not use.
+The table gives the mean of $|\zeta M_X-1|^2$ over $0\le t\le200.3$ (computed). Carlson's argument gives $N(\alpha,R)\ll R^{4\alpha(1-\alpha)+\varepsilon}$; we have not rederived the exponent here. Ingham's exponent needs in addition a bound for $\zeta$ on the critical line, and Guth and Maynard \cite{GM26} need large value estimates for Dirichlet polynomials. So the route reproduces the theorems of 1914 and 1920 and will not pass the density hypothesis without a new mean value estimate. The Thorin side adds that the integrand of $\Phi_R'$ is positive off the defect intervals (Theorem~\ref{dz:thm:loc}), which the mean value methods do not use.
 
 \section{How far a level can see}\label{dz:sec:res}
 The positive background of the zeros on the line can hide a zero to its right, as a second pair did in Remark~\ref{dz:rem:mask}.
@@ -173,9 +166,9 @@ where $L_H(\gamma)$ is the bound of~\eqref{dz:eq:count} for the number of zeros 
 \begin{proof}
 The pair contributes at least its minimum $P(0)=-(b-a)/(ab)=-2c/(ab)$. The other zeros in the window, at least $L_H-2$ of them, each contribute at least $c/(4c^2+H^2)\ge c/(1+H^2)$ by Lemma~\ref{dz:lem:other}, and everything outside the window is nonnegative.
 \end{proof}
-Since $L_H(\gamma)\sim\frac H\pi\log\gamma$, the condition reads $ab\gg1/\log\gamma$: at great height a level sees only the zeros within a distance of order $1/((\alpha-\frac12)\log\gamma)$ to its right, and the exceptional set $X_\alpha$ is controlled by the zeros in a thin strip $\alpha<\beta<\alpha+\eta(\gamma)$, not by all of $N(\alpha,R)$. The ladder as a whole still sees every zero, because a zero is visible from the levels just below it, and the mass identity sees every zero from every level.
+Since $L_H(\gamma)\sim\frac H\pi\log\gamma$, the condition reads $ab\gg1/\log\gamma$: at great height a level sees only the zeros within a distance of order $1/((\alpha-\frac12)\log\gamma)$ to its right, and the exceptional set $X_\alpha$ is controlled by the zeros in a thin strip $\alpha<\beta<\alpha+\eta(\gamma)$, not by all of $N(\alpha,R)$. The mass identity sees every zero from every level.
 
-Two qualifications. First, the proposition is asymptotic in an extreme sense. Because $ab<\frac14$, the best $H$ gives thresholds of $1.71$ at $\log\gamma=30$, $0.313$ at $\log\gamma=100$ and $0.088$ at $\log\gamma=300$ (computed from~\eqref{dz:eq:count}), so it says nothing below about $e^{120}$. Second, the true background is smaller than its average. With the zero near $999.79$ removed, the background at its own ordinate is $0.234$ on the level $0.6$, $0.568$ on $0.75$ and $0.863$ on $0.9$, against a mean value $\frac12\log\frac r{2\pi}=2.5$ (computed): neighbouring zeros repel, so the place where a zero sits is a place where the background is low. In the experiment a zero moved anywhere in $\alpha<\beta<1$ remained visible on all three levels. The heuristic size of the background at a zero is $c\sum_{\gamma'\ne\gamma}(\gamma-\gamma')^{-2}\approx\frac c{12}\log^2\frac\gamma{2\pi}$, which would put the true threshold at $ab\approx24/\log^2\frac\gamma{2\pi}$, reached only for $\gamma>10^5$ (heuristic).
+Two qualifications. First, the proposition is asymptotic in an extreme sense. Because $ab<\frac14$, the best $H$ gives thresholds of $1.71$ at $\log\gamma=30$, $0.313$ at $\log\gamma=100$ and $0.088$ at $\log\gamma=300$ (computed from~\eqref{dz:eq:count}), so it says nothing below about $e^{120}$. Second, the true background at a zero is smaller than its average, because neighbouring zeros repel, and in a computed experiment with the zero near $999.79$, a zero moved anywhere in $\alpha<\beta<1$ stayed visible on the levels $0.6$, $0.75$ and $0.9$; the heuristic threshold is $ab\approx24/\log^2\frac\gamma{2\pi}$ (heuristic).
 
 \section{Above the quasi Riemann half plane}\label{dz:sec:qrh}
 The half plane $\frac78$ is the theorem of \cite{OAI26a} (Section~\ref{qrh:sec:claims}). We state its consequence for the Thorin density.
@@ -189,13 +182,7 @@ The levels $\frac12<\alpha\le\frac78$ remain governed by Theorem~\ref{dz:thm:loc
 
 \section{What this does and does not do}\label{dz:sec:limits}
 The theorems are unconditional. Theorem~\ref{dz:thm:qrh} rests on \cite{OAI26a}. They are the classical zero density theorems in Thorin language, and Theorem~\ref{dz:thm:loc} contains no new arithmetic: its measure bound is Theorem~\ref{bo:thm:negset}, and the vanishing fraction of negative mass is Theorem~\ref{ag:thm:almost}. What is added here is the dictionary with explicit constants.
-\begin{itemize}
-\item Each zero to the right of the level $\alpha$ costs less than one unit of Thorin mass, within distance $\frac12$ of its ordinate (Lemma~\ref{dz:lem:pair}).
-\item Conversely, negative Thorin mass on the level $\alpha$ near height $\gamma$ certifies a zero to the right of $\alpha$ near $\gamma$.
-\item RH says that the negative part vanishes on every level. The density hypothesis implies that its mass up to height $R$ is $O(R^{2(1-\alpha)+\varepsilon})$.
-\end{itemize}
-To reach RH it is not enough to show that the Gamma side of the budget identity dominates on average, since that is already true and is what Theorem~\ref{dz:thm:comp} uses. One must show that the defects cannot exist. The honest intermediate target is a bound on the total negative Thorin mass that beats the zero density exponents, which would be a new theorem about zeros.
-
+To reach RH it is not enough to show that the Gamma side of the budget identity dominates on average, since that is already true and is what Theorem~\ref{dz:thm:comp} uses. One must show that the defects cannot exist.
 \begin{problem}\label{dz:op:corr}
 Replace the crude background bound in Proposition~\ref{dz:prop:res} by one that uses the pair correlation of the zeros, and decide whether the true resolution of a level is of order $1/\log\gamma$ or $1/\log^2\gamma$.
 \end{problem}

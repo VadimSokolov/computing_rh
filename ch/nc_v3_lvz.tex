@@ -1,0 +1,186 @@
+% Chapter "Latent variable models for zeta and Xi", part 1 (label prefix lvz:). Source: misc/reviews/nick-three-chapters-tex/three_chapters_tex/chapter_latent_variable_zeta.tex (Polson and Sokolov, November 2026), merged with the report misc/research/directions/opus/vol3/LVZ.md (7 MAJOR, 32 MINOR) and the recomputation misc/vol3/verify/LVZ/lvz.md. No figure: the draft's central limit figure is dropped. New bibliography entries are in misc/audit/merge_v3/bib_LVZ.tex.
+
+This chapter asks whether the approach to the Riemann hypothesis over finite fields, through Frobenius and the method of Stepanov, can be read as a latent variable model in the sense of statistics, with the zeta function as partition function and weights chosen to make a symmetry visible. The answer is a dictionary. The partition function, the two marginals and the symmetrizing weight are exact over the integers as well. The central limit theorem holds there in scale only, since the limiting law is bounded and not normal. The one sided bound on latent classes and the valid latent measure are open, and the first is the claim of the inequality (M). Nothing here proves the Riemann hypothesis or (M). Where the book already has a result we cite it. The latent model of $\Xi$ itself is the subject of Section~\ref{lxi:sec:main}.
+
+\section{The statistical template}\label{lvz:sec:template}
+
+\emph{Augmentation with two marginals.} Edwards and Sokal \cite{EdwardsSokal88} explained the algorithm of Swendsen and Wang by a joint model of spins $\sigma$ and bond variables $\omega$ with weight $W(\sigma,\omega)$. Summing out $\omega$ gives the Potts model, summing out $\sigma$ gives the random cluster model of Fortuin and Kasteleyn, the two have the same partition function, and both conditional laws are simple.
+
+\emph{A change of world that makes the weights positive.} Jerrum and Sinclair \cite{JerrumSinclair93} approximate the partition function of the ferromagnetic Ising model in polynomial time by leaving the world of spins for the world of subgraphs, through the high temperature expansion: the same $Z$, up to a trivial factor, becomes a sum of positive weights, on which a Markov chain mixes rapidly.
+
+So the template has four parts: (a) a joint weight on observed and latent variables; (b) two marginals with one partition function; (c) a symmetry visible in one of them; (d) positivity in one of them. We look for each part in arithmetic.
+
+\section{Finite fields}\label{lvz:sec:ff}
+
+Let $q$ be odd, $\chi$ the quadratic character of $\mathbb F_q$ with $\chi(0)=0$, $f$ a squarefree polynomial of odd degree $2g+1$ over $\mathbb F_q$, $C$ the curve $y^2=f(x)$, and $N(C)$ its number of points over $\mathbb F_q$, with the point at infinity.
+
+\begin{proposition}[The curve as an augmented space]\label{lvz:prop:augment}
+Let $W(x,y)=1[y^2=f(x)]$ on $\mathbb F_q\times\mathbb F_q$. Then $\sum_yW(x,y)=1+\chi(f(x))$, so $N(C)=q+1+S$ with $S=\sum_{x\in\mathbb F_q}\chi(f(x))$. If $\epsilon$ is not a square and $C'$ is the twist $\epsilon y^2=f(x)$, then $N(C)+N(C')=2q+2$.
+\end{proposition}
+
+\begin{proof}
+The equation $y^2=a$ has $1+\chi(a)$ solutions, and $\chi(f(x)/\epsilon)=-\chi(f(x))$.
+\end{proof}
+
+The observed variable is $x$, the latent variable is $y$, and $\chi(f(x))$ is a spin attached to $x$. In $200$ random examples with $q=101$ and degree $21$ the sum $N(C)+N(C')$ was $204$ each time (computed).
+
+\begin{lemma}[Latent classes: one sided bounds suffice]\label{lvz:lem:classes}
+Let $N_\sigma\ge0$ for $\sigma$ in a finite set $\Gamma$, with $\sum_\sigma N_\sigma=T$. If $N_\sigma\le T/|\Gamma|+B$ for every $\sigma$, then $N_\sigma\ge T/|\Gamma|-(|\Gamma|-1)B$ for every $\sigma$.
+\end{lemma}
+
+\begin{proof}
+$N_\sigma=T-\sum_{\tau\ne\sigma}N_\tau\ge T-(|\Gamma|-1)(T/|\Gamma|+B)$.
+\end{proof}
+
+This is the symmetrization step of the elementary proof of the Riemann hypothesis for curves (Theorem~\ref{st:thm:bombieri}, \cite{BombieriStepanov}). The method of Stepanov gives an upper bound only. For the lower bound one passes to a Galois covering with group $\Gamma$ and counts the points $y$ of the covering according to the element $\sigma\in\Gamma$ with $\mathrm{Frob}(y)=\sigma y$. The classes are latent labels, the total $T$ is $|\Gamma|$ times the count on the base, up to the ramification, and the lemma turns the upper bounds into a lower bound. For $y^2=f(x)$ the group has two elements and the two classes are $C$ and its twist, with $T=2q+2$.
+
+Zeta is the partition function of a gas of closed points: for a smooth projective curve, $Z(u)=\sum_{D\ge0}u^{\deg D}=\prod_P(1-u^{\deg P})^{-1}=\exp(\sum_{n\ge1}N_nu^n/n)$, with $u$ the fugacity, the occupation numbers $k_P$ of a divisor $D=\sum k_PP$ independent geometric variables of ratio $u^{\deg P}$ (for $0<u<1/q$), and the Euler product the statement of independence.
+
+\begin{proposition}[The symmetrizing weight]\label{lvz:prop:schmidt}
+Group the divisors by their class $c$ in the Picard group. The class $c$ contains $(q^{l(c)}-1)/(q-1)$ effective divisors, where $l(c)$ is the dimension of its space of sections, so $Z(u)=\sum_c\frac{q^{l(c)}-1}{q-1}u^{\deg c}$. The theorem of Riemann and Roch, $l(c)-l(K-c)=\deg c+1-g$, pairs $c$ with $K-c$ and gives $Z(1/(qu))=q^{1-g}u^{2-2g}Z(u)$.
+\end{proposition}
+
+This is the proof of F. K. Schmidt. The latent variable is the class $c$, the weight $(q^{l(c)}-1)/(q-1)$ is the partition function of the fibre, and the symmetry $c\mapsto K-c$, invisible in the sum over divisors, is visible in the sum over classes.
+
+The Riemann hypothesis for the curve is equivalent to the existence of a positive measure $\mu$ on the unit circle with moments $s_n=q^{-n/2}(q^n+1-N_n)=\int z^n\mu(dz)$ for $n\ge1$ and $s_0=2g$, equivalently to positive semidefinite Toeplitz matrices $(s_{i-j})$ (Carath\'eodory, Toeplitz and Herglotz). This is Theorem~\ref{iw:thm:curves} at $\sigma=\frac12$, and Section~\ref{route:sec:curves} gives the benchmark. In statistical terms it has the shape of de Finetti's theorem, without an exchangeable sequence: the counts $N_n$ are observed moments, the Frobenius angles are latent variables, and the hypothesis says that the mixing measure exists as a positive measure. The theory of Katz and Sarnak \cite{KatzSarnak99} describes this latent measure in families: as $q\to\infty$ the normalised Frobenius classes of $y^2=f(x)$ equidistribute in a compact symplectic group.
+
+\section{The integers}\label{lvz:sec:int}
+
+The Euler product read as independence gives the gas of primes: for $s>1$ the law $P_s(n)=n^{-s}/\zeta(s)$ makes the exponents $k_p$ of $n=\prod p^{k_p}$ independent geometric variables with $P_s(k_p\ge k)=p^{-ks}$, and the mean energy $E_s\log n$ is $-\zeta'(s)/\zeta(s)$. The law of the energy is infinitely divisible (Proposition~\ref{ct:prop:levy}).
+
+\begin{proposition}[Chebyshev's identity as a model with two marginals]\label{lvz:prop:two}
+On pairs $(m,r)$ with $m\ge1$ and $r$ a prime power put $W_x(m,r)=\Lambda(r)(x/(mr)-1)_+$. Write $\Psi_1(x)=\sum_r\Lambda(r)(x/r-1)_+$. Then
+\[
+\sum_{m,r}W_x(m,r)=\sum_{m\ge1}\Psi_1\Bigl(\frac xm\Bigr)=\sum_{n\ge1}\log n\Bigl(\frac xn-1\Bigr)_+=:I(x),
+\]
+the first equality by summing over $r$ for fixed $m$, the second by summing over the pairs with $mr=n$. Given $n$, the conditional law of $r$ is $\Lambda(r)/\log n$ on the prime powers dividing $n$. Conversely $\Psi_1(x)=\sum_m\mu(m)I(x/m)$, and $\mu$ is the only sequence with this property.
+\end{proposition}
+
+\begin{proof}
+$\sum_{r\mid n}\Lambda(r)=\log n$, and M\"obius inversion. For uniqueness, the dilates $x\mapsto\Psi_1(x/k)$ are linearly independent, by triangularity in $x$.
+\end{proof}
+
+The prime portfolio $\Psi_1$ at the scales $x/m$ and the integer portfolio $I$ are the two marginals of one joint weight, and the conditional law is a genuine probability. The integer side is the easy world: $I$ is a sum of positive terms known by the summation of Euler and Maclaurin up to $O(\log x)$. But the return to the primes is the M\"obius hedge, which is signed, and by uniqueness no positive hedge is exact. Here the analogy with Jerrum and Sinclair stops: they pass from a hard world to a positive one and stay there, whereas we reach the positive world and the hard question is the way back. The sieve returns with positive weights and loses a factor two; (M) returns through a different positivity, that a nonzero integer has absolute value at least one.
+
+\begin{proposition}[The symmetrizing weight at infinity]\label{lvz:prop:theta}
+For $\Re s>0$ and $n\ge1$, $\pi^{-s/2}\Gamma(s/2)n^{-s}=\int_0^\infty e^{-\pi n^2t}t^{s/2}\,dt/t$. So on pairs $(n,t)$ the weight $e^{-\pi n^2t}t^{s/2-1}$ has $\pi^{-s/2}\Gamma(s/2)\zeta(s)$ as partition function for $\Re s>1$, and its marginal in $t$ is $\frac12(\theta(t)-1)\,t^{s/2-1}$, where $\theta(t)=\sum_{n\in\mathbb Z}e^{-\pi n^2t}$ satisfies $\theta(1/t)=\sqrt t\,\theta(t)$.
+\end{proposition}
+
+This is Riemann's second proof of the functional equation, read as augmentation: the Gamma factor is the weight of a latent scale $t$ and the symmetry $s\mapsto1-s$ is invisible in the sum over $n$ and visible in $t$ as $t\mapsto1/t$. Carried one step further, $\Xi(t)=\int_{\mathbb R}\Phi(u)\cos(tu)\,du$, where $\Phi=2\sum_{n\ge1}(2\pi^2n^4e^{9u/2}-3\pi n^2e^{5u/2})\exp(-\pi n^2e^{2u})$ is the P\'olya density of Chapter~\ref{ap:ch:approx}: $\Xi$ is the partition function of a single spin with law $\Phi$ in an imaginary field, and the Riemann hypothesis is the statement that $\Phi$ has the property of Lee and Yang \cite{LeeYang}.
+
+\section{Chebyshev's method as a computation in the model}\label{lvz:sec:cheb}
+
+Let $T(x)=\sum_{n\le x}\log n=\log\lfloor x\rfloor!$ and $\psi(x)=\sum_{r\le x}\Lambda(r)$. Then $T(x)$ is the sum of $\Lambda(r)$ over the pairs $(m,r)$ with $mr\le x$: summing over $m$ first gives $\sum_r\Lambda(r)\lfloor x/r\rfloor$, the exponents of the primes in the factorial (Legendre), and summing over $r$ first gives $\sum_m\psi(x/m)$. For a finitely supported $\nu$ on the positive integers, $\sum_m\nu(m)T(x/m)=\sum_kc_k\psi(x/k)$ with $c_k=\sum_{m\mid k}\nu(m)$, and if $\sum_m\nu(m)/m=0$ the left side is $A_\nu x+O(\log x)$ with $A_\nu=-\sum_m\nu(m)\log m/m$. The choice $\nu=\delta_1-\delta_2-\delta_3-\delta_5+\delta_{30}$ is Chebyshev's theorem of 1850 (Proposition~\ref{ct:prop:cheb1850}), and its portfolio form is Theorem~\ref{gbm:thm:chebprice}. The reading is this.
+
+\emph{The partition function.} The integer $\lfloor x\rfloor!$ plays the part of $Z$. Its logarithm is known at the infinite place, by Stirling, to within $O(\log x)$. The same logarithm is a sum over the latent pairs $(m,r)$: the cofactor $m$ is the latent variable, and Legendre's formula is the marginal over $m$. That the two computations agree is the product formula, the size of an integer being the product of its prime powers.
+
+\emph{The hedge.} The identity expresses the easy quantity $T$ through the hard one $\psi$ at all the scales $x/m$. The exact inverse is $\nu=\mu$, for which $c=\delta_1$, with infinite support and unbounded partial sums. Chebyshev's $\nu$ is a finite signed approximation of it, chosen so that $c$ is an alternating sequence, which is the next best thing because an alternating sum of a monotone function is bounded by its first term. The constants $A_\nu=0.92129$ and $\frac65A_\nu=1.10555$ measure how far a finite hedge is from the M\"obius hedge.
+
+\emph{A law of large numbers, not a central limit theorem.} The computation determines $\psi(x)/x$ to within constants. The prime number theorem is the law of large numbers, $\psi(x)/x\to1$, and the Riemann hypothesis is a statement about the scale of the fluctuation. The floors in $\lfloor x/r\rfloor$ stop the classical computation at constants: each rounds by up to one, and the total rounding is of the order of the linear term, $\sum_{r\le n}\Lambda(r)\{n/r\}=(1-\gamma_E)n+o(n)$, which is $0.42237\,n$ at $n=10^6$ against $0.42278\,n$ (computed). The construction behind (M) is Chebyshev's computation with the rounding removed, and that is what would move it from the mean to the fluctuation, if (M) and its hypotheses hold.
+
+\section{The model of (M)}\label{lvz:sec:m}
+
+The draft of Rubinstein \cite{Rub26} states a construction behind (M), and this section only places it in the dictionary; what is taken from it is quoted and not verified. The logical form is the following, and it is proved. Let $N$ be a nonzero integer. Then $\log|N|=\sum_pv_p(N)\log p$, so if lower bounds $e_p\le v_p(N)$ are known for the primes $p$ in a set $\mathcal S$, then $\sum_{p\in\mathcal S}e_p\log p\le\log|N|$, with a deficit that is a sum of nonnegative terms. This is the integer part of the one sided bound of Section~\ref{mql:sec:partb} and of Section~\ref{gbm:sec:threeways}. For lattices the corresponding statement is a slope inequality of Bost \cite{Bost95,Bost01}, which the book uses only qualitatively, and its form in the draft is quoted. In statistical terms the valuations are local factors of a likelihood and the size is the evidence, which is why (M) is one sided.
+
+\begin{proposition}[The ramp is the measure of a real cofactor]\label{lvz:prop:cofactor}
+For a weight $w>0$ and $r\ge1$, $(a/r-w)_+=\mathrm{Leb}\{m\in\mathbb R:\ w\le m\le a/r\}=w\,(x/r-1)_+$ with $x=a/w$.
+\end{proposition}
+
+In Section~\ref{lvz:sec:cheb} the cofactor is an integer in $[1,x/r]$ and its count is $\lfloor x/r\rfloor$. In (M) the cofactor is real, its measure is $a/r-w$ with no rounding, and its lower limit $w$ depends on the latent class of $r$, which in the draft is a Frobenius element. The ramp $(x/r-1)_+$ of the statistic of Chapter~\ref{gbm:ch:main} is therefore not a choice of smoothing: it is the measure of the cofactor interval. The comparison in one table:
+\begin{center}
+\small
+\begin{tabular}{p{3.1cm}p{3.4cm}p{3.9cm}}
+\hline
+ & Chebyshev & (M), as the draft states it\\
+\hline
+object ($Z$) & the integer $\lfloor x\rfloor!$ & a map of lattices\\
+latent pair & $(m,r)$, $m\le x/r$ an integer & $(m,r)$, $m$ real\\
+places observed & all, exactly: identity & inert primes, from below: inequality\\
+latent class of $r$ & none & Frobenius element\\
+way back to primes & finite signed hedge & mean over translates\\
+what it reaches & the mean, to constants & the fluctuation, if the hypotheses hold\\
+\hline
+\end{tabular}
+\end{center}
+So (M) does not hedge. It changes the object so that the cofactor is real, pays for this by seeing only the inert primes and only from below, and recovers all the primes by a mean over latent classes, as in Lemma~\ref{lvz:lem:classes}, which still leaves three twisted characters to control (Theorem~\ref{mq:thm:estB}). What is proved here is the integer part of the one sided bound and Proposition~\ref{lvz:prop:cofactor}. The existence of the object, the divisibility at the inert primes, and the isotropy of the family of maps are hypotheses of the draft, and are not proved here or in \cite{Rub26}.
+
+\section{The same for $\Xi$}\label{lvz:sec:xi}
+
+Write $\mathcal G$ for the Riesz mean of equation~\eqref{qt:eq:riesz}, $\mathrm{tr}(x)=\sum_{m\ge1}x^{-2m}/(2m(2m+1))$, and put $G_\xi(x)=\mathcal G(x)-\log2\pi+\mathrm{tr}(x)$. By \eqref{qt:eq:riesz}, $G_\xi(x)=\sum_\rho a_\rho x^\rho$ with $a_\rho=1/(\rho(1-\rho))=a_{1-\rho}$: the terms removed from $\mathcal G$ are those of the infinite place, the trivial zeros and the constant $\log2\pi=\zeta'(0)/\zeta(0)$. Define $G_\xi$ by this sum for all $x>0$.
+
+\begin{proposition}[The statistic of $\Xi$]\label{lvz:prop:xi}
+Let $F_0=\sum_\rho a_\rho=0.0461914$. Then $G_\xi(1/x)=G_\xi(x)/x$, equivalently $h(u)=e^{-u/2}G_\xi(e^u)$ is an even function of $u$, unconditionally. For $\Re s>1$,
+\[
+\int_0^\infty G_\xi(e^u)e^{-su}\,du=-\frac{\xi'(s)}{\xi(s)}\,\frac1{s(s-1)}+\frac{F_0\,(2s-1)}{2s(s-1)} .
+\]
+\end{proposition}
+
+\begin{proof}
+Replace $\rho$ by $1-\rho$ for the symmetry. For the transform, $\int_0^\infty e^{\rho u-su}du=1/(s-\rho)$ and $a_\rho/(s-\rho)=\frac1s(\frac1\rho+\frac1{s-\rho})+\frac1{s-1}(\frac1{1-\rho}-\frac1{s-\rho})$, and sum over the zeros in conjugate pairs.
+\end{proof}
+
+This is the Mellin transform of Section~\ref{qt:sec:comp} rewritten for $\xi$. With $20000$ zeros the two sides agree to eight digits at $s=2$, $\frac32+2i$ and $3-i$ (computed; the remainder is the tail of the zeros). So the statistic of the book is already the statistic of $\Xi$: a sum over the zeros alone, symmetric under $x\mapsto1/x$, which is the functional equation in the variable of Chebyshev. The partition function is $\xi$, the product over all places, with symmetrizing weight the latent scale $t$ of Proposition~\ref{lvz:prop:theta}; the latent classes and the one sided bound are unchanged, because $\mathcal G$ and $G_\xi$ differ by $O(\log x)$, the constant $\log2\pi-\mathrm{tr}$ being absorbed there. What (M) does not give is a ferromagnetic representation of $\Phi$, hence no statement of the kind of Lee and Yang (the open problem of Chapter~\ref{f:ch:ferro}, Problem~\ref{f:op:ferro}).
+
+\section{Chebyshev as a central limit theorem}\label{lvz:sec:clt}
+
+\emph{The heuristic of Good and Churchhouse.} If the values of the M\"obius function at the squarefree integers were independent fair signs, then $M(x)=\sum_{n\le x}\mu(n)$ would be a random walk with $6x/\pi^2$ steps: of order $\sqrt x$, with upper limit $\sqrt{12}/\pi$ after division by $\sqrt{x\log\log x}$, by the law of the iterated logarithm \cite{GoodChurchhouse68}. A bound $x^{1/2+\varepsilon}$ for $M$ is equivalent to the Riemann hypothesis. In terms of Proposition~\ref{lvz:prop:two}, the signs of the hedge are the only obstruction, and the heuristic says they behave as noise.
+
+\emph{Finite fields: a theorem.} By Proposition~\ref{lvz:prop:augment} the count is $q+1$ plus a sum of $q$ latent spins. Kurlberg and Rudnick \cite{KurlbergRudnick09} proved that for $f$ drawn at random among the squarefree monic polynomials of a given degree over a fixed field, the law of $S$ tends, as the genus grows, to that of a sum of $q$ independent variables with values $\pm1$ and $0$ (each sign with probability $q/(2(q+1))$), and that it is normal after division by $\sqrt q$ when $q$ grows as well. The variance of $S$ is then $q^2/(q+1)$, which is $100.01$ for $q=101$, and a simulation of $20000$ curves of degree $21$ agrees with it within sampling error. The support is bounded by $q=101$, here sharper than the bound $2g\sqrt q=201$ of the Riemann hypothesis, and the central limit theorem describes the bulk, which sits far inside.
+
+\emph{The integers.} Under the Riemann hypothesis $h(u)=2\sum_{\gamma>0}a_\gamma\cos(\gamma u)$ with $a_\gamma=1/(\frac14+\gamma^2)$, and $|h|\le F_0$ (Theorem~\ref{qt:thm:sharp}). The hypothesis gives the existence of the limiting law of $h(u)$ for $u$ uniform on $[0,U]$, as $U\to\infty$ (Wintner \cite{Wintner35}, and Rubinstein and Sarnak \cite{RubinsteinSarnak94}). It has mean zero and, if the zeros are simple, the variance is $\mathrm{Var}\,h=2\sum_{\gamma>0}a_\gamma^2=7.42\cdot10^{-5}$, $(\mathrm{Var}\,h)^{1/2}=0.00861$ (computed with $20000$ zeros). If the positive ordinates are linearly independent over the rationals (Ingham's hypothesis, \cite{Ingham42}), it is the law of $\sum_{\gamma>0}2a_\gamma\cos\Theta_\gamma$ with independent uniform phases, an infinite convolution of arcsine laws, as in the Wintner law of the chapter on Chebyshev's error. It is not normal, being bounded with positive variance; the first zero alone carries $67$ per cent of the variance (computed).
+
+So the reading of Chebyshev's bound as a central limit theorem is right about the scale and wrong about the shape. But a central limit theorem needs many terms of comparable size, and here the terms decay like $\gamma^{-2}$: the law is fixed, bounded and not normal. The hypothesis, that the statistic is bounded, is stronger than any central limit theorem, as the bound $2g\sqrt q$ is stronger than the normal law of Kurlberg and Rudnick. For prime counts a normal law appears in families, when the modulus grows (Rubinstein and Sarnak \cite{RubinsteinSarnak94}, under the generalised Riemann hypothesis and the linear independence of the ordinates), as over finite fields it appears when one averages over many curves.
+
+\section{Dynamics and temperature}\label{lvz:sec:dyn}
+
+For $\alpha>1$ let $n$ have the law $P_\alpha(n)=n^{-\alpha}/\zeta(\alpha)$ with energy $\log n$. The mean energy is $-\zeta'(\alpha)/\zeta(\alpha)$, the variance is $\sum_n\Lambda(n)\log n\,n^{-\alpha}>0$, and $\zeta(\alpha+w)/\zeta(\alpha)=E_\alpha e^{-w\log n}$ for $w\ge0$: the ratio of partition functions at two temperatures is the Laplace transform of the law of the energy. The number of states of energy at most $E$ is $\lfloor e^E\rfloor$, so the entropy grows at rate one and the partition function diverges exactly at $\alpha=1$. So the level $\alpha$ of the Thorin measure is an inverse temperature. For $\alpha>1$ the gas exists, with a nonnegative L\'evy measure from the primes; the pole at $\alpha=1$ is the temperature at which the growth of the number of states overwhelms the weights (Hagedorn type). For $\frac12<\alpha<1$ there is no Gibbs law and the partition function exists only by continuation, with zeros in the sense of Fisher, as zeros in a complex field are zeros in the sense of Lee and Yang. At $\alpha=\frac12$ the functional equation exchanges the two sides, the self dual temperature.
+In these terms the Riemann hypothesis says that the nontrivial zeros of the partition function lie on the self dual line. There are two readings of $\Xi$ to keep apart: as a function of $s$ it is a partition function in a complex temperature, and as $\Xi(t)=\int\Phi(u)\cos(tu)\,du$ it is the partition function of one spin in a complex field $t$.
+
+\emph{A flow in temperature.} For $s=\sigma+it$ not a zero let $u_\sigma(t)=\Re\,\xi'(s)/\xi(s)=\sum_\rho(\sigma-\beta)/((\sigma-\beta)^2+(t-\gamma)^2)$. Then $u_\sigma(t)>0$ for $\sigma\ge1$, unconditionally, because every zero has $\beta<1$, and the Riemann hypothesis holds if and only if $u_\sigma(t)>0$ for all $\sigma>\frac12$ and all $t$ (Lagarias \cite{Lagarias}; if a zero has $\beta_0>\frac12$, the real part of $\xi'/\xi$ tends to $-\infty$ along the horizontal line from the left). Under the hypothesis $u_\sigma=\pi P_{\sigma-1/2}*\sum_\gamma\delta_\gamma$, with $P_\tau(t)=\tau/(\pi(\tau^2+t^2))$ the transition density of the Cauchy process, and so $u_{\sigma+\tau}=P_\tau*u_\sigma$ for $\sigma>\frac12$, $\tau>0$. Read as dynamics: the family $u_\sigma$ evolves in the temperature $\sigma$ by the Cauchy semigroup, a Markov semigroup that preserves positivity forward. At $\sigma=1$ the state is positive, since every zero has $\beta<1$. The hypothesis is the statement that this state has a positive ancestor at every earlier time back to $\sigma=\frac12$, where the ancestor is a sum of unit point masses. A zero off the line is a time before which the backward flow leaves the positive cone. This is the deconvolution with positivity of the Thorin ladder (Chapter~\ref{ct:ch:cheb}). The forward flow is easy and loses information; the backward flow is the problem.
+
+\emph{A flow in the scale.} With $h$ as above, $h(u)=\sum_\rho a_\rho e^{(\rho-1/2)u}$ is the observable of a linear flow, and the Riemann hypothesis says that every mode is a rotation. A zero to the right of the line is an unstable mode with exponent $\beta-\frac12>0$, and one one sided bound on $h$ excludes all of them (Theorem~\ref{qt:thm:sharp} and Proposition~\ref{qt:prop:riesz}).
+
+\emph{Frobenius as the model case.} Over a finite field the dynamical system is Frobenius, and the hypothesis says that Frobenius divided by $\sqrt q$ acts as a rotation on the first cohomology. For the integers, Deninger's programme \cite{Deninger92} asks for a flow whose closed orbits are the primes, with periods $\log p$ and entropy one, on which the scale acts by rotations after the shift by one half. No such flow is known. The model of (M) is not one: it is a way to bound the observable from above without the flow.
+
+
+\section{Log concavity and the sign problem}\label{lvz:sec:logc}
+
+Let $\Phi$ be as in Proposition~\ref{lvz:prop:theta}, so that $\xi(\frac12+a)=\int_{\mathbb R}\Phi(u)e^{au}\,du$ for every complex $a$. The P\'olya law is $p=\Phi/\!\int\Phi$, and the tilted laws $p_a\propto\Phi(u)e^{au}$ for real $a$ are the Gibbs laws at the real temperature $\sigma=\frac12+a$, with $\xi$ as partition function. Write $V=-\log\Phi$ and let $\kappa_0=V''(0)=18.73$ (computed, Section~\ref{bk:sec:langevin}); $V''>0$ everywhere (Theorem~\ref{p:thm:m1}, certified) and $V''\to\infty$, so $V''\ge\kappa>0$ for some $\kappa$ rigorously, and $\kappa_0$ is the value computed.
+
+\begin{proposition}[Real temperature is easy]\label{lvz:prop:logconcave}
+Suppose $V''\ge\kappa>0$. Then for every real $a$: (1) $p_a$ is log concave with the same $V''$, the Langevin diffusion with stationary law $p_a$ has spectral gap at least $\kappa$, and $\mathrm{Var}_a(g)\le\kappa^{-1}E_a[g'^2]$; (2) $(\log\xi)''(\frac12+a)=\mathrm{Var}_a(u)\le1/\kappa$, so $\xi(\frac12+a)\le\xi(\frac12)e^{a^2/2\kappa}$; (3) for $\delta>0$ the ratio $\xi(\frac12+a+\delta)/\xi(\frac12+a)=E_a[e^{\delta u}]$ is estimated by sampling with relative variance at most $e^{\delta^2/\kappa}-1$ per sample.
+\end{proposition}
+
+\begin{proof}
+Tilting adds a linear term to $V$, and item 1 is the criterion of Bakry and \'Emery. For item 2, $\log\xi(\frac12+a)$ is the cumulant function of $u$, so its second derivative is the variance under the tilt, bounded by item 1 with $g=u$; integrate twice. Item 3 is a second difference of that cumulant function.
+\end{proof}
+
+So the telescoping product of Applegate and Kannan \cite{AK91} computes $\xi(\sigma)$ for real $\sigma$ to relative accuracy $\varepsilon$ with of the order of $(\sigma-\frac12)^2/(\kappa\varepsilon^2)$ samples. The diffusion of P\'olya's kernel, its gap $\lambda_1=21.5588$ and the chain $\kappa_0\le\lambda_1\le1/\mathrm{Var}(u)$, with $\mathrm{Var}(u)=(\log\xi)''(\frac12)=0.0462100$, which is $2\sum_{\gamma>0}\gamma^{-2}$ under the hypothesis, are in Section~\ref{bk:sec:langevin} and Table~\ref{bk:tab:langevin}; the Cheeger constant $h_c=2p(0)=3.594$ gives $h_c^2/4=3.230$, far below $\lambda_1$ (all computed). The hitting time of the Krein string of the zeros has the same exponential tail as the one sided gap (Theorem~\ref{bk:thm:string}, Corollary~\ref{ev:cor:rh}, Proposition~\ref{ht:prop:kent}).
+
+\emph{Complex temperature is the sign problem.} At $s=\frac12+a+it$ one has $\xi(s)/\xi(\frac12+a)=E_a[e^{itu}]$, the mean of a variable of modulus one, with sampling variance $1-|E_ae^{itu}|^2$. A relative accuracy $\varepsilon$, needed to decide a sign and so to locate a zero, takes $1/(\varepsilon^2|E_ae^{itu}|^2)$ samples. At $a=0$ the modulus is $|\xi(\frac12+it)|/\xi(\frac12)$, and for $\varepsilon=1$:
+\begin{center}
+\small
+\begin{tabular}{lccccc}
+\hline
+$t$ & 10 & 20 & 30 & 50 & 100\\
+\hline
+modulus & $7.6\cdot10^{-2}$ & $7.4\cdot10^{-5}$ & $3.0\cdot10^{-8}$ & $6.4\cdot10^{-15}$ & $1.5\cdot10^{-30}$\\
+samples & $1.7\cdot10^{2}$ & $1.8\cdot10^{8}$ & $1.1\cdot10^{15}$ & $2.5\cdot10^{28}$ & $4.5\cdot10^{59}$\\
+\hline
+\end{tabular}
+\end{center}
+The cost grows like $e^{\pi t/2}$, up to powers of $t$ and the factor $|\zeta(\frac12+it)|^{-2}$. Rapid mixing is not the obstacle, since the chain mixes at rate $\kappa$ at every tilt; the obstacle is cancellation, and the zeros are where the cancellation is total. The Poincar\'e inequality applied to $e^{itu}$ gives $1-|Ee^{itu}|^2\le t^2/\lambda_1$, hence no zero for $t<\sqrt{\lambda_1}=4.64$; the bound $\cos x\ge1-x^2/2$ gives $t<\sqrt{2/\mathrm{Var}(u)}=6.58$; the first zero is at $14.13$. Since $\cos(tu)$ is even it is orthogonal to the first eigenfunction, which is odd, so at a zero $t_0$ one has $t_0^2\ge\lambda_2(1+\varphi(2t_0))/(1-\varphi(2t_0))$ with $\lambda_2=47.84$ and $\varphi=Ee^{itu}$ (computed), that is $t_0\ge6.9$ up to the small term $\varphi(2t_0)$. Isoperimetry controls variances, and a zero is not a statement about a variance.
+
+Under the hypothesis the sharp statement is the product $\xi(\frac12)/\xi(\frac12+\sqrt{2\lambda})=\prod_{\gamma>0}(1+2\lambda/\gamma^2)^{-1}$, the Laplace transform of the hitting time $\sum_{\gamma>0}(2/\gamma^2)E_\gamma$ with independent standard exponential variables $E_\gamma$. With $s_k=\sum_{\gamma>0}\gamma^{-2k}=(-1)^{k+1}\kappa_{2k}/(2(2k-1)!)$, where $\kappa_{2k}$ are the cumulants of the P\'olya law, computed from $\Phi$ alone, one has $\gamma_1\ge s_k^{-1/2k}$, with the computed values $6.579$, $12.807$, $13.810$, $14.038$, $14.103$, $14.123$ for $k=1,\dots,6$. The matching upper bounds $(s_{k-1}/s_k)^{1/2}$ are Bernoulli's method (Chapter~\ref{bn:ch:bn}) and give $14.227$ at $k=6$. The bounds use the positivity of every term, which holds under the hypothesis, and unconditionally up to an error of order $H^{1-2k}\log H$ from zeros above the height $H$ to which the hypothesis is verified. They locate the first zero and say nothing about zeros off the line at great height, which is what the Chebyshev bound needs.
+
+
+\section{The programme and its limits}\label{lvz:sec:prog}
+
+The approach is a search for a latent structure with three properties: the zeta or $\Xi$ function is its partition function, a symmetry is visible, and a positivity holds. Over finite fields all three are theorems. Over the integers Sections~\ref{lvz:sec:ff} to~\ref{lvz:sec:clt} say where each stands.
+Three problems state what is missing. The first is a ferromagnetic latent structure for $\Phi$, the Edwards and Sokal representation of $\Xi$ through Newman's route \cite{Newman1976}, which is the first open problem of Chapter~\ref{f:ch:ferro}. The third is a valid latent measure, an analogue of the Toeplitz condition of Section~\ref{lvz:sec:ff}, which is Weil's criterion as a level average (Proposition~\ref{iw:prop:weilavg}, Remark~\ref{iw:rem:weil}) and the Thorin positivity of Theorem~\ref{thm:poisson}. The second is posed here.
+
+\begin{problem}\label{lvz:prob:L2}
+Find a positive way back from the integers to the primes. By Proposition~\ref{lvz:prop:two} no positive hedge is exact; find a positive representation of $\Psi_1$ through $I$ whose loss is a power saving and not the factor two of the sieve. The inequality (M) claims one, through lattices (see Section~\ref{gbm:sec:threeways}).
+\end{problem}
+
+The limits should be stated plainly. The analogy does not transfer a proof. Over finite fields the latent classes come from a finite Galois group acting on a curve, and the upper bound comes from the degree of a function; over the integers there is no curve, and the role of the degree is played by the size of a lattice map, which is the hard part of (M).

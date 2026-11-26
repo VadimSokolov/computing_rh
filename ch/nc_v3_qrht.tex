@@ -1,0 +1,155 @@
+% Chapter qt, part A: the Thorin ladder and the quasi Riemann floor. Sources: misc/reviews/nick-qrh_chapter_for_vadim/qrh_chapter_for_vadim/chapter_qrh_thorin.tex lines 1 to 345 (draft Q), referee report misc/research/directions/opus/vol3/QRH1.md (M1 to M11), verification misc/vol3/verify/QRH/results.md; edited 20 Nov 2026.
+\label{qt:ch:ladder}
+A quasi Riemann hypothesis is a zero free half plane $\Re s>b$ with $b<1$. The book states it as a theorem with $b=\frac78$ (Section~\ref{qrh:sec:claims}): by \cite{OAI26a}, $\zeta$, every Dirichlet $L$ function and every finite order Hecke $L$ function over $F=\mathbb Q(\sqrt{-3})$ have no zero with $\Re s>\frac78$, the pole at $s=1$ of $\zeta$ and of the principal Dirichlet and Hecke characters excepted. Kintali \cite{Kin26} gives a shorter argument for the weaker constant $\frac{47}{48}$ and claims the same families; it is not refereed and nothing in this chapter needs it. This chapter reads the half plane through the Thorin programme: what a floor $b$ gives the ladder of Thorin measures $\{U_\alpha\}$, what can and cannot be said below it, the equivalent forms of RH that the ladder produces, and how the descent below the floor can be computed.
+
+A word on what is not claimed. The equivalence of RH with $\Re\,\xi'/\xi>0$ on $\Re s>\frac12$ is due to Lagarias \cite{Lagarias}, who describes the uncompensated sign criterion as already known and refers to Hinkkanen (\emph{On functions of bounded type}, 1997), with his own published correction of the pair lemma and the extension of Garunk\v{s}tis \cite{Garunkstis02} to the right of a zero free half plane; Theorem~\ref{thm:poisson}, after \cite{P26}, and Theorem~\ref{bo:thm:level} are its reading as a GGC property with an explicit Thorin measure. None of the results below improves a zero free region. A proof that the reciprocal at a level below $\frac78$ is a GGC would itself be a new zero free half plane, so the ladder cannot outrun the floor.
+
+\section{The Thorin form of a floor}\label{qt:sec:ladder}
+
+Throughout, $\xi(s)=\frac12s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$, zeros are written $\rho=\beta+i\gamma$ with multiplicity, and $\xi'/\xi(s)=\sum_\rho(s-\rho)^{-1}$, summed symmetrically. For real $\alpha>\frac12$ put $\theta_\alpha(y)=\arg\xi(\alpha+iy)$, the continuous branch with $\theta_\alpha(0)=0$ (this needs the whole segment from $\alpha$ to $\alpha+iy$ to avoid zeros, as in the cases used below), $v_\alpha(y)=\Re\,\xi'/\xi(\alpha+iy)$ as in \eqref{eq:rho}, defined locally at every $y$ with $\xi(\alpha+iy)\ne0$ and equal to $\theta_\alpha'(y)$ where $\theta_\alpha$ exists, and $P_a(y)=a/(\pi(a^2+y^2))$. We use the book's chart: $G_\alpha(s)=\xi(\alpha)/\xi(\alpha+\sqrt s)$ and the Thorin measure $U_\alpha(dz)$ in the spectral variable $z$, with $\widetilde U_\alpha(dt)=\pi^{-1}v_\alpha(t)\,dt$ its version in the ordinate $t=\sqrt z$ (equation \eqref{bo:eq:Ualpha}). A boundary zero in the upper half plane of multiplicity $m$ gives $m\delta_{\gamma^2}$ in $z$ and $m\delta_\gamma$ in $t$. The Poisson form is the Hadamard product read at the level $\alpha$ (equation \eqref{dz:eq:had}):
+\begin{equation}\label{qt:eq:poisson}
+v_\alpha(y)=\sum_\rho\frac{\alpha-\beta}{(\alpha-\beta)^2+(y-\gamma)^2}=\pi\sum_\rho P_{\alpha-\beta}(y-\gamma).
+\end{equation}
+A zero to the left of the line contributes a positive Cauchy density of mass one (in units of $\theta/\pi$), and a zero to the right a negative one of mass one.
+
+\begin{theorem}[level criterion with the phase]\label{qt:thm:ggc}
+Let $\alpha>\frac12$. The following are equivalent.
+\begin{enumerate}
+\item $G_\alpha$ is the Laplace transform of a generalised gamma convolution.
+\item $\xi(s)\ne0$ for $\Re s>\alpha$.
+\end{enumerate}
+In that case, if no zero lies on $\Re s=\alpha$, $\widetilde U_\alpha$ has the density $v_\alpha(t)/\pi\ge0$ and the distribution function $\widetilde U_\alpha((0,t])=U_\alpha((0,t^2])=\theta_\alpha(t)/\pi$.
+\end{theorem}
+
+\begin{proof}
+This is Theorem~\ref{bo:thm:level} together with equation \eqref{bo:eq:Ualpha}; the Stieltjes inversion is carried out zero by zero, each pair $\rho,\bar\rho$ giving the positive density $P_z(t-\gamma)+P_z(t+\gamma)$ with $z=\alpha-\beta>0$, and the sum converges because $\sum_\rho\gamma^{-2}<\infty$. The converse is the pole of $G_\alpha$ at $s=(\rho_0-\alpha)^2$ for a zero $\rho_0$ with $\Re\rho_0>\alpha$, which lies in the cut plane. A zero on the line $\Re s=\alpha$ gives an atom of $U_\alpha$ at the square of its ordinate.
+\end{proof}
+
+\begin{corollary}\label{qt:cor:rh}
+RH holds if and only if $G_\alpha$ is a GGC for every $\alpha>\frac12$, and if and only if $v_\alpha\ge0$ at all points where it is defined, for every $\alpha>\frac12$. The floor $\alpha_*=\inf\{\alpha:\ G_\alpha\text{ is a GGC}\}$ equals $\Theta=\sup_\rho\Re\rho$: the admissible levels in $(\frac12,\infty)$ are exactly those with $\alpha\ge\Theta$, so the infimum is $\Theta$ even if no zero attains it.
+\end{corollary}
+
+\begin{proof}
+The first equivalence follows from Theorem~\ref{qt:thm:ggc} at every level (Corollary~\ref{bo:cor:level}(2) is its centre level form). If $v_\alpha\ge0$ at every level and $\rho_0=\beta_0+i\gamma_0$ is a zero with $\beta_0>\frac12$, choose it with $\beta_0$ largest at its ordinate and let $m$ be its multiplicity. Then the term of $\rho_0$ in $v_\alpha(\gamma_0)$ is $m/(\alpha-\beta_0)\to-\infty$ as $\alpha\uparrow\beta_0$, while the other terms stay bounded (a local Laurent expansion, $v_\alpha(\gamma_0)=m/(\alpha-\beta_0)+O(1)$, valid also when other zeros share the ordinate), so $v_\alpha(\gamma_0)<0$ for $\alpha$ just below $\beta_0$.
+\end{proof}
+
+\begin{remark}[One level is not enough]\label{qt:rem:onelevel}
+At a single level, $v_\alpha\ge0$ is necessary for the GGC property. For symmetric entire functions positivity of the phase density on one line can coexist with zeros to its right: a zero far to the right of the line contributes a shallow negative dip, and the zeros on the line can fill it (Remark~\ref{dz:rem:mask}). For $\xi$, whether positivity at every height on one fixed line implies the corresponding zero free half plane is open (Remark~\ref{rem:ch2:oneline}).
+\end{remark}
+
+\begin{corollary}[the floor $b=\frac78$]\label{qt:cor:floor}
+By the theorem of \cite{OAI26a}, for every $\alpha>\frac78$ the reciprocal $G_\alpha$ is a GGC, with Thorin density
+\[
+\frac1\pi v_\alpha(t)=\frac1\pi\sum_\rho\frac{\alpha-\beta}{(\alpha-\beta)^2+(t-\gamma)^2},\qquad \alpha-\beta\ \ge\ \alpha-\tfrac78>0 .
+\]
+Every Cauchy width is at least $\alpha-\frac78$, and since reflection also gives $\beta\ge\frac18$, every width on $\alpha>\frac78$ lies in $[\alpha-\frac78,\alpha-\frac18]$ and the sum is strictly positive. At $\alpha=\frac78$ the GGC conclusion still holds, possibly with atoms at the ordinates of zeros on $\Re s=\frac78$. The corollary makes no assertion that $\Theta=\frac78$.
+\end{corollary}
+
+This is Corollary~\ref{bo:cor:level}(3), Corollary~\ref{qrh:cor:thorin}(i) and Theorem~\ref{dz:thm:qrh}. For a general floor $b$ the same statements hold with $\frac78$ replaced by $b$. The Liu preprint \cite{Liu26a} claims a slightly smaller $b$ by varying parameters of the same construction (Section~\ref{qrh:sec:claims}); we do not use it.
+% FIGURE: Thorin density v_alpha at five levels (0.55, 0.6, 0.75, 7/8, 1) from Re xi'/xi, dotted lines at the zero ordinates; regenerate on Hopper.
+% FIGURE: check of the Poisson form (qt:eq:poisson) against the first hundred zero pairs at alpha = 0.6, 0.875, 1; the difference is the tail of the sum beyond the hundredth zero, flat in y and proportional to alpha - 1/2 (recomputed at 0.6, 0.875 and 47/48; do not print the rows labelled 0.9792).
+
+\subsection{Descent and the mass count}\label{qt:sec:descent}
+
+The Cauchy semigroup $P_a*P_\varepsilon=P_{a+\varepsilon}$ gives, whenever no zero has real part at least $\alpha-\varepsilon$ (Theorem~\ref{tf:thm:poisson}(a)),
+\[
+v_\alpha=\pi\,P_\varepsilon*\frac{v_{\alpha-\varepsilon}}\pi .
+\]
+Going down the ladder is therefore a Cauchy deconvolution, the backward flow of the Poisson semigroup (Proposition~\ref{bo:prop:descent}). A zero with $\beta>\alpha$ has the kernel $-P_{\beta-\alpha+\varepsilon}$ at level $\alpha-\varepsilon$, and $P_\varepsilon*(-P_{\beta-\alpha+\varepsilon})=-P_{\beta-\alpha+2\varepsilon}$, not $-P_{\beta-\alpha}$. This gives the mismatch for one kernel, which alone cannot exclude cancellation in the complete sum for a prescribed step; Theorem~\ref{tf:thm:poisson}(b) assumes a positive distance of the lower level from the set of real parts of zeros and proves failure for some positive step. Finite height verification does not by itself give the whole line convolution that Proposition~\ref{bo:prop:descent} uses. The deconvolved density stays positive until the level reaches a zero.
+
+Past a zero the reciprocal is no longer a GGC, but the phase density is still defined. A zero to the left has mass $+1$ and a zero to the right mass $-1$ (on the whole ordinate axis), so by Theorem~\ref{dz:thm:mass}, for $\frac12<\alpha\le2$, with no zero on the segment from $\alpha$ to $\alpha+iT$ and $T$ not a zero ordinate (or with the limiting conventions of that theorem),
+\begin{equation}\label{qt:eq:mass}
+\frac1\pi\,\theta_\alpha(T)=N(T)-2\,N(\alpha,T)+O(\log T),
+\end{equation}
+where $N(\sigma,T)=\#\{\rho:\ \beta>\sigma,\ 0<\gamma\le T\}$, the count over positive ordinates including the horizontal phase correction. By Ingham \cite{Ingham40}, $N(\sigma,T)\ll T^{3(1-\sigma)/(2-\sigma)}\log^5T$, so for fixed $\frac12<\alpha<1$ the deficit is a vanishing fraction of $N(T)$ (Theorem~\ref{dz:thm:loc}).
+% FIGURE: toy example, true zeros plus one hypothetical pair at 0.9 +- 25i with mirror 0.1 +- 25i seen from level 0.8; phase mass on [0,40]; recomputed 6.135 with the pair and 6.151 without (the draft printed 6.11 and 6.13); the shift is about 0.016 and two further line zeros would give about 8.
+
+\section{Below the floor}\label{qt:sec:below}
+
+\subsection{The pairing lemma}\label{qt:sec:pair}
+
+The functional equation pairs $\rho=\beta+i\gamma$, $\beta\ge\frac12$, with $1-\bar\rho=1-\beta+i\gamma$ at the same ordinate. Fix $\alpha>\frac12$ and write $c=2\alpha-1$, $a_1=\alpha-\beta$, $a_2=\alpha-1+\beta$, $p=a_1a_2$ and $d=y-\gamma$. The pair contributes
+\begin{equation}\label{qt:eq:pair}
+q(d)=\frac{a_1}{a_1^2+d^2}+\frac{a_2}{a_2^2+d^2}=\frac{c\,(d^2+p)}{(a_1^2+d^2)(a_2^2+d^2)}
+\end{equation}
+to $v_\alpha(y)$, where $a_1+a_2=c>0$. The hypothesis $\beta\ge\frac12$ is needed: for $\beta<1-\alpha$ the member $1-\beta$ lies to the right of the level, so that $a_2<0$.
+
+\begin{lemma}[pairing]\label{qt:lem:pair}
+Let $\frac12\le\beta$. If $\beta>\alpha$ then $q(d)<0$ exactly for $|d|<r$, where
+\[
+r^2=-p=(\beta-\alpha)(\beta-1+\alpha)<\tfrac14 ,
+\]
+and $q(d)\ge-c/r^2$ there. If $\alpha<\beta\le b$, then $r^2\le(b-\alpha)(\alpha-1+b)$, and for $b=\frac78$ and $\frac12<\alpha<\frac78$ this is $(\frac78-\alpha)(\alpha-\frac18)$. The negative mass of $q(d)\,dd/\pi$ on the full line is $\frac2\pi\big[\arctan(r/|a_1|)-\arctan(r/a_2)\big]<1$. If $\frac12\le\beta<\alpha$ then $q>0$ everywhere. At $\beta=\frac12$ the reflection fixes the zero, so the actual summand $a/(a^2+d^2)$ is counted once and not twice. At $\beta=\alpha$ the zero width term is treated separately: it is an atom at $d=0$, and its reflection contributes $c/(c^2+d^2)>0$.
+\end{lemma}
+
+\begin{proof}
+The sign of $q$ is the sign of $d^2+p$. For $|d|<r$ the numerator is at least $-cr^2$ and the denominator at least $a_1^2a_2^2=r^4$. The bound on $r^2$ follows because $(\beta-\alpha)(\beta-1+\alpha)$ increases in $\beta$. For $\frac12\le\beta\le\alpha$ we have $a_1\ge0$ and $a_2\ge\alpha-\frac12>0$, so $p\ge0$. The mass is an elementary integral. This is Lemma~\ref{dz:lem:pair} with the mass formula.
+\end{proof}
+
+So below the floor, negative density can only come from bands of radius below one half around the ordinates of zeros to the right of the level, and the bands close as $\alpha\uparrow b$.
+% FIGURE: pair density at level 0.7 for three hypothetical zeros, and the largest band radius r with and without the half plane Re s > 7/8.
+
+\subsection{Positivity on the window}\label{qt:sec:window}
+
+\begin{theorem}[windowed positivity]\label{qt:thm:window}
+Let $T_0=3\cdot10^{12}$. For every $\alpha>\frac12$, $v_\alpha(y)>0$ for $0<y\le T_0-\frac12$.
+\end{theorem}
+
+\begin{proof}
+This is Corollary~\ref{cor:dbeta:window}(1). Platt and Trudgian \cite{PT21} verify that all zeros with $0<\gamma\le T_0$ lie on the critical line, which contribute positive Cauchy terms. Every other pair has $\gamma>T_0$, so for $|y|\le T_0-\frac12$ it is seen at distance more than $\frac12>r$ and is positive by Lemma~\ref{qt:lem:pair}; the conjugate pairs are farther still. For a boundary zero outside the verified heights the zero width term vanishes at the point of evaluation and its reflection is positive.
+\end{proof}
+
+Above level $\frac78$ \cite{OAI26a} covers every height, and Theorem~\ref{qt:thm:window} covers every level up to height $T_0-\frac12$. In the remaining corner, levels in $(\frac12,\frac78)$ above that height (and the level $\frac78$ itself, where only boundary atoms can occur), negative density is confined to the bands of Lemma~\ref{qt:lem:pair}.
+% FIGURE: the certified region in the (height, level) plane, drawn at the floor 7/8.
+
+\subsection{A lower bound, and hidden zeros}\label{qt:sec:hidden}
+
+\begin{lemma}[background]\label{qt:lem:B}
+Let $\frac12\le\beta\le\alpha$, so that $0\le p\le c^2/4$. Then, wherever it is defined, $q(d)\ge c/(c^2+d^2)$. At $\beta=\alpha$ the continuous part of the pair is exactly $c/(c^2+d^2)$ and the atom at $d=0$ is extra, so the bound holds as an inequality between measures with the convention $P_0=\delta_0$. A zero on the critical line contributes at least $\frac12\,c/(c^2+d^2)$.
+\end{lemma}
+
+\begin{proof}
+From \eqref{qt:eq:pair}, $q(d)=c(d^2+p)/(d^4+d^2c^2-2pd^2+p^2)$, and
+\[
+(d^2+p)(c^2+d^2)-(d^4+d^2c^2-2pd^2+p^2)=p\,(c^2+3d^2-p)\ \ge0 .
+\]
+For a zero on the line, $a/(a^2+d^2)\ge a/(4a^2+d^2)$ with $a=c/2$.
+\end{proof}
+
+It no longer depends on where the zeros sit inside the strip, only on their ordinates. Write $a=\alpha-\frac12$, so $c=2a$, and $n(y,H)=\#\{\rho:\ |\gamma-y|\le H\}$.
+
+\begin{theorem}[lower bound]\label{qt:thm:C}
+If no zero lies to the right of $\alpha$ then, for every $y$ with $\xi(\alpha+iy)\ne0$ (or as inequalities between measures) and every $H>0$,
+\[
+v_\alpha(y)\ \ge\ \frac c2\sum_\rho\frac1{c^2+(y-\gamma)^2}\ \ge\ \frac{a}{4a^2+H^2}\;n(y,H).
+\]
+By the theorem of \cite{OAI26a} this holds for every $\alpha>\frac78$.
+\end{theorem}
+
+The first inequality is Lemma~\ref{qt:lem:B} summed over the pairs (Lemma~\ref{cx:lem:pairing}); the second keeps the zeros within $H$. With the explicit count of \cite{HSW22} in the form \eqref{dz:eq:count}, a window of half width $H$ about $y$ holds at least $\frac H\pi\log\frac{y-H}{2\pi}-2e_1\log y-O(\log\log y)$ zeros, where $e_1=0.1095$ is the coefficient of $\log T$ in $E(T)$. Then the theorem gives $v_\alpha(y)\ge\kappa\log y-O(\log\log y)$ with
+\[
+\kappa=\max_H\ \frac{a}{4a^2+H^2}\Big(\frac H\pi-2e_1\Big)>0 .
+\]
+At $\alpha=0.99$ the maximum is at $H$ near $1.9$ and $\kappa$ is about $0.04$. % CHECK HSW22 constants: by hand with e_1 = 0.1095 the optimum is H = pi e_1' + sqrt(pi^2 e_1'^2 + 4a^2), e_1' = 2 e_1, near 1.9, kappa about 0.041; the draft constants gave 0.0433 at H = 1.8; to be recomputed on Hopper.
+
+\begin{theorem}[hidden zeros]\label{qt:thm:D}
+Fix $\alpha>\frac12$, $y$ with $\xi(\alpha+iy)\ne0$, $H\ge\frac12$ and $r_0>0$. Suppose exactly $k$ zero pairs with $\beta>\alpha$, counted with multiplicity and at ordinates of both signs, have $|\gamma-y|\le H$, each with band radius $r_j\ge r_0$. Then
+\[
+v_\alpha(y)\ \ge\ \big(n(y,H)-2k\big)\,\frac{a}{4a^2+H^2}\;-\;k\,\frac{2\alpha-1}{r_0^2}.
+\]
+\end{theorem}
+
+\begin{proof}
+The remaining $n-2k$ zeros within $H$ belong to no bad pair, and since reflection preserves the ordinate they form complete good orbits; applying Lemma~\ref{qt:lem:B} to each orbit, and not to either member separately, each of these zeros contributes on average at least $a/(4a^2+H^2)$. A bad pair is nonnegative outside $|d|<r_j$ and at least $-(2\alpha-1)/r_j^2\ge-(2\alpha-1)/r_0^2$ inside, by Lemma~\ref{qt:lem:pair}. All other terms, in particular the pairs beyond distance $H\ge\frac12>r_j$, are nonnegative.
+\end{proof}
+
+For $k=1$ and a bound on $n(y,H)$ taken as in Proposition~\ref{dz:prop:res}, minimised over centres within $\frac12$ of the zero so that the conclusion holds for all $|y-\gamma|<\frac12$, an isolated bad pair at fixed $\beta$ is invisible from a fixed lower level $\alpha$ once its height exceeds an explicit $\gamma_0(\alpha,\beta)$: the density at that level is positive throughout that pair's band although $G_\alpha$ is not a GGC. The mass count \eqref{qt:eq:mass} does not by itself detect such a zero, since its error $O(\log T)$ can exceed two. Exact control of the argument at the top edge, or the jump of the mass as the level crosses the zero at a fixed admissible $T$ (Corollary~\ref{dz:cor:jump}), detects it; Turing certification requires separate argument control.
+
+The rigorous thresholds are far from sharp. A heuristic gives the true scale: model the zeros on the line near height $\gamma$ as a lattice of spacing $2\pi/L$ with $L=\log(\gamma/2\pi)$. The lattice sum of Cauchy kernels has minimum $\frac L2\tanh(aL/2)$, so a zero $\beta+i\gamma$ makes $v_\alpha$ negative only if
+\begin{equation}\label{qt:eq:vis}
+\frac{2\alpha-1}{(\beta-\alpha)(\beta-1+\alpha)}>\frac L2\tanh\Big(\frac{aL}2\Big).
+\end{equation}
+As $\alpha\downarrow\frac12$ this requires $\beta-\frac12<\sqrt8/L$, about $0.105$ at $\gamma=3\cdot10^{12}$ ($L=26.89$). At great height a zero is visible only from a band of levels just below it. The criterion is a heuristic and not a theorem: comparing the lattice minimum with the greatest possible negative depth gives a necessary visibility condition in the model, the threshold $\sqrt8/L$ is a limiting comparison whose equality case needs higher terms if a strict test at finite $a$ is intended, and removing a lattice atom to model a displaced zero changes the background.
+
+% TODO recompute tab:hidden on Hopper with beta <= 7/8 and HSW22 constants
+% FIGURE: visibility criterion (qt:eq:vis) in the (beta, alpha) plane at height 3e12; above each curve the dip of the zero is filled by the background at that level.

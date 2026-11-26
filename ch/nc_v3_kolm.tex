@@ -1,7 +1,7 @@
 % Volume III chapter: A route through the Kolmogorov law. Sources: misc/reviews/nick-route-to-rh/route/route_chapter.tex lines 1 to 228; referee misc/research/directions/opus/vol3/ROUTE.md (M1 to M14); numbers misc/vol3/verify/ROUTE/results.md. 17 Nov 2026.
 \label{kr:ch:route}
 
-This chapter does not prove the Riemann Hypothesis, and it does not reduce it to a weaker statement. It puts the Chebyshev chapter, the Kolmogorov law of Volume I and Riemann's kernel on one line, adds a few short consequences, and states the one step that is missing. The missing step is an inequality for the tilted mean of $\log K$, where $K$ is the supremum of the absolute value of a Brownian bridge. It is equivalent to RH. We say what blocks each of three attacks on it. The kernel convolution of Section~\ref{kr:sec:smooth} and the tilted mean identity of Section~\ref{kr:sec:missing} are short consequences of results already in the book. We have not found them stated in the literature. The identity of Section~\ref{kr:sec:missing} is one differentiation, and the equivalence is a theorem of Lagarias. The material is from an unrefereed note of Polson (November 2026), corrected after a referee round.
+This chapter does not prove the Riemann Hypothesis, and it does not reduce it to a weaker statement. It puts the Chebyshev chapter, the Kolmogorov law of Volume I and Riemann's kernel on one line, adds a few short consequences, and states the one step that is missing. The missing step is an inequality for the tilted mean of $\log K$, where $K$ is the supremum of the absolute value of a Brownian bridge. It is equivalent to RH. The kernel convolution of Section~\ref{kr:sec:smooth} and the tilted mean identity of Section~\ref{kr:sec:missing} are short consequences of results already in the book, not found by us stated in the literature; the equivalence is a theorem of Lagarias. The material is from an unrefereed note of Polson (November 2026), corrected after a referee round.
 
 We write $\xi(s)=\frac12s(s-1)\pi^{-s/2}\Gamma(\frac s2)\zeta(s)$ and $\Xi(t)=\xi(\frac12+it)$, as in the rest of the book, and $\eta(s)=(1-2^{1-s})\zeta(s)$ for Dirichlet's eta function.
 
@@ -20,7 +20,7 @@ step & tool & result\\
 \bottomrule
 \end{tabular}
 \end{center}
-Steps 1 and 2 are proved in Section~\ref{ct:sec:strip}. We recall what is needed. With $\Theta_R(y)=\sum_{n\ge1}(-1)^{n-1}e^{-\pi n^2y}$ the kernel is
+Steps 1 and 2 are proved in Section~\ref{ct:sec:strip}. With $\Theta_R(y)=\sum_{n\ge1}(-1)^{n-1}e^{-\pi n^2y}$ the kernel is
 \[
 \Phi_R(x)=2e^{x/2}\big(\Theta_R(e^{2x}/4)-\Theta_R(e^{2x})\big),
 \]
@@ -52,7 +52,7 @@ Let $b$ be a standard Brownian bridge on $[0,1]$ and $K=\sup_t|b_t|$, the limit 
 \begin{proof}
 (1) Put $2x^2=\pi y$. (2) $\Theta_R(e^{2x}/4)-\Theta_R(e^{2x})=\frac12\mathbb P\big(\sqrt{\pi/8}\,e^x<K\le\sqrt{\pi/2}\,e^x\big)$, and $K>\sqrt{\pi/8}\,e^x$ means $Y>x-\log2$. (3) $\int_0^\infty y^{s/2-1}\Theta_R(y)\,\mathrm dy=\pi^{-s/2}\Gamma(\frac s2)\eta(s)$, and by (1) the left side is $\frac1s(2/\pi)^{s/2}\mathbb EK^s$. Then $\mathbb Ee^{sY}=(2/\pi)^{s/2}\mathbb EK^s=s\pi^{-s/2}\Gamma(\frac s2)(1-2^{1-s})\zeta(s)$, which is the stated form of $\xi$. (4) $\prod_n(1+\lambda/2n^2)^{-1}=\pi\sqrt{\lambda/2}/\sinh(\pi\sqrt{\lambda/2})$, and inverting the partial fraction expansion gives the tail $2\sum(-1)^{n-1}e^{-2n^2x}$ for $K^2$.
 \end{proof}
-Parts (3) and (4) are classical. Kolmogorov found the law in 1933. Biane, Pitman and Yor \cite{BPY01} identify $\frac4{\pi^2}K^2$ with the hitting time of $1$ by a three dimensional Bessel process and give the Mellin transform in terms of $\xi$. In this book the same facts are in Remark~\ref{ht:rem:chung} (the factorisation $K\stackrel d=M/V$ with $V$ uniform on $[1,2]$), Section~\ref{bp:sec:kk} and Section~\ref{sec:ch16:max}. Parts (1) and (2) are one line substitutions. We recomputed $\mathbb EK^s$ at $s=0.7$ and $s=0.75+10i$ and the Laplace transform at $\lambda=1.3$, by quadrature at thirty digits, and every identity of the theorem agrees to $10^{-30}$ (computed).
+Parts (3) and (4) are classical. Biane, Pitman and Yor \cite{BPY01} identify $\frac4{\pi^2}K^2$ with the hitting time of $1$ by a three dimensional Bessel process and give the Mellin transform in terms of $\xi$. Every identity of the theorem was recomputed by quadrature at thirty digits, at $s=0.7$, $s=0.75+10i$ and $\lambda=1.3$ (computed).
 
 The reading specific to this book is that Ramanujan's combination, Dirichlet's eta function and the Kolmogorov statistic are one object. The coefficients of the exponential series are $c_n=\prod_{m\ne n}(1-n^2/m^2)^{-1}=2(-1)^{n-1}$, so that
 \[
@@ -70,7 +70,7 @@ Equivalently, if $X_\xi$ and $X_R$ have densities proportional to $\Phi$ and $\P
 \begin{proof}
 $\int_0^{\log2}e^{v/2}e^{itv}\,\mathrm dv\allowbreak=\frac{2^{1/2+it}-1}{\frac12+it}$, whose squared modulus is $\frac{3-2\sqrt2\cos(t\log2)}{t^2+\frac14}$. By \eqref{kr:eq:kernel}, $F_R(t)=2\,\Xi(t)\,|\hat\kappa(t)|^2$. Invert the Fourier transform.
 \end{proof}
-This is the factorisation $K\stackrel d=M/V$ of Remark~\ref{ht:rem:chung}, tilted by $e^{x/2}$, written at the level of kernels. We checked the identity at thirty digits on fifty five points of $[-4,8]$, with maximal difference $10^{-31}$ (computed).
+This is the factorisation $K\stackrel d=M/V$ of Remark~\ref{ht:rem:chung}, tilted by $e^{x/2}$, written at the level of kernels.
 
 \begin{corollary}\label{kr:cor:conv}
 \begin{enumerate}
@@ -78,11 +78,11 @@ This is the factorisation $K\stackrel d=M/V$ of Remark~\ref{ht:rem:chung}, tilte
 \item If Riemann's kernel $\Phi$ is log concave, then so is $\Phi_R$, by Pr\'ekopa's theorem \cite{Prekopa73}, since $\kappa$ is log concave on its support.
 \end{enumerate}
 \end{corollary}
-The log concavity of $\Phi$ would follow from the theorem of Csordas, Norfolk and Varga \cite{CNV86} that $t\mapsto\log\Phi(\sqrt t)$ is concave for $t>0$, together with the fact that $\Phi$ decreases on $x>0$. Indeed, with $g(u)=\log\Phi(\sqrt u)$ we have $(\log\Phi)''(x)=2g'(x^2)+4x^2g''(x^2)$, where $g''\le0$ by the theorem and $g'(x^2)=(\log\Phi)'(x)/(2x)\le0$ by monotonicity. We have not checked that this statement and the monotonicity are in \cite{CNV86}, so we do not assert the log concavity of $\Phi$ or of $\Phi_R$ as a theorem (it is conditional on that statement). Numerically $\Phi_R$ is log concave on $\mathbb R$: $(\log\Phi_R)''<0$ on a grid in $[0,10]$, with $(\log\Phi_R)''\le-6.96$ on $(0,4)$, and $\Phi_R$ is even (computed).
+The log concavity of $\Phi$ would follow from the theorem of Csordas, Norfolk and Varga \cite{CNV86} that $t\mapsto\log\Phi(\sqrt t)$ is concave for $t>0$, together with the fact that $\Phi$ decreases on $x>0$. We have not checked that this statement and the monotonicity are in \cite{CNV86}, so we do not assert the log concavity of $\Phi$ or of $\Phi_R$ as a theorem (it is conditional on that statement). Numerically $\Phi_R$ is log concave on $\mathbb R$: $(\log\Phi_R)''<0$ on a grid in $[0,10]$ (computed).
 % UNCHECKED: the statement of CNV86 (concavity of log Phi(sqrt t)) and the monotonicity of Phi on x>0 are not verified against the paper; see ROUTE.md M3.
 
 \section{The ladder and what is proved}\label{kr:sec:ladder}
-Section~\ref{ct:sec:budget} defines the rung functions $v_\alpha(r)$ and $b_\alpha$ and the density $t_\alpha$ of the Thorin measure of $\xi(\alpha)e^{b_\alpha\sqrt u}/\xi(\alpha+\sqrt u)$, which is nonnegative exactly when $v_\alpha(r)\ge b_\alpha$ for all $r$. We record the status of each rung, with the words of the book.
+Section~\ref{ct:sec:budget} defines the rung functions $v_\alpha(r)$ and $b_\alpha$ and the density $t_\alpha$ of the Thorin measure of $\xi(\alpha)e^{b_\alpha\sqrt u}/\xi(\alpha+\sqrt u)$, which is nonnegative exactly when $v_\alpha(r)\ge b_\alpha$ for all $r$.
 \begin{center}
 \small
 \begin{tabular}{p{0.45\textwidth}p{0.43\textwidth}}
@@ -97,7 +97,7 @@ $t_\alpha\ge0$ for all $\alpha>\frac12$ and all $r$ & equivalent to RH\\
 \bottomrule
 \end{tabular}
 \end{center}
-The same equivalence holds for every half plane: no zero has real part above $\theta$ if and only if $t_\alpha\ge0$ for every $\alpha>\theta$ (Proposition~\ref{ct:prop:qrh}, from Garunk\v{s}tis \cite{Garunkstis02} and Theorem~\ref{thm:poisson}). The positivity at one level gives no information at a lower level, which is the block of the third attack below.
+The same equivalence holds for every half plane: no zero has real part above $\theta$ if and only if $t_\alpha\ge0$ for every $\alpha>\theta$ (Proposition~\ref{ct:prop:qrh}, from Garunk\v{s}tis \cite{Garunkstis02} and Theorem~\ref{thm:poisson}).
 
 \section{The missing step}\label{kr:sec:missing}
 For complex $s$ define the tilted mean $\mathbb E_s[Y]=\mathbb E[Ye^{sY}]/\mathbb E[e^{sY}]$, wherever the denominator does not vanish.
@@ -114,7 +114,7 @@ Consequently RH holds if and only if, for every $s\ne1$ with $\operatorname{Re}s
 \begin{proof}
 Differentiate the logarithm of Theorem~\ref{kr:thm:kolm}(3). The equivalence is the theorem of Lagarias \cite{Lagarias} that RH holds if and only if $\operatorname{Re}\frac{\xi'}{\xi}(s)>0$ for $\operatorname{Re}s>\frac12$, with $Y=\log K+\frac12\log\frac2\pi$. The points $s=1+2\pi ik/\log2$, $k\ne0$, where $\mathbb Ee^{sY}=0$, are excluded, and at $s=1$ the right side is a removable singularity.
 \end{proof}
-We verified the identity to thirty digits at $s=0.7$ and $s=0.75+10i$ (computed). The theorem is a reformulation of RH. It is not a reduction to a weaker statement: the inequality \eqref{kr:eq:missing} holds for every $s$ with $\operatorname{Re}s>\frac12$ exactly when RH is true. The right side is elementary. The left side is the tilted mean of the logarithm of an explicit random variable. For real $s>\frac12$ the inequality holds, and $\mathbb E_s[\log K]$ is increasing there because its derivative is a variance. It holds for $\operatorname{Re}s\ge1$ by the classical positivity of $\operatorname{Re}\xi'/\xi$ there \cite{Lagarias}, and up to height $3\cdot10^{12}-1.21$ by Theorem~\ref{thm:dbeta:minall}(ii).
+The theorem is a reformulation of RH, not a reduction. For real $s>\frac12$ the inequality holds, and $\mathbb E_s[\log K]$ is increasing there because its derivative is a variance. It holds for $\operatorname{Re}s\ge1$ by the classical positivity of $\operatorname{Re}\xi'/\xi$ there \cite{Lagarias}, and up to height $3\cdot10^{12}-1.21$ by Theorem~\ref{thm:dbeta:minall}(ii).
 
 \subsection*{The same step in three languages}
 \begin{center}
@@ -129,30 +129,27 @@ Kolmogorov & $\sigma\mapsto\big|(s-1)\,\mathbb Ee^{sY}/(1-2^{1-s})\big|_{s=\sigm
 \bottomrule
 \end{tabular}
 \end{center}
-By Theorem~\ref{kr:thm:kolm}(3) the Kolmogorov expression equals $2|\xi(s)|$. So the Kolmogorov row is the reformulation of RH by Sondow and Dumitrescu \cite{SD10}, which the book credits in Section~\ref{route:sec:target}, and nothing specific to the Kolmogorov law survives the cancellation. The translations are exact. A proof in one language is a proof in all, and none has one.
+By Theorem~\ref{kr:thm:kolm}(3) the Kolmogorov expression equals $2|\xi(s)|$. So the Kolmogorov row is the reformulation of RH by Sondow and Dumitrescu \cite{SD10}, which the book credits in Section~\ref{route:sec:target}, and nothing specific to the Kolmogorov law survives the cancellation.
 
 \section{Three attacks and what blocks them}\label{kr:sec:attacks}
 These are heuristic remarks, not results.
 
 \paragraph{Probabilistic.} $K^2$ is a sum of independent exponentials, and RH is the Lee and Yang property of $X_\xi$ in the sense of Newman \cite{Newman1976}. The block is that the variable in \eqref{kr:eq:missing} is $\log K$, the logarithm of a sum. Independence factorises the Laplace transform of $K^2$. RH concerns its Mellin transform, and independence does not factorise that. The Euler product is the factorisation that the probabilistic structure does not supply.
 
-\paragraph{Analytic.} $\Phi_R$ is positive and even, decays like a Gaussian in $e^{|x|}$, and is numerically log concave. The block is twofold. Those properties do not force real zeros. And by Corollary~\ref{kr:cor:conv}, $F_R$ has nonreal zeros on $\operatorname{Im}t=\pm\frac12$ whatever RH says, so it is not in the Laguerre and P\'olya class. Dividing out the characteristic function of $V'-V$ returns Riemann's kernel.
+\paragraph{Analytic.} $\Phi_R$ is positive and even, decays like a Gaussian in $e^{|x|}$, and is numerically log concave. The block is twofold. Those properties do not force real zeros. And by Corollary~\ref{kr:cor:conv}, $F_R$ has nonreal zeros on $\operatorname{Im}t=\pm\frac12$ whatever RH says, so it is not in the Laguerre and P\'olya class.
 
 \paragraph{Descent on the ladder.} Positivity holds for $\alpha\ge1$, and positivity for every $\alpha>\frac12$ is the statement of RH. The block is that positivity at level $\alpha$ gives no information at level $\alpha-\delta$: a zero with real part between them contributes a term that positivity above does not bound. Lowering the level needs a zero free region.
-
-\medskip\noindent
-In all three the obstruction is the same. The Laplace transform of $K^2$ has no zeros in the strip, while the Mellin transform of the Kolmogorov law has the zeros of $\zeta$ in it. The factorisation that makes the first easy does not survive the passage to the second, and a comparison object for the strip must carry the zeros in a form that can be controlled.
 
 \section{Open problems}\label{kr:sec:problems}
 \begin{problem}[Mellin zeros of exponential series]\label{kr:prob:mellin}
 For an exponential series $X=\sum_n\mathrm{Exp}(\lambda_n)$ with distinct $\lambda_n$ and $\sum1/\lambda_n<\infty$, $\mathbb EX^s=\Gamma(1+s)\sum_nc_n\lambda_n^{-s}$ with $c_n=\prod_{m\ne n}(1-\lambda_n/\lambda_m)^{-1}$, wherever the series converges or continues. For $\lambda_n=2n^2$ this is $2^{1-s}\Gamma(1+s)(1-2^{1-2s})\zeta(2s)$. The trivial zeros of $\zeta(2s)$ cancel the poles of $\Gamma(1+s)$. The remaining zeros are at $s=\rho/2$ and at $s=\frac12+\pi ik/\log2$, $k\ne0$, so they lie on the two lines $\operatorname{Re}s=\frac14$ (under RH) and $\operatorname{Re}s=\frac12$, whatever RH says. Find a condition on the Thorin measure $\sum_n\delta_{\lambda_n}$ under which the zeros in $0<\operatorname{Re}s<\frac12$, after the elementary factor is divided out, lie on one line. RH is the statement that the case $\lambda_n=2n^2$ satisfies it.
 \end{problem}
 \begin{problem}[monotonicity along the ladder]\label{kr:prob:mono}
-Find a functional of $t_\alpha$ that is monotone in $\alpha$ and whose value at $\alpha=\frac12$ is fixed. The functionals available are built from $v_\alpha(r)$ and $b_\alpha$ of Section~\ref{ct:sec:budget}. Decide, for fixed $r$, whether $b_\alpha/v_\alpha(r)$ is monotone in $\alpha$. A scan on a grid in $(\alpha,r)$ can falsify it.
+Find a functional of $t_\alpha$ that is monotone in $\alpha$ and whose value at $\alpha=\frac12$ is fixed. Decide, for fixed $r$, whether $b_\alpha/v_\alpha(r)$ is monotone in $\alpha$.
 \end{problem}
 \begin{problem}[a pole removing kernel with no extra zeros]\label{kr:prob:pole}
 A pole removing combination has a Dirichlet series $P$ with $P(1)=0$, and the zeros of the transform of its kernel are those of $\Xi$ together with the zeros of $P(s)P(1-s)/(s(1-s))$. For the transform to have only real zeros exactly when RH holds, every zero of $P(s)P(1-s)$ other than $s=0$ and $s=1$ must lie on $\operatorname{Re}s=\frac12$. Ramanujan's $P(s)=1-2^{1-s}$ has its zeros on $\operatorname{Re}s=1$. No finite combination can work: by Bohr's almost periodicity $P(s+i\tau)\to P(s)$ uniformly on compact sets for a relatively dense set of $\tau$, so the zero at $s=1$ forces zeros of $P$ within $\epsilon$ of $1+i\tau$, off the critical line. Decide whether an infinite combination (a Dirichlet series) with the required property exists.
 \end{problem}
 
 \section{Assessment}\label{kr:sec:assess}
-The route ties Ramanujan's combination, the Kolmogorov law, Riemann's kernel and the Thorin measures of the reciprocal Xi function together by exact identities, each checked at thirty digits, and the upper part of the ladder is proved. It does not reduce RH to a weaker statement: the missing step is RH. Its use is that the missing step is a statement about one explicit probability law with independent exponential structure, and that places where a new idea could enter are identified and testable. Progress short of a proof would be a theorem on Mellin zeros for some class of exponential series, a monotone functional along the ladder, or a pole removing combination whose extra zeros are on the critical line.
+The use of the route is that the missing step is a statement about one explicit probability law with independent exponential structure, and that places where a new idea could enter are identified and testable. Progress short of a proof would be a theorem on Mellin zeros for some class of exponential series, a monotone functional along the ladder, or a pole removing combination whose extra zeros are on the critical line.

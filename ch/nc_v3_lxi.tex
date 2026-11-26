@@ -1,0 +1,144 @@
+% Chapter "Latent variable models for zeta and Xi", part 2 (label prefix lxi:). Source: misc/reviews/nick-three-chapters-tex/three_chapters_tex/chapter_latent_structure_xi.tex (Polson and Sokolov, November 2026), merged with the report misc/research/directions/opus/vol3/LXI.md (12 MAJOR, 19 MINOR) and the recomputation misc/vol3/verify/LXI/lxi.md. The draft's figure is not used: it repeats Figure rz:fig:traj. No new bibliography entries.
+
+\section{The latent model of $\Xi$ and its finite systems}\label{lxi:sec:main}
+
+The first part of this chapter treated the model of (M). Here the observable is $\Xi$ itself, and the latent model is unconditional. The question is the one the ferromagnet problem poses (Problem~\ref{f:op:ferro} of Chapter~\ref{f:ch:ferro}): which finite, self dual, positive systems have all their zeros on the line and converge to $\Xi$. Most of the material below is already in Volumes I and II, and we cite it. What this chapter adds to the book is the complex fold angle, the counts of zeros to the right of the line for the truncated systems, the dual tilt and the map of the families. Nothing here proves the Riemann hypothesis.
+
+\subsection{The model, from the book}\label{lxi:sub:model}
+
+Let $G_1,G_2,\dots$ be independent with the Gamma law of shape two and $V=\frac1\pi\sum_{n\ge1}G_n/n^2$. Biane, Pitman and Yor \cite{BPY01} proved $E\,V^{s/2}=2\xi(s)$ for every complex $s$ (Theorem~\ref{rz:thm:bpy} and \eqref{bp:eq:bpy}), so with $L=\frac12\log V$ the P\'olya density is $\Phi(u)=\frac12e^{u/2}f_L(u)$. Three readings are used below. First, $V=Z(2)/\pi$ for the random Dirichlet series $Z(\sigma)=\sum_nG_nn^{-\sigma}$, so $\xi$ is the moment function of a random partition function, continued in the order of the moment. Second, $L$ is one half of the logarithm of a sum of exponentials of independent energies, a free energy. Third, $V=\frac\pi2(J+J')$ for two independent first passage times $J,J'$ of a Bessel process of dimension three to the level one, so $V$ is a generalized Gamma convolution with Thorin measure $2\sum_n\delta_{\pi n^2}$. The latent variables are indexed by the integers, while those of the model of Lee and Yang type below are indexed by the zeros.
+
+Two theorems of Volume I fix what the property of Lee and Yang asks. The property for $\Phi$ is equivalent to the Thorin property of the reciprocal, by Newman's characterisation \cite{Newman74} (Proposition~\ref{rz:prop:newmanthorin}, with the three coinciding statements after it; in the Thorin form the Thorin measure is $\sum\delta_{\gamma^2}$ with multiplicities, with zero drift, and the scale $\gamma^2$ against $\gamma^2/2$ is the one fixed there). And the cumulants alternate in sign, $(-1)^{k-1}\kappa_{2k}>0$, for the P\'olya law with no hypothesis (Section~\ref{fm:sec:hadamard}, Table~\ref{fm:tab:cum}). One elementary argument for the necessity of this alternation uses only the verified height $T_0=3\cdot10^{12}$ of the zeros of $\zeta$ (Platt and Trudgian \cite{PT21}): the zeros above $T_0$ contribute at most $3\cdot10^{-12}$ to $\sum\gamma^{-2}$, which is smaller than the contribution of the first zero by a factor far beyond what could reverse a sign. The result itself is not new.
+
+\subsection{Truncation}\label{lxi:sub:trunc}
+
+Let $V_N=\frac1\pi\sum_{n\le N}G_n/n^2$ and $2\xi_N(s)=E\,V_N^{s/2}$. In the variable $w=s/2$ this is the truncation $S_n/\pi$ of Section~\ref{rz:sec:finite}. By partial fractions $2\xi_N(s)=\Gamma(\frac s2+1)\pi^{-s/2}D_N(s)$ for $\mathrm{Re}\,s>-2$, where $D_N(s)=\sum_{n\le N}n^{-s}(a_{n,N}+b_{n,N}(\frac s2+1))$, $b_{n,N}=\prod_{m\le N,m\ne n}(1-n^2/m^2)^{-2}>0$, and $b_{n,N}\to4$, $a_{n,N}\to-6$. So $D_N(s)\to2(s-1)\zeta(s)$, and the zeros of $\xi_N$ in $\mathrm{Re}\,s>-4$, which are those of $D_N$ other than $s=-2$, converge to those of $\xi$ by Hurwitz's theorem. A zero $s_N$ near a simple zero $\rho$ is at $s_N\approx\rho+c_\rho/N$, which is Proposition~\ref{rz:prop:firstorder} with $c_\rho=2\kappa(\rho)$. In terms of $\zeta$, exactly
+\[
+c_\rho=\frac{\rho\,\xi(\rho-2)}{\pi\,\xi'(\rho)}=\frac{2(\rho-3)\,\zeta(\rho-2)}{(\rho-1)\,\zeta'(\rho)} .
+\]
+The functional equation gives $|\zeta(\rho-2)|\approx(\gamma/2\pi)^2|\zeta(\frac52-i\gamma)|$, so $|c_\rho|$ grows like $\gamma^2/(2\pi^2)$ times $|\zeta(\frac52-i\gamma)/\zeta'(\rho)|$, and the expansion is valid for $\gamma^2\ll N$ only, up to that ratio. We computed $c_\rho=-9.52-3.89i$, $-17.35-1.25i$, $-20.30-7.74i$ for the first three zeros, and $N(\frac12-\mathrm{Re}\,s_N)$ at $N=64$ is $9.497$, $17.36$, $20.17$, close to $-\mathrm{Re}\,c_\rho$. Over the first $60$ zeros $\mathrm{Re}\,c_\rho<0$ (computed), so to first order the zeros approach the line from the left, but the ratio $|\mathrm{Re}\,c_\rho|/\gamma$ is $0.67$ at the first zero, $1.30$ at the thirtieth and $2.19$ at the sixtieth, and it ranges from $0.67$ to $3.66$: it is not a constant multiple of $\gamma$. The sign does not persist: by Corollary~\ref{rz:cor:Tfalse}, $\mathrm{Re}\,c_\rho>0$ at $\rho_{213}$, so the zeros of the truncated systems lie to the right of the line there.
+
+\emph{Zeros to the right.} Counting the zeros of $D_N$ in $\mathrm{Re}\,s>\frac12$ by the argument principle (computed): none up to height $2000$ for $N=8,16,32$; one between heights $100$ and $125$ for $N=64$; nine up to height $400$ for $N=128$. So the truncated systems do not have all their zeros on one side, and the first order law is the whole story only at low heights.
+
+\emph{Why the symmetrisation of $\xi_N$ cannot be proved by a sign.} For $F$ analytic in a strip symmetric about the line put $F^*(s)=\overline{F(1-\bar s)}$. If $|F(s)|\ne|F^*(s)|$ for every $s$ off the line, then $F+F^*$ vanishes only on the line, and by continuity $|F|-|F^*|$ has one sign in each half of the strip, which can be read off on the real axis. For $F=\xi$ this is empty since $\xi^*=\xi$. For $F=\xi_N$, analytic in $-4N<\mathrm{Re}\,s<1+4N$, and $1<\sigma<1+4N$, because $V_N\le V$ and $E\,V^{\sigma/2}=E\,V^{(1-\sigma)/2}$,
+\[
+E\,V_N^{\sigma/2}<E\,V^{\sigma/2}=E\,V^{(1-\sigma)/2}<E\,V_N^{(1-\sigma)/2},
+\]
+so $|\xi_N|<|\xi_N^*|$ on the right half of the strip. That would force $\xi_N$ to have no zero to the left of the line, while its zeros near the low zeros of $\xi$ are to the left. So the hypothesis of this elementary criterion fails for $\xi_N$. This does not show that $\xi_N+\xi_N^*$ has zeros off the line. The symmetrised truncations $K_n=2\mathrm{Re}[\pi^{-w}F_n(w)]$ of Proposition~\ref{rz:prop:symtrunc} are exactly such a sum, they are finite and self dual, every zero found for $n\ge4$ lies on the line, and Conjecture S of Section~\ref{rz:sec:finite} asserts this for all $n$. The functional equation is a property of the infinite system, and a truncation of the integers breaks it at order $1/N$ unless it is restored by hand, as in $K_n$.
+
+\subsection{Folding}\label{lxi:sub:fold}
+
+The scale $v$ has a self dual point. Riemann's second proof splits the integral at $v=1$ and reflects, with $\psi(v)=\sum_{n\ge1}e^{-\pi n^2v}$ and $\Gamma_n(s)=(\pi n^2)^{-s/2}\Gamma(\frac s2,\pi n^2)$ the incomplete Gamma function,
+\[
+\xi(s)=\frac12+\frac{s(s-1)}2\sum_{n\ge1}\bigl[\Gamma_n(s)+\Gamma_n(1-s)\bigr].
+\]
+Cutting the sum at $n\le N$ keeps the symmetry and gives $H_N$, an entire function with $H_N(s)=H_N(1-s)$, real on the line, with an error of the order of $e^{-\pi(N+1)^2}$ (Proposition~\ref{mi:prop:incgamma}); on the line it is $\frac12-2(t^2+\frac14)\int_0^\infty K_N(u)\cos(tu)\,du$ with the positive kernel $K_N(u)=e^{u/2}\sum_{n\le N}e^{-\pi n^2e^{2u}}$. The limit of $H_N(\frac12+it)$ as $t\to\infty$ is a positive constant $c_N=\sum_{n>N}(4\pi n^2-1)e^{-\pi n^2}$ ($c_1=1.7\cdot10^{-4}$, $c_2=5.9\cdot10^{-11}$, $c_3=3.0\cdot10^{-20}$), so $H_N$ has finitely many real zeros (compare Theorem~\ref{mi:thm:kink} and Result~\ref{mi:res:trunc}). The real zeros stop where $|\Xi(t)|$ falls below $c_N$, and the heuristic height is $4(N+1)^2$, where $e^{-\pi(N+1)^2}$ meets $e^{-\pi t/4}$. What is certified is weaker: all zeros of $H_N-c_N$ (the function $H^F_N$ of Volume II, up to the factor $8$) with ordinate below $3.6(N+1)^2$ are real for $N\le4$, by Volume II (Chapter on the path to RH, after Proposition~\ref{ev:prop:reduction}).
+
+Computed, the real zeros of $H_N(\frac12+it)$ for $0<t<42$ and the number of zeros of $H_N$ in the box $|\mathrm{Re}\,s-\frac12|<6$, $0<\mathrm{Im}\,s<42$ (argument principle):
+\begin{center}
+\small
+\begin{tabular}{lp{7.3cm}c}
+\hline
+ & zeros on the line & in the box\\
+\hline
+$N=1$ & 14.16595, 19.56394 & 4\\
+$N=2$ & 14.134725, 21.022039, 25.010865, 30.424323, 32.938764, 37.49545 & 8\\
+$N=3$ & 14.134725, 21.022040, 25.010858, 30.424876, 32.935062, 37.586178, 40.918719 & 7\\
+$\xi$ & 14.134725, 21.022040, 25.010858, 30.424876, 32.935062, 37.586178, 40.918719 & 7\\
+\hline
+\end{tabular}
+\end{center}
+With three integers the folded system has exactly the seven zeros of $\xi$ in the box, all on the line, to six decimals. With two it has the first five zeros to within $0.004$, a sixth displaced, and one pair off the line; with one, the first zero to $0.03$ and one pair off the line. For $N=1,2$ the last real zeros, $19.56$ and $37.50$, are of the order of the heights $16$ and $36$, and for $N=3$ the table stops at $42$, below $64$. The approximants of Haglund \cite{Haglund09} are $H_N-c_N$, which have different zeros.
+
+\subsection{The fold angle}\label{lxi:sub:angle}
+
+In the model of pairs $(n,v)$ the scale, given $n$ and tilted by $v^{s/2}$, is a Gamma variable of shape $s/2$ and rate $\pi n^2$. Folding at a point $c=e^{i\phi}$ instead of $1$ gives complex weights.
+
+\begin{proposition}[Complex Gamma weights]\label{lxi:prop:weights}
+Let $Q(a,y)=\Gamma(a,y)/\Gamma(a)$, $c=e^{i\phi}$ with $|\phi|<\frac\pi2$, and $T_n(s,c)=\pi^{-s/2}\Gamma(\frac s2)n^{-s}Q(\frac s2,\pi n^2c)$. Then for every $s$
+\[
+\xi(s)=\frac{s(s-1)}2\sum_{n\ge1}\bigl[T_n(s,c)+T_n(1-s,1/c)\bigr]+\frac s2c^{(s-1)/2}-\frac{s-1}2c^{s/2}.
+\]
+On the line the two sums are complex conjugates and the last two terms are $\mathrm{Re}[\bar s\,c^{s/2}]$, so every truncation of the sum is real there.
+\end{proposition}
+
+\begin{proof}
+Split $\int_0^\infty\psi(v)v^{s/2}\,dv/v$ at $v=c$ and use $\psi(v)=v^{-1/2}\psi(1/v)+\frac12v^{-1/2}-\frac12$ on $(0,c)$; the boundary terms are $c^{(s-1)/2}/(s-1)-c^{s/2}/s$. For real $c>0$ this is Riemann's computation, and both sides are analytic in $c$ for $\mathrm{Re}\,c>0$.
+\end{proof}
+
+The weight of the integer $n$ is $Q(\frac s2,\pi n^2e^{i\phi})$, the probability, continued to a complex shape and a rotated threshold, that the scale exceeds the fold point. It is not a soft cutoff: for fixed $n$ and $\phi$, $|1-Q|$ grows like $t^{-3/4}e^{(\pi/4-\phi/2)t}$, since $\Gamma(\frac s2)$ is exponentially small. The weights of the sums $\zeta_N$ of Spira are the sharp cutoff $1[n\le N]$, and the folded family is $\phi=0$. With twelve terms the formula reproduces $\xi(\frac12+it)$ at $t=5,20,40$ and $\phi=0,0.8,1.3$ to better than $10^{-26}$ (computed; multiprecision is needed since the terms cancel strongly).
+
+Truncating at $n\le N$ leaves an error of the order of $e^{-\phi t/2-\pi(N+1)^2\cos\phi}$ against $|\xi|$ of size $e^{-\pi t/4}$, which suggests the height $4(N+1)^2\cos\phi/(1-2\phi/\pi)$ as the limit of the reproduction, from $4(N+1)^2$ at $\phi=0$ to $2\pi(N+1)^2$ as $\phi\to\frac\pi2$. This is heuristic. Computed, the number of zeros of $\zeta$ reproduced in order to within $0.02$:
+\begin{center}
+\small
+\begin{tabular}{lccccc}
+\hline
+$\phi$ & 0 & 0.8 & 1.2 & 1.4 & 1.5\\
+\hline
+$N=2$: zeros matched & 5 & 9 & 10 & 6 & 3\\
+$N=3$: zeros matched & 14 & 25 & 26 & 22 & 18\\
+$N=3$: height reached & 60.8 & 88.8 & 92.5 & 82.9 & 72.1\\
+$N=3$: height predicted & 64 & 91 & 98 & 100 & 100\\
+\hline
+\end{tabular}
+\end{center}
+An angle near $1.2$ almost doubles the number of zeros that three integers reproduce, from $14$ to $26$, and nearer to $\frac\pi2$ the low zeros deteriorate. The proposition is exact and the table is a computation, which shows matching of zeros and not their reality. The weights are complex, so the finite systems are not mixtures of laws. For $\phi=0$ the real zeros are finitely many, as above; for $\phi\ne0$ we have not proved this. The weights of the model of (M) are scales attached to Frobenius classes and do not enter $\Xi$.
+
+\subsection{Reflection, tilting, coupling and the dual tilt}\label{lxi:sub:map}
+
+The weight $S_N(u)=\sum_{n\le N}\varphi_n(u)$ of the theta kernel cut after the integer $N$, with $\varphi_n(u)=(4\pi^2n^4e^{9u/2}-6\pi n^2e^{5u/2})\exp(-\pi n^2e^{2u})$ and $\Phi=\sum_n\varphi_n$, is a signed weight, negative for $u<\frac12\log\frac3{2\pi N^2}$, and distinct from the truncated system $V_N$ above. It is not even. There are three ways to make a system even.
+
+\emph{Reflection.} The transform of $S_N(u)+S_N(-u)$ is $g(s)\zeta_N(s)+g(1-s)\zeta_N(1-s)$ with $g(s)=\frac12s(s-1)\pi^{-s/2}\Gamma(\frac s2)$ and $\zeta_N(s)=\sum_{n\le N}n^{-s}$, so up to the factor $g$ it is $\zeta_N(s)+\chi(s)\zeta_N(1-s)$, the family studied by Spira \cite[Section 6]{Spira67} and by Gonek and Montgomery \cite{GonekMontgomery13}; on the line $Z_N(t)=2\sum_{n\le N}n^{-1/2}\cos(\vartheta(t)-t\log n)$, with $\vartheta$ the theta function of Riemann and Siegel. For $N=1$ the single site system is $2\cos\vartheta$, a spin with zeros on a regular lattice $\vartheta=(k+\frac12)\pi$ of the density of the zeros of $\zeta$, and the integers $n\ge2$ add fields rotating at the speeds $\log n$ against the clock. The book proves that all but finitely many zeros of the case $N=2$ in the strip lie on the line and that $N=3$ has zeros off the line at arbitrarily large heights (Proposition~\ref{rz:prop:zetaN}), and Gonek and Montgomery proved proportion one on the line for $N\le T^{o(1)}$. The reflected weight is signed, so these are statements about real zeros of the transform and not about the property of Lee and Yang. Near the height $2\pi N^2$, $Z_N$ approximates Hardy's function $Z(t)$ up to $O(t^{-1/4})$. Computed, for $8<t<100$, where $\zeta$ has $29$ zeros:
+\begin{center}
+\small
+\begin{tabular}{lccccc}
+\hline
+$N$ & 1 & 2 & 3 & 4 & 6\\
+\hline
+zeros on the line & 29 & 29 & 25 & 19 & 21\\
+zeros with $|\mathrm{Re}\,s-\frac12|<3$ & 29 & 29 & 31 & 31 & 33\\
+\hline
+\end{tabular}
+\end{center}
+The first zero is at $14.52$, $13.78$, $13.94$, $14.42$, $14.114$ for these $N$, against $14.135$.
+
+\emph{Tilting.} Replacing $e^{au}$ by $2\cosh(au)$ and $\exp(-\pi n^2e^{2u})$ by $\exp(-2\pi n^2\cosh2u)$ gives for $N=1$ P\'olya's kernel \cite{Polya}, positive since $4\pi^2>6\pi$, with only real zeros (P\'olya), and for general $N$ the family of Hejhal \cite{Hejhal90}. For $N=1,2,3$ we found $13$ real zeros and $13$ zeros in the box $|\mathrm{Im}\,t|<4$ for $1<t<60$ (computed), at $7.604$, $18.717$, $24.275$, $28.830,\dots$, which do not move with $N$ (to $10^{-5}$ at these heights) because the terms with $n\ge2$ carry the factor $e^{-8\pi}$. The kernels are positive, so the label of Lee and Yang is meaningful, but the family does not converge to $\Xi$.
+
+\emph{Coupling.} Multiplying the P\'olya density by $e^{\lambda u^2}$ averages $\Xi$ over a random imaginary shift of its argument, since $e^{\lambda u^2}=E\,e^{\sqrt{2\lambda}\,gu}$ for a standard normal $g$. De Bruijn \cite{deBruijn} proved real zeros for $\lambda$ large and Newman \cite{Newman1976} that there is a threshold constant. In the normalisation $\Xi(t)=\int\Phi(u)e^{itu}du$ the threshold is one quarter of the usual one, so $\Lambda\le0.2$ \cite{PT21} gives $0.05$ and $\Lambda\ge0$ (Rodgers and Tao \cite{RodgersTao}) gives $0$. The laws $e^{\lambda u^2}\Phi(u)$ with $\lambda\ge0.05$ therefore form an unconditional family with the property of Lee and Yang, at coupling $0.05$ from the target (see Route two of Volume II and \cite{Polymath}).
+
+\emph{The dual tilt does not arrive.} Let $A_\beta(u)=\sum_n\varphi_n(u)\exp(-\beta\pi n^2e^{-2u})$ and $\Phi_\beta(u)=\frac12(A_\beta(u)+A_\beta(-u))$, so formally $\Phi_0=\Phi$, and for $\beta=1$ this is half of the tilted family with all $n$. The transform is a sum of Bessel functions for every $\beta>0$, but it does not tend to that of $\Phi$. Computed at $t=0$ it is $0.235$, $0.082$, $-0.063$, $-0.250$, $-0.499$, $-0.831$ for $\beta=10^{-1},\dots,10^{-6}$, against $\Xi(0)=0.497$: it has no limit as $\beta\to0$, and at $t=5$ it oscillates in $\beta$ (between $0.20$ and $0.35$ against $\Xi(5)=0.276$). The cause is that the sum over $n$ in the mirrored part converges only through the cancellation of the theta transformation, which the tilt destroys in a moving window.
+
+\subsection{The map}\label{lxi:sub:mapfam}
+
+\begin{center}
+\small
+\begin{tabular}{p{2.3cm}p{1.9cm}p{2.7cm}p{3.5cm}}
+\hline
+family & finite and explicit & converges to $\Xi$ & zeros on the line\\
+\hline
+truncation $V_N$ & yes & yes, rate $1/N$ & no for large $N$\\
+symmetrised $K_n$ & yes & yes & found for $n\ge4$, Conjecture S\\
+folding & yes & yes, rate $e^{-\pi N^2}$ & below about $4(N+1)^2$; finitely many\\
+reflection & yes & only near $2\pi N^2$ & $N=1$ found; $N=2$ almost all; proportion one\\
+tilting & yes & no & $N=1$ proved; $N\le3$ found\\
+coupling, $\lambda\ge0.05$ & no & within $\lambda$ & all\\
+\hline
+\end{tabular}
+\end{center}
+No family in the table has all three properties proved, and one with all three would prove the Riemann hypothesis by Hurwitz's theorem. Under the hypothesis one exists trivially (the partial products over the zeros, which are not transforms of positive weights). The nearest are the symmetrised truncation, whose zeros are on the line in every computed case, and coupling, which is positive and has all zeros real at coupling $0.05$ from the target.
+
+\subsection{Frobenius classes and theta kernels}\label{lxi:sub:frob}
+
+Why is a model with Frobenius classes and theta lifts the right type? A theta series is both a Gaussian integral and a sum over a lattice. As a Gaussian its size is governed by the Gamma function, the one that gives the law of $G_n$ in Theorem~\ref{rz:thm:bpy}; as a lattice sum it has integral coefficients with arithmetic meaning; and it carries the self duality of the latent scale. The Frobenius classes make the unknown enter in a controlled way, since divisibility at a prime depends on the class only and the classes have a known total, so a one sided bound for each is enough (Section~\ref{lvz:sec:ff}). Over finite fields the zeros of $Z(u)$ lie on $|u|=q^{-1/2}$, which has the form of the circle theorem of Lee and Yang, and this is proved by Weil \cite{Weil49} or by Stepanov \cite{BombieriStepanov}, not by exhibiting a ferromagnet. Three observations show why the model does not produce one.
+\begin{enumerate}
+\item \emph{The theorem of Lee and Yang is about a field, and $\Xi$ is about a temperature.} The law on $\mathbb Z$ with weights $e^{-\pi n^2v}$ has the moment generating function $\sum_ne^{-\pi n^2v+nh}$, a theta function with zeros at $h=-2\pi v(k+\frac12)+i\pi(2m+1)$. In the field variable $z=h/(2\pi i)$ these are the lines $\mathrm{Re}\,z\in\frac12+\mathbb Z$, that is the fugacity $e^h$ on the negative real axis. This is not the property of Lee and Yang, whose zeros lie on the imaginary $h$ axis, but it is a field variable. $\Xi$ is a transform in the scale $v$ by $v^{s/2}$, a temperature, and zeros in a temperature are not controlled by the theorem of Lee and Yang.
+\item \emph{Where $u$ is a sum of spins there are no zeros.} For a temperature $\alpha>1$ the gas of primes makes $\log n=\sum_pk_p\log p$ a sum of independent variables, but each factor of the Euler product has poles and no zeros, and the zeros of $\zeta$ appear only by continuation, below the temperature at which the gas exists. The exponents $k_p$ are one sided geometric variables, not even spin laws, so the Euler product is not a ferromagnet at any size.
+\item \emph{Where finite systems have zeros, the observable is not a sum.} The finite systems above have zeros near the line, but the observable there is the logarithm of a sum of independent variables, a free energy, and not a sum of spins.
+\end{enumerate}
+So the model of (M) is a model for the logarithmic derivative, bounded from one side by an inequality between two marginals. It would reach the zeros through the primes and a test function and never through a property of Lee and Yang. The two programmes meet in Proposition~\ref{rz:prop:newmanthorin}: the property of Lee and Yang is equivalent to the positivity of the Thorin measure at the centre, that positivity is the Riemann hypothesis (Theorem~\ref{thm:poisson}), and (M), if it holds, is a route to the same statement.
+
+\subsection{Where the ferromagnet problem stands}\label{lxi:sub:stands}
+
+The problem is Problem~\ref{f:op:ferro}. (1) A solution gives the property of Lee and Yang for $\Phi$, which is equivalent to the Thorin property at the centre (Proposition~\ref{rz:prop:newmanthorin}), so it implies the Riemann hypothesis and is not a weaker statement. (2) Its necessary conditions on cumulants hold at every order. (3) An unconditional latent model exists (Theorem~\ref{rz:thm:bpy}); in it the P\'olya variable is a free energy $L$ tilted by $V^{1/4}$, and the tilt couples the latent variables. (4) Truncating that model fails: for large $n$ the first order law puts zeros to the right of the line (Corollary~\ref{rz:cor:Tfalse}). Folding gives finite self dual systems with real zeros to a height of order $N^2$ and no further, and the symmetrised truncations $K_n$ are the family closest to a finite ferromagnet, with Conjecture S open. (5) Of the known families, the coupling at strength at least $0.05$ has all zeros real and the reflected systems have them in proportion one; neither is both exact and convergent.
+
+\emph{Tasks.} (1) For the folded systems, reality of the zeros of $H_N$ below $c(N+1)^2$ for every $N$ implies the Riemann hypothesis (Proposition~\ref{ev:prop:reduction}); it holds for $H_N-c_N$, which also converges to $\xi$, for $N\le4$ with $c=3.6$, certified in Volume II, so proving it for every $N$ is as hard as the hypothesis. (2) Find a single spin law with tails like $\exp(-\pi e^{2u})$ and the property of Lee and Yang whose ferromagnetic sums have a limit with transform $\Xi$; no law $\exp(-c|u|^p)$ is itself the P\'olya law (for $p>1$ its transform has order $p/(p-1)>1$), but for limits of sums the order of $\Xi$ excludes nothing. This is Problem~\ref{f:op:ferro}, and nothing in this chapter indicates how to solve it.

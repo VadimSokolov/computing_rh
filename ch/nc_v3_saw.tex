@@ -1,0 +1,127 @@
+% Chapter qt, part B2: sawtooth. Sources: misc/reviews/nick-sawtooth/sawtooth_chapter_for_vadim/sawtooth_chapter.tex (text only), report misc/research/directions/opus/vol3/SAW.md, numbers misc/vol3/verify/SAW/saw.md, 24 Nov 2026
+\section{The sawtooth behind the sharp constant}\label{sw:sec:saw}
+
+The statistic $\mathcal G$ replaces the floor in Chebyshev's $\log\lfloor x\rfloor!=\sum_{n\le x}\Lambda(n)\lfloor x/n\rfloor$ by a ramp. The difference is a sum of one sawtooth over the primes, and Theorem~\ref{qt:thm:sharp} is a statement about that sum. Write $\{t\}$ for the fractional part, $\psi_\Gamma$ for the digamma function, $S(x)=\sum_{n\le x}\Lambda(n)(x/n-1)$, so that $\mathcal G(x)=S(x)-x\log x+(1+\gamma)x$, and $H(x)=\sum_{n\le x}\Lambda(n)\bigl(1-\{x/n\}\bigr)$.
+
+\begin{proposition}[Floor minus ramp]\label{sw:prop:floor}
+For every $x\ge1$, $H(x)=\log\lfloor x\rfloor!-S(x)$, and
+\[
+\mathcal G(x)=\gamma x-H(x)-\bigl(\{x\}-\tfrac12\bigr)\log x+\tfrac12\log2\pi+O(1/x).
+\]
+\end{proposition}
+
+\begin{proof}
+$\lfloor t\rfloor-(t-1)=1-\{t\}$; put $t=x/n$ and sum against $\Lambda(n)$. For the second statement let $N=\lfloor x\rfloor$, $\theta=\{x\}$, so $N+\tfrac12=x-(\theta-\tfrac12)$. Stirling's formula $\log N!=(N+\tfrac12)\log N-N+\tfrac12\log2\pi+O(1/N)$ with $\log N=\log x-\theta/x+O(x^{-2})$ gives $\log N!=x\log x-x-(\theta-\tfrac12)\log x+\tfrac12\log2\pi+O(1/x)$. Insert this into $\mathcal G=\log N!-H-x\log x+(1+\gamma)x$.
+\end{proof}
+
+So $\mathcal G(x)\le Kx^\theta$ is the lower bound $H(x)\ge\gamma x-Kx^\theta-O(\log x)$, and by Proposition~\ref{qt:prop:riesz} either one sided bound holds if and only if $\zeta$ has no zero in $\Re s>\theta$. With $\mathrm{tr}(x)=\sum_{m\ge1}x^{-2m}/(2m(2m+1))$, \eqref{qt:eq:riesz} gives for every $x>1$, without hypothesis,
+\[
+H(x)=\gamma x+\bigl[\log\lfloor x\rfloor!-x\log x+x\bigr]-\log2\pi+\mathrm{tr}(x)+\sum_\rho\frac{x^\rho}{\rho(\rho-1)},
+\]
+and by Theorem~\ref{qt:thm:sharp}, under RH, $H(x)-\gamma x$ minus the bracket, plus $\log2\pi-\mathrm{tr}(x)$, has modulus at most $F_0\sqrt x$, $F_0=0.0461914$. The bracket is $O(\log x)$. At $x=1$ the fluctuation over $\sqrt x$ is $-F_0$ (as $\mathcal G(1)=1+\gamma$ and $\mathrm{tr}(1)=1-\log2$); for $2\le x\le10^7$, sampled at integers and half integers, it lies in $[-0.0187,0.0227]$ (computed). For $F_0$ as the variance of Chebyshev's error (under RH with simple zeros) see Remark~\ref{ct:rem:cramer}, and for $F_0/(2\sqrt2)$ as a Brownian hitting level see Section~\ref{ri:sec:kill}.
+
+\subsection{The law of the sawtooth over the primes}
+
+For $n$ uniform on $[1,x]$, $\{x/n\}\le t$ with $\lfloor x/n\rfloor=m$ means $x/(m+t)\le n\le x/m$, a proportion $1/m-1/(m+t)$. So as $x\to\infty$ the law of $\{x/n\}$ has distribution function and density
+\[
+F(t)=\sum_{m\ge1}\Bigl(\frac1m-\frac1{m+t}\Bigr)=\psi_\Gamma(1+t)+\gamma,\qquad F'(t)=\sum_{m\ge1}\frac1{(m+t)^2},\qquad0\le t<1,
+\]
+with mean $1-\gamma$ and not $\tfrac12$ (proved). With weights $\Lambda(n)$ the same holds by the prime number theorem (the mean is due to de la Vall\'ee Poussin). The error in the whole law, as the count $J_t$ with weights $\Lambda(n)/x$ (not $\Lambda(n)/\psi(x)$), has an explicit formula, with weights at the zeros given by the Hurwitz zeta function $\zeta(s,a)=\sum_{k\ge0}(k+a)^{-s}$.
+
+\begin{theorem}[The law of the sawtooth over the primes]\label{sw:thm:hurwitz}
+For $0<t\le1$ let $J_t(x)=\sum_{n\le x,\ \{x/n\}\le t}\Lambda(n)$. For $\Re s>1$,
+\[
+\int_1^\infty J_t(x)\,x^{-s-1}dx=\Bigl(-\frac{\zeta'}{\zeta}(s)\Bigr)I_t(s),\qquad I_t(s)=\frac{\zeta(s)-\zeta(s,1+t)}s,
+\]
+and $I_t$ is analytic for $s\ne0$ with $I_t(1)=F(t)$ and $I_t(\rho)=-\zeta(\rho,1+t)/\rho$ at every zero $\rho$. Consequently, with $\Delta_t(u)=(J_t(e^u)-F(t)e^u)e^{-u/2}$, $Z$ standard normal, $u_0\ge1$ and $0<\sigma\le0.1$, without hypothesis and with zeros counted with multiplicity,
+\[
+\mathbb E\,\Delta_t(u_0+\sigma Z)=\sum_\rho\frac{\zeta(\rho,1+t)}\rho\,e^{(\rho-\frac12)u_0+(\rho-\frac12)^2\sigma^2/2}+r,
+\]
+where $r=-t\log(2\pi)\,e^{-u_0/2+\sigma^2/8}+O_{t,\sigma}(e^{-5u_0/2})$.
+\end{theorem}
+
+\begin{proof}
+The indicator of $\{y\}\le t$ has Mellin transform $s^{-1}\sum_{m\ge1}(m^{-s}-(m+t)^{-s})=I_t(s)$; the poles at $s=1$ cancel and $\zeta(s,a)=1/(s-1)-\psi_\Gamma(a)+\cdots$ gives $I_t(1)$. $J_t$ is the multiplicative convolution of $\Lambda$ with this indicator. Invert against the Gaussian window and move the contour left: $s=1$ gives $F(t)x$, each zero gives $\zeta(\rho,1+t)x^\rho/\rho$, $s=0$ gives $-t\log2\pi$ (as $\zeta(0)-\zeta(0,1+t)=t$ and $\zeta'/\zeta(0)=\log2\pi$), and the zero at $-2$ with the remaining integral on $\Re s=-2-\eta$, $0<\eta<2$, gives the $O_{t,\sigma}(e^{-5u_0/2})$ (the Gaussian factor grows to the left, so the contour stops there).
+\end{proof}
+
+At $t=1$, $\zeta(\rho,2)=-1$ and this is the classical explicit formula for $\psi(x)-x$. Since $\int_1^2\zeta(s,a)\,da=1/(s-1)$ by telescoping, $\int_0^1I_t(\rho)\,dt=-1/(\rho(\rho-1))$, and $\int_0^1J_t\,dt=H$. The weights $\zeta(\rho,1+t)/\rho$ have modulus at least $|\rho|^{-1}$ at $t=1$ and $t=\frac12$ (where $\zeta(\rho,\frac32)=-2^\rho$), so are not absolutely summable, whereas $1/(\rho(\rho-1))$ is; this is why the first moment obeys a clean bound and the distribution function need not. At $\log x=11$, $\sigma=0.02$, $t=0.5$, the windowed discrepancy is $-0.280947$ from the primes and $-0.280940$ from $300$ zeros (computed, to the quadrature accuracy $10^{-4}$).
+
+\subsection{Primes against integers}
+
+Let $\Delta(x)=\sum_{n\le x}\lfloor x/n\rfloor-x\log x-(2\gamma-1)x$ be the error in Dirichlet's divisor problem.
+
+\begin{proposition}\label{sw:prop:div}
+For $x\ge1$, $\sum_{n\le x}(1-\{x/n\})=\gamma x+\Delta(x)-\tfrac12+O(1/x)$, and
+\[
+\sum_{n\le x}\bigl(\Lambda(n)-1\bigr)\bigl(1-\{x/n\}\bigr)=-\mathcal G(x)-\Delta(x)-\bigl(\{x\}-\tfrac12\bigr)\log x+O(1).
+\]
+\end{proposition}
+
+\begin{proof}
+$\sum_{n\le x}\{x/n\}=x\sum_{n\le\lfloor x\rfloor}1/n-\sum_{n\le x}\lfloor x/n\rfloor$ and $x\sum_{n\le\lfloor x\rfloor}1/n=x\log x+\gamma x-\{x\}+\tfrac12+O(1/x)$. Subtract from $\lfloor x\rfloor$, then subtract the result from Proposition~\ref{sw:prop:floor}.
+\end{proof}
+
+Since $\Delta(x)=O(x^{1/3+\varepsilon})$ (Voronoi), the left side is $O(x^{1/2+\varepsilon})$ if and only if RH holds (Proposition~\ref{qt:prop:riesz}): RH says that $\Lambda-1$ is nearly orthogonal to every dilate $n\mapsto1-\{x/n\}$. The prime sum is the smoother of the two: at $x=10^7-\frac12$ it is $-26.94$ against $38.33$ for the integers, and at $10^6+\frac12$ it is $-10.12$ against $84.13$ (computed).
+
+\begin{remark}[Mellin value at the zeros]\label{sw:rem:mellin}
+For $\Re s>0$, $\int_1^\infty(1-\{x\})x^{-s-1}dx=\frac1s\bigl(\zeta(s)-\frac1{s-1}\bigr)$ (Titchmarsh), which is $\gamma$ at $s=1$ and $-1/(\rho(\rho-1))$ at every zero; for $\Re s>1$ the transform of $H$ is $(-\zeta'/\zeta)(s)$ times it.
+\end{remark}
+
+\subsection{Windows without hypothesis}
+
+Let $H_0=3\times10^{12}$ and $\varepsilon_{H_0}=\sum_{|\gamma|>H_0}\gamma^{-2}\le2.96\times10^{-12}$ (main term $(\log(H_0/2\pi)+1)/(\pi H_0)$, error below $10^{-23}$, as after Proposition~\ref{qt:prop:riesz}; verification of Platt and Trudgian \cite{PT21}). Put $g(u)=e^{-u/2}\bigl(\mathcal G(e^u)-\log2\pi+\mathrm{tr}(e^u)\bigr)$ for $u\ge0$ and $g(u)=0$ for $u<0$. Then $g=f$ of Theorem~\ref{qt:thm:sharp}(2) on $u\ge0$ under RH, $g(u)=\sum_\rho e^{(\rho-\frac12)u}/(\rho(1-\rho))$ in general, and by Proposition~\ref{sw:prop:floor} $-g(\log x)$ is the sawtooth fluctuation above divided by $\sqrt x$.
+
+\begin{theorem}[Gaussian windows, all $x$]\label{sw:thm:window}
+For $u_0\ge1$ and $0<\sigma\le0.1$, with $Z$ standard normal and zeros counted with multiplicity,
+\[
+\mathbb E\,g(u_0+\sigma Z)=\sum_{|\tau|\le H_0}\frac{e^{i\tau u_0}e^{-\tau^2\sigma^2/2}}{\frac14+\tau^2}+R,\qquad|R|\le\varepsilon_{H_0}e^{u_0/2+\sigma^2/8-H_0^2\sigma^2/2}+10^{-20}.
+\]
+If $\sigma\ge\sqrt{u_0+39.1}/H_0$ then $|\mathbb E\,g(u_0+\sigma Z)|\le F_0+2\times10^{-20}$, with no hypothesis beyond the verification of RH up to $H_0$.
+\end{theorem}
+
+\begin{proof}
+Zeros with $|\gamma|\le H_0$ have $\beta=\frac12$, and $\mathbb E\,e^{(\rho-\frac12)(u_0+\sigma Z)}=e^{(\rho-\frac12)u_0}e^{(\rho-\frac12)^2\sigma^2/2}$. For $|\gamma|>H_0$ only $|\beta-\frac12|\le\frac12$ is used: the modulus is at most $e^{u_0/2+\sigma^2/8-H_0^2\sigma^2/2}\gamma^{-2}$. The Gaussian on $u<0$, where the series is not $g$, contributes less than $10^{-20}$ (it needs $Z<-10$). For the last statement $H_0^2\sigma^2/2\ge u_0/2+19.55$ makes the first part of $R$ smaller than $10^{-20}$, and the verified zeros carry total weight at most $F_0=\sum_\rho1/(\rho(1-\rho))$, every term of which has positive real part.
+\end{proof}
+
+This is the two sided Gaussian analogue of Corollary~\ref{st:cor:principle} and Lemma~\ref{st:lem:hide} (Gamma windows), with the same sharpness. The sharp bound $F_0\sqrt x$ holds on average over a multiplicative window of relative width $\sqrt{\log x+39.1}/H_0$, which is $5.5\times10^{-12}$ at $x=10^{100}$ and $1.6\times10^{-11}$ at $x=10^{1000}$ (computed).
+
+\subsection{How large the error typically is}
+
+For a distinct ordinate $\tau>0$ let $m(\tau)$ be its multiplicity and $c(\tau)=2/(\frac14+\tau^2)$, so that under RH $f(Y)=\sum_{\tau>0}m(\tau)c(\tau)\cos(\tau Y)$.
+
+\begin{proposition}[Mean square]\label{sw:prop:ms}
+Under RH,
+\begin{align*}
+\lim_{U\to\infty}\frac1U\int_0^Uf(Y)^2\,dY&=\frac12\sum_{\tau>0}m(\tau)^2c(\tau)^2\\
+&\ge\frac12\sum_{\tau>0}m(\tau)c(\tau)^2=7.42\times10^{-5}\ \text{(computed)},
+\end{align*}
+with equality if and only if all zeros are simple. If RH fails the mean square is unbounded.
+\end{proposition}
+
+\begin{proof}
+Parseval's identity for the absolutely convergent almost periodic series $f$. Conversely, a bounded mean square gives $\int_0^\infty f(Y)^2e^{-2\delta Y}dY<\infty$ for every $\delta>0$, so by Cauchy and Schwarz $\int_0^\infty f(Y)e^{-(s-\frac12)Y}dY$ is analytic in $\Re s>\frac12$, which is RH.
+\end{proof}
+
+Under RH the root mean square is at least $0.0086$, with equality if all zeros are simple (computed), so $F_0$ is at most $5.4$ root mean squares; from primes over $2\le\log x\le16.1$ the mean square is $7.32\times10^{-5}$ (computed).
+
+\begin{remark}[Cancellation across shells]\label{sw:rem:shells}
+Group the terms of $H$ by $m=\lfloor x/n\rfloor$. The shell $x/(m+1)<n\le x/m$ contributes $h_m(x)=(m+1)[\psi(x/m)-\psi(x/(m+1))]-x[\Pi(x/m)-\Pi(x/(m+1))]$, $\Pi(y)=\sum_{n\le y}\Lambda(n)/n$, with expected value $x(1/m-\log(1+1/m))$ (summing to $\gamma x$). The table gives $h_m(x)$ minus its expected value (computed); the last column is the sum over the nonempty shells $m\le x$, which is $H(x)-\gamma x+\frac12+O(1/x)$, since the expected values of the empty shells $m>x$ add up to $\frac12+O(1/x)$.
+\begin{center}
+\small
+\begin{tabular}{rcccccc}
+\toprule
+$x$ & $\sqrt x$ & $m=1$ & $m=2$ & $m=3$ & $m=4$ & all shells\\
+\midrule
+$10^6+\frac12$ & 1000 & $-434.1$ & $103.6$ & $185.7$ & $100.4$ & $-9.6$\\
+$10^7-\frac12$ & 3162 & $-1528.4$ & $1040.3$ & $583.9$ & $-520.1$ & $-26.4$\\
+\bottomrule
+\end{tabular}
+\end{center}
+Each of the first four shells deviates by a sizeable fraction of $\sqrt x$ and the total is about fifty times smaller: the sharp constant is a cancellation between shells.
+\end{remark}
+
+\begin{remark}[Ramanujan's factorial]\label{sw:rem:ram}
+Ramanujan's approximation $\log n!\approx n\log n-n+\tfrac16\log(8n^3+4n^2+n+\tfrac1{30})+\tfrac12\log\pi$ has error close to $-11/(11520\,n^4)$ ($-9.5\times10^{-16}$ at $n=1000$, computed). So the difficulty of $H=\log\lfloor x\rfloor!-S$ is all in $S$. Finite combinations of dilated log factorials, Chebyshev's and Ramanujan's among them, have no pole at the zeros (Section~\ref{ct:sec:mobius}, Proposition~\ref{lg:prop:blind}).
+\end{remark}
+
+Open: prove $H(x)\ge\gamma x-x^\theta$ for some $\theta<\frac78$; by Proposition~\ref{qt:prop:riesz} this would give a zero free half plane beyond the $\frac78$ theorem.

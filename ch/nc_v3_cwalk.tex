@@ -454,7 +454,7 @@ At $\sigma=0.75$ the slow convergence is the second mean value term $\frac{\zeta
 
 \section{The Poisson functional}\label{cw:sec:bsy}
 
-The Pollaczek exponent of Section~\ref{cw:sec:ps} with $\ln|\zeta|$ in place of $-\frac12\ln(1-\hat f)$ is the Poisson functional of Balazard, Saias and Yor~\cite{BSY99}, and it needs no step law. We had stated it as a theorem of the chapter. It is Theorem~\ref{bsy:thm:bsy}, which is stronger: it holds at every point $s$ of the half plane and every level $\theta\in[\frac12,1)$, and its reflected factor $(s-1)/(s-2\theta+1)$ makes only $\ln|\zeta|$ appear on the line. The Brownian reading, $\ln|F|$ as a martingale up to the critical line and a strict submartingale if a zero lies to its right, is Proposition~\ref{bsy:prop:yor}. The Green function reading is the form $G_\theta$ of the theorem. Only the numerics are kept here, in the notation of that theorem at $\theta=\frac12$, where $h_{1/2}(s)=(s-1)\zeta(s)/s$. Write $F=h_{1/2}$ and, for a Poisson scale $a>0$,
+The Pollaczek exponent of Section~\ref{cw:sec:ps} with $\ln|\zeta|$ in place of $-\frac12\ln(1-\hat f)$ is the Poisson functional of Balazard, Saias and Yor~\cite{BSY99}, and it needs no step law. We had stated it as a theorem of the chapter. It is Theorem~\ref{bsy:thm:bsy}, which is stronger: it holds at every point $s$ of the half plane and every level $\theta\in[\frac12,1)$, and its reflected factor $(s-1)/(s-2\theta+1)$ makes only $\ln|\zeta|$ appear on the line. The Brownian reading, $\ln|F|$ as a martingale up to the critical line and a strict submartingale if a zero lies to its right, is Proposition~\ref{bsy:prop:yor}. The Green function reading is the form $G_\theta$ of the theorem. Only the numerics are kept here, in the notation of that theorem at $\theta=\frac12$, where $h_{1/2}(s)=(s-1)\zeta(s)/s$. The Davenport and Heilbronn control of Theorem~\ref{bsy:thm:dhid} applies unchanged. Write $F=h_{1/2}$ and, for a Poisson scale $a>0$,
 \[
 D(a):=\frac a\pi\int_{-\infty}^\infty\frac{\ln|\zeta(\frac12+it)|}{a^2+t^2}\,dt-\ln\big|F(\tfrac12+a)\big|=\sum_{\operatorname{Re}\rho>1/2}G_{1/2}\big(\tfrac12+a,\rho\big)\ge0 .
 \]
@@ -546,41 +546,6 @@ Part 1 is Lemma~\ref{cw:lem:level}. For part 2, a zero with $|\gamma-t_0|\le a$ 
 
 The hypothesis $a\ge1-\sigma_0$ in part 3 is needed: a zero with $\beta>a$ contributes $2\pi a$ and not $2\pi\beta$, and these terms are not inside the error. Part 3 is Littlewood's lemma in Poisson form: the height average of the local functional is the mean distance of the zeros to the right of the line. Under RH, $D_{1/2}\equiv0$ by part 1, so the averages vanish identically. So the family $D(z)$ has three scales: a single point (RH), a height average (zero density) and a real base point (the Balazard, Saias and Yor integral).
 
-\subsection{Control experiment: the Davenport and Heilbronn function}\label{cw:sec:dh}
-The Davenport and Heilbronn function~\cite{DH36} $f=\frac{1-i\kappa}2L(s,\chi)+\frac{1+i\kappa}2L(s,\bar\chi)$, with $\chi$ the character modulo 5 with $\chi(2)=i$ and $\kappa=(\sqrt{10-2\sqrt5}-2)/(\sqrt5-1)$, has a functional equation of Riemann type and zeros off the line (see also~\cite{BSO07}). It is of finite order and polynomially bounded on $\operatorname{Re}s\ge\frac12$, so $f/(1+s)^2$ is bounded there and the results above apply with $F=f$. A grid scan and Newton iteration located eight zeros with $\frac12<\operatorname{Re}s<1.6$ and $0<t<400$ (computed; three of them were checked to $|f|<7\times10^{-7}$ at the printed digits).
-% UNVERIFIED: only three of the eight zeros were checked by the independent run (the report does not say which).
-\begin{center}
-\small
-\begin{tabular}{ll}
-\toprule
-$0.808517+85.699348\,i$ & $0.869531+240.404672\,i$\\
-$0.650830+114.163343\,i$ & $0.819550+320.876490\,i$\\
-$0.574356+166.479306\,i$ & $0.768223+331.050259\,i$\\
-$0.724258+176.702461\,i$ & $0.628508+366.640908\,i$\\
-\bottomrule
-\end{tabular}
-\end{center}
-The local functional was then computed by direct quadrature on the window $|t-t_0|\le300$, with no knowledge of the zeros, and compared with the Green sum~\eqref{cw:eq:level} over the located zeros (computed). The Green sums were reproduced at all four levels for both base points, which is the check of this table; the quadrature columns were not reproduced.
-% UNVERIFIED: the quadrature columns and the statement that D for zeta is at most 2e-5 at these base points and levels.
-\begin{center}
-\small
-\begin{tabular}{lllll}
-\toprule
- & \multicolumn{2}{c}{base point $1.5+85.7\,i$} & \multicolumn{2}{c}{base point $1.5+100\,i$}\\
-level $\sigma_0$ & $D$ by quadrature & Green sum & $D$ by quadrature & Green sum\\
-\midrule
-0.55 & 0.55866 & 0.55868 & 0.00348 & 0.00349\\
-0.65 & 0.37745 & 0.37746 & 0.00138 & 0.00139\\
-0.75 & 0.15638 & 0.15638 & & 0.000445\\
-0.80 & 0.02434 & 0.02434 & 0.00006 & 0.00007\\
-0.82 & 0.00000 & 0.00000 & 0.00000 & 0.00000\\
-0.90 & 0.00000 & 0.00000 & 0.00000 & 0.00000\\
-1.00 & 0.00000 & 0.00000 & 0.00000 & 0.00000\\
-\bottomrule
-\end{tabular}
-\end{center}
-The functional reproduces the Green sum to $2\times10^{-5}$, falls to zero as the level passes the zero at real part $0.8085$, and is of size $0.56$ next to that zero against $0.003$ fourteen units away. For $\zeta$ at the same base points and the levels $0.5$, $0.55$, $0.75$ the same computation returns $D\le2\times10^{-5}$ in every case. So the detector separates a function with zeros off the line from $\zeta$, with a signal four orders of magnitude above the numerical floor.
-
 \subsection{Height averages: zero density as the slope of the averaged profile}\label{cw:sec:avg}
 Average the local functional over heights. By Theorem~\ref{cw:thm:local}, part 3, for $\frac12\le\sigma_0\le1$ and $a\ge1$,
 \begin{equation}\label{cw:eq:avg}
@@ -626,77 +591,9 @@ $1/2$ & $0$ & $0$ & & $0$\\
 \end{center}
 At levels $\sigma_0\ge\frac78$ the table is superseded: by \cite{OAI26a}, $N(\sigma,T)=0$ for $\sigma>\frac78$, so the averaged defect is the error term of~\eqref{cw:eq:avg} alone. For $\sigma_0<\frac78$ the table is the best known statement, and on every such rung strictly above the critical line the averaged Poisson defect is known to vanish in the limit, at a rate that degrades to zero exactly at the line. What the averaged form leaves open is a boundary layer of width $1/\ln T$ at $\sigma_0=\frac12$ (Open problem~\ref{cw:prob:layer}).
 
-\subsection{The mean of $\ln|\zeta|$ on the line to height $10^6$}\label{cw:sec:littlewood}
-Write $M(T)=\int_0^T\ln|f(\frac12+it)|\,dt$ for $\zeta$ and for the control function. For $T$ up to $400$ (computed):
-% UNVERIFIED: the row of M(T) for the control function was not reproduced. The zeta row is confirmed by direct quadrature and by the identity below (the draft printed -1.431, -0.927 and -0.968 at T = 100, 200, 400).
-\begin{center}
-\small
-\begin{tabular}{lllll}
-\toprule
-$T$ & 100 & 200 & 300 & 400\\
-\midrule
-$\zeta$: $M(T)$ & $-1.436$ & $-0.924$ & $-1.197$ & $-0.974$\\
-Davenport and Heilbronn: $M(T)$ & 1.865 & 4.704 & 6.940 & 11.481\\
-$2\pi\sum(\beta-\frac12)$ over its located zeros & 1.938 & 4.762 & 7.084 & 11.585\\
-\bottomrule
-\end{tabular}
-\end{center}
-For $\zeta$ the integral stays bounded, as Littlewood's theorem requires up to the verified height. Littlewood's lemma on the rectangle with corners $\frac12$, $\infty$, $\infty+iT$, $\frac12+iT$ gives, for every $T$ below the verified height $3\times10^{12}$ and not an ordinate of a zero,
-\[
-M(T)=-\frac\pi2-A(T),\qquad A(T)=\int_{1/2}^\infty\arg\zeta(\sigma+iT)\,d\sigma,
-\]
-with the argument continued from $+\infty$; the constant is the bottom edge, where $\arg\zeta=\pi$ on $(\frac12,1)$. The identity was confirmed at $T=100$, where quadrature gives $M+A=-1.5707$ against $-\frac\pi2=-1.5708$ (computed). Since $A(T)$ needs only one horizontal line, $M(T)$ is cheap at any height (computed; the values at $10^3$ and $10^6$ were recomputed by the identity, the tail error at $10^6$ being about $0.005$).
-\begin{center}
-\small
-\begin{tabular}{lllll}
-\toprule
-$T$ & $10^3$ & $10^4$ & $10^5$ & $10^6$\\
-\midrule
-$M(T)$ & $-1.474$ & $0.006$ & $-2.796$ & $-2.799$\\
-$M(T)/T$ & $-1.5\times10^{-3}$ & $6\times10^{-7}$ & $-2.8\times10^{-5}$ & $-2.8\times10^{-6}$\\
-\bottomrule
-\end{tabular}
-\end{center}
-The table is at $T=10^k$ exactly (at $T=10^k+\frac12$ the values are $-1.156$, $-0.585$, $-1.838$, $-2.262$, so the value depends on the fractional part of $T$ at the level of one). The integral stays of size at most three at these heights, in line with the bound $O(\ln T)$ that Littlewood proves under RH. The computation carries no information beyond the verification itself, since the identity assumes no zeros off the line below $T$. For the control function the integral grows linearly, about $0.029\,T$, and matches the sum over the zeros located independently, the difference being the bounded argument terms of Littlewood's lemma. At the levels $0.6$, $0.7$, $0.85$ the control integrals to $T=400$ are $6.61$, $3.00$, $0.08$ against $6.72$, $3.08$, $0.12$ from the zeros (the three zero sums are reproduced).
-
 \section{The Thorin density of the reciprocal: a numerical view and windows of half width one}\label{cw:sec:thorin}
 
 Write $\xi(s)=\frac12s(s-1)\pi^{-s/2}\Gamma(\frac s2)\zeta(s)$. The Thorin density of the compensated reciprocal at level $\alpha$ is $T_\alpha(t)=\frac1\pi\big[\operatorname{Re}\frac{\xi'}\xi(\alpha+it)-\frac{\xi'}\xi(\alpha)\big]=(v_\alpha(t)-b_\alpha)/\pi$ in the notation of Chapter~\ref{dz:ch:density}, and the transfer from a signed L\'evy measure to this density is the $2\sin^2$ identity~\eqref{eq:sin2}. Most of what one proves about it is already in the book. The cancellation ledger of Chapter~\ref{bo:ch:ledger} (Theorem~\ref{bo:thm:ledger}) splits it, with $\pi T_\alpha=B_\alpha+J_\alpha$, into the archimedean block $B_\alpha\ge0$ of~\eqref{bo:eq:B}, which is the Thorin density of the Gamma factor with atoms at the integers and grows like $\frac12\ln t$, and the prime block $J_\alpha$, which is signed in the strip; its one sided reading is that the primes are never more negative than the archimedean block. That RH holds exactly when $T_\alpha\ge0$ on every level is Theorem~\ref{thm:dbeta:minall}(vi) and Proposition~\ref{ct:prop:qrh}; that $\operatorname{Re}\xi'/\xi>0$ to the right of the critical line is equivalent to RH is the criterion of Lagarias~\cite{Lagarias} and Hinkkanen. The proof of RH $\Rightarrow T_\alpha\ge0$ by convexity near the origin and a zero within $3.64$ is Theorem~\ref{dz:thm:low}. The converse is one line: if $\beta_0+i\gamma_0$ is a zero with $\beta_0>\frac12$, then as $\alpha\uparrow\beta_0$ the real part of $\xi'/\xi(\alpha+i\gamma_0)$ tends to $-\infty$ while $\xi'/\xi(\alpha)$ stays bounded. The sharp negative set, the negative mass $\frac2\pi\arctan(\eta/r_\rho)=\frac2\pi\arcsin\frac{\alpha-1/2}{\beta-1/2}$ of one zero and the jump of two units are Theorem~\ref{bo:thm:negset}, Lemma~\ref{dz:lem:pair}, Theorem~\ref{dz:thm:mass} and Corollary~\ref{dz:cor:jump}. They are not reprinted. What follows is the numerical illustration, the window of half width one, and the Davenport and Heilbronn controls.
-
-\subsection{Numerical illustration}
-Values of the archimedean part $T^\Gamma_\alpha=B_\alpha/\pi$, of the prime part $T^P_\alpha=J_\alpha/\pi$ and of their sum (computed).
-% UNVERIFIED: only the cells (alpha, t) = (0.75, 5), (0.75, 14.1347), (0.75, 30), (0.55, 14.1347) and (0.55, 100) were reproduced by the independent check; the grid statements and the Thorin check right side 0.023080 were not.
-\begin{center}
-\small
-\begin{tabular}{lrrrrrr}
-\toprule
- & \multicolumn{3}{c}{$\alpha=0.75$} & \multicolumn{3}{c}{$\alpha=0.55$}\\
-$t$ & $T^\Gamma$ & $T^P$ & $T_\alpha$ & $T^\Gamma$ & $T^P$ & $T_\alpha$\\
-\midrule
-5 & 0.1682 & $-0.1677$ & 0.0005 & 0.1838 & $-0.1837$ & 0.0001\\
-10 & 0.2722 & $-0.2675$ & 0.0048 & 0.2893 & $-0.2883$ & 0.0010\\
-14.1347 & 0.3262 & 0.9487 & 1.2750 & 0.3436 & 6.0230 & 6.3665\\
-17 & 0.3553 & $-0.3398$ & 0.0155 & 0.3727 & $-0.3696$ & 0.0031\\
-30 & 0.4451 & $-0.1024$ & 0.3427 & 0.4627 & $-0.3727$ & 0.0900\\
-100 & 0.6365 & $-0.5140$ & 0.1226 & 0.6541 & $-0.6288$ & 0.0253\\
-\bottomrule
-\end{tabular}
-\end{center}
-On a grid of step $0.05$ over $(0,120]$ the total is nonnegative with minimum 0 as $t\to0$, while the prime part ranges over $[-0.58,0.94]$ at $\alpha=0.75$ and $[-0.66,5.8]$ at $\alpha=0.55$. Between zeros the two parts cancel to three or four digits: the primes use almost all of the room the archimedean density gives them. The Thorin representation itself was checked at $\alpha=0.75$, $w=1$: the left side is $0.023061$ (reproduced), the right side $0.023080$ with the integral cut at $t=250$ and an asymptotic tail. The small values of $T_\alpha$ at $t=5$ and $t=10$ are an artefact of the recentring at $t=0$, where $T_\alpha$ vanishes by construction. The block $T^\Gamma_\alpha$ is positive for every $t>0$ and is exactly $\frac1\pi\sum_{k\ge1}t^2/((\alpha+2k)((\alpha+2k)^2+t^2))$.
-
-For the Davenport and Heilbronn function, completed with its own Gamma factor, the same density at the height $t=85.6993$ of its zero with real part $0.8085$ is as follows (computed).
-% UNVERIFIED: the T_alpha row of the Davenport and Heilbronn function was not checked.
-\begin{center}
-\small
-\begin{tabular}{lrrrrr}
-\toprule
-$\alpha$ & 0.90 & 0.82 & 0.80 & 0.75 & 0.60\\
-\midrule
-$T_\alpha(85.6993)$ & 4.01 & 28.29 & $-36.79$ & $-4.82$ & $-0.73$\\
-\bottomrule
-\end{tabular}
-\end{center}
-It is positive above the abscissa of the zero and negative below it, as the converse above predicts, while at $t=60$ and $t=100$ it stays between $0.39$ and $0.81$.
 
 \subsection{Localisation, with windows of half width one}
 For a zero $\rho=\beta+i\gamma$ with $\beta>\alpha$ put $r_\rho=\sqrt{(\beta-\alpha)(\alpha+\beta-1)}\le\frac12$, and write $\eta=\alpha-\frac12$ and $P_c(x)=c/(c^2+x^2)$. The following sharpens Corollary~\ref{dz:cor:narrow}, whose windows have half width $4.54$.
@@ -761,29 +658,6 @@ $\alpha$ & $r_\rho$ & $d=0$ & $0.1$ & $0.2$ & $0.3$ & $0.5$ & $1$\\
 \end{tabular}
 \end{center}
 The density is negative inside $r_\rho$ and positive outside in every row.
-
-\subsection{Mass accounting for the control function}
-The mass deficit identity is Theorem~\ref{dz:thm:mass}: for $\frac12<\alpha_1<\alpha_2\le1$ and $T$ not an ordinate, with $I_\alpha(T)=\int_0^T\operatorname{Re}\frac{\xi'}\xi(\alpha+it)\,dt$, one has $I_{\alpha_2}(T)-I_{\alpha_1}(T)=2\pi\#\{\rho:\alpha_1<\beta<\alpha_2,\ 0<\gamma<T\}+\operatorname{Im}\int_{\alpha_1}^{\alpha_2}\frac{\xi'}\xi(\sigma+iT)\,d\sigma$, by the argument principle on the rectangle with vertical sides on the two levels. For the Davenport and Heilbronn function, with $T=100$ and its zero $0.8085+85.6993\,i$, the deficit is as follows (computed).
-\begin{center}
-\small
-\begin{tabular}{lllll}
-\toprule
-levels $\alpha_1,\alpha_2$ & $I_{\alpha_2}-I_{\alpha_1}$ & top edge term & deficit$/\pi$ & zeros between\\
-\midrule
-$0.75,\ 0.90$ & 6.33155 & 0.04837 & 2.00000 & 1\\
-$0.82,\ 0.90$ & 0.03454 & 0.03454 & 0.00000 & 0\\
-$0.60,\ 0.75$ & $-0.04478$ & $-0.04478$ & 0.00000 & 0\\
-$0.55,\ 0.90$ & 6.24897 & $-0.03421$ & 2.00000 & 1\\
-\bottomrule
-\end{tabular}
-\end{center}
-The negative mass of the group of that zero at $\alpha=0.75$ is $0.60142$, by quadrature and by the formula $\frac2\pi\arctan(\eta/r_\rho)$ (reproduced).
-
-\emph{The reverse direction (heuristic).} One can try to run the transform backwards: a zero to the right of the level forces $|\zeta'/\zeta(\alpha+it)|\ge1/|\alpha+it-\rho|-O(\ln t)$ near its ordinate, hence
-\[
-\int_T^{2T}\Big|\frac{\zeta'}\zeta(\alpha+it)\Big|^2dt\ \ge\ \big(\pi+o(1)\big)\sum_{\substack{\beta>\alpha\\T<\gamma\le2T}}\frac1{\beta-\alpha}-O(T\ln^2T),
-\]
-so an upper bound for the mean square of the prime side would bound the number of zeros just to the right of the level. This does not give a new estimate. The only unconditional bounds for the mean square of $\zeta'/\zeta$ inside the strip are themselves obtained from the zeros, through the same partial fraction expansion, so the argument is circular; under RH the mean square is $\sim T\sum\Lambda(n)^2n^{-2\alpha}$ and the inequality is consistent but empty. The classical zero density method avoids the circle by replacing $\zeta'/\zeta$ with $\zeta M-1$ for a mollifier $M$, a Dirichlet polynomial whose mean values are known unconditionally. In the language of this section the classical density theorems are bounds for the mass deficit, and the present transform reproduces them but does not improve them.
 
 \subsection{Why this is not a proof}
 By Theorem~\ref{cw:thm:local2} the inequality $T_\alpha\ge0$ holds at all heights below $3\times10^{12}$ and at almost all heights above, with a margin that grows like $\ln^2t$, and by \cite{OAI26a} it holds at every height for $\alpha\ge\frac78$. So the difficulty is not that the inequality is delicate at typical heights. It is that a single zero with real part in $(\alpha,\frac78]$ would violate it by an arbitrarily large amount in a window of width at most $1$, and nothing in the inequality at other heights prevents that. Excluding those windows is a statement about every height, and that is RH.

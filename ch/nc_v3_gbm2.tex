@@ -1,0 +1,137 @@
+% Section "Completeness as hedging". Sources: misc/reviews/nick-completeness/source/completeness_portfolio_for_vadim/chapter_completeness_portfolio.tex (draft CMP, salvage only; GBM lines 504 to 714 are duplicated in it), referee reports misc/research/directions/opus/vol3/CMP.md and misc/research/directions/astra/CMP/report.md, recomputation misc/vol3/verify/GBM/gbm.md; written 23 Nov 2026.
+\section{Completeness as hedging}\label{gbm:sec:complete}
+
+The book already has the following. The secant identity, which writes $e^{-x}$ as $\frac12\sum_n\mu(n)\chi_4(n)\sech(nx)$, is Proposition~\ref{rz:prop:lvj}, and the identity is in Lai and Vere-Jones \cite{LVJ}, who posed the completeness of the dilates of $\sech$ as an open problem. The criterion of Salem \cite{Salem53} for the Fermi kernel, and its secant analogue, hold on a divergent set of dilates for every $\sigma>0$ in Theorem~\ref{lv:thm:salem}, with integers and primes as the main cases; the equivalences (\ref{lv:eq:salem-beta}) and Corollary~\ref{wr:cor:salem} record that Salem's statement concerns $\frac12<\sigma<1$, since the Fermi transform has the extra zeros $1+2\pi ik/\log2$ on $\sigma=1$. The hedge form of the function of Riesz is equation (\ref{wr:eq:riesz}). The sharpness of the divergence condition and the rate of the distance are Problems~\ref{lv:prob:sharp} and~\ref{lv:prob:rate}. None of this is reproved here. This section adds Salem's criterion on a finite range (Theorem~\ref{gbm:thm:salemfinite}), the prime form of the inversion (Section~\ref{gbm:sec:primeform}), the finite field case (Proposition~\ref{gbm:prop:ff}), computed distances to spans of integer, prime and square dilates (Tables~\ref{gbm:tab:dist1} and~\ref{gbm:tab:dist2}), and a remark that completeness is two sided and carries no arithmetic, so that it is a second language for the signed hedge and not a route to (M). Levinson \cite{Levinson56} is possibly related to Theorem~\ref{lv:thm:salem}; we have not compared the two. Throughout, $L^1_\sigma$ is the space of functions on $(0,\infty)$ with $\|\varphi\|_\sigma=\int_0^\infty\allowbreak|\varphi(x)|\allowbreak x^{\sigma-1}dx<\infty$, the Mellin transform is $\hat\varphi(s)=\int_0^\infty\allowbreak\varphi(x)\allowbreak x^{s-1}dx$ on $\Re s=\sigma$, a dilate $\varphi(\lambda x)$ has transform $\lambda^{-s}\hat\varphi(s)$ and norm $\lambda^{-\sigma}\|\varphi\|_\sigma$, and $x=e^u$ turns dilations into translations and $L^1_\sigma$ into $L^1(\mathbb R)$. We write $\beta(s)=L(s,\chi_4)$, whose transform with $\sech$ is $2\Gamma(s)\beta(s)$, and $\hat k(s)=\Gamma(s)(1-2^{1-s})\zeta(s)$ for $k(x)=1/(e^x+1)$. All zeros are nontrivial zeros counted with multiplicity.
+
+\subsection{Salem's criterion on a finite range}
+
+The kernels carry the factor $\Gamma(s)$, which damps a zero at height $\gamma$ by $e^{-\pi|\gamma|/2}$ with no smoothing added. So the criterion becomes a statement on a finite range, and the range is long.
+
+\begin{theorem}[Distance to the span, from zeros up to a height]\label{gbm:thm:salemfinite}
+Let $k=\sech$ and $L=\beta$, or $k(x)=1/(e^x+1)$ and $L=\zeta$. Suppose every zero of $L$ with $|\gamma|\le T_0$ lies on the critical line, $T_0\ge10$. Let $\frac12<\sigma<1$ and let $\Lambda\subset[1,\infty)$ be a set of distinct scales with $\sum_{\lambda\in\Lambda}1/\lambda=\infty$, for example the integers or the primes. Then the distance in $L^1_\sigma$ from $e^{-x}$ to the closed span of $\{k(\lambda x):\lambda\in\Lambda\}$ is at most
+\[
+2\,(\log T_0+4)\,\sqrt{T_0}\;e^{-\pi T_0/4}.
+\]
+\end{theorem}
+
+\begin{proof}
+By the proof of Theorem~\ref{lv:thm:salem} and the theorem of Hahn and Banach the closed spans along $\Lambda$ and of all dilates agree. In the variable $u$ the span is a closed ideal of $L^1(\mathbb R)$ whose hull is the set $Z$ of ordinates of the zeros of $\hat k$ on the line $\sigma$; for $\frac12<\sigma<1$ these are the ordinates of zeros of $L$ on that line, and by hypothesis $Z\subset\{|\tau|>T_0\}$. Let $f(u)=e^{\sigma u}e^{-e^u}$, so that $\hat f(\tau)=\Gamma(\sigma+i\tau)$. Let $V\in L^1(\mathbb R)$ have even transform $\hat V=1$ on $|\tau|\le\frac12T_0$, linear down to $0$ at $|\tau|=T_0$, and $0$ beyond. The transform of $f*V$ has compact support disjoint from $Z$, so $f*V$ lies in the ideal by the local form of Wiener's theorem, and the distance is at most $\|g\|_1$ for $g=f-f*V$. Now $\hat g$ is supported in $|\tau|\ge\frac12T_0$, where Stirling's formula gives $|\Gamma(\sigma+i\tau)|^2\le2.2\pi|\tau|e^{-\pi|\tau|}$ and $|\hat g'|\le(\log|\tau|+3)|\Gamma(\sigma+i\tau)|$ almost everywhere. Cauchy and Schwarz with the weight $(1+u^2)^{-1}$ and Plancherel give $\|g\|_1\le2^{-1/2}(\|\hat g\|_2^2+\|\hat g'\|_2^2)^{1/2}$, and the two tails give $\|g\|_1^2\le4T_0(\log T_0+4)^2e^{-\pi T_0/2}$ (constants not optimised).
+\end{proof}
+
+ The theorem bounds the distance to an infinite closed span and constructs no finite combination. For the conductor $4$ the published verification of Platt \cite{Platt16} reaches $T_0=2.5\cdot10^7$ by the formula we quote from his results theorem, which we have not checked against the paper; for $\zeta$ the verification of Platt and Trudgian \cite{PT21} reaches $3\cdot10^{12}$. The bound is then less than $10^{-8.5\cdot10^6}$ for $\beta$ and $10^{-10^{12}}$ for $\zeta$ (computed from the displayed formula): on every line $\frac12<\sigma<1$ the exponential lies within an undetectable error of the closed span of the integer, or prime, dilates.
+
+\begin{corollary}[A certificate]\label{gbm:cor:certificate}
+Let $k$ be $\sech$ or $1/(e^x+1)$. If a finite combination satisfies $\|e^{-x}-\sum_nc_nk(\lambda_nx)\|_\sigma\le\delta$, then $\hat k$ has no zero $\sigma+i\tau$ with $|\Gamma(\sigma+i\tau)|>\delta$.
+\end{corollary}
+
+\begin{proof}
+At such a zero the functional $\varphi\mapsto\hat\varphi(\sigma+i\tau)$, of norm at most one, vanishes on every dilate and equals $\Gamma(\sigma+i\tau)$ on $e^{-x}$.
+\end{proof}
+
+\paragraph{Computed distances.} We computed approximations to the distance from $e^{-x}$ to the span of the first $N$ dilates of $\sech$ in $L^1_\sigma$ by linear programming for the discretised norm on a logarithmic grid. They are not bounds, and the columns with large $N$ are limited by conditioning. The entry for $N=40$ at $\sigma=0.75$ was not computed.
+\begin{table}[ht]
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lcccccc}
+\hline
+$\sigma$ & $N=1$ & $N=3$ & $N=5$ & $N=10$ & $N=20$ & $N=40$\\
+\hline
+$0.60$ & $0.31$ & $3.8\cdot10^{-2}$ & $1.0\cdot10^{-2}$ & $1.6\cdot10^{-3}$ & $4.6\cdot10^{-4}$ & $2.4\cdot10^{-4}$\\
+$0.75$ & $0.24$ & $2.5\cdot10^{-2}$ & $6.2\cdot10^{-3}$ & $8.6\cdot10^{-4}$ & $2.5\cdot10^{-4}$ & not computed\\
+$0.90$ & $0.20$ & $1.7\cdot10^{-2}$ & $3.9\cdot10^{-3}$ & $4.8\cdot10^{-4}$ & $1.5\cdot10^{-4}$ & $8.4\cdot10^{-5}$\\
+\hline
+\end{tabular}
+\caption{Computed approximations to the distance from $e^{-x}$ to the span of $\sech(nx)$, $n\le N$, in $L^1_\sigma$.}\label{gbm:tab:dist1}
+\end{table}
+The truncated inversion of Proposition~\ref{rz:prop:lvj}, with coefficients $\frac12\mu(n)\chi_4(n)$, has computed error $8.9\cdot10^{-3}$ at $N=10$ and $4.5\cdot10^{-2}$ at $N=40$ on the line $\sigma=0.75$ and does not decrease steadily. On the line $\sigma=0.75$, with other sets of dilates:
+\begin{table}[ht]
+\centering
+\small
+\begin{tabular}{lccccc}
+\hline
+dilates used & $3$ & $6$ & $10$ & $15$ & $25$\\
+\hline
+integers & $2.5\cdot10^{-2}$ & $4.2\cdot10^{-3}$ & $8.6\cdot10^{-4}$ & $3.0\cdot10^{-4}$ & $2.3\cdot10^{-4}$\\
+primes & $0.14$ & $8.8\cdot10^{-2}$ & $5.5\cdot10^{-2}$ & $4.2\cdot10^{-2}$ & $3.9\cdot10^{-2}$\\
+squares & $3.3\cdot10^{-2}$ & $1.6\cdot10^{-2}$ & $1.0\cdot10^{-2}$ & $9.0\cdot10^{-3}$ & \\
+\hline
+\end{tabular}
+\caption{Computed approximations at $\sigma=0.75$. The last square entry is for $14$ dilates; the columns $15$ and $25$ are conditioning limited.}\label{gbm:tab:dist2}
+\end{table}
+The primes converge, as Theorem~\ref{lv:thm:salem} says they must if there is no zero on the line, but slowly, in keeping with the slow divergence of $\sum1/p$; we have no rate. The squares, for which Theorem~\ref{lv:thm:salem} does not apply, are consistent with a positive limit near $9\cdot10^{-3}$ and prove nothing (Table~\ref{lv:tab:squares}, Problem~\ref{lv:prob:sharp}). A rigorous bound $2.5\cdot10^{-4}$ for $N=20$ at $\sigma=0.75$ would by Corollary~\ref{gbm:cor:certificate} certify no zero of $\beta$ on that line up to height $6$ (computed); we have not done that, and as a method of locating zeros it is hopeless, since height $T$ costs accuracy $e^{-\pi T/2}$.
+
+\subsection{The prime form}\label{gbm:sec:primeform}
+
+\begin{proposition}[The inversion in prime form]\label{gbm:prop:primeform}
+For every $x>0$,
+\[
+\Psi_{\chi_4}(x):=\sum_{m\ge1}\chi_4(m)\Lambda(m)e^{-mx}=-\frac12\sum_{m\ge1}\mu(m)\chi_4(m)\log m\,\sech(mx),
+\]
+and $\Psi_{\chi_4}(x)=\sum_n\mu(n)\chi_4(n)G(nx)$ with $G(y)=\sum_k\chi_4(k)\log k\,e^{-ky}=\frac12\sum_n\Lambda(n)\chi_4(n)\sech(ny)$. The transform of $G$ is $-\Gamma(s)\beta'(s)$, holomorphic in $\Re s>0$ and meromorphic in $\mathbb C$.
+\end{proposition}
+
+\begin{proof}
+As for Proposition~\ref{rz:prop:lvj}, with $\Lambda=\mu*\log$ and $\mu*\Lambda=-\mu\log$ (the last product pointwise). Each rearrangement converges absolutely for $x>0$ by exponential decay.
+\end{proof}
+
+The two sides agree to seven digits or better at $x=0.5,\,0.05,\,0.005$ (computed). The transform of $\Psi_{\chi_4}$ is $-\Gamma(s)\frac{\beta'}{\beta}(s)$, whose residue at a nontrivial zero $\rho$ is $-m_\rho\Gamma(\rho)$ with $m_\rho$ the multiplicity: known, summable and exponentially small in the height. This is the difference from a hedge of M\"obius applied to a fixed instrument, whose residues contain $1/\zeta'(\rho)$ for simple zeros; the book has the explicit formula for the function of Riesz with such residues in (\ref{wr:eq:rieszexplicit}), and what is missing there is an absolutely convergent formula with controlled coefficients.
+
+\begin{theorem}[Square root bound for the Abel sum, on a finite range]\label{gbm:thm:abel}
+Without hypothesis, as $x\to0^+$,
+\[
+\Psi_{\chi_4}(x)=-\frac{\beta'}{\beta}(0)-\sum_\rho\Gamma(\rho)x^{-\rho}+O\bigl(x\log(1/x)\bigr),\qquad \frac{\beta'}{\beta}(0)=0.783189,
+\]
+the sum over zeros with multiplicity, absolutely convergent. For $\zeta$ the same holds for $\sum\Lambda(m)e^{-mx}-1/x$ with the constant $-\log2\pi$ in place of $-\frac{\beta'}\beta(0)$ and remainder $O(x)$. Let $N=1/x$ and suppose every zero with $|\gamma|\le T_0$ lies on the line, $T_0\ge10$. Then
+\[
+\Bigl|\Psi_{\chi_4}(1/N)+\frac{\beta'}{\beta}(0)\Bigr|\le A\sqrt N+B(T_0)\,N+O\bigl(N^{-1}\log N\bigr),
+\]
+with $A=\sum_\rho|\Gamma(\frac12+i\gamma)|\le3.92\cdot10^{-4}$ and $B(T_0)=\sum_{|\gamma|>T_0}|\Gamma(\rho)|\le C\sqrt{T_0}\log T_0\,e^{-\pi T_0/2}$ for an absolute constant $C$. Hence for $\delta>0$ the coefficient of $\sqrt N$ is at most $A+\delta$ for $N\le\delta^2e^{\pi T_0}/(C^2T_0\log^2T_0)$, so the logarithm of the range is $\pi T_0$ up to a logarithmic loss.
+\end{theorem}
+
+\begin{proof}
+Shift the inverse Mellin integral of $-\Gamma(s)\frac{\beta'}{\beta}(s)x^{-s}$ from $\Re s>1$ to $\Re s=-\frac32$ along horizontal lines that avoid zeros. The pole of $\Gamma$ at $0$ gives the constant. The simple poles of $\Gamma$ and of $\beta'/\beta$ at $-1$ combine to $x\log(1/x)+O(x)$, and the shifted integral is $O(x^{3/2})$. A zero $\beta_0+i\gamma$ contributes $|\Gamma(\rho)|x^{-\beta_0}$, which is at most $|\Gamma(\frac12+i\gamma)|x^{-1/2}$ on the line and at most $|\Gamma(\rho)|x^{-1}$ in general. The bound for $B(T_0)$ follows from $|\Gamma(\beta_0+i\gamma)|\le\sqrt{2.2\pi|\gamma|}\,e^{-\pi|\gamma|/2}$ and the count of zeros in unit intervals, which is $O(\log(u+2))$.
+\end{proof}
+
+For $\zeta$ the Abel sum is classical (Hardy and Littlewood \cite{HL16}); what we use is the character version and the finite range consequence. The value $A\le3.92\cdot10^{-4}$ is from the zeros up to height $40$ (computed). At $x=10^{-4}$ the prime sum with cutoff $4\cdot10^6$ gives $3.41\cdot10^{-4}$ for $(\Psi_{\chi_4}(x)+\frac{\beta'}{\beta}(0))\sqrt x$ and the first $20000$ zeros give $3.32\cdot10^{-4}$ (computed), the gap having the size of the omitted term. With the heights of Platt and of Platt and Trudgian the leading exponents of the range are $\pi T_0/\log10=3.41\cdot10^7$ for $\beta$ and $4.09\cdot10^{12}$ for $\zeta$ (computed), and the rounded ranges $N\le10^{3.4\cdot10^7}$ and $N\le10^{4\cdot10^{12}}$ are allowed with $B(T_0)\sqrt N<10^{-4}$ when $B(T_0)\le(1+T_0^2)\sqrt{2.2\pi T_0}\,e^{-\pi T_0/2}$, which follows from the Hadamard sum $\sum_\rho(1+\gamma^2)^{-1}<1$ for the two functions. The heights are quoted from the published verifications.
+
+ From zeros on the line up to height $T$ the criterion of B\"uthe gives the square root bound up to about $T^2$ for $\psi$ and about $T^4$ for the ramp statistic of (M), and Theorem~\ref{gbm:thm:abel} up to the order of $e^{\pi T}$ for the Abel sum. The smoother the kernel, the longer the range and the less the statistic knows. Landau's argument still applies for the real character ($\beta(s)>0$ for real $s>0$), so a one sided bound $\Psi_{\chi_4}(x)\le x^{-\theta}$ for all small $x$ excludes zeros to the right of $\theta$, but the range in which the square root bound is automatic is so long that no finite computation distinguishes the two cases.
+
+\subsection{Completeness over a finite field}
+
+Over a finite field Salem's criterion is a theorem and the inversion is explicit. Let $C$ be a smooth projective geometrically connected curve of genus $g\ge1$ over $\mathbb F_q$ with numerator $P(u)=\prod_{i=1}^{2g}(1-\alpha_iu)$ of its zeta function, $u=q^{-s}$. The group of scales is $q^{\mathbb Z}$, the space $L^1_\sigma$ becomes the weighted space $\ell^1_\sigma(\mathbb Z)$ with norm $\sum|b_j|r^j$, $r=q^{-\sigma}$, dilations become shifts, and Wiener's theorem becomes Wiener's lemma for absolutely convergent Fourier series on the circle $|u|=r$ \cite{Wiener32}.
+
+\begin{proposition}[Salem's criterion for a curve]\label{gbm:prop:ff}
+The bilateral shifts of the coefficient sequence of $P$ span $\ell^1_\sigma(\mathbb Z)$ if and only if $P$ has no zero on $|u|=q^{-\sigma}$. By the theorem of Weil \cite{Weil49} this holds for every $\sigma\ne\frac12$. For $\sigma>\frac12$ the inverse is $1/P(u)=\sum_{n\ge0}c_nu^n$, with $c_n=h_n(\alpha_1,\dots,\alpha_{2g})$ the complete homogeneous symmetric function, $|c_n|\le\binom{n+2g-1}{2g-1}q^{n/2}$, and with $b=q^{1/2-\sigma}<1$ the weighted tail after degree $M$ is $O_{g,b}((1+M)^{2g-1}b^{M+1})$, an exponential rate in the root sense. For $\sigma<\frac12$ the summable inverse is instead the expansion in $u^{-1}$. For genus one, with $\alpha=\sqrt q\,e^{i\theta}$,
+\[
+c_n=q^{n/2}\,\frac{\sin((n+1)\theta)}{\sin\theta},
+\]
+the Chebyshev polynomial of the second kind in $\cos\theta=a/(2\sqrt q)$, $a$ the trace of Frobenius, read by continuity at $\theta=0,\pi$.
+\end{proposition}
+
+\begin{proof}
+Wiener's lemma, the theorem of Weil $|\alpha_i|=\sqrt q$, and the product of geometric series.
+\end{proof}
+
+For the curve $y^2=x^3-x$ over $\mathbb F_p$, $p=5,13,17,29$, the traces are $-2,6,2,-10$, and the recursion $c_n=ac_{n-1}-pc_{n-2}$ agrees with the formula; for $p=13$ the $c_n$ begin $1,6,23,60,61,-414,-3277$. For the Frobenius angles of the same curve in the setting of (M) see Proposition~\ref{mql:prop:zdist}, and for the Hasse bound Subsection~\ref{mql:sub:ffq}.
+
+Frobenius gives a setting in which the dictionary is proved: completeness on every line off the critical one, an explicit inversion and a rate. The analogue of the partial sums of the function of M\"obius has a square root bound which is the theorem of Weil and nothing else. The case is easy because the hull of the ideal is a finite set. It fails at the transfer: for $\zeta$ the hull is infinite, the inversion is the series of M\"obius, and no sequence of curves is known whose zeta functions approximate $\zeta$ in a sense that carries completeness along. What can be transferred is the form of the answer, as in Theorem~\ref{gbm:thm:salemfinite}: Salem's criterion with a hull known to be empty below $T_0$.
+
+\subsection{Span, cone and no span}
+
+\emph{What the completeness view adds.} A statement for each line, which gives a ladder of intermediate statements of which the exponent $\frac23$ of the chapter is one rung (Corollary~\ref{mq:hyp:window}), and a finite range without hypothesis, Theorem~\ref{gbm:thm:salemfinite}.
+
+\emph{What it cannot do.} Completeness carries no positivity and no arithmetic. By Wiener's theorem density is equivalent to the absence of zeros on the line. Theorem~\ref{lv:thm:salem} removes the one place where arithmetic seemed to enter: any divergent set of scales does, the primes included, which is good for the equivalence and bad for the hope of a proof, since the function space does not see the primes. The inequality (M) is one sided and for a nonnegative weight, and it is derived, in the unrefereed draft of Rubinstein \cite{Rub26} which we have not checked, from the divisibility of integers. We have no theorem for the cone of nonnegative combinations, a normalised price distance, or the factor two of the sieve in a function space; they are stated below as problems. The raw prices of the chapter do not lie in $L^1_\sigma$ in the critical strip, so the dictionary does not by itself place the price in a span.
+
+\subsection{Status and open problems}
+
+\emph{Proved without hypothesis:} Proposition~\ref{gbm:prop:primeform}, the explicit formula of Theorem~\ref{gbm:thm:abel}, Corollary~\ref{gbm:cor:certificate}, Proposition~\ref{gbm:prop:ff}, and the general form of Theorem~\ref{gbm:thm:salemfinite}. \emph{Quoted from published verifications of zeros and not checked by us:} the numerical forms of Theorems~\ref{gbm:thm:salemfinite} and~\ref{gbm:thm:abel}, with the height $2.5\cdot10^7$ for the conductor $4$. \emph{Computed:} the numbers in the tables, the truncation errors, the identity checks and the comparison of the Abel sum with the zero sum. \emph{Not ours:} the criterion of Salem and the argument of Blaschke and Carleman behind Theorem~\ref{lv:thm:salem}; the Abel sum for $\zeta$ \cite{HL16}.
+
+Problems not already Problem~\ref{lv:prob:sharp} or~\ref{lv:prob:rate}, whose $L^1_\sigma$ forms for the squares and for the rate of the distance for $N$ integer dilates are also open:
+\begin{enumerate}
+\item Compare Theorem~\ref{lv:thm:salem} with Levinson \cite{Levinson56}.
+\item Make a distance in Table~\ref{gbm:tab:dist1} rigorous: find coefficients with rounding error bounded, bound the omitted tails and bound the integral of the absolute residual between grid points in interval arithmetic, so that Corollary~\ref{gbm:cor:certificate} applies.
+\item Find a bound for the distance in Theorem~\ref{gbm:thm:salemfinite} for a finite set of integer or prime dilates, with coefficients, in terms of the zeros.
+\item A one sided version: characterise the least error of a combination of dilates that lies above the target, and define the normalised price distance of $P(\cdot,t)$ to the span of dilates of $\Pi(\cdot,t)$. This is where the sieve, and its factor two, would have to appear in a function space.
+\item Remove the polynomial loss in the range of Theorem~\ref{gbm:thm:abel}, for example with the classical zero free region, to obtain an endpoint $N=e^{\pi T_0}$ with a constant uniform in $T_0$.
+\end{enumerate}

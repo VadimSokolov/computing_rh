@@ -1,0 +1,897 @@
+% Chapter st: Stepanov's method and the Riesz mean. Source: draft misc/reviews/nick-stepanov-riesz/stepanov_riesz_chapter/stepanov_riesz_chapter.tex, trimmed to what is new after the chapter qt; referee misc/research/directions/opus/vol3/STP.md (M1 to M10 applied), recomputation misc/vol3/verify/STP/results.md; brief misc/vol3/STP_BRIEF.md. Notation is that of ch/nc_v3_qrht2.tex: F_0, \mathcal G, tr, and the slack S(u).
+\label{st:ch:stepanov}
+
+\section{Stepanov's method and the target}\label{st:sec:stepanov}
+In 1969 S. A. Stepanov gave an elementary proof, by polynomials alone, that for the affine model $y^2=f(x)$ of odd degree $n\ge3$ over a prime field with $p>9n^2$ the number $I_p$ of solutions satisfies $I_p=p+O_n(\sqrt p)$. His dependence on $n$ is of order $n^{3/2}$, a bound linear in the genus needs a different attribution, and $I_p$ is not the projective count. Schmidt extended the method to all curves in the early 1970s \cite{SchmidtLNM536}, and Bombieri gave the short version that is usually taught, with the linear dependence on the genus, for fields of square order (his Th\'eor\`eme 1) \cite{BombieriStepanov}. Bombieri's section III bounds twisted fixed point counts on a Galois closure, which gives a two sided estimate $q^r+O_C(q^{r/2})$ after base extension, and power sums with the functional equation of the zeta function then give the sharp Weil bound $|N-(q+1)|\le2g\sqrt q$ for all extensions $\mathbb F_{q^n}$. The upper bound alone does not imply it: the method proves a one sided statement with slack, then upgrades it to the sharp one. This chapter asks what the method can contribute to the one sided Riesz mean bound of the preceding chapter.
+
+\begin{theorem}[Stepanov and Bombieri]\label{st:thm:bombieri}
+Let $C$ be a smooth projective geometrically integral curve of genus $g$ over $\mathbb F_q$ with $q=p^{2a}$ and $q>(g+1)^4$, and let $N=\#C(\mathbb F_q)$. Then $N\le q+1+(2g+1)\sqrt q$.
+\end{theorem}
+\begin{proof}[Sketch]
+Put $q_0=\sqrt q$. If $N=0$ there is nothing to prove, so fix a rational point $P$ and let $R_m$ be the space of functions defined over $\mathbb F_q$ with a pole of order at most $m$ at $P$ and no other pole. By Riemann and Roch $m+1-g\le\dim R_m\le m+1$, with $\dim R_m=m+1-g$ for $m>2g-2$. Take a basis $b_1,\dots,b_r$ of $R_m$ with distinct pole orders $d_i$ and the functions $f=\sum_ia_i^{\,q_0}b_i^{\,q}$ with $a_i\in R_l$. The $q_0$th powers of the elements of $R_l$ form a space of dimension $\dim R_l$, since Frobenius acts bijectively on the constants. If $lq_0<q$ the nonzero summands have pole orders in the disjoint intervals $qd_i+[0,lq_0]$, so $f=0$ forces every $a_i=0$. The map $f\mapsto\sum_ia_i^{\,q_0}b_i$ lands in $R_{lq_0+m}$, which has dimension $lq_0+m+1-g$ since $lq_0+m>2g-2$, so it has a nonzero kernel element when $\dim R_l\dim R_m>\dim R_{lq_0+m}$. At a rational point $Q\ne P$ one has $b_i(Q)^q=b_i(Q)$, hence $f(Q)=0$, and $f$ is a $q_0$th power, so it vanishes to order at least $q_0$. Counting zeros against poles gives $(N-1)q_0\le lq_0+mq$, that is $N\le1+l+m\sqrt q$. With $m=\sqrt q+2g$ and $l=\lfloor g\sqrt q/(g+1)\rfloor+g+1$ the lower bound for the dimension excess is $(g+1)(l-g)-gq_0>0$, and the floors give $l<q_0$ when $q_0>(g+1)^2$, which is the hypothesis $q>(g+1)^4$ and also gives $lq_0<q$. Then $1+l+mq_0<1+q+(2g+1)\sqrt q$, which even gives the strict inequality.
+\end{proof}
+The proof has four moves. (S1) A fixed point identity: rational points are where $b^q=b$. (S2) Cheap multiplicity: a $q_0$th power has all its zeros of order at least $q_0$ at no cost in dimension. (S3) Existence by counting, in the spirit of Siegel's lemma: a dimension count produces an auxiliary function without constructing it. (S4) A zero budget: zeros times multiplicity is at most the pole order. The outcome has slack, $2g+1$ where the truth is $2g$.
+
+Over the integers the target is the one sided Riesz mean bound of Proposition~\ref{qt:prop:riesz}, and that is the one sided version of the Thorin positivity of the book. A dated note of Alp\"oge, an unverified claim of a proof of RH, describes its argument as a descendant of Stepanov's and reduces to a power bound for the Riesz mean $\mathcal G$ of Section~\ref{st:sec:riesz}. Nothing in this chapter depends on that claim, and nothing here confirms or refutes it.
+
+\section{The Riesz mean and its \texorpdfstring{$2\sin^2$}{2 sin2} form}\label{st:sec:riesz}
+The object is the function $\mathcal G$ of Section~\ref{qt:sec:equiv}, with $F_0=2+\gamma-\log4\pi=0.0461914\ldots$ and $\mathrm{tr}$ the contribution of the trivial zeros. Proposition~\ref{qt:prop:riesz} gives the exactness of Landau's reduction: for $\tfrac12\le\theta<1$ the bounds $\mathcal G(x)\le Kx^\theta$ and $\mathcal G(x)\ge-Kx^\theta$ are each equivalent to the zero free half plane $\Re s>\theta$, and the exponent of either is $\Theta=\sup\Re\rho$ with an explicit constant. Landau's theorem is classical (Landau 1905), and it is also why a power bound with slack, $\mathcal G(x)\le x^{1/2+\delta}$ for every $\delta>0$, is equivalent to RH. Theorem~\ref{qt:thm:sharp} gives the sharp constant $F_0$ (we write $F_0$ and not $S$) and the positive definite form. Proposition~\ref{qt:prop:laplace} is the Laplace family of which $a=\tfrac12$ is the Riesz mean.
+
+Write, for $u\ge0$,
+\[
+\Phi(u)=F_0-e^{-u/2}\big(\mathcal G(e^u)-\log2\pi+\mathrm{tr}(e^u)\big),\qquad R(u)=F_0-\Phi(u).
+\]
+This is the slack $S(u)$ of Theorem~\ref{qt:thm:sharp}(3) and $R$ is the function $f$ of part (2) there. It is continuous, built from the primes alone, $\Phi(0)=0$, and by the explicit formula \eqref{qt:eq:riesz} it equals $\sum_\rho(1-e^{\kappa u})/(\rho(1-\rho))$ with $\rho=\tfrac12+\kappa$ (the sum over $\rho$ taken with $\rho$ and $\bar\rho$ paired). Under RH, with $w_\gamma=2/(\tfrac14+\gamma^2)$ and $m_\gamma$ the multiplicity,
+\begin{equation}\label{st:eq:phisin}
+\begin{gathered}
+\Phi(u)=\sum_{\gamma>0}m_\gamma w_\gamma\big(1-\cos\gamma u\big)=\sum_{\gamma>0}m_\gamma w_\gamma\,2\sin^2(\gamma u/2),\\ R(u)=\sum_{\gamma>0}m_\gamma w_\gamma\cos\gamma u .
+\end{gathered}
+\end{equation}
+\begin{theorem}[Positivity form]\label{st:thm:phi}
+RH holds if and only if $\Phi(u)\ge0$ for all $u\ge0$, if and only if for every $\delta>0$ there is $K_\delta$ with $\Phi(u)\ge-K_\delta e^{\delta u}$. Under RH the even extension of $\Phi$ is negative definite, so that $e^{-t\Phi(|u|)}$ is the characteristic function of a compound Poisson law $P_t$ for every $t>0$.
+\end{theorem}
+The equivalences are Theorem~\ref{qt:thm:sharp}(1) and Proposition~\ref{qt:prop:riesz} (the exponent $\delta$ is the slack). The sentence new here is the last, for this particular Riesz weight $m_\gamma/(\tfrac14+\gamma^2)$. Analogous screw function and compound Poisson criteria with the weights $m_\gamma/\gamma^2$ are earlier (Suzuki; Nakamura and Suzuki), so priority is claimed only for this weight: \eqref{st:eq:phisin} is a L\'evy and Khintchine exponent with finite L\'evy measure $\nu=\sum_{\gamma>0}\tfrac12m_\gamma w_\gamma(\delta_\gamma+\delta_{-\gamma})$ of total mass $F_0$, so $R=\hat\nu$ and $P_t=e^{-tF_0}\sum_{n\ge0}t^n\nu^{*n}/n!$.
+
+The $2\sin^2$ lemma is equation~\eqref{eq:sin2} of Chapter~2, with the kernel $\tau_x(z)=x(\pi\sqrt z)^{-1}\sin^2(x\sqrt z/2)$, and the central Thorin measure is $U=\sum_{\gamma>0}m_\gamma\delta_{\gamma^2}$. At an atom $z=\gamma^2$ the kernel is $\tau_u(z)=\frac u{\pi\gamma}\sin^2(\gamma u/2)$. Therefore, under RH and for $u>0$,
+\begin{equation}\label{st:eq:thorinform}
+\Phi(u)=\frac{16\pi}u\int_0^\infty\frac{\sqrt z}{1+4z}\;\tau_u(z)\,U(dz),
+\end{equation}
+because the atom at $\gamma^2$ gives $\frac{16\pi}u\cdot\frac\gamma{1+4\gamma^2}\cdot\frac u{\pi\gamma}\sin^2(\gamma u/2)=16\sin^2(\gamma u/2)/(1+4\gamma^2)=w_\gamma\,2\sin^2(\gamma u/2)$ per copy, with $w_\gamma=8/(1+4\gamma^2)$. The normalised Riesz error is a $2\sin^2$ transform of the central Thorin measure against a fixed positive weight, with $u=\log x$. Table~\ref{st:tab:forms} lists the one sided statements, strongest first.
+\begin{table}[h]\centering\small
+\begin{tabular}{ll}
+\toprule
+Statement & Form in $\Phi$\\
+\midrule
+Thorin target (exact, every $x$) & $\Phi(u)\ge0$\\
+Sharp constant & $\liminf\Phi(u)\ge0$\\
+Order bound $\mathcal G(x)\le K\sqrt x$ & $\Phi(u)\ge-K$\\
+Power bound with slack & $\Phi(u)\ge-K_\delta e^{\delta u}$ for every $\delta>0$\\
+\bottomrule
+\end{tabular}
+\caption{One sided statements on the Riesz mean, strongest first. All are equivalent to RH, by Proposition~\ref{qt:prop:riesz} and Theorem~\ref{qt:thm:sharp}.}\label{st:tab:forms}
+\end{table}
+
+\section{What transfers from Stepanov}\label{st:sec:transfer}
+\subsection{Slack, and doubling}
+The slack principle is that Stepanov proves positivity with slack and an upgrade removes the slack. On the integers the upgrade is free, as in Table~\ref{st:tab:forms}, but it is no relaxation: by Proposition~\ref{qt:prop:riesz} the slacked statement is exactly as hard as the sharp one. Stepanov's bound is used over every extension $\mathbb F_{q^n}$, and passing from $\mathbb F_q$ to $\mathbb F_{q^2}$ squares the Frobenius eigenvalues. Over the integers the corresponding move is $x\mapsto x^2$, that is $u\mapsto2u$.
+\begin{theorem}[Doubling criterion]\label{st:thm:doubling}
+RH holds if and only if $\Phi(2u)\le4\,\Phi(u)$ for all $u\ge0$. Under RH, $\sqrt\Phi$ is also subadditive.
+\end{theorem}
+\begin{proof}
+Under RH use \eqref{st:eq:phisin} and $1-\cos2a=2(1-\cos a)(1+\cos a)\le4(1-\cos a)$. Subadditivity of $\sqrt\Phi$ follows from $|\sin(a+b)|\le|\sin a|+|\sin b|$ and Minkowski's inequality. Conversely, let $B=\max\big(0,\max_{[1,2]}\Phi\big)$. Writing $u=2^kv$ with $1\le v<2$ and $k\ge0$, doubling gives $\Phi(u)\le4^kB\le Bu^2$ for $u\ge1$, an upper bound for $\Phi$ that gives $\mathcal G(x)\ge-K\sqrt x\log^2x$ for $x\ge1$. This is a one sided lower bound at every exponent $\theta>\tfrac12$, and Proposition~\ref{qt:prop:riesz}(3) gives RH.
+\end{proof}
+In terms of the primes, with $\widetilde G=\mathcal G-\log2\pi+\mathrm{tr}$, the criterion reads, for $x\ge1$, $\widetilde G(x^2)\ge4\sqrt x\,\widetilde G(x)-3F_0x$. It compares the Riesz error at $x^2$ with that at $x$ and involves no zeros. The function field version is $L_{2n}\le4L_n$ for $L_n$ the left side of \eqref{st:eq:ffsin} below.
+
+\subsection{The function field test bed}
+Write $N_n=q^n+1-\sum_{i=1}^{2g}\alpha_i^n$ and $\alpha_i=\sqrt q\,e^{\pm i\theta_j}$, $j=1,\dots,g$. Then
+\begin{align}
+q^{-n/2}\big(N_n-q^n-1\big)+2g&=\sum_{j=1}^g 4\sin^2(n\theta_j/2)\;\ge 0, \label{st:eq:ffsin}\\
+2g-q^{-n/2}\big(N_n-q^n-1\big)&=\sum_{j=1}^g 4\cos^2(n\theta_j/2)\;\ge 0. \label{st:eq:ffcos}
+\end{align}
+Weil's lower bound is the $2\sin^2$ positivity \eqref{st:eq:ffsin}, and the upper bound is its $2\cos^2$ companion \eqref{st:eq:ffcos}. Theorem~\ref{st:thm:bombieri} bounds the count expression on the left of \eqref{st:eq:ffcos} by $-1$ from below, under its square field and size hypotheses, whereas once Weil's theorem has been used to choose real angles the squares are already nonnegative. The zeros of the zeta function of the curve sit at $\tfrac12+i(\pm\theta_j+2\pi k)/\log q$, and \eqref{st:eq:ffsin} is the $2\sin^2$ transform of the Frobenius angles at $u=n\log q$. A transform of the full squared ordinate Thorin measure would need a specified weight or fundamental domain convention.
+\begin{table}[h]\centering\small
+\begin{tabular}{rrrrr}
+\toprule
+$p$ & $n$ & $N_n$ & $4\sin^2(n\theta/2)$ & $4\cos^2(n\theta/2)$\\
+\midrule
+101 & 1 & 105 & 2.2985 & 1.7015\\
+101 & 2 & 10395 & 3.9109 & 0.0891\\
+101 & 4 & 104043555 & 0.3485 & 3.6515\\
+1009 & 1 & 1068 & 3.8259 & 0.1741\\
+1009 & 2 & 1016736 & 0.6660 & 3.3340\\
+1009 & 4 & 1036489147008 & 2.2205 & 1.7795\\
+\bottomrule
+\end{tabular}
+\caption{The Weil bounds as $2\sin^2$ and $2\cos^2$ positivity for $y^2=x^3+x+1$ over $\mathbb F_{101}$ and $y^2=x^3+2x+3$ over $\mathbb F_{1009}$. Both columns are nonnegative and sum to four.}\label{st:tab:curves}
+\end{table}
+
+Table~\ref{st:tab:genus2} does the same in genus two, the hyperelliptic case Stepanov treated. We count points over $\mathbb F_p$ and $\mathbb F_{p^2}$, form $L(T)=1+a_1T+a_2T^2+pa_1T^3+p^2T^4$ with $a_1=N_1-p-1$ and $a_2=(N_2-p^2-1+a_1^2)/2$, and recover the angles from its reciprocal roots, the roots of $X^4L(1/X)$. All three quintics are squarefree over the stated field (discriminants prime to $p$), all reciprocal roots have modulus $\sqrt p$, and $q=p^2>(g+1)^4=81$, so Theorem~\ref{st:thm:bombieri} applies to $N_2$.
+\begin{table}[h]\centering\small
+\begin{tabular}{lrrrrrr}
+\toprule
+curve & $N_1$ & $N_2$ & $\theta_1$ & $\theta_2$ & Weil & Stepanov\\
+\midrule
+$x^5+x+1$, $p=11$ & 8 & 134 & 0.6028 & 1.7934 & 166 & 177\\
+$x^5+x+2$, $p=13$ & 18 & 178 & 1.2546 & 2.6173 & 222 & 235\\
+$x^5+3x+1$, $p=17$ & 19 & 345 & 1.3258 & 1.9431 & 358 & 375\\
+\bottomrule
+\end{tabular}
+\caption{Genus two test bed for $y^2=f(x)$ over $\mathbb F_p$. The last two columns are the upper bounds for $N_2$ from Weil ($q+1+4\sqrt q$) and from Theorem~\ref{st:thm:bombieri} ($q+1+5\sqrt q$).}\label{st:tab:genus2}
+\end{table}
+
+\subsection{What does not transfer}
+Moves (S1) and (S2) have no counterpart over the integers: there is no Frobenius whose fixed points are the primes, and no operation that raises multiplicity for free by taking $p$th powers. The dated Alp\"oge note lists iterated theta lifts, periods, an Iwasawa tower, a relative trace formula and a weakened Vandiver conjecture as the claimed source of multiplicity, and the Thorin programme has nothing to say about whether that chain works. On our side the closest counterpart of (S2) is infinite divisibility, and an analogue of (S4) is the return budget of Corollary~\ref{st:cor:budget}. We have no counterpart of (S3) that produces positivity (Open Problem~\ref{st:op:aux}).
+
+\section{Powers of the slack}\label{st:sec:powers}
+Positive integer powers of a positive definite function are positive definite, by Schur's product theorem, so upward integer powers are free. Write $f_t(u)=e^{-t\Phi(|u|)}$. Upward powers give nothing by themselves. The new statements are the converses.
+
+\subsection{One power is enough}
+\begin{theorem}\label{st:thm:pd}
+The following are equivalent. (i) The Riemann hypothesis. (ii) $R$ is positive definite. (iii) $f_t$ is positive definite for one $t>0$. (iv) $f_t$ is positive definite for every $t>0$.
+\end{theorem}
+\begin{proof}
+Under RH, $R=\hat\nu$ and $f_t=\hat P_t$, which gives (ii) and (iv). A continuous positive definite function $g$ satisfies $|g|\le g(0)$. Applied to $R$ this is $\Phi\ge0$, and applied to $f_t$ with $f_t(0)=1$ it is again $\Phi\ge0$. Theorem~\ref{st:thm:phi} gives RH.
+\end{proof}
+Part (ii) is Theorem~\ref{qt:thm:sharp}(2) together with $|g|\le g(0)$. Parts (iii) and (iv) are immediate, and are in the spirit of the earlier screw function and compound Poisson criteria of Suzuki and of Nakamura and Suzuki, whose weights are $m_\gamma/\gamma^2$ and not the Riesz weight used here. Roots, in the sense of infinite divisibility, are what cost something, and RH supplies all of them at once.
+
+\subsection{The multiplicity hierarchy}
+For $n\ge1$ define, from the primes alone,
+\begin{align*}
+D_n(u)&=2\sum_{k=1}^n(-1)^{k+1}\binom{2n}{n-k}\Phi(ku),\\
+E_n(u)&=4^nF_0-2\sum_{k=1}^n\binom{2n}{n-k}\Phi(ku).
+\end{align*}
+Thus $D_1=2\Phi$, $D_2=2(4\Phi(u)-\Phi(2u))$ is the doubling gap, and $E_1=2(2F_0-\Phi)$.
+\begin{theorem}[Multiplicity hierarchy]\label{st:thm:hier}
+Unconditionally, with $\rho=\tfrac12+\kappa$,
+\begin{align*}
+D_n(u)&=(-1)^n\sum_\rho\frac{\big(2\sinh(\kappa u/2)\big)^{2n}}{\rho(1-\rho)},\\
+E_n(u)&=\sum_\rho\frac{\big(2\cosh(\kappa u/2)\big)^{2n}}{\rho(1-\rho)} .
+\end{align*}
+Under RH, $D_n(u)=\sum_{\gamma>0}\allowbreak m_\gamma w_\gamma\allowbreak(2\sin(\gamma u/2))^{2n}$ and $E_n(u)=\sum_{\gamma>0}\allowbreak m_\gamma w_\gamma\allowbreak(2\cos(\gamma u/2))^{2n}$. For each fixed $n$, RH holds if and only if $D_n(u)\ge0$ for all $u\ge0$, and if and only if $E_n(u)\ge0$ for all $u\ge0$.
+\end{theorem}
+\begin{proof}
+The identities follow from $\Phi(u)=\sum_\rho(1-e^{\kappa u})/(\rho(1-\rho))$, from $(z^{1/2}\mp z^{-1/2})^{2n}=\sum_{k=-n}^{n}(\mp1)^{n+k}\binom{2n}{n+k}z^k$ with $z=e^{\kappa u}$, the symmetry $\kappa\mapsto-\kappa$ of the zeros, and $\sum_k(-1)^k\binom{2n}{n+k}=0$. Under RH put $\kappa=i\gamma$.
+
+For the converse let $\hat\Phi(s)=\int_0^\infty\Phi(u)e^{-su}du$. By \eqref{qt:eq:riesz} it continues meromorphically as
+\[
+\hat\Phi(s)=F_0/s-\sum_\rho b_\rho/(s-\kappa_\rho),\qquad b_\rho=1/(\rho(1-\rho)),
+\]
+with repeated zeros counted in the sum, which converges normally on compact sets avoiding the displayed poles. The nontrivial zeros are nonreal, so there is no positive real pole and $\hat\Phi$ is analytic at every real $s>0$. In $\Re s>0$ it has poles exactly at $s=\kappa$ for zeros with $\Re\kappa>0$, with residue $-m_\rho b_\rho\ne0$. The Laplace transform of $D_n$ is $\sum_kc_kk^{-1}\hat\Phi(s/k)$ with $c_k=2(-1)^{k+1}\binom{2n}{n-k}$, analytic at real $s>0$. If $D_n\ge0$, Landau's theorem makes it analytic in $\Re s>0$. Suppose a zero has $\beta=\Re\kappa>0$. The point $n\kappa$ is a pole of the $k=n$ term and $c_n\ne0$, so it must be cancelled by a term with $k<n$, which requires a zero with $\kappa'=n\kappa/k$ and $\Re\kappa'\ge n\beta/(n-1)$. Repeating gives zeros with $\Re\kappa\ge(n/(n-1))^j\beta$ for every $j$, impossible since $\Re\kappa<\tfrac12$. For $n=1$ there is no $k<n$, so the pole survives immediately. For $E_n$ the transform of the constant, $4^nF_0/s$, is regular at $n\kappa$, and the argument is the same.
+\end{proof}
+The function $(2\sin(\gamma u/2))^{2n}$ vanishes to order $2n$ at every return $\gamma u\in2\pi\mathbb Z$, and $D_n$ is obtained from the Riesz error at $x,x^2,\dots,x^n$, the counterpart of the point counts $N_1,\dots,N_n$ over $\mathbb F_q,\dots,\mathbb F_{q^n}$. The hierarchy converts multiplicity into primes and does not by itself prove positivity.
+\subsection{The whole family, and the 3, 4, 1 inequality}
+Let $p(a)=p_0+2\sum_{k=1}^np_k\cos ka$ be a nonnegative cosine polynomial and put $A_p(u)=p_0F_0+2\sum_{k=1}^np_kR(ku)$.
+\begin{theorem}\label{st:thm:family}
+Under RH, $A_p(u)=\sum_{\gamma>0}m_\gamma w_\gamma\,p(\gamma u)\ge0$. Conversely, for each fixed real cosine polynomial $p\ge0$ of degree $n\ge1$ with $p_n\ne0$, if $A_p(u)\ge0$ for all $u\ge0$ then RH holds.
+\end{theorem}
+\begin{proof}
+The first statement is $R=\hat\nu$. The converse is the proof of Theorem~\ref{st:thm:hier}: the Laplace transform of $A_p$ is analytic at real $s>0$, the top coefficient $p_n$ is not zero, and the chain $\kappa\mapsto n\kappa/k$ cannot continue. Only $p_n\ne0$ is used, and not $p\ge0$.
+\end{proof}
+The choices $p=(2\sin(a/2))^{2n}$ and $(2\cos(a/2))^{2n}$ give $D_n$ and $E_n$. The case $E_2$ reads $E_2/2=3F_0+4R(u)+R(2u)\ge0$, the zero side form of the inequality $3+4\cos a+\cos2a\ge0$ of de la Vall\'ee Poussin. In the classical zero free region the polynomial is applied on the prime side, where positivity is the unconditional fact $\Lambda(n)\ge0$. Here it is applied on the zero side, where positivity of the weights $w_\gamma$ at real frequencies is RH.
+
+\subsection{The family is Weil positivity on staircases}
+For $g$ on $(0,\infty)$ with Mellin transform $\hat g(s)=\int_0^\infty g(t)t^{s-1}dt$ and $\tilde g(t)=t^{-1}\overline{g(1/t)}$, Weil's quadratic form \cite{Weil52} is $W(g*\tilde g)=\sum_\rho\hat g(\rho)\overline{\hat g(1-\bar\rho)}$. The staircases below do not vanish near $0$, so they lie outside the usual compactly supported class. The identity is one of zero sums, and that is all the proposition uses. By the theorem of Fej\'er and Riesz every nonnegative cosine polynomial is $p(a)=|q(e^{ia})|^2$ with $q(z)=\sum_{k=0}^nq_kz^k$ real.
+\begin{proposition}[Staircase cone]\label{st:prop:weil}
+For $x=e^u$ let $g_{q,x}(t)=\sum_{k=0}^n\allowbreak q_k\,x^{-k/2}\,\allowbreak\mathbf 1_{(0,x^k]}(t)$, so that $\hat g_{q,x}(s)=q(x^{s-1/2})/s$. Then, unconditionally, $A_p(u)=W(g_{q,x}\allowbreak*\tilde g_{q,x})$.
+\end{proposition}
+\begin{proof}
+Write $z_\rho=x^{\rho-1/2}$. By the symmetry of the zeros, $A_p(u)=\sum_\rho P(z_\rho)/(\rho(1-\rho))$ with $P(z)=\sum_{|k|\le n}p_{|k|}z^k=q(z)q(1/z)$. Each term is $[q(z_\rho)/\rho]\,[q(1/z_\rho)/(1-\rho)]=\hat g(\rho)\overline{\hat g(1-\bar\rho)}$. The sums converge absolutely because $\sum|\rho|^{-2}<\infty$.
+\end{proof}
+So every criterion of the cosine polynomial family is Weil positivity on a staircase with steps at $1,x,\dots,x^n$, and Theorem~\ref{st:thm:family} says that staircases of one fixed shape $q$ with $|q(e^{ia})|^2$ nonconstant, over all $x$, already suffice. A monomial $q$ of positive degree gives a constant test and detects nothing. The hierarchy is the case $q=(1-z)^n$, the $n$th finite difference of a single step, and $E_n$ is $q=(1+z)^n$. The case $n=1$ is the one parameter Weil family of the Weil positivity chapters.
+
+\subsection{One tower}
+Weil's theorem for one curve is a statement about one tower of extensions, for example $\mathbb F_q\subset\mathbb F_{q^2}\subset\mathbb F_{q^4}\subset\cdots$, all finite extensions forming a system ordered by divisibility of degrees. The counterpart is to fix one $x=e^u$ and use only $x,x^2,x^3,\dots$
+\begin{theorem}[One tower]\label{st:thm:tower}
+Under RH the sequence $k\mapsto R(ku)$ is positive definite on the integers for every $u>0$, with spectral measure the image of $\nu$ under $\gamma\mapsto\gamma u$ modulo $2\pi$. Conversely, suppose RH fails and the supremum $\Theta$ is attained by a zero. Then for every $u>0$ one has $R(ku)\to+\infty$ along a subsequence, so $\Phi(ku)\to-\infty$ along it, the sequence $R(ku)$ is not positive definite and some $A_p(u)$ is negative.
+\end{theorem}
+\begin{proof}
+The first part is Herglotz's theorem applied to $R=\hat\nu$. For the second, let $\beta=\Theta-\tfrac12>0$. Then $e^{-\beta ku}R(ku)=a(k)+o(1)$ as $k\to\infty$ by dominated convergence, where $a(k)=\sum_{\Re\kappa=\beta}b_\rho e^{i\gamma ku}$, $b_\rho=m_\rho/(\rho(1-\rho))$, is an absolutely convergent trigonometric series over the distinct extremal zeros, multiplicities being incorporated just once. Fix any $u>0$. For each finite list of extremal ordinates the multiples $k(\gamma u\bmod2\pi)$ return arbitrarily close to zero at arbitrarily large $k$ (Dirichlet, or Kronecker and Weyl on the closure of the cyclic subgroup of the torus, with coincident frequencies causing no obstruction), and a diagonal choice with the absolutely summable tail gives $k_j\to\infty$ with $a(k_j)\to a(0)=\sum_{\Re\kappa=\beta}b_\rho$. Every coefficient has $\Re b_\rho>0$, since $\Re\rho(1-\rho)=\Re\rho\,(1-\Re\rho)+(\Im\rho)^2>0$, and conjugate zeros pair, so $a(0)>0$. Hence $R(k_ju)\ge\tfrac12a(0)e^{\beta k_ju}\to\infty$, so $|R(ku)|$ is unbounded for every $u>0$, including $u=\log2$, while a positive definite sequence satisfies $|R(ku)|\le R(0)=F_0$. By Herglotz, a sequence that is not positive definite violates a Toeplitz quadratic form, and the even part of $|q(e^{ia})|^2$, for the polynomial $q$ of that form, is a nonnegative cosine polynomial against which $A_p(u)$ is negative.
+\end{proof}
+The hypothesis is not mild: it concerns the hypothetical off line zeros, cannot be checked, and fails whenever the real parts of the zeros increase towards their supremum without reaching it. It is removed for one specified base by smoothing the continuous zero sum before sampling, in Theorem~\ref{st:thm:base} below, which solves Open Problem~\ref{st:op:attain}. Without attainment a weaker conclusion still holds. If RH fails then $|R(v)|$ is unbounded along arbitrarily large $v$, since a bounded $R$ gives $\Phi\ge-K$, which is RH by Table~\ref{st:tab:forms}. For any open interval $I\subset(0,\infty)$ and any $M$, a large $v$ with $|R(v)|>M$ has $v/k\in I$ for some integer $k$, because the possible $k$ form an interval of length growing linearly in $v$. So each set $\bigcup_{k\ge1}\{u>0:|R(ku)|>M\}$ is open and dense, and intersecting over positive integers $M$ shows that $R(ku)$ is unbounded for a dense $G_\delta$ set of towers.
+% TODO bib: the Diamond, Montgomery and Vorhauer claim is uncited, as in ch/nc_v3_qrht2.tex.
+
+\subsection{A computable tower base}
+Write $R(t)=\sum_\rho b_\rho e^{\kappa_\rho t}$ over the distinct zeros, with $\kappa_\rho=\rho-\tfrac12$, $b_\rho=m_\rho/(\rho(1-\rho))$ and $R=F_0-\Phi$, extended evenly to the real line. Then $C=\sum_\rho|b_\rho|<\infty$ and $|R(t)|\le Ce^{B|t|}$ with $B=\Theta-\tfrac12\in[0,\tfrac12]$, and $B=0$ if and only if RH holds. Only $|\Re\kappa_\rho|\le\tfrac12$ is used below, and no zero free half plane.
+\begin{theorem}[A computable tower base]\label{st:thm:base}
+There is a computable real $x_\star>1$, specified independently of the zeta function, such that RH holds if and only if $\Phi(n\log x_\star)\ge0$ for all positive integers $n$. More precisely $u_\star=\log x_\star\in(1,2)$ satisfies, for every integer $d\ge1$ and each sign $\sigma\in\{-1,1\}$,
+\[
+\limsup_{n\to\infty}\frac{\log\big(1+(\sigma R(dnu_\star))_+\big)}{dnu_\star}=B,
+\]
+and the same holds with $R$ replaced by $\Phi$. In particular, if RH fails then $\Phi(nu_\star)<0$ for infinitely many $n$, with excursions of exponential growth rate exactly $\Theta-\tfrac12$. The number $u_\star$ is computable but has no primitive recursive modulus of convergence, so no digit of it is of practical use and no bound for the first violating power is given.
+\end{theorem}
+The proof has two steps. Gaussian averaging of the continuous zero sum, before any sampling, gives excursions of the unsmoothed function in every large dyadic interval. A single lattice is then chosen in advance to meet every interval that a rule computed from the primes can name.
+\begin{lemma}[Excursions in every large dyadic interval]\label{st:lem:excursion}
+If $0\le q<B$ then, for either sign $\sigma$, $\max_{T\le y\le2T}\sigma e^{-qy}R(y)\to+\infty$ as $T\to\infty$.
+\end{lemma}
+\begin{proof}
+Put $z_\rho=\kappa_\rho-q$ and $g(y)=e^{-qy}R(y)$, so $|\Re z_\rho|\le1$ and $|g(y)|\le Ce^{|y|}$. Pick a zero with $\Re z_\rho>0$ and $0<\eta<1/512$, so that $\eta\le1/160$, with $\Re(z_\rho+\eta z_\rho^2)>0$. A normal variable of mean $t$ and variance $2\eta t$ has exponential moment $e^{(z+\eta z^2)t}$, so the positive Gaussian average of $g$ is $H(t)=\sum_\rho b_\rho e^{\lambda_\rho t}$ with $\lambda_\rho=z_\rho+\eta z_\rho^2$, absolutely convergent by $Ce^{(1+\eta)t}$. For $z=v+i\gamma$, $\Re\lambda=v+\eta(v^2-\gamma^2)\to-\infty$ with the height, so $L=\max\Re\lambda_\rho>0$ is attained on a finite set $S$ with a gap $\delta$ to the rest. The map $z\mapsto z+\eta z^2$ is injective on $|\Re z|\le1$, and $\Im\lambda=\gamma(1+2\eta v)\ne0$, so $e^{-Lt}H(t)=P(t)+O(e^{-\delta t})$ with $P$ a real trigonometric polynomial with distinct nonzero frequencies and nonzero coefficients. The means of $P$ and $P^2$ over a long interval tend to $0$ and $\sum_S|b_\rho|^2>0$, uniformly in its position, and $|P|\ge P^2/K$ with $K=\sum_S|b_\rho|$, so the mean of $(\sigma P)_+$ is at least $\sum_S|b_\rho|^2/(2K)-o(1)$. Hence for each sign there is $t\in[\tfrac75T,\tfrac85T]$ with $\sigma H(t)\ge e^{Lt}\sum_S|b_\rho|^2/(8K)$. At such $t$ the part of the Gaussian integral over $y\notin[T,2T]$ is $o(1)$, since $|w|=|y-t|\ge t/4$ gives $|y|\le5|w|\le w^2/(8\eta t)$. The kernel is nonnegative of mass one, so $\max_{[T,2T]}\sigma g$ exceeds the integral inside $[T,2T]$, which tends to infinity.
+\end{proof}
+\begin{lemma}[Choosing a lattice]\label{st:lem:lattice}
+There is a computable $u_\star\in(1,2)$ such that for every primitive recursive sequence of nonempty open rational intervals $J_j\subset(2^j,2^{j+1})$ and every $d\ge1$ there are arbitrarily large $j$ and $k\in d\mathbb N$ with $ku_\star\in J_j$.
+\end{lemma}
+\begin{proof}
+Enumerate the primitive recursive programs $e$ by a fixed syntactic coding, and let $J^e_j$ be the rational interval $(A/(B'+1),C'/(D+1))$ read from the output of $e$ at input $j$ when it is nonempty and contained in $(2^j,2^{j+1})$, and $(\tfrac43 2^j,\tfrac53 2^j)$ otherwise. All checks terminate and every valid program is total. Put $I_0=[1,2]$ and visit all triples $(e,d,r)$ with $d,r\ge1$ in a fixed order, each recurring with unbounded $r$. At stage $m$, with $I_{m-1}=[a,b]$, take the least $j\ge r$ with $2^j(1/a-1/b)>d$ and let $s$ be the midpoint of $J^e_j$. The interval $(s/b,s/a)$ has length greater than $d$, so it contains a multiple $k$ of $d$, and $s/k\in(a,b)\cap J^e_j/k$. Let $I_m$ be the closed interval centred at $s/k$ of radius half the least of $2^{-m}$ and the distances from $s/k$ to the ends of that intersection. The nested intervals have a unique common point $u_\star$, computable since stage $m$ locates it within $2^{-m}$.
+\end{proof}
+\begin{lemma}[Rational witnesses]\label{st:lem:witness}
+Fix a rational $q\in[0,\tfrac12]$, an integer $M$ and a sign $\sigma$. There is a primitive recursive rule $j\mapsto J_j\subset(2^j,2^{j+1})$, terminating for every input even if $q\ge B$, such that $\sigma e^{-qt}R(t)>M$ on $J_j$ for all large $j$.
+\end{lemma}
+\begin{proof}
+Put $T=2^j$. By the definition of $\Phi$, for $T\le t\le2T$,
+\[
+e^{-qt}R(t)=e^{-(q+\frac12)t}\Big\{\sum_{n\le2^{4T}}\Lambda(n)\Big(\frac{e^t}n-1\Big)_+-te^t+(1+\gamma)e^t-\log2\pi+\sum_{\ell\ge1}\frac{e^{-2\ell t}}{2\ell(2\ell+1)}\Big\},
+\]
+and $e^{2T}<2^{4T}$. A Lipschitz constant on $[T,2T]$ is $L_T=2^{20(T+1)}$. Cut $[T,2T]$ into cells of length $1/(8L_T)$ and evaluate the right side at the midpoints in rational arithmetic to error $\tfrac14$: bounded trial division for the prime powers, and truncated series with explicit remainders for the exponentials, logarithms, $\gamma$ and $\pi$, all with primitive recursive bounds. Return the open middle third of the first cell where $\sigma e^{-qt}R(t)$ exceeds $M+1$ in the approximation, or of $(T,2T)$ if there is none. A passing cell certifies the claim, and by Lemma~\ref{st:lem:excursion} a cell passes for all large $j$, with no bound for the first such $j$ entering the rule.
+\end{proof}
+\begin{proof}[Proof of Theorem~\ref{st:thm:base}]
+Let $B>0$. For each sign, rational $q\in[0,B)$ and integer $M$, Lemma~\ref{st:lem:witness} gives a primitive recursive rule, and Lemma~\ref{st:lem:lattice} gives arbitrarily large $k=dn$ with $\sigma R(ku_\star)>Me^{qku_\star}$. Letting $q\uparrow B$ gives the lower bound for the limsup, and $|R(t)|\le Ce^{Bt}$ the upper bound. Since $\Phi=F_0-R$, the signs exchange at every positive exponential rate. If $B=0$ then $R$ is bounded, and RH gives $\Phi\ge0$ by \eqref{st:eq:phisin}. So $\Phi(nu_\star)\ge0$ for all $n$ forces $B=0$.
+\end{proof}
+\begin{corollary}[A staircase corollary]\label{st:cor:staircase}
+For every real cosine polynomial $p(a)=p_0+2\sum_{\ell=1}^dp_\ell\cos\ell a$ with $d\ge1$ and $p_d\ne0$, and $A_p$ as in Theorem~\ref{st:thm:family}, one has for both signs $\limsup_{n}\log(1+(\sigma A_p(nu_\star))_+)/(nu_\star)=dB$. In particular, for any one fixed nonnegative $p$, including each $D_n$ and $E_n$ of Theorem~\ref{st:thm:hier}, eventual nonnegativity of $A_p(nu_\star)$ is equivalent to RH.
+\end{corollary}
+\begin{proof}
+For $B>0$ choose $q<B$ so close to $B$ that $dq>(d-1)B$. On the progressions $k\in d\mathbb N$ the top term $2p_dR(dnu_\star)$ takes either sign with modulus at least $2|p_d|e^{dqnu_\star}$, and all lower terms together are $O_p(e^{(d-1)Bnu_\star})$. Let $q\uparrow B$, and use $|R|\le Ce^{Bt}$ for the upper bound. For $B=0$ boundedness gives the limit, and for $p\ge0$ RH gives $A_p\ge0$.
+\end{proof}
+\begin{remark}\label{st:rem:category}
+The theorem needs no attainment and no zero free half plane. Replacing the single enumeration by the intersection over all $(e,d,r)$ of the open dense sets $\bigcup_{j\ge r}\bigcup_{k\in d\mathbb N}J^e_j/k$ gives a dense $G_\delta$ set of bases, defined by integer programs and rational intervals only, on which the theorem holds. This set of bases has Lebesgue measure zero: it contains the rule $J_j=(2^j+\tfrac12,2^j+\tfrac12+2^{-j-2})$, whose hits in a compact base interval have measure $O(2^{-j})$, and Borel and Cantelli apply. A base such as $x=2$, or almost every base, without attainment is not settled here (Open Problem~\ref{st:op:attain}).
+\end{remark}
+
+\subsection{The Laplace mean and the return budget}
+Let $L(t)=\prod_{\gamma>0}e^{-tm_\gamma w_\gamma}I_0(tm_\gamma w_\gamma)$, the product over distinct positive ordinates, with $I_0$ the modified Bessel function.
+\begin{theorem}\label{st:thm:mean}
+Assume RH. For every $t>0$,
+\[
+\lim_{U\to\infty}\frac1U\int_0^Ue^{-t\Phi(u)}du=P_t(\{0\})\ \ge\ L(t)\ \ge\ e^{-tF_0},
+\]
+and the first inequality is an equality for some $t>0$ if and only if the positive ordinates are linearly independent over the rationals, and then for all $t>0$.
+\end{theorem}
+\begin{proof}
+The mean of $f_t=\hat P_t$ is the atom of $P_t$ at zero: average $e^{iuy}$ over $[0,U]$ and apply dominated convergence to $P_t(dy)$, so no mean square version of Wiener's theorem is needed. By Kronecker and Weyl the mean is the integral of $\prod_\gamma e^{-ta_\gamma(1-\cos\theta_\gamma)}$, $a_\gamma=m_\gamma w_\gamma$, over the closed subgroup $A$ of the torus generated by the flow. The integrand has Fourier coefficients, indexed by finitely supported integer vectors $(k_\gamma)$ and summing to one, $\prod_\gamma e^{-ta_\gamma}I_{k_\gamma}(ta_\gamma)>0$, and the integral over $A$ is the sum of the coefficients of the characters trivial on $A$, those with $\sum k_\gamma\gamma=0$. The term $k=0$ is $L(t)$ and every other term is strictly positive. The last inequality is $I_0\ge1$.
+\end{proof}
+Under RH and linear independence, $L(t)$ is the Laplace transform of the limiting distribution of $\Phi$ in the sense of Rubinstein and Sarnak (Chebyshev's bias, Experiment. Math. 3 (1994), pages 173 to 197). The theorem turns the free power $t$ into a detector: any excess of the mean of $e^{-t\Phi}$ over $L(t)$ is the mass of nontrivial additive relations among the ordinates.
+\begin{corollary}[Return budget]\label{st:cor:budget}
+Under RH the upper Ces\`aro density, over $[0,U]$ as $U\to\infty$, of $\{u:\Phi(u)\le\varepsilon\}$ is at most $\inf_{t>0}e^{t\varepsilon}P_t(\{0\})$, which equals $\inf_te^{t\varepsilon}L(t)$ under linear independence.
+\end{corollary}
+\begin{proof}
+Chernoff: $\mathbf 1_{\{\Phi\le\varepsilon\}}\le e^{t\varepsilon}e^{-t\Phi}$, then take means.
+\end{proof}
+Deep returns, where the one sided bound is tight, are rare at a rate fixed by the zeros through $L$. With the window $1\le u\le16.1$, the first 300 zeros, and the tail correction $e^{-tF_0}\prod_{\gamma\in J}I_0(tm_\gamma w_\gamma)$, which approximates $L(t)$ from below, the independence model estimates the bound as $0.100$ for $\varepsilon=0.03$ and $0.389$ for $\varepsilon=0.035$ (the recomputed values). These are model estimates and not upper bounds, since replacing $P_t(\{0\})$ by $L(t)$ needs rational independence and the tail is only approximated. They compare with the finite window observed densities $0.017$ and $0.109$ from the primes up to $10^7$.
+
+\subsection{Free probability}
+The convolution powers $\mu^{\boxplus t}$ exist for every $t\ge1$ and every $\mu$ \cite{NS06}, so upward powers are free in the literal sense. Under RH the free compound Poisson law with L\'evy measure $\nu$, the measure of Theorem~\ref{st:thm:phi}, has Voiculescu transform $\varphi(z)=\sum_{\gamma>0}m_\gamma w_\gamma\gamma^2z/(z^2-\gamma^2)$.
+\begin{proposition}\label{st:prop:free}
+Under RH, for $\mathrm{Im}\,z>0$,
+\[
+\varphi(z)=\frac{z}{z^2+\tfrac14}\Big(iz\,\frac{\xi'}{\xi}\big(\tfrac12+iz\big)-\frac{F_0}4\Big).
+\]
+Unconditionally the right side is analytic in the upper half plane if and only if RH holds, and then it maps the upper half plane to the closed lower half plane, so it is the Voiculescu transform of a freely infinitely divisible law.
+\end{proposition}
+\begin{proof}
+Use $\sum_{\gamma>0}m_\gamma/(\gamma^2+s^2)=(2s)^{-1}(\xi'/\xi)(\tfrac12+s)$ at $s=iz$ and at $s=\tfrac12$, where it equals $F_0/2$, and partial fractions in $\gamma^2$. The apparent pole at $z=i/2$ is removable because $(\xi'/\xi)(0)=-F_0/2$. Poles of the right side in the upper half plane are zeros of $\xi$ with real part below one half, and the symmetry of the functional equation supplies one whenever RH fails. For the free L\'evy and Khintchine conclusion note also that $\varphi(iy)/(iy)\to0$ as $y\to\infty$, by domination by $\sum_\gamma a_\gamma$ with $a_\gamma=m_\gamma w_\gamma$.
+\end{proof}
+This is the positivity of $\Re(\xi'/\xi)$ to the right of the critical line (Lagarias 1999 \cite{Lagarias}, who gave the logarithmic derivative positivity criterion) in free language, so it is a restatement and not a new criterion, and only the partial fraction argument above is specific to this transform.
+
+\section{What positivity can be shown}\label{st:sec:shown}
+Full positivity $\Phi\ge0$ is RH, and we cannot prove it. Several partial forms can be shown, and together they say exactly where the difficulty sits. Write $b_\rho=1/(\rho(1-\rho))=1/(\tfrac14-\kappa^2)$ for $\rho=\tfrac12+\kappa$, so that $\Phi(u)=\sum_\rho b_\rho(1-e^{\kappa u})$.
+
+\subsection{Positivity in Abel mean, unconditionally}
+For $s>\tfrac12$ the Laplace transform $\hat\Phi(s)=\int_0^\infty\Phi(u)e^{-su}du$ converges unconditionally. With $H(\sigma)=\int_1^\infty\mathcal G(x)x^{-\sigma-1}dx=-\frac{\zeta'}{\zeta}(\sigma)\frac1{\sigma(\sigma-1)}-\frac1{(\sigma-1)^2}+\frac{1+\gamma}{\sigma-1}$ for $\sigma>1$ (the Mellin transform of Section~\ref{qt:sec:equiv}) and $\sigma=s+\tfrac12>1$,
+\begin{equation}\label{st:eq:phihat}
+\hat\Phi(s)=\frac{F_0}s-H(\sigma)+\frac{\log2\pi}{\sigma}-\sum_{k\ge1}\frac1{2k(2k+1)(2k+\sigma)} .
+\end{equation}
+Every term is evaluated at real $\sigma=s+\tfrac12>1$, where the Euler product converges.
+\begin{theorem}[Abel positivity]\label{st:thm:abel}
+Unconditionally, $\hat\Phi(s)>0$ for every real $s>\tfrac12$.
+\end{theorem}
+\begin{proof}
+From $\Phi(u)=\sum_\rho b_\rho(1-e^{\kappa u})$, pairing $\kappa$ with $-\kappa$,
+\[
+\hat\Phi(s)=\frac2s\sum_{\{\kappa,-\kappa\}}b_\rho\,d_\rho,\qquad d_\rho=\frac{-\kappa^2}{s^2-\kappa^2}.
+\]
+Write $\kappa=\beta+i\gamma$ with $|\beta|<\tfrac12$. Then $\tfrac14-\kappa^2$ has real part at least $\gamma^2$ and imaginary part of size at most $|\gamma|$, so $|\arg b_\rho|\le\arctan(1/|\gamma|)$. The numerator of $d_\rho$ is $\gamma^2-\beta^2-2i\beta\gamma$ and the denominator is the same number plus $s^2>0$, so $\arg d_\rho$ lies between $0$ and the argument of the numerator, which is at most $\arctan(|\gamma|/(\gamma^2-\tfrac14))$ in size, and it has the sign opposite to $\arg b_\rho$. Hence $|\arg(b_\rho d_\rho)|<\pi/2$ for every zero, since $|\gamma|>14$, so each term has positive real part. The zero $\bar\rho$ gives the conjugate term, and after completing this pairing each pair contributes a positive real number, so the sum is real and positive.
+\end{proof}
+So the positivity that RH asserts pointwise holds unconditionally after exponential averaging at every rate $s>\tfrac12$.
+
+\subsection{Complete monotonicity is RH}
+\begin{theorem}\label{st:thm:cm}
+RH holds if and only if $\hat\Phi$ is completely monotone on $(\tfrac12,\infty)$, that is $(-1)^k\hat\Phi^{(k)}(s)\ge0$ for all $k\ge0$ and $s>\tfrac12$.
+\end{theorem}
+\begin{proof}
+If $\Phi\ge0$ then differentiating under the integral gives the signs. Conversely, apply Bernstein's theorem on $(0,\infty)$ to $h(t)=\hat\Phi(t+\tfrac12)$, which is completely monotone. Its positive representing measure equals $e^{-u/2}\Phi(u)\,du$ by uniqueness, with a further positive exponential tilt if needed to obtain finite measures, so $\Phi\ge0$ by continuity. Theorem~\ref{st:thm:phi} gives RH.
+\end{proof}
+By \eqref{st:eq:phihat} this is an infinite list of sign conditions on derivatives of $\zeta'/\zeta$ at real points $\sigma>1$. Theorem~\ref{st:thm:abel} is the case $k=0$. It is close in spirit to the criterion of Li \cite{Li97}.
+\begin{corollary}[Hausdorff form at one rate]\label{st:cor:hausdorff}
+Fix one real $s>\tfrac12$ and let $\Delta$ be the forward difference of step one. Then RH holds if and only if $(-1)^n\Delta^n\hat\Phi(s+m)\ge0$ for all integers $m,n\ge0$, if and only if the numbers $\hat\Phi(s+m)$, $m\ge0$, are the moments of a positive measure on $[0,1]$. That measure is then unique, with density $t^{s-1}\Phi(-\log t)$.
+\end{corollary}
+\begin{proof}
+Substituting $t=e^{-u}$ gives $\hat\Phi(s+m)=\int_0^1t^m\,\nu_s(dt)$ with $\nu_s(dt)=t^{s-1}\Phi(-\log t)\,dt$. This is a finite signed measure, because $|\Phi(u)|\le C(1+e^{u/2})$ and $s>\tfrac12$ bound the density by $C(t^{s-1}+t^{s-3/2})$, which is integrable at $0$. Then $(-1)^n\Delta^n\hat\Phi(s+m)=\sum_j(-1)^j\binom nj\hat\Phi(s+m+j)=\int_0^1t^m(1-t)^n\,\nu_s(dt)$. Under RH $\Phi\ge0$, so $\nu_s$ is positive and all these numbers are nonnegative, which also gives the moment form. Conversely, if the differences are nonnegative then, by Bernstein polynomials, $\int f\,d\nu_s\ge0$ for every continuous $f\ge0$ on $[0,1]$, so $\nu_s$ is a positive measure and its continuous density gives $\Phi\ge0$, hence RH by Theorem~\ref{st:thm:phi}. If the numbers are the moments of a positive measure $\mu$, then $\mu$ and $\nu_s$ are finite measures with the same moments, polynomials being dense in $C[0,1]$, so $\mu=\nu_s$ is positive and the same conclusion holds.
+\end{proof}
+This is one lattice of points in place of all the derivatives of Theorem~\ref{st:thm:cm}. By contrast the small shift differences are unconditionally positive. Put $a=m+1$ and $D_{m,n}(1)=(-1)^n\Delta^n\hat\Phi(1+m)$. Then $D_{m,n}(1)=B\sum_\rho\Re\big[b_\rho(1-P(\kappa_\rho))\big]$ with $B=\int_0^1t^m(1-t)^ndt$ and $P(\kappa)=\prod_{j=0}^n(a+j)/(a+j-\kappa)$. For $a\le41$ and $a+n\le H_0^2$ each factor has modulus at most one at a zero above $H_0$, so these zeros contribute at most $2\varepsilon_{H_0}$ in modulus, with $\varepsilon_{H_0}$ the tail constant of Proposition~\ref{st:prop:window}, while $|P(i\gamma)|\le a/\sqrt{a^2+\gamma^2}<\tfrac{19}{20}$ for $\gamma\ge14$ and the verified zeros carry weight at least $F_0-\varepsilon_{H_0}$. Hence $D_{m,n}(1)\ge B\big((F_0-\varepsilon_{H_0})/20-2\varepsilon_{H_0}\big)>0$, from the verification of Platt and Trudgian and the tail constant alone. These differences are coarse averages that cannot resolve any zero, so their positivity says nothing about RH. It is the Hausdorff analogue of Theorem~\ref{st:thm:abel}.
+
+\subsection{Positivity at finite resolution, unconditionally}
+The higher conditions of Theorem~\ref{st:thm:cm} are averages of $\Phi$ against Gamma densities:
+\[
+A(k,s):=\frac{s^{k+1}}{k!}(-1)^k\hat\Phi^{(k)}(s)=\int_0^\infty\Phi(v)\,\frac{s^{k+1}v^ke^{-sv}}{k!}\,dv ,
+\]
+an average centred at $u=(k+1)/s$ with standard deviation $\sqrt{k+1}/s\approx\sqrt{u/s}$. So the rate $s$ is a resolution, and $k$ is the position in units of $1/s$.
+\begin{theorem}[Positivity at resolution]\label{st:thm:res}
+Suppose all zeros with $|\gamma|\le H_0$ lie on the critical line, where $H_0\ge14$. Then
+\[
+A(k,s)>0\qquad\text{for all integers }k\ge0\text{ and all real }\tfrac12<s\le0.99\,H_0 .
+\]
+This holds unconditionally with $H_0=14$ (the hypothesis is vacuous there, since the least ordinate exceeds $14$), and with $H_0=3\times10^{12}$ by the verification of Platt and Trudgian \cite{PT21}. RH is equivalent to $A(k,s)\ge0$ for all integers $k\ge0$ and all real $s>\tfrac12$.
+\end{theorem}
+\begin{proof}
+From $\Phi(u)=\sum_\rho b_\rho(1-e^{\kappa u})$, pairing $\kappa$ with $-\kappa$,
+\[
+A(k,s)=\sum_{\{\kappa,-\kappa\}}b_\rho\Big[2-\Big(\frac{s}{s-\kappa}\Big)^{k+1}-\Big(\frac{s}{s+\kappa}\Big)^{k+1}\Big].
+\]
+For a zero on the line the bracket is $2-2\Re(1-i\gamma/s)^{-(k+1)}\ge2-2(1+\gamma^2/s^2)^{-(k+1)/2}>0$ and $b_\rho>0$. For a zero off the line, $|\gamma|>H_0$ and $|s\mp\kappa|\ge|\gamma|$, so the two powers have modulus at most $(s/|\gamma|)^{k+1}\le0.99$. As in the proof of Theorem~\ref{st:thm:abel}, $\Re b_\rho>0$ and $\cos(\arg b_\rho)\ge(1+\gamma^{-2})^{-1/2}>0.997$. Hence the real part of the pair is at least $2|b_\rho|(0.997-0.99)>0$. The equivalence with RH is Theorem~\ref{st:thm:cm}.
+\end{proof}
+The constant $0.99$ is far from the truth. The exact boundary is a disc.
+\begin{theorem}[Resolution and zero free discs]\label{st:thm:disc}
+Fix $s>\tfrac12$ and let $\Delta(s)=\{\rho:|\rho-(\tfrac12+s)|<s\}$, the open disc tangent to the critical line at $\tfrac12$.
+\begin{enumerate}
+\item[(a)] If $A(k,s)\ge0$ for all $k\ge0$, then $\zeta$ has no zero in $\Delta(s)$.
+\item[(b)] If $\zeta$ has no zero in the open disc $\Delta(s)$, a zero on its boundary being allowed, then $A(k,s)\ge A_{\mathrm{on}}(k,s)>0$ for every integer $k\ge0$, where $A_{\mathrm{on}}$ is the sum over zeros on the line.
+\item[(c)] Slack: the conclusion of (a) holds if only $A(k,s)\ge-K_\delta(1+\delta)^k$ for every $\delta>0$ and all $k$.
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+(a) The Taylor coefficients of $\hat\Phi$ at $s$ in powers of $(s-t)$ are $A(k,s)s^{-k-1}\ge0$. By Pringsheim's theorem the point $t=s-r$ is singular, $r$ the radius of convergence. On the real axis $\hat\Phi$ is singular only at $t=0$ among $0\le t<s$, so $r\ge s$, and $\hat\Phi$ has no pole $\kappa$ with $|s-\kappa|<s$. (b) Let $n=k+1$. The on line terms are strictly positive, as in Theorem~\ref{st:thm:res}. For $n=1$ use the pairwise computation of Theorem~\ref{st:thm:abel}. For $n\ge2$ pair a zero $\kappa=\beta+i\gamma$ off the line, with $\beta>0$, with $-\kappa$, and write $h=\beta^2+\gamma^2$, $r=s/(s-\kappa)$, $q=s/(s+\kappa)$ and $b=1/(\tfrac14-\kappa^2)$. An empty disc gives $s\le h/(2\beta)$ and $|r|\le1$, so $|q|^{-2}=1+2\beta/s+h/s^2\ge1+8\beta^2/h$ and $|r|^n+|q|^n\le2-8\beta^2/(\gamma^2+9\beta^2)$. Also $|\tan\arg b|\le2\beta/|\gamma|$, so $2\cos\arg b\ge2-4\beta^2/\gamma^2$. Since $|\gamma|>14$ and $\beta<\tfrac12$ give $\gamma^2>9\beta^2$, the bound for the two moduli is strictly below $2\cos\arg b$, hence $\Re\{b(2-r^n-q^n)\}>0$. Summing these terms with their conjugates and the strictly positive on line terms gives the claim, and the sum converges absolutely because $\sum|b_\rho|<\infty$. (c) Add $K_\delta\sum_k((1+\delta)(s-t)/s)^k/s$, which has radius $s/(1+\delta)$, to the Taylor series. The sum has nonnegative coefficients, so by Pringsheim its radius is attained at a real singular point. If the radius $r$ of $\hat\Phi$ were below $s/(1+\delta)$, that point would be $s-r\in(0,s)$, where $\hat\Phi$ is regular. Hence $r\ge s/(1+\delta)$ for every $\delta$.
+\end{proof}
+At each fixed rate $s$, a zero free disc, positivity at every order and the subexponential lower bound of (c) are equivalent, by (a), (b) and (c).
+
+Inside the critical strip the disc $\Delta(s)$ reaches only to height $|\gamma|<\sqrt s$. So verification to height $H_0$ clears every disc with $s\le H_0^2$, and part (b) gives the following.
+\begin{corollary}[The verification and resolution principle]\label{st:cor:principle}
+With $H_0=3\times10^{12}$: $A(k,s)>0$ for all integers $k\ge0$ and all real $\tfrac12<s\le H_0^2=9\times10^{24}$. At fixed $s$ the centres are exactly $u=(k+1)/s$ and the standard deviation is $\sqrt{u/s}$, which at $s=H_0^2$ is $\sqrt u/H_0$. For a prescribed real $u$ with $H_0^2u\ge1$ take $s=\lfloor H_0^2u\rfloor/u$ when $s>\tfrac12$, which gives a statement at the centre $u$ itself with the actual, slightly larger width. So for every such $u$, with no upper limit, $\Phi$ is positive on Gamma averages of characteristic width
+\[
+\omega=\frac{\sqrt u}{H_0}\approx3.3\times10^{-13}\sqrt u .
+\]
+\end{corollary}
+The book's $\tfrac78$ theorem extends the rate $H_0^2$ to $\tfrac43H_0^2$, by Proposition~\ref{st:prop:discask}(c). At $u=46$, where the old unsmoothed pointwise window ends, the width is $2\times10^{-12}$, and at $u=1000$ it is $10^{-11}$. The Gamma law has infinite support, so in terms of $x$ the normalised one sided bound $x^{-1/2}\widetilde G(x)\le F_0$ holds unconditionally after averaging over a multiplicative window of characteristic scale $x^{1\pm\delta}$ with $\delta\approx1/(H_0\sqrt{\log x})$.
+
+The principle is sharp. A Gamma average multiplies the amplitude $e^{\beta u}$ of a zero by about $e^{-\gamma^2\omega^2/2}$, so the zero is visible roughly when $\beta u>\gamma^2\omega^2/2$, that is when $s>\gamma^2/(2\beta)$. The exact growth threshold is $2\beta s>\beta^2+\gamma^2$, which is membership of $\Delta(s)$. A zero just above $H_0$ with $\beta$ near $\tfrac12$ would break positivity for $s$ slightly above $H_0^2$ at large $u$. Such a zero is excluded by the book's $\tfrac78$ theorem, so the sharpness concerns the disc criterion and not an actual failure.
+
+Part (c) is the slack principle for a single disc. Since the Gamma kernel with index $k$ is centred at $u=(k+1)/s$, slack subexponential in $k$ at fixed $s$ is slack subexponential in $u$: a Stepanov style bound for the averaged Riesz error at one resolution, with any such slack, proves a zero free disc.
+
+As $s\to\infty$ the discs $\Delta(s)$ fill the half plane $\Re\rho>\tfrac12$. The family $A(k,s)=\sum_\rho b_\rho[1-(s/(s-\kappa))^{k+1}]$ is a weighted relative of the Li coefficients $\lambda_n=\sum_\rho[1-(1-1/\rho)^n]$ \cite{Li97,BL99}, with the rate $s$ as an extra parameter (compare \cite{Sekatskii14}). Li's test sees the half plane at once. Ours sees one disc at a time, and that is what makes the unconditional part visible.
+
+\subsection{Pointwise positivity in a window}
+Let $H_0=3\times10^{12}$, the height to which Platt and Trudgian verified RH \cite{PT21}, and let $\varepsilon_{H_0}=\sum_{|\gamma|>H_0}\gamma^{-2}\approx(\log(H_0/2\pi)+1)/(\pi H_0)\approx2.96\times10^{-12}$, using the zero counting estimate of \cite{HSW22}.
+\begin{proposition}[Positivity with the trivial exponent and a small constant]\label{st:prop:window}
+Unconditionally, for every $u\ge0$ and every finite submultiset $J$ of positive ordinates of zeros below height $H_0$, each used at most to its certified multiplicity (a sign change certifies one copy),
+\[
+\Phi(u)\ \ge\ \Phi_J(u)-\varepsilon_{H_0}\big(1+e^{u/2}\big),\qquad \Phi_J(u)=\sum_{\gamma\in J}w_\gamma\big(1-\cos\gamma u\big)\ge0 .
+\]
+\end{proposition}
+\begin{proof}
+Zeros below $H_0$ are on the line and contribute nonnegative terms, of which we keep those in $J$. For the others $|b_\rho|\le\gamma^{-2}$ and $|1-e^{\kappa u}|\le1+e^{u/2}$.
+\end{proof}
+With $J$ the first 300 zeros the minimum of $\Phi_J$ over the sampled range $0.5\le u\le2400$ is $0.0167$, at $u=67.55$ (floating point grid), and no global positive minimum exists, since arbitrarily deep simultaneous returns of finitely many frequencies occur. A floating point grid computation gives positivity up to $u=46.2$ with this proposition, which cannot go much further since it charges every zero above $H_0$ with its full weight. The way out is to average $\Phi$ over a short window in $u$, so that every zero above $H_0$ is hidden whatever its real part, and then to return to a pointwise bound. Put $M(y)=\sum_{n\le y}\Lambda(n)(y/n-1)$, which vanishes on $(0,2)$, so that $\mathcal G(y)=M(y)-y\log y+(1+\gamma)y$, and write $x=e^u$.
+\begin{lemma}[Convexity and the one sided upgrade]\label{st:lem:upgrade}
+The function $M$ is continuous, nondecreasing and convex on $(0,\infty)$. Let $V$ be a bounded real random variable with $\mathrm Ee^V=1$ and let $u>\sup|V|$. Then
+\[
+\Phi(u)\ \ge\ \mathrm E\big[e^{V/2}\Phi(u+V)\big]+F_0\big(1-\mathrm Ee^{V/2}\big)-e^{u/2}\,\mathrm E[Ve^V]-e^{-u/2}\big(\mathrm{tr}(x)-\mathrm E\,\mathrm{tr}(xe^V)\big),
+\]
+where $\mathrm E[Ve^V]\ge0$ and $\mathrm Ee^{V/2}\le1$.
+\end{lemma}
+\begin{proof}
+Between consecutive prime powers $M$ is affine with slope $\sum_{n\le y}\Lambda(n)/n$, which is nondecreasing, and a new term $\Lambda(n)(y/n-1)$ vanishes at $y=n$, so $M$ is continuous and piecewise affine with nondecreasing slopes. Since $\mathrm E[xe^V]=x$, Jensen gives $M(x)\le\mathrm EM(xe^V)$. For $f(y)=-y\log y+(1+\gamma)y$ one has $\mathrm Ef(xe^V)=f(x)-x\,\mathrm E[Ve^V]$, because $\mathrm E[xe^V\log(xe^V)]=xu+x\,\mathrm E[Ve^V]$. Adding, $\mathcal G(x)\le\mathrm E\,\mathcal G(xe^V)+x\,\mathrm E[Ve^V]$. Insert $\mathcal G(y)=\log2\pi-\mathrm{tr}(y)+\sqrt y\,(F_0-\Phi(\log y))$ at $y=x$ and at $y=xe^V>1$, and divide by $\sqrt x$. Finally $\mathrm E[Ve^V]=\mathrm E[Y\log Y]\ge0$ for $Y=e^V$ with $\mathrm EY=1$, and $\mathrm Ee^{V/2}\le(\mathrm Ee^V)^{1/2}=1$.
+\end{proof}
+No zero is used here. The upgrade is free because Jensen works for the convex $M$ in the direction of an upper bound for $\mathcal G$.
+\begin{lemma}[Hiding the zeros above $H_0$]\label{st:lem:hide}
+Let $V$ be as in Lemma~\ref{st:lem:upgrade} with $|V|\le a<u$, and let $D\ge\sup\{|\mathrm Ee^{zV}|:0\le\Re z\le1,\ |\Im z|\ge H_0\}$. For every $J$ as in Proposition~\ref{st:prop:window}, with $\theta=\tfrac12$ unconditionally,
+\begin{multline*}
+\mathrm E\big[e^{V/2}\Phi(u+V)\big]+F_0\big(1-\mathrm Ee^{V/2}\big)\\\ge\ \sum_{\gamma\in J}w_\gamma\Big(1-\Re\big[e^{i\gamma u}\,\mathrm Ee^{(\frac12+i\gamma)V}\big]\Big)-\varepsilon_{H_0}\Big(D\cosh\theta u-1+\frac1{2H_0^2}\Big)_+ .
+\end{multline*}
+\end{lemma}
+\begin{proof}
+The left side is $\sum_\rho b_\rho(1-e^{\kappa u}\,\mathrm Ee^{\rho V})$, by the explicit formula at each $u+V>0$, expectation and sum commuting because the series is dominated by $e^{u+a}\sum|b_\rho|$. A pair on the line contributes $w_\gamma(1-\Re[e^{i\gamma u}\mathrm Ee^{(\frac12+i\gamma)V}])\ge w_\gamma(1-\mathrm Ee^{V/2})\ge0$, and we keep those in $J$. A zero off the line has $|\gamma|>H_0$ by \cite{PT21} and lies in a quadruple $\kappa\in\{\pm\beta\pm i\gamma\}$ with $0<\beta\le\theta$, with $b=B$ at $\pm(\beta+i\gamma)$ and $b=\bar B$ at $\pm(\beta-i\gamma)$. With $\kappa=\beta+i\gamma$ the quadruple contributes $4\Re B-2\Re\{B[e^{\kappa u}\mathrm Ee^{(\frac12+\kappa)V}+e^{-\kappa u}\mathrm Ee^{(\frac12-\kappa)V}]\}$. The points $\tfrac12\pm\kappa$ have real parts in $(0,1)$ and imaginary parts of modulus $\gamma>H_0$, so the bracket has modulus at most $2D\cosh\beta u$. Since $|B|\le\gamma^{-2}$ and $|\arg B|\le\arctan(1/\gamma)$ (proof of Theorem~\ref{st:thm:abel}), $\Re B\ge|B|(1-1/(2\gamma^2))$, and the quadruple contributes at least $-4\gamma^{-2}(D\cosh\theta u-1+1/(2H_0^2))_+$. The weights $4\gamma^{-2}$ add up to at most $\varepsilon_{H_0}$.
+\end{proof}
+\begin{lemma}[The cosine kernel]\label{st:lem:cosine}
+Let $\psi(s)=4\pi\cos^2(s/2)/(\pi^2-s^2)^2$, a probability density with variance $\pi^2$, let $S=10^6$, let $s$ have the law of $\psi$ conditioned on $|s|\le S$, and put $W=s/H_0$, $a=S/H_0$, $m_2=\mathrm EW^2$, $c=\log\mathrm Ee^W$ and $V=W-c$. Then $\mathrm Ee^V=1$, $|V|\le2a<10^{-6}$, and
+\begin{enumerate}
+\item[(i)] $D=8.38\times10^{-18}$ is admissible in Lemma~\ref{st:lem:hide};
+\item[(ii)] $H_0^2m_2<9.869605$ and $H_0^2\,\mathrm E[Ve^V]<4.934808$;
+\item[(iii)] if $\sum_Jw_\gamma\gamma\le10$ then $\sum_Jw_\gamma\big|1-\mathrm Ee^{(\frac12+i\gamma)V}\big|\le m_2\big(|J|e^{a/2}+5.1e^a\big)$;
+\item[(iv)] for $u\ge1$, $e^{-u/2}(\mathrm{tr}(x)-\mathrm E\,\mathrm{tr}(xe^V))\le a\,e^{-5u/2}/(3(1-e^{-2u}))$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+The transform $\hat\psi(t)=(1-|t|)\cos\pi t+\pi^{-1}\sin\pi|t|$ on $|t|\le1$ vanishes for $|t|\ge1$, is of class $C^2$, and is of order $(1-|t|)^3$ at the edge. Put $q=1-\pi^2/S^2$, $T_0=\Pr(|s|>S)\le8\pi/(3S^3q^2)<8.378\times10^{-18}$ and $Z=1-T_0$. (i) For $z=x'+i\gamma$ with $0\le x'\le1$ and $|\gamma|\ge H_0$ expand $e^{x'w}=1+x'w+\varrho$ with $|\varrho|\le e^aw^2/2$ on $|w|\le a$. The transforms of $\psi$ and $s\psi$ vanish at the frequency $\gamma/H_0$, of modulus at least one, so the constant and the linear terms integrate to minus the integrals over the discarded tails, at most $T_0$ and $4\pi/(H_0S^2q^2)$. Hence $|\mathrm Ee^{zW}|\le(T_0+4\pi/(H_0S^2q^2)+e^a\pi^2/(2H_0^2))/Z<8.38\times10^{-18}$, and $|e^{-cz}|\le1$. The leakage of the truncation is thus charged in $D$, and the kernel does not hide the zeros exactly. (ii) Truncation only removes mass from $\int s^2\psi=\pi^2$, so $m_2\le\pi^2/(H_0^2Z)$. By symmetry $\mathrm EW=0$, so Taylor's formula gives $0\le c\le e^am_2/2$. With $\nu=a+c$ one has $y\log y\le(y-1)+e^\nu(y-1)^2/2$ for $y\ge e^{-\nu}$, whence $\mathrm E[Ve^V]\le e^{3\nu}(m_2+c^2)/2$, and the decimals follow. (iii) For $p=\tfrac12+i\gamma$, Taylor's formula and $\mathrm EW=0$ give $|\mathrm Ee^{pW}-1|\le|p|^2m_2e^{a/2}/2$, and $|1-e^{-cp}|\le c|p|$. Also $\sum_Jw_\gamma|p|^2=2|J|$, and $\sum_Jw_\gamma|p|\le10+F_0/2<10.03$ since $|p|\le\gamma+\tfrac12$ and $\sum_Jw_\gamma\le F_0$. With $c\le e^am_2/2$ this gives the constant $5.1$. (iv) The function $\mathrm{tr}$ is positive and decreasing on $(1,\infty)$, $|y\,\mathrm{tr}'(y)|\le y^{-2}/(3(1-y^{-2}))$, and $xe^V\le xe^a$.
+\end{proof}
+\begin{theorem}[Certified window]\label{st:thm:cert}
+Unconditionally, $\Phi(u)>0$ for $0<u\le104.86604$. In particular
+\[
+\mathcal G(x)<\log2\pi-\mathrm{tr}(x)+F_0\sqrt x\qquad\text{for }1<x\le3.4893\times10^{45}.
+\]
+The window is certified in ball arithmetic from 300 certified zeros, the verification of Platt and Trudgian to $H_0=3\times10^{12}$ and the tail bound $\varepsilon_{H_0}<2.9595\times10^{-12}$. With 8000 zeros it reaches $104.89698$.
+\end{theorem}
+\begin{proof}
+The proof is a computation in ball arithmetic, and it uses two results from the literature: all zeros with $|\gamma|\le H_0=3\times10^{12}$ are on the line \cite{PT21}, and an explicit zero counting estimate for the tail \cite{HSW22}.
+
+\emph{Tail constant.} Partial summation with the counting estimate gives $\varepsilon_{H_0}\le(\log(H_0/2\pi)+1)/(\pi H_0)$ plus an explicit error that enters only at the $10^{-24}$ level, so $\varepsilon_{H_0}<2.9595\times10^{-12}$.
+
+\emph{Small $u$.} For $1\le x<2$ there are no primes in the sum, so $\Phi$ is explicit, and a rearrangement of its logarithms gives, for $0<u<\log2$,
+\[
+\Phi(u)=G(u)+\sinh(u/2)\,\log\frac1{e^u-1},
+\]
+\begin{align*}
+G(u)&=F_0-e^{u/2}(1+\gamma-u)+e^{-u/2}(\log2\pi-1-u)\\
+&\quad+\cosh(u/2)\log(e^u+1),
+\end{align*}
+with $G$ analytic and $G(0)=0$. Differentiating, $G'=\tfrac12e^{u/2}(1-\gamma+u)-\tfrac12e^{-u/2}(\log2\pi+1-u)+\tfrac12\sinh(u/2)\log(1+e^u)+\cosh(u/2)\,e^u/(1+e^u)$, and on $[0,0.05]$ this is at least $(1-\gamma-\log2\pi)/2>-0.71$, an elementary estimate. With $G(0)=0$, $\sinh(u/2)\ge u/2$ and $\tfrac12\log(1/(e^{0.05}-1))\ge1.4853$ it follows that $\Phi(u)>(1.4853-0.71)u>0$ for $0<u\le0.05$.
+
+\emph{Step (a): average over the cosine kernel.} Take $V$ of Lemma~\ref{st:lem:cosine}. By Lemmas~\ref{st:lem:upgrade}, \ref{st:lem:hide} and \ref{st:lem:cosine}, with $1-\Re[e^{i\gamma u}\mathrm Ee^{(\frac12+i\gamma)V}]\ge1-\cos\gamma u-|1-\mathrm Ee^{(\frac12+i\gamma)V}|$, one has for $u\ge1$ and every $J$ with $\sum_Jw_\gamma\gamma\le10$
+\begin{align*}
+\Phi(u)&\ \ge\ \Phi_J(u)-C(u),\\
+C(u)&=m_2\big(|J|e^{a/2}+5.1e^a\big)+\varepsilon_{H_0}\Big(D\cosh\frac u2-1+\frac1{2H_0^2}\Big)_+\\
+&\quad+e^{u/2}\frac{4.934808}{H_0^2}+\frac{a\,e^{-5u/2}}{3(1-e^{-2u})},
+\end{align*}
+with $D=8.38\times10^{-18}$. The kernel does not depend on $u$. It hides every zero above $H_0$ whatever its real part: at $u=105$ the whole tail costs less than $8\times10^{-7}$, where the unsmoothed bound would charge $\tfrac12\varepsilon_{H_0}e^{u/2}\approx9\times10^{10}$. For $u<1$, and on intervals that start below $1$, take $V\equiv0$, $D=1$, which gives $\Phi(u)\ge\Phi_J(u)-\varepsilon_{H_0}(\cosh\tfrac u2-1+1/(2H_0^2))$.
+
+\emph{Step (b): the pointwise bound.} The return from the average to the point is the convexity of $M$ in Lemma~\ref{st:lem:upgrade}. It costs the slack $e^{u/2}\mathrm E[Ve^V]\approx4.935\,e^{u/2}/H_0^2$, and the least variance $\pi^2/H_0^2$ of Remark~\ref{st:rem:window} is why the cosine kernel is the cheapest choice.
+
+\emph{Step (c): the march.} The first 300 zeros are enclosed rigorously, each to more than thirty digits, by a proven sign change of the Hardy function, in disjoint balls, with $\sum_Jw_\gamma\gamma\le3.1308$. The list need not be complete, since any finite set of genuine zeros below $H_0$ may serve as $J$. On an interval $[a,b]$ with midpoint $m$, $\Phi_J(u)\ge\Phi_J(m)-\tfrac12(b-a)\sum_Jw_\gamma\gamma$, and $C(u)$ is at most its value with the increasing terms taken at $b$ and the trace term at $a$. An adaptive march accepts an interval when the resulting lower bound for $\Phi$ is a strictly positive ball in 220 bit arithmetic, with the cost of step (a) from $u\ge1$ on and the unsmoothed cost below, and a radius allowance of $10^{-12}$ that covers the rounding of the floating point end points. The march covers $[0.05,104.86604]$ in 4350 intervals. At that end point $C=0.0324$ equals $\Phi_J$, so the window is limited by a dip of $\Phi_J$ and not by the method. With 2000 zeros it reaches $104.89457$. Together with the small $u$ argument this proves the theorem.
+\end{proof}
+Since $e^{104.86604}>3.4893\times10^{45}$, the statement for $\mathcal G$ is the stated range. The unsmoothed bound of Proposition~\ref{st:prop:window} alone stops at $u=46.24$, where the tail and not the number of zeros is the limit. Smoothing replaces its height term $2\log H_0$ by $4\log H_0$. Theorem~\ref{st:thm:cert} passes the window $67.1$ of Theorem~\ref{st:thm:density} without its assumed majorant.
+\begin{remark}[Kernels, ceiling and zero free regions]\label{st:rem:window}
+The cosine kernel is the variance minimising nonnegative kernel whose transform vanishes beyond $H_0$: by Akhiezer's factorisation $\psi=|g|^2$ with $g$ of exponential type $\tfrac12$, and the Dirichlet inequality for $\hat g$ on an interval of length one gives variance at least $\pi^2/H_0^2$ after centring, with equality for $\hat g=\cos\pi\tau$. A truncated Gaussian kernel, with its width chosen to balance the convexity slack against the zeros above $H_0$, gives $101.28458$ with the same 300 zeros, so the cosine kernel gains $3.58$ in $u$. With the cosine kernel the method cannot certify beyond $2\log(2F_0H_0^2/4.9348)=106.96$, because $\Phi_J$ is at most $2F_0$ while the convexity cost is at least $4.9348\,e^{u/2}/H_0^2$, by $\mathrm E[Ve^V]\ge\tfrac12e^{-2a}\mathrm{Var}\,V$.
+
+The window is not a zero free region. By Proposition~\ref{st:prop:sharp}(b) one off line quadruple (a pair and its reflection) above $H_0$, at any real part up to $\tfrac12$, is compatible with $\Phi>0$ on $(0,105.3)$, and no window this method reaches excludes an individual zero above $H_0$.\end{remark}
+
+\subsection{A control with a planted zero}
+To test Theorem~\ref{st:thm:disc} we add to the first 300 zeta zeros one quadruple off the line, placed at a known off line zero of the Davenport and Heilbronn function \cite{DH36,BSO07}, $\rho_0=0.808517+85.699348\,i$. The disc $\Delta(s)$ contains $\rho_0$ exactly when $s>s^*=|\kappa_0|^2/(2\beta_0)=11902.9$. Table~\ref{st:tab:control} samples $k$ up to $3\times10^8$, not every integer in that range, and omits $k=0$.
+\begin{table}[h]\centering\small
+\begin{tabular}{rrl}
+\toprule
+$s/s^*$ & $\min_kA(k,s)$ & first sampled negative centre $u$\\
+\midrule
+0.25 & $2.0\times10^{-4}$ & none\\
+0.50 & $5.1\times10^{-5}$ & none\\
+0.90 & $1.6\times10^{-5}$ & none\\
+0.99 & $1.3\times10^{-5}$ & none\\
+1.01 & negative & about 1726\\
+1.10 & negative & about 185\\
+1.50 & negative & about 51\\
+3.00 & negative & about 25\\
+\bottomrule
+\end{tabular}
+\caption{Control with a planted off line quadruple, sampled values. Positivity at every order below $s^*$ is the quartet proof of Theorem~\ref{st:thm:disc}(b) with the model's own total mass and weights, and negative values appear above $s^*$. Below $s^*$ the sampled minimum is at $k=1$, the smallest centre sampled.}\label{st:tab:control}
+\end{table}
+The transition is at $s^*$ to within the one per cent step of the scan, as the theorem says.
+
+\subsection{The inverted ladder}
+Under $z=1/\kappa=1/(\rho-\tfrac12)$ the disc $\Delta(s)$ becomes the half plane $\Re z>1/(2s)$. So the disc ladder is a ladder of half planes for the zeros $z_\rho=1/\kappa_\rho$, with level $\lambda=1/(2s)$:
+\[
+\text{zero free }\Delta(s)\iff\Re z_\rho\le\lambda\ \text{for all }\rho,\qquad \lambda=\frac1{2s}.
+\]
+This has the same shape as the Thorin ladder of this book, where a nonnegative Thorin measure at level $\alpha$ corresponds to the half plane $\Re\rho>\alpha$ being free of zeros, but in the inverted variable. On the Thorin ladder the trivial level is $\alpha=1$ and the target is $\tfrac12$. On the inverted ladder the trivial level is $\lambda=\sup_\rho\beta/|\kappa|^2\le1/(2\gamma_1^2)=2.5\times10^{-3}$, the target is $\lambda=0$, and verification gives $\lambda\le1/(2H_0^2)=5.6\times10^{-26}$ (the book's $\tfrac78$ theorem gives $\sup\Re(1/\kappa)\le(3/8)/H_0^2$ for off line zeros, and zero on the line). These small numbers do not measure a fraction of the proof of RH.
+
+\subsection{A Thorin measure in angle and a discrete \texorpdfstring{$2\sin^2$}{2 sin2} lemma}
+Fix a rate $s>0$ and let $c_\rho=(s+\kappa)/(s-\kappa)$ be the Cayley transform of $\kappa=\rho-\tfrac12$. Then $|c_\rho|\le1$ exactly when $\Re\rho\le\tfrac12$, and a zero on the line has $c_\rho=e^{2i\phi_\gamma}$ with $\phi_\gamma=\arctan(\gamma/s)$. Define, unconditionally,
+\[
+\Psi_s(m)=\sum_\rho b_\rho\big(1-c_\rho^{\,m}\big),\qquad m=0,1,2,\dots
+\]
+For $s>\tfrac12$ it is computable from $\zeta$ at real points to the right of $1$: with $y_t=s(1-t)/(1+t)$,
+\begin{equation}\label{st:eq:gen}
+\sum_{m\ge0}\big(F_0-\Psi_s(m)\big)t^m=\frac1{1+t}\Big[F_0+(s-y_t)\Big(\frac {F_0}{y_t}-\hat\Phi(y_t)\Big)\Big].
+\end{equation}
+The identity holds as a germ at $t=0$, and for $s>\tfrac12$ its Taylor coefficients require $\zeta$ and its derivatives at $\tfrac12+s>1$, whereas evaluation at an arbitrary real $t$ need not stay in the half plane of the Euler product.
+\begin{lemma}[Discrete $2\sin^2$ lemma]\label{st:lem:disc}
+Unconditionally, $s/(s-\kappa)=(1+c_\rho)/2$, and therefore, for $s>\tfrac12$ and $n\ge1$,
+\[
+A(n-1,s)=\mathrm E\,\Psi_s(B_n),\qquad B_n\sim\mathrm{Binomial}(n,\tfrac12).
+\]
+Under RH,
+\[
+\Psi_s(m)=\int_0^{\pi/2}2\sin^2(m\phi)\,\mu_s(d\phi),\qquad \mu_s=\sum_{\gamma>0}m_\gamma w_\gamma\,\delta_{\arctan(\gamma/s)} ,
+\]
+a nonnegative measure of total mass $F_0$.
+\end{lemma}
+\begin{proof}
+The identity for $s/(s-\kappa)$ is direct, and $((1+c)/2)^n=\mathrm E\,c^{B_n}$. Under RH pair $\kappa=\pm i\gamma$ and use $1-\cos2m\phi=2\sin^2m\phi$.
+\end{proof}
+The measure $\mu_s$ is the push forward of $\nu$ under $\gamma\mapsto\arctan(|\gamma|/s)$, that is the signed angle measure folded, a weighted image of the central spectral measure, while the central Thorin atoms themselves remain at $\gamma^2$. The kernel is again $2\sin^2$, now on the integers. For the continuum limit take integers $m_s$ with $2m_s/s\to u$ as $s\to\infty$. Then $m_s\phi_\gamma\to\gamma u/2$ and, under RH, $\Psi_s(m_s)\to\Phi(u)$ termwise by domination by $2m_\gamma w_\gamma$, so the lemma of this book is the continuum limit. The Gamma averages $A$ are binomial smoothings of $\Psi_s$.
+\begin{theorem}[The Li ladder at one rate]\label{st:thm:li}
+For each fixed $s>0$ the following are equivalent: RH; $\Psi_s(m)\ge0$ for all $m$; for every $\delta>0$ there is $K_\delta$ with $\Psi_s(m)\ge-K_\delta(1+\delta)^m$; the Toeplitz matrices $[F_0-\Psi_s(|i-j|)]$ are nonnegative definite.
+\end{theorem}
+\begin{proof}
+Under RH the lemma gives positivity, and $F_0-\Psi_s(m)=\int\cos(2m\phi)\mu_s(d\phi)$ is a positive definite sequence. A positive definite sequence is bounded by its value at zero, so the Toeplitz condition gives $\Psi_s\ge0$. For the converse, the generating function $\sum_m\Psi_s(m)t^m=\sum_\rho b_\rho[1/(1-t)-1/(1-c_\rho t)]$ has poles at $t=1$ and at $t=1/c_\rho$, which are not real and accumulate only at $t=-1$. With the slack term added as in Theorem~\ref{st:thm:disc}(c), Pringsheim's theorem forces the radius of convergence to be $1$. Hence no $1/c_\rho$ lies in the open unit disc, so $|c_\rho|\le1$ for all zeros.
+\end{proof}
+This is a criterion at a single resolution. It explains the disc theorem: the map $c\mapsto(1+c)/2$ sends the unit disc into the disc $|\varpi-\tfrac12|\le\tfrac12$, and positivity of the smoothed sequence $A$ only requires $|\varpi|\le1$, which is $\Delta(s)$ being free of zeros. Removing the binomial smoothing turns a disc into the half plane. At $s=\tfrac12$ one has $c_\rho=\rho/(1-\rho)$ and $\Psi_{1/2}(m)$ is a weighted, alternating form of the Li coefficients, so $\Psi_s$ is a Li type criterion with a rate parameter. For $a=\tfrac12-s$ the generalised Li ratio of \cite{Sekatskii14} is $-c_\rho$, but the weights $b_\rho$ are complex off the line, so neither \cite{BL99} nor \cite{Sekatskii14} supplies this criterion. The Toeplitz form is the Carath\'eodory and Toeplitz criterion of Section~\ref{cd:sec:pick}.
+\begin{proposition}[Unconditional range]\label{st:prop:lirange}
+For every $s>\tfrac12$, every integer $m\ge0$ and every finite submultiset $J$ of positive ordinates below $H_0$ as in Proposition~\ref{st:prop:window},
+\[
+\Psi_s(m)\ \ge\ \sum_{\gamma\in J}w_\gamma\,2\sin^2(m\phi_\gamma)-\varepsilon_{H_0}\Big(1+\exp\frac{ms}{(s-\frac12)^2+H_0^2}\Big).
+\]
+\end{proposition}
+\begin{proof}
+For a zero off the line $|c_\rho|^2=1+4s\beta/((s-\beta)^2+\gamma^2)$, so $|c_\rho|^m\le\exp(ms/((s-\tfrac12)^2+H_0^2))$, and $|b_\rho|\le\gamma^{-2}$.
+\end{proof}
+The exponent is at most one for $m\le2H_0-1$ at every $s$, and for $m\le H_0^2/s$ when $s$ is small. So, whenever the sum over $J$ exceeds $1.101\times10^{-11}$, a safe rounded up value of $\varepsilon_{H_0}(1+e)$ from the published bound, $\Psi_s(m)>0$ unconditionally for all integers $m$ up to about $6\times10^{12}$ at every rate, and up to about $10^{25}/s$ at small rates.
+% TODO: compare with the known unconditional range of the Li coefficients and cite it.
+
+Computed from \eqref{st:eq:gen} with at least fifty digits: $\Psi_1(1),\dots,\Psi_1(4)=0.09223$, $0.00059$, $0.09106$, $0.00232$. All values for $m\le24$ are positive at the rates $1$, $5$ and $20$, the binomial identity of Lemma~\ref{st:lem:disc} holds to thirty digits, and the zero sum agrees after the tail correction. The small even values at $s=1$ are genuine: there $\Psi_1(2)\approx16\sum_\gamma\gamma^{-4}$, to about one per cent.
+
+\subsection{Szeg\H{o} recurrence from the primes}
+The sequence $r_s(m)=F_0-\Psi_s(m)$ is, under RH, the sequence of trigonometric moments of the symmetrised angle measure on the circle. Let $\Delta_n=\det[r_s(i-j)]_{i,j=0}^{n}$ with $\Delta_{-1}=1$. Test $\Delta_n>0$ successively and put $\mathcal E_n(s)=\Delta_n/\Delta_{n-1}$ up to the first failed test, a zero pivot terminating the recursion. Up to that point the Levinson and Durbin recursion turns $r_s(0),\dots,r_s(n)$ into Verblunsky coefficients $\alpha_1(s),\dots,\alpha_n(s)$, which are real here, and the prediction errors satisfy
+\[
+\mathcal E_n(s)=F_0\prod_{j=1}^n\big(1-\alpha_j(s)^2\big)=\min_{q}\int\big|q(e^{2i\phi})\big|^2\mu_s(d\phi),
+\]
+the minimum over monic polynomials $q$ of degree $n$ with real coefficients, which suffices for the folded measure when it is positive (equivalently one allows complex coefficients on the symmetrised circle). For $s>\tfrac12$ all of this is computed from $\zeta$ to the right of $1$ through \eqref{st:eq:gen}. The coefficients are listed with the prediction coefficient convention $\alpha_1=-r_s(1)/r_s(0)$ and a one based index. This is opposite to the usual convention for real orthogonal polynomials on the unit circle (B. Simon, \emph{Orthogonal Polynomials on the Unit Circle}, Part 1, 2005). Only $\alpha_n^2$ enters the criterion.
+\begin{theorem}[Verblunsky form]\label{st:thm:verb}
+For each fixed $s>0$, RH holds if and only if all the coefficients $\alpha_n(s)$ exist, that is the recursion never stops, and satisfy $|\alpha_n(s)|<1$ for all $n\ge1$, and if and only if $\mathcal E_n(s)>0$ for all $n$. Under RH, $\mathcal E_n(s)\to0$ and $\sum_n\alpha_n(s)^2=\infty$.
+\end{theorem}
+\begin{proof}
+Under RH the measure is nonnegative with infinite support, so Verblunsky's theorem gives $|\alpha_n|<1$. Conversely, if all $|\alpha_n|<1$ then every Toeplitz determinant $F_0^{n+1}\prod_{j\le n}(1-\alpha_j^2)^{n+1-j}$ is positive, the Toeplitz matrices are positive definite by Sylvester's criterion, and Theorem~\ref{st:thm:li} gives RH. The measure $\mu_s$ is pure point, so it has no absolutely continuous part, and Szeg\H{o}'s theorem gives $\prod(1-\alpha_n^2)=0$. Since every $\alpha_n^2<1$, this is equivalent to $\sum_n\alpha_n(s)^2=\infty$.
+\end{proof}
+% TODO bib: Verblunsky's and Szego's theorems as in B. Simon, Orthogonal Polynomials on the Unit Circle (AMS Colloquium Publications 54, 2005); no bib key yet.
+Under RH the minima $\mathcal E_n(s)$ decrease to zero and never cross it. To read them as minima of Weil's quadratic form one would need an explicit family of Mellin transforms realising the Cayley moments, which we do not supply. A zero off the line shows as a first failed positivity test.
+\begin{table}[h]\centering\small
+\begin{tabular}{rrrrr}
+\toprule
+$n$ & $\alpha_n(20)$ & $\mathcal E_n(20)/F_0$ & $\alpha_n(5)$ & $\mathcal E_n(5)/F_0$\\
+\midrule
+1 & 0.4427 & 0.804 & 0.9266 & 0.141\\
+2 & 0.3688 & 0.695 & 0.8985 & 0.0272\\
+4 & 0.5144 & 0.370 & 0.9483 & $3.1\times10^{-4}$\\
+8 & 0.6960 & 0.0399 & 0.9728 & $3.9\times10^{-9}$\\
+12 & 0.7309 & 0.00199 & 0.9836 & $1.1\times10^{-14}$\\
+16 & 0.8341 & $2.8\times10^{-5}$ & 0.9854 & $6.3\times10^{-21}$\\
+\bottomrule
+\end{tabular}
+\caption{Verblunsky coefficients and prediction errors of the angle measure at the rates $s=20$ and $s=5$, from $\zeta$ at real points right of $1$, to high precision. All sixteen coefficients lie strictly inside $(-1,1)$ at both rates.}\label{st:tab:verb}
+\end{table}
+The errors fall quickly because most of the mass of $\mu_s$ sits near $\phi=\pi/2$. What remains open on this ladder is Open Problem~\ref{st:op:inv}.
+
+\subsection{Working towards positivity: the region in level and height}
+Let $\theta=\Theta-\tfrac12$, so that every zero has $|\beta|\le\theta$, let $H_0$ be the verification height, and write $u=(k+1)/s$ for the centre of the Gamma average.
+\begin{theorem}[Positivity region]\label{st:thm:region}
+For every $u\ge0$ and every finite submultiset $J$ of positive ordinates below $H_0$ as in Proposition~\ref{st:prop:window},
+\[
+\Phi(u)\ \ge\ \Phi_J(u)-\varepsilon_{H_0}\big(1+e^{\theta u}\big),
+\]
+and for every $s>1$ and $k\ge0$,
+\[
+A(k,s)\ \ge\ A_J(k,s)-\varepsilon_{H_0}\Big(1+\exp\frac{u\,(\theta-H_0^2/2s)_+}{1-1/s}\Big),
+\]
+where $A_J$ is the Gamma average of $\Phi_J$.
+\end{theorem}
+\begin{proof}
+The first bound is Proposition~\ref{st:prop:window} with $|e^{\kappa u}|\le e^{\theta u}$. For the second, a zero off the line has $|s/(s-\kappa)|^{-2}=1-x$ with $x=(2\beta s-\beta^2-\gamma^2)/s^2\le(2\theta s-H_0^2)/s^2$ and $x\le1/s$. If $x\le0$ the factor is at most one. Otherwise $-\tfrac12(k+1)\log(1-x)\le\tfrac12(k+1)x/(1-1/s)$.
+\end{proof}
+Given a proved bound $\Phi_J\ge m>0$ on $[a,b]$ and $V\sim\mathrm{Gamma}(k+1,s)$ in the rate convention, $A_J\ge m\Pr(a\le V\le b)$, or one evaluates the finite sum $A_J$ directly, and this lower bound is to be compared with the entire error of the second bound. At perfect resolution one requires $\Phi_J(u)>\varepsilon_{H_0}(1+e^{\theta u})$, and a uniform $m$ suffices on the interval of its validity when $u<\theta^{-1}\log(m/\varepsilon_{H_0}-1)$. The contour $u(\theta-H_0^2/2s)=L$ below, with $L=\log(\min\Phi_J/\varepsilon_{H_0})$, is therefore approximate. With the first 300 zeros the grid minimum $0.0167$ of $\Phi_J$ found above gives $L=22.46$ on that range. The region has three edges, one for each kind of input.
+\begin{itemize}
+\item Height. For $s\le H_0^2/(2\theta)$ no zero can lie in $\Delta(s)$, and Theorem~\ref{st:thm:disc}(b) gives positivity at every centre $u$ allowed there. This is Corollary~\ref{st:cor:principle}, improved by the factor $1/(2\theta)$. Here $A_J\ge\min\Phi_J$ holds only approximately, since the Gamma kernel has full support.
+\item Level. At perfect resolution, $s=\infty$, positivity holds for $0<u\le L/\theta$, that is for $x\le\exp(L/(\Theta-\tfrac12))$.
+\item Both. In between, the boundary is the approximate contour $u(\theta-H_0^2/2s)=L$.
+\end{itemize}
+Table~\ref{st:tab:region} gives the pointwise window computed for several levels.
+\begin{table}[h]\centering\small
+\begin{tabular}{lrrr}
+\toprule
+level $\Theta$ & window $u^*$ & $\log_{10}x^*$ & discs cleared to $s/H_0^2$\\
+\midrule
+$1$ (unconditional) & 46.2 & 20.1 & 1\\
+$1$, zero density & 67.1 & 29.1 & 1\\
+$7/8$ & 61.3 & 26.6 & 1.33\\
+$3/4$ & 92.4 & 40.1 & 2\\
+$0.6$ & 229.8 & 99.8 & 5\\
+$0.55$ & 455.2 & 197.7 & 10\\
+$0.51$ & 2267.9 & 985.0 & 50\\
+\bottomrule
+\end{tabular}
+\caption{The window $0<u\le u^*$ on which $\Phi>0$ is proved, given a zero free half plane $\Re s>\Theta$ and verification to $H_0=3\times10^{12}$. All entries are by the unsmoothed method of this section, in floating point with a Lipschitz margin, except the first row, which is the ball arithmetic bound of Proposition~\ref{st:prop:window}. Every row with $\Theta\ge0.73$ is superseded by the smoothed window of Theorem~\ref{st:thm:cert}. The row $7/8$ uses the zero free half plane $\Re s>\tfrac78$ that this volume takes from \cite{OAI26a}.}\label{st:tab:region}
+\end{table}
+Smoothing changes the picture for the levels listed. The smoothed window of Theorem~\ref{st:thm:cert} hides the zeros above $H_0$ and the level enters only through a logarithm, so a half plane helps only where it beats the smoothed window on its own, that is where $23/(\Theta-\tfrac12)>100$, about $\Theta<0.73$. Smoothed windows for the levels below $0.73$ have not been computed.
+% TODO recompute on Hopper: smoothed windows with the cosine kernel for the levels 0.7, 0.6, 0.55 and 0.51, and the gap table.
+Each rung $\alpha$ of the Thorin ladder proves, by the unsmoothed method, the pointwise sharp one sided bound for $0<u$ up to about $22.5/(\alpha-\tfrac12)$, that is for $x$ up to about $\exp(22.5/(\alpha-\tfrac12))$. Positivity at a given $x=e^u$ needs only the rung
+\[
+\alpha(u)=\tfrac12+\frac{L}{u},
+\]
+so the ladder approaches positivity continuously, and the level needed tends to $\tfrac12$ only as $u\to\infty$.
+\subsection{Zero density extends the unconditional window}
+The bound $|e^{\kappa u}|\le e^{u/2}$ in Proposition~\ref{st:prop:window} treats every possible zero above $H_0$ as if it sat at the edge of the strip. Zero density estimates say that zeros far from the line are rare, and they can be used in place of a zero free region. Let $N(\sigma,T)$ count zeros with $\Re\rho>\sigma$ and $0<\gamma\le T$, and put
+\[
+M(\sigma)=\sum_{\gamma>H_0,\ \Re\rho>\sigma}\gamma^{-2}\ =\ 2\int_{H_0}^\infty N(\sigma,T)\,T^{-3}\,dT ,
+\]
+which is an equality by partial summation, because $N(\sigma,H_0)=0$ with the strict convention for $\sigma$ and $N(\sigma,T)T^{-2}\to0$.
+\begin{theorem}[Window with zero density]\label{st:thm:density}
+Unconditionally, for every $u\ge0$ and every finite submultiset $J$ of positive ordinates below $H_0$ as in Proposition~\ref{st:prop:window},
+\[
+\Phi(u)\ \ge\ \Phi_J(u)-\tfrac32\varepsilon_{H_0}-2\Big[M(\tfrac12)+u\int_{1/2}^1e^{(\sigma-\frac12)u}M(\sigma)\,d\sigma\Big].
+\]
+\end{theorem}
+\begin{proof}
+The terms $|b_\rho|\cdot1$ sum to at most $\varepsilon_{H_0}$, and the terms $|b_\rho|e^{\beta u}$ with $\beta<0$ to at most $\varepsilon_{H_0}/2$. For $\beta>0$ the two signs of $\gamma$ give $2\sum\gamma^{-2}e^{(\Re\rho-\frac12)u}$, and summation by parts in $\sigma=\Re\rho$ gives the bracket.
+\end{proof}
+We use $M(\sigma)\le\varepsilon_{H_0}/4$ for all $\sigma$ (at positive height one member of each off line quartet lies to the right of $\tfrac12$), and we explore the effect of an assumed uniform majorant, for $\sigma\ge0.6$, in the form of the abstract of the preprint of Chourasiya, $N(\sigma,T)\le0.78\,T^{4\sigma(1-\sigma)}(\log T)^{5-2\sigma}$ for $T\ge3\times10^{12}$, weakened to the power $(\log T)^4$. The proof in that preprint does not give this uniform constant over the whole range $0.834\le\sigma<1$. Its coefficient $K(\sigma,T_0)$ depends on $\sigma$, and its proof divides by $1-2^{-4\sigma(1-\sigma)}$, which tends to zero as $\sigma\uparrow1$. At $\sigma=1$ one has $M(1)=0$ exactly, and $6.3\times10^{-20}$ is the output of the extrapolated majorant, against the trivial $7.4\times10^{-13}$. With the majorant assumed, the density bound is the smaller of the two for $\sigma\ge0.834$. With the first 300 zeros and a local Lipschitz margin the right side stays positive up to
+\[
+u^*=67.1,\qquad x^*=e^{u^*}\approx1.4\times10^{29},
+\]
+against $u^*=46.24$ and $x^*\approx10^{20}$ without zero density in the unsmoothed method. Both numbers are superseded by the certified smoothed window of Theorem~\ref{st:thm:cert}. So under the assumed majorant the sharp bound $\mathcal G(x)<\log2\pi+F_0\sqrt x$ would hold for $1<x\le10^{29}$. The number $67.1$, the density column of Table~\ref{st:tab:gap} and its $0.834$ crossover are therefore floating point consequences of an assumption and not theorems.
+% TODO bib: Chourasiya preprint (zero density, Carlson type, explicit constants); not in ch/bib.tex.
+
+Near the line the explicit estimates used here do not beat the trivial count at this height: that range, $\sigma$ between $0.5$ and $0.83$, is where a Stepanov style input, or a rung of the Thorin ladder, would act.
+
+\subsection{The gap near the line}
+In the model of Theorem~\ref{st:thm:density} the window is limited by possible zeros with $\tfrac12<\Re\rho<0.834$ above $H_0$, where the estimates used here give nothing better than the trivial count.
+
+\emph{Density near the line does not act at this height.} The natural tool is Selberg's estimate $N(\sigma,T)\ll T^{1-\frac14(\sigma-\frac12)}\log T$. Its explicit form (Simoni\v{c}) has leading constant $10395.21/(2^{1-\frac14(\sigma-\frac12)}-1)$ for $\sigma\le0.831$ (from the corollary to his Theorem 1, with $\log(T/2)$ and its own height condition). At $\sigma=0.831$ this beats the trivial count only for $T$ beyond about $10^{59}$ to $10^{66}$, depending on how the comparison is made (an order of magnitude assessment), and at smaller $\sigma$ only later. At $H_0=3\times10^{12}$ it gives nothing. The asymptotic estimates in the literature without explicit constants cannot enter a numerical window, whereas published Ingham type estimates with explicit constants have not been tried here.
+% TODO bib: Selberg (1946) and Simonic (J. Math. Anal. Appl. 2020) for the explicit Selberg type estimate. TODO verify: Ingham type explicit estimates with exponent 8(1-sigma)/3 (Ramare 2016, Kadiri, Lumley and Ng 2018) were not tried and could undercut the Carlson type estimate on (2/3, 0.834).
+
+\emph{Density does not close the gap in this model.} Suppose a bound of density type, $M(\sigma)\le\tfrac14\varepsilon_{H_0}H_0^{-A(\sigma-\frac12)}$, which is what $N(\sigma,T)\ll T^{1-A(\sigma-\frac12)}\log T$ gives; the density hypothesis is $A=2$. In Theorem~\ref{st:thm:density} the tail is then governed by $\sup_{\sigma\le\Theta}(\sigma-\tfrac12)(u-A\log H_0)$, and the window is
+\begin{equation}\label{st:eq:window}
+u^*\approx A\log H_0+\frac{L}{\Theta-\tfrac12},\qquad L\approx22.5,\quad\log H_0=28.7 .
+\end{equation}
+Density enters additively and only through $\log H_0$, and the level through $1/(\Theta-\tfrac12)$. With $\Theta=1$ even the density hypothesis gives $u^*\approx102$, that is $x^*\approx10^{44}$. So in the unsmoothed majorant every such density model gives a window of size $O(\log H_0)$, and pointwise positivity at $x$ beyond a fixed power of $H_0$ requires a zero free strip.
+
+\emph{Which rung first helps, in this model.} Table~\ref{st:tab:gap} recomputes the window, by the unsmoothed method, when the integral in Theorem~\ref{st:thm:density} stops at a rung $\alpha$, the density column assuming the uniform majorant above.
+\begin{table}[h]\centering\small
+\begin{tabular}{lrr}
+\toprule
+rung $\alpha$ & window $u^*$, level only & with assumed density majorant\\
+\midrule
+$1$ & 46.2 & 67.1\\
+$7/8$ & 61.3 & 67.5\\
+$0.85$ & 65.79 & 67.5\\
+$0.834$ & 67.5 & 71.1\\
+$0.80$ & 76.8 & 78.6\\
+$0.75$ & 92.4 & 92.9\\
+\bottomrule
+\end{tabular}
+\caption{The window with a zero free half plane $\Re s>\alpha$, without and with the assumed density majorant, both by the unsmoothed method in floating point. The rung $0.834$ is where two model tail bounds cross in $\sigma$, and the density column changes from $67.1$ to $67.5$ at $7/8$. Once density is used, rungs at or above $0.85$ add less than half a unit.}\label{st:tab:gap}
+\end{table}
+In this model the half plane at $7/8$ enlarges the pointwise window only from $67.1$ to $67.5$, because the assumed density estimate already disposes of zeros that far from the line. The crossover at $0.834$ is where two model tail bounds cross in $\sigma$, and it cannot be an exact first rung for increasing a pointwise window. Below it the gain is rapid, and each further step obeys \eqref{st:eq:window}. So the descent of this book matters for positivity once it passes below about $0.83$, and what it must supply there is a level. With the smoothed window of Theorem~\ref{st:thm:cert} the crossover moves to about $0.73$.
+
+\emph{What a Stepanov style bound would have to say here.} By \eqref{st:eq:window}, positivity up to $x=e^u$ follows from a zero free strip of width $L/(u-A\log H_0)$ above the line. Conversely the slack principle says that positivity up to subexponential error for all $u$ gives RH. Between these, a bound $\Phi(u)\ge-Ke^{\theta u}$ for one $\theta<0.23$, for all $u$, is the weakest statement of this kind that enlarges the certified pointwise window of Theorem~\ref{st:thm:cert} ($\theta<0.334$ for the unsmoothed window). In terms of $\mathcal G$ it is $\mathcal G(x)\le Kx^{0.73}$ ($x^{0.834}$ unsmoothed). In the model, the exponent $0.73$ is where a level begins to enlarge the smoothed window, as a crossover and not a threshold; any exponent below $\tfrac78$ would already be a new zero free half plane.
+
+\subsection{How sharp the argument is}
+The unsmoothed window argument can be improved in exactly one place, and it is worth saying where. The tail bound allows every zero above $H_0$ to lie off the line at the largest permitted distance $\theta$, with phases aligned. That is $\varepsilon_{H_0}\approx\log H_0/(\pi H_0)$ of mass. A single simple quadruple just above $H_0$ has total counting weight $4/H_0^2$, and the leading adverse coefficient of its two growing members is $2|b|\approx2/H_0^2$.
+\begin{proposition}[Two thresholds]\label{st:prop:sharp}
+Let every zero have $\beta\le\theta$ with $\theta>0$, and let $m>0$ be a proved lower bound for $\Phi_{\mathrm{on}}$ on an interval $I$ not containing $0$, since a range containing $0$ has minimum zero. For $u\in I$:
+\begin{enumerate}
+\item[(a)] Whatever the zeros above $H_0$ do, $\Phi(u)>0$ for $u<\theta^{-1}\log(m/\varepsilon_{H_0}-1)$, about $22.5/\theta$, where the logarithm is meaningful.
+\item[(b)] If at most $k\ge1$ quadruples, counted with multiplicity, lie off the line, $\Phi(u)>0$ for $u<\theta^{-1}\log\big(mH_0^2/(2k)\big)$, about $(52.7-\log k)/\theta$. With no quadruple off the line the formula under RH applies directly.
+\item[(c)] Take exactly one simple quadruple off the line, at an actual ordinate $\gamma>H_0$ and offset $0<\beta=\theta<\tfrac12$, all other zeros being on the line. Then $\Phi$ is negative somewhere in every interval of length $2\pi/\gamma$ once $e^{\theta u}>2F_0\gamma^2$, that is $u>\theta^{-1}\log(2F_0\gamma^2)$, about $55/\theta$ for $\gamma$ near $H_0$.
+\end{enumerate}
+\end{proposition}
+\begin{proof}
+(a) is Theorem~\ref{st:thm:region}. (b) For a quadruple at $\beta>0$ and $\gamma>H_0$ put $y=e^{\beta u}$ and $b=1/(\tfrac14-(\beta+i\gamma)^2)$. Its contribution is at least $4\Re b-2|b|(y+y^{-1})\ge-2|b|y\ge-2H_0^{-2}e^{\theta u}$, since $2\cos(\arg b)>1\ge y^{-1}$, and summing over $k$ quadruples gives $\Phi(u)\ge m-2kH_0^{-2}e^{\theta u}>0$. The absolute value estimate would instead require $e^{\theta u}<mH_0^2/(2k)-3$. (c) In each complete period of $e^{i\gamma u}$ choose the phase with $\Re(be^{i\gamma u})=|b|$. Since the on line contribution is at most $2F_0$, one obtains $\Phi(u)\le2F_0+6|b|-2|b|y$ with $y=e^{\theta u}$. Now $|b|^{-1}\le\gamma^2+\tfrac12$ and $F_0(\gamma^2-\tfrac12)>3$ for $\gamma\ge14$, so $y>2F_0\gamma^2$ suffices.
+\end{proof}
+In (c) the interval must lie beyond this threshold, further off line quartets can interfere, and a quartet at the verification height contradicts the verification of Platt and Trudgian. Realisability as the zeros of an Euler product with positive prime weights has not been proved, so the argument gives no impossibility result for all methods that use the primes.
+For $\theta=\tfrac12$ the thresholds of (a) and (b) are $u\approx45$ and $u\approx105$, that is $x\approx10^{20}$ and $x\approx10^{46}$, and that of (c) is about $110$ at the strip edge. So the unsmoothed argument is loose by a factor of about $2.3$ in $u$ against the least that zeros could do, and the whole of that factor is the count of possible zeros off the line just above $H_0$. Without smoothing, closing it needs a statement with explicit constants that few zeros in a short range above $H_0$ are off the line, that is density at $\sigma$ close to $\tfrac12$, where the explicit estimates used here do not act at this height. There is one classical estimate of this kind that acts at any height, and we tested it. Littlewood's lemma on the rectangle $[\tfrac12,2]\times[H_0,T]$, with Jensen's inequality and the mean square of $\zeta$ on the critical line, gives
+\[
+2\pi\big(\sigma-\tfrac12\big)N(\sigma;H_0,T)\ \le\ \frac{T-H_0}2\,\log\overline{\mathcal M}(T)+O(\log T),
+\]
+\[
+\overline{\mathcal M}(T)=\frac1{T-H_0}\int_{H_0}^T|\zeta(\tfrac12+it)|^2dt ,
+\]
+where $N(\sigma;H_0,T)$ counts zeros with real part above $\sigma$ and height in $(H_0,T]$, taking limiting heights $T$ away from ordinates of zeros. This replaces $\log T$ in the trivial count by $\log\log T/(\sigma-\tfrac12)$, a factor $0.12/(\sigma-\tfrac12)$ at this height. It was expected to move the window from $u^*=67.1$ to about $67.5$ in Theorem~\ref{st:thm:density}, but the recomputation did not reproduce this gain, and the $O$ terms are not explicit, so this is an indication and not a theorem. An improvement would need a density bound with a power saving in $T$ near $\sigma=\tfrac12$ and explicit constants effective from $T=10^{12}$. Smoothing closes the factor with no statement about zeros near $H_0$: Theorem~\ref{st:thm:cert} reaches $u=104.86604$, close to the threshold $105.3$ of (b) for one quadruple.
+
+\subsection{The wall, stated exactly}
+We aimed at positivity and can say exactly where the attempt stops. Every lower bound for $\Phi$ in this section has the form
+\[
+\Phi(u)\ \ge\ \underbrace{\Phi_{\mathrm{on}}(u)}_{\ge0,\ \text{verified zeros}}\ -\ \underbrace{\sum_{\text{possible zeros off the line}}|b_\rho|\,e^{\beta u}}_{\text{bounded by height, density and level}} .
+\]
+The first term is bounded below by a quantity of size $0.017$ on the range computed, and under RH its lower limit is zero. Smoothing with Jensen's inequality, which Theorem~\ref{st:thm:cert} uses, is not covered by this form. The second term can be reduced only through the three inputs below.
+\begin{itemize}
+\item Height $H_0$ enters as $\log H_0$ in the unsmoothed majorant, and raising it by a factor of ten adds about $2.3/(\Theta-\tfrac12)$ to $u^*$. In the smoothed window it enters as $4\log H_0$, and the same factor adds about $9.2$.
+\item Density enters as $A\log H_0$, and the explicit estimates used here give nothing for $\sigma<0.834$ at this height.
+\item Level enters as $1/(\Theta-\tfrac12)$ in the unsmoothed majorant and only logarithmically in the smoothed window, and no zero free strip is known beyond the half plane $\Re s>\tfrac78$.
+\end{itemize}
+So positivity of $\Phi(u)$ for $u$ beyond about $105$, that is $x$ beyond about $10^{45}$, would be equivalent in practice to a larger verification height or a new zero free strip $\Re s>\alpha$ with $\alpha<0.73$. In the other direction, one sided bounds on a window are known to force zero free regions: results of Pintz type show that a zero $\tfrac12+\beta_0+i\gamma_0$ produces a one sided excess of size about $x^{1/2+\beta_0}/\gamma_0^{c}$ at some $x$ in every long enough range, so positivity up to $x=e^U$ excludes zeros with $\beta_0$ larger than a multiple of $\log\gamma_0/U$. Proposition~\ref{st:prop:isolated} below makes this explicit for an isolated zero, and the general case is Open Problem~\ref{st:op:pintz}. So to aim at positivity on a window is to aim at a zero free region of logarithmic shape, and to aim at positivity for all $u$ is to aim at RH.
+\begin{table}[h]\centering\small
+\begin{tabular}{p{0.50\textwidth}p{0.40\textwidth}}
+\toprule
+Positivity statement & Status\\
+\midrule
+Abel means, every rate (Thm.\ \ref{st:thm:abel}) & proved, unconditional\\
+$A(k,s)>0$ for all integers $k\ge0$ and $\tfrac12<s\le H_0^2$ (Cor.\ \ref{st:cor:principle}) & proved from verification; sharp as a disc criterion\\
+$\Psi_s(m)$ for $m\le6\times10^{12}$ (Prop.\ \ref{st:prop:lirange}) & proved from verification, given the positive margin proviso (sum over $J$ above $1.101\times10^{-11}$)\\
+$\Phi(u)>0$ for $x\le3.4893\times10^{45}$ (Thm.\ \ref{st:thm:cert}) & proved, unconditional; ball arithmetic certificate\\
+$\Phi(u)>0$ for $x\le10^{29}$ (Thm.\ \ref{st:thm:density}) & model calculation assuming a uniform density majorant, not a theorem\\
+$\Phi(u)>0$ for $x\le\exp(L/(\alpha-\frac12))$ (Thm.\ \ref{st:thm:region}) & conditional on a rung $\alpha$; floating point estimate of the unsmoothed method\\
+$\Phi\ge-Ke^{0.23u}$ for all $u$ & open; in the model, the first target that enlarges the certified window\\
+$\Phi\ge0$ for all $u$; all $D_n$, $A_p$, $\Psi_s$, $\alpha_n(s)$ criteria & equivalent to RH; open\\
+\bottomrule
+\end{tabular}
+\caption{Status of the positivity statements of this chapter.}\label{st:tab:status}
+\end{table}
+
+\subsection{A converse: what a window excludes}
+We now make the converse direction explicit in its simplest case. Let $k(u)=\sin^2(\pi u/U)$ on $[0,U]$ and $\hat k(z)=\int_0^Uk(u)e^{zu}du$, so that
+\[
+\hat k(z)=\frac{2\pi^2\,(e^{zU}-1)}{U^2\,z\,(z^2+4\pi^2/U^2)},\qquad\hat k(0)=\frac U2 .
+\]
+Here $z=0$ and $z=\pm2\pi i/U$ take their removable values.
+\begin{lemma}[Kernel inequality]\label{st:lem:kernel}
+Suppose $\Phi(u)\ge0$ for $0\le u\le U$. Then for every real $g$ and every phase $\varphi$,
+\begin{align*}
+0\le\sum_\rho b_\rho\Big[&\hat k(0)-\hat k(\kappa)+\tfrac12e^{i\varphi}\big(\hat k(ig)-\hat k(\kappa+ig)\big)\\
+&+\tfrac12e^{-i\varphi}\big(\hat k(-ig)-\hat k(\kappa-ig)\big)\Big].
+\end{align*}
+\end{lemma}
+\begin{proof}
+Integrate $\Phi(u)=\sum_\rho b_\rho(1-e^{\kappa u})$ against the nonnegative kernel $k(u)(1+\cos(gu+\varphi))$ on $[0,U]$. The series converges absolutely and uniformly there, which permits integration against the kernel.
+\end{proof}
+Taking $g=\gamma_0$ and $\varphi=\arg b_{\rho_0}$ for a zero $\rho_0$ off the line isolates the term $-|b_{\rho_0}|\hat k(\beta_0)$, which is of size $e^{\beta_0U}$. Every other term is bounded unless it comes from another zero off the line, and the other growing terms of the same quartet must still be estimated.
+\begin{proposition}[An isolated zero]\label{st:prop:isolated}
+Suppose $\Phi\ge0$ on $[0,U]$ with $U\ge8$, and suppose the only zeros off the line are $\rho_0=\tfrac12+\beta_0+i\gamma_0$ with $\gamma_0\ge14$ and its three companions, with $\beta_0U\ge1$. Then
+\[
+e^{\beta_0U}\ \le\ 1+\frac{U\,(U^2+16\pi^2)\,\big(2F_0(\gamma_0+\tfrac12)^2+6\big)}{157.7}.
+\]
+\end{proposition}
+\begin{proof}
+In Lemma~\ref{st:lem:kernel} the zeros on the line contribute at most $2F_0U$, since $|\hat k|\le U/2$ on the imaginary axis and $\sum_{\mathrm{on}}b_\rho\le F_0$. For the four zeros off the line, the terms with $\hat k$ at a point of real part at most zero contribute at most $6U|b_0|$ in all. The terms $\hat k(\beta_0+iy)$ with $|y|\ge\gamma_0$ are at most $\tau\hat k(\beta_0)$ each. With $a=2\pi/U$, $|y|\ge\gamma_0$ and $\beta=\beta_0$,
+\[
+\tau=\frac{|\hat k(\beta+iy)|}{\hat k(\beta)}\le\frac{\coth(\beta U/2)\,\beta(\beta^2+a^2)}{|y|(y^2-\beta^2-a^2)}\le\frac{1.2}{\gamma_0(\gamma_0^2-1)},
+\]
+since $\coth(\tfrac12)<2.17$, $\beta\le\tfrac12$, $a\le\pi/4$ and $\beta^2+a^2<1$. For the two growing zeros the nonresonant coefficients have total modulus $2(1+\tfrac12)=3$, so there are three units of these terms. Hence $(1-3\tau)|b_0|\hat k(\beta_0)\le2F_0U+6U|b_0|$. Finally $1/|b_0|\le(\gamma_0+\tfrac12)^2$, $\beta_0(\beta_0^2+4\pi^2/U^2)\le(U^2+16\pi^2)/(8U^2)$, and $16\pi^2(1-3\tau)>157.7$ for $\gamma_0\ge14$, since $16\pi^2(1-3\cdot1.2/(14\cdot195))>157.7$. A common multiplicity of the quartet can be absorbed into $b_0$ and only improves the bound.
+\end{proof}
+So a window of length $U$ excludes an isolated zero with $\beta_0>(2\log\gamma_0+3\log U-7.4)/U$, approximately (the exact inequality is the one to use for exclusions, and the logarithmic formula is approximate). The certified window $U=104.86604$ is too short to exclude anything above $H_0$, and so is every window the smoothed method can reach, its ceiling being $106.96$: the right side is below $\tfrac12$ at $\gamma_0=H_0$ only for $U$ above about $130$, that is $x$ above $10^{56}$. Under the same unique quartet hypothesis, choosing the aligned phase in $[U-2\pi/\gamma_0,U]$ as in Proposition~\ref{st:prop:sharp}(c), positivity throughout implies $e^{\beta_0(U-2\pi/\gamma_0)}\le F_0/|b_0|+3\le F_0(\gamma_0^2+\tfrac12)+3$, which removes the $3\log U$ loss for an isolated quartet.
+
+The hypothesis of a single quadruple is what a full treatment must remove. Several zeros off the line at nearly the same height could cancel in Lemma~\ref{st:lem:kernel}, and excluding that is the purpose of the one sided power sum theorems of Tur\'an, Knapowski and Pintz. That step is Open Problem~\ref{st:op:pintz}.
+
+\subsection{Where the difficulty sits}
+Averages at every exponential rate are positive unconditionally. Local averages at every $u$ are positive down to the width $\sqrt u/H_0$, and this is sharp as a disc criterion at fixed rate. Pointwise values are positive up to $u=104.86604$ unconditionally (Theorem~\ref{st:thm:cert}), through an average of standard deviation $\pi/H_0$ converted back by the convexity of the prime sum, which is consistent with that sharpness because it uses the positivity of the prime weights and a bounded $u$. What remains is positivity at large $u$ at resolution finer than $\sqrt u/H_0$, equivalently the discs $\Delta(s)$ with $s>H_0^2$ (with $s>\tfrac43H_0^2$ using the book's $\tfrac78$ theorem), which is the high order end of Theorem~\ref{st:thm:cm} and the high multiplicity end of Theorem~\ref{st:thm:hier}. This is the same place where Stepanov needs multiplicity of order $\sqrt q$, and where the chain claimed in the dated Alp\"oge note has length about $\sqrt X$.
+
+\section{Computation}\label{st:sec:compute}
+The primes up to $x=10^7$ give $\Phi$ on $0\le u\le16.118$, which is compared with the first 300 and with 8000 zeros. The findings are these.
+\begin{itemize}
+\item $\Phi\ge0$ on the whole range, with $0\le\Phi\le0.0689<2F_0=0.0924$ (the maximum is at $u=12.675$).
+\item The zero sum with 300 zeros matches within $0.0042$ on $[0,16.1]$ ($0.0004$ with 8000 zeros); the omitted mass of 300 zeros is $0.0032$.
+\item The doubling gap $4\Phi(u)-\Phi(2u)$ is nonnegative for $u\le8.06\approx(\log10^7)/2$ on the computed grid, and $\sqrt\Phi$ passed $2\times10^5$ random subadditivity tests.
+\item The hierarchy: $D_n\ge0$ and $E_n\ge0$ on the available range for $n=1,2,3,4$ (Table~\ref{st:tab:hier}), and the means match $\binom{2n}{n}F_0$. The de la Vall\'ee Poussin combination $3F_0+4R(u)+R(2u)$ has minimum $0.055$.
+\item The Laplace mean of $e^{-t\Phi}$ over $1\le u\le16.1$ matches $L(t)$ to three or four digits for $t\le50$ (Table~\ref{st:tab:mean}). At $t=200$ it is five per cent below $L(t)$, and this raw discrepancy bounds neither the finite window error nor the mass of relations.
+\item One tower: the Toeplitz matrix $[R((i-j)u)]$ from the primes is positive definite for each tower tried ($x=2,3,5$ and $u=0.25$, of sizes $24,15,11,65$), with least eigenvalues between $0.0040$ and $0.0083$ and the maximum over the sampled tower differences satisfies $|R(ku)|\le0.021<F_0$.
+\end{itemize}
+\begin{table}[h]\centering\small
+\begin{tabular}{rrrrrr}
+\toprule
+$n$ & range of $u$ & $\min D_n$ & mean $D_n$ & $\min E_n$ & $\binom{2n}{n}F_0$\\
+\midrule
+1 & 16.1 & 0.000 & 0.0924 & 0.047 & 0.0924\\
+2 & 8.06 & 0.000 & 0.2775 & 0.110 & 0.2771\\
+3 & 5.37 & 0.000 & 0.9270 & 0.308 & 0.9238\\
+4 & 4.03 & 0.000 & 3.2557 & 0.940 & 3.2334\\
+\bottomrule
+\end{tabular}
+\caption{The multiplicity hierarchy from the primes up to $10^7$. The means of $D_n$ and the means and minima of $E_n$ are taken over $1\le u\le16.1/n$. The minimum of $D_n$ is attained at $u=0$.}\label{st:tab:hier}
+\end{table}
+\begin{table}[h]\centering\small
+\begin{tabular}{rrrr}
+\toprule
+$t$ & mean of $e^{-t\Phi}$ & $L(t)$ & $e^{-tF_0}$\\
+\midrule
+5 & 0.79450 & 0.79451 & 0.79377\\
+10 & 0.63239 & 0.63242 & 0.63008\\
+20 & 0.40288 & 0.40292 & 0.39700\\
+50 & 0.10876 & 0.10885 & 0.09930\\
+100 & 0.01400 & 0.01408 & 0.00986\\
+200 & 0.000339 & 0.000355 & 0.000097\\
+\bottomrule
+\end{tabular}
+\caption{Laplace mean from the primes against the independent ordinate product $L(t)$ (300 zeros with tail correction) and the Jensen bound, over $1\le u\le16.1$.}\label{st:tab:mean}
+\end{table}
+% FIGURE: top, D_n(u)/binom(2n,n) for n=2,3 from the primes with the dotted line at F_0; bottom, the Laplace mean against L(t) and the Jensen bound (fig_powers.pdf in the draft directory).
+% FIGURE: top, Phi(u) from the primes (solid) and from the first 300 zeros (dashed) with the dotted line at 2F_0; bottom, the doubling gap 4Phi(u)-Phi(2u) (fig_phi.pdf in the draft directory).
+These grid, random and finite matrix tests confirm the formulas and are not evidence beyond what is already known.
+
+\section{Is there a path to RH?}\label{st:sec:path}
+This chapter does not shorten the path, and its position is that of Section~\ref{qt:sec:path}. The programme aims at exact positivity of a $2\sin^2$ transform at each level, and a power bound with slack on the Riesz mean is the same statement, by Landau's theorem and Proposition~\ref{qt:prop:riesz}. What Stepanov contributes to our side is the doubling criterion, the multiplicity hierarchy with its family and a function field test bed. What he does not contribute is a mechanism, because Frobenius and free multiplicity are missing over the integers. The book has the zero free half plane $\Re s>\alpha$ for every $\alpha>\tfrac78$ \cite{OAI26a}, and the Thorin rung at level $\alpha$ is tied to that half plane. The deconvolution of the book would descend one rung at a time, but only from a level where positivity is already known, and no rung below $\tfrac78$ is proved. Nothing in this chapter improves the half plane, gives a proportion of zeros on the line, or enlarges a zero free region.
+% TODO: if 47/48 is to be mentioned, cite Kin26 and say it is an unrefereed preprint; omitted here.
+The chapter gives a map, and on the map every route still needs one idea that is missing: a mechanism that forces positivity without locating zeros.
+\begin{enumerate}
+\item The disc route: positivity of the Gamma averages $A(k,s)$ at rates $s$ beyond $H_0^2$. A sufficient method for clearing each single disc is verification, the global equivalence is RH itself, and whether a direct arithmetic proof exists is open.
+\item The level route: a bound $\mathcal G(x)\le Kx^{\alpha}$ with $\alpha<\tfrac78$, which would be a new zero free half plane, then descent of the Thorin ladder, each step of which needs its own proof.
+\item The Li ladder at one rate: all Verblunsky coefficients inside $(-1,1)$, Theorem~\ref{st:thm:verb}.
+\end{enumerate}
+Raising the verification height and improving zero density estimates both enter only through $\log H_0$ in the unsmoothed majorant, by \eqref{st:eq:window}, and through $4\log H_0$ in the smoothed window of Theorem~\ref{st:thm:cert}. Reformulation alone does nothing, since every criterion here is equivalent to the others.
+
+\subsection{Route 1: discs}
+A zero $\tfrac12+\beta+i\gamma$ lies in $\Delta(s)$ exactly when $\beta^2+\gamma^2<2\beta s$. So
+\[
+\Delta(s)\ \text{is zero free}\iff\text{every zero has }\ \beta\le\frac{\beta^2+\gamma^2}{2s},
+\]
+a region bounded by the circle $(s-\beta)^2+\gamma^2=s^2$, tangent to the critical line. Since $\beta<\tfrac12$, only zeros with $|\gamma|<\sqrt s$ are constrained.
+\begin{proposition}[What a disc asks]\label{st:prop:discask}
+\begin{enumerate}
+\item[(a)] If all zeros with $|\gamma|\le H$ are on the line, then $\Delta(s)$ is zero free for $s\le H^2$.
+\item[(b)] With $H_0=3\times10^{12}$ and the classical zero free region $\zeta(\sigma+it)\ne0$ for $\sigma\ge1-1/(R_0\log|t|)$, $|t|\ge2$, with $R_0=5.558691$ \cite{MTY}, $\Delta(s)$ is zero free for
+\[
+s\ \le\ \frac{H_0^2}{1-2/(R_0\log H_0)}\approx1.01268\,H_0^2 .
+\]
+\item[(c)] Let $0<\theta<H_0$. If all zeros with $|\gamma|\le H_0$ are on the line and every zero has $\beta\le\theta$, then $\Delta(s)$ is zero free for $s\le(H_0^2+\theta^2)/(2\theta)$, in particular for $s\le H_0^2/(2\theta)$.
+\end{enumerate}
+\end{proposition}
+\begin{proof}
+A zero in $\Delta(s)$ has $\gamma^2<2\beta s$. In (a) this needs $\gamma>H$ and $\beta<\tfrac12$, so $s>H^2$. In (b), $\beta\le\tfrac12-1/(R_0\log\gamma)$ and $\gamma>H_0$ give $s>\gamma^2/(1-2/(R_0\log\gamma))$, which increases with $\gamma$ for $\gamma\ge H_0$ (by differentiation of $t^2/(1-2/(R_0\log t))$ in $t=|\gamma|$). Part (c) is the same, minimising $(H_0^2+\beta^2)/(2\beta)$ over $0<\beta\le\theta$. The case $\theta=0$ is RH.
+\end{proof}
+Part (b) is a small unconditional step beyond Corollary~\ref{st:cor:principle}: the resolution principle holds to the guaranteed endpoint of (b), in particular to $s\le1.0126\,H_0^2$ rounded down. The decimal $1.0127H_0^2$ is supported only by the book's stronger $\tfrac78$ theorem, which gives (c) with the rate $\tfrac43H_0^2$. Part (a) is the important one. A zero free disc at rate $s$ is always within reach of a finite computation, namely verification to height $\sqrt s$, so no single disc is a new kind of statement. The disc route is the height route in another variable. What would be new is positivity of $A(k,s)$ at every order $k$ along a cofinal set of rates $s$, and by Theorem~\ref{st:thm:disc}(a) that is RH, the rates needing no common bound on their slack constants. Route 1 is therefore not easier than RH. The book's basic guaranteed rate is $\tfrac43H_0^2$, by Proposition~\ref{st:prop:discask}(c) with $\theta=\tfrac38$.
+
+\subsection{Route 2: levels}
+The level route asks for a zero free half plane. Each criterion of this chapter has a form at level $\theta$, which says what would have to be proved.
+\begin{theorem}[Level forms]\label{st:thm:levels}
+For $0<\theta<\tfrac12$ the following are equivalent.
+\begin{enumerate}
+\item[(i)] $\zeta$ has no zeros with $\Re\rho>\tfrac12+\theta$.
+\item[(ii)] $\mathcal G(x)\le Kx^{1/2+\theta}$ for all $x\ge1$.
+\item[(iii)] $\Phi(u)\ge-Ke^{\theta u}$ for all $u\ge0$.
+\item[(iv)] For one $n\ge1$, or for all: $D_n(u)\ge-K_ne^{n\theta u}$ for all $u\ge0$.
+\item[(v)] For every $s>\tfrac12$: $A(k,s)\ge-K_s\,(s/(s-\theta))^{k}$ for all $k\ge0$.
+\item[(vi)] The level transform at $\tfrac12+\theta$ admits a genuine nonnegative Thorin representation, equivalently it is a GGC transform, with possible boundary atoms from zeros on the level.
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+(i), (ii) and (iii) are Landau's theorem in the form of Proposition~\ref{qt:prop:riesz}. For (iv), the unconditional formula of Theorem~\ref{st:thm:hier} gives $|D_n(u)|\le Ce^{n\theta u}$ under (i). Conversely the Laplace transform of $D_n(u)+K_ne^{n\theta u}$ is analytic at real $s>n\theta$, so by Landau it is analytic in $\Re s>n\theta$; a zero with $\beta>\theta$ gives a pole at $n\kappa$ that must be cancelled by a zero with larger $\beta$, and the chain cannot continue, because each step multiplies $\beta$ by at least $n/(n-1)$ and so leaves the strip after finitely many steps. If $n=1$ there is no lower dilation to cancel the pole, which is then immediate. No attained supremum of the real parts is needed here, in contrast with Theorem~\ref{st:thm:tower}. For (v), under (i) one has $|s/(s-\kappa)|\le s/(s-\theta)$, the bound at fixed $s$ uses $\sum|b_\rho|<\infty$, and the extra factor from $k+1$ is absorbed in $K_s$. Conversely, adding a geometric series analytic for $|t-s|<s-\theta$ and applying Pringsheim's theorem, $\hat\Phi$ is regular on this disc, and these discs exhaust $\Re\kappa>\theta$: for such a point it suffices to take $2s(\Re\kappa-\theta)>|\kappa|^2-\theta^2$. Zeros on the level are permitted in (i) to (v). The equivalence of (i) and (vi) is the level $\alpha$ dictionary, Theorem~\ref{iw:thm:dictionary} with Corollary~\ref{iw:cor:qrh}, for the genuine representation of (vi): read only as a sign condition on the boundary density $\pi^{-1}\Re(\xi'/\xi)(\alpha+iy)$, (vi) would not follow from the cited dictionary, since interior poles obstruct the Stieltjes representation and zeros on the level give boundary atoms; the forms with $\psi$ and with the M\"obius function are Proposition~\ref{iw:prop:mobius}.
+\end{proof}
+\emph{In the variables of this book.} Write $\mathcal D_\alpha$ for the even boundary measure on $\mathbb R$ with density $\pi^{-1}\Re(\xi'/\xi)(\alpha+iy)$, plus atoms for zeros on the level, whose restriction to $y>0$ is the push forward of the Thorin measure $U_\alpha$ under $t\mapsto\sqrt t$. By the Cauchy semigroup, Theorem~\ref{iw:thm:semigroup}, $\mathcal D_{\alpha+h}=P_h*\mathcal D_\alpha$ under $\mathrm{QRH}(\alpha)$, that is when there are no zeros to the right of the level $\alpha$, boundary atoms being allowed. The book has the zero free half plane $\Re s>\tfrac78$ \cite{OAI26a}; to invoke a version that needs a strictly clear starting line, start slightly to the right of $\tfrac78$. From there a possible research target would be reached by a Cauchy deconvolution of width
+\[
+h=\tfrac78-0.834=0.041 ,
+\]
+and the existence of a nonnegative deconvolution giving the known upper level is the substantive requirement for a descent, each further step needing its own proof. The result would be the half plane $\Re s>0.834$ ($0.73$ with the smoothed window of Theorem~\ref{st:thm:cert}); no rung below $\tfrac78$ is proved.
+
+Two facts from elsewhere in the book bear on that first step. Proposition~\ref{qrh:prop:balance} shows that the step of the published outline analysed there cannot give a half plane to the left of $\tfrac67=0.857$. The model crossover $0.834$ lies below that floor. The limitation to $\tfrac67$ pertains to the specified step and estimates of the analysed outline, so the method behind the level $\tfrac78$, pushed to its limit as analysed there, does not reach that crossover. And Proposition~\ref{bo:prop:stepbelow} gives a finite range below a zero free level from the verified zeros; the present chapter is the same mechanism on the prime side, with the range made explicit.
+
+\begin{theorem}[Certified windows at each level]\label{st:thm:certlevel}
+Suppose $\zeta$ has no zeros with $\Re s>\alpha$. Then $\Phi(u)>0$ for $0<u\le u^*(\alpha)$, with
+\begin{center}\footnotesize\setlength{\tabcolsep}{3.5pt}
+\begin{tabular}{lrrrrrr}
+\toprule
+$\alpha$ & $1$ & $\frac78$ & $0.85$ & $0.834$ & $\frac45$ & $\frac34$\\
+\midrule
+$u^*(\alpha)$ & 46.2 & 61.3 & 65.7 & 67.5 & 76.8 & 92.4\\
+$\log_{10}x^*$ & 20.1 & 26.6 & 28.5 & 29.3 & 33.4 & 40.1\\
+\bottomrule
+\end{tabular}
+\end{center}
+In particular, by the theorem of \cite{OAI26a}, $\mathcal G(x)<\log2\pi-\mathrm{tr}(x)+F_0\sqrt x$ for $1<x\le4\times10^{26}$. The windows are those of the unsmoothed method, rounded inward, and the entries for $\log_{10}x^*$ are descriptive approximations and not guaranteed lower endpoints.
+\end{theorem}
+\begin{proof}
+The certificate of Theorem~\ref{st:thm:cert} with the tail $\varepsilon_{H_0}(1+e^{(\alpha-\frac12)u})$ of Theorem~\ref{st:thm:region}, run in ball arithmetic for each $\alpha$. The march uses a rounded midpoint, so a proof quality statement needs exact endpoints or a Lipschitz radius enlarged to cover the floating point midpoint and both endpoints. The endpoint for $\alpha=0.85$ is $65.79466$ to nearest, so $65.8$ is not certified and $65.7$ is the entry used.
+\end{proof}
+These are the windows of Tables~\ref{st:tab:region} and~\ref{st:tab:gap}, rounded inward. Note the comparison with Theorem~\ref{st:thm:density}: the level $\tfrac78$ alone gives $10^{26.6}$, and the assumed density majorant alone gives $10^{29}$, so in this model the density input is worth more than the level, and the two add only $0.4$ to $u^*$ (Table~\ref{st:tab:gap}). In the model the level begins to dominate near $0.834$. Theorem~\ref{st:thm:cert} supersedes every column with $\alpha\ge0.73$, and the corollary for $\mathcal G$ above is now weaker than the unconditional range $x\le3.4893\times10^{45}$.
+% TODO recompute on Hopper: smoothed windows for the levels below 0.73.
+
+With $\theta=0.334$ Theorem~\ref{st:thm:levels} is the list of forms of the exponent $0.834$. Three remarks on what is known.
+
+First, the classical zero free region of part (b) above replaces the edge $\beta<\tfrac12$ by $\beta\le\tfrac12-1/(R_0\log\gamma)$. In Proposition~\ref{st:prop:window} this multiplies the tail by about $e^{-u/(R_0\log H_0)}\approx e^{-u/160}$ near $H_0$, which lengthens the window by less than one unit. The saving $1/(R_0\log|\gamma|)$ decreases with height, so it cannot be extracted uniformly from every term with $\gamma>H_0$.
+
+Second, the payoff of a level is large. By Table~\ref{st:tab:gap} and \eqref{st:eq:window}, a rung $\alpha<0.834$ proves, in these models, the sharp one sided bound for $x$ up to about $\exp(22.5/(\alpha-\tfrac12))$. The discs clear to $H_0^2/(2\alpha-1)$ at least, and the Cayley tail exponent of Proposition~\ref{st:prop:lirange} with a level $\theta$ is bounded by $2ms\theta/((s-\theta)^2+H_0^2)$.
+
+Third, forms (iv) and (v) show where a Stepanov style argument would enter. In (iv) with $n$ large the bound allowed is $e^{n\theta u}$, while the quantity bounded is a sum of $2n$th powers that vanish to order $2n$ at the returns. Both are statements with room for a method, not weaker targets, since the slacked forms are equivalent to the exact ones. The book already proves (iv) and (v) for $\theta=\tfrac38<\tfrac12$, from the zero free half plane $\Re s>\tfrac78$. An independent prime side proof at $\theta<\tfrac38$ would improve the book's zero free half plane. We have not found one, and that is the missing idea, stated in the two forms in which this chapter can test it numerically.
+
+\subsection{Route 3}
+Route 3 is clean and computable, but positivity of $\mathcal E_n(s)$ has no slack form that we could find, so it offers no easier foothold than RH. A slack theorem for the prediction errors is open in the formulation proposed here (Open Problem~\ref{st:op:inv}).
+
+\subsection{Overlap with other chapters}
+Several results here have counterparts elsewhere in the book, found by different routes, and they should be read together. The Li type sequence $\Psi_s(m)$ and its range are a prime side companion to Li's coefficients at level $\alpha$, Theorem~\ref{iw:thm:li}, and, as unweighted antecedents, to the generalised Li coefficients of \cite{Sekatskii14} and the theorem of \cite{BL99}; the Toeplitz half is the Carath\'eodory and Toeplitz criterion of Section~\ref{cd:sec:pick}. The function field test bed, with its Toeplitz condition, is the case of curves at every level, Theorem~\ref{iw:thm:curves}, where the same equivalence with Toeplitz positivity is proved in general.
+
+\subsection{Assessment}
+Of the routes listed here the only analytic one is the second, with target $\mathcal G(x)\le Kx^{\alpha}$, $\alpha<\tfrac78$, in any of the forms of Theorem~\ref{st:thm:levels}; within the model of this chapter $0.834$ ($0.73$ with smoothing) is a crossover and not a threshold. The chapter supplies no implication from one improved half plane to the next, and a particular level is a research target and not a proved first step towards RH. Nothing in this chapter proves a level.
+
+
+\section{Open problems}\label{st:sec:open}
+\begin{problem}\label{st:op:aux}
+Find an auxiliary object in the sense of (S3) for $\Phi$: a function built by a counting argument whose forced vanishing at the near returns, that is at the $u$ for which every chosen finite frequency satisfies $\gamma u$ within a stated tolerance of $2\pi\mathbb Z$, gives $\Phi\ge-K_\delta e^{\delta u}$ for every $\delta>0$ and for all sufficiently large $u$, including those outside the near returns.
+\end{problem}
+\begin{problem}\label{st:op:double}
+Prove, for every $\delta>0$, the doubling inequality $\Phi(2u)\le4\Phi(u)+K_\delta e^{\delta u}$ for all large $u$ directly from the primes. This is sufficient for RH: in the notation of Theorem~\ref{st:thm:hier}, $D_2=2(4\Phi(u)-\Phi(2u))$, so the estimate is a subexponential lower bound for $D_2$ at every exponent, and Theorem~\ref{st:thm:levels}(iv) applies for each positive $\theta<\tfrac12$, bounded intervals being absorbed into the constant, after which $\theta\downarrow0$.
+\end{problem}
+\begin{problem}\label{st:op:attain}
+Solved. Theorem~\ref{st:thm:base} proves the converse of Theorem~\ref{st:thm:tower} without assuming that $\Theta$ is attained, for one computable tower specified without the zeta function, and Theorem~\ref{st:thm:tower} gives every tower when $\Theta$ is attained. What remains open is a familiar base such as $x=2$, or almost every base, when $\Theta$ is not attained (Remark~\ref{st:rem:category}).
+\end{problem}
+\begin{problem}\label{st:op:disc}
+Prove, for every $s>\tfrac12$ and every $\delta>0$, that $A(k,s)\ge-K_{s,\delta}(1+\delta)^k$ for all $k$, simultaneously at all rates or along any unbounded sequence of rates, by a method that does not locate zeros. The constants depend on both $s$ and $\delta$ and there is no numerical uniformity in them; the issue is the range of $s$. For a single $s$ below $H_0^2$ this follows from verification to height $\sqrt s$ (Proposition~\ref{st:prop:discask}), and with the book's inputs all orders are already positive for $\tfrac12<s\le\tfrac43H_0^2$, so the content is in the uniformity.
+\end{problem}
+\begin{problem}\label{st:op:density}
+Use zero density estimates in Theorem~\ref{st:thm:disc}(b). For $s>H_0^2$ the disc $\Delta(s)$ contains finitely many zeros, since it is bounded, and for $H_0^2<s\le\tfrac43H_0^2$ none, by the book's $\tfrac78$ theorem. At fixed rate the centres $u=(k+1)/s$ form a countable lattice of Lebesgue measure zero, so ``few'' needs an actual estimate: bound $\#\{k\le K:A(k,s)<0\}/(K+1)$, or specify a genuinely continuous variable and a measure on it.
+\end{problem}
+\begin{problem}\label{st:op:opt}
+Choose $p$ in Theorem~\ref{st:thm:family} optimally. Fix the degree to be exactly $n$, normalise the scale, for example by $p_0=1$ with a prescribed nonzero top coefficient, and name the objective, for example the largest proved lower margin on a specified window with a specified prime estimate. This is the free parameter of the family, and Stepanov's analogue in (S3) is the choice of the two parameters $l$ and $m$.
+\end{problem}
+\begin{problem}\label{st:op:curve}
+Run the deconvolution ladder of the book on the Thorin comb of a curve of genus three or more, where the angles are no longer determined by two point counts, and compare its output with the angles from $L(T)$. Give the polynomial or family to be tested, and use the positive ordinate measure of the book's chart, which is periodic on the signed ordinate axis before squaring. For genus $g$ the first $g$ counts and the functional equation determine $L(T)$ through Newton's identities, and two counts are generally insufficient for $g>2$.
+\end{problem}
+\begin{problem}\label{st:op:exist}
+Find a Stepanov style existence argument for the hierarchy: show for one fixed $n$, independent of $\delta$, and every $\delta>0$ that $D_n(u)\ge-K_{n,\delta}e^{\delta nu}$ for all sufficiently large $u$, from the primes. By Theorem~\ref{st:thm:levels}(iv) with every sufficiently small $\theta=\delta$ this would suffice.
+\end{problem}
+\begin{problem}\label{st:op:window}
+Quantify Theorem~\ref{st:thm:mean}: bound the window error of the Laplace mean so that a computation to $x=10^{12}$ gives a rigorous upper bound on the mass of additive relations among the first ordinates. A one sided window bound for the atom already has a direct solution under RH: for $U>0$ the triangular weight gives, by Fubini,
+\[
+\frac2U\int_0^U\Big(1-\frac uU\Big)e^{-t\Phi(u)}\,du=\int\Big(\frac{\sin(Uy/2)}{Uy/2}\Big)^2P_t(dy)\ \ge\ P_t(\{0\}).
+\]
+Subtracting $e^{-tF_0}\prod_{\gamma\in J}I_0(tm_\gamma w_\gamma)$, a lower bound for $L(t)$, majorises the total mass of the nontrivial relations, including relations supported in $J$. The problem asks for a numerically useful certified bound at $U=\log10^{12}$ and specified $t$ and $J$, or for the rectangular window, where the averaging factor of a character of frequency $\omega\ne0$ has modulus at most $\min(1,2/(U|\omega|))$.
+\end{problem}
+\begin{problem}\label{st:op:inv}
+Find the asymptotics of $\alpha_n(s)$ and the decay rate of $\mathcal E_n(s)$ under RH. If RH fails a first failing index exists. Specify a full planted model, or ask for a uniform bound with explicit hypotheses, on the first index $n$ at which a zero off the line just above $H_0$ would force a failed test. Decide whether positivity of $\mathcal E_n(s)$ admits a slack form, as the other criteria of this chapter do; that form would be the Stepanov style target in the Verblunsky variables. Under RH there is an elementary starting rate. For fixed $s$, all but finitely many angle atoms satisfy $|z+1|\le d$ for each $d>0$. Choose a real monic polynomial $Q$ vanishing at the exceptional conjugate pairs and use $Q(z)(z+1)^{n-\deg Q}$ in the minimum above. Then $\mathcal E_n(s)\le F_0\|Q\|_\infty^2d^{2(n-\deg Q)}$ for $n\ge\deg Q$, hence $\mathcal E_n(s)^{1/n}\to0$. The problem asks for finer asymptotics and a corresponding description of the coefficients.
+\end{problem}
+\begin{problem}\label{st:op:pintz}
+Make the converse explicit for the Riesz mean: show that $\Phi(u)\ge0$ for $0\le u\le U$ excludes zeros with $\beta_0\ge c\log\gamma_0/U$ in a specified range of $U$, $\gamma_0$ and $\beta_0$ with explicit constants, separating exact thresholds from the leading scale $4\log\gamma_0$, by the power sum method of Tur\'an and Pintz. Positivity on $[0,U]$ alone does not fix the signs of $A(k,s)=\sum_\rho b_\rho[1-(s/(s-\kappa))^{k+1}]$, whose integrals also see $u>U$, so an argument with $A$ needs a tail estimate or a compactly supported replacement. The classical oscillation theorems for the remainder in the prime number theorem (Pintz) are antecedents, and a transfer argument is needed before a converse for a Riesz window is asserted from them. Proposition~\ref{st:prop:isolated} does this for an isolated zero, and the isolated quartet and several quartet problems have different interference terms. The result is informative only for windows longer than about $4\log\gamma_0$.
+\end{problem}
+\begin{problem}\label{st:op:dens}
+Carry Theorem~\ref{st:thm:density} over to the Gamma averages $A(k,s)$ and to $\Psi_s(m)$, with a stated target margin and stated integer ranges, and redo it with screened, source justified majorants in each range of $\sigma$, in interval arithmetic, the proved $\tfrac78$ cutoff being included in the baseline. Then combine it with the level $\tfrac78$ of \cite{OAI26a} or a lower rung of the Thorin ladder: the integral in $\sigma$ stops at the rung. The initial comparison of $0.4$ units in Table~\ref{st:tab:gap} came from a particular unsmoothed numerical model with an assumed majorant.
+\end{problem}
+% TODO bib: Stepanov 1969 (Izv. Akad. Nauk SSSR Ser. Mat. 33 (1969) 1171--1181, volume and pages to be checked), Schmidt (Lecture Notes in Mathematics 536, Springer, 1976; key SchmidtLNM536 used above), Landau 1905 (Uber einen Satz von Tschebyschef, Math. Ann. 61), Rubinstein and Sarnak (Chebyshev's bias, Experiment. Math. 3 (1994)), de la Vallee Poussin, Diamond Montgomery Vorhauer. Cited here by name only, no bib key: Stepanov, Landau, Rubinstein and Sarnak, de la Vallee Poussin.
